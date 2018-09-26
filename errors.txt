@@ -1,0 +1,32 @@
+In file included from Test.cpp:1:0:
+Roles.h: In member function 'void Roles::resize()':
+Roles.h:40:14: error: no match for 'operator=' (operand types are 'Roles::Abilities' and 'Roles::Abilities*')
+     array[i] = powers[i];
+              ^
+Roles.h:10:10: note: candidate: Roles::Abilities& Roles::Abilities::operator=(const Roles::Abilities&)
+   struct Abilities
+          ^
+Roles.h:10:10: note:   no known conversion for argument 1 from 'Roles::Abilities*' to 'const Roles::Abilities&'
+Roles.h:43:14: warning: deleting array '((Roles*)this)->Roles::powers'
+    delete [] powers;
+              ^
+Roles.h:45:11: error: incompatible types in assignment of 'Roles::Abilities*' to 'Roles::Abilities* [0]'
+    powers = array;
+           ^
+Roles.h: In constructor 'Roles::Roles(std::__cxx11::string, int, int)':
+Roles.h:56:11: error: expected primary-expression before ']' token
+    powers[] = new Abilities*[Psize];
+           ^
+Roles.h: In constructor 'Roles::Roles(int)':
+Roles.h:63:11: error: expected primary-expression before ']' token
+    powers[] = new Abilities[this->Psize];
+           ^
+Roles.h: In destructor 'Roles::~Roles()':
+Roles.h:74:14: warning: deleting array '((Roles*)this)->Roles::powers'
+    delete [] powers;
+              ^
+Roles.h: In member function 'Roles::Abilities Roles::getPowers()':
+Roles.h:170:11: error: could not convert '(Roles::Abilities**)(&((Roles*)this)->Roles::powers)' from 'Roles::Abilities**' to 'Roles::Abilities'
+    return powers;
+           ^
+make: *** [Test.o] Error 1
