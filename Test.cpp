@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-
+//where am I =? 
 void printToFile(Equipment**, const char*);
 
 int main()
