@@ -33,7 +33,7 @@ class Roles
 		void resize()
 		{
 			int newSize = Psize * 2;
-			Abilities* array = new Abilities[newSize];
+			Abilities* array = new Abilities*[newSize];
 
 			for(int i = 0; i < current; i++)
 			{
@@ -47,20 +47,21 @@ class Roles
 			
 			delete [] array;
 		}
+		
 	public:
 		Roles(string rn, int aT, int s)
 		{
 			roleName = rn;
 			armorType = aT;
 			Psize = s;
-			powers[] = new Abilities*[Psize];
+			powers = new Abilities*[Psize];
 			current = 0;
 
 		}
 		Roles(int s)
 		{
 			this->Psize = s;
-			powers[] = new Abilities[this->Psize];
+			powers = new Abilities*[this->Psize];
 			current = 0;
 		}
 		~Roles()
@@ -165,7 +166,8 @@ class Roles
 				}
 			return aName;
 		}
-		Roles::Abilities getPowers()
+		
+		Roles::Abilities* getPowers()
 		{
 			return powers;
 		}
