@@ -26,14 +26,14 @@ class Roles
 		1 - Medium
 		2 - Heavy
 		*/
-		Abilities* powers[];
+		Abilities** powers;
 		int current;
 		int Psize;
 		
 		void resize()
 		{
 			int newSize = Psize * 2;
-			Abilities* array = new Abilities*[newSize];
+			Abilities** array = new Abilities*[newSize];
 
 			for(int i = 0; i < current; i++)
 			{
@@ -58,10 +58,12 @@ class Roles
 			current = 0;
 
 		}
-		Roles(int s)
+		Roles()
 		{
-			this->Psize = s;
-			powers = new Abilities*[this->Psize];
+			roleName = "New Role";
+			armorType = -1;
+			Psize = 5;
+			powers = new Abilities*[Psize];
 			current = 0;
 		}
 		~Roles()
@@ -76,8 +78,8 @@ class Roles
 		}
 		void PRINT()
 		{
+			cout << "\n===============================\n";
 			cout << "Role: " << getRoleName() << endl;
-			cout << "===============================\n";
 			cout << "Armor Type: " << getArmorTypeName() << endl;
 			cout << "-----Role Powers-----\n";
 			printPowers();
@@ -167,7 +169,7 @@ class Roles
 			return aName;
 		}
 		
-		Roles::Abilities* getPowers()
+		Roles::Abilities** getPowers()
 		{
 			return powers;
 		}

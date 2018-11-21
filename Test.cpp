@@ -56,7 +56,8 @@ int main()
 	*/
 	
 	//Role Class Test
-	//Role Mage
+	Roles *Mage = new Roles("Mage", 0, 5);
+	Mage->PRINT();
 	
 	return 0;
 }
