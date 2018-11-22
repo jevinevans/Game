@@ -56,7 +56,9 @@ int main()
 	*/
 	
 	//Role Class Test
-	Roles *Mage = new Roles("Mage", 0, 5);
+	Roles *Mage = new Roles("Mage", 0, 1);
+	Mage->addPower();
+	Mage->addPower();
 	Mage->PRINT();
 	
 	return 0;
@@ -71,6 +73,7 @@ void printToFile(Equipment** inventory, const char* file)
 		inventory[i]->printToFile(outFile);
 	
 	outFile.close();
+	
 	
 	cout << "Printed to File" << endl;
 }

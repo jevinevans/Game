@@ -17,6 +17,9 @@ class Roles
 					0 - Magical
 					1 - Physical
 			*/
+			string getName()
+			{return name;}
+
 		};
 		string roleName;
 		int armorType;
@@ -93,7 +96,7 @@ class Roles
 			int eff, ty;
 			temp = new Abilities;
 
-			cout << "Adding a New Power" << endl;
+			cout << "\nAdding a New Power to the " + this->roleName + " Role." << endl;
 			cout << "New Power Name: ";
 			getline(cin, n);
 			cout << endl;
@@ -102,6 +105,12 @@ class Roles
 			cout << endl;
 			cout << "New Power Effect: ";
 			cin >> eff;
+			while(eff < 0 or eff > 1000)
+			{
+				cout << "Error: Please enter a number from 0 - 1000: ";
+				cin >> eff;
+			}
+			cin.ignore();
 			cout << endl;
 
 			temp->name = n;
@@ -122,16 +131,17 @@ class Roles
 		{
 			for(int i = 0; i < current; i++)
 			{
+				Abilities* pow = powers[i];
 				cout << "Power " << i+1 << ":\n";
-				cout << "\tName: " << powers[i]->name << endl;
+				cout << "\tName: " << pow->getName() << endl;
 				cout << "\tType: ";
 
-				if(powers[i]->type == 0)
+				if(pow->type == 0)
 					cout << "Magic Attack" << endl;
 				else
 					cout << "Physical Attack" << endl;
 
-				cout << "\tEffect" << powers[i]->effect << endl << endl;
+				cout << "\tEffect" << pow->effect << endl << endl;
 				
 			}
 		}
