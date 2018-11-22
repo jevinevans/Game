@@ -59,7 +59,11 @@ int main()
 	Roles *Mage = new Roles("Mage", 0, 1);
 	Mage->addPower();
 	Mage->addPower();
+	cout << Mage->getNumPowers() << endl;
 	Mage->PRINT();
+	
+	delete Mage;
+	cout << "End";
 	
 	return 0;
 }

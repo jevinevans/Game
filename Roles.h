@@ -86,7 +86,8 @@ class Roles
 			cout << "Armor Type: " << getArmorTypeName() << endl;
 			cout << "-----Role Powers-----\n";
 			printPowers();
-			
+
+			cout << "Done" << endl;
 			
 		}
 		void addPower()
@@ -129,11 +130,17 @@ class Roles
 		}
 		void printPowers()
 		{
+			cout << "Start" << endl;
+			Abilities* pow;
 			for(int i = 0; i < current; i++)
 			{
-				Abilities* pow = powers[i];
+				cout << i << endl;
+				pow = powers[i];
+				cout << i << endl;
+				string nom = pow->name;
+				
 				cout << "Power " << i+1 << ":\n";
-				cout << "\tName: " << pow->getName() << endl;
+				cout << "\tName: " << nom << endl;
 				cout << "\tType: ";
 
 				if(pow->type == 0)
@@ -178,7 +185,10 @@ class Roles
 				}
 			return aName;
 		}
-		
+		int getNumPowers()
+		{
+			return current;
+		}
 		Roles::Abilities** getPowers()
 		{
 			return powers;
