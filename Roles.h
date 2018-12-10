@@ -4,23 +4,73 @@
 #include <iostream>
 using namespace std;
 
-class Roles
+class Abilities
 {
-	private:
-		struct Abilities
-		{
-			string name;
-			int effect;		//amount of damage per attack
-			int type;		//Class type 
-			/*
+	private: 
+		string abilityName;
+		int type;
+		/*
 				Class Types
 					0 - Magical
 					1 - Physical
-			*/
-			string getName()
-			{return name;}
+		*/
+		int damageEffect;
+		
+	public:
+		Abilities(string n, int aT, int aD)
+		{
+			abilityName = n;
+			type = aT;
+			damageEffect = aD;
+		}
+		
+		void PRINT()
+		{
+			cout << "\tName: " << this->abilityName << endl;
+			cout << "\tType: ";
 
-		};
+			if(this->type == 0)
+				cout << "Magic Attack" << endl;
+			else
+				cout << "Physical Attack" << endl;
+
+			cout << "\tEffect:" << this->damageEffect << endl << endl;
+		}
+		
+		void setName(string n)
+		{
+			this->abilityName = n;
+		}
+		
+		void setType(int t)
+		{
+			this->type = t;
+		}
+		
+		void setDamageEffect(int dE)
+		{
+			this->damageEffect = dE;
+		}
+		
+		string getName()
+		{
+			return abilityName;
+		}
+		
+		int getType()
+		{
+			return type;
+		}
+		
+		int getDamageEffect()
+		{
+			return damageEffect;
+		}
+};
+
+class Roles
+{
+	private:
 		string roleName;
 		int armorType;
 		/*
@@ -85,17 +135,20 @@ class Roles
 			cout << "Role: " << getRoleName() << endl;
 			cout << "Armor Type: " << getArmorTypeName() << endl;
 			cout << "-----Role Powers-----\n";
-			printPowers();
-
+			
+			for(int i=0; i<current; i++)
+			{
+				cout << "Power " << i+1 << ":\n";
+				powers[i]->PRINT();
+			}
+			
 			cout << "Done" << endl;
 			
 		}
 		void addPower()
 		{
-			Abilities* temp;
 			string n;
 			int eff, ty;
-			temp = new Abilities;
 
 			cout << "\nAdding a New Power to the " + this->roleName + " Role." << endl;
 			cout << "New Power Name: ";
@@ -113,22 +166,20 @@ class Roles
 			}
 			cin.ignore();
 			cout << endl;
-
-			temp->name = n;
-			temp->type = ty;
-			temp->effect = eff;
+			
+			Abilities* temp = new Abilities(n, ty, eff);
 
 			if(current == Psize)
 				resize();
 			
 			powers[current] = temp;
 
-			cout << temp->name << " has been added to your abilities." << endl;
+			cout << temp->getName() << " has been added to your abilities." << endl;
 
 			current++;
 
 		}
-		void printPowers()
+		/* void printPowers()
 		{
 			cout << "Start" << endl;
 			Abilities* pow;
@@ -151,12 +202,12 @@ class Roles
 				cout << "\tEffect" << pow->effect << endl << endl;
 				
 			}
-		}
-		setRoleName(string n)
+		} */
+		void setRoleName(string n)
 		{
 			roleName = n;
 		}
-		setArmorType(int i)
+		void setArmorType(int i)
 		{
 			armorType = i;
 		}
@@ -189,12 +240,14 @@ class Roles
 		{
 			return current;
 		}
-		Roles::Abilities** getPowers()
+		Abilities** getPowers()
 		{
 			return powers;
 		}
 	
 };
+
+
 
 
 #endif
