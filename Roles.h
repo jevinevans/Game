@@ -142,7 +142,6 @@ class Roles
 				powers[i]->PRINT();
 			}
 			
-			cout << "Done" << endl;
 			
 		}
 		void addPower()
@@ -156,8 +155,13 @@ class Roles
 			cout << endl;
 			cout << "New Power Type (Magic(0) or Physical(1)): ";
 			cin >> ty;
+			while(ty > 1 or ty < 0)
+			{
+				cout << "Retry: New Power Type (Magic(0) or Physical(1)): ";
+				cin >> ty;
+			}
 			cout << endl;
-			cout << "New Power Effect: ";
+			cout << "New Power Effect Number (0 - 1000): ";
 			cin >> eff;
 			while(eff < 0 or eff > 1000)
 			{
@@ -244,10 +248,14 @@ class Roles
 		{
 			return powers;
 		}
+		 
 	
 };
 
 
-
+void readRoles(Roles** Classes, const char* file)
+{
+	
+}
 
 #endif

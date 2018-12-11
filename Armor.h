@@ -2,6 +2,7 @@
 #define ARMOR_H
 
 #include "Equipment.h"
+#include "Roles.h"
 #include <iostream>
 using namespace std;
 

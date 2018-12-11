@@ -1,4 +1,4 @@
-#include "Roles.h"
+//#include "Roles.h"
 #include "Armor.h"
 
 #include <iostream>
@@ -56,14 +56,13 @@ int main()
 	*/
 	
 	//Role Class Test
-	Roles *Mage = new Roles("Mage", 0, 1);
+	Roles *Mage = new Roles("Mage", 0, 4);
 	Mage->addPower();
 	Mage->addPower();
 	cout << Mage->getNumPowers() << endl;
 	Mage->PRINT();
 	
 	delete Mage;
-	cout << "End";
 	
 	return 0;
 }
