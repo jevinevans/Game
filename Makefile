@@ -2,14 +2,15 @@
 
 all	:		Test
 
-Test:		Test.o
-			g++ -o Test.exe Test.o
+Test	:		Test.o Functions.o
+			g++ -o Test.exe Test.o Functions.o
 				
 				
 Test.o	:	Test.cpp
-				g++ -I ./ -c Test.cpp
+				g++ -I ./ -c Test.cpp 
 
-				
+Functions.o	:	Functions.cpp
+					g++ -I ./ -c Functions.cpp
 
 clean		:	Test.exe
 				del *.o

@@ -2,7 +2,6 @@
 #define ARMOR_H
 
 #include "Equipment.h"
-#include "Roles.h"
 #include <iostream>
 using namespace std;
 
@@ -78,11 +77,23 @@ class Armor
 					pants = temp;
 					break;
 			}
+			cout << "Equipped: " << temp->value->getName() << endl << endl;
 		}
 		void isFull()			//not working and will not print off 
 		{
 			if(!head->isEmpty() and !chest->isEmpty() and !weapon->isEmpty() and !pants->isEmpty())
 				cout << "!!!---Fully Equipped---!!!" << endl;
+			else
+			{
+				if(head->isEmpty())
+					cout << "The head slot is empty" << endl;
+				if(chest->isEmpty())
+					cout << "The chest slot is empty" << endl;
+				if(weapon->isEmpty())
+					cout << "The weapon slot is empty" << endl;
+				if(pants->isEmpty())
+					cout << "The pants slot is empty" << endl;
+			}
 		}
 		void change(TYPE v) // May not need or may just make dequip a private function and use this to allow the character to change equipment - 7/5/2018
 		{
@@ -122,7 +133,7 @@ class Armor
 					pants->empty = true;
 					break;
 			}
-			cout << "Unequiped: " << temp->value->getName() << endl << endl;
+			cout << "Unequipped: " << temp->value->getName() << endl << endl;
 			delete temp->value;
 		}
 		
@@ -180,7 +191,6 @@ class Armor
 		void setWeapong(TYPE w){weapon =w;}
 		void setChest(TYPE c){chest = c;}
 		void setPants(TYPE p){pants = p;}
-	
 	
 };
 

@@ -183,30 +183,16 @@ class Roles
 			current++;
 
 		}
-		/* void printPowers()
+		void printPowers()
 		{
-			cout << "Start" << endl;
-			Abilities* pow;
+			cout << "\tPowers List" << endl;
 			for(int i = 0; i < current; i++)
-			{
-				cout << i << endl;
-				pow = powers[i];
-				cout << i << endl;
-				string nom = pow->name;
-				
+			{				
 				cout << "Power " << i+1 << ":\n";
-				cout << "\tName: " << nom << endl;
-				cout << "\tType: ";
-
-				if(pow->type == 0)
-					cout << "Magic Attack" << endl;
-				else
-					cout << "Physical Attack" << endl;
-
-				cout << "\tEffect" << pow->effect << endl << endl;
+				powers[i]->PRINT();
 				
 			}
-		} */
+		}
 		void setRoleName(string n)
 		{
 			roleName = n;
@@ -251,11 +237,4 @@ class Roles
 		 
 	
 };
-
-
-void readRoles(Roles** Classes, const char* file)
-{
-	
-}
-
 #endif

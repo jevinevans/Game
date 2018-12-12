@@ -1,14 +1,7 @@
-//#include "Roles.h"
-#include "Armor.h"
-
-#include <iostream>
-
-using namespace std;
-void printToFile(Equipment**, const char*);
+#include "Functions.h"
 
 int main()
 {
-	/*
 	//Equipment Creation Test
 	Equipment* hat = new Equipment("Gold Cap", 1, 1, 3, 5, "Simple persons hat", 10);
 	Equipment* shirt = new Equipment("Gold Chestplate", 2, 1, 3, 5, "Simple persons chestplate", 10);
@@ -22,6 +15,7 @@ int main()
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
 	
+	body.isFull();
 	//Loading Equipment into Armor
 	for(int i = 0; i < SIZE; i++)
 	body.equip(inventory[i]);
@@ -44,39 +38,26 @@ int main()
 	body.PRINT();
 	body.isFull();
 	
-	const char* filename= "./Data/TempEquipmentList.txt";
-	printToFile(inventory,filename);
+	/* const char* filename= "./Data/TempEquipmentList.txt";
+	printToFile(inventory,filename, SIZE);
+	cout << "Outside Done" << endl; */
 	
-	delete hat;
-	delete shirt;
-	delete weapon;
-	delete weapon1;
-	delete pants;
-	
-	*/
-	
-	//Role Class Test
 	Roles *Mage = new Roles("Mage", 0, 4);
 	Mage->addPower();
 	Mage->addPower();
 	cout << Mage->getNumPowers() << endl;
 	Mage->PRINT();
 	
+	cout << endl << endl;
+	
+	Mage->printPowers();
+	
+	delete hat;
+	delete shirt;
+	delete weapon;
+	delete weapon1;
+	delete pants;
 	delete Mage;
 	
 	return 0;
-}
-
-void printToFile(Equipment** inventory, const char* file)
-{
-	ofstream outFile;
-	outFile.open(file);
-	
-	for(int i = 0; i < 5; i++)
-		inventory[i]->printToFile(outFile);
-	
-	outFile.close();
-	
-	
-	cout << "Printed to File" << endl;
 }
