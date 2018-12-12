@@ -4,9 +4,6 @@
 		-------------------------------------------------
 
 
-
-
------ - EDIT ME ------ Needs to be Updated
 \\File
 - Note
 + To DO's
@@ -16,15 +13,13 @@
 
 \\Project
 	+ Add and Inventory Class
-		- Not sure what type of storage it should but the goal is to get it to be a storage unit for adding and reading in equipment. I will want to sort it also, probably by item 			type.
-	[+] Test out the Role class
+		- Not sure what type of storage it should but the goal is to get it to be a storage unit for adding and reading in equipment. I will want to sort it also, probably by item type.
 ============================================================================================
 \\Test.cpp
-	- Worked on isFull function from Armor.h
+	[-] Worked on isFull function from Armor.h
 	+ Annotate Functions
-	[+] Test out the Role.h class
 	+ Finish testing the Armor class.
-		+ Test out the isFull for the case where something is missing
+		[+] Test out the isFull for the case where something is missing
 	!! Make sure that whenever you create a 'new' that you have a 'delete' for it.
 ============================================================================================
 \\Equipment.h
@@ -33,10 +28,6 @@
 	- Want to use states for defense and attack based on ability points	
 ============================================================================================
 \\Roles.h
-	[+] Work on printing out powers cause it's not working
-	[+] try all functions out
-	[-] Fixed printPowers() method
-	[-] Removed Abilities struct from Roles to and added an Abilities Class
 	+ Add a remove powers method
 	+ Annotate Functions
 ============================================================================================
@@ -44,9 +35,17 @@
 	+ Annotate Functions
 	+- I did not like the way that Stats and Print look, either need a full or just a brief so I want to change the format of this somehow
 	+ Change function, I'm not sure if i really need it considering i have the equip and unequip, but might use it to properly change items for the slots considering how memory is 		transfered or linked from one place to the other. [Work in Progress]
-	+ isFull Function needs to add the case where an item is missing, not sure if it needs to inform the character or user exactly what item is missing they could just use the armor 		print or stats functions
+	[+] isFull Function needs to add the case where an item is missing, not sure if it needs to inform the character or user exactly what item is missing they could just use the armor 		print or stats functions
 	- thinking about changing the name of stats and print for Armor class to brief and stats
 ============================================================================================
 \\Character.h
 	-Keep working on this one, I know that I am tweeking the other classes that also work with this one, if I add the inventory class I might add a small sized one to this one called 		bag that is a mini inventory object.
 	+ Annotate functions
+============================================================================================
+\\Functions.cpp and Functions.h
+	+ Fix printToFile(Equipment) method for because the method does not 
+	+ Finish readRoles(Classes) method
+		+ Create text file for Classes to be read classes
+============================================================================================
+\\Makefile
+	+ Updated to include Functions.cpp to compile
