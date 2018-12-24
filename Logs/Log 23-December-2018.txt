@@ -9,15 +9,28 @@
 + To DO's
 !! Reminders/Important
 
-
-
 \\Project
 	+ Add and Inventory Class
 		- Not sure what type of storage it should but the goal is to get it to be a storage unit for adding and reading in equipment. I will want to sort it also, probably by item type.
 ============================================================================================
+\\TEST Files
+	- Files that will hold old tests
+	- Should test every method atleast once
+	+ Files to Make:
+		+ CodeTest_Equipment.cpp
+		+ CodeTest_Armor.cpp
+		+ CodeTest_Roles.cpp
+		+ CodeTest_Character.cpp
+		+ CodeTest_Combat.cpp
+		+ CodeTest_Functions.cpp
+============================================================================================
 \\Test.cpp
 	+ Annotate Functions
 	+ Finish testing the Armor class.
+	+ Test removePowers in Roles
+	+ remove old test
+	- Changing to only test current work
+	- 1/1/2019 -  Transfering old test to individual files
 	!! Make sure that whenever you create a 'new' that you have a 'delete' for it.
 ============================================================================================
 \\Equipment.h
