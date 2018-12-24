@@ -1,6 +1,6 @@
 		-------------------------------------------------
 		|		 Video Game Log			|
-		|		    12/23/2018			|
+		|		    12/24/2018			|
 		-------------------------------------------------
 
 
@@ -17,7 +17,7 @@
 	- Files that will hold old tests
 	- Should test every method atleast once
 	+ Files to Make:
-		+ CodeTest_Equipment.cpp
+		[+] CodeTest_Equipment.cpp
 		+ CodeTest_Armor.cpp
 		+ CodeTest_Roles.cpp
 		+ CodeTest_Character.cpp
@@ -36,6 +36,9 @@
 \\Equipment.h
 	+ Annotate Functions
 	+ Describe/Condense the getItemType function
+    + Add validation method for IT, WT, AT... ?
+        - Should I do this here, upper level, or at all
+    [-] Changed the way that the print looks: prints name and then line then stats
 	- Want to use states for defense and attack based on ability points	
 ============================================================================================
 \\Roles.h
@@ -58,4 +61,3 @@
 		+ Create text file for Classes to be read classes
 ============================================================================================
 \\Makefile
-	[+] Updated to include Functions.cpp to compile

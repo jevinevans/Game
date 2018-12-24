@@ -1,7 +1,7 @@
 # Game
 Repository For Video Game Idea
 
-Recent Log File: 'Log 23-December-2018.txt'
+Recent Log File: 'Log 24-December-2018.txt'
 
 This is this list of files in this repository:
 [Main]

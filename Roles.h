@@ -26,7 +26,7 @@ class Abilities
 		
 		void PRINT()
 		{
-			cout << "\tName: " << this->abilityName << endl;
+			cout << this->abilityName << endl;
 			cout << "\tType: ";
 
 			if(this->type == 0)
@@ -34,7 +34,7 @@ class Abilities
 			else
 				cout << "Physical Attack" << endl;
 
-			cout << "\tEffect:" << this->damageEffect << endl << endl;
+			cout << "\tEffect: " << this->damageEffect << endl << endl;
 		}
 		
 		void setName(string n)
@@ -153,7 +153,7 @@ class Roles
 			
 			for(int i=0; i<current; i++)
 			{
-				cout << "Power " << i+1 << ":\n";
+				cout << "Power " << i+1 << ": ";
 				powers[i]->PRINT();
 			}
 		}
@@ -225,10 +225,10 @@ class Roles
 		}
 		void printPowers()
 		{
-			cout << "\tPowers List" << endl;
+			cout << "Powers List" << endl << "---------------" << endl;
 			for(int i = 0; i < current; i++)
 			{				
-				cout << "Power " << i+1 << ":\n";
+				cout << "Power " << i+1 << ": ";
 				powers[i]->PRINT();
 				
 			}
