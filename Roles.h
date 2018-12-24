@@ -100,6 +100,22 @@ class Roles
 			
 			delete [] array;
 		}
+		void removePower(int n)
+		{
+			Abilities* abs;
+			
+			cout << "Removing Power "<< n << ": " << powers[n - 1]->getName() << " from the users powers list.";
+
+			abs = powers[n-1];
+
+			for(int i = n - 1; i < current - 1; i++)
+			{
+				powers[i] = powers[i+1];
+			}
+
+			delete abs;
+
+		}
 		
 	public:
 		Roles(string rn, int aT, int s)
@@ -109,7 +125,6 @@ class Roles
 			Psize = s;
 			powers = new Abilities*[Psize];
 			current = 0;
-
 		}
 		Roles()
 		{
@@ -141,8 +156,6 @@ class Roles
 				cout << "Power " << i+1 << ":\n";
 				powers[i]->PRINT();
 			}
-			
-			
 		}
 		void addPower()
 		{
@@ -182,6 +195,33 @@ class Roles
 
 			current++;
 
+		}
+		void removePower()
+		{
+			int n = -1;
+			cout << "Deleting a Power" << endl << "-------------------------"<< endl;
+			printPowers();
+			cout << "Please choose a number from 1 - " << current << ": ";
+			cin >> n; 
+
+			while(n < 1 || n > current)
+			{
+				char again = ' ';
+				cout << "That is an invalid Power..." << endl << "Do you want to try again? (y or n) : ";
+				cin >> again; 
+
+				if(again == 'N' || again == 'n')
+					return;
+				
+				cout << endl;
+				printPowers();
+				cout << "Please choose a number from 1 - " << current << ": ";
+				cin >> n; 
+			}
+
+			removePower(n); //Calls private method;
+			cout << "Current Powers" << endl;
+			printPowers();
 		}
 		void printPowers()
 		{
