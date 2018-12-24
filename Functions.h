@@ -4,10 +4,12 @@
 
 #include "Armor.h"
 #include "Roles.h"
+#include "LinkedList.h"
 
 #include <iostream>
 using namespace std;
 
-void printToFile(Equipment**, const char*, int);
-void readRoles(Roles** Classes, const char* file);
+void printToFile(LinkedList<Equipment*>*, const char*, int);
+void readEquipment(Equipment**, const char* file);
+void readRoles(Roles**, const char* file);
 #endif

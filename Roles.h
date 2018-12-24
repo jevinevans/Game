@@ -150,12 +150,16 @@ class Roles
 			cout << "Role: " << getRoleName() << endl;
 			cout << "Armor Type: " << getArmorTypeName() << endl;
 			cout << "-----Role Powers-----\n";
-			
-			for(int i=0; i<current; i++)
+			if(current)
 			{
-				cout << "Power " << i+1 << ": ";
-				powers[i]->PRINT();
+				for(int i=0; i < current; i++)
+				{
+					cout << "Power " << i+1 << ": ";
+					powers[i]->PRINT();
+				}
 			}
+			else
+				cout << "\tThere are no powers." << endl;
 		}
 		void addPower()
 		{
@@ -225,13 +229,18 @@ class Roles
 		}
 		void printPowers()
 		{
-			cout << "Powers List" << endl << "---------------" << endl;
-			for(int i = 0; i < current; i++)
-			{				
-				cout << "Power " << i+1 << ": ";
-				powers[i]->PRINT();
+			if(current)
+			{
+				cout << "Powers List" << endl << "---------------" << endl;
+				for(int i = 0; i < current; i++)
+				{				
+					cout << "Power " << i+1 << ": ";
+					powers[i]->PRINT();
 				
+				}
 			}
+			else
+				cout << " \nThere are no powers." << endl;
 		}
 		void setRoleName(string n)
 		{

@@ -95,12 +95,11 @@ class Armor
 					cout << "The pants slot is empty" << endl;
 			}
 		}
-		void change(TYPE v) // May not need or may just make dequip a private function and use this to allow the character to change equipment - 7/5/2018
+		void change(TYPE v, int spot)
 		{
-			//could take a new item, dequip the old and add the new in ??? 7/5/2018
-			TYPE temp = this.value;
+			dequip(spot);
+			equip(v);
 		}
-		
 		void dequip(int o)
 		{
 			if(o > 3)

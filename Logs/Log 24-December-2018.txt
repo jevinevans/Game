@@ -57,6 +57,7 @@
 ============================================================================================
 \\Functions.cpp and Functions.h
 	+ Fix printToFile(Equipment) method for because the method does not 
+	+ Added Linked List to hold all types of things
 	+ Finish readRoles(Classes) method
 		+ Create text file for Classes to be read classes
 ============================================================================================

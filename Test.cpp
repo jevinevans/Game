@@ -9,16 +9,21 @@ int main()
 	Equipment* weapon1 = new Equipment("Gold Knief", 0,1,3,6,"Simple persons sword", 50);
 	Equipment* pants = new Equipment("Gold Trousers", 3, 1, 3, 5, "Simple persons trousers", 10);
 	
-	Equipment* inventory[] = {hat, shirt, weapon, weapon1, pants};
+	Equipment* holder[] = {hat, shirt, weapon, weapon1, pants};
 	int SIZE = 5;
+	LinkedList<Equipment*> *inventory = new LinkedList<Equipment*>();
 	
+	for(int i = 0; i < SIZE; i++)
+	{
+		inventory->appendNode(holder[i]);
+	}
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
 	
 	body.isFull();
 	//Loading Equipment into Armor
-	for(int i = 0; i < SIZE; i++)
-	body.equip(inventory[i]);
+	for(int i = 1; i <= inventory->getLength(); i++)
+		body.equip(inventory->getNodeValue(i));
 	
 	body.PRINT();
 	
@@ -29,6 +34,8 @@ int main()
 	body.equip(weapon);
 	body.PRINT();
 	
+	body.change(weapon1, 0);
+
 	body.stats();
 	
 	body.isFull();	//not printing out needs to be worked on  ++++++++++
@@ -38,14 +45,13 @@ int main()
 	body.PRINT();
 	body.isFull();
 	
-	/* const char* filename= "./Data/TempEquipmentList.txt";
+	 const char* filename= "./Data/TempEquipmentList.txt";
 	printToFile(inventory,filename, SIZE);
-	cout << "Outside Done" << endl; */
 	
 	Roles *Mage = new Roles("Mage", 0, 4);
+	/* Mage->addPower();
 	Mage->addPower();
-	Mage->addPower();
-	cout << Mage->getNumPowers() << endl;
+	cout << Mage->getNumPowers() << endl; */
 	Mage->PRINT();
 	
 	cout << endl << endl;
@@ -58,6 +64,6 @@ int main()
 	delete weapon1;
 	delete pants;
 	delete Mage;
-	
+	delete inventory;
 	return 0;
 }
