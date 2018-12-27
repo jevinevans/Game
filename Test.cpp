@@ -9,14 +9,17 @@ int main()
 	Equipment* weapon1 = new Equipment("Gold Knief", 0,1,3,6,"Simple persons sword", 50);
 	Equipment* pants = new Equipment("Gold Trousers", 3, 1, 3, 5, "Simple persons trousers", 10);
 	
+	const char* filename= "./Data/TempEquipmentList.txt";
+
 	Equipment* holder[] = {hat, shirt, weapon, weapon1, pants};
 	int SIZE = 5;
 	LinkedList<Equipment*> *inventory = new LinkedList<Equipment*>();
 	
-	for(int i = 0; i < SIZE; i++)
-	{
-		inventory->appendNode(holder[i]);
-	}
+	readEquipment(inventory, filename);
+
+	for(int i = 1; i <= inventory->getLength(); i++)
+		inventory->getNodeValue(i)->PRINT();
+	
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
 	
@@ -45,9 +48,8 @@ int main()
 	body.PRINT();
 	body.isFull();
 	
-	 const char* filename= "./Data/TempEquipmentList.txt";
-	printToFile(inventory,filename, SIZE);
-	
+	printToFile(inventory,filename);
+
 	Roles *Mage = new Roles("Mage", 0, 4);
 	/* Mage->addPower();
 	Mage->addPower();

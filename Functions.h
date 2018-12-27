@@ -7,9 +7,10 @@
 #include "LinkedList.h"
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-void printToFile(LinkedList<Equipment*>*, const char*, int);
-void readEquipment(Equipment**, const char* file);
+void printToFile(LinkedList<Equipment*>*, const char*);
+void readEquipment(LinkedList<Equipment*>*, const char* file);
 void readRoles(Roles**, const char* file);
 #endif
