@@ -46,20 +46,19 @@ void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 			if((pos = line.find(delim)) != string::npos)
 			{
 				temp = line.substr(0,pos);
-				AT = stoi(temp);
+				AT = atoi(temp.c_str());
 				line.erase(0, pos + delim.length());
 			}
 			if((pos = line.find(delim)) != string::npos)
 			{
 				temp = line.substr(0,pos);
-				WT = stoi(temp);
-
+				WT = atoi(temp.c_str());
 				line.erase(0, pos + delim.length());
 			}
 			if((pos = line.find(delim)) != string::npos)
 			{
 				temp = line.substr(0,pos);
-				level = stoi(temp);
+				level = atoi(temp.c_str());
 				line.erase(0, pos + delim.length());
 			}
 			if((pos = line.find(delim)) != string::npos)
@@ -70,8 +69,8 @@ void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 			if((pos = line.find(delim)) != string::npos)
 			{
 				temp = line.substr(0,pos);
-				abilityPts = stoi(temp);
-				line.erase(0, pos + delim.length());
+				abilityPts = atoi(temp.c_str());
+				line.erase(0,pos + delim.length());
 			}
 
 			newItem = new Equipment(name, IT, AT, WT, level, desc, abilityPts);

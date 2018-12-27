@@ -1,24 +1,15 @@
 #include "Functions.h"
 
 int main()
-{
-	//Equipment Creation Test
-	Equipment* hat = new Equipment("Gold Cap", 1, 1, 3, 5, "Simple persons hat", 10);
-	Equipment* shirt = new Equipment("Gold Chestplate", 2, 1, 3, 5, "Simple persons chestplate", 10);
-	Equipment* weapon = new Equipment("Gold Sword", 0,1,2,5,"Simple persons sword", 50);
-	Equipment* weapon1 = new Equipment("Gold Knief", 0,1,3,6,"Simple persons sword", 50);
-	Equipment* pants = new Equipment("Gold Trousers", 3, 1, 3, 5, "Simple persons trousers", 10);
-	
-	const char* filename= "./Data/TempEquipmentList.txt";
+{	
+	const char* filename= "./Data/EquipmentList.txt";
 
-	Equipment* holder[] = {hat, shirt, weapon, weapon1, pants};
-	int SIZE = 5;
 	LinkedList<Equipment*> *inventory = new LinkedList<Equipment*>();
 	
 	readEquipment(inventory, filename);
 
 	for(int i = 1; i <= inventory->getLength(); i++)
-		inventory->getNodeValue(i)->PRINT();
+		cout << inventory->getNodeValue(i)->getName() << endl;
 	
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
@@ -28,6 +19,9 @@ int main()
 	for(int i = 1; i <= inventory->getLength(); i++)
 		body.equip(inventory->getNodeValue(i));
 	
+	Equipment *weapon = inventory->getNodeValue(3);
+	Equipment *weapon1 = inventory->getNodeValue(4);
+
 	body.PRINT();
 	
 	body.dequip(0);
@@ -59,12 +53,9 @@ int main()
 	cout << endl << endl;
 	
 	Mage->printPowers();
-	
-	delete hat;
-	delete shirt;
+
 	delete weapon;
 	delete weapon1;
-	delete pants;
 	delete Mage;
 	delete inventory;
 	return 0;

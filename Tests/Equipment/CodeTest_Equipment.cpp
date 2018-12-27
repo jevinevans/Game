@@ -10,7 +10,7 @@
     Total: 19 Test
 */
 
-#include "../Functions.h"
+#include "../../Functions.h"
 
 int main()
 {
@@ -46,7 +46,7 @@ int main()
 
 	blank->PRINT();
 
-	const char* filename = "./TestFiles/EquipmentTest.txt";
+	const char* filename = "../_TestFiles/EquipmentTest.txt";
 
 	ofstream file;
 	file.open(filename);

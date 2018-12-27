@@ -1,5 +1,9 @@
 cls
 
-make 2> errors.txt
+make 2> TestErrors.txt
 
-Test.exe
+TestErrors.txt
+
+Test.exe > TestResults.txt
+
+TestResults.txt
