@@ -11,6 +11,9 @@
 ? Questions
 
 
+!!!!!!!!!!TO DOs!!!!!!!!!!
+	+ Test File for Armor
+	+ Fix Test.cpp File, is not printing out everything stops before the dequip, issue might be with the Equipment Array Weps....
 --------Questions-------
 ? Should Armor have a type to only accept equipment of that type or should character have a armor type and validate equipment of items
 
@@ -23,11 +26,12 @@
 \\TEST Files
 	- Files that will hold old tests
 	- Should test every method atleast once
+	-! If a new method is introduced to object/class/file should be added/included in test files
 	+ Should Print Test Name and Test performing at the top?!
 	+ Each should have it's own folder and a make file to be added to the Test folder make file and .exe needs to be added to CodeTest.bat
 	+ Files to Make:
-		+ CodeTest_Armor.cpp
-		+ CodeTest_Roles.cpp
+		+ CodeTest_Armor.cpp - 1/1/2019
+		+ CodeTest_Roles.cpp - 1/1/2019
 		+ CodeTest_Character.cpp
 		+ CodeTest_Combat.cpp
 		+ CodeTest_Functions.cpp

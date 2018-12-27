@@ -20,7 +20,6 @@ int main()
 		1. No Argurments Constructor
 		2. Full Arguments Constructor
 	*/
-
 	Equipment* hat = new Equipment("Gold Cap", 1, 1, 3, 5, "Simple persons hat", 10);
 	Equipment* shirt = new Equipment("Gold Chestplate", 2, 1, 3, 5, "Simple persons chestplate", 10);
 	Equipment* weapon1 = new Equipment("Gold Sword", 0,1,2,5,"Simple persons sword", 50);

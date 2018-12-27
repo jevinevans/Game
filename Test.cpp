@@ -3,11 +3,11 @@
 int main()
 {	
 	const char* filename= "./Data/EquipmentList.txt";
-
 	LinkedList<Equipment*> *inventory = new LinkedList<Equipment*>();
 	
+	//Add to CodeTest_Functions.cpp
 	readEquipment(inventory, filename);
-
+	
 	for(int i = 1; i <= inventory->getLength(); i++)
 		cout << inventory->getNodeValue(i)->getName() << endl;
 	
@@ -16,11 +16,26 @@ int main()
 	
 	body.isFull();
 	//Loading Equipment into Armor
+	int wepCount = 0;
+
+	cout << "Items Count is: " << inventory->getLength() << endl;
+	cout << inventory->getNodeValue(inventory->getLength())->getName();
+
 	for(int i = 1; i <= inventory->getLength(); i++)
+	{
 		body.equip(inventory->getNodeValue(i));
+		if(inventory->getNodeValue(i)->getIT() == 0)
+			wepCount++;
+	}
+
+	Equipment** Weps = new Equipment*[wepCount];
+
+	for(int i = 1; i <= inventory->getLength();i++)
+	{
+		if(inventory->getNodeValue(i)->getIT() == 0)
+			Weps[i-1] = inventory->getNodeValue(i);
+	}
 	
-	Equipment *weapon = inventory->getNodeValue(3);
-	Equipment *weapon1 = inventory->getNodeValue(4);
 
 	body.PRINT();
 	
@@ -28,10 +43,10 @@ int main()
 	
 	body.PRINT();
 	
-	body.equip(weapon);
+	body.equip(Weps[0]);
 	body.PRINT();
 	
-	body.change(weapon1, 0);
+	body.change(Weps[1], 0);
 
 	body.stats();
 	
@@ -54,8 +69,7 @@ int main()
 	
 	Mage->printPowers();
 
-	delete weapon;
-	delete weapon1;
+	delete Weps;
 	delete Mage;
 	delete inventory;
 	return 0;

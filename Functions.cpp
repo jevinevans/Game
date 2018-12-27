@@ -9,6 +9,7 @@ void printToFile(LinkedList<Equipment*> *inventory, const char* file)
 	for(int i = 1; i <= inventory->getLength(); i++)
 		inventory->getNodeValue(i)->printToFile(outFile);
 	
+	outFile << endl;
 	cout << "Done" << endl;
 	outFile.close();
 	
