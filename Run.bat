@@ -1,10 +1,10 @@
+make clean
+
 cls
 
 make 2> TestErrors.txt
 
-TestErrors.txt
-
 Test.exe > TestResults.txt 2>TestLogicErrors.txt
 
-TestLogicErrors.txt
+TestErrors.txt
 TestResults.txt

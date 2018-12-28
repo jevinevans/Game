@@ -116,15 +116,14 @@ class Equipment
 		*/
 		void printToFile(ofstream &File)
 		{
-			cout << "Printing " << this->name << " to file" << endl;
 			File << name << ",";
 			File << IT << ",";
 			File << AT << ",";
 			File << WT << ",";
 			File << level << ",";
 			File << desc << ",";
-			File << abilityPts << endl;
-			cout << "Done with " << this->name << endl;
+			File << abilityPts << "," << endl;
+			cout << "Printed " << this->name << endl;
 		}	
 		
 		

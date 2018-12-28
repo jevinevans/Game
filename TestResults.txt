@@ -2,13 +2,11 @@ Gold Cap
 Gold Chestplate
 Gold Sword
 Gold Knief
-Gold Trousers
 The head slot is empty
 The chest slot is empty
 The weapon slot is empty
 The pants slot is empty
-Items Count is: 5
-Gold TrousersEquipped: Gold Cap
+Equipped: Gold Cap
 
 Equipped: Gold Chestplate
 
@@ -16,14 +14,13 @@ Equipped: Gold Sword
 
 Equipped: Gold Knief
 
-Equipped: Gold Trousers
-
+2
 ARMOR
 -----------------------
 Head: Gold Cap
 Chest: Gold Chestplate
 Weapon: Gold Knief
-Pants: Gold Trousers
+Pants: This Slot is Empty
 
 Unequipped: Gold Knief
 
@@ -32,5 +29,42 @@ ARMOR
 Head: Gold Cap
 Chest: Gold Chestplate
 Weapon: This Slot is Empty
-Pants: Gold Trousers
+Pants: This Slot is Empty
+
+Equipped: Gold Sword
+
+ARMOR
+-----------------------
+Head: Gold Cap
+Chest: Gold Chestplate
+Weapon: Gold Sword
+Pants: This Slot is Empty
+
+
+ARMOR STATISTIS
+------------------------
+------------------------
+Head
+Gold Cap
+------------------------ 
+ Type: Medium Helmet
+ Level: 5
+ Description: Simple persons hat
+ Ability Points: 0 DEF
+
+Chest
+Gold Chestplate
+------------------------ 
+ Type: Medium Chestplate
+ Level: 5
+ Description: Simple persons chestplate
+ Ability Points: 0 DEF
+
+Weapon
+Gold Sword
+------------------------ 
+ Type: Sword
+ Level: 5
+ Description: Simple persons sword
+ Ability Points: 0 ATK
 

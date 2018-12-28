@@ -8,63 +8,61 @@ class Abilities
 {
 	private: 
 		string abilityName;
-		int type;
+		int abilityType;
 		/*
 				Class Types
 					0 - Magical
 					1 - Physical
 		*/
 		int damageEffect;
-		
 	public:
 		Abilities(string n, int aT, int aD)
 		{
 			abilityName = n;
-			type = aT;
+			abilityType = aT;
 			damageEffect = aD;
 		}
-		
 		void PRINT()
 		{
 			cout << this->abilityName << endl;
 			cout << "\tType: ";
 
-			if(this->type == 0)
+			if(this->abilityType == 0)
 				cout << "Magic Attack" << endl;
 			else
 				cout << "Physical Attack" << endl;
 
 			cout << "\tEffect: " << this->damageEffect << endl << endl;
 		}
-		
 		void setName(string n)
 		{
 			this->abilityName = n;
 		}
-		
-		void setType(int t)
+		void setAbilityType(int t)
 		{
-			this->type = t;
+			this->abilityType = t;
 		}
-		
 		void setDamageEffect(int dE)
 		{
 			this->damageEffect = dE;
 		}
-		
 		string getName()
 		{
 			return abilityName;
 		}
-		
-		int getType()
+		int getAbilityType()
 		{
-			return type;
+			return abilityType;
 		}
-		
 		int getDamageEffect()
 		{
 			return damageEffect;
+		}
+		void printToFile(ofstream &File)
+		{
+			File << this->abilityName << ",";
+			File << this->abilityType << ",";
+			File << this->damageEffect << ",";
 		}
 };
 
@@ -116,7 +114,6 @@ class Roles
 			delete abs;
 
 		}
-		
 	public:
 		Roles(string rn, int aT, int s)
 		{
@@ -242,6 +239,17 @@ class Roles
 			else
 				cout << " \nThere are no powers." << endl;
 		}
+		void printToFile(ofstream &File)
+		{
+			File << this->roleName << ",";
+			File << this->armorType << ",";
+			File << this->Psize << ",";
+			File << this->current << ",";
+			for(int i = 0; i < current; i++)
+				powers[i]->printToFile(File);
+			File << endl;
+			cout << "Printed Role: " << this->roleName << " to file." << endl;
+		}
 		void setRoleName(string n)
 		{
 			roleName = n;
@@ -282,8 +290,6 @@ class Roles
 		Abilities** getPowers()
 		{
 			return powers;
-		}
-		 
-	
+		}	
 };
 #endif

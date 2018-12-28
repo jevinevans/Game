@@ -97,7 +97,11 @@ class Armor
 		}
 		void change(TYPE v, int spot)
 		{
+			cout << "start" << endl;
+			cout << "Changing Current to: " << v->getName();
 			dequip(spot);
+			cout << "Done";
+			cout << v->getName();
 			equip(v);
 		}
 		void dequip(int o)

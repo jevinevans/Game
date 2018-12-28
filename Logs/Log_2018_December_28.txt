@@ -1,6 +1,6 @@
 		-------------------------------------------------
 		|		 Video Game Log			|
-		|		    12/27/2018			|
+		|		    12/28/2018			|
 		-------------------------------------------------
 
 
@@ -12,8 +12,18 @@
 
 
 !!!!!!!!!!TO DOs!!!!!!!!!!
-	+ Test File for Armor
+\\Test.cpp
 	+ Fix Test.cpp File, is not printing out everything stops before the dequip, issue might be with the Equipment Array Weps....
+\\Armor.h
+    + Test File for Armor
+    +! Having issues with change function, need to try new test to see what wrong
+    +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
+	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to
+\\Equipment.h
+    +! Add validation method for IT, WT, AT... ? 
+    +! Describe/Condense the getItemType function
+
+
 --------Questions-------
 ? Should Armor have a type to only accept equipment of that type or should character have a armor type and validate equipment of items
 
@@ -41,8 +51,6 @@
     - Make sure that whenever you create a 'new' that you have a 'delete' for it.
     - Changing to only test current work
     += Testing of Functions.cpp to read in Equipment and Roles;
-        [+-] may have to change the way things are saved in exported list. Struggling to get code to parse the lines read in.
-		[+] Equipment Read In
 		+ Roles Read In
 	+ Finish testing the Armor class.
 	+ Test removePowers in Roles
@@ -50,19 +58,25 @@
 ============================================================================================
 \\Equipment.h
 	- Want to use states for defense and attack based on ability points	
-	+ Describe/Condense the getItemType function
-    + Add validation method for IT, WT, AT... ?
+    [+] Removed printing statements from the printToFile method.
+    +! Describe/Condense the getItemType function
+    +! Add validation method for IT, WT, AT... ?
         - Should I do this here, upper level, or at all
     + Annotate Functions
 ============================================================================================
 \\Roles.h
-	+ Add a remove powers method - working on this
+	[+] Add a remove powers method - working on this
+	[+] Created printToFile method
+	+ Create add power method for read in.
+    + Create several classes to be printed
+    + Create Test file
 	+ Annotate Functions
 ============================================================================================
 \\Armor.h
-    - thinking about changing the name of stats and print for Armor class to brief and stats
-	- I did not like the way that Stats and Print look, either need a full or just a brief so I want to change the format of this somehow (back burner)
-	+ Change function, I'm not sure if i really need it considering i have the equip and unequip, but might use it to properly change items for the slots considering how memory is 		transfered or linked from one place to the other. [Work in Progress]
+    +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
+	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to change the format of this somehow (back burner) - 1/1/2018
+	+! Having issues with change function, need to try new test to see what wrong
+    + Change function, I'm not sure if i really need it considering i have the equip and unequip, but might use it to properly change items for the slots considering how memory is transfered or linked from one place to the other. [Work in Progress]
 	+ Annotate methods
 ============================================================================================
 \\Character.h
@@ -70,8 +84,8 @@
 	+ Annotate methods
 ============================================================================================
 \\Functions.cpp and Functions.h
-	- Added Linked List to hold all types of things
-	[+] Fix printToFile(Equipment) method for because the method does not 
+	- Added Linked List to hold all types of things4
+    [+] Noticed and fixed issue where equipment's ability points were not being read in.
 	+ Finish readRoles(Classes) method
 		+ Print Classes to file first then,
 		+ Useu file for Classes to be read 

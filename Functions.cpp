@@ -67,7 +67,7 @@ void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 				desc = line.substr(0,pos);
 				line.erase(0, pos + delim.length());
 			}
-			if((pos = line.find(delim)) != string::npos)
+			if((pos = line.find(delim)) != string::npos || line.length() != 0)
 			{
 				temp = line.substr(0,pos);
 				abilityPts = atoi(temp.c_str());
@@ -86,5 +86,6 @@ void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 }
 void readRoles(Roles** Classes, const char* file)
 {
-	
+	string roleName, abilityName, line, temp;
+	int abilityType, damageEffect, 
 }
