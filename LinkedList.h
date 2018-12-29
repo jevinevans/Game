@@ -64,6 +64,7 @@ class LinkedList
 				{					
 					next = delNode->next;
 					delete delNode;
+					--numNodes;
 					delNode = next;
 				}
 				delete head, tail;

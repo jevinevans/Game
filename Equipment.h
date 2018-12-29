@@ -42,12 +42,12 @@ class Equipment
 		
 		void PRINT()
 		{
+			cout << "\n" << getName();
 			cout << "\n------------------------ ";
-			cout << "\n Name: " << getName();
 			cout << "\n Type: ";
 			getItemType();
 			cout << "\n Level: " << getLevel();
-			cout << "\n Description: " << getDesc();
+			cout << "\n Description: " << getDescription();
 			cout << "\n Ability Points: " << getAbilityPts();
 			
 			if(IT == 0)
@@ -64,9 +64,6 @@ class Equipment
 				case 0:
 					switch(WT)
 					{
-						case 0:
-							item += "Knief";
-							break;
 						case 1:
 							item += "Wand";
 							break;
@@ -74,6 +71,9 @@ class Equipment
 							item += "Sword";
 							break;
 						case 3:
+							item += "Knief";
+							break;
+						default:
 							item += "";
 							break;
 					}
@@ -108,7 +108,7 @@ class Equipment
 				}
 			}
 			cout << item;
-			}
+		}
 		/*
 			Function: printToFile
 			Parameters: Ofstream reference variable
@@ -116,13 +116,14 @@ class Equipment
 		*/
 		void printToFile(ofstream &File)
 		{
-			File << name << endl;
-			File << IT << endl;
-			File << AT << endl;
-			File << WT << endl;
-			File << level << endl;
-			File << desc << endl;
-			File << abilityPts << endl;
+			File << name << ",";
+			File << IT << ",";
+			File << AT << ",";
+			File << WT << ",";
+			File << level << ",";
+			File << desc << ",";
+			File << abilityPts << "," << endl;
+			cout << "Printed " << this->name << endl;
 		}	
 		
 		
@@ -131,7 +132,7 @@ class Equipment
 		void setAT(int a){AT = a;}
 		void setWT(int w){WT = w;}
 		void setLevel(int l){level = l;}
-		void setDesc(string d){desc = d;}
+		void setDescription(string d){desc = d;}
 		void setAbilityPts(int a){abilityPts = a;}
 		
 		string getName() const {return name;}
@@ -139,7 +140,7 @@ class Equipment
 		int getAT() const {return AT;}
 		int getWT() const {return WT;}
 		int getLevel() const {return level;}
-		string getDesc() const {return desc;}
+		string getDescription() const {return desc;}
 		int getAbilityPts() const {return abilityPts;}
 	
 	

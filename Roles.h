@@ -8,63 +8,63 @@ class Abilities
 {
 	private: 
 		string abilityName;
-		int type;
+		int abilityType;
 		/*
 				Class Types
 					0 - Magical
 					1 - Physical
 		*/
 		int damageEffect;
-		
 	public:
 		Abilities(string n, int aT, int aD)
 		{
 			abilityName = n;
-			type = aT;
+			abilityType = aT;
 			damageEffect = aD;
 		}
-		
 		void PRINT()
 		{
-			cout << "\tName: " << this->abilityName << endl;
-			cout << "\tType: ";
+			cout << this->abilityName << endl;
+			cout << "- Type: ";
 
-			if(this->type == 0)
+			if(this->abilityType == 0)
 				cout << "Magic Attack" << endl;
 			else
 				cout << "Physical Attack" << endl;
 
-			cout << "\tEffect:" << this->damageEffect << endl << endl;
+			cout << "- Effect: " << this->damageEffect << endl << endl;
 		}
-		
 		void setName(string n)
 		{
 			this->abilityName = n;
 		}
-		
-		void setType(int t)
+		void setAbilityType(int t)
 		{
-			this->type = t;
+			this->abilityType = t;
 		}
-		
 		void setDamageEffect(int dE)
 		{
 			this->damageEffect = dE;
 		}
-		
 		string getName()
 		{
 			return abilityName;
 		}
-		
-		int getType()
+		int getAbilityType()
 		{
-			return type;
+			return abilityType;
 		}
-		
 		int getDamageEffect()
 		{
 			return damageEffect;
+		}
+		void printToFile(ofstream &File)
+		{
+			cout << "Printing " << this->abilityName << " to file";
+			File << this->abilityName << ",";
+			File << this->abilityType << ",";
+			File << this->damageEffect << ",";
+			cout << " Done" << endl;
 		}
 };
 
@@ -85,6 +85,7 @@ class Roles
 		
 		void resize()
 		{
+			cout << "Resizing Powers" << endl;
 			int newSize = Psize * 2;
 			Abilities** array = new Abilities*[newSize];
 
@@ -98,9 +99,27 @@ class Roles
 			powers = array;
 			Psize = newSize;
 			
-			delete [] array;
 		}
-		
+		void removePower(int n)
+		{
+			Abilities* abs;
+			
+			cout << "\nRemoving Power "<< n << ": " << powers[n - 1]->getName() << " from the users powers list.";
+
+			abs = powers[n-1];
+
+			for(int i = n - 1; i < current - 1; i++)
+			{
+				powers[i] = powers[i+1];
+			}
+
+			powers[current-1] = NULL;
+			
+			current--;
+			
+			delete abs;
+
+		}
 	public:
 		Roles(string rn, int aT, int s)
 		{
@@ -109,18 +128,18 @@ class Roles
 			Psize = s;
 			powers = new Abilities*[Psize];
 			current = 0;
-
 		}
 		Roles()
 		{
 			roleName = "New Role";
 			armorType = -1;
-			Psize = 5;
+			Psize = 1;
 			powers = new Abilities*[Psize];
 			current = 0;
 		}
 		~Roles()
 		{
+			cout << "Deleting Role: " << this->roleName << endl;
 			Abilities* delPow;
 			for(int i = 0; i < Psize; i++)
 			{
@@ -128,6 +147,7 @@ class Roles
 				delete delPow;
 			}
 			delete [] powers;
+			cout << "Deletion Done" << endl;
 		}
 		void PRINT()
 		{
@@ -135,15 +155,16 @@ class Roles
 			cout << "Role: " << getRoleName() << endl;
 			cout << "Armor Type: " << getArmorTypeName() << endl;
 			cout << "-----Role Powers-----\n";
-			
-			for(int i=0; i<current; i++)
+			if(current)
 			{
-				cout << "Power " << i+1 << ":\n";
-				powers[i]->PRINT();
+				for(int i=0; i < current; i++)
+				{
+					cout << "Power " << i+1 << ": ";
+					powers[i]->PRINT();
+				}
 			}
-			
-			cout << "Done" << endl;
-			
+			else
+				cout << "\tThere are no powers." << endl;
 		}
 		void addPower()
 		{
@@ -156,8 +177,13 @@ class Roles
 			cout << endl;
 			cout << "New Power Type (Magic(0) or Physical(1)): ";
 			cin >> ty;
+			while(ty > 1 or ty < 0)
+			{
+				cout << "Retry: New Power Type (Magic(0) or Physical(1)): ";
+				cin >> ty;
+			}
 			cout << endl;
-			cout << "New Power Effect: ";
+			cout << "New Power Effect Number (0 - 1000): ";
 			cin >> eff;
 			while(eff < 0 or eff > 1000)
 			{
@@ -174,42 +200,78 @@ class Roles
 			
 			powers[current] = temp;
 
-			cout << temp->getName() << " has been added to your abilities." << endl;
+			cout << temp->getName() << " has been added to the " << this->roleName << " abilities." << endl;
 
 			current++;
 
 		}
-		/* void printPowers()
+		void addPower(Abilities* ability)
 		{
-			cout << "Start" << endl;
-			Abilities* pow;
-			for(int i = 0; i < current; i++)
+			if(current == Psize)
+				resize();
+
+			powers[current] = ability;
+			cout << ability->getName() << " has been added to " << this->roleName << " role." << endl;
+			current++;
+		}
+		void removePower()
+		{
+			int n = -1;
+			cout << "Deleting a Power" << endl << "-------------------------"<< endl;
+			printPowers();
+			cout << "\nPlease choose a number from 1 - " << current << ": ";
+			cin >> n; 
+
+			while(n < 1 || n > current)
 			{
-				cout << i << endl;
-				pow = powers[i];
-				cout << i << endl;
-				string nom = pow->name;
-				
-				cout << "Power " << i+1 << ":\n";
-				cout << "\tName: " << nom << endl;
-				cout << "\tType: ";
+				char again = ' ';
+				cout << "\nThat is an invalid Power..." << endl << "Do you want to try again? (y or n) : ";
+				cin >> again; 
 
-				if(pow->type == 0)
-					cout << "Magic Attack" << endl;
-				else
-					cout << "Physical Attack" << endl;
-
-				cout << "\tEffect" << pow->effect << endl << endl;
+				if(again == 'N' || again == 'n')
+					return;
 				
+				cout << endl;
+				printPowers();
+				cout << "\nPlease choose a number from 1 - " << current << ": ";
+				cin >> n; 
 			}
-		} */
+
+			removePower(n); //Calls private method;
+			cout << "\n\nCurrent ";
+			printPowers();
+			cout << endl << endl;
+		}
+		void printPowers()
+		{
+			if(current)
+			{
+				cout << "Powers List" << endl << "---------------" << endl;
+				for(int i = 0; i < current; i++)
+				{				
+					cout << "Power " << i+1 << ": " << powers[i]->getName() << endl;
+				}
+			}
+			else
+				cout << " \nThere are no powers." << endl;
+		}
+		void printToFile(ofstream &File)
+		{
+			File << this->roleName << ",";
+			File << this->armorType << ",";
+			File << this->Psize << ",";
+			for(int i = 0; i < current; i++)
+				powers[i]->printToFile(File);
+			File << endl;
+			cout << "Printed Role: " << this->roleName << " to file." << endl;
+		}
 		void setRoleName(string n)
 		{
-			roleName = n;
+			this->roleName = n;
 		}
 		void setArmorType(int i)
 		{
-			armorType = i;
+			this->armorType = i;
 		}
 		string getRoleName()
 		{
@@ -243,11 +305,6 @@ class Roles
 		Abilities** getPowers()
 		{
 			return powers;
-		}
-	
+		}	
 };
-
-
-
-
 #endif

@@ -1,0 +1,86 @@
+		-------------------------------------------------
+		|		 Video Game Log			|
+		|		    12/27/2018			|
+		-------------------------------------------------
+
+
+\\File
+- Note
++ To DO's
+!! Reminders/Important
+? Questions
+
+
+!!!!!!!!!!TO DOs!!!!!!!!!!
+	+ Test File for Armor
+	+ Fix Test.cpp File, is not printing out everything stops before the dequip, issue might be with the Equipment Array Weps....
+--------Questions-------
+? Should Armor have a type to only accept equipment of that type or should character have a armor type and validate equipment of items
+
+
+\\Project
+	- Added Run.bat to run the test files which will also capture 
+    + Add and Inventory Class
+		+- Not sure what type of storage it should but the goal is to get it to be a storage unit for adding and reading in equipment. I will want to sort it also, probably by item type.
+============================================================================================
+\\TEST Files
+	- Files that will hold old tests
+	- Should test every method atleast once
+	-! If a new method is introduced to object/class/file should be added/included in test files
+	+ Should Print Test Name and Test performing at the top?!
+	+ Each should have it's own folder and a make file to be added to the Test folder make file and .exe needs to be added to CodeTest.bat
+	+ Files to Make:
+		+ CodeTest_Armor.cpp - 1/1/2019
+		+ CodeTest_Roles.cpp - 1/1/2019
+		+ CodeTest_Character.cpp
+		+ CodeTest_Combat.cpp
+		+ CodeTest_Functions.cpp
+============================================================================================
+\\Test.cpp
+	!! 1/1/2019 -  Transfering old test to individual files
+    - Make sure that whenever you create a 'new' that you have a 'delete' for it.
+    - Changing to only test current work
+    += Testing of Functions.cpp to read in Equipment and Roles;
+        [+-] may have to change the way things are saved in exported list. Struggling to get code to parse the lines read in.
+		[+] Equipment Read In
+		+ Roles Read In
+	+ Finish testing the Armor class.
+	+ Test removePowers in Roles
+	+ remove old tests
+============================================================================================
+\\Equipment.h
+	- Want to use states for defense and attack based on ability points	
+	+ Describe/Condense the getItemType function
+    + Add validation method for IT, WT, AT... ?
+        - Should I do this here, upper level, or at all
+    + Annotate Functions
+============================================================================================
+\\Roles.h
+	+ Add a remove powers method - working on this
+	+ Annotate Functions
+============================================================================================
+\\Armor.h
+    - thinking about changing the name of stats and print for Armor class to brief and stats
+	- I did not like the way that Stats and Print look, either need a full or just a brief so I want to change the format of this somehow (back burner)
+	+ Change function, I'm not sure if i really need it considering i have the equip and unequip, but might use it to properly change items for the slots considering how memory is 		transfered or linked from one place to the other. [Work in Progress]
+	+ Annotate methods
+============================================================================================
+\\Character.h
+	-Keep working on this one, I know that I am tweeking the other classes that also work with this one, if I add the inventory class I might add a small sized one to this one called 		bag that is a mini inventory object.
+	+ Annotate methods
+============================================================================================
+\\Functions.cpp and Functions.h
+	- Added Linked List to hold all types of things
+	[+] Fix printToFile(Equipment) method for because the method does not 
+	+ Finish readRoles(Classes) method
+		+ Print Classes to file first then,
+		+ Useu file for Classes to be read 
+    + Annotate methods
+============================================================================================
+\\Makefiles
+	+- Makefile for each Test
+	+- Makefile for Test folder which will compile all subfolder files
+============================================================================================
+\\BatFiles
+	Run.bat - runs the current test code in probably
+	CodeTest.bat - goal is to run all of the code Test and produce results files for each of them

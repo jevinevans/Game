@@ -1,40 +1,72 @@
-#include "Roles.h"
-#include "Armor.h"
-
-#include <iostream>
-
-using namespace std;
-void printToFile(Equipment**, const char*);
+#include "Functions.h"
 
 int main()
-{
-	/*
-	//Equipment Creation Test
-	Equipment* hat = new Equipment("Gold Cap", 1, 1, 3, 5, "Simple persons hat", 10);
-	Equipment* shirt = new Equipment("Gold Chestplate", 2, 1, 3, 5, "Simple persons chestplate", 10);
-	Equipment* weapon = new Equipment("Gold Sword", 0,1,2,5,"Simple persons sword", 50);
-	Equipment* weapon1 = new Equipment("Gold Knief", 0,1,3,6,"Simple persons sword", 50);
-	Equipment* pants = new Equipment("Gold Trousers", 3, 1, 3, 5, "Simple persons trousers", 10);
+{	
+	const char* filename= "./Data/TempEList.txt";
+	LinkedList<Equipment*> *inventory = new LinkedList<Equipment*>();
+	LinkedList<Equipment*> Weps;
 	
-	Equipment* inventory[] = {hat, shirt, weapon, weapon1, pants};
-	int SIZE = 5;
+	//Add to CodeTest_Functions.cpp
+	readEquipment(inventory, filename);
+	
+	for(int i = 1; i <= inventory->getLength(); i++)
+		cout << inventory->getNodeValue(i)->getName() << endl;
 	
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
 	
+	body.isFull();
 	//Loading Equipment into Armor
-	for(int i = 0; i < SIZE; i++)
-	body.equip(inventory[i]);
-	
+
+	for(int i = 1; i <= inventory->getLength(); i++)
+	{
+		body.equip(inventory->getNodeValue(i));
+		if(inventory->getNodeValue(i)->getIT() == 0)
+			Weps.appendNode(inventory->getNodeValue(i));
+	}
+
+/*
+	Issues with putting equipment node value into an array going to try
+	and fix another day need to complete more objects, for now just going 
+	to use new linkedlist to hold values
+
+
+	cout << "There are " << wepCount << " weapons" << endl;
+	Equipment** Weps = new Equipment*[wepCount];
+	Equipment* temp;
+
+	Weps[0]->PRINT();
+
+	for(int i = 1; i <= inventory->getLength();i++)
+	{
+		if(inventory->getNodeValue(i)->getIT() == 0)
+		{	
+			temp = inventory->getNodeValue(i);
+			temp->PRINT();
+			Weps[i-1] = temp;
+		}
+	}
+	 
+	cout << "------------------" << endl;
+	for(int i = 0; i < wepCount; i++)
+		Weps[i]->PRINT();
+	cout << "------------------" << endl; 
+*/
+	cout << Weps.getLength() << endl;
+
 	body.PRINT();
 	
 	body.dequip(0);
 	
 	body.PRINT();
 	
-	body.equip(weapon);
+	body.equip(Weps.getNodeValue(1));
 	body.PRINT();
 	
+	Equipment* temp = Weps.getNodeValue(2);
+
+	//body.change(temp, Weps.getNodeValue(2)->getIT());
+
 	body.stats();
 	
 	body.isFull();	//not printing out needs to be worked on  ++++++++++
@@ -44,40 +76,19 @@ int main()
 	body.PRINT();
 	body.isFull();
 	
-	const char* filename= "./Data/TempEquipmentList.txt";
 	printToFile(inventory,filename);
-	
-	delete hat;
-	delete shirt;
-	delete weapon;
-	delete weapon1;
-	delete pants;
-	
-	*/
-	
-	//Role Class Test
-	Roles *Mage = new Roles("Mage", 0, 1);
+
+	Roles *Mage = new Roles("Mage", 0, 4);
+	/* Mage->addPower();
 	Mage->addPower();
-	Mage->addPower();
-	cout << Mage->getNumPowers() << endl;
+	cout << Mage->getNumPowers() << endl; */
 	Mage->PRINT();
 	
-	delete Mage;
-	cout << "End";
+	cout << endl << endl;
 	
-	return 0;
-}
+	Mage->printPowers();
 
-void printToFile(Equipment** inventory, const char* file)
-{
-	ofstream outFile;
-	outFile.open(file);
-	
-	for(int i = 0; i < 5; i++)
-		inventory[i]->printToFile(outFile);
-	
-	outFile.close();
-	
-	
-	cout << "Printed to File" << endl;
+	delete Mage;
+	delete inventory;
+	return 0;
 }
