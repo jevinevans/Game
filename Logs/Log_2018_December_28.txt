@@ -19,6 +19,8 @@
     +! Having issues with change function, need to try new test to see what wrong
     +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
 	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to
+\\Roles
+	+ Finish test file for  Roles
 \\Equipment.h
     +! Add validation method for IT, WT, AT... ? 
     +! Describe/Condense the getItemType function
@@ -65,7 +67,8 @@
     + Annotate Functions
 ============================================================================================
 \\Roles.h
-	[+] Add a remove powers method - working on this
+	- Ability Pointes can not be changed like a static object, have to find a way to fix this, may need an edit option.
+	+ Add a remove powers method - working on this
 	[+] Created printToFile method
 	+ Create add power method for read in.
     + Create several classes to be printed

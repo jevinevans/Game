@@ -17,6 +17,23 @@ void printToFile(LinkedList<Equipment*> *inventory, const char* file)
 	cout << "Printed to File" << endl;
 	
 }
+void printToFile(LinkedList<Roles*> *Classes, const char* file)
+{
+	cout << "Opening File: " << file << endl;
+	ofstream outFile;
+	outFile.open(file);
+	
+	for(int i = 1; i <= Classes->getLength(); i++)
+		Classes->getNodeValue(i)->printToFile(outFile);
+	
+	outFile << endl;
+	cout << "Done" << endl;
+	outFile.close();
+	
+	
+	cout << "Printed to File" << endl;
+	
+}
 void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 {
 	string name, desc, line, temp;				
@@ -87,5 +104,20 @@ void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 void readRoles(Roles** Classes, const char* file)
 {
 	string roleName, abilityName, line, temp;
-	int abilityType, damageEffect, 
+	int abilityType, damageEffect, armorType, powerSize;
+	Roles* newRole;
+
+	ifstream inFile;
+	inFile.open(file);
+	if(inFile.good())
+	{
+		getline(inFile,line);
+		while(!inFile.eof())
+		{
+			string delim = ",";
+			int pos = 0;
+
+
+		}
+	}
 }

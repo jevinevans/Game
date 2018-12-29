@@ -25,14 +25,14 @@ class Abilities
 		void PRINT()
 		{
 			cout << this->abilityName << endl;
-			cout << "\tType: ";
+			cout << "- Type: ";
 
 			if(this->abilityType == 0)
 				cout << "Magic Attack" << endl;
 			else
 				cout << "Physical Attack" << endl;
 
-			cout << "\tEffect: " << this->damageEffect << endl << endl;
+			cout << "- Effect: " << this->damageEffect << endl << endl;
 		}
 		void setName(string n)
 		{
@@ -60,9 +60,11 @@ class Abilities
 		}
 		void printToFile(ofstream &File)
 		{
+			cout << "Printing " << this->abilityName << " to file";
 			File << this->abilityName << ",";
 			File << this->abilityType << ",";
 			File << this->damageEffect << ",";
+			cout << " Done" << endl;
 		}
 };
 
@@ -83,6 +85,7 @@ class Roles
 		
 		void resize()
 		{
+			cout << "Resizing Powers" << endl;
 			int newSize = Psize * 2;
 			Abilities** array = new Abilities*[newSize];
 
@@ -96,13 +99,12 @@ class Roles
 			powers = array;
 			Psize = newSize;
 			
-			delete [] array;
 		}
 		void removePower(int n)
 		{
 			Abilities* abs;
 			
-			cout << "Removing Power "<< n << ": " << powers[n - 1]->getName() << " from the users powers list.";
+			cout << "\nRemoving Power "<< n << ": " << powers[n - 1]->getName() << " from the users powers list.";
 
 			abs = powers[n-1];
 
@@ -111,6 +113,10 @@ class Roles
 				powers[i] = powers[i+1];
 			}
 
+			powers[current-1] = NULL;
+			
+			current--;
+			
 			delete abs;
 
 		}
@@ -127,12 +133,13 @@ class Roles
 		{
 			roleName = "New Role";
 			armorType = -1;
-			Psize = 5;
+			Psize = 1;
 			powers = new Abilities*[Psize];
 			current = 0;
 		}
 		~Roles()
 		{
+			cout << "Deleting Role: " << this->roleName << endl;
 			Abilities* delPow;
 			for(int i = 0; i < Psize; i++)
 			{
@@ -140,6 +147,7 @@ class Roles
 				delete delPow;
 			}
 			delete [] powers;
+			cout << "Deletion Done" << endl;
 		}
 		void PRINT()
 		{
@@ -192,23 +200,32 @@ class Roles
 			
 			powers[current] = temp;
 
-			cout << temp->getName() << " has been added to your abilities." << endl;
+			cout << temp->getName() << " has been added to the " << this->roleName << " abilities." << endl;
 
 			current++;
 
+		}
+		void addPower(Abilities* ability)
+		{
+			if(current == Psize)
+				resize();
+
+			powers[current] = ability;
+			cout << ability->getName() << " has been added to " << this->roleName << " role." << endl;
+			current++;
 		}
 		void removePower()
 		{
 			int n = -1;
 			cout << "Deleting a Power" << endl << "-------------------------"<< endl;
 			printPowers();
-			cout << "Please choose a number from 1 - " << current << ": ";
+			cout << "\nPlease choose a number from 1 - " << current << ": ";
 			cin >> n; 
 
 			while(n < 1 || n > current)
 			{
 				char again = ' ';
-				cout << "That is an invalid Power..." << endl << "Do you want to try again? (y or n) : ";
+				cout << "\nThat is an invalid Power..." << endl << "Do you want to try again? (y or n) : ";
 				cin >> again; 
 
 				if(again == 'N' || again == 'n')
@@ -216,13 +233,14 @@ class Roles
 				
 				cout << endl;
 				printPowers();
-				cout << "Please choose a number from 1 - " << current << ": ";
+				cout << "\nPlease choose a number from 1 - " << current << ": ";
 				cin >> n; 
 			}
 
 			removePower(n); //Calls private method;
-			cout << "Current Powers" << endl;
+			cout << "\n\nCurrent ";
 			printPowers();
+			cout << endl << endl;
 		}
 		void printPowers()
 		{
@@ -231,9 +249,7 @@ class Roles
 				cout << "Powers List" << endl << "---------------" << endl;
 				for(int i = 0; i < current; i++)
 				{				
-					cout << "Power " << i+1 << ": ";
-					powers[i]->PRINT();
-				
+					cout << "Power " << i+1 << ": " << powers[i]->getName() << endl;
 				}
 			}
 			else
@@ -244,7 +260,6 @@ class Roles
 			File << this->roleName << ",";
 			File << this->armorType << ",";
 			File << this->Psize << ",";
-			File << this->current << ",";
 			for(int i = 0; i < current; i++)
 				powers[i]->printToFile(File);
 			File << endl;
@@ -252,11 +267,11 @@ class Roles
 		}
 		void setRoleName(string n)
 		{
-			roleName = n;
+			this->roleName = n;
 		}
 		void setArmorType(int i)
 		{
-			armorType = i;
+			this->armorType = i;
 		}
 		string getRoleName()
 		{

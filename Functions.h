@@ -12,7 +12,8 @@
 using namespace std;
 
 void printToFile(LinkedList<Equipment*>*, const char*);
+void printToFile(LinkedList<Roles*>*, const char*);
 void readEquipment(LinkedList<Equipment*>*, const char* file);
 void readRoles(Roles**, const char* file);
-void sortEquipment();
+//void sortEquipment();
 #endif
