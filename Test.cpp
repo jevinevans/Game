@@ -12,6 +12,12 @@ int main()
 	for(int i = 1; i <= inventory->getLength(); i++)
 		cout << inventory->getNodeValue(i)->getName() << endl;
 	
+	cout << endl << endl;
+	
+	for(int i = 1; i <= inventory->getLength();i++)
+		inventory->getNodeValue(i)->PRINT();
+
+	cout << endl << endl;
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
 	
@@ -56,7 +62,7 @@ int main()
 
 	body.PRINT();
 	
-	body.dequip(0);
+	body.dequip(0); //12/29/18 - Need to change the way things are dequiped because when i delete it, it is deleted from the LinkedList.
 	
 	body.PRINT();
 	
@@ -76,6 +82,8 @@ int main()
 	body.PRINT();
 	body.isFull();
 	
+	//inventory->getNodeValue(4)->PRINT();
+
 	printToFile(inventory,filename);
 
 	Roles *Mage = new Roles("Mage", 0, 4);

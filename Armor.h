@@ -113,31 +113,61 @@ class Armor
 			}
 			Slot* temp;
 			temp = new Slot();
+			string tname = "nothing";
+
 			switch(o)
 			{
 				case 0:
-					temp->value = weapon->value;
-					weapon->value = NULL;
-					weapon->empty = true;
+					if(!weapon->isEmpty())
+					{	
+						temp->value = weapon->value;
+						weapon->value = NULL;
+						weapon->empty = true;
+						tname = temp->value->getName();
+						delete temp->value;
+					}
+					else
+						cout << "There is nothing equipped." << endl;
 					break;
 				case 1:
-					temp->value = head->value;
-					head->value = NULL;
-					head->empty = true;
+					if(!head->isEmpty())
+					{
+						temp->value = head->value;
+						head->value = NULL;
+						head->empty = true;
+						tname = temp->value->getName();
+						delete temp->value;
+					}
+					else
+						cout << "There is nothing equipped." << endl;
 					break;
 				case 2:
-					temp->value = chest->value;
-					chest->value = NULL;
-					chest->empty = true;
+					if(!chest->isEmpty())
+					{
+						temp->value = chest->value;
+						chest->value = NULL;
+						chest->empty = true;
+						tname = temp->value->getName();
+						delete temp->value;
+					}
+					else
+						cout << "There is nothing equipped." << endl;
 					break;
 				case 3:
-					temp->value = pants->value;
-					pants->value = NULL;
-					pants->empty = true;
+					if(!pants->isEmpty())
+					{
+						temp->value = pants->value;
+						pants->value = NULL;
+						pants->empty = true;
+						tname = temp->value->getName();
+						delete temp->value;
+					}
+					else
+						cout << "There is nothing equipped." << endl;
 					break;
 			}
-			cout << "Unequipped: " << temp->value->getName() << endl << endl;
-			delete temp->value;
+			cout << "Unequipped " << tname << "." << endl << endl;
+			delete temp;
 		}
 		
 		
@@ -174,14 +204,31 @@ class Armor
 		void stats()
 		{
 			cout << "\nARMOR STATISTIS\n------------------------\n------------------------\n";
+			
 			cout << "Head";
+			if(!head->isEmpty())
 				head->value->PRINT();
+			else
+				cout << " is not equipped." << endl;
+			
 			cout << "Chest";
+			if(!chest->isEmpty())
 				chest->value->PRINT();
+			else
+				cout << " is not equipped." << endl;
+			
 			cout << "Weapon";
+			if(!weapon->isEmpty())
 				weapon->value->PRINT();
+			else
+				cout << " is not equipped." << endl;
+			
 			cout << "Pants";
+			if(!pants->isEmpty())
 				pants->value->PRINT();
+			else
+				cout << " is not equipped." << endl;
+
 			cout << endl;
 		}
 		
