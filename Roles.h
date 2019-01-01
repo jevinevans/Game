@@ -22,6 +22,12 @@ class Abilities
 			abilityType = aT;
 			damageEffect = aD;
 		}
+		Abilities()
+		{
+			abilityName = "New Ability";
+			abilityType = -1;
+			damageEffect = 0;
+		}
 		void PRINT()
 		{
 			cout << this->abilityName << endl;
