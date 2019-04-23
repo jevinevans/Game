@@ -1,1 +1,1 @@
-Stab,1,52,
+FireBlast,0,78,

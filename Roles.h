@@ -28,6 +28,10 @@ class Abilities
 			abilityType = -1;
 			damageEffect = 0;
 		}
+		~Abilities()
+		{
+			cout << "Deleting Ability: " << abilityName << endl;
+		}
 		void PRINT()
 		{
 			cout << this->abilityName << endl;
@@ -122,8 +126,6 @@ class Roles
 			powers[current-1] = NULL;
 			
 			current--;
-			
-			delete abs;
 
 		}
 	public:
@@ -146,13 +148,12 @@ class Roles
 		~Roles()
 		{
 			cout << "Deleting Role: " << this->roleName << endl;
-			Abilities* delPow;
-			for(int i = 0; i < Psize; i++)
+			for(int i = 0; i < current; i++)
 			{
-				delPow = powers[i];
-				delete delPow;
+				cout << "Deleting Power: " << powers[i]->getName() << endl;
+				delete powers[i];
 			}
-			delete [] powers;
+			delete powers;
 			cout << "Deletion Done" << endl;
 		}
 		void PRINT()

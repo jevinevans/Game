@@ -68,6 +68,7 @@ class LinkedList
 					delNode = next;
 				}
 				delete head, tail;
+				cout << "Linked List Deletion Done" << endl;
 			}
 			
 			int getLength()

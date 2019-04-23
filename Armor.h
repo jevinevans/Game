@@ -124,7 +124,6 @@ class Armor
 						weapon->value = NULL;
 						weapon->empty = true;
 						tname = temp->value->getName();
-						delete temp->value;
 					}
 					else
 						cout << "There is nothing equipped." << endl;
@@ -136,7 +135,6 @@ class Armor
 						head->value = NULL;
 						head->empty = true;
 						tname = temp->value->getName();
-						delete temp->value;
 					}
 					else
 						cout << "There is nothing equipped." << endl;
@@ -148,7 +146,6 @@ class Armor
 						chest->value = NULL;
 						chest->empty = true;
 						tname = temp->value->getName();
-						delete temp->value;
 					}
 					else
 						cout << "There is nothing equipped." << endl;
@@ -160,7 +157,6 @@ class Armor
 						pants->value = NULL;
 						pants->empty = true;
 						tname = temp->value->getName();
-						delete temp->value;
 					}
 					else
 						cout << "There is nothing equipped." << endl;

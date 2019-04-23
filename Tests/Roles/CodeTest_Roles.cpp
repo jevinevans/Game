@@ -25,7 +25,6 @@
 
 int main()
 {
-	LinkedList<Roles*>* Classes  = new LinkedList<Roles*>();
 	LinkedList<Abilities*>* Powers  = new LinkedList<Abilities*>();
 	
 	int numAbilities = 0;
@@ -37,8 +36,12 @@ int main()
 	ability->PRINT();
 	
     ofstream kfile;
-    kfile.open("Fireblast.txt");
+    kfile.open("Stab.txt");
     ability->printToFile(kfile);
+    kfile.close();
+
+    kfile.open("Fireblast.txt");
+    staticAbility.printToFile(kfile);
     kfile.close();
 
 	Powers->appendNode(ability);
@@ -50,7 +53,7 @@ int main()
 	
 	Roles* Mage = new Roles("Mage", 1, 2);
 	Roles* Warrior = new Roles("Warrior", 2, 1);
-	Roles* Thief = new Roles();
+	Roles* Thief = new Roles("Thief",0,1);
 	
 	Mage->addPower(Powers->getNodeValue(1));
 	Mage->addPower();
@@ -58,18 +61,22 @@ int main()
 
     Warrior->addPower();
 
-    Thief->setRoleName("Thief");
-    Thief->setArmorType(0);
+    /* Thief->setRoleName("Thief");
+    Thief->setArmorType(0);*/
     Thief->addPower(ability);
 
+    Thief->PRINT();
+    
     Warrior->PRINT();
 
     Mage->PRINT();
     Mage->removePower();
+    cout << Mage->getNumPowers() << endl;
 
     cout << Thief->getRoleName() << endl;
     cout << Thief->getArmorTypeName() << " " << Thief->getArmorType() << endl;
     cout << Thief->getNumPowers() << " Powers" << endl;
+    Thief->printPowers();
 
     /* Isssue with LinkedList and print Thief, 
     pows = Mage->getPowers();
@@ -127,7 +134,6 @@ int main()
 	delete Mage;
 	delete Warrior;
 	delete Thief;
-	delete Classes;
 	delete Powers;
 
     cout << "Done" << endl;
