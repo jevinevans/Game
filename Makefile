@@ -7,10 +7,10 @@ Test	:		Test.o Functions.o
 				
 				
 Test.o	:	Test.cpp
-				g++ -I ./ -c Test.cpp
+				g++ -I ./Includes/ -c Test.cpp
 
 Functions.o	:	Functions.cpp
-					g++ -I ./ -c Functions.cpp
+					g++ -I ./Includes/ -c Functions.cpp
 
 CodeTests	:
 	make -C Tests
