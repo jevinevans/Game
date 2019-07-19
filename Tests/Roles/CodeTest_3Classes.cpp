@@ -2,7 +2,7 @@
 This is to test three classes with the same ability
 */
 
-#include "../../Functions.h"
+#include "../../Includes/Functions.h"
 
 int main()
 {
