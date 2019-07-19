@@ -1,2 +1,2 @@
-Mage,1,4,Ice Blast,0,36,Chaos,0,98,
-Warrior,2,1,Strike,1,59,
+Mage,1,4,Fire,0,56,Ice,0,65,
+Warrior,2,1,Strike,1,65,

@@ -1,3 +1,10 @@
+/*
+	Programmer: Jevin Evans
+	Date: 7/19/2019
+	Program: Equipment Class
+	Description: The Equipment class allows for creation of objects in the game to be used by characters and placed inside of the armor or in other holders/storage containers inside of the game 
+ */
+
 #ifndef EQUIPMENT_H
 #define EQUIPMENT_H
 
@@ -10,14 +17,19 @@ class Equipment
 	private:
 		string name;				//Item Name
 		int IT;						//Item Types: 0 - Weapon, 1 - Helmet, 2 - Chest, 3 - Pants,
-		int AT;						//Armor Types: 0 - Light,1 - Medium,2 - Heavy
+		int AT;						//Armor Types: 0 - Light, 1 - Medium, 2 - Heavy
 		int WT;						//Weapon Types: 0 - NULL, 1 - Wand, 2 - Sword, 3 - Knief
 		int level;					//Item Level
 		string desc;				//Description of Item
 		int abilityPts;				//The amount of protection or damage a item can cause
 	
 	public:
-		Equipment()				//Creates a blank weapon object
+/*
+	Function:		Constructor
+	Parameters:		NULL
+	Description: 	This method creates a new blank object that is customizable through the setter functions
+*/
+		Equipment()				
 		{
 			name = "NULL";
 			IT = -1;
@@ -27,19 +39,28 @@ class Equipment
 			desc = "NULL";
 			abilityPts = -1;
 		}
-		
-		Equipment(string na, int it, int at, int wt, int le, string de, int aP)					//Creates a new Equipment object based on passed parameters
+
+/*
+	Function:		Constructor
+	Parameters:		string name, int item type, int armor type, int weapon type, int level, string description, int ability points
+	Description: 	This method creates a new blank object that is customizable through the setter functions
+*/	
+		Equipment(string na, int it, int at, int wt, int le, string de, int aP)
 		{
 			name = na;
-			IT = it;
-			AT = at;
-			WT = wt;
+			IT = validate(it);
+			AT = validate(at);
+			WT = validate(wt);
 			level = le;
 			desc = de;
 			abilityPts = aP;
 		}
 		
-		
+/*
+	Function:		PRINT
+	Parameters:		NULL
+	Description: 	This method prints out a formatted version of the information for the item including name, type, level, description , and ability points
+*/		
 		void PRINT()
 		{
 			cout << "\n" << getName();
@@ -56,9 +77,15 @@ class Equipment
 			cout << " DEF" << endl << endl;
 		}
 
+/*
+	Function:		getItemType
+	Parameters:		NULL
+	Description: 	This method returns a description string for the item type
+*/
+
 		void getItemType()
 		{
-			string item;
+			string item ="";
 			switch(IT)
 			{
 				case 0:
@@ -91,7 +118,6 @@ class Equipment
 					item = "";
 					break;
 			}
-			
 			if( IT != 0)
 			{
 				switch(AT)
@@ -107,13 +133,16 @@ class Equipment
 						break;
 				}
 			}
+			if(item.compare(""))
+				cout << "Broken Item";
 			cout << item;
 		}
-		/*
-			Function: printToFile
-			Parameters: Ofstream reference variable
-			Purpose: To print the data of a equipment object to a file that is passed in.
-		*/
+
+/*
+	Function:		printToFile
+	Parameters:		Ofstream (aka Output File)
+	Description: 	To print the data of a equipment object to a file that is passed in.
+*/
 		void printToFile(ofstream &File)
 		{
 			File << name << ",";
@@ -125,16 +154,46 @@ class Equipment
 			File << abilityPts << "," << endl;
 			cout << "Printed " << this->name << endl;
 		}	
-		
-		
+
+/*
+	Function:		validate
+	Parameters:		int (AT, IT, or WT)
+	Description: 	Checks input of AT/IT/WT to make sure that it is within range or returns 
+*/
+		int validate(int num)
+		{
+			if(num < 0 || num > 3)
+				return 0;
+			else
+				return num;
+		}		
+/*
+	Function:		Setters
+	Parameters:		The type of value being changed 
+	Description:	These allow for the code to change some of the values or update values for the object.
+*/
 		void setName(string n){name = n;}
-		void setIT(int i){IT = i;}
-		void setAT(int a){AT = a;}
-		void setWT(int w){WT = w;}
+		void setIT(int i)
+		{
+			IT = validate(i);
+		}
+		void setAT(int a)
+		{
+			AT = validate(a);
+		}
+		void setWT(int w)
+		{
+			WT = validate(w);
+		}
 		void setLevel(int l){level = l;}
 		void setDescription(string d){desc = d;}
 		void setAbilityPts(int a){abilityPts = a;}
-		
+
+/*
+	Function:		Getters
+	Parameters:		NULL
+	Description:	These allow for the code to return some of the values for the object.
+*/
 		string getName() const {return name;}
 		int getIT() const{return IT;}
 		int getAT() const {return AT;}

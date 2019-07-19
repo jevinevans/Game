@@ -17,4 +17,4 @@ CodeTests	:
 
 clean		:	Test.exe
 				del *.o
-				del Test.exe
+				del *.exe

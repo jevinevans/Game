@@ -19,17 +19,20 @@
 \\Test.cpp
 	+ Fix Test.cpp File, is not printing out everything stops before the dequip, issue might be with the Equipment Array Weps....
         - Worked on Test File, found errors with printing armor that were causing the issue. Still in progress.
+
 \\Armor.h
     + Test File for Armor
     +! Having issues with change function, need to try new test to see what wrong
     +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
 	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to
+
 \\Roles
 	+ Finish test file for Roles
 	+ Work on abilities printing and roles deletion
+
 \\Equipment.h
-    +! Add validation method for IT, WT, AT... ? 
-    +! Describe/Condense the getItemType function
+7/19/2019 - [+!] Add validation method for IT, WT, AT... ?
+7/19/2019 - [+!] Describe/Condense the getItemType function
 
 
 --------Questions-------
@@ -64,11 +67,16 @@
 	+ remove old tests
 ============================================================================================
 \\Equipment.h
-	- Want to use states for defense and attack based on ability points	
-    +! Describe/Condense the getItemType function
-    +! Add validation method for IT, WT, AT... ?
-        - Should I do this here, upper level, or at all
-    + Annotate Functions
+	+ Need to test new validation method
+		-> and 
+	+ add -1 null value to AT, IT, WT,
+		+ Change AT 0 -> no armor needed so that it will have 0 -> 3 and -1 will be a null value.
+	- Want to use states for defense and attack based on ability pointe
+	- Validation of IT, WT, and AT can also be done if inputed at a higher level, might consider adding null value -1 to all types to indicate null
+7/19/2019 - [+] Describe/Condense the getItemType function
+7/19/2019 - [+!] Add validation method for IT, WT, AT... ?
+7/19/2019 - 	[-] Should I do this here, upper level, or at all
+7/19/2019 - [+] Annotate Functions
 ============================================================================================
 \\Roles.h
 	- Ability Pointes can not be changed like a static object, have to find a way to fix this, may need an edit option.
@@ -100,10 +108,10 @@
     + Annotate methods
 ============================================================================================
 \\Makefiles
-7/19/2019   -   Added all include files into an include folder 
-	+- Makefile for each Test
-	+- Makefile for Test folder which will compile all subfolder files
+7/19/2019   [+]   Added all include files into an include folder 
+	- Makefile for each Test
+	- Makefile for Test folder which will compile all subfolder files
 ============================================================================================
 \\BatFiles
-	Run.bat - runs the current test code in probably
+	Run.bat - runs the current test code
 	CodeTest.bat - goal is to run all of the code Test and produce results files for each of them
