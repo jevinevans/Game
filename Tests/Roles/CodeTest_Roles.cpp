@@ -110,7 +110,7 @@ int main()
     //Test issue with printing ability out to file
     ofstream nfile;
     nfile.open("Ability.txt");
-    ability->printToFile(file);
+    ability->printToFile(nfile);
     nfile.close();
 /*  
     file.open(PowerFile);
