@@ -4,5 +4,5 @@ cls
 
 make
 
-RolesTest.exe < TestCase_Roles.txt
+CodeTest_RolesTest.exe < TestCase_Roles.txt
 

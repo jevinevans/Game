@@ -134,8 +134,9 @@ int main()
 	delete Mage;
 	delete Warrior;
 	delete Thief;
+    cout << Powers->getLength() << endl;
 	delete Powers;
 
-    cout << "Done" << endl;
+    cout << "Test Done" << endl;
     return 0;	
 }
