@@ -150,10 +150,13 @@ class Roles
 			cout << "Deleting Role: " << this->roleName << endl;
 			for(int i = 0; i < current; i++)
 			{
+				if(powers[i] == NULL)
+					continue;
+
 				cout << "Deleting Power: " << powers[i]->getName() << endl;
 				delete powers[i];
 			}
-			delete powers;
+			delete [] powers;
 			cout << "Deletion Done" << endl;
 		}
 		void PRINT()

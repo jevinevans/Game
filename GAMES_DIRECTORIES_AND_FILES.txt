@@ -1,0 +1,76 @@
+=========================================
+|	Total Directories: 13		|
+|	Files: 58			|
+=========================================
+
+.\Basic Player Game Info.txt
+.\CodeTestErrors.txt
+.\CodeTests
+.\CodeTests.bat
+.\CodeTests\Armor
+.\CodeTests\Armor\CodeTest_Armor.cpp
+.\CodeTests\Armor\makefile
+.\CodeTests\Code Results
+.\CodeTests\Code Results\EquipmentResults.txt
+.\CodeTests\Code Results\RolesResults.txt
+.\CodeTests\Equipment
+.\CodeTests\Equipment\CodeTest_Equipment.cpp
+.\CodeTests\Equipment\makefile
+.\CodeTests\Roles
+.\CodeTests\Roles\CodeTest_Roles_1
+.\CodeTests\Roles\CodeTest_Roles_1\Ability.txt
+.\CodeTests\Roles\CodeTest_Roles_1\CodeTest_Roles.cpp
+.\CodeTests\Roles\CodeTest_Roles_1\Fireblast.txt
+.\CodeTests\Roles\CodeTest_Roles_1\Stab.txt
+.\CodeTests\Roles\CodeTest_Roles_1\TestCase_Roles.txt
+.\CodeTests\Roles\CodeTest_Roles_1\makefile
+.\CodeTests\Roles\CodeTest_Roles_1\run.bat
+.\CodeTests\Roles\CodeTest_Roles_2
+.\CodeTests\Roles\CodeTest_Roles_2\CodeTest_3Classes.cpp
+.\CodeTests\Roles\CodeTest_Roles_2\CodeTest_3Classes.o
+.\CodeTests\Roles\CodeTest_Roles_2\CodeTest_3ClassesTest.exe
+.\CodeTests\Roles\CodeTest_Roles_2\TestCase_3ClassesTest.txt
+.\CodeTests\Roles\CodeTest_Roles_2\makefile
+.\CodeTests\Roles\CodeTest_Roles_2\run.bat
+.\CodeTests\_TestFiles
+.\CodeTests\_TestFiles\EquipmentTest.txt
+.\CodeTests\_TestFiles\RolesTest.txt
+.\CodeTests\makefile
+.\Data
+.\Data\EquipmentList.txt
+.\Data\TempEList.txt
+.\Functions.cpp
+.\GAMES_DIRECTORIES_AND_FILES.txt
+.\Includes
+.\Includes\Armor.h
+.\Includes\Character.h
+.\Includes\Combat.h
+.\Includes\Equipment.h
+.\Includes\Functions.h
+.\Includes\LinkedList.h
+.\Includes\Roles.h
+.\Logs
+.\Logs\2018
+.\Logs\2018\Log_2018_August_2.txt
+.\Logs\2018\Log_2018_December_11.txt
+.\Logs\2018\Log_2018_December_21.txt.txt
+.\Logs\2018\Log_2018_December_23.txt
+.\Logs\2018\Log_2018_December_24.txt
+.\Logs\2018\Log_2018_December_26.txt
+.\Logs\2018\Log_2018_December_27.txt
+.\Logs\2018\Log_2018_December_28.txt
+.\Logs\2018\Log_2018_December_29.txt
+.\Logs\2018\Log_2018_July_5.txt
+.\Logs\2019
+.\Logs\2019\Log_2019_January_2.txt
+.\Logs\2019\Log_2019_January_3.txt
+.\Logs\2019\Log_2019_July_19.txt
+.\Logs\2019\Log_2019_July_23.txt
+.\Makefile
+.\README.md
+.\Run.bat
+.\Scan_Directories.py
+.\Test.cpp
+.\TestErrors.txt
+.\TestLogicErrors.txt
+.\TestResults.txt
