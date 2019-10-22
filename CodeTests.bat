@@ -6,7 +6,11 @@ make CodeTests 2> CodeTestErrors.txt
 
 @echo off
 
+rem Add conditional for if CodeTestErrors is not empty so that we do not attempt to compile
+
 CodeTestErrors.txt
+
+rem Need to update file name locations
 
 cd ./Tests/Equipment/
 EquipmentTest.exe > "../Code Results/EquipmentResults.txt"
