@@ -1,0 +1,117 @@
+		-------------------------------------------------
+		|		 Video Game Log			|
+		|		    07/19/2019			|
+		-------------------------------------------------
+
+
+\\File
+- Note
++ To DO's
+!! Reminders/Important
+? Questions
+
+
+!!!!!!!!!!TO DOs!!!!!!!!!!
+
+!!!!! - Having issues with pointers if object is deleted its is deleted from everywhere, need to find a way to copy a pointer.
+        This is why the knief is missing in the print statments.
+
+\\Test.cpp
+	+ Fix Test.cpp File, is not printing out everything stops before the dequip, issue might be with the Equipment Array Weps....
+        - Worked on Test File, found errors with printing armor that were causing the issue. Still in progress.
+
+\\Armor.h
+    + Test File for Armor
+    +! Having issues with change function, need to try new test to see what wrong
+    +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
+	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to
+
+\\Roles
+	+ Finish test file for Roles
+	+ Work on abilities printing and roles deletion
+
+\\Equipment.h
+7/19/2019 - [+!] Add validation method for IT, WT, AT... ?
+7/19/2019 - [+!] Describe/Condense the getItemType function
+
+
+--------Questions-------
+? Should Armor have a type to only accept equipment of that type or should character have a armor type and validate equipment of items
+
+
+\\Project
+	- Added Run.bat to run the test files which will also capture 
+    + Add and Inventory Class
+		+- Not sure what type of storage it should but the goal is to get it to be a storage unit for adding and reading in equipment. I will want to sort it also, probably by item type.
+============================================================================================
+\\TEST Files
+	- Files that will hold old tests
+	- Should test every method atleast once
+	-! If a new method is introduced to object/class/file should be added/included in test files
+	+ Should Print Test Name and Test performing at the top?!
+	+ Each should have it's own folder and a make file to be added to the Test folder make file and .exe needs to be added to CodeTest.bat
+	+ Files to Make:
+		+ CodeTest_Armor.cpp - 1/7/2019
+		+ CodeTest_Roles.cpp - 1/7/2019 - Started
+		+ CodeTest_Character.cpp
+		+ CodeTest_Combat.cpp
+		+ CodeTest_Functions.cpp
+============================================================================================
+\\Test.cpp
+	!! 1/1/2019 -  Transfering old test to individual files
+    - Make sure that whenever you create a 'new' that you have a 'delete' for it.
+    - Changing to only test current work
+    += Testing of Functions.cpp to read in Equipment and Roles;
+		+ Roles Read In
+	+ Finish testing the Armor class.
+	+ remove old tests
+============================================================================================
+\\Equipment.h
+	+ Need to test new validation method
+		-> and 
+	+ add -1 null value to AT, IT, WT,
+		+ Change AT 0 -> no armor needed so that it will have 0 -> 3 and -1 will be a null value.
+	- Want to use states for defense and attack based on ability pointe
+	- Validation of IT, WT, and AT can also be done if inputed at a higher level, might consider adding null value -1 to all types to indicate null
+7/19/2019 - [+] Describe/Condense the getItemType function
+7/19/2019 - [+!] Add validation method for IT, WT, AT... ?
+7/19/2019 - 	[-] Should I do this here, upper level, or at all
+7/19/2019 - [+] Annotate Functions
+============================================================================================
+\\Roles.h
+	- Ability Pointes can not be changed like a static object, have to find a way to fix this, may need an edit option.
+    + Add a remove powers method - working on this
+    + Finish printToFile method
+    +- Test file still needs some fixing, there are some bugs that need addressing
+		- Still havin issues with ability printing
+		[-] Fixed issue with deletion of roles, was trying to delete all location in roles instead of just the current ones.
+	+ Annotate Functions
+============================================================================================
+\\Armor.h
+    + Adding slot checks to dequip method because it fails if slot is empty.
+    + isFull method needs more too it, some tweaking - 1/31/2019
+    +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
+	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to change the format of this somehow (back burner) - 1/1/2018
+	+! Having issues with change function, need to try new test to see what wrong
+    + Change function, I'm not sure if i really need it considering i have the equip and unequip, but might use it to properly change items for the slots considering how memory is transfered or linked from one place to the other. [Work in Progress]
+	+ Annotate methods
+============================================================================================
+\\Character.h
+	-Keep working on this one, I know that I am tweeking the other classes that also work with this one, if I add the inventory class I might add a small sized one to this one called 		bag that is a mini inventory object.
+	+ Annotate methods
+============================================================================================
+\\Functions.cpp and Functions.h
+	-? Added Linked List to hold all types of things?
+	+ Finish readRoles(Classes) method
+		+ Print Classes to file first then,
+		+ Useu file for Classes to be read 
+    + Annotate methods
+============================================================================================
+\\Makefiles
+7/19/2019   [+]   Added all include files into an include folder 
+	- Makefile for each Test
+	- Makefile for Test folder which will compile all subfolder files
+============================================================================================
+\\BatFiles
+	Run.bat - runs the current test code
+	CodeTest.bat - goal is to run all of the code Test and produce results files for each of them
