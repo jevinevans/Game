@@ -15,6 +15,6 @@ Functions.o	:	Functions.cpp
 CodeTests	:
 	make -C Tests
 
-clean		:	Test.exe
-				del *.o
-				del *.exe
+clean	:	Test.exe
+			del *.o
+			del *.exe
