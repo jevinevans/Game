@@ -72,9 +72,12 @@ class Abilities
 		{
 			cout << "Printing " << this->abilityName << " to file";
 			File << this->abilityName << ",";
+			cout << ".";
 			File << this->abilityType << ",";
+			cout << ".";
 			File << this->damageEffect << ",";
-			cout << " Done" << endl;
+			cout << ".";
+			cout << "Done" << endl;
 		}
 };
 
