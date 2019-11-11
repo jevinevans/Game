@@ -7,11 +7,16 @@ Stab
 - Effect: 52
 
 Printing Stab to file...Done
+
 Printing FireBlast to file...Done
+
 Stab
 - Type: Physical Attack
 - Effect: 52
 
+0xdd1a10
+0xdd1a10
+0xdd1a10
 Stab has been added to Mage role.
 
 Adding a New Power to the Mage Role.
@@ -33,6 +38,10 @@ New Power Type (Magic(0) or Physical(1)):
 New Power Effect Number (0 - 1000): 
 Strike has been added to the Warrior abilities.
 Stab has been added to Thief role.
+Stab
+- Type: Physical Attack
+- Effect: 52
+
 
 ===============================
 Role: Thief
@@ -40,7 +49,7 @@ Armor Type: Light Armor
 -----Role Powers-----
 Power 1: Stab
 - Type: Physical Attack
-- Effect: 52
+- Effect: 99
 
 
 ===============================
@@ -58,7 +67,7 @@ Armor Type: Medium Armor
 -----Role Powers-----
 Power 1: Stab
 - Type: Physical Attack
-- Effect: 52
+- Effect: 99
 
 Power 2: Ice Blast
 - Type: Magic Attack
@@ -93,11 +102,15 @@ Powers List
 ---------------
 Power 1: Stab
 Printing Ice Blast to file...Done
+
 Printing Chaos to file...Done
+
 Printed Role: Mage to file.
 Printing Strike to file...Done
+
 Printed Role: Warrior to file.
 Printing Stab to file...Done
+
 1
 Deleting Ability: Stab
 Deleting Role: Mage
