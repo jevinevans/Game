@@ -77,7 +77,7 @@ class Abilities
 			cout << ".";
 			File << this->damageEffect << ",";
 			cout << ".";
-			cout << "Done" << endl;
+			cout << "Done" << endl << endl;
 		}
 };
 

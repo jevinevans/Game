@@ -46,7 +46,6 @@ int main()
     kfile.close();
 
 	Powers->appendNode(ability);
-	
 
     for(int i = 1; i <= Powers->getLength();i++)
         Powers->getNodeValue(i)->PRINT();
@@ -78,6 +77,7 @@ int main()
     cout << Thief->getArmorTypeName() << " " << Thief->getArmorType() << endl;
     cout << Thief->getNumPowers() << " Powers" << endl;
     Thief->printPowers();
+
 
     /* Isssue with LinkedList and print Thief, 
     pows = Mage->getPowers();
