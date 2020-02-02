@@ -161,6 +161,7 @@ int main()
     
 	delete Powers;
 
-    cout << "Test Done" << endl;
+    cout << "Test Complete" << endl;
+
     return 0;	
 }

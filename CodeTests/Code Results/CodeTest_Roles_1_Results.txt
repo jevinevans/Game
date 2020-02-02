@@ -1,0 +1,132 @@
+FireBlast
+- Type: Magic Attack
+- Effect: 78
+
+Stab
+- Type: Physical Attack
+- Effect: 52
+
+Printing Stab to file...Done
+
+Printing FireBlast to file...Done
+
+Stab
+- Type: Physical Attack
+- Effect: 52
+
+0x1f6d00
+0x1f6d00
+0x1f6d00
+Stab has been added to Mage role.
+
+Adding a New Power to the Mage Role.
+New Power Name: 
+New Power Type (Magic(0) or Physical(1)): 
+New Power Effect Number (0 - 1000): 
+Ice Blast has been added to the Mage abilities.
+
+Adding a New Power to the Mage Role.
+New Power Name: 
+New Power Type (Magic(0) or Physical(1)): 
+New Power Effect Number (0 - 1000): 
+Resizing Powers
+Chaos has been added to the Mage abilities.
+
+Adding a New Power to the Warrior Role.
+New Power Name: 
+New Power Type (Magic(0) or Physical(1)): 
+New Power Effect Number (0 - 1000): 
+Strike has been added to the Warrior abilities.
+Stab has been added to Thief role.
+Stab
+- Type: Physical Attack
+- Effect: 52
+
+
+===============================
+Role: Thief
+Armor Type: Light Armor
+-----Role Powers-----
+Power 1: Stab
+- Type: Physical Attack
+- Effect: 99
+
+
+===============================
+Role: Warrior
+Armor Type: Heavy Armor
+-----Role Powers-----
+Power 1: Strike
+- Type: Physical Attack
+- Effect: 59
+
+
+===============================
+Role: Mage
+Armor Type: Medium Armor
+-----Role Powers-----
+Power 1: Stab
+- Type: Physical Attack
+- Effect: 52
+
+Power 2: Ice Blast
+- Type: Magic Attack
+- Effect: 36
+
+Power 3: Chaos
+- Type: Magic Attack
+- Effect: 98
+
+Deleting a Power
+-------------------------
+Powers List
+---------------
+Power 1: Stab
+Power 2: Ice Blast
+Power 3: Chaos
+
+Please choose a number from 1 - 3: 
+Removing Power 1: Stab from the users powers list.
+
+Current Powers List
+---------------
+Power 1: Ice Blast
+Power 2: Chaos
+
+
+2
+Thief
+Light Armor 0
+1 Powers
+Powers List
+---------------
+Power 1: Stab
+Printing Ice Blast to file...Done
+
+Printing Chaos to file...Done
+
+Printed Role: Mage to file.
+Printing Strike to file...Done
+
+Printed Role: Warrior to file.
+Printing Stab to file...Done
+
+1
+Deleting Ability: Stab
+Deleting Role: Mage
+Deleting Power: Ice Blast
+Deleting Ability: Ice Blast
+Deleting Power: Chaos
+Deleting Ability: Chaos
+Deletion Done
+Deleting Role: Warrior
+Deleting Power: Strike
+Deleting Ability: Strike
+Deletion Done
+Deleting Role: Thief
+Deleting Power: Stab
+Deleting Ability: Stab
+Deletion Done
+Linked List Deletion Done
+Test Complete
+Deleting Ability: FireBlast

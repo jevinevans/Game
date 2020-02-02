@@ -2,6 +2,7 @@
 #define ABILITIES_H
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Abilities
@@ -14,7 +15,7 @@ class Abilities
 					0 - Magical
 					1 - Physical
 		*/
-		int damageEffect;
+		int damageEffect; //Damage of attack on enemy
 	public:
 		Abilities(string n, int aT, int aD)
 		{
@@ -27,6 +28,12 @@ class Abilities
 			abilityName = "New Ability";
 			abilityType = -1;
 			damageEffect = 0;
+		}
+        Abilities(Abilities* co)
+		{
+			abilityName = co->abilityName;
+			abilityType = co->abilityType;
+			damageEffect = co->damageEffect;
 		}
 		~Abilities()
 		{

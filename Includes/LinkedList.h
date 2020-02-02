@@ -62,7 +62,7 @@ class LinkedList
 				
 				delNode = head;
 				
-				while(delNode)
+				while(numNodes != 0)
 				{					
 					next = delNode->next;
 					delete delNode;

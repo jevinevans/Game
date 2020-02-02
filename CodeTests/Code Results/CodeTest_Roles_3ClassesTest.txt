@@ -33,3 +33,13 @@ Deleting Power: Stab
 Deleting Ability: Stab
 Deletion Done
 Deleting Role: Mage
+Deleting Power: Stab
+Deleting Ability: Stab
+Deletion Done
+Deleting Role: Warrior
+Deleting Power: Stab
+Deleting Ability: Stab
+Deletion Done
+Deleting Ability: Stab
+Linked List Deletion Done
+Test Complete

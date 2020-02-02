@@ -144,11 +144,13 @@ class Roles
 		}
 		void addPower(Abilities* ability)
 		{
+			Abilities* tmp = new Abilities(ability);
+			
 			if(current == Psize)
 				resize();
 
-			powers[current] = ability;
-			cout << ability->getName() << " has been added to " << this->roleName << " role." << endl;
+			powers[current] = tmp;
+			cout << tmp->getName() << " has been added to " << this->roleName << " role." << endl;
 			current++;
 		}
 		void removePower()
