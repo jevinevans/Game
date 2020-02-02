@@ -1,3 +1,4 @@
 Gold Cap,1,1,3,5,Simple persons hat,0,
 Gold Chestplate,2,1,3,5,Simple persons chestplate,0,
 Gold Sword,0,1,2,5,Simple persons sword,0,
+

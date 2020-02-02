@@ -27,5 +27,6 @@ int main()
 
     delete ability;
     delete Classes;
+    cout << "Done" << endl;
     return 0;
 }
