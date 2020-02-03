@@ -15,7 +15,10 @@ int main()
     Classes->appendNode(new Roles("Warrior",2,1));
 
     for(int i = 1; i <= Classes->getLength(); i++)
+    {    
+        ability->setDamageEffect(ability->getDamageEffect()*i);
         Classes->getNodeValue(i)->addPower(ability);
+    }
 
     for(int i = 1; i <= Classes->getLength(); i++)
     {

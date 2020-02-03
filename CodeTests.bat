@@ -8,15 +8,24 @@ make CodeTests 2> CodeTestErrors.txt
 
 CodeTestErrors.txt
 
-cd ./Tests/Equipment/
-EquipmentTest.exe > "../Code Results/EquipmentResults.txt"
+cd ./CodeTests/Abilities/
+run.bat
 
-cd ../Roles/
-RolesTest.exe < TestCase_Roles.txt > "../Code Results/RolesResults.txt"
+rem NOT MADE YET
+rem cd ../Armor/
+rem run.bat
 
-cd ../Code Results/
-EquipmentResults.txt
-RolesResults.txt
+cd ../Equipment
+run.bat
+
+cd ../Roles/CodeTest_Roles_1
+run.bat
+
+cd ../CodeTest_Roles_2
+run.bat
+
+cd ../../Code Results/
+*.txt
 
 cd ../..
 

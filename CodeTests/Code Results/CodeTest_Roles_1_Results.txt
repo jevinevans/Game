@@ -14,9 +14,9 @@ Stab
 - Type: Physical Attack
 - Effect: 52
 
-0x1f6d00
-0x1f6d00
-0x1f6d00
+0x1d6d00
+0x1d6d00
+0x1d6d00
 Stab has been added to Mage role.
 
 Adding a New Power to the Mage Role.
@@ -109,6 +109,9 @@ Printed Role: Mage to file.
 Printing Strike to file...Done
 
 Printed Role: Warrior to file.
+Printing Stab to file...Done
+
+Printed Role: Thief to file.
 Printing Stab to file...Done
 
 1

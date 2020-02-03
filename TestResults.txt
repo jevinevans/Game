@@ -1,6 +1,7 @@
 Gold Cap
 Gold Chestplate
 Gold Sword
+Gold Sword
 
 
 
@@ -28,6 +29,14 @@ Gold Sword
  Ability Points: 0 ATK
 
 
+Gold Sword
+------------------------ 
+ Type: Broken ItemSword
+ Level: 5
+ Description: Simple persons sword
+ Ability Points: 0 ATK
+
+
 
 The head slot is empty
 The chest slot is empty
@@ -39,7 +48,9 @@ Equipped: Gold Chestplate
 
 Equipped: Gold Sword
 
-1
+Equipped: Gold Sword
+
+2
 ARMOR
 -----------------------
 Head: Gold Cap
@@ -118,6 +129,7 @@ The pants slot is empty
 Opening File: ./Data/TempEList.txt
 Printed Gold Cap
 Printed Gold Chestplate
+Printed Gold Sword
 Printed Gold Sword
 Done
 Printed to File

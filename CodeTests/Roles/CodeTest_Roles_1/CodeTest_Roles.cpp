@@ -128,6 +128,7 @@ int main()
     file.open(RolesFile);
     Mage->printToFile(file);
     Warrior->printToFile(file);
+    Thief->printToFile(file);
     file.close();
 
     //Test issue with printing ability out to file

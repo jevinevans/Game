@@ -40,13 +40,13 @@ Action Items
     +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
 	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to
 
-\\Roles
-	+ Finish test file for Roles
-		- Create new test files
-	+ Work on abilities printing and roles deletion
-		- the main issue is with the abilities deletion portion
+\\Roles - 2/2/2020
+	[+] Finish test file for Roles
+		[-] Create new test files
+	[+] Work on abilities printing and roles deletion
+		[-] the main issue is with the abilities deletion portion
 
-\\Equipment.h
+    [-] Issue solved with adding a copying method to the abilities to just copy the values and create a new pointer with the same values as passed in 2/2/2020
 
 
 --------Questions-------
@@ -89,14 +89,15 @@ Action Items
 	- Validation of IT, WT, and AT can also be done if inputed at a higher level, might consider adding null value -1 to all types to indicate null
 ============================================================================================
 \\Roles.h
-	- 7/23 - New issue discovered that deconstructor is not deleting properly and need to find a way to make sure that objects are being released properly.
-	+- Test file still needs some fixing, there are some bugs that need addressing
-		- Still havin issues with ability printing
+	[-] fixed: 2/2/2020 7/23 - New issue discovered that deconstructor is not deleting properly and need to find a way to make sure that objects are being released properly.
+	[+-] Test file still needs some fixing, there are some bugs that need addressing
+		[-] Still havin issues with ability printing
 
 	- Ability Pointes can not be changed like a static object, have to find a way to fix this, may need an edit option.
     + Add a remove powers method - working on this
     + Finish printToFile method
 	+ Annotate Functions
+	+ Create a List of preexisiting/basic character roles
 ============================================================================================
 \\Armor.h
     + Adding slot checks to dequip method because it fails if slot is empty.
@@ -121,6 +122,7 @@ Action Items
 \\Makefiles
 	- Makefile for each Test
 	- Makefile for Test folder which will compile all subfolder files
+		- Fix issues with not compiling of test values - 2/2/2020
 ============================================================================================
 \\BatFiles
 	Run.bat - runs the current test code
