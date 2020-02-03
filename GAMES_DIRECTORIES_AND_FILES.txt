@@ -1,21 +1,28 @@
 =========================================
-|	Total Directories: 13		|
-|	Files: 58			|
+|	Total Directories: 15		|
+|	Files: 67			|
 =========================================
 
 .\Basic Player Game Info.txt
 .\CodeTestErrors.txt
 .\CodeTests
 .\CodeTests.bat
+.\CodeTests\Abilities
+.\CodeTests\Abilities\AbilitiesList.txt
+.\CodeTests\Abilities\CodeTest_Abilities.cpp
+.\CodeTests\Abilities\makefile
+.\CodeTests\Abilities\run.bat
 .\CodeTests\Armor
 .\CodeTests\Armor\CodeTest_Armor.cpp
 .\CodeTests\Armor\makefile
 .\CodeTests\Code Results
-.\CodeTests\Code Results\EquipmentResults.txt
-.\CodeTests\Code Results\RolesResults.txt
+.\CodeTests\Code Results\AbilitiesResults.txt
+.\CodeTests\Code Results\CodeTest_Roles_1_Results.txt
+.\CodeTests\Code Results\CodeTest_Roles_3ClassesTest.txt
 .\CodeTests\Equipment
 .\CodeTests\Equipment\CodeTest_Equipment.cpp
 .\CodeTests\Equipment\makefile
+.\CodeTests\Equipment\run.bat
 .\CodeTests\Roles
 .\CodeTests\Roles\CodeTest_Roles_1
 .\CodeTests\Roles\CodeTest_Roles_1\Ability.txt
@@ -27,11 +34,9 @@
 .\CodeTests\Roles\CodeTest_Roles_1\run.bat
 .\CodeTests\Roles\CodeTest_Roles_2
 .\CodeTests\Roles\CodeTest_Roles_2\CodeTest_3Classes.cpp
-.\CodeTests\Roles\CodeTest_Roles_2\CodeTest_3Classes.o
-.\CodeTests\Roles\CodeTest_Roles_2\CodeTest_3ClassesTest.exe
-.\CodeTests\Roles\CodeTest_Roles_2\TestCase_3ClassesTest.txt
 .\CodeTests\Roles\CodeTest_Roles_2\makefile
 .\CodeTests\Roles\CodeTest_Roles_2\run.bat
+.\CodeTests\Roles\makefile
 .\CodeTests\_TestFiles
 .\CodeTests\_TestFiles\EquipmentTest.txt
 .\CodeTests\_TestFiles\RolesTest.txt
@@ -40,8 +45,10 @@
 .\Data\EquipmentList.txt
 .\Data\TempEList.txt
 .\Functions.cpp
+.\Functions.o
 .\GAMES_DIRECTORIES_AND_FILES.txt
 .\Includes
+.\Includes\Abilities.h
 .\Includes\Armor.h
 .\Includes\Character.h
 .\Includes\Combat.h
@@ -66,11 +73,15 @@
 .\Logs\2019\Log_2019_January_3.txt
 .\Logs\2019\Log_2019_July_19.txt
 .\Logs\2019\Log_2019_July_23.txt
+.\Logs\2020
+.\Logs\2020\Log_2020_February_2.txt
 .\Makefile
 .\README.md
 .\Run.bat
 .\Scan_Directories.py
 .\Test.cpp
+.\Test.exe
+.\Test.o
 .\TestErrors.txt
 .\TestLogicErrors.txt
 .\TestResults.txt

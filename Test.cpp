@@ -30,7 +30,7 @@ int main()
 		if(inventory->getNodeValue(i)->getIT() == 0)
 			Weps.appendNode(inventory->getNodeValue(i));
 	}
-
+//Test
 /*
 	Issues with putting equipment node value into an array going to try
 	and fix another day need to complete more objects, for now just going 

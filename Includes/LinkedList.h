@@ -23,6 +23,8 @@ class LinkedList
 		ListNode* head;
 		ListNode* tail;
 		int numNodes;
+
+		//Index is 1 based not 0 based
 		
 		ListNode* getNode(int position)
 			{
@@ -60,7 +62,7 @@ class LinkedList
 				
 				delNode = head;
 				
-				while(delNode)
+				while(numNodes != 0)
 				{					
 					next = delNode->next;
 					delete delNode;

@@ -22,6 +22,8 @@
     Total: 27 Test
 */
 
+//Need to find a way to send copies of pointers and not the pointer itself
+
 #include "../../../Includes/Functions.h"
 
 int main()
@@ -46,7 +48,6 @@ int main()
     kfile.close();
 
 	Powers->appendNode(ability);
-	
 
     for(int i = 1; i <= Powers->getLength();i++)
         Powers->getNodeValue(i)->PRINT();
@@ -56,7 +57,18 @@ int main()
 	Roles* Warrior = new Roles("Warrior", 2, 1);
 	Roles* Thief = new Roles("Thief",0,1);
 	
-	Mage->addPower(Powers->getNodeValue(1));
+
+    //-----Testing Pointer Value Copying-----//
+    Abilities* tempS = Powers->getNodeValue(1);
+    Abilities* temp = tempS;
+
+    cout << Powers->getNodeValue(1) << endl;
+    cout << tempS << endl;
+    cout << temp << endl;
+
+    //--------------------------------------//
+
+	Mage->addPower(temp);
 	Mage->addPower();
     Mage->addPower();
 
@@ -66,8 +78,16 @@ int main()
     Thief->setArmorType(0);*/
     Thief->addPower(ability);
 
+    //Test///
+        ability->PRINT();
+        Abilities** test = Thief->getPowers();
+
+    for(int i = 0; i < Thief->getNumPowers(); i++)
+        test[i]->setDamageEffect(99);
+
+
     Thief->PRINT();
-    
+
     Warrior->PRINT();
 
     Mage->PRINT();
@@ -78,6 +98,8 @@ int main()
     cout << Thief->getArmorTypeName() << " " << Thief->getArmorType() << endl;
     cout << Thief->getNumPowers() << " Powers" << endl;
     Thief->printPowers();
+
+   
 
     /* Isssue with LinkedList and print Thief, 
     pows = Mage->getPowers();
@@ -106,6 +128,7 @@ int main()
     file.open(RolesFile);
     Mage->printToFile(file);
     Warrior->printToFile(file);
+    Thief->printToFile(file);
     file.close();
 
     //Test issue with printing ability out to file
@@ -139,6 +162,7 @@ int main()
     
 	delete Powers;
 
-    cout << "Test Done" << endl;
+    cout << "Test Complete" << endl;
+
     return 0;	
 }
