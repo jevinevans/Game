@@ -1,6 +1,6 @@
 		-------------------------------------------------
 		|		 Video Game Log			|
-		|		    07/23/2019			|
+		|		    02/17/2020			|
 		-------------------------------------------------
 
 
@@ -12,23 +12,24 @@
 
 !! Reformat the way that these notes are done
 
-Current Directories = 13
-Current Files = 58
+Current Directories = 15
+Current Files = 75
 
 Changes Made and Work Done
 --------------------------
-- Reorganized test folders for Roles so that each individual test was in its own folder
-- Ran and Updated new Directories Scan
-- Attempted to fix issues with the Roles Test which was a failure and going to rewrite the file all together hoping for better results after review Roles.h deconstructor method
+- Figured out that CodeTests.bat is not really going to work, and needs to be reworked, because when the individual folders run is called, it does not return back to the main bat file. So will work on.
+- Also figured out that the make files for making all of the CodesTest is not working either will probs need to be done in another way,
+and I have removed the call from the function.
 
 Action Items
 ----------------
-+ Inspect Roles deconstructor
 + Test equipment validation method
++ Armor Test needs to be made
++ Work on Character.h
++ Turn Logs into Markdown files
 
 !!!!!!!!!!TO DOs!!!!!!!!!!
 !!!!! - Having issues with pointers if object is deleted its is deleted from everywhere, need to find a way to copy a pointer.
-        This is why the knief is missing in the print statments.
 
 \\Test.cpp
 	+ Fix Test.cpp File, is not printing out everything stops before the dequip, issue might be with the Equipment Array Weps....
@@ -40,14 +41,10 @@ Action Items
     +!- thinking about changing the name of stats and print for Armor class to brief and stats - 1/1/2018
 	+!- I did not like the way that Stats and Print look, either need a full or just a brief so I want to
 
-\\Roles - 2/2/2020
-	[+] Finish test file for Roles
-		[-] Create new test files
-	[+] Work on abilities printing and roles deletion
-		[-] the main issue is with the abilities deletion portion
-
-    [-] Issue solved with adding a copying method to the abilities to just copy the values and create a new pointer with the same values as passed in 2/2/2020
-
+\\Roles.h
+	- Create dataset of roles {mage, warrior, thieft/rouge, healer}
+	- Give a set of powers for each role
+	- Create Read from file function
 
 --------Questions-------
 ? Should Armor have a type to only accept equipment of that type or should character have a armor type and validate equipment of items
@@ -55,7 +52,7 @@ Action Items
 
 \\Project
 	- Added Run.bat to run the test files which will also capture 
-    + Add and Inventory Class
+    + Add an Inventory Class
 		+- Not sure what type of storage it should but the goal is to get it to be a storage unit for adding and reading in equipment. I will want to sort it also, probably by item type.
 ============================================================================================
 \\TEST Files
@@ -65,8 +62,7 @@ Action Items
 	+ Should Print Test Name and Test performing at the top?!
 	+ Each should have it's own folder and a make file to be added to the Test folder make file and .exe needs to be added to CodeTest.bat
 	+ Files to Make:
-		+ CodeTest_Armor.cpp - 1/7/2019
-		+ CodeTest_Roles.cpp - 1/7/2019 - Started
+		+ CodeTest_Armor.cpp - Need to Start
 		+ CodeTest_Character.cpp
 		+ CodeTest_Combat.cpp
 		+ CodeTest_Functions.cpp
@@ -89,15 +85,11 @@ Action Items
 	- Validation of IT, WT, and AT can also be done if inputed at a higher level, might consider adding null value -1 to all types to indicate null
 ============================================================================================
 \\Roles.h
-	[-] fixed: 2/2/2020 7/23 - New issue discovered that deconstructor is not deleting properly and need to find a way to make sure that objects are being released properly.
-	[+-] Test file still needs some fixing, there are some bugs that need addressing
-		[-] Still havin issues with ability printing
-
 	- Ability Pointes can not be changed like a static object, have to find a way to fix this, may need an edit option.
-    + Add a remove powers method - working on this
-    + Finish printToFile method
+	+ Add a remove powers method - working on this
+	+ Finish printToFile method
 	+ Annotate Functions
-	+ Create a List of preexisiting/basic character roles
+	+ Create a List of preexisiting/basic character roles [Data sets]
 ============================================================================================
 \\Armor.h
     + Adding slot checks to dequip method because it fails if slot is empty.
