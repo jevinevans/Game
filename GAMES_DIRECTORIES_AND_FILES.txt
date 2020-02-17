@@ -1,9 +1,10 @@
 =========================================
 |	Total Directories: 15		|
-|	Files: 67			|
+|	Files: 68			|
 =========================================
 
 .\Basic Player Game Info.txt
+.\CodeTest
 .\CodeTestErrors.txt
 .\CodeTests
 .\CodeTests.bat
@@ -17,6 +18,8 @@
 .\CodeTests\Armor\makefile
 .\CodeTests\Code Results
 .\CodeTests\Code Results\AbilitiesResults.txt
+.\CodeTests\Code Results\CodeTest_AbilitiesResults.txt
+.\CodeTests\Code Results\CodeTest_EquipmentResults.txt
 .\CodeTests\Code Results\CodeTest_Roles_1_Results.txt
 .\CodeTests\Code Results\CodeTest_Roles_3ClassesTest.txt
 .\CodeTests\Equipment
@@ -45,7 +48,6 @@
 .\Data\EquipmentList.txt
 .\Data\TempEList.txt
 .\Functions.cpp
-.\Functions.o
 .\GAMES_DIRECTORIES_AND_FILES.txt
 .\Includes
 .\Includes\Abilities.h
@@ -74,14 +76,13 @@
 .\Logs\2019\Log_2019_July_19.txt
 .\Logs\2019\Log_2019_July_23.txt
 .\Logs\2020
+.\Logs\2020\Log_2020_February_17.txt
 .\Logs\2020\Log_2020_February_2.txt
 .\Makefile
 .\README.md
 .\Run.bat
 .\Scan_Directories.py
 .\Test.cpp
-.\Test.exe
-.\Test.o
 .\TestErrors.txt
 .\TestLogicErrors.txt
 .\TestResults.txt

@@ -13,7 +13,7 @@
 !! Reformat the way that these notes are done
 
 Current Directories = 15
-Current Files = 75
+Current Files = 68
 
 Changes Made and Work Done
 --------------------------
@@ -115,6 +115,7 @@ Action Items
 	- Makefile for each Test
 	- Makefile for Test folder which will compile all subfolder files
 		- Fix issues with not compiling of test values - 2/2/2020
+	+ Makefile subfolder issue and will be finding a work arround
 ============================================================================================
 \\BatFiles
 	Run.bat - runs the current test code
