@@ -2,6 +2,9 @@
 #define CHARACTER_H
 
 #include <iostream>
+#include "Roles.h"
+#include "Armor.h"
+
 using namespace std;
 
 class Character
@@ -17,7 +20,7 @@ class Character
 		int DEF;
 		int ATK;
 		int armorType;
-		Armor* body;
+		Armor<Equipment*>* body;
 		Roles* role;
 		
 	public:
@@ -36,9 +39,10 @@ class Character
 			
 			
 		}
-		Character(string name, int gender,  )
+		Character(string name, int gender /*Add the rest of the needed calls*/)
+		{}
 		~Character()
-		
+		{}
 	
 };
 
