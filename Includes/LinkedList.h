@@ -58,19 +58,19 @@ class LinkedList
 			
 			~LinkedList() //THis needs work
 			{
+				cout << "Starting List Deletion...";
 				ListNode* delNode, *next;
 				
 				delNode = head;
-				
 				while(numNodes != 0)
 				{					
-					next = delNode->next;
+					next = delNode->next; 
 					delete delNode;
 					--numNodes;
 					delNode = next;
 				}
 				delete head, tail;
-				cout << "Linked List Deletion Done" << endl;
+				cout << "Done" << endl;
 			}
 			
 			int getLength()

@@ -98,5 +98,6 @@ int main()
 
 	delete Mage;
 	delete inventory;
+	cout << "Test Completed" << endl;
 	return 0;
 }
