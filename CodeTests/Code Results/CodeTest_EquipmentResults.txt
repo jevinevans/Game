@@ -1,7 +1,7 @@
 
 Gold Cap
 ------------------------ 
- Type: Broken ItemMedium Helmet
+ Type: Light Helmet
  Level: 5
  Description: Simple persons hat
  Ability Points: 10 DEF
@@ -9,7 +9,7 @@ Gold Cap
 
 Gold Chestplate
 ------------------------ 
- Type: Broken ItemMedium Chestplate
+ Type: Light Chestplate
  Level: 5
  Description: Simple persons chestplate
  Ability Points: 10 DEF
@@ -17,31 +17,31 @@ Gold Chestplate
 
 Gold Sword
 ------------------------ 
- Type: Broken ItemSword
+ Type: Sword
  Level: 5
  Description: Simple persons sword
- Ability Points: 50 ATK
+ Ability Points: 50 DEF
 
 
 Gold Knief
 ------------------------ 
- Type: Broken ItemKnief
+ Type: Knief
  Level: 6
  Description: Simple persons Knief
- Ability Points: 50 ATK
+ Ability Points: 50 DEF
 
 
 Gold Wand
 ------------------------ 
- Type: Broken ItemWand
+ Type: Wand
  Level: 7
  Description: Simple persons Wand
- Ability Points: 50 ATK
+ Ability Points: 50 DEF
 
 
 Gold Trousers
 ------------------------ 
- Type: Broken ItemMedium Pants
+ Type: Light Pants
  Level: 5
  Description: Simple persons trousers
  Ability Points: 10 DEF
@@ -49,18 +49,18 @@ Gold Trousers
 
 NULL
 ------------------------ 
- Type: 
- Level: -1
+ Type: Broken Item
+ Level: 0
  Description: NULL
- Ability Points: -1 DEF
+ Ability Points: 0 ATK
 
 
 Melitas Wand
 ------------------------ 
- Type: Broken ItemWand
+ Type: Wand
  Level: 6
  Description: Magical wand handed down through the generations of powerful white witches.
- Ability Points: 36 ATK
+ Ability Points: 36 DEF
 
 Printed Gold Cap
 Printed Gold Chestplate

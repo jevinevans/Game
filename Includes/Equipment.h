@@ -16,8 +16,8 @@ class Equipment
 {
 	private:
 		string name;				//Item Name
-		int IT;						//Item Types: 0 - Weapon, 1 - Helmet, 2 - Chest, 3 - Pants,
-		int AT;						//Armor Types: 0 - Light, 1 - Medium, 2 - Heavy
+		int IT;						//Item Types: 0 - NULL , 1 - Helmet, 2 - Chest, 3 - Pants, 4 - Weapon
+		int AT;						//Armor Types: 0 -  NULL, 1 - Light, 2 - Medium, 3 - Heavy
 		int WT;						//Weapon Types: 0 - NULL, 1 - Wand, 2 - Sword, 3 - Knief
 		int level;					//Item Level
 		string desc;				//Description of Item
@@ -32,12 +32,12 @@ class Equipment
 		Equipment()				
 		{
 			name = "NULL";
-			IT = -1;
-			AT = -1;
-			WT = -1;
-			level = -1;
+			IT = 0;
+			AT = 0;
+			WT = 0;
+			level = 0;
 			desc = "NULL";
-			abilityPts = -1;
+			abilityPts = 0;
 		}
 
 /*
@@ -48,9 +48,9 @@ class Equipment
 		Equipment(string na, int it, int at, int wt, int le, string de, int aP)
 		{
 			name = na;
-			IT = validate(it);
-			AT = validate(at);
-			WT = validate(wt);
+			IT = validate(it, 'I');
+			AT = validate(at, 'A');
+			WT = validate(wt, 'W');
 			level = le;
 			desc = de;
 			abilityPts = aP;
@@ -88,7 +88,16 @@ class Equipment
 			string item ="";
 			switch(IT)
 			{
-				case 0:
+				case 1:
+					item += "Helmet";
+					break;
+				case 2:
+					item += "Chestplate";
+					break;
+				case 3:
+					item += "Pants";
+					break;
+				case 4:	//For weapons
 					switch(WT)
 					{
 						case 1:
@@ -105,35 +114,26 @@ class Equipment
 							break;
 					}
 					break;
-				case 1:
-					item += "Helmet";
-					break;
-				case 2:
-					item += "Chestplate";
-					break;
-				case 3:
-					item += "Pants";
-					break;
 				default:
 					item = "";
 					break;
 			}
-			if( IT != 0)
+			if( IT != 4)
 			{
 				switch(AT)
 				{
-					case 0:
+					case 1:
 						item = "Light " + item;
 						break;
-					case 1:
+					case 2:
 						item = "Medium " + item;
 						break;
-					case 2:
+					case 3:
 						item = "Heavy " + item;
 						break;
 				}
 			}
-			if(item.compare(""))
+			if(item.compare("") == 0)
 				cout << "Broken Item";
 			cout << item;
 		}
@@ -160,9 +160,15 @@ class Equipment
 	Parameters:		int (AT, IT, or WT)
 	Description: 	Checks input of AT/IT/WT to make sure that it is within range or returns 
 */
-		int validate(int num)
+		int validate(int num, char kind)
 		{
-			if(num < 0 || num > 3)
+			int max = 0;
+			if (kind == 'I')
+				max = 4;
+			else
+				max = 3;
+
+			if(num < -1 || num > max)
 				return 0;
 			else
 				return num;
@@ -175,15 +181,15 @@ class Equipment
 		void setName(string n){name = n;}
 		void setIT(int i)
 		{
-			IT = validate(i);
+			IT = validate(i, 'I');
 		}
 		void setAT(int a)
 		{
-			AT = validate(a);
+			AT = validate(a, 'A');
 		}
 		void setWT(int w)
 		{
-			WT = validate(w);
+			WT = validate(w, 'W');
 		}
 		void setLevel(int l){level = l;}
 		void setDescription(string d){desc = d;}
