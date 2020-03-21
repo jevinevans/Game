@@ -65,6 +65,8 @@ class LinkedList
 				while(numNodes != 0)
 				{					
 					next = delNode->next; 
+					delNode->value->PRINT();
+					cout << endl;
 					delete delNode;
 					--numNodes;
 					delNode = next;
@@ -134,9 +136,9 @@ class LinkedList
 				
 				if(position == 1)
 				{
-					now = head->next;
-					delete head;
-					head = now;
+					now = head;
+					head = head->next;
+					delete now;
 					numNodes--;
 				}
 				else
