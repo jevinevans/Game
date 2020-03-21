@@ -42,6 +42,14 @@ class Armor
 			
 		}
 		
+		Armor(Armor* arm)
+		{
+			head = arm->head;
+			chest = arm->chest;
+			weapon = arm->weapon;
+			pants = arm->pants;
+		}
+		
 		~Armor()
 		{
 			delete head->value;
