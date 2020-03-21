@@ -40,7 +40,9 @@ class Character
 			
 		}
 		Character(string name, int gender /*Add the rest of the needed calls*/)
-		{}
+		{
+			// When adding a role, char need to get the armor type from the role then create a validation function so that when the character tries to add/equip an item it varifies on the top level versus later on 
+		}
 		~Character()
 		{}
 	
