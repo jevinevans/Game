@@ -1,4 +1,5 @@
-#include "Includes/Functions.h"
+// #include "Includes/Functions.h"
+#include "Functions.h"
 
 void printToFile(LinkedList<Equipment*> *inventory, const char* file)
 {

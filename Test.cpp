@@ -1,4 +1,8 @@
-#include "Functions.h"
+#include "Includes/Functions.h"
+void SECTIONDIV()
+{
+	cout << endl <<  "--------------------------------------" << endl << endl;
+}
 
 int main()
 {	
@@ -6,18 +10,18 @@ int main()
 	LinkedList<Equipment*> *inventory = new LinkedList<Equipment*>();
 	LinkedList<Equipment*> Weps;
 	
-	//Add to CodeTest_Functions.cpp
+	cout << "Reading Equipment nn and printing names..." << endl;
 	readEquipment(inventory, filename);
 	
 	for(int i = 1; i <= inventory->getLength(); i++)
 		cout << inventory->getNodeValue(i)->getName() << endl;
 	
-	cout << endl << endl;
+	SECTIONDIV();
 	
-	for(int i = 1; i <= inventory->getLength();i++)
-		inventory->getNodeValue(i)->PRINT();
+	// Prints FULL DETAIL OF EQUIPEMENT
+	// for(int i = 1; i <= inventory->getLength();i++)
+	// 	inventory->getNodeValue(i)->PRINT();
 
-	cout << endl << endl;
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
 	
@@ -99,5 +103,6 @@ int main()
 	delete Mage;
 	delete inventory;
 	cout << "Test Completed" << endl;
+	cout << "Finished" << endl;
 	return 0;
 }
