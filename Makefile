@@ -12,9 +12,10 @@ Test.o	:	Test.cpp
 Functions.o	:	Functions.cpp
 					g++ -I ./Includes/ -c Functions.cpp
 
-CodeTests	:
-	make -C CodeTests
+CodeTest	:
+	make -C CodeTest
 
 clean		:	Test.exe
 				del *.o
 				del *.exe
+

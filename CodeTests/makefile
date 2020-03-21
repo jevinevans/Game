@@ -1,14 +1,14 @@
 #Add Other Tests
-all:
-	make Equipment
-	make Roles
-	make Abilities
+
+.PHONY: all
+
+all: Equipment Roles Abilities
 
 Equipment:
 	make -C Equipment
 
-Roles	:
+Roles:
 	make -C Roles
 
-Abilities	:
+Abilities:
 	make -C Abilities

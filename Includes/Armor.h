@@ -41,6 +41,14 @@ class Armor
 			head->empty = chest->empty = weapon->empty = pants->empty = true;
 			
 		}
+
+		Armor(Armor* arm)
+		{
+			head = arm->head;
+			chest = arm->chest;
+			weapon = arm->weapon;
+			pants = arm->pants;
+		}
 		
 		~Armor()
 		{
@@ -237,7 +245,8 @@ class Armor
 		void setWeapong(TYPE w){weapon =w;}
 		void setChest(TYPE c){chest = c;}
 		void setPants(TYPE p){pants = p;}
-	
+		
+		string getName(){return "Armor";}
 };
 
 

@@ -244,6 +244,10 @@ class Roles
 		Abilities** getPowers()
 		{
 			return powers;
+		}
+		string getName()
+		{
+			return roleName;
 		}	
 };
 #endif

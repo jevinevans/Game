@@ -9,7 +9,7 @@ make CodeTests 2> CodeTestErrors.txt
 CodeTestErrors.txt
 
 cd ./CodeTests/Abilities/
-run.bat
+REM run.bat
 
 rem NOT MADE YET
 rem cd ../Armor/
