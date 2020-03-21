@@ -41,5 +41,3 @@ Deleting Power: Stab
 Deleting Ability: Stab
 Deletion Done
 Deleting Ability: Stab
-Linked List Deletion Done
-Test Complete
