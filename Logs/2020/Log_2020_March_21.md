@@ -16,6 +16,8 @@ and I have removed the call from the function.
 
 ## Action Items
 ----------------
+- [ ] FIX LINKED LIST
+- [ ] ARMOR Test
 - [x] Test equipment validation method __<3.21.2020>__
 - [ ] Armor Test needs to be made
 - [ ] Work on Character.h
