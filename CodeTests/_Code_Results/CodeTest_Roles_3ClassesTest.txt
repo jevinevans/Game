@@ -1,0 +1,43 @@
+Stab has been added to Thief role.
+Stab has been added to Mage role.
+Stab has been added to Warrior role.
+
+===============================
+Role: Thief
+Armor Type: Light Armor
+-----Role Powers-----
+Power 1: Stab
+- Type: Physical Attack
+- Effect: 52
+
+
+===============================
+Role: Mage
+Armor Type: Medium Armor
+-----Role Powers-----
+Power 1: Stab
+- Type: Physical Attack
+- Effect: 104
+
+
+===============================
+Role: Warrior
+Armor Type: Heavy Armor
+-----Role Powers-----
+Power 1: Stab
+- Type: Physical Attack
+- Effect: 312
+
+Deleting Role: Thief
+Deleting Power: Stab
+Deleting Ability: Stab
+Deletion Done
+Deleting Role: Mage
+Deleting Power: Stab
+Deleting Ability: Stab
+Deletion Done
+Deleting Role: Warrior
+Deleting Power: Stab
+Deleting Ability: Stab
+Deletion Done
+Deleting Ability: Stab

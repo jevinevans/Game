@@ -4,6 +4,6 @@ cls
 
 make
 
-CodeTest_Abilities.exe > "..\Code Results\CodeTest_AbilitiesResults.txt"
+CodeTest_Abilities.exe > "..\_Code_Results\CodeTest_AbilitiesResults.txt"
 
-"..\Code Results\CodeTest_AbilitiesResults.txt"
+"..\_Code_Results\CodeTest_AbilitiesResults.txt"
