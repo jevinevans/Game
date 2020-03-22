@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 class Equipment
@@ -55,9 +56,10 @@ class Equipment
 			desc = de;
 			abilityPts = aP;
 		}
-		
+
 		Equipment(Equipment* equ)
 		{
+			cout << "Equipment Copy Constructor" << endl;
 			name = equ->name;
 			IT = equ->IT;
 			AT = equ->AT;
@@ -74,7 +76,7 @@ class Equipment
 */		
 		void PRINT()
 		{
-			cout << "\n" << getName();
+			cout << "\n\t" << getName();
 			cout << "\n------------------------ ";
 			cout << "\n Type: ";
 			getItemType();
@@ -82,7 +84,7 @@ class Equipment
 			cout << "\n Description: " << getDescription();
 			cout << "\n Ability Points: " << getAbilityPts();
 			
-			if(IT == 0)
+			if(IT == 4)
 				cout << " ATK" << endl << endl;
 			else
 			cout << " DEF" << endl << endl;
@@ -129,7 +131,7 @@ class Equipment
 					item = "";
 					break;
 			}
-			if( IT != 4)
+			if(IT != 4)
 			{
 				switch(AT)
 				{
@@ -205,7 +207,19 @@ class Equipment
 		void setLevel(int l){level = l;}
 		void setDescription(string d){desc = d;}
 		void setAbilityPts(int a){abilityPts = a;}
+		
+		string getStats() const
+		{
+			string str = getName() + " (" + to_string(getLevel()) + ") - " + to_string(getAbilityPts());
 
+			if(IT != 4)
+				str += " DEF";
+			else
+			{
+				str += " ATK";
+			}
+			return str;
+		}
 /*
 	Function:		Getters
 	Parameters:		NULL
@@ -218,6 +232,7 @@ class Equipment
 		int getLevel() const {return level;}
 		string getDescription() const {return desc;}
 		int getAbilityPts() const {return abilityPts;}
+		
 	
 	
 	

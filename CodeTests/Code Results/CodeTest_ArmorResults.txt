@@ -10,7 +10,9 @@ The pants slot is empty
 
 Testing Equip Method
 ----------------------
+Equipment Copy Constructor
 Equipped: Brave Cap
+Equipment Copy Constructor
 Equipped: Brave Chestplate
 
 ----------------------
@@ -21,7 +23,9 @@ Chest: Brave Chestplate (5) - 10 DEF
 Weapon: Empty
 Pants: Empty
 
+Equipment Copy Constructor
 Equipped: Brave Sword
+Equipment Copy Constructor
 Equipped: Brave Trousers
 
 Testing Print Method
@@ -72,6 +76,7 @@ Testing dequip and isFull Method 3
 ----------------------
 Dequipped: Brave Sword
 The weapon slot is empty
+Equipment Copy Constructor
 Equipped: Charming Wand
 !!!---Fully Equipped---!!!
 
@@ -89,38 +94,3 @@ Pants: Brave Trousers (5) - 10 DEF
 
 Testing Copy Constructor
 ----------------------
-
-Second Armor
-
-----------------------
-|     ARMOR STATS    |
-----------------------
-Head: Brave Cap (5) - 10 DEF
-Chest: Brave Chestplate (5) - 10 DEF
-Weapon: Charming Wand (7) - 50 ATK
-Pants: Brave Trousers (5) - 10 DEF
-
-
-Changing Second Armor and Printing Both Armors
-Equipped: Brave Sword
-Armor 2
-
-----------------------
-|     ARMOR STATS    |
-----------------------
-Head: Brave Cap (5) - 10 DEF
-Chest: Brave Chestplate (5) - 10 DEF
-Weapon: Brave Sword (5) - 50 ATK
-Pants: Brave Trousers (5) - 10 DEF
-
-Armor 1
-
-----------------------
-|     ARMOR STATS    |
-----------------------
-Head: Brave Cap (5) - 10 DEF
-Chest: Brave Chestplate (5) - 10 DEF
-Weapon: Empty
-Pants: Brave Trousers (5) - 10 DEF
-
------ARMOR TEST COMPLETED-----
