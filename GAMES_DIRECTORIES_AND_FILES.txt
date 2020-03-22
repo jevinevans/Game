@@ -1,6 +1,6 @@
 =========================================
 |	Total Directories: 15		|
-|	Files: 69			|
+|	Files: 74			|
 =========================================
 
 .\Basic Player Game Info.txt
@@ -15,13 +15,10 @@
 .\CodeTests\Abilities\run.bat
 .\CodeTests\Armor
 .\CodeTests\Armor\CodeTest_Armor.cpp
+.\CodeTests\Armor\CodeTest_Armor.exe
+.\CodeTests\Armor\CodeTest_Armor.o
 .\CodeTests\Armor\makefile
-.\CodeTests\Code Results
-.\CodeTests\Code Results\AbilitiesResults.txt
-.\CodeTests\Code Results\CodeTest_AbilitiesResults.txt
-.\CodeTests\Code Results\CodeTest_EquipmentResults.txt
-.\CodeTests\Code Results\CodeTest_Roles_1_Results.txt
-.\CodeTests\Code Results\CodeTest_Roles_3ClassesTest.txt
+.\CodeTests\Armor\run.bat
 .\CodeTests\Equipment
 .\CodeTests\Equipment\CodeTest_Equipment.cpp
 .\CodeTests\Equipment\makefile
@@ -40,6 +37,13 @@
 .\CodeTests\Roles\CodeTest_Roles_2\makefile
 .\CodeTests\Roles\CodeTest_Roles_2\run.bat
 .\CodeTests\Roles\makefile
+.\CodeTests\_Code_Results
+.\CodeTests\_Code_Results\AbilitiesResults.txt
+.\CodeTests\_Code_Results\CodeTest_AbilitiesResults.txt
+.\CodeTests\_Code_Results\CodeTest_ArmorResults.txt
+.\CodeTests\_Code_Results\CodeTest_EquipmentResults.txt
+.\CodeTests\_Code_Results\CodeTest_Roles_1_Results.txt
+.\CodeTests\_Code_Results\CodeTest_Roles_3ClassesTest.txt
 .\CodeTests\_TestFiles
 .\CodeTests\_TestFiles\EquipmentTest.txt
 .\CodeTests\_TestFiles\RolesTest.txt
@@ -79,6 +83,7 @@
 .\Logs\2020\Log_2020_February_17.txt
 .\Logs\2020\Log_2020_February_2.txt
 .\Logs\2020\Log_2020_March_21.md
+.\Logs\2020\Log_2020_March_22.md
 .\Makefile
 .\README.md
 .\Run.bat
