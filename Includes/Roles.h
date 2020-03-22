@@ -40,20 +40,14 @@ class Roles
 		void removePower(int n)
 		{
 			Abilities* abs;
-			
 			cout << "\nRemoving Power "<< n << ": " << powers[n - 1]->getName() << " from the users powers list.";
-
 			abs = powers[n-1];
-
 			for(int i = n - 1; i < current - 1; i++)
 			{
 				powers[i] = powers[i+1];
 			}
-
 			powers[current-1] = NULL;
-			
 			current--;
-
 		}
 	public:
 		Roles(string rn, int aT, int s)
