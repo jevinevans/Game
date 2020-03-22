@@ -44,7 +44,7 @@ int main()
 	for(int i = 1; i <= inventory->getLength(); i++)
 	{
 		body.equip(inventory->getNodeValue(i));
-		if(inventory->getNodeValue(i)->getIT() == 0)
+		if(inventory->getNodeValue(i)->getIT() == 4)
 			Weps.appendNode(inventory->getNodeValue(i));
 	}
 //Test
@@ -75,7 +75,7 @@ int main()
 		Weps[i]->PRINT();
 	cout << "------------------" << endl; 
 */
-	cout << Weps.getLength() << endl;
+	cout << "Weapons Length: " << Weps.getLength() << endl;
 
 	body.PRINT();
 	
