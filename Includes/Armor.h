@@ -44,16 +44,19 @@ class Armor
 			
 		}
 
-		Armor(Armor* arm)
+		Armor(Armor<TYPE>* arm)
 		{
 			cout << "Start";
-			head->value = arm->head->value;
-			cout << "head";
-			chest->value = arm->chest->value;
-			weapon->value = arm->weapon->value;
-			pants->value = arm->pants->value;
-
-			head->empty = chest->empty = weapon->empty = pants->empty = false;
+			head = new Slot;
+			chest = new Slot;
+			weapon = new Slot;
+			pants = new Slot;
+			
+			head->empty = chest->empty = weapon->empty = pants->empty = true;
+			equip(arm->head->value);
+			equip(arm->chest->value);
+			equip(arm->weapon->value);
+			equip(arm->pants->value);
 		}
 		
 		~Armor()
@@ -102,23 +105,7 @@ class Armor
 			}
 			cout << "Equipped: " << temp->value->getName() << endl;
 		}
-		void isFull()			//not working and will not print off 
-		{
-			if(!head->isEmpty() and !chest->isEmpty() and !weapon->isEmpty() and !pants->isEmpty())
-				cout << "!!!---Fully Equipped---!!!" << endl;
-			else
-			{
-				if(head->isEmpty())
-					cout << "The head slot is empty" << endl;
-				if(chest->isEmpty())
-					cout << "The chest slot is empty" << endl;
-				if(weapon->isEmpty())
-					cout << "The weapon slot is empty" << endl;
-				if(pants->isEmpty())
-					cout << "The pants slot is empty" << endl;
-			}
-		}
-
+		
 		void dequip(int o, bool print)
 		{
 			if(o > ITEMMAX)

@@ -17,8 +17,6 @@ int main()
     cout << "ARMOR TEST" << endl << "----------------------" << endl;
     Armor<Equipment*>* myBody = new Armor<Equipment*>();
 
-    cout << "\nTesting isFull Method" << "\n----------------------" << endl;
-    myBody->isFull();
 
     Equipment* hat = new Equipment("Brave Cap", 1, 1, 0, 5, "Simple persons hat", 10);
 	Equipment* shirt = new Equipment("Brave Chestplate", 2, 1, 0, 5, "Simple persons chestplate", 10);
@@ -40,16 +38,12 @@ int main()
     myBody->PRINT();
 
     delete hat;
+    delete shirt;
 
-    cout << "\nTesting isFull Method 2" << "\n----------------------" << endl;
-    myBody->isFull();
-
-    cout << "\nTesting dequip and isFull Method 3" << "\n----------------------" << endl;
+    delete pants;
     // Removing Items
     myBody->dequip(4, true);
-    myBody->isFull();
     myBody->equip(weapon3);
-    myBody->isFull();
     
     cout << "\nTesting stats Method" << "\n----------------------" << endl;
     myBody->stats();
@@ -62,17 +56,16 @@ int main()
 
     cout << "\nChanging Second Armor and Printing Both Armors" << endl;
     myBody2->equip(weapon1);
+    myBody->dequip(2, true);
 
     cout << "Armor 2" << endl;
     myBody2->stats();
     cout << "Armor 1" << endl;
     myBody->stats();
-    
-
-    delete shirt;
-    delete weapon1;
+        delete weapon1;
     delete weapon3;
-    delete pants;
+
+    
     delete myBody;
 
     cout << "-----ARMOR TEST COMPLETED-----" << endl;
