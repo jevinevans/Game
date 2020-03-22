@@ -56,6 +56,17 @@ class Equipment
 			abilityPts = aP;
 		}
 		
+		Equipment(Equipment* equ)
+		{
+			name = equ->name;
+			IT = equ->IT;
+			AT = equ->AT;
+			WT = equ->WT;
+			level = equ->level;
+			desc = equ->desc;
+			abilityPts = equ->abilityPts;
+		}
+		
 /*
 	Function:		PRINT
 	Parameters:		NULL
