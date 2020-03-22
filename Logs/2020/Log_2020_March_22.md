@@ -17,7 +17,7 @@ and I have removed the call from the function.
 
 ## Action Items
 ----------------
-- [ ] FIX LINKED LIST
+- [x] FIX LINKED LIST __<3.22.2020>__ 
 - [x] ARMOR Test __<3.22.2020>__ 
 - [x] Armor Test needs to be made __<3.22.2020>__ 
 - [ ] Work on Character.h
@@ -31,9 +31,10 @@ and I have removed the call from the function.
 
 ## TO DO's
 -----------
-- [ ] Update README to explain what code files
+- [ ] Update README to explain what code files _3.21.2020_
 - [x] Having issues with pointers if object is deleted its is deleted from everywhere, need to find a way to copy a pointer. __<3.22.2020>__ 
   - [x] Create copy constructors __<3.22.2020>__ 
+  - [ ] Create stats class and add to all items (equipment, role, character) _3.22.2020_
 
 
 #### Test.cpp
