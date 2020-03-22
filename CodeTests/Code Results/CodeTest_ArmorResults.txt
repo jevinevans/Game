@@ -1,0 +1,126 @@
+ARMOR TEST
+----------------------
+
+Testing isFull Method
+----------------------
+The head slot is empty
+The chest slot is empty
+The weapon slot is empty
+The pants slot is empty
+
+Testing Equip Method
+----------------------
+Equipped: Brave Cap
+Equipped: Brave Chestplate
+
+----------------------
+|     ARMOR STATS    |
+----------------------
+Head: Brave Cap (5) - 10 DEF
+Chest: Brave Chestplate (5) - 10 DEF
+Weapon: Empty
+Pants: Empty
+
+Equipped: Brave Sword
+Equipped: Brave Trousers
+
+Testing Print Method
+----------------------
+
+-------------------------
+|   ARMOR DESCRIPTION   |
+-------------------------
+	HEAD
+	Brave Cap
+------------------------ 
+ Type: Light Helmet
+ Level: 5
+ Description: Simple persons hat
+ Ability Points: 10 DEF
+
+	CHEST
+	Brave Chestplate
+------------------------ 
+ Type: Light Chestplate
+ Level: 5
+ Description: Simple persons chestplate
+ Ability Points: 10 DEF
+
+	WEAPON
+	Brave Sword
+------------------------ 
+ Type: Sword
+ Level: 5
+ Description: Simple persons sword
+ Ability Points: 50 ATK
+
+	PANTS
+	Brave Trousers
+------------------------ 
+ Type: Light Pants
+ Level: 5
+ Description: Simple persons trousers
+ Ability Points: 10 DEF
+
+
+
+Testing isFull Method 2
+----------------------
+!!!---Fully Equipped---!!!
+
+Testing dequip and isFull Method 3
+----------------------
+Dequipped: Brave Sword
+The weapon slot is empty
+Equipped: Charming Wand
+!!!---Fully Equipped---!!!
+
+Testing stats Method
+----------------------
+
+----------------------
+|     ARMOR STATS    |
+----------------------
+Head: Brave Cap (5) - 10 DEF
+Chest: Brave Chestplate (5) - 10 DEF
+Weapon: Charming Wand (7) - 50 ATK
+Pants: Brave Trousers (5) - 10 DEF
+
+
+Testing Copy Constructor
+----------------------
+
+Second Armor
+
+----------------------
+|     ARMOR STATS    |
+----------------------
+Head: Brave Cap (5) - 10 DEF
+Chest: Brave Chestplate (5) - 10 DEF
+Weapon: Charming Wand (7) - 50 ATK
+Pants: Brave Trousers (5) - 10 DEF
+
+
+Changing Second Armor and Printing Both Armors
+Equipped: Brave Sword
+Armor 2
+
+----------------------
+|     ARMOR STATS    |
+----------------------
+Head: Brave Cap (5) - 10 DEF
+Chest: Brave Chestplate (5) - 10 DEF
+Weapon: Brave Sword (5) - 50 ATK
+Pants: Brave Trousers (5) - 10 DEF
+
+Armor 1
+
+----------------------
+|     ARMOR STATS    |
+----------------------
+Head: Brave Cap (5) - 10 DEF
+Chest: Brave Chestplate (5) - 10 DEF
+Weapon: Empty
+Pants: Brave Trousers (5) - 10 DEF
+
+-----ARMOR TEST COMPLETED-----
