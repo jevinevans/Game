@@ -59,7 +59,6 @@ class Equipment
 
 		Equipment(Equipment* equ)
 		{
-			cout << "Equipment Copy Constructor" << endl;
 			name = equ->name;
 			IT = equ->IT;
 			AT = equ->AT;
