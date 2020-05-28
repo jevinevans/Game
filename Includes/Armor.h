@@ -23,8 +23,7 @@ class Armor
 					return true;
 				}
 				else
-					return false;
-					
+					return false;	
 			}
 		};
 		Slot* head;

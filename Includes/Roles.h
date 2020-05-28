@@ -58,6 +58,20 @@ class Roles
 			powers = new Abilities*[Psize];
 			current = 0;
 		}
+		Roles(Roles* oR)
+		{
+			this->roleName = oR->roleName;
+			this->armorType = oR->armorType;
+			this->Psize = oR->Psize;
+			this->current = oR->current;
+			this->powers = new Abilities*[this->Psize];
+
+			for(int i = 0; i < this->current; i++)
+			{
+				this->powers[i] = new Abilities(oR->powers[i]);
+			}
+
+		}
 		Roles()
 		{
 			roleName = "New Role";

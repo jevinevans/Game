@@ -53,7 +53,14 @@ class Character
 		{
 
 		}
-	
+		bool addRole()
+		{
+
+		}
+		bool addFullArmor()
+		{
+			
+		}
 };
 
 
