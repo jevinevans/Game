@@ -75,7 +75,7 @@ class Stats
         //HEAL/RESTORE
         void heal(double percentage)
         {
-            if
+            // if
         }
 
         //PRINT
