@@ -1,2 +1,66 @@
+Blank Construct
 HP: 230/500
-MP: 250/250
+MP: 250/300
+STR: 50
+SPD: 33
+INT: 40
+
+Full Consytruct
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+70% Increase of Full -> Copy
+HP: 781/781
+MP: 468/468
+STR: 77
+SPD: 51
+INT: 62
+
+
+Point Damage Test: 20pt
+HP: 80/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+Partial Heal Test: 10pt
+HP: 90/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Percentage Damage Test: 50%
+HP: 45/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Full Percentage Heal Test: 100%
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Full Heal Test: 1000pts heal after 75pt damage
+HP: 25/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+

@@ -36,11 +36,11 @@ class Stats
             this->intel = 0;
         }
 
-        Stats(int hn, int hm, int mn, int mm, int str, int spd, int intel)
+        Stats(int hm, int mm, int str, int spd, int intel)
         {
-            this->hp_max = hn;
+            this->hp_max = hm;
             this->hp_now = hm;
-            this->mp_max = mn;
+            this->mp_max = mm;
             this->mp_now = mm;
             this->strength = str;
             this->speed = spd;
@@ -68,20 +68,77 @@ class Stats
 
             percentage += 1;
 
-            // this->getHPMAX           
-
+            this->hp_max *= percentage;
+            this->hp_now = this->hp_max;
+            this->mp_max *= percentage;
+            this->mp_now = this->mp_max;
+            this->strength *= percentage;
+            this->speed *= percentage;
+            this->intel *= percentage;
         }
 
-        //HEAL/RESTORE
-        void heal(double percentage)
+        //Stats Actions and Uses
+        void damage(double cost, bool percentage)
         {
-            // if
+            if(percentage)
+            {
+                while(cost > 1)
+                {
+                    cost /= 10;
+                }
+
+                this->hp_now = this->hp_now - this->hp_now*cost;
+            }
+            else
+            {
+                this->hp_now -= cost;
+            }
+
+            if(this->hp_now < 0)
+                this->hp_now = 0;
+        }
+
+        void heal(double cost, bool percentage)
+        {
+            if(percentage)
+            {
+                if(cost == 100)
+                    this->hp_now = this->hp_max;
+                else
+                {
+                    while(cost > 1)
+                    {
+                        cost /= 10;
+                    }
+                    cost += 1;
+                    this->hp_now *= cost;
+                }
+            }
+            else
+            {
+                this->hp_now += cost;
+            }
+
+            if(this->hp_now > this->hp_max)
+                this->hp_now = this->hp_max;            
+        }
+
+        void mpUse(double cost, bool percentage)
+        {
+
+        }
+        void mpRestore(double cost, bool percentage)
+        {
+
         }
 
         //PRINT
         void PRINT()
         {
-
+            cout << "HP: " << this->getHPNOW() << "/" << this->getHPMAX() << endl;  
+            cout << "MP: " << this->getMPNOW() << "/" << this->getMPMAX() << endl;
+            cout << "STR: " << this->getStrength() << "\nSPD: " << this->getSpeed() << "\nINT: " << this->getIntel(); 
+            cout << endl << endl;
         }
 
         // Setters
