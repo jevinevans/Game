@@ -2,7 +2,7 @@
 
 .PHONY: all
 
-all: Equipment Roles Abilities
+all: Equipment Abilities Armor Stats Roles
 
 Equipment:
 	make -C Equipment
@@ -12,3 +12,9 @@ Roles:
 
 Abilities:
 	make -C Abilities
+
+Armor:
+	make -C Armor
+
+Stats:
+	make -C Stats

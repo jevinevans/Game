@@ -60,12 +60,19 @@ class Stats
 
         //Level UP
         void levelup(double percentage)
-        {
-            while(percentage > 1)
+        {   
+            if(percentage == 100)
             {
-                percentage /= 10;
+                percentage = 1;
             }
-
+            else
+            {
+                while(percentage > 1)
+                {
+                    percentage /= 10;
+                }
+            }
+            
             percentage += 1;
 
             this->hp_max *= percentage;
@@ -125,11 +132,46 @@ class Stats
 
         void mpUse(double cost, bool percentage)
         {
+             if(percentage)
+            {
+                while(cost > 1)
+                {
+                    cost /= 10;
+                }
 
+                this->mp_now = this->mp_now - this->mp_now*cost;
+            }
+            else
+            {
+                this->mp_now -= cost;
+            }
+
+            if(this->mp_now < 0)
+                this->mp_now = 0;
         }
         void mpRestore(double cost, bool percentage)
         {
+             if(percentage)
+            {
+                if(cost == 100)
+                    this->mp_now = this->mp_max;
+                else
+                {
+                    while(cost > 1)
+                    {
+                        cost /= 10;
+                    }
+                    cost += 1;
+                    this->mp_now *= cost;
+                }
+            }
+            else
+            {
+                this->mp_now += cost;
+            }
 
+            if(this->mp_now > this->mp_max)
+                this->mp_now = this->mp_max;    
         }
 
         //PRINT
@@ -139,6 +181,30 @@ class Stats
             cout << "MP: " << this->getMPNOW() << "/" << this->getMPMAX() << endl;
             cout << "STR: " << this->getStrength() << "\nSPD: " << this->getSpeed() << "\nINT: " << this->getIntel(); 
             cout << endl << endl;
+        }
+
+        int* getAllStats()
+        {
+            int* array = new int[7];
+            array[0] = this->hp_max; 
+            array[1] = this->hp_now;
+            array[2] = this->mp_max;
+            array[3] = this->mp_now;
+            array[4] = this->strength; 
+            array[5] = this->speed;
+            array[6] = this->intel;
+            return array;
+        }
+
+        void addStats(Stats* other)
+        {
+            this->hp_max += other->hp_max;
+            this->hp_now += other->hp_now;
+            this->mp_max += other->mp_max;
+            this->mp_now += other->mp_now;
+            this->strength += other->strength;
+            this->speed += other->speed;
+            this->intel += other->intel;
         }
 
         // Setters
