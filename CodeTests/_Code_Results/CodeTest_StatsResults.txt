@@ -2,19 +2,22 @@ Testing Stats Class
 
 Testing Constructors: Blank, Full, and Copy
 
-Blank ConstructHP: 230/500
+Blank Construct
+HP: 230/500
 MP: 250/300
 STR: 50
 SPD: 33
 INT: 40
 
-Full ConsytructHP: 100/100
+Full Consytruct
+HP: 100/100
 MP: 150/150
 STR: 60
 SPD: 43
 INT: 52
 
-70% Increase of Full -> CopyHP: 781/781
+70% Increase of Full -> Copy
+HP: 781/781
 MP: 468/468
 STR: 77
 SPD: 51

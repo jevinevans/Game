@@ -23,9 +23,9 @@ int main()
     copyConstr->levelup(.25);
     copyConstr->levelup(.25);
 
-    cout << "\nBlank Construct"; blankConstr->PRINT();
-    cout << "Full Consytruct"; fullConstr->PRINT();
-    cout << "70% Increase of Full -> Copy"; copyConstr->PRINT();
+    cout << "\nBlank Construct\n"; blankConstr->PRINT();
+    cout << "Full Consytruct\n"; fullConstr->PRINT();
+    cout << "70% Increase of Full -> Copy\n"; copyConstr->PRINT();
 
     cout << "\nBegin damage and heal Tests\n";
     //HP TESTS  
