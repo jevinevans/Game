@@ -1,10 +1,9 @@
 =========================================
-|	Total Directories: 16		|
-|	Files: 84			|
+|	Total Directories: 19			|
+|	Files: 84					|
 =========================================
 
 .\Basic Player Game Info.txt
-.\CodeTest
 .\CodeTestErrors.txt
 .\CodeTests
 .\CodeTests.bat
@@ -21,6 +20,11 @@
 .\CodeTests\Equipment\CodeTest_Equipment.cpp
 .\CodeTests\Equipment\makefile
 .\CodeTests\Equipment\run.bat
+.\CodeTests\LinkedList
+.\CodeTests\LinkedList\Equipment
+.\CodeTests\LinkedList\Equipment\CodeTest_LinkList_Equipement.cpp
+.\CodeTests\LinkedList\Roles
+.\CodeTests\LinkedList\Roles\CodeTest_LinkList_Roles.cpp
 .\CodeTests\Roles
 .\CodeTests\Roles\CodeTest_Roles_1
 .\CodeTests\Roles\CodeTest_Roles_1\Ability.txt
@@ -55,13 +59,10 @@
 .\Data\EquipmentList.txt
 .\Data\TempEList.txt
 .\FUNCLG.cpp
-.\FUNCLG.exe
-.\FUNCLG.o
 .\FUNCLG_Errors.txt
 .\FUNCLG_Make_Errors.txt
 .\FUNCLG_Results.txt
 .\Functions.cpp
-.\Functions.o
 .\GAMES_DIRECTORIES_AND_FILES.txt
 .\Includes
 .\Includes\Abilities.h
@@ -93,12 +94,14 @@
 .\Logs\2020
 .\Logs\2020\Log_2020_February_17.txt
 .\Logs\2020\Log_2020_February_2.txt
+.\Logs\2020\Log_2020_June_26.md
 .\Logs\2020\Log_2020_March_21.md
 .\Logs\2020\Log_2020_March_22.md
 .\Logs\2020\Log_2020_May_24.md
 .\Logs\2020\Log_2020_May_25.md
 .\Logs\2020\Log_2020_May_28.md
 .\Logs\2020\Log_2020_May_29.md
+.\Logs\2020\Log_2020_May_30.md
 .\Makefile
 .\README.md
 .\Run.bat
