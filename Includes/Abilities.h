@@ -31,9 +31,9 @@ class Abilities
 		}
         Abilities(Abilities* co)
 		{
-			abilityName = co->abilityName;
-			abilityType = co->abilityType;
-			damageEffect = co->damageEffect;
+			this->abilityName = co->abilityName;
+			this->abilityType = co->abilityType;
+			this->damageEffect = co->damageEffect;
 		}
 		~Abilities()
 		{

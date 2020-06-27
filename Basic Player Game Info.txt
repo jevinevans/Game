@@ -21,6 +21,7 @@ Classes:
 					
 	Map: will be the board that a player will play through that has battles and what not
 		Create a Map - Some spaces are safe and others have monster that may either need to be spawened based on roll type for moving or predefined in initial set up
+		Use a linked list  
 	Inventory - 
 		- Sorts 	- by item type
 					- by level

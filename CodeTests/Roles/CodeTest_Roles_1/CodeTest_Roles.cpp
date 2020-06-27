@@ -65,7 +65,7 @@ int main()
     cout << Powers->getNodeValue(1) << endl;
     cout << tempS << endl;
     cout << temp << endl;
-
+    cout << "All of these point to the same object and are not new objects. This resulted in the need for a copy constructor\n" << endl;
     //--------------------------------------//
 
 	Mage->addPower(temp);

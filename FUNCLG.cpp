@@ -1,4 +1,5 @@
 #include "Includes/Functions.h"
+
 void SECTIONDIV()
 {
 	cout << endl <<  "--------------------------------------" << endl << endl;
@@ -6,11 +7,25 @@ void SECTIONDIV()
 
 int main()
 {	
+
+	LinkedList<int>* numTest = new LinkedList<int>();
+
+	numTest->appendNode(25);
+	numTest->appendNode(50);
+	numTest->appendNode(90);
+	numTest->appendNode(40);
+	numTest->appendNode(30);
+	numTest->appendNode(75);
+	cout << endl;
+	numTest->display();
+
+	delete numTest;
+
 	const char* filename= "./Data/TempEList.txt";
 	LinkedList<Equipment*> *inventory = new LinkedList<Equipment*>();
 	LinkedList<Equipment*> Weps;
 	
-	cout << "Reading Equipment nn and printing names..." << endl;
+	cout << "Reading Equipment in and printing names..." << endl;
 	readEquipment(inventory, filename);
 	
 	for(int i = 1; i <= inventory->getLength(); i++)
@@ -24,14 +39,13 @@ int main()
 
 	//Armor Class Test of Equipment
 	Armor<Equipment*> body;
-	
-	body.isFull();
+
 	//Loading Equipment into Armor
 
 	for(int i = 1; i <= inventory->getLength(); i++)
 	{
 		body.equip(inventory->getNodeValue(i));
-		if(inventory->getNodeValue(i)->getIT() == 0)
+		if(inventory->getNodeValue(i)->getIT() == 4)
 			Weps.appendNode(inventory->getNodeValue(i));
 	}
 //Test
@@ -62,11 +76,11 @@ int main()
 		Weps[i]->PRINT();
 	cout << "------------------" << endl; 
 */
-	cout << Weps.getLength() << endl;
+	cout << "Weapons Length: " << Weps.getLength() << endl;
 
 	body.PRINT();
 	
-	body.dequip(0); //12/29/18 - Need to change the way things are dequiped because when i delete it, it is deleted from the LinkedList.
+	body.dequip(0, true); //12/29/18 - Need to change the way things are dequiped because when i delete it, it is deleted from the LinkedList.
 	
 	body.PRINT();
 	
@@ -79,12 +93,10 @@ int main()
 
 	body.stats();
 	
-	body.isFull();	//not printing out needs to be worked on  ++++++++++
-	body.dequip(4);
+	body.dequip(4, true);
 	body.PRINT();
-	body.dequip(3);
+	body.dequip(3, true);
 	body.PRINT();
-	body.isFull();
 	
 	//inventory->getNodeValue(4)->PRINT();
 

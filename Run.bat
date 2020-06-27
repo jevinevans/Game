@@ -2,9 +2,8 @@ make clean
 
 cls
 
-make 2> TestErrors.txt
+make 2> FUNCLG_Make_Errors.txt
 
-Test.exe > TestResults.txt 2>TestLogicErrors.txt
+FUNCLG.exe > FUNCLG_Results.txt 2> FUNCLG_Errors.txt
 
-TestErrors.txt
-TestResults.txt
+FUNCLG_Results.txt

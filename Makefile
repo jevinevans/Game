@@ -1,13 +1,13 @@
 #Makefile For Test
 
-all	:		Test
+all	:		FUNCLG
 
-Test	:		Test.o Functions.o
-			g++ -o Test.exe Test.o Functions.o
+FUNCLG	:		FUNCLG.o Functions.o
+			g++ -o FUNCLG.exe FUNCLG.o Functions.o
 				
 				
-Test.o	:	Test.cpp
-				g++ -I ./Includes/ -c Test.cpp
+FUNCLG.o	:	FUNCLG.cpp
+				g++ -I ./Includes/ -c FUNCLG.cpp
 
 Functions.o	:	Functions.cpp
 					g++ -I ./Includes/ -c Functions.cpp
@@ -15,7 +15,7 @@ Functions.o	:	Functions.cpp
 CodeTest	:
 	make -C CodeTest
 
-clean		:	Test.exe
+clean		:	FUNCLG.exe
 				del *.o
 				del *.exe
 

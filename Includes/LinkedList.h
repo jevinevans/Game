@@ -65,8 +65,8 @@ class LinkedList
 				while(numNodes != 0)
 				{					
 					next = delNode->next; 
-					delNode->value->PRINT();
-					cout << endl;
+					// delNode->value->PRINT();
+					// cout << endl;
 					delete delNode;
 					--numNodes;
 					delNode = next;
@@ -82,7 +82,7 @@ class LinkedList
 				
 			Type getNodeValue(int position)
 			{
-				ListNode* node;
+				ListNode* node = new ListNode;
 				 if(position == 1)
 					return head->value;
 				
@@ -101,13 +101,12 @@ class LinkedList
 						node = node->next;
 					}
 				}
+				return NULL;
 			}
 						
 			void appendNode(Type object)
 			{
-				ListNode* node;
-				
-				node = new ListNode;
+				ListNode* node = new ListNode;
 				node->value = object;
 				node->next = NULL;
 				
@@ -128,8 +127,8 @@ class LinkedList
 			void deleteNode(int position)
 			{
 				
-				ListNode* now;
-				ListNode* prev;
+				ListNode* now = new ListNode;
+				ListNode* prev = new ListNode;
 				
 				if(!head)
 					return;
@@ -144,16 +143,16 @@ class LinkedList
 				else
 				{
 					now = head;
-					prev = now;
 					int cur = 1;
 					
-					while(position >= cur)
+					while(cur <= position)
 					{
+						cout << "Deleting: " << now->value << endl;
 						if(position == numNodes)
 						{
 							tail = prev;
 						}
-						if(position==cur)
+						if(position == cur)
 						{
 							prev->next = now->next;
 							delete now;
@@ -165,6 +164,19 @@ class LinkedList
 					}
 				}
 				
+			}
+
+			void display()
+			{
+				ListNode* tmp = new ListNode();
+				tmp = head;
+				
+				while(tmp)
+				{
+					cout << tmp->value << "\t";
+					tmp = tmp->next;
+				}
+
 			}
 
 			void swap(int num1, int num2)

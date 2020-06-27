@@ -1,5 +1,5 @@
 
-Gold Cap
+	Gold Cap
 ------------------------ 
  Type: Light Helmet
  Level: 5
@@ -7,7 +7,7 @@ Gold Cap
  Ability Points: 10 DEF
 
 
-Gold Chestplate
+	Gold Chestplate
 ------------------------ 
  Type: Light Chestplate
  Level: 5
@@ -15,31 +15,31 @@ Gold Chestplate
  Ability Points: 10 DEF
 
 
-Gold Sword
+	Gold Sword
 ------------------------ 
  Type: Sword
  Level: 5
  Description: Simple persons sword
- Ability Points: 50 DEF
+ Ability Points: 50 ATK
 
 
-Gold Knief
+	Gold Knief
 ------------------------ 
  Type: Knief
  Level: 6
  Description: Simple persons Knief
- Ability Points: 50 DEF
+ Ability Points: 50 ATK
 
 
-Gold Wand
+	Gold Wand
 ------------------------ 
  Type: Wand
  Level: 7
  Description: Simple persons Wand
- Ability Points: 50 DEF
+ Ability Points: 50 ATK
 
 
-Gold Trousers
+	Gold Trousers
 ------------------------ 
  Type: Light Pants
  Level: 5
@@ -47,20 +47,20 @@ Gold Trousers
  Ability Points: 10 DEF
 
 
-NULL
+	NULL
 ------------------------ 
  Type: Broken Item
  Level: 0
  Description: NULL
- Ability Points: 0 ATK
+ Ability Points: 0 DEF
 
 
-Melitas Wand
+	Melitas Wand
 ------------------------ 
  Type: Wand
  Level: 6
  Description: Magical wand handed down through the generations of powerful white witches.
- Ability Points: 36 DEF
+ Ability Points: 36 ATK
 
 Printed Gold Cap
 Printed Gold Chestplate

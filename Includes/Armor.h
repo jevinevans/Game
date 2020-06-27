@@ -5,6 +5,8 @@
 #include <iostream>
 using namespace std;
 
+const int ITEMMAX = 4;
+
 template<typename TYPE>
 class Armor
 {
@@ -21,8 +23,7 @@ class Armor
 					return true;
 				}
 				else
-					return false;
-					
+					return false;	
 			}
 		};
 		Slot* head;
@@ -42,12 +43,19 @@ class Armor
 			
 		}
 
-		Armor(Armor* arm)
+		Armor(Armor<TYPE>* arm)
 		{
-			head = arm->head;
-			chest = arm->chest;
-			weapon = arm->weapon;
-			pants = arm->pants;
+			cout << "Start";
+			head = new Slot;
+			chest = new Slot;
+			weapon = new Slot;
+			pants = new Slot;
+			
+			head->empty = chest->empty = weapon->empty = pants->empty = true;
+			equip(arm->head->value);
+			equip(arm->chest->value);
+			equip(arm->weapon->value);
+			equip(arm->pants->value);
 		}
 		
 		~Armor()
@@ -64,79 +72,57 @@ class Armor
 		
 		void equip(TYPE v)
 		{
+		
+			TYPE t = new Equipment(v);
 			Slot* temp;
 			temp = new Slot;
-			temp->value = v;
+			temp->value = t;
 			temp->empty = false;
-			int place = temp->value->getIT();
 			
-			switch(place)
+			switch(temp->value->getIT())
 			{
-				case 0:
-					weapon = temp;
-					break;
 				case 1:
+					if(!head->isEmpty())
+						dequip(1, false);
 					head = temp;
 					break;
+					
 				case 2:
+					if(!chest->isEmpty())
+							dequip(2, false);
 					chest = temp;
 					break;
+
 				case 3:
+					if(!pants->isEmpty())
+						dequip(3, false);
 					pants = temp;
 					break;
+
+				case 4:
+					if(!weapon->isEmpty())
+						dequip(4, false);
+					weapon = temp;
+					break;
 			}
-			cout << "Equipped: " << temp->value->getName() << endl << endl;
+			cout << "Equipped: " << temp->value->getName() << endl;
 		}
-		void isFull()			//not working and will not print off 
+		
+		void dequip(int o, bool print)
 		{
-			if(!head->isEmpty() and !chest->isEmpty() and !weapon->isEmpty() and !pants->isEmpty())
-				cout << "!!!---Fully Equipped---!!!" << endl;
-			else
-			{
-				if(head->isEmpty())
-					cout << "The head slot is empty" << endl;
-				if(chest->isEmpty())
-					cout << "The chest slot is empty" << endl;
-				if(weapon->isEmpty())
-					cout << "The weapon slot is empty" << endl;
-				if(pants->isEmpty())
-					cout << "The pants slot is empty" << endl;
-			}
-		}
-		void change(TYPE v, int spot)
-		{
-			cout << "start" << endl;
-			cout << "Changing Current to: " << v->getName();
-			dequip(spot);
-			cout << "Done";
-			cout << v->getName();
-			equip(v);
-		}
-		void dequip(int o)
-		{
-			if(o > 3)
+			if(o > ITEMMAX)
 			{
 				cout << "Slot does not exist" << endl;
 				return;
 			}
 			Slot* temp;
 			temp = new Slot();
-			string tname = "nothing";
+			string tname = "";
 
 			switch(o)
 			{
-				case 0:
-					if(!weapon->isEmpty())
-					{	
-						temp->value = weapon->value;
-						weapon->value = NULL;
-						weapon->empty = true;
-						tname = temp->value->getName();
-					}
-					else
-						cout << "There is nothing equipped." << endl;
-					break;
 				case 1:
+					tname = "Head";
 					if(!head->isEmpty())
 					{
 						temp->value = head->value;
@@ -144,10 +130,9 @@ class Armor
 						head->empty = true;
 						tname = temp->value->getName();
 					}
-					else
-						cout << "There is nothing equipped." << endl;
 					break;
 				case 2:
+					tname = "Chest";
 					if(!chest->isEmpty())
 					{
 						temp->value = chest->value;
@@ -155,10 +140,9 @@ class Armor
 						chest->empty = true;
 						tname = temp->value->getName();
 					}
-					else
-						cout << "There is nothing equipped." << endl;
 					break;
 				case 3:
+					tname = "Pants";
 					if(!pants->isEmpty())
 					{
 						temp->value = pants->value;
@@ -166,68 +150,77 @@ class Armor
 						pants->empty = true;
 						tname = temp->value->getName();
 					}
-					else
-						cout << "There is nothing equipped." << endl;
+					break;
+				case 4:
+					tname = "Weapon";
+					if(!weapon->isEmpty())
+					{	
+						temp->value = weapon->value;
+						weapon->value = NULL;
+						weapon->empty = true;
+						tname = temp->value->getName();
+					}
 					break;
 			}
-			cout << "Unequipped " << tname << "." << endl << endl;
+			if(print)
+				cout << "Dequipped: " << tname << endl;
 			delete temp;
 		}
 		
 		
-		void PRINT()
+		void stats()
 		{
-			cout << "ARMOR\n-----------------------";
+			cout << "\n----------------------\n|     ARMOR STATS    |\n----------------------";
 			
 			cout << "\nHead: ";
 			if(!head->isEmpty())
-				cout << head->value->getName();
+				cout << head->value->getStats();
 			else
-				cout << "This Slot is Empty";
+				cout << "Empty";
 			
 			cout << "\nChest: ";
 			if(!chest->isEmpty())
-				cout << chest->value->getName();
+				cout << chest->value->getStats();
 			else
-				cout << "This Slot is Empty";
+				cout << "Empty";
 			
 			cout << "\nWeapon: ";
 			if(!weapon->isEmpty())
-				cout << weapon->value->getName();
+				cout << weapon->value->getStats();
 			else
-				cout << "This Slot is Empty";
+				cout << "Empty";
 			
 			cout << "\nPants: ";
 			if(!pants->isEmpty())
-				cout << pants->value->getName();
+				cout << pants->value->getStats();
 			else
-				cout << "This Slot is Empty";
+				cout << "Empty";
 			cout << endl << endl;
 		}
 		
-		void stats()
+		void PRINT()
 		{
-			cout << "\nARMOR STATISTIS\n------------------------\n------------------------\n";
+			cout << "\n-------------------------\n|   ARMOR DESCRIPTION   |\n-------------------------\n";
 			
-			cout << "Head";
+			cout << "\tHEAD";
 			if(!head->isEmpty())
 				head->value->PRINT();
 			else
 				cout << " is not equipped." << endl;
 			
-			cout << "Chest";
+			cout << "\tCHEST";
 			if(!chest->isEmpty())
 				chest->value->PRINT();
 			else
 				cout << " is not equipped." << endl;
 			
-			cout << "Weapon";
+			cout << "\tWEAPON";
 			if(!weapon->isEmpty())
 				weapon->value->PRINT();
 			else
 				cout << " is not equipped." << endl;
 			
-			cout << "Pants";
+			cout << "\tPANTS";
 			if(!pants->isEmpty())
 				pants->value->PRINT();
 			else
@@ -242,7 +235,7 @@ class Armor
 		Slot* getPants(){return pants;}
 		
 		void setHead(TYPE h){head = h;}
-		void setWeapong(TYPE w){weapon =w;}
+		void setWeapong(TYPE w){weapon = w;}
 		void setChest(TYPE c){chest = c;}
 		void setPants(TYPE p){pants = p;}
 		
