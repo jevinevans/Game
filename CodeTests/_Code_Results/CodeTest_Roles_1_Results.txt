@@ -14,9 +14,11 @@ Stab
 - Type: Physical Attack
 - Effect: 52
 
-0xb01420
-0xb01420
-0xb01420
+0xb21420
+0xb21420
+0xb21420
+All of these point to the same object and are not new objects. This resulted in the need for a copy constructor
+
 Stab has been added to Mage role.
 
 Adding a New Power to the Mage Role.
