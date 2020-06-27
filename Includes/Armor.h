@@ -86,18 +86,21 @@ class Armor
 						dequip(1, false);
 					head = temp;
 					break;
+					
 				case 2:
 					if(!chest->isEmpty())
 							dequip(2, false);
 					chest = temp;
 					break;
+
 				case 3:
-				if(!pants->isEmpty())
+					if(!pants->isEmpty())
 						dequip(3, false);
 					pants = temp;
 					break;
+
 				case 4:
-				if(!weapon->isEmpty())
+					if(!weapon->isEmpty())
 						dequip(4, false);
 					weapon = temp;
 					break;
