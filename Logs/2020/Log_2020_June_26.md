@@ -11,9 +11,9 @@ __\<Date\>__ - When Item was completed
 
 ## Changes Made and Work Done
 ------------------------------
-- Created cases for LinkedList CodeTest
-- Creating Stats class remove stats function
-- Creating Stats print to file function
+- Created cases for LinkedList CodeTest _6.26.2020_
+- Creating Stats class remove stats function _6.26.2020_
+- Creating Stats print to file function _6.26.2020_
 
 ## Action Items
 ----------------
