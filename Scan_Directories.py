@@ -3,7 +3,7 @@ import webbrowser
 
 filelist = open("GAMES_DIRECTORIES_AND_FILES.txt", "w")
 
-countd = countf = 0
+countd = countf = words = 0
 
 printlist = list()
 
@@ -19,6 +19,15 @@ for root, dirs, files in os.walk("."):
             if os.path.join(root,name)[0:3] == ".\.": continue
             # filelist.write("=====FILES=====\n")
             printlist.append(os.path.join(root,file))
+            try:
+                tFile = os.path.join(root, file)
+                with open(tFile, "r") as document:
+                    temp = len(document.read().split("\n"))
+                    words += temp
+                    print(temp, end=" ")
+                    print(tFile)
+            except:
+                continue
             # filelist.write("\n")
             countf += 1
     except:
@@ -27,18 +36,19 @@ for root, dirs, files in os.walk("."):
 filelist.write("=========================================\n")
 filelist.write("|\tTotal Directories: ")
 filelist.write(str(countd))
-filelist.write("\t\t|\n|\tFiles: ")
+filelist.write("\t\t\t|\n|\tFiles: ")
 filelist.write(str(countf))
-filelist.write("\t\t\t|\n")
+filelist.write("\t\t\t\t\t|\n")
 filelist.write("=========================================\n")
 
 printlist.sort()
 filelist.write("\n")
 
 for x in printlist:
-    filelist.write(x)
+    filelist.write(x)        
     filelist.write("\n")
 
+print("Total Lines:", words)
 filelist.close()
 
 webbrowser.open("GAMES_DIRECTORIES_AND_FILES.txt")
