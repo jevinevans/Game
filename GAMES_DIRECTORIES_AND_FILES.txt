@@ -1,6 +1,6 @@
 =========================================
 |	Total Directories: 19			|
-|	Files: 84					|
+|	Files: 87					|
 =========================================
 
 .\Basic Player Game Info.txt
@@ -41,6 +41,7 @@
 .\CodeTests\Roles\makefile
 .\CodeTests\Stats
 .\CodeTests\Stats\CodeTest_Stats.cpp
+.\CodeTests\Stats\Stats_CodeTest_Log.md
 .\CodeTests\Stats\makefile
 .\CodeTests\Stats\run.bat
 .\CodeTests\_Code_Results
@@ -94,7 +95,9 @@
 .\Logs\2020
 .\Logs\2020\Log_2020_February_17.txt
 .\Logs\2020\Log_2020_February_2.txt
+.\Logs\2020\Log_2020_July_3.md
 .\Logs\2020\Log_2020_June_26.md
+.\Logs\2020\Log_2020_June_27.md
 .\Logs\2020\Log_2020_March_21.md
 .\Logs\2020\Log_2020_March_22.md
 .\Logs\2020\Log_2020_May_24.md
