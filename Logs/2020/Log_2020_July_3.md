@@ -9,13 +9,17 @@ Item | Count
 | Current Directories | 19
 | Current Files | 87
 
+## GOALS
+- Working Game by 2021
+
 _Date_ - When item was added <br />
 __\<Date\>__ - When Item was completed
 
 ## Changes Made and Work Done
 ------------------------------
-- File name changes of codes test __<7.3.2020>__
 - Creating Stats class remove stats function _6.26.2020_ __<7.3.2020>__
+- File name changes of codes test __<7.3.2020>__
+- Created CodeTest Log Template __<7.3.2020>__
 
 
 ## Important Items
