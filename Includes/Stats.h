@@ -207,6 +207,17 @@ class Stats
             this->intel += other->intel;
         }
 
+        void removeStats(Stats* other)
+        {
+            this->hp_max -= other->hp_max;
+            this->hp_now -= other->hp_now;
+            this->mp_max -= other->mp_max;
+            this->mp_now -= other->mp_now;
+            this->strength -= other->strength;
+            this->speed -= other->speed;
+            this->intel -= other->intel;
+        }
+
         // Setters
         void setHPMAX(int h){this->hp_max = h;}
         void setHPNOW(int h){this->hp_now = h;}
@@ -224,8 +235,5 @@ class Stats
         int getStrength(){return this->strength;}
         int getSpeed(){return this->speed;}
         int getIntel(){return this->intel;}
-
 };
-
-
 #endif
