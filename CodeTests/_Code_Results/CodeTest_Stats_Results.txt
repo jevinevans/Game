@@ -1,0 +1,170 @@
+Testing Stats Class
+
+Testing Constructors: Blank, Full, and Copy
+
+Blank Construct
+HP: 230/500
+MP: 250/300
+STR: 50
+SPD: 33
+INT: 40
+
+Full Consytruct
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+70% Increase of Full -> Copy
+HP: 781/781
+MP: 468/468
+STR: 77
+SPD: 51
+INT: 62
+
+
+Begin damage and heal Tests
+
+Point Damage Test: 20pt
+HP: 80/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+Partial Heal Test: 10pt
+HP: 90/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Percentage Damage Test: 50%
+HP: 45/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Full Percentage Heal Test: 100%HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Full Heal Test: 1000pts heal after 75pt damageHP: 25/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Begin mpUse and mpRestore Tests
+
+Point Mana Test: 20ptHP: 100/100
+MP: 130/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Partial MP Restore Test: 10ptHP: 100/100
+MP: 140/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Percentage MP Use Test: 50%HP: 100/100
+MP: 70/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Full Percentage MP restore Test: 100%HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Full MP Restore Test: 1000pts MP restore after 75pt Using MPHP: 100/100
+MP: 75/150
+STR: 60
+SPD: 43
+INT: 52
+
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+
+Testing getAllStats function
+
+100
+100
+150
+150
+60
+43
+52
+781
+781
+468
+468
+77
+51
+62
+
+Testing Adding of Stats
+HP: 881/881
+MP: 618/618
+STR: 137
+SPD: 94
+INT: 114
+
+HP: 1101/1101
+MP: 772/772
+STR: 171
+SPD: 117
+INT: 142
+
+
+Testing Removing of Stats
+Combined Stats is currently
+HP: 1101/1101
+MP: 772/772
+STR: 171
+SPD: 117
+INT: 142
+
+Now removing the stats from fullConstr from Combined
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+Results
+----------
+HP: 1001/1001
+MP: 622/622
+STR: 111
+SPD: 74
+INT: 90
+
+
+Test Complete
