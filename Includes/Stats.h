@@ -218,6 +218,11 @@ class Stats
             this->intel -= other->intel;
         }
 
+        void printToFile(ofstream &File)
+        {
+            
+        }
+
         // Setters
         void setHPMAX(int h){this->hp_max = h;}
         void setHPNOW(int h){this->hp_now = h;}
