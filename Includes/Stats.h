@@ -9,7 +9,7 @@
 #define STATS_H
 
 #include <iostream>
-// #include <fstream>
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -220,7 +220,14 @@ class Stats
 
         void printToFile(ofstream &File)
         {
-            
+            cout << "...Printing Stats";
+            File << this->hp_max << ",";
+            File << this->hp_now << ",";
+            File << this->mp_max << ",";
+            File << this->mp_now << ",";
+            File << this->strength << ",";
+            File << this->speed << ",";
+            File << this->intel  << ";";
         }
 
         // Setters

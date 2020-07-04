@@ -58,7 +58,7 @@ class Abilities
 			cout << ".";
 			File << this->abilityType << ",";
 			cout << ".";
-			File << this->damageEffect << ",";
+			File << this->damageEffect << ";\n";
 			cout << ".";
 			cout << "Done" << endl;
 		}

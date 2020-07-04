@@ -26,9 +26,6 @@ int main()
     b->PRINT();
     c->PRINT();
 
-    a->printToFile(file);
-    b->printToFile(file);
-
     delete a;
     delete b;
     delete c;

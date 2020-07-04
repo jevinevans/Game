@@ -209,7 +209,7 @@ class Roles
 			File << this->Psize << ",";
 			for(int i = 0; i < current; i++)
 				powers[i]->printToFile(File);
-			File << endl;
+			File << ";" << endl;
 			cout << "Printed Role: " << this->roleName << " to file." << endl;
 		}
 

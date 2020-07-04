@@ -5,6 +5,7 @@ __Version:__ 1
 
 ## Test Descriptions
 - CodeTest_Abilities_1 - This tests all of the basic functions in the Abilities Class.
+- CodeTest_Abilities_2 - This test the printToFile method
 
 ### Results Location
 - "Fun/CodeTests/_Code_Results/CodeTest_Abilities_1_Results.txt"
@@ -26,7 +27,7 @@ __Abilities__ (Empty Constructor) | NULL | :white_check_mark: | CodeTest_Abiliti
 __Abilities__ (Coppy Constructor) | Abilities* | :white_check_mark: | CodeTest_Abilities_1 | __7.3.2020__| Success
 __Abilities__ (Deconstructor) | NULL | :white_check_mark: | CodeTest_Abilities_1 | __7.3.2020__ | Success
 __PRINT__ | NULL | :white_check_mark: | CodeTest_Abilitites_1 | __7.3.2020__ | Success
-__printToFile__ | ofstream & | :white_check_mark: | CodeTest_Abilities_1 | __7.3.2020__ | Success 
+__printToFile__ | ofstream & | :white_check_mark: | CodeTest_Abilities_2 | __7.4.2020__ | Success 
 __setName__ | string | :white_check_mark: | CodeTest_Abilities_1 | __7.3.2020__ | Success
 __setAbilityType__ | int |:white_check_mark: | CodeTest_Abilities_1 | __7.3.2020__ | Success
 __setDamageEffect__ | int |:white_check_mark: | CodeTest_Abilities_1 | __7.3.2020__ | Success
