@@ -230,12 +230,7 @@ class Equipment
 		int getWT() const {return WT;}
 		int getLevel() const {return level;}
 		string getDescription() const {return desc;}
-		int getAbilityPts() const {return abilityPts;}
-		
-	
-	
-	
-	
+		int getAbilityPts() const {return abilityPts;}	
 };
 
 

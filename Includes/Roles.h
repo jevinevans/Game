@@ -212,22 +212,17 @@ class Roles
 			File << endl;
 			cout << "Printed Role: " << this->roleName << " to file." << endl;
 		}
-		void setRoleName(string n)
-		{
-			this->roleName = n;
-		}
-		void setArmorType(int i)
-		{
-			this->armorType = i;
-		}
-		string getRoleName()
-		{
-			return roleName;
-		}
-		int getArmorType()
-		{
-			return armorType;
-		}
+
+		//Setters
+		void setRoleName(string n){this->roleName = n;}
+		void setArmorType(int i){this->armorType = i;}
+
+		//Getters
+		string getRoleName(){return roleName;}
+		int getArmorType(){return armorType;}
+		int getNumPowers(){return current;}
+		Abilities** getPowers(){return powers;}
+		string getName(){return roleName;}
 		string getArmorTypeName()
 		{
 			string aName;
@@ -244,18 +239,6 @@ class Roles
 						break;
 				}
 			return aName;
-		}
-		int getNumPowers()
-		{
-			return current;
-		}
-		Abilities** getPowers()
-		{
-			return powers;
-		}
-		string getName()
-		{
-			return roleName;
 		}	
 };
 #endif
