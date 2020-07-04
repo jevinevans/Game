@@ -17,6 +17,7 @@ __\<Date\>__ - When Item was completed
 
 ## Changes Made and Work Done
 ------------------------------
+- Created CodeTest Logs for Stats and abilities __<7.3.2020>__
 - Creating Stats class remove stats function _6.26.2020_ __<7.3.2020>__
 - File name changes of codes test __<7.3.2020>__
 - Created CodeTest Log Template __<7.3.2020>__
@@ -25,9 +26,10 @@ __\<Date\>__ - When Item was completed
 ## Important Items
 ----------------
 - [ ] Stats Class: printToFile _6.26.2020_
+- [ ] Armor Class: printToFile _7.3.2020_
 - [ ] Work on Character.h _2.17.2020_
 - [ ] Stats Integration _6.26.2020_
-- [ ] Test Logs
+- [ ] Test Logs __SEE BELOW__ _7.3.2020_
 - [x] Stats Class: remove stats function _6.26.2020_ __<7.3.2020>__
 
 ## Questions
@@ -47,8 +49,9 @@ __\<Date\>__ - When Item was completed
   - [ ] Add to Character Class _6.26.2020_ 
 - [ ] Create Test Logs (md files) for CodeTest
   - [x] Should contain a break down/ UML list of class and functions, lable whether the method has been tested, last tested _7.3.2020_ __<7.3.2020>__
-  - [ ] CodeTest Logs _7.3.2020_
-    - [ ] Abilities _7.3.2020_
+  - [ ] CodeTest Logs _7.3.2020_ 
+    - [x] Abilities _7.3.2020_ __<7.3.2020>__
+    - [x] Stats _7.3.2020_ __<7.3.2020>__
     - [ ] Armor _7.3.2020_
     - [ ] Character _7.3.2020_
     - [ ] Combat _7.3.2020_
@@ -56,7 +59,7 @@ __\<Date\>__ - When Item was completed
     - [ ] Functions _7.3.2020_
     - [ ] Linklist _7.3.2020_
     - [ ] Roles _7.3.2020_
-    - [ ] Stats _7.3.2020_
+    
 - [ ] CodeTest Template - could make a python script to create these _7.3.2020_
   - [ ] Folder [template], that should contain _7.3.2020_
     - [ ] makefile template, that just replaces name with the new folder _7.3.2020_
@@ -95,8 +98,9 @@ __\<Date\>__ - When Item was completed
   - [ ] Test
 - [ ] Work on Code Test 1
   - [ ] Does not fully complete test, most likely an issue with the linked list
+  - [ ] Remove linked list and just test basics _7.3.2020_
 - [ ] Stat integration _7.3.2020_
-- [ ] CodeTest _7.3.2020_
+  - [ ] CodeTest _7.3.2020_
 
 #### Character.h
 - [ ] Armor Equips
