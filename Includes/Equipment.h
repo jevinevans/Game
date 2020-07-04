@@ -40,7 +40,6 @@ class Equipment
 			desc = "NULL";
 			abilityPts = 0;
 		}
-
 /*
 	Function:		Constructor
 	Parameters:		string name, int item type, int armor type, int weapon type, int level, string description, int ability points
@@ -88,13 +87,11 @@ class Equipment
 			else
 			cout << " DEF" << endl << endl;
 		}
-
 /*
 	Function:		getItemType
 	Parameters:		NULL
 	Description: 	This method returns a description string for the item type
 */
-
 		void getItemType()
 		{
 			string item ="";
@@ -149,7 +146,6 @@ class Equipment
 				cout << "Broken Item";
 			cout << item;
 		}
-
 /*
 	Function:		printToFile
 	Parameters:		Ofstream (aka Output File)
@@ -166,7 +162,6 @@ class Equipment
 			File << abilityPts << "," << endl;
 			cout << "Printed " << this->name << endl;
 		}	
-
 /*
 	Function:		validate
 	Parameters:		int (AT, IT, or WT)
@@ -232,6 +227,4 @@ class Equipment
 		string getDescription() const {return desc;}
 		int getAbilityPts() const {return abilityPts;}	
 };
-
-
 #endif

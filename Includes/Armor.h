@@ -167,7 +167,6 @@ class Armor
 			delete temp;
 		}
 		
-		
 		void stats()
 		{
 			cout << "\n----------------------\n|     ARMOR STATS    |\n----------------------";
@@ -233,14 +232,11 @@ class Armor
 		Slot* getChest(){return chest;}
 		Slot* getWeapon(){return weapon;}
 		Slot* getPants(){return pants;}
-		
+		string getName(){return "Armor";}
+
 		void setHead(TYPE h){head = h;}
 		void setWeapong(TYPE w){weapon = w;}
 		void setChest(TYPE c){chest = c;}
-		void setPants(TYPE p){pants = p;}
-		
-		string getName(){return "Armor";}
+		void setPants(TYPE p){pants = p;}		
 };
-
-
 #endif

@@ -188,8 +188,6 @@ class LinkedList
 				temp = node1->value;
 				node1->value = node2->value;
 				node2->value = temp;
-			}
-			
+			}		
 };
-
 #endif

@@ -12,6 +12,4 @@ class Combat
 	
 	
 };
-
-
 #endif
