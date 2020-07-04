@@ -51,30 +51,6 @@ class Abilities
 
 			cout << "- Effect: " << this->damageEffect << endl << endl;
 		}
-		void setName(string n)
-		{
-			this->abilityName = n;
-		}
-		void setAbilityType(int t)
-		{
-			this->abilityType = t;
-		}
-		void setDamageEffect(int dE)
-		{
-			this->damageEffect = dE;
-		}
-		string getName()
-		{
-			return abilityName;
-		}
-		int getAbilityType()
-		{
-			return abilityType;
-		}
-		int getDamageEffect()
-		{
-			return damageEffect;
-		}
 		void printToFile(ofstream &File)
 		{
 			cout << "Printing " << this->abilityName << " to file";
@@ -84,7 +60,18 @@ class Abilities
 			cout << ".";
 			File << this->damageEffect << ",";
 			cout << ".";
-			cout << "Done" << endl << endl;
+			cout << "Done" << endl;
 		}
+
+		//Setters
+		void setName(string n){this->abilityName = n;}
+		void setAbilityType(int t){this->abilityType = t;}
+		void setDamageEffect(int dE){this->damageEffect = dE;}
+
+		//Getters
+		string getName(){return abilityName;}
+		int getAbilityType(){return abilityType;}
+		int getDamageEffect(){return damageEffect;}
+		
 };
 #endif
