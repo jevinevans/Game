@@ -5,7 +5,7 @@ Repository For Video Game Idea
 This is a simple project to build a command line based game using c++ language that mimics MMO's.
 
 ## Recent Log File: 
-[Current Log](https://github.com/jevinevans/Game/blob/July2020/Logs/2020/Log_2020_July_4.md)
+[Current Log](https://github.com/jevinevans/Game/blob/July2020/Logs/2020/Log_2020_July_5.md)
 	
 ## File Descriptions
 ### Character
