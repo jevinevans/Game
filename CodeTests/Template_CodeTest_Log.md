@@ -4,12 +4,9 @@ __Last Updated:__ [$DATE$] <br />
 __Version:__ 1
 
 ## Test Descriptions
-
-### Results Location
-- "Fun/CodeTests/_Code_Results/[$CODENAME$]"
-
-### Input Files
-- None
+- [Test Name]
+  - Result File: "Fun/CodeTests/_Code_Results/[$CODENAME$]"
+  - Input Files: ""
 
 ### Guide
 __Tested__ :white_check_mark:

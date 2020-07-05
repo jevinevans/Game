@@ -66,7 +66,6 @@ class Equipment
 			desc = equ->desc;
 			abilityPts = equ->abilityPts;
 		}
-		
 /*
 	Function:		PRINT
 	Parameters:		NULL
@@ -159,7 +158,7 @@ class Equipment
 			File << WT << ",";
 			File << level << ",";
 			File << desc << ",";
-			File << abilityPts << "," << endl;
+			File << abilityPts << ";" << endl;
 			cout << "Printed " << this->name << endl;
 		}	
 /*
@@ -186,18 +185,9 @@ class Equipment
 	Description:	These allow for the code to change some of the values or update values for the object.
 */
 		void setName(string n){name = n;}
-		void setIT(int i)
-		{
-			IT = validate(i, 'I');
-		}
-		void setAT(int a)
-		{
-			AT = validate(a, 'A');
-		}
-		void setWT(int w)
-		{
-			WT = validate(w, 'W');
-		}
+		void setIT(int i){IT = validate(i, 'I');}
+		void setAT(int a){AT = validate(a, 'A');}
+		void setWT(int w){WT = validate(w, 'W');}
 		void setLevel(int l){level = l;}
 		void setDescription(string d){desc = d;}
 		void setAbilityPts(int a){abilityPts = a;}

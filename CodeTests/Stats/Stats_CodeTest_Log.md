@@ -4,10 +4,8 @@ __Last Updated:__ 7.3.2020 <br />
 __Version:__ 1
 
 ### Results Location
-- "Fun/CodeTests/_Code_Results/CodeTest_Stats_Results.txt"
-
-### Input Files
-- None
+- CodeTest_Stats_1 
+  - Result File: "Fun/CodeTests/_Code_Results/CodeTest_Stats_Results.txt"
 
 ### Guide
 __Tested__ :white_check_mark:
