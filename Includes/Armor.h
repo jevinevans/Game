@@ -19,9 +19,7 @@ class Armor
 			bool isEmpty()
 			{
 				if(this->empty)
-				{
 					return true;
-				}
 				else
 					return false;	
 			}
@@ -40,7 +38,6 @@ class Armor
 			pants = new Slot;
 			
 			head->empty = chest->empty = weapon->empty = pants->empty = true;
-			
 		}
 
 		Armor(Armor<TYPE>* arm)
@@ -72,7 +69,6 @@ class Armor
 		
 		void equip(TYPE v)
 		{
-		
 			TYPE t = new Equipment(v);
 			Slot* temp;
 			temp = new Slot;

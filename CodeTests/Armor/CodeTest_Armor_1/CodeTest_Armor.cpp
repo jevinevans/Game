@@ -10,7 +10,7 @@
     Total: 19 Test
 */
 
-#include "../../Includes/Functions.h"
+#include "../../../Includes/Functions.h"
 
 int main()
 {
@@ -67,6 +67,7 @@ int main()
 
     
     delete myBody;
+    delete myBody2;
 
     cout << "-----ARMOR TEST COMPLETED-----" << endl;
     return 0;
