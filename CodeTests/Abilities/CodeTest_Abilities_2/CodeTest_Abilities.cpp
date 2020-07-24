@@ -22,6 +22,7 @@ int main()
     c->printToFile(file);
     d->printToFile(file);
 
+    file.close();
     delete a;
     delete b;
     delete c;
