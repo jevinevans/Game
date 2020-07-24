@@ -220,14 +220,18 @@ class Stats
 
         void printToFile(ofstream &File)
         {
-            cout << "...Printing Stats";
+            cout << "Printing Stats";
             File << this->hp_max << ",";
             File << this->hp_now << ",";
+            cout << ".";
             File << this->mp_max << ",";
             File << this->mp_now << ",";
+            cout << ".";
             File << this->strength << ",";
             File << this->speed << ",";
             File << this->intel  << ";";
+            cout << ".";
+            cout << "Done" << endl;
         }
 
         // Setters

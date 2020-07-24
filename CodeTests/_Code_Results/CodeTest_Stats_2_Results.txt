@@ -26,5 +26,8 @@ INT: 106
 
 Now Creating and Printing to File...
 _____________________________________________________
-...Printing Stats...Printing Stats...Printing Stats
+Printing Stats...Done
+Printing Stats...Done
+Printing Stats...Done
+
 Test Completed
