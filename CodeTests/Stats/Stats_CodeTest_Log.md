@@ -6,6 +6,8 @@ __Version:__ 1
 ### Results Location
 - CodeTest_Stats_1 
   - Result File: "Fun/CodeTests/_Code_Results/CodeTest_Stats_Results.txt"
+- CodeTest_Stats_2
+  - Result File: "Fun/CodeTests/_Code_Results/CodeTest_Stats_2_Results.txt"
 
 ### Guide
 __Tested__ :white_check_mark:
@@ -30,7 +32,6 @@ __mpRestore__ | double, false | :white_check_mark: | CodeTest_Stats_1 | __7.3.20
 __mpRestore__ | double, true | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __PRINT__ | NULL | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __getAllStats__ | NULL | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
-__addStats__ | Stats* | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __setHPMAX__ | int | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __setHPNOW__ | int | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __setMPMAX__ | int | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
@@ -45,5 +46,6 @@ __getMPNOW__ | NULL | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Suc
 __getStrength__ | NULL | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __getSpeed__ | NULL | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __getIntel__ | NULL | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
+__addStats__ | Stats* | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success
 __removeStats__ | Stats* | :white_check_mark: | CodeTest_Stats_1 | __7.3.2020__ | Success 
-__printToFile__ | Null | :x: | | |
+__printToFile__ | ofstream& | :white_check_mark: | Code_Test_Stats_2 | __7.24.2020__ | Success

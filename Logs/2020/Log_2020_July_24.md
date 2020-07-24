@@ -118,7 +118,9 @@ __\<Date\>__ - When Item was completed
   - [ ] New CodeTest _7.3.2020_
 
 #### Stats.h _5.25.2020_
-- [ ] printToFile function _7.3.2020_
+- [x] printToFile function _7.3.2020_ __<7.24.2020>__
+  - [x] Created __<7.4.2020>__
+  - [x] Testing _7.24.2020_ __<7.24.2020>__
 
 #### LinkedList.h _6.26.2020_
 - [ ] Create Code Test _6.26.2020_
