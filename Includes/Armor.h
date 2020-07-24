@@ -163,6 +163,7 @@ class Armor
 			delete temp;
 		}
 		
+		//Deprcatted needs to be updated????
 		void stats()
 		{
 			cout << "\n----------------------\n|     ARMOR STATS    |\n----------------------";
@@ -224,6 +225,9 @@ class Armor
 			cout << endl;
 		}
 		
+		printToFile();
+		Needs work
+
 		Slot* getHead(){return head;}
 		Slot* getChest(){return chest;}
 		Slot* getWeapon(){return weapon;}
