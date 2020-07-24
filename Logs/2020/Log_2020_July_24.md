@@ -38,6 +38,11 @@ __\<Date\>__ - When Item was completed
 
 ## TO DO's
 -----------
+- [x] Folder [template], that should contain _7.3.2020_ __<7.24.2020>__
+  - [x] makefile template, that just replaces name with the new folder _7.3.2020_ __<7.24.2020>__
+  - [x] Run.bat that has the path of where the results will be printed _7.3.2020_ __<7.24.2020>__
+  - [x] Blank cpp file to start from _7.3.2020_ __<7.24.2020>__
+  - [x] Log md file _7.3.2020_ __<7.24.2020>__
 - [ ] Create Test Logs (md files) for CodeTest
   - [ ] CodeTest Logs _7.3.2020_ 
     - [ ] Armor _7.3.2020_
@@ -47,24 +52,19 @@ __\<Date\>__ - When Item was completed
     - [ ] Functions _7.3.2020_
     - [ ] Linklist _7.3.2020_
     - [ ] Roles _7.3.2020_
-- [x] Folder [template], that should contain _7.3.2020_ __<7.24.2020>__
-  - [x] makefile template, that just replaces name with the new folder _7.3.2020_ __<7.24.2020>__
-  - [x] Run.bat that has the path of where the results will be printed _7.3.2020_ __<7.24.2020>__
-  - [x] Blank cpp file to start from _7.3.2020_ __<7.24.2020>__
-  - [x] Log md file _7.3.2020_ __<7.24.2020>__
 - [ ] Verify Full print to file
   - [ ] Armor and Equipement
   - [ ] Roles and Abilities
   - [ ] Character et al.
-- [ ] Integrate stat class into the other classes 
-  - [ ] Add to Equipment Class _6.26.2020_
-  - [ ] Add to Role Class _6.26.2020_
-  - [ ] Add to Character Class _6.26.2020_ 
 - [ ] After Inegration of Stats to Classes, Create new codeTests _7.3.2020_
   - [ ] Equipment _7.3.2020_
   - [ ] Armor _7.3.2020_
   - [ ] Roles _7.3.2020_
   - [ ] Character _7.3.2020_
+- [ ] Integrate stat class into the other classes 
+  - [ ] Add to Equipment Class _6.26.2020_
+  - [ ] Add to Role Class _6.26.2020_
+  - [ ] Add to Character Class _6.26.2020_ 
 - [ ] Create cases for LinkedList CodeTest _6.26.2020_
 - [ ] Update README to explain what code files _3.21.2020_
 - [ ] CodeTest Template - could make a python script to create these _7.3.2020_
