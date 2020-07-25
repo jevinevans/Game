@@ -16,22 +16,22 @@ __Not Tested__ :x:
 
 |Function Name |Parmeters Used | Tested | Test Case | Test Date | Results |
 |---|---|:---:|---|---|---
-__Slot__ (Struct) | N/A | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__Slot::isEmpty__| NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__Armor__ (Empty Constructor) |  NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__Armor__ (Copy Constructor) | Armor<TYPE>* arm | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__Armor__ (Deconstructor) | NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__equip__ | TYPE | :white_check_mark: |CodesTest_Armor_1 | 7.5.2020 | Success
-__dequip__ | int, bool | :white_check_mark: |CodesTest_Armor_1 | 7.5.2020 | Success
-__stats__ | NULL | :white_check_mark: |CodesTest_Armor_1 | 7.5.2020 | Success
-__PRINT__ | NULL | :white_check_mark: |CodesTest_Armor_1 | 7.5.2020 | Success
-__printToFile__ | ofstrem& | :x: | TBD | Date | Status
-__getHead__ | NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__getChest__ | NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__getWeapon__ | NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__getPants__ | NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__getName__ | NULL | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__setHead__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__setWeapong__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__setChest__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
-__setPants__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | 7.5.2020 | Success
+__Slot__ (Struct) | N/A | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__Slot::isEmpty__| NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__Armor__ (Empty Constructor) |  NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__Armor__ (Copy Constructor) | Armor\<TYPE>* arm | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__Armor__ (Deconstructor) | NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__equip__ | TYPE | :white_check_mark: |CodesTest_Armor_1 | __7.5.2020__ | Success
+__dequip__ | int, bool | :white_check_mark: |CodesTest_Armor_1 | __7.5.2020__ | Success
+__stats__ | NULL | :white_check_mark: |CodesTest_Armor_1 | __7.5.2020__ | Success
+__PRINT__ | NULL | :white_check_mark: |CodesTest_Armor_1 | __7.5.2020__ | Success
+__printToFile__ | ofstrem& | :x: | :x: | :x: | :x:
+__getHead__ | NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__getChest__ | NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__getWeapon__ | NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__getPants__ | NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__getName__ | NULL | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__setHead__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__setWeapong__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__setChest__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success
+__setPants__ | TYPE | :white_check_mark: | CodeTest_Armor_1 | __7.5.2020__ | Success

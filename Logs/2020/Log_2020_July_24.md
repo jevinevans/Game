@@ -23,9 +23,9 @@ __\<Date\>__ - When Item was completed
 ## Important Items
 ----------------
 - [ ] Armor Class: printToFile _7.3.2020_
-- [ ] Work on Character.h _2.17.2020_
 - [ ] Stats Integration _6.26.2020_
 - [ ] Test Logs __SEE BELOW__ _7.3.2020_
+- [ ] Work on Character.h _2.17.2020_
 
 ## Questions
 ------------
@@ -45,13 +45,14 @@ __\<Date\>__ - When Item was completed
   - [x] Log md file _7.3.2020_ __<7.24.2020>__
 - [ ] Create Test Logs (md files) for CodeTest
   - [ ] CodeTest Logs _7.3.2020_ 
-    - [ ] Armor _7.3.2020_
+    - [x] Armor _7.3.2020_ __<7.24.2020>__
+    - [x] Equipment _7.3.2020_ __<7.24.2020>__
+    - [ ] Roles _7.3.2020_
+- [ ] Test Logs for Later _7.24.2020_
     - [ ] Character _7.3.2020_
     - [ ] Combat _7.3.2020_
-    - [ ] Equipment _7.3.2020_
     - [ ] Functions _7.3.2020_
     - [ ] Linklist _7.3.2020_
-    - [ ] Roles _7.3.2020_
 - [ ] Verify Full print to file
   - [ ] Armor and Equipement
   - [ ] Roles and Abilities
@@ -81,12 +82,13 @@ __\<Date\>__ - When Item was completed
 
 #### Armor.h
 - [ ] Annotate Methods _5.29.2020_
+- [ ] printToFile Method _7.3.2020_
 - [ ] Stat integration _7.3.2020_
   - [ ] CodeTest _7.3.2020_
 
 #### Roles.h
 - [ ] Create dataset of roles {mage, warrior, thieft/rouge, healer}
-  - [ ] Give a set of powers for each role
+  - [ ] Give a set of powers for each role (5) 
 - [ ] Create Read from file function
 - [ ] Create copy constructors _5.24.2020_
   - [x] Create __<5.24.2020>__
@@ -96,6 +98,7 @@ __\<Date\>__ - When Item was completed
   - [ ] Remove linked list and just test basics _7.3.2020_
 - [ ] Stat integration _7.3.2020_
   - [ ] CodeTest _7.3.2020_
+- [ ] Attacking integrations, when user attacks, effect enemey and drains mp, etc. Mp generation.
 
 #### Character.h
 - [ ] Armor Equips
@@ -167,6 +170,7 @@ __\<Date\>__ - When Item was completed
 
 ### Functions.cpp and Functions.h
 - Added Linked List to hold all types of things/ Database?
+- Probably need to create a read in cpp file specifically
 - Finish readRoles(Classes) method
   - Print Classes to file first then,
   - Use file for Classes to be read 

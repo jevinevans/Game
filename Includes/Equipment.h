@@ -192,6 +192,7 @@ class Equipment
 		void setDescription(string d){desc = d;}
 		void setAbilityPts(int a){abilityPts = a;}
 		
+		//Depricated - needs to be integrated
 		string getStats() const
 		{
 			string str = getName() + " (" + to_string(getLevel()) + ") - " + to_string(getAbilityPts());
