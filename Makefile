@@ -1,4 +1,5 @@
 #Makefile For Test
+.PHONY: all CodeTest CodeTestClean clean
 
 all	:		FUNCLG
 
@@ -11,9 +12,6 @@ FUNCLG.o	:	FUNCLG.cpp
 
 Functions.o	:	Functions.cpp
 					g++ -I ./Includes/ -c Functions.cpp
-
-CodeTest	:
-	make -C CodeTest
 
 clean		:	FUNCLG.exe
 				del *.o

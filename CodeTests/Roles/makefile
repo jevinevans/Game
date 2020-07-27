@@ -1,10 +1,9 @@
-#Add Other Tests
+.PHONY: all clean
+
 all:
-	make CodeTest_Roles_1
-	make CodeTest_Roles_2
+	make -C CodeTest_Roles_1 all
+	make -C CodeTest_Roles_2 all
 
-CodeTest_Roles_1:
-	make -C CodeTest_Roles_1
-
-CodeTest_Roles_2:
-	make -C CodeTest_Roles_2
+clean:
+	make -C CodeTest_Roles_1 clean
+	make -C CodeTest_Roles_2 clean

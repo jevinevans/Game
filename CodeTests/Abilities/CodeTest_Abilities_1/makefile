@@ -1,3 +1,5 @@
+.PHONY: all clean
+
 all	:	CodeTest_Abilities
 
 CodeTest_Abilities	:	CodeTest_Abilities.o

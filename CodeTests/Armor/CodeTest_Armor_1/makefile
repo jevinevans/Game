@@ -1,3 +1,5 @@
+.PHONY: all clean
+
 all	:	CodeTest_Armor
 
 CodeTest_Armor	:	CodeTest_Armor.o
