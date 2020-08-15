@@ -1,12 +1,12 @@
 
 all	:	RolesTest
 
-RolesTest	:	CodeTest_3Classes.o
-							g++ -o CodeTest_3ClassesTest.exe CodeTest_3Classes.o
+RolesTest	:	CodeTest_Roles_2.o
+							g++ -o CodeTest_Roles_2Test.exe CodeTest_Roles_2.o
 
-CodeTest_3Classes.o	:	CodeTest_3Classes.cpp
-							g++ -I ./ -c CodeTest_3Classes.cpp
+CodeTest_Roles_2.o	:	CodeTest_Roles_2.cpp
+							g++ -I ./ -c CodeTest_Roles_2.cpp
 
-clean :	CodeTest_3ClassesTest.exe
+clean :	CodeTest_Roles_2Test.exe
 		del *.o
 		del *.exe

@@ -4,6 +4,8 @@ This is to test three classes with the same ability
 
 #include "../../../Includes/Functions.h"
 
+---- BROKEN TEST -----
+
 int main()
 {
     LinkedList<Roles*> *Classes = new LinkedList<Roles*>();
