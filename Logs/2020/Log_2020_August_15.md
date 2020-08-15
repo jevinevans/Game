@@ -57,10 +57,11 @@ __\<Date\>__ - When Item was completed
   - [ ] Add to Equipment Class _6.26.2020_
   - [ ] Add to Role Class _6.26.2020_
   - [ ] Add to Character Class _6.26.2020_ 
+- [ ] CodeTest_Roles_2 Test is broken and needs fixing, issue is with the LinkedList class _8.15.2020_
+- [ ] CodeTest_Roles_1, not sure what the issue is, but will look into it _8.15.2020_
 - [ ] Create cases for LinkedList CodeTest _6.26.2020_
 - [ ] Update README to explain what code files _3.21.2020_
 - [ ] CodeTest Template - could make a python script to create these _7.3.2020_
-- [ ] CodeTest_Roles_2 Test is broken and needs fixing, issue is with the LinkedList class
 - [ ] Test Logs for Later _7.24.2020_
     - [ ] Character _7.3.2020_
     - [ ] Combat _7.3.2020_
