@@ -5,8 +5,9 @@ __Version:__ 1
 
 ## Test Descriptions
 - CodeTest_Abilities_1 - This tests all of the basic functions in the Abilities Class.
-  - Result File: "Fun/CodeTests/_Code_Results/CodeTest_Abilities_1_Results.txt"
   - Input File: "Fun/CodeTests/Abilities/CodeTest_Abilities_1/AbilitiesList.txt"
+  - Result File: "Fun/CodeTests/_Code_Results/CodeTest_Abilities_1_Results.txt"
+  
 
 - CodeTest_Abilities_2 - This test the printToFile method
   - Result File: "Fun/CodeTests/_Code_Results/CodeTest_Abilities_2_Results.txt"
