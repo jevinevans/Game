@@ -5,6 +5,8 @@
 	Description: The Equipment class allows for creation of objects in the game to be used by characters and placed inside of the armor or in other holders/storage containers inside of the game 
  */
 
+// http://howtomakeanrpg.com/a/how-to-make-an-rpg-stats.html
+
 #ifndef STATS_H
 #define STATS_H
 
