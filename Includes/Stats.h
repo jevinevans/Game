@@ -223,7 +223,7 @@ class Stats
         void printToFile(ofstream &File)
         {
             cout << "Printing Stats";
-            File << this->hp_max << ",";
+            File << "<" << this->hp_max << ",";
             File << this->hp_now << ",";
             cout << ".";
             File << this->mp_max << ",";
@@ -231,7 +231,7 @@ class Stats
             cout << ".";
             File << this->strength << ",";
             File << this->speed << ",";
-            File << this->intel  << ";";
+            File << this->intel  << ">";
             cout << ".";
             cout << "Done" << endl;
         }
