@@ -55,20 +55,20 @@ class LinkedList
 				tail = NULL;
 				numNodes = 0;
 			}
-			
+		
 			~LinkedList() //THis needs work
 			{
 				cout << "Starting List Deletion...";
 				ListNode* delNode, *next;
 				
 				delNode = head;
-				while(numNodes != 0)
+				while(this->numNodes != 0)
 				{					
 					next = delNode->next; 
 					// delNode->value->PRINT();
 					// cout << endl;
 					delete delNode;
-					--numNodes;
+					--this->numNodes;
 					delNode = next;
 				}
 				delete head, tail;
