@@ -92,7 +92,7 @@ class Roles
 				delete powers[i];
 			}
 			delete [] powers;
-			cout << "Deletion Done" << endl;
+			cout << "Class Deletion Done" << endl;
 		}
 		void PRINT()
 		{
