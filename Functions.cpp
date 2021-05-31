@@ -2,21 +2,17 @@
 
 void printToFile(LinkedList<Equipment*> *inventory, const char* file)
 {
-	cout << "Opening File: " << file << endl;
+	cout << endl << "Opening File: " << file << "->";
 	ofstream outFile;
 	outFile.open(file);
 	
 	for(int i = 1; i <= inventory->getLength(); i++)
 		inventory->getNodeValue(i)->printToFile(outFile);
 	
-	outFile << endl;
 	cout << "Done" << endl;
-	outFile.close();
-	
-	
-	cout << "Printed to File" << endl;
-	
+	outFile.close();	
 }
+
 void printToFile(LinkedList<Roles*> *Classes, const char* file)
 {
 	cout << "Opening File: " << file << endl;
@@ -34,6 +30,7 @@ void printToFile(LinkedList<Roles*> *Classes, const char* file)
 	cout << "Printed to File" << endl;
 	
 }
+
 void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 {
 	string name, desc, line, temp;				
@@ -102,6 +99,7 @@ void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 	}
 	inFile.close();
 }
+
 void readRoles(Roles** Classes, const char* file)
 {
 	string roleName, abilityName, line, temp;
