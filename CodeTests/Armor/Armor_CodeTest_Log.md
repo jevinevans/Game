@@ -1,6 +1,7 @@
 # Armor CodeTest Log
 
-__Last Updated:__ 7.5.2020 <br />
+__Last Updated:__ 5.31.2021
+<br />
 __Version:__ 1
 
 ## Test Descriptions
