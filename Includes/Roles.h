@@ -88,7 +88,7 @@ class Roles
 				if(powers[i] == NULL)
 					continue;
 
-				cout << "Deleting Power: " << powers[i]->getName() << endl;
+				cout << "\tDeleting Power: " << powers[i]->getName() << endl;
 				delete powers[i];
 			}
 			delete [] powers;
@@ -164,7 +164,7 @@ class Roles
 		void removePower()
 		{
 			int n = -1;
-			cout << "Deleting a Power" << endl << "-------------------------"<< endl;
+			cout << "Removing a Power" << endl << "-------------------------"<< endl;
 			printPowers();
 			cout << "\nPlease choose a number from 1 - " << current << ": ";
 			cin >> n; 

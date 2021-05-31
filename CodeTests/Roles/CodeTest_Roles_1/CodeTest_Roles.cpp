@@ -159,7 +159,6 @@ int main()
 	delete Warrior;
 	delete Thief;
     
-    
 	delete Powers;
 
     cout << "Test Complete" << endl;
