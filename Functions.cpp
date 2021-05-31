@@ -2,14 +2,14 @@
 
 void printToFile(LinkedList<Equipment*> *inventory, const char* file)
 {
-	cout << endl << "Opening File: " << file << "->";
+	// cout << endl << "Opening File: " << file << "->";
 	ofstream outFile;
 	outFile.open(file);
 	
 	for(int i = 1; i <= inventory->getLength(); i++)
 		inventory->getNodeValue(i)->printToFile(outFile);
 	
-	cout << "Done" << endl;
+	// cout << "Done" << endl;
 	outFile.close();	
 }
 
