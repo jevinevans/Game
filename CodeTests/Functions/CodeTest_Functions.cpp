@@ -2,11 +2,9 @@
 
 const char* EQUIP_FILE = "./Equipment_Print_Results.txt";
 
-int main()
+
+bool printToFileEquipmentTest()
 {
-    //Testing printToFile (Equipment)
-    cout << "----- printToFile(Equipment) -----" << endl;
-    
     // Create equipment to print to file
     Equipment* wep1 = new Equipment("Test Sword", 4,1,2,5,"Simple persons sword", 50);
     Equipment* wep2 = new Equipment("Test Knife", 4,1,3,6,"Simple persons Knief", 50);
@@ -33,40 +31,59 @@ int main()
         {
             cout << "LinkedList length incorrect: it is " << length << " and should be 3." << endl;
             cout << "Exiting for other error" << endl;
-            delete wep1;
-            delete wep2;
-            delete wep3;
-            delete inventory;
             cout << "printToFile (Equipment) -----> failed" << endl;
+            return false;
         }
-        cout << "Inventory Length: " << inventory->getLength() << endl; //Remove
 
         printToFile(inventory, EQUIP_FILE);
 
         ifstream f(EQUIP_FILE);
         if(!f.good())
             throw EQUIP_FILE;
-
-        cout << "printToFile (Equipment) -----> passed" << endl;
     }
     catch(const char* file)
     {
         cout << file << " does not exist and was not created" << endl;
         cout << "printToFile (Equipment) -----> failed" << endl;
+        return false;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
         cout << "MAJOR ERROR" << endl;
         cout << "printToFile (Equipment) -----> failed" << endl;
+        return false;
     }
     delete wep1;
     delete wep2;
     delete wep3;
     delete inventory;
+    return true;
+}
+
+
+int main()
+{
+    int passed, failed = 0;
+
+    //Testing printToFile (Equipment)
+    cout << "----- Functions.h CodeTest -----" << endl << endl;
+    if (printToFileEquipmentTest())
+    {
+        cout << "\tprintTofile: Passed!" << endl;
+        passed++;
+    }
+    else
+    {
+        cout << "\tprintTofile: Failed!" << endl;
+        failed++;
+    }
+    
+    
     //Testing printToFile (Roles)
     //Testing readEquipment
     //Test readRoles
     cout << "Finished Testing" << endl;
+    cout << "Passed: " << passed << " | Failed: " << failed << endl;
     return 0;
 }

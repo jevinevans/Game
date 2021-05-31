@@ -210,7 +210,7 @@ class Roles
 			for(int i = 0; i < current; i++)
 				powers[i]->printToFile(File);
 			File << ";" << endl;
-			cout << "Printed Role: " << this->roleName << " to file." << endl;
+			// cout << "Printed Role: " << this->roleName << " to file." << endl;
 		}
 
 		//Setters
