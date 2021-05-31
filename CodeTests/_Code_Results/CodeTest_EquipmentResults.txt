@@ -23,7 +23,7 @@
  Ability Points: 50 ATK
 
 
-	Gold Knief
+	Gold Knife
 ------------------------ 
  Type: Knief
  Level: 6
@@ -65,7 +65,9 @@
 Printed Gold Cap
 Printed Gold Chestplate
 Printed Gold Sword
-Printed Gold Knief
+Printed Gold Knife
 Printed Gold Wand
 Printed Gold Trousers
 Printed Melitas Wand
+
+Equipment Test Complete
