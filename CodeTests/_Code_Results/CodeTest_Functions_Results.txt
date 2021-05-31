@@ -1,7 +1,5 @@
------ printToFile(Equipment) -----
-Inventory Length: 3
-Opening File: ./Equipment_Print_Results.txtDone
-Printed to File
-printToFile (Equipment) -----> passed
-Starting List Deletion...LinkedList Deleted
+----- Functions.h CodeTest -----
+	printTofile: Passed!
+
 Finished Testing
+Passed: 1 | Failed: 0

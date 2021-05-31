@@ -67,7 +67,7 @@ int main()
     int passed, failed = 0;
 
     //Testing printToFile (Equipment)
-    cout << "----- Functions.h CodeTest -----" << endl << endl;
+    cout << "----- Functions.h CodeTest -----" << endl;
     if (printToFileEquipmentTest())
     {
         cout << "\tprintTofile: Passed!" << endl;
@@ -83,7 +83,7 @@ int main()
     //Testing printToFile (Roles)
     //Testing readEquipment
     //Test readRoles
-    cout << "Finished Testing" << endl;
+    cout << "\nFinished Testing" << endl;
     cout << "Passed: " << passed << " | Failed: " << failed << endl;
     return 0;
 }
