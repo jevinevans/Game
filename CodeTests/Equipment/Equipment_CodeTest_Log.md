@@ -11,7 +11,7 @@ __Version:__ 1
 ### Guide
 __Tested__ :white_check_mark:
 <br />
-__Not Tested__ :x: 
+__Not Tested__ :x:
 
 ## Functions
 

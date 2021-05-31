@@ -24,5 +24,10 @@ __Not Tested__ :x:
 
 ## Functions
 
-|Function Name |Parmeters Used | Tested | Test Case | Test Date | Results |
-|---|---|:---:|---|---|---
+|Function Name |Parmeters Used | Last Tested | Results |
+|---|---|:---:|---|---
+__resise__ | NULL | 5.30.2021 | :x:
+__removePower__ | int | 5.30.2021 | :x:
+__Roles__ (Full Constructor) | string, int, int | 5.30.2021 | :x:
+__Roles__ (Copy Constructor) | Roles* | 5.30.2021 | :x:
+__Roles__ (Empty Constructor) | NULL | 5.30.2021 | :x:
