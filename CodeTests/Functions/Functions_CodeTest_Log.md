@@ -24,7 +24,7 @@ __Failure__ :x:
 
 |Function Name |Parmeter Types | Return Value | Last Tested | Results |
 |---|---|---|---|:---:
-__printToFile__  | LinkedList<Equipment*>, const char* | void | TBD | TBD
+__printToFile__  | LinkedList<Equipment*>, const char* | void | 5.31.2021 | :white_check_mark:
 __printToFile__  | LinkedList<Roles*>, const char* | void | TBD | TBD
 __readEquipment__  | LinkedList<Equipment*>, const char* | void | TBD | TBD
 __readRoles__  | Roles**, const char* | void | TBD | TBD

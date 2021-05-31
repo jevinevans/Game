@@ -1,10 +1,6 @@
 ----- printToFile(Equipment) -----
 Inventory Length: 3
-Opening File: ./Equipment_Print_Results.txt
-Printed Test Sword
-Printed Test Knife
-Printed Test Wand
-Done
+Opening File: ./Equipment_Print_Results.txtDone
 Printed to File
 printToFile (Equipment) -----> passed
 Starting List Deletion...LinkedList Deleted

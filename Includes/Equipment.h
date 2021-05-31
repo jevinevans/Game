@@ -159,7 +159,7 @@ class Equipment
 			File << level << ",";
 			File << desc << ",";
 			File << abilityPts << ";" << endl;
-			cout << "Printed " << this->name << endl;
+			// cout << "Printed " << this->name << endl;
 		}	
 /*
 	Function:		validate
