@@ -53,6 +53,7 @@ void readEquipment(LinkedList<Equipment*> *Items, const char* file)
 			if((pos = line.find(delim)) != string::npos)
 			{
 				name = line.substr(0,pos);
+				cout << "TESTING: " << name << endl;
 				line.erase(0, pos + delim.length());
 			}
 			if((pos = line.find(delim)) != string::npos)
