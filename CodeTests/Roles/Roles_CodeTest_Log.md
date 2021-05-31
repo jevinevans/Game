@@ -20,11 +20,11 @@ __Version:__ 1
   
 ### Guide
 
-__Tested__ :white_check_mark:
+__Success__ :white_check_mark:
 
 <br />
 
-__Not Tested__ :x:
+__Failure__ :x:
 
 ## Functions
 
