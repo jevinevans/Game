@@ -41,7 +41,7 @@ class Abilities
 
 		~Abilities()
 		{
-			cout << "Deleting Ability: " << abilityName << endl;
+			cout << "\tDeleting Ability: " << abilityName << endl;
 		}
 
 		void PRINT()
