@@ -58,7 +58,7 @@ class LinkedList
 		
 			~LinkedList() //THis needs work
 			{
-				cout << "Starting List Deletion...";
+				// cout << "Starting List Deletion...";
 				ListNode* delNode, *next;
 				
 				delNode = head;
@@ -72,7 +72,7 @@ class LinkedList
 					delNode = next;
 				}
 				delete head, tail;
-				cout << "LinkedList Deleted" << endl;
+				// cout << "LinkedList Deleted" << endl;
 			}
 			
 			int getLength()
