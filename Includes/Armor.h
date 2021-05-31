@@ -225,8 +225,19 @@ class Armor
 			cout << endl;
 		}
 		
-		printToFile();
-		Needs work
+		void printToFile(ofstream &File)
+		{
+			File << "head: ";
+			this->head->value->printToFile(File);
+			File << ", chest: ";
+			this->chest->value->printToFile(File);
+			File << ", weapon: ";
+			this->weapon->value->printToFile(File);
+			File << ", pants: ";
+			this->weapon->value->printToFile(File);
+			File << ";";
+			cout << "Print Armor" << endl;
+		}
 
 		Slot* getHead(){return head;}
 		Slot* getChest(){return chest;}
