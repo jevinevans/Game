@@ -1,10 +1,11 @@
 #include "../../Includes/Functions.h"
 
 const char* EQUIP_FILE = "./Equipment_Print_Results.txt";
-
+const char* ROLES_FILE = "./Roles_Print_Results.txt";
 
 bool printToFileEquipmentTest()
-{
+{   
+    bool success = true;
     // Create equipment to print to file
     Equipment* wep1 = new Equipment("Test Sword", 4,1,2,5,"Simple persons sword", 50);
     Equipment* wep2 = new Equipment("Test Knife", 4,1,3,6,"Simple persons Knief", 50);
@@ -31,8 +32,7 @@ bool printToFileEquipmentTest()
         {
             cout << "LinkedList length incorrect: it is " << length << " and should be 3." << endl;
             cout << "Exiting for other error" << endl;
-            cout << "printToFile (Equipment) -----> failed" << endl;
-            return false;
+            success = false;
         }
 
         printToFile(inventory, EQUIP_FILE);
@@ -43,44 +43,45 @@ bool printToFileEquipmentTest()
     }
     catch(const char* file)
     {
-        cout << file << " does not exist and was not created" << endl;
-        cout << "printToFile (Equipment) -----> failed" << endl;
-        return false;
+        cout << "ERROR:" << file << " does not exist and was not created" << endl;
+        success = false;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
-        cout << "MAJOR ERROR" << endl;
-        cout << "printToFile (Equipment) -----> failed" << endl;
-        return false;
+        cout << "ERROR: UNKNOWN" << endl;
+        success = false;
     }
     delete wep1;
     delete wep2;
     delete wep3;
     delete inventory;
-    return true;
+    return success;
 }
 
 bool printToFileRolesTest()
 {
-    // Create equipment to print to file
-    Equipment* wep1 = new Equipment("Test Sword", 4,1,2,5,"Simple persons sword", 50);
-    Equipment* wep2 = new Equipment("Test Knife", 4,1,3,6,"Simple persons Knief", 50);
-    Equipment* wep3 = new Equipment("Test Wand", 4,1,1,7,"Simple persons Wand", 50);
+    bool success = true; 
+    // Create Roles to print to file
+    Roles* role1 = new Roles("Warrior", 2, 2);
+    Roles* role2 = new Roles("Mage", 1, 2);
+    Roles* role3 = new Roles("Rouge", 0, 2);
+    Roles* role4 = new Roles();
 
-    // Create list to store equipment items
-    LinkedList<Equipment*>* rolesList = new LinkedList<Equipment*>();
+    // Create list to store Roles items
+    LinkedList<Roles*>* rolesList = new LinkedList<Roles*>();
     
-    // Adding Equipment to linkedlist
-    rolesList->appendNode(wep1);
-    rolesList->appendNode(wep2);
-    rolesList->appendNode(wep3);
+    // Adding Roles to linkedlist
+    rolesList->appendNode(role1);
+    rolesList->appendNode(role2);
+    rolesList->appendNode(role3);
+    rolesList->appendNode(role4);
 
     try
     {
         try
         {
-            if (rolesList->getLength() != 3)
+            if (rolesList->getLength() != 4)
             {
                 throw rolesList->getLength();
             }
@@ -89,34 +90,31 @@ bool printToFileRolesTest()
         {
             cout << "LinkedList length incorrect: it is " << length << " and should be 3." << endl;
             cout << "Exiting for other error" << endl;
-            cout << "printToFile (Equipment) -----> failed" << endl;
-            return false;
+            success = false;
         }
 
-        printToFile(rolesList, EQUIP_FILE);
-
-        ifstream f(EQUIP_FILE);
+        printToFile(rolesList, ROLES_FILE);
+        ifstream f(ROLES_FILE);
         if(!f.good())
-            throw EQUIP_FILE;
+            throw ROLES_FILE;
     }
     catch(const char* file)
     {
-        cout << file << " does not exist and was not created" << endl;
-        cout << "printToFile (Equipment) -----> failed" << endl;
-        return false;
+        cout << "ERROR:" << file << " does not exist and was not created" << endl;
+        success = false;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
-        cout << "MAJOR ERROR" << endl;
-        cout << "printToFile (Equipment) -----> failed" << endl;
-        return false;
+        cout << "ERROR: UNKNOWN" << endl;
+        success = false;
     }
-    delete wep1;
-    delete wep2;
-    delete wep3;
+    delete role1;
+    delete role2;
+    delete role3;
+    delete role4; 
     delete rolesList;
-    return true;
+    return success;
 }
 
 int main()
@@ -127,15 +125,25 @@ int main()
     cout << "----- Functions.h CodeTest -----" << endl;
     if (printToFileEquipmentTest())
     {
-        cout << "\tprintTofile: Passed!" << endl;
+        cout << "\tprintTofile (Equipment): Passed!" << endl;
         passed++;
     }
     else
     {
-        cout << "\tprintTofile: Failed!" << endl;
+        cout << "\tprintTofile (Equipment): Failed!" << endl;
         failed++;
     }
     
+    if (printToFileRolesTest())
+    {
+        cout << "\tprintToFile (Roles): Passed!" << endl;
+        passed++;
+    }
+    else
+    {
+        cout << "\tprintToFile (Roles): Failed!" << endl;
+        failed++;
+    }
     
     //Testing printToFile (Roles)
     //Testing readEquipment
