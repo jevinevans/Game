@@ -1,6 +1,6 @@
 =========================================
-|	Total Directories: 26			|
-|	Files: 116					|
+|	Total Directories: 27			|
+|	Files: 123				|
 =========================================
 
 .\Basic Player Game Info.txt
@@ -35,6 +35,12 @@
 .\CodeTests\Equipment\Equipment_CodeTest_Log.md
 .\CodeTests\Equipment\makefile
 .\CodeTests\Equipment\run.bat
+.\CodeTests\Functions
+.\CodeTests\Functions\CodeTest_Functions.cpp
+.\CodeTests\Functions\Equipment_Print_Results.txt
+.\CodeTests\Functions\Functions_CodeTest_Log.md
+.\CodeTests\Functions\makefile
+.\CodeTests\Functions\run.bat
 .\CodeTests\LinkedList
 .\CodeTests\LinkedList\Equipment
 .\CodeTests\LinkedList\Equipment\CodeTest_LinkList_Equipement.cpp
@@ -74,6 +80,7 @@
 .\CodeTests\_Code_Results\CodeTest_ArmorResults.txt
 .\CodeTests\_Code_Results\CodeTest_Armor_1_Results.txt
 .\CodeTests\_Code_Results\CodeTest_EquipmentResults.txt
+.\CodeTests\_Code_Results\CodeTest_Functions_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Roles_1_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Roles_2_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Stats_1_Results.txt
@@ -141,6 +148,7 @@
 .\Logs\2021\Log_2021_04_19.md
 .\Logs\2021\Log_2021_05_28.md
 .\Logs\2021\Log_2021_05_30.md
+.\Logs\2021\Log_2021_05_31.md
 .\Makefile
 .\README.md
 .\Run.bat
