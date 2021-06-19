@@ -48,7 +48,7 @@ bool printToFileEquipmentTest()
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        cout << e.what() << '\n';
         cout << "ERROR: UNKNOWN" << endl;
         success = false;
     }
@@ -68,6 +68,16 @@ bool printToFileRolesTest()
     Roles* role3 = new Roles("Rouge", 0, 2);
     Roles* role4 = new Roles();
 
+    // Create some abilities to printout as well
+    Abilities* w1 = new Abilities("Strike", 1, 50);
+    Abilities* w2 = new Abilities("Parry", 1, -50);
+    Abilities* r1 = new Abilities("Stab", 1, 75);
+    Abilities* r2 = new Abilities("Hide", 1, 0); 
+    Abilities* m1 = new Abilities("Fireball", 0, 60);
+    Abilities* m2 = new Abilities("Ice Shard", 0, 50); 
+
+    role1->addPower(w1);
+    role2->addPower(w2);
     // Create list to store Roles items
     LinkedList<Roles*>* rolesList = new LinkedList<Roles*>();
     
@@ -105,14 +115,20 @@ bool printToFileRolesTest()
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        cout << e.what() << '\n';
         cout << "ERROR: UNKNOWN" << endl;
         success = false;
     }
     delete role1;
     delete role2;
     delete role3;
-    delete role4; 
+    delete role4;
+    delete w1;
+    delete w2;
+    delete r1;
+    delete r2;
+    delete m1;
+    delete m2;
     delete rolesList;
     return success;
 }
@@ -123,25 +139,26 @@ int main()
 
     //Testing printToFile (Equipment)
     cout << "----- Functions.h CodeTest -----" << endl;
+    cout << "\tprintTofile (Equipment): ";
     if (printToFileEquipmentTest())
     {
-        cout << "\tprintTofile (Equipment): Passed!" << endl;
+        cout << "Passed!" << endl;
         passed++;
     }
     else
     {
-        cout << "\tprintTofile (Equipment): Failed!" << endl;
+        cout << "Failed!" << endl;
         failed++;
     }
-    
+    cout << "\tprintToFile (Roles): ";
     if (printToFileRolesTest())
     {
-        cout << "\tprintToFile (Roles): Passed!" << endl;
+        cout << "Passed!" << endl;
         passed++;
     }
     else
     {
-        cout << "\tprintToFile (Roles): Failed!" << endl;
+        cout << "Failed!" << endl;
         failed++;
     }
     
