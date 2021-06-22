@@ -163,7 +163,7 @@ class Armor
 			delete temp;
 		}
 		
-		//Deprcatted needs to be updated????
+		//ToDo: Needs to have STATs objects integrated
 		void stats()
 		{
 			cout << "\n----------------------\n|     ARMOR STATS    |\n----------------------";
