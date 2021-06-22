@@ -10,7 +10,7 @@
     Total: 19 Test
 */
 
-#include "../../../Includes/Functions.h"
+#include "../../Includes/Functions.h"
 
 int main()
 {

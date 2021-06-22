@@ -1,9 +1,13 @@
-#Add Other Tests
-
 .PHONY: all clean
 
-all: 
-	make -C CodeTest_Armor_1 all
+all	:	CodeTest_Armor
 
-clean:
-	make -C CodeTest_Armor_1 clean
+CodeTest_Armor	:	CodeTest_Armor.o
+							g++ -o CodeTest_Armor.exe CodeTest_Armor.o
+
+CodeTest_Armor.o	:	CodeTest_Armor.cpp
+							g++ -I ./ -c CodeTest_Armor.cpp
+
+clean :	CodeTest_Armor.exe
+		del *.o
+		del CodeTest_Armor.exe
