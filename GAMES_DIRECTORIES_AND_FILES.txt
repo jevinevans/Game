@@ -1,5 +1,5 @@
 +==========================================+
-|	Total Directories: 27			|
+|	Total Directories: 26			|
 |	Files: 124				|
 +==========================================+
 
@@ -20,11 +20,11 @@
 .\CodeTests\Abilities\makefile
 .\CodeTests\Armor
 .\CodeTests\Armor\Armor_CodeTest_Log.md
-.\CodeTests\Armor\CodeTest_Armor_1
-.\CodeTests\Armor\CodeTest_Armor_1\CodeTest_Armor.cpp
-.\CodeTests\Armor\CodeTest_Armor_1\makefile
-.\CodeTests\Armor\CodeTest_Armor_1\run.bat
+.\CodeTests\Armor\CodeTest_Armor.cpp
+.\CodeTests\Armor\CodeTest_Armor.exe
+.\CodeTests\Armor\CodeTest_Armor.o
 .\CodeTests\Armor\makefile
+.\CodeTests\Armor\run.bat
 .\CodeTests\CodeTest_[Template]
 .\CodeTests\CodeTest_[Template]\CodeTest_[Template].cpp
 .\CodeTests\CodeTest_[Template]\Template_CodeTest_Log.md
@@ -39,6 +39,7 @@
 .\CodeTests\Functions\CodeTest_Functions.cpp
 .\CodeTests\Functions\Equipment_Print_Results.txt
 .\CodeTests\Functions\Functions_CodeTest_Log.md
+.\CodeTests\Functions\Roles_Print_Results.txt
 .\CodeTests\Functions\makefile
 .\CodeTests\Functions\run.bat
 .\CodeTests\LinkedList
@@ -149,7 +150,7 @@
 .\Logs\2021\Log_2021_05_28.md
 .\Logs\2021\Log_2021_05_30.md
 .\Logs\2021\Log_2021_05_31.md
-.\Logs\2021\Log_2021_06_19 copy.md
+.\Logs\2021\Log_2021_06_19.md
 .\Makefile
 .\README.md
 .\Run.bat
