@@ -40,7 +40,6 @@ class Equipment
 			desc = "NULL";
 			abilityPts = 0;
 		}
-
 /*
 	Function:		Constructor
 	Parameters:		string name, int item type, int armor type, int weapon type, int level, string description, int ability points
@@ -67,7 +66,6 @@ class Equipment
 			desc = equ->desc;
 			abilityPts = equ->abilityPts;
 		}
-		
 /*
 	Function:		PRINT
 	Parameters:		NULL
@@ -88,13 +86,11 @@ class Equipment
 			else
 			cout << " DEF" << endl << endl;
 		}
-
 /*
 	Function:		getItemType
 	Parameters:		NULL
 	Description: 	This method returns a description string for the item type
 */
-
 		void getItemType()
 		{
 			string item ="";
@@ -149,7 +145,6 @@ class Equipment
 				cout << "Broken Item";
 			cout << item;
 		}
-
 /*
 	Function:		printToFile
 	Parameters:		Ofstream (aka Output File)
@@ -163,10 +158,9 @@ class Equipment
 			File << WT << ",";
 			File << level << ",";
 			File << desc << ",";
-			File << abilityPts << "," << endl;
-			cout << "Printed " << this->name << endl;
+			File << abilityPts << ";" << endl;
+			// cout << "Printed " << this->name << endl;
 		}	
-
 /*
 	Function:		validate
 	Parameters:		int (AT, IT, or WT)
@@ -191,22 +185,14 @@ class Equipment
 	Description:	These allow for the code to change some of the values or update values for the object.
 */
 		void setName(string n){name = n;}
-		void setIT(int i)
-		{
-			IT = validate(i, 'I');
-		}
-		void setAT(int a)
-		{
-			AT = validate(a, 'A');
-		}
-		void setWT(int w)
-		{
-			WT = validate(w, 'W');
-		}
+		void setIT(int i){IT = validate(i, 'I');}
+		void setAT(int a){AT = validate(a, 'A');}
+		void setWT(int w){WT = validate(w, 'W');}
 		void setLevel(int l){level = l;}
 		void setDescription(string d){desc = d;}
 		void setAbilityPts(int a){abilityPts = a;}
 		
+		//Depricated - needs to be integrated
 		string getStats() const
 		{
 			string str = getName() + " (" + to_string(getLevel()) + ") - " + to_string(getAbilityPts());
@@ -230,13 +216,6 @@ class Equipment
 		int getWT() const {return WT;}
 		int getLevel() const {return level;}
 		string getDescription() const {return desc;}
-		int getAbilityPts() const {return abilityPts;}
-		
-	
-	
-	
-	
+		int getAbilityPts() const {return abilityPts;}	
 };
-
-
 #endif

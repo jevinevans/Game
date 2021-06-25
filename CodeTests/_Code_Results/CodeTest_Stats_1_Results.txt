@@ -143,4 +143,28 @@ SPD: 117
 INT: 142
 
 
+Testing Removing of Stats
+Combined Stats is currently
+HP: 1101/1101
+MP: 772/772
+STR: 171
+SPD: 117
+INT: 142
+
+Now removing the stats from fullConstr from Combined
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 52
+
+Results
+----------
+HP: 1001/1001
+MP: 622/622
+STR: 111
+SPD: 74
+INT: 90
+
+
 Test Complete

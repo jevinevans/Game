@@ -1,11 +1,11 @@
-all	:	CodeTest_Abilities
+#Add Other Tests
 
-CodeTest_Abilities	:	CodeTest_Abilities.o
-							g++ -o CodeTest_Abilities.exe CodeTest_Abilities.o
+.PHONY: all clean
 
-CodeTest_Abilities.o	:	CodeTest_Abilities.cpp
-							g++ -I ./ -c CodeTest_Abilities.cpp
+all: 
+	make -C CodeTest_Abilities_1 all
+	make -C CodeTest_Abilities_2 all
 
-clean :	CodeTest_Abilities.exe
-		del *.o
-		del CodeTest_Abilities.exe
+clean:
+	make -C CodeTest_Abilities_1 clean
+	make -C CodeTest_Abilities_2 clean

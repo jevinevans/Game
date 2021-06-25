@@ -1,10 +1,16 @@
 
-25	50	90	40	30	75	Starting List Deletion...Done
+25	50	90	40	30	75	Starting List Deletion...LinkedList Deleted
 Reading Equipment in and printing names...
+TESTING: Gold Cap
+TESTING: Gold Chestplate
+TESTING: Gold Sword
+TESTING: Gold Knief
+TESTING: Gold Trousers
 Gold Cap
 Gold Chestplate
 Gold Sword
 Gold Knief
+Gold Trousers
 Gold Trousers
 
 --------------------------------------
@@ -13,6 +19,7 @@ Equipped: Gold Cap
 Equipped: Gold Chestplate
 Equipped: Gold Sword
 Equipped: Gold Knief
+Equipped: Gold Trousers
 Equipped: Gold Trousers
 Weapons Length: 2
 
@@ -198,6 +205,7 @@ Printed Gold Chestplate
 Printed Gold Sword
 Printed Gold Knief
 Printed Gold Trousers
+Printed Gold Trousers
 Done
 Printed to File
 
@@ -211,8 +219,8 @@ Armor Type: Light Armor
  
 There are no powers.
 Deleting Role: Mage
-Deletion Done
-Starting List Deletion...Done
+Role Deletion Done
+Starting List Deletion...LinkedList Deleted
 Test Completed
 Finished
-Starting List Deletion...Done
+Starting List Deletion...LinkedList Deleted

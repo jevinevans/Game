@@ -33,13 +33,13 @@ for root, dirs, files in os.walk("."):
     except:
         continue
     
-filelist.write("=========================================\n")
+filelist.write("+==========================================+\n")
 filelist.write("|\tTotal Directories: ")
 filelist.write(str(countd))
 filelist.write("\t\t\t|\n|\tFiles: ")
 filelist.write(str(countf))
-filelist.write("\t\t\t\t\t|\n")
-filelist.write("=========================================\n")
+filelist.write("\t\t\t\t|\n")
+filelist.write("+==========================================+\n")
 
 printlist.sort()
 filelist.write("\n")

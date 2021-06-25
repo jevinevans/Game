@@ -19,9 +19,7 @@ class Armor
 			bool isEmpty()
 			{
 				if(this->empty)
-				{
 					return true;
-				}
 				else
 					return false;	
 			}
@@ -40,7 +38,6 @@ class Armor
 			pants = new Slot;
 			
 			head->empty = chest->empty = weapon->empty = pants->empty = true;
-			
 		}
 
 		Armor(Armor<TYPE>* arm)
@@ -72,7 +69,6 @@ class Armor
 		
 		void equip(TYPE v)
 		{
-		
 			TYPE t = new Equipment(v);
 			Slot* temp;
 			temp = new Slot;
@@ -167,7 +163,7 @@ class Armor
 			delete temp;
 		}
 		
-		
+		//ToDo: Needs to have STATs objects integrated
 		void stats()
 		{
 			cout << "\n----------------------\n|     ARMOR STATS    |\n----------------------";
@@ -229,18 +225,29 @@ class Armor
 			cout << endl;
 		}
 		
+		void printToFile(ofstream &File)
+		{
+			File << "head: ";
+			this->head->value->printToFile(File);
+			File << ", chest: ";
+			this->chest->value->printToFile(File);
+			File << ", weapon: ";
+			this->weapon->value->printToFile(File);
+			File << ", pants: ";
+			this->weapon->value->printToFile(File);
+			File << ";";
+			cout << "Print Armor" << endl;
+		}
+
 		Slot* getHead(){return head;}
 		Slot* getChest(){return chest;}
 		Slot* getWeapon(){return weapon;}
 		Slot* getPants(){return pants;}
-		
+		string getName(){return "Armor";}
+
 		void setHead(TYPE h){head = h;}
 		void setWeapong(TYPE w){weapon = w;}
 		void setChest(TYPE c){chest = c;}
-		void setPants(TYPE p){pants = p;}
-		
-		string getName(){return "Armor";}
+		void setPants(TYPE p){pants = p;}		
 };
-
-
 #endif

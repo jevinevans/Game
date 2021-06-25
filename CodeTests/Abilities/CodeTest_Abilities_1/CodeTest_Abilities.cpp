@@ -1,4 +1,4 @@
-#include "../../Includes/Abilities.h"
+#include "../../../Includes/Abilities.h"
 
 int main()
 {
@@ -25,9 +25,6 @@ int main()
     cout << "Printing Abilities" << endl;
     b->PRINT();
     c->PRINT();
-
-    a->printToFile(file);
-    b->printToFile(file);
 
     delete a;
     delete b;

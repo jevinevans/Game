@@ -55,24 +55,24 @@ class LinkedList
 				tail = NULL;
 				numNodes = 0;
 			}
-			
+		
 			~LinkedList() //THis needs work
 			{
-				cout << "Starting List Deletion...";
+				// cout << "Starting List Deletion...";
 				ListNode* delNode, *next;
 				
 				delNode = head;
-				while(numNodes != 0)
+				while(this->numNodes != 0)
 				{					
 					next = delNode->next; 
 					// delNode->value->PRINT();
 					// cout << endl;
 					delete delNode;
-					--numNodes;
+					--this->numNodes;
 					delNode = next;
 				}
 				delete head, tail;
-				cout << "Done" << endl;
+				// cout << "LinkedList Deleted" << endl;
 			}
 			
 			int getLength()
@@ -188,8 +188,6 @@ class LinkedList
 				temp = node1->value;
 				node1->value = node2->value;
 				node2->value = temp;
-			}
-			
+			}		
 };
-
 #endif

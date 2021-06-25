@@ -1,0 +1,7 @@
+Warrior,2,2,Strike,1,50;
+;
+Mage,1,2,Parry,1,-50;
+;
+Rouge,0,2,;
+New Role,-1,1,;
+

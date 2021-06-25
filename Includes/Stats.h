@@ -5,11 +5,13 @@
 	Description: The Equipment class allows for creation of objects in the game to be used by characters and placed inside of the armor or in other holders/storage containers inside of the game 
  */
 
+// http://howtomakeanrpg.com/a/how-to-make-an-rpg-stats.html
+
 #ifndef STATS_H
 #define STATS_H
 
 #include <iostream>
-// #include <fstream>
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -207,6 +209,33 @@ class Stats
             this->intel += other->intel;
         }
 
+        void removeStats(Stats* other)
+        {
+            this->hp_max -= other->hp_max;
+            this->hp_now -= other->hp_now;
+            this->mp_max -= other->mp_max;
+            this->mp_now -= other->mp_now;
+            this->strength -= other->strength;
+            this->speed -= other->speed;
+            this->intel -= other->intel;
+        }
+
+        void printToFile(ofstream &File)
+        {
+            cout << "Printing Stats";
+            File << "<" << this->hp_max << ",";
+            File << this->hp_now << ",";
+            cout << ".";
+            File << this->mp_max << ",";
+            File << this->mp_now << ",";
+            cout << ".";
+            File << this->strength << ",";
+            File << this->speed << ",";
+            File << this->intel  << ">";
+            cout << ".";
+            cout << "Done" << endl;
+        }
+
         // Setters
         void setHPMAX(int h){this->hp_max = h;}
         void setHPNOW(int h){this->hp_now = h;}
@@ -224,8 +253,5 @@ class Stats
         int getStrength(){return this->strength;}
         int getSpeed(){return this->speed;}
         int getIntel(){return this->intel;}
-
 };
-
-
 #endif

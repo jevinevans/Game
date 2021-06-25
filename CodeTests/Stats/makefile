@@ -1,13 +1,11 @@
-.PHONY: all
+#Add Other Tests
 
-all	:	StatsTest
+.PHONY: all clean
 
-StatsTest	:	CodeTest_Stats.o
-							g++ -o CodeTest_StatsTest.exe CodeTest_Stats.o
+all: 
+	make -C CodeTest_Stats_1 all
+	make -C CodeTest_Stats_2 all
 
-CodeTest_Stats.o	:	CodeTest_Stats.cpp
-							g++ -I ./ -c CodeTest_Stats.cpp
-
-clean		:	CodeTest_StatsTest.exe
-				del *.o
-				del *.exe
+clean:
+	make -C CodeTest_Stats_1 clean
+	make -C CodeTest_Stats_2 clean

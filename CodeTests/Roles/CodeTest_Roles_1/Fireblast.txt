@@ -1,1 +1,1 @@
-FireBlast,0,78,
+FireBlast,0,78;

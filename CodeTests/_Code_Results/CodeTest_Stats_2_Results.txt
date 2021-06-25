@@ -1,0 +1,33 @@
+STATS TEST 2
+This test focuses on the printToFile function
+Created Stats 3 Objects
+________________________________
+Stats 1
+HP: 100/100
+MP: 150/150
+STR: 60
+SPD: 43
+INT: 53
+
+Stats 2
+HP: 125/125
+MP: 187/187
+STR: 75
+SPD: 53
+INT: 66
+
+Stats 3
+HP: 200/200
+MP: 300/300
+STR: 120
+SPD: 86
+INT: 106
+
+
+Now Creating and Printing to File...
+_____________________________________________________
+Printing Stats...Done
+Printing Stats...Done
+Printing Stats...Done
+
+Test Completed

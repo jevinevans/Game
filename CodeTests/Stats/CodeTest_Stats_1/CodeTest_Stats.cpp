@@ -1,4 +1,4 @@
-#include "../../Includes/Stats.h"
+#include "../../../Includes/Stats.h"
 
 using namespace std;
 
@@ -92,6 +92,15 @@ int main()
     combined->addStats(copyConstr);
     combined->PRINT();
     combined->levelup(.25);
+    combined->PRINT();
+
+    cout << "\nTesting Removing of Stats\n";
+    cout << "Combined Stats is currently" << endl;
+    combined->PRINT();
+    cout << "Now removing the stats from fullConstr from Combined" << endl;
+    fullConstr->PRINT();
+    cout << "Results\n----------" << endl;
+    combined->removeStats(fullConstr);
     combined->PRINT();
 
     delete blankConstr;

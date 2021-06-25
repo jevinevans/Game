@@ -43,7 +43,20 @@ class Character
 		{
 			// When adding a role, char need to get the armor type from the role then create a validation function so that when the character tries to add/equip an item it varifies on the top level versus later on 
 		}
-		// Character()
+		Character(Character* CHAR)
+		{
+			this->name = CHAR->name;
+			this->gender = CHAR->gender;
+			this->level = CHAR->level;
+			this->EXP = CHAR->EXP;
+			this->HP = CHAR->HP;
+			this->MP = CHAR->MP;
+			this->DEF = CHAR->DEF;
+			this->ATK = CHAR->ATK;
+			this->body = CHAR->body;
+			this->role = CHAR->role;
+			this->armorType = CHAR->armorType;
+		}
 		~Character()
 		{
 			delete body;
@@ -61,7 +74,9 @@ class Character
 		{
 			
 		}
+		void printToFile(ofstream &File)
+		{
+
+		}
 };
-
-
 #endif

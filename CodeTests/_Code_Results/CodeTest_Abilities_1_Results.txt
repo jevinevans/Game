@@ -21,10 +21,6 @@ Ability C
 - Type: Physical Attack
 - Effect: 0
 
-Printing Strike to file...Done
-
-Printing Fireball to file...Done
-
 Deleting Ability: Strike
 Deleting Ability: Fireball
 Deleting Ability: Ability C

@@ -23,7 +23,7 @@ int main()
 	Equipment* hat = new Equipment("Gold Cap", 1, 1, 0, 5, "Simple persons hat", 10);
 	Equipment* shirt = new Equipment("Gold Chestplate", 2, 1, 0, 5, "Simple persons chestplate", 10);
 	Equipment* weapon1 = new Equipment("Gold Sword", 4,1,2,5,"Simple persons sword", 50);
-	Equipment* weapon2 = new Equipment("Gold Knief", 4,1,3,6,"Simple persons Knief", 50);
+	Equipment* weapon2 = new Equipment("Gold Knife", 4,1,3,6,"Simple persons Knief", 50);
 	Equipment* weapon3 = new Equipment("Gold Wand", 4,1,1,7,"Simple persons Wand", 50);
 	Equipment* pants = new Equipment("Gold Trousers", 3, 1, 3, 5, "Simple persons trousers", 10);
 	Equipment* blank = new Equipment();
@@ -62,5 +62,6 @@ int main()
 	delete pants;
 	delete blank;
 	
+	cout << endl << "Equipment Test Complete" << endl;
 	return 0;
 }

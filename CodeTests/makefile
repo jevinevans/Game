@@ -1,20 +1,15 @@
-#Add Other Tests
+.PHONY: all clean
 
-.PHONY: all
+all: 
+	make -C Equipment all
+	make -C Roles all
+	make -C Abilities all
+	make -C Armor all
+	make -C Stats all
 
-all: Equipment Abilities Armor Stats Roles
-
-Equipment:
-	make -C Equipment
-
-Roles:
-	make -C Roles
-
-Abilities:
-	make -C Abilities
-
-Armor:
-	make -C Armor
-
-Stats:
-	make -C Stats
+clean:
+	make -C Equipment clean
+	make -C Roles clean
+	make -C Abilities clean
+	make -C Armor clean
+	make -C Stats clean

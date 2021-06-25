@@ -7,16 +7,14 @@ Stab
 - Effect: 52
 
 Printing Stab to file...Done
-
 Printing FireBlast to file...Done
-
 Stab
 - Type: Physical Attack
 - Effect: 52
 
-0xb21420
-0xb21420
-0xb21420
+0x21420
+0x21420
+0x21420
 All of these point to the same object and are not new objects. This resulted in the need for a copy constructor
 
 Stab has been added to Mage role.
@@ -104,18 +102,13 @@ Powers List
 ---------------
 Power 1: Stab
 Printing Ice Blast to file...Done
-
 Printing Chaos to file...Done
-
 Printed Role: Mage to file.
 Printing Strike to file...Done
-
 Printed Role: Warrior to file.
 Printing Stab to file...Done
-
 Printed Role: Thief to file.
 Printing Stab to file...Done
-
 1
 Deleting Ability: Stab
 Deleting Role: Mage
