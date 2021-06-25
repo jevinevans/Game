@@ -21,8 +21,6 @@
 .\CodeTests\Armor
 .\CodeTests\Armor\Armor_CodeTest_Log.md
 .\CodeTests\Armor\CodeTest_Armor.cpp
-.\CodeTests\Armor\CodeTest_Armor.exe
-.\CodeTests\Armor\CodeTest_Armor.o
 .\CodeTests\Armor\makefile
 .\CodeTests\Armor\run.bat
 .\CodeTests\CodeTest_[Template]
