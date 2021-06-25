@@ -30,8 +30,7 @@ bool printToFileEquipmentTest()
         }
         catch(int length)
         {
-            cout << "LinkedList length incorrect: it is " << length << " and should be 3." << endl;
-            cout << "Exiting for other error" << endl;
+            cout << "ERROR: LinkedList length incorrect: it is " << length << " and should be 3." << endl;
             success = false;
         }
 
@@ -98,8 +97,7 @@ bool printToFileRolesTest()
         }
         catch(int length)
         {
-            cout << "LinkedList length incorrect: it is " << length << " and should be 3." << endl;
-            cout << "Exiting for other error" << endl;
+            cout << "ERROR: LinkedList length incorrect: it is " << length << " and should be 3." << endl;
             success = false;
         }
 
@@ -113,7 +111,7 @@ bool printToFileRolesTest()
         cout << "ERROR:" << file << " does not exist and was not created" << endl;
         success = false;
     }
-    catch(const std::exception& e)
+    catch(const exception& e)
     {
         cout << e.what() << '\n';
         cout << "ERROR: UNKNOWN" << endl;
