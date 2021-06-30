@@ -1,17 +1,24 @@
 # Armor CodeTest Log
 
-__Last Updated:__ 5.31.2021
-<br />
+__Last Updated:__ 5.31.2021  
 __Version:__ 1
 
 ## Test Descriptions
-- CodeTest_Armor_1
-  - Result File: "Fun/CodeTests/_Code_Results/CodeTest_Armor_1_Results.txt"
-  
+
+### Input Files
+
+- [None](./)
+
+### Results Files
+
+- [Code Test Results](../_Code_Results/CodeTest_Armor_1_Results.txt)
+
+---
+
 ### Guide
-__Tested__ :white_check_mark:
-<br />
-__Not Tested__ :x: 
+
+__Success__ :white_check_mark:
+__Not Tested__ :x:
 
 ## Functions
 
