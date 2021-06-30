@@ -11,7 +11,7 @@ __Version:__ 1
 
 ### Results Files
 
-- [Code Test Results](../CodeTests/_Code_Results/[$CODENAME$])
+- [Code Test Results](../_Code_Results/[$CODENAME$])
 
 ---
 
