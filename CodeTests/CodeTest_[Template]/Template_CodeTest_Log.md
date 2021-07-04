@@ -22,5 +22,5 @@ __Failure__ :x:
 
 ## Functions
 
-|Function Name |Parmeter Types | Return Value | Last Tested | Results |
+| Function Name | Parmeter Types | Return Value | Last Tested | Results |
 |---|---|---|---|:---:
