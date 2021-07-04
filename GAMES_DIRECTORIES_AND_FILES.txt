@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 26			|
-|	Files: 124				|
+|	Files: 125				|
 +==========================================+
 
 .\Basic Player Game Info.txt
@@ -149,6 +149,7 @@
 .\Logs\2021\Log_2021_05_30.md
 .\Logs\2021\Log_2021_05_31.md
 .\Logs\2021\Log_2021_06_19.md
+.\Logs\2021\Log_2021_06_30.md
 .\Makefile
 .\README.md
 .\Run.bat
