@@ -18,7 +18,7 @@ __Version:__ 1
 
 ### Guide
 
-__Success__ :white_check_mark:
+__Success__ :white_check_mark:  
 __Not Tested__ :x:
 
 ## Functions
