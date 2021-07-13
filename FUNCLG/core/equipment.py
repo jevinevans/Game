@@ -7,6 +7,8 @@
 #       holders/storage containers inside of the game.                              #      
 #####################################################################################
 
+import json
+
 try:
     from utils.types import getItemDescription, getItemType
 except:
@@ -39,11 +41,28 @@ class Equipment():
         desc += f"\nDescription: {self.description}"
         return desc
 
-    # def printToFile(self, oFile=None, filename=None):
-        # check for oFile, means that this is being added on popssibly
-        # check for file name then it will be save too
+    def printToFile(self):
+        with open(self.name+".json", "w") as oFile:
+            json.dump(self.__dict__, oFile)
     
+    def export(self):
+        return json.dumps(self.__dict__)
+
     # def getStats(self):
-            
-def main():
-    print(Equipment("cape", "This is a temp example is used to describe a simple cape.", 0, 3, itemLevel=52, abilityPoints=500).details())
+
+# def main():
+#     tempE = Equipment("excelsior", "This is a temp example is used to describe a simple sword.", itemType=4, weaponType=0, itemLevel=52, abilityPoints=500)
+#     print(tempE)
+
+#     print(tempE.details())
+
+#     print(tempE.__dict__)
+    
+
+#     tJson = '{"equipment":[{"name": "cape", "description": "This is a temp example is used to describe a simple cape.", "armorType": 0, "itemType": 3, "weaponType": null, "itemLevel": 52, "abilityPoints": 500}]}'
+#     tJson = json.loads(tJson)
+
+#     print(tJson)
+
+#     tJson["equipment"].append(tempE.export())
+#     print(tJson)
