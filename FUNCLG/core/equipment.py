@@ -39,10 +39,11 @@ class Equipment():
         desc += f"\nDescription: {self.description}"
         return desc
 
-    def printToFile(self, oFile=None, filename=None):
+    # def printToFile(self, oFile=None, filename=None):
         # check for oFile, means that this is being added on popssibly
-        # check for file name then it will be concatenated or save specifically
-        # else save file with name of object
-            "test"
+        # check for file name then it will be save too
+    
+    # def getStats(self):
+            
 def main():
     print(Equipment("cape", "This is a temp example is used to describe a simple cape.", 0, 3, itemLevel=52, abilityPoints=500).details())
