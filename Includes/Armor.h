@@ -23,6 +23,11 @@ class Armor
 				else
 					return false;	
 			}
+
+			TYPE getVal()
+			{
+				return this->value;
+			}
 		};
 		Slot* head;
 		Slot* chest;
@@ -239,15 +244,15 @@ class Armor
 			cout << "Print Armor" << endl;
 		}
 
-		Slot* getHead(){return head;}
-		Slot* getChest(){return chest;}
-		Slot* getWeapon(){return weapon;}
-		Slot* getPants(){return pants;}
+		Equipment* getHead(){return head->getVal();}
+		Equipment* getChest(){return chest->getVal();}
+		Equipment* getWeapon(){return weapon->getVal();}
+		Equipment* getPants(){return pants->getVal();}
 		string getName(){return "Armor";}
 
-		void setHead(TYPE h){head = h;}
-		void setWeapong(TYPE w){weapon = w;}
-		void setChest(TYPE c){chest = c;}
-		void setPants(TYPE p){pants = p;}		
+		void setHead(TYPE h){head->value = h;}
+		void setWeapon(TYPE w){weapon->value = w;}
+		void setChest(TYPE c){chest->value = c;}
+		void setPants(TYPE p){pants->value = p;}		
 };
 #endif

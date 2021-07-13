@@ -76,9 +76,8 @@
 .\CodeTests\_Code_Results\CodeTest_Abilities_1_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Abilities_2_FilePrint_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Abilities_2_Results.txt
-.\CodeTests\_Code_Results\CodeTest_ArmorResults.txt
-.\CodeTests\_Code_Results\CodeTest_Armor_1_Results.txt
-.\CodeTests\_Code_Results\CodeTest_EquipmentResults.txt
+.\CodeTests\_Code_Results\CodeTest_Armor_Results.txt
+.\CodeTests\_Code_Results\CodeTest_Equipment_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Functions_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Roles_1_Results.txt
 .\CodeTests\_Code_Results\CodeTest_Roles_2_Results.txt
@@ -149,6 +148,7 @@
 .\Logs\2021\Log_2021_05_30.md
 .\Logs\2021\Log_2021_05_31.md
 .\Logs\2021\Log_2021_06_19.md
+.\Logs\2021\Log_2021_06_30.md
 .\Makefile
 .\README.md
 .\Run.bat

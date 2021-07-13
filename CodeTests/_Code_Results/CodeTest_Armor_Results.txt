@@ -1,0 +1,10 @@
+----- Armor.h CodeTest -----
+	Constructor (Blank): Passed!
+	Constructor (Copy): StartEquipped: Brave Cap
+Equipped: Brave Chestplate
+Equipped: Brave Sword
+Equipped: Brave Trousers
+Passed!
+
+Testing Equip Method
+----------------------
