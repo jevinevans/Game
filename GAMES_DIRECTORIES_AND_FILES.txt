@@ -1,12 +1,10 @@
 +==========================================+
-|	Total Directories: 26			|
-|	Files: 124				|
+|	Total Directories: 38			|
+|	Files: 148				|
 +==========================================+
 
-.\Basic Player Game Info.txt
-.\CodeTestErrors.txt
+.\.gitignore
 .\CodeTests
-.\CodeTests.bat
 .\CodeTests\Abilities
 .\CodeTests\Abilities\Abilities_CodeTest_Log.md
 .\CodeTests\Abilities\CodeTest_Abilities_1
@@ -91,18 +89,55 @@
 .\Data
 .\Data\EquipmentList.txt
 .\Data\TempEList.txt
-.\FUNCLG.cpp
-.\FUNCLG_Errors.txt
-.\FUNCLG_Make_Errors.txt
-.\FUNCLG_Results.txt
-.\Functions.cpp
+.\Deprecated
+.\Deprecated\CodeTestErrors.txt
+.\Deprecated\CodeTests.bat
+.\Deprecated\FUNCLG.cpp
+.\Deprecated\FUNCLG_Errors.txt
+.\Deprecated\FUNCLG_Make_Errors.txt
+.\Deprecated\FUNCLG_Results.txt
+.\Deprecated\Functions.cpp
+.\Deprecated\Includes
+.\Deprecated\Includes\Equipment.h
+.\Deprecated\Makefile
+.\Deprecated\Run.bat
+.\FUNCLG
+.\FUNCLG\Test_Equipment.json
+.\FUNCLG\__init__.py
+.\FUNCLG\__main__.py
+.\FUNCLG\__pycache__
+.\FUNCLG\__pycache__\__init__.cpython-38.pyc
+.\FUNCLG\__pycache__\__main__.cpython-38.pyc
+.\FUNCLG\__pycache__\test.cpython-38.pyc
+.\FUNCLG\core
+.\FUNCLG\core\__init__.py
+.\FUNCLG\core\__pycache__
+.\FUNCLG\core\__pycache__\__init__.cpython-38.pyc
+.\FUNCLG\core\__pycache__\equipment.cpython-38.pyc
+.\FUNCLG\core\armor.py
+.\FUNCLG\core\equipment.py
+.\FUNCLG\main.py
+.\FUNCLG\test.py
+.\FUNCLG\tests
+.\FUNCLG\tests\__init__.py
+.\FUNCLG\tests\__pycache__
+.\FUNCLG\tests\__pycache__\__init__.cpython-38.pyc
+.\FUNCLG\tests\__pycache__\equipment_test.cpython-38.pyc
+.\FUNCLG\tests\__pycache__\test_equipment.cpython-38.pyc
+.\FUNCLG\tests\test_equipment.py
+.\FUNCLG\utils
+.\FUNCLG\utils\__init__.py
+.\FUNCLG\utils\__pycache__
+.\FUNCLG\utils\__pycache__\__init__.cpython-38.pyc
+.\FUNCLG\utils\__pycache__\test.cpython-38.pyc
+.\FUNCLG\utils\__pycache__\types.cpython-38.pyc
+.\FUNCLG\utils\types.py
 .\GAMES_DIRECTORIES_AND_FILES.txt
 .\Includes
 .\Includes\Abilities.h
 .\Includes\Armor.h
 .\Includes\Character.h
 .\Includes\Combat.h
-.\Includes\Equipment.h
 .\Includes\Functions.h
 .\Includes\LinkedList.h
 .\Includes\Roles.h
@@ -149,7 +184,10 @@
 .\Logs\2021\Log_2021_05_31.md
 .\Logs\2021\Log_2021_06_19.md
 .\Logs\2021\Log_2021_06_30.md
-.\Makefile
+.\Logs\2021\Log_2021_07_13.md
 .\README.md
-.\Run.bat
 .\Scan_Directories.py
+.\docs
+.\docs\Basic Player Game Info.txt
+.\tests
+.\tests\test_equipment.py
