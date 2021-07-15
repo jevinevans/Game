@@ -54,15 +54,7 @@ class Equipment():
 #     tempE = Equipment("excelsior", "This is a temp example is used to describe a simple sword.", itemType=4, weaponType=0, itemLevel=52, abilityPoints=500)
 #     print(tempE)
 
-#     print(tempE.details())
-
 #     print(tempE.__dict__)
-    
+#     print()
+#     print(tempE.export())
 
-#     tJson = '{"equipment":[{"name": "cape", "description": "This is a temp example is used to describe a simple cape.", "armorType": 0, "itemType": 3, "weaponType": null, "itemLevel": 52, "abilityPoints": 500}]}'
-#     tJson = json.loads(tJson)
-
-#     print(tJson)
-
-#     tJson["equipment"].append(tempE.export())
-#     print(tJson)
