@@ -1,3 +1,11 @@
+#####################################################################################   
+#   Programmer: Jevin Evans                                                         #
+#	Date: 7/15/2021                                                                 #
+#	Program: Equipment Class Test                                                   #
+#   Description: The is a unit test for the equipment class.                        #      
+#####################################################################################
+
+
 import unittest, os
 from core import equipment
 from utils.types import *
