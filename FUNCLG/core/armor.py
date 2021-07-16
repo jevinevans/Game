@@ -8,19 +8,24 @@
 import json
 try:
     from core.equipment import Equipment
+    from utils.types import getItemType, getArmorType
 except:
     from FUNCLG.core.equipment import Equipment
+    from FUNCLG.utils.types import getItemType, getArmorType
 
 class Armor():
     numArm = 0
 
-    def __init__(self, head:Equipment=None, chest:Equipment=None, back:Equipment=None, pants:Equipment=None, weapon:Equipment=None):
+    def __init__(self, armorType:int=0, head:Equipment=None, chest:Equipment=None, back:Equipment=None, pants:Equipment=None, weapon:Equipment=None):
         self.name = "Armor_"+str(numArm)
-        self.head = head
-        self.chest = chest
-        self.back = back
-        self.pants = pants
-        self.weapon = weapon
+        self.armorType = armorType
+        
+        # Requires that th
+        self.head = head if getArmorType(head) == getArmorType(self.armorType) or head.armorType == None else None
+        self.chest = chest if getArmorType(chest) == getArmorType(self.armorType) or chest.armorType == None else None
+        self.back = back if getArmorType(back) == getArmorType(self.armorType) or back.armorType == None else None
+        self.pants = pants if getArmorType(pants) == getArmorType(self.armorType) or pants.armorType == None else None
+        self.weapon = weapon if getArmorType(weapon) == getArmorType(self.armorType) or weapon.armorType == None else None
         numArm += 1
 
     def __str__(self):
@@ -33,6 +38,7 @@ class Armor():
         return temp
 
     # TODO: Need to test if I need to copy equipment or it will link right
+    # TODO: Consider if this should be one method or multiples for each type
     def equip(self, item:Equipment):
         if getItemType(item.itemType) == "Helmet":
             self.head 
@@ -62,7 +68,7 @@ class Armor():
         else:
             print("Not a valid dequip spot.")
         
-    # def dequip(self, position):
+        return temp
 
     # def details(self):
 
