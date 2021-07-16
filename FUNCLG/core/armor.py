@@ -32,8 +32,36 @@ class Armor():
         temp += "W:1>" if self.weapon else "W:0>"
         return temp
 
-    # def equip(self, item:Equipment):
+    # TODO: Need to test if I need to copy equipment or it will link right
+    def equip(self, item:Equipment):
+        if getItemType(item.itemType) == "Helmet":
+            self.head 
+        elif getItemType(item.itemType) == "Chest":
+            self.chest
+        elif getItemType(item.itemType) == "Back":
+            self.back
+        elif getItemType(item.itemType) == "Pants":
+            self.pants
+        elif getItemType(item.itemType) == "Weapon":
+            self.weapon
+        else:
+            print(f"{item}, is not compatable with this armor")
     
+    def dequip(self, item):
+        temp = None
+        if getItemType(item.itemType) == "Helmet":
+            temp, self.head = self.head, None
+        elif getItemType(item.itemType) == "Chest":
+            temp, self.chest = self.chest, None
+        elif getItemType(item.itemType) == "Back":
+            temp, self.back = self.back, None
+        elif getItemType(item.itemType) == "Pants":
+            temp, self.pants = self.pants, None
+        elif getItemType(item.itemType) == "Weapon":
+            temp, self.weapon = self.weapon, None
+        else:
+            print("Not a valid dequip spot.")
+        
     # def dequip(self, position):
 
     # def details(self):
