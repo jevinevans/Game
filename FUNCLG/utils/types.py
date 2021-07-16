@@ -39,6 +39,6 @@ def getItemDescription(IT=None, AT=None, WT=None) -> str:
     if AT:
         item = getArmorType(AT) + " " + item
 
-    return item             
+    return '['+item+']'             
 
 
