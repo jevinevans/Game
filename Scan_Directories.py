@@ -11,17 +11,19 @@ for root, dirs, files in os.walk("."):
     try:
         for name in dirs:
             if os.path.join(root,name)[0:3] == ".\.": continue
+            if "__pycache__" in os.path.join(root, name): continue
             #filelist.write("=====DIRECTORIES=====\n")
-            printlist.append(os.path.join(root, name))
+            else:
+                printlist.append(os.path.join(root, name))
             # filelist.write("\n")
             countd += 1
         for file in files:
             if os.path.join(root,name)[0:3] == ".\.": continue
+            if os.path.join(root,file).endswith(".pyc"): continue
             # filelist.write("=====FILES=====\n")
             printlist.append(os.path.join(root,file))
             try:
                 tFile = os.path.join(root, file)
-                if tFile.endswith(".pyc"): continue
                 with open(tFile, "r") as document:
                     temp = len(document.read().split("\n"))
                     lines += temp

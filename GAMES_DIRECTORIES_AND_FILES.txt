@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 38			|
-|	Files: 148				|
+|	Total Directories: 34			|
+|	Files: 139				|
 +==========================================+
 
 .\.gitignore
@@ -102,35 +102,20 @@
 .\Deprecated\Makefile
 .\Deprecated\Run.bat
 .\FUNCLG
-.\FUNCLG\Test_Equipment.json
 .\FUNCLG\__init__.py
 .\FUNCLG\__main__.py
-.\FUNCLG\__pycache__
-.\FUNCLG\__pycache__\__init__.cpython-38.pyc
-.\FUNCLG\__pycache__\__main__.cpython-38.pyc
-.\FUNCLG\__pycache__\test.cpython-38.pyc
 .\FUNCLG\core
 .\FUNCLG\core\__init__.py
-.\FUNCLG\core\__pycache__
-.\FUNCLG\core\__pycache__\__init__.cpython-38.pyc
-.\FUNCLG\core\__pycache__\equipment.cpython-38.pyc
 .\FUNCLG\core\armor.py
 .\FUNCLG\core\equipment.py
 .\FUNCLG\main.py
-.\FUNCLG\test.py
+.\FUNCLG\runTest.sh
 .\FUNCLG\tests
 .\FUNCLG\tests\__init__.py
-.\FUNCLG\tests\__pycache__
-.\FUNCLG\tests\__pycache__\__init__.cpython-38.pyc
-.\FUNCLG\tests\__pycache__\equipment_test.cpython-38.pyc
-.\FUNCLG\tests\__pycache__\test_equipment.cpython-38.pyc
+.\FUNCLG\tests\test_armor.py
 .\FUNCLG\tests\test_equipment.py
 .\FUNCLG\utils
 .\FUNCLG\utils\__init__.py
-.\FUNCLG\utils\__pycache__
-.\FUNCLG\utils\__pycache__\__init__.cpython-38.pyc
-.\FUNCLG\utils\__pycache__\test.cpython-38.pyc
-.\FUNCLG\utils\__pycache__\types.cpython-38.pyc
 .\FUNCLG\utils\types.py
 .\GAMES_DIRECTORIES_AND_FILES.txt
 .\Includes
