@@ -3,7 +3,7 @@ import webbrowser
 
 filelist = open("GAMES_DIRECTORIES_AND_FILES.txt", "w")
 
-countd = countf = words = 0
+countd = countf = lines = 0
 
 printlist = list()
 
@@ -21,9 +21,10 @@ for root, dirs, files in os.walk("."):
             printlist.append(os.path.join(root,file))
             try:
                 tFile = os.path.join(root, file)
+                if tFile.endswith(".pyc"): continue
                 with open(tFile, "r") as document:
                     temp = len(document.read().split("\n"))
-                    words += temp
+                    lines += temp
                     print(temp, end=" ")
                     print(tFile)
             except:
@@ -48,7 +49,7 @@ for x in printlist:
     filelist.write(x)        
     filelist.write("\n")
 
-print("Total Lines:", words)
+print("Total Lines:", lines)
 filelist.close()
 
 webbrowser.open("GAMES_DIRECTORIES_AND_FILES.txt")
