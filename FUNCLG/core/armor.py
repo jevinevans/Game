@@ -30,3 +30,9 @@ class Armor():
         
     # def details(self):
 
+    def printToFile(self):
+        with open(self.name+".json", "w") as oFile:
+            json.dump(self.__dict__, oFile)
+            
+    # def export(self):
+
