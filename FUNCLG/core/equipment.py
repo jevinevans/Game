@@ -30,7 +30,7 @@ class Equipment():
         self.abilityPoints = abilityPoints
     
     def __str__(self):
-        return f"{self.name} ({self.itemLevel})"
+        return f"{self.name} (lvl. {self.itemLevel}) {getItemDescription(self.itemType, self.armorType, self.weaponType)}"
 
     def details(self):
         titleLen = 2 + len(self.name)
@@ -57,4 +57,3 @@ class Equipment():
 #     print(tempE.__dict__)
 #     print()
 #     print(tempE.export())
-
