@@ -6,16 +6,22 @@
 #####################################################################################
 
 import json
-from core.equipment import Equipment
+try:
+    from core.equipment import Equipment
+except:
+    from FUNCLG.core.equipment import Equipment
 
 class Armor():
+    numArm = 0
 
     def __init__(self, head:Equipment=None, chest:Equipment=None, back:Equipment=None, pants:Equipment=None, weapon:Equipment=None):
+        self.name = "Armor_"+str(numArm)
         self.head = head
         self.chest = chest
         self.back = back
         self.pants = pants
         self.weapon = weapon
+        numArm += 1
 
     def __str__(self):
         temp = "Armor: <"
@@ -26,13 +32,15 @@ class Armor():
         temp += "W:1>" if self.weapon else "W:0>"
         return temp
 
-    def equip(self, item:Equipment):
-        
+    # def equip(self, item:Equipment):
+    
+    # def dequip(self, position):
+
     # def details(self):
 
     def printToFile(self):
         with open(self.name+".json", "w") as oFile:
             json.dump(self.__dict__, oFile)
-            
+
     # def export(self):
 
