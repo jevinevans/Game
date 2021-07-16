@@ -30,7 +30,12 @@ class EquipmentTest(unittest.TestCase):
         equip.printToFile()
         self.assertTrue(os.path.exists(equip.name+".json"), "PrintToFile Failed")
 
+    # def test_getStats(self:)
+
 def run():
+    unittest.main()
+
+if __name__ == "__main__":
     unittest.main()
 
     

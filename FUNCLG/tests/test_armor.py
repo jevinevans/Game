@@ -8,7 +8,7 @@
 
 import unittest
 from core import armor
-from util.types import *
+from utils.types import *
 
 
 class ArmorTest(unittest.TestCase):
@@ -24,3 +24,10 @@ class ArmorTest(unittest.TestCase):
 
     def test_printToFile(self):
          "Needs to include the armor printout as well"
+
+
+def run():
+    unittest.main()
+
+if __name__ == "__main__":
+    unittest.main()
