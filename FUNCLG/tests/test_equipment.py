@@ -29,6 +29,8 @@ class EquipmentTest(unittest.TestCase):
         equip = equipment.Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
         equip.printToFile()
         self.assertTrue(os.path.exists(equip.name+".json"), "PrintToFile Failed")
+        if os.path.exists(f"{equip.name}.json"):
+            os.remove(f"{equip.name}.json")
 
     # def test__str__(self):
     # def test_details(self):
