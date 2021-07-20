@@ -10,6 +10,7 @@ python -m unittest tests/test* -v 2>> $REPORT
 
 echo -e "\n---Flake 8----\n" >> $REPORT
 
-flake8 --count --format=pylint . >> $REPORT
+IGNS="E501,E231,W293"
 
-less $REPORT
+flake8 --ignore=$IGNS --count . >> $REPORT
+

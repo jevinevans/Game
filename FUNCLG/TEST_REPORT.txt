@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Jul 20 14:39:31 CDT 2021 
+Date: Tue Jul 20 15:45:52 CDT 2021 
 
 ---UNITTEST---
 
@@ -22,154 +22,66 @@ OK
 
 ---Flake 8----
 
-./main.py:3: [W292] no newline at end of file
-./core/armor.py:1: [E266] too many leading '#' for block comment
-./core/armor.py:1: [E501] line too long (85 > 79 characters)
-./core/armor.py:1: [W291] trailing whitespace
-./core/armor.py:2: [E501] line too long (85 > 79 characters)
-./core/armor.py:3: [E265] block comment should start with '# '
-./core/armor.py:3: [E501] line too long (83 > 79 characters)
-./core/armor.py:4: [E265] block comment should start with '# '
-./core/armor.py:4: [E501] line too long (83 > 79 characters)
-./core/armor.py:5: [E501] line too long (85 > 79 characters)
-./core/armor.py:5: [W291] trailing whitespace
-./core/armor.py:6: [E501] line too long (85 > 79 characters)
-./core/armor.py:12: [E722] do not use bare 'except'
-./core/armor.py:16: [E302] expected 2 blank lines, found 1
-./core/armor.py:19: [E231] missing whitespace after ':'
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E231] missing whitespace after ':'
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E231] missing whitespace after ':'
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E501] line too long (149 > 79 characters)
-./core/armor.py:19: [E231] missing whitespace after ':'
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E231] missing whitespace after ':'
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E231] missing whitespace after ':'
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:19: [E252] missing whitespace around parameter equals
-./core/armor.py:20: [F821] undefined name 'numArm'
-./core/armor.py:22: [W293] blank line contains whitespace
-./core/armor.py:24: [E501] line too long (114 > 79 characters)
-./core/armor.py:24: [E711] comparison to None should be 'if cond is None:'
-./core/armor.py:25: [E501] line too long (118 > 79 characters)
-./core/armor.py:25: [E711] comparison to None should be 'if cond is None:'
-./core/armor.py:26: [E501] line too long (114 > 79 characters)
-./core/armor.py:26: [E711] comparison to None should be 'if cond is None:'
-./core/armor.py:27: [E501] line too long (118 > 79 characters)
-./core/armor.py:27: [E711] comparison to None should be 'if cond is None:'
-./core/armor.py:28: [E501] line too long (122 > 79 characters)
-./core/armor.py:28: [E711] comparison to None should be 'if cond is None:'
-./core/armor.py:29: [F821] undefined name 'numArm'
-./core/armor.py:29: [F841] local variable 'numArm' is assigned to but never used
-./core/armor.py:42: [E231] missing whitespace after ':'
-./core/armor.py:44: [W291] trailing whitespace
-./core/armor.py:55: [W293] blank line contains whitespace
-./core/armor.py:70: [W293] blank line contains whitespace
-./core/armor.py:80: [W391] blank line at end of file
-./core/equipment.py:1: [E266] too many leading '#' for block comment
-./core/equipment.py:1: [E501] line too long (85 > 79 characters)
-./core/equipment.py:1: [W291] trailing whitespace
-./core/equipment.py:2: [E501] line too long (85 > 79 characters)
-./core/equipment.py:3: [E265] block comment should start with '# '
-./core/equipment.py:3: [E501] line too long (83 > 79 characters)
-./core/equipment.py:4: [E265] block comment should start with '# '
-./core/equipment.py:4: [E501] line too long (83 > 79 characters)
-./core/equipment.py:5: [E501] line too long (85 > 79 characters)
-./core/equipment.py:5: [W291] trailing whitespace
-./core/equipment.py:6: [E501] line too long (85 > 79 characters)
-./core/equipment.py:6: [W291] trailing whitespace
-./core/equipment.py:7: [E501] line too long (85 > 79 characters)
-./core/equipment.py:7: [W291] trailing whitespace
-./core/equipment.py:8: [E501] line too long (85 > 79 characters)
-./core/equipment.py:14: [E722] do not use bare 'except'
-./core/equipment.py:17: [E302] expected 2 blank lines, found 1
-./core/equipment.py:19: [E501] line too long (126 > 79 characters)
-./core/equipment.py:19: [W291] trailing whitespace
-./core/equipment.py:23: [W293] blank line contains whitespace
-./core/equipment.py:31: [W293] blank line contains whitespace
-./core/equipment.py:33: [E501] line too long (122 > 79 characters)
-./core/equipment.py:37: [E222] multiple spaces after operator
-./core/equipment.py:38: [E501] line too long (83 > 79 characters)
-./core/equipment.py:40: [E501] line too long (95 > 79 characters)
-./core/equipment.py:47: [W293] blank line contains whitespace
-./core/equipment.py:54: [E501] line too long (157 > 79 characters)
-./core/equipment.py:59: [W292] no newline at end of file
-./core/equipment.py:59: [W292] no newline at end of file
-./core/equipment.py:59: [W292] no newline at end of file
-./tests/test_armor.py:1: [E266] too many leading '#' for block comment
-./tests/test_armor.py:1: [E501] line too long (85 > 79 characters)
-./tests/test_armor.py:1: [W291] trailing whitespace
-./tests/test_armor.py:2: [E501] line too long (85 > 79 characters)
-./tests/test_armor.py:3: [E265] block comment should start with '# '
-./tests/test_armor.py:3: [E501] line too long (83 > 79 characters)
-./tests/test_armor.py:4: [E265] block comment should start with '# '
-./tests/test_armor.py:4: [E501] line too long (83 > 79 characters)
-./tests/test_armor.py:5: [E501] line too long (85 > 79 characters)
-./tests/test_armor.py:6: [E501] line too long (85 > 79 characters)
-./tests/test_armor.py:6: [W291] trailing whitespace
-./tests/test_armor.py:7: [E501] line too long (85 > 79 characters)
-./tests/test_armor.py:10: [F401] 'core.armor' imported but unused
-./tests/test_armor.py:11: [F403] 'from utils.types import *' used; unable to detect undefined names
-./tests/test_armor.py:11: [F401] 'utils.types.*' imported but unused
-./tests/test_armor.py:15: [W293] blank line contains whitespace
-./tests/test_armor.py:26: [E111] indentation is not a multiple of 4
-./tests/test_armor.py:26: [E117] over-indented
-./tests/test_armor.py:32: [E305] expected 2 blank lines after class or function definition, found 1
-./tests/test_armor.py:33: [W292] no newline at end of file
-./tests/test_equipment.py:1: [E266] too many leading '#' for block comment
-./tests/test_equipment.py:1: [E501] line too long (85 > 79 characters)
-./tests/test_equipment.py:1: [W291] trailing whitespace
-./tests/test_equipment.py:2: [E501] line too long (85 > 79 characters)
-./tests/test_equipment.py:3: [E265] block comment should start with '# '
-./tests/test_equipment.py:3: [E501] line too long (83 > 79 characters)
-./tests/test_equipment.py:4: [E265] block comment should start with '# '
-./tests/test_equipment.py:4: [E501] line too long (83 > 79 characters)
-./tests/test_equipment.py:5: [E501] line too long (85 > 79 characters)
-./tests/test_equipment.py:5: [W291] trailing whitespace
-./tests/test_equipment.py:6: [E501] line too long (85 > 79 characters)
-./tests/test_equipment.py:9: [E401] multiple imports on one line
-./tests/test_equipment.py:11: [F403] 'from utils.types import *' used; unable to detect undefined names
-./tests/test_equipment.py:11: [F401] 'utils.types.*' imported but unused
-./tests/test_equipment.py:13: [E302] expected 2 blank lines, found 1
-./tests/test_equipment.py:15: [W293] blank line contains whitespace
-./tests/test_equipment.py:16: [E303] too many blank lines (2)
-./tests/test_equipment.py:17: [E501] line too long (114 > 79 characters)
-./tests/test_equipment.py:19: [E265] block comment should start with '# '
-./tests/test_equipment.py:21: [E501] line too long (85 > 79 characters)
-./tests/test_equipment.py:29: [E501] line too long (114 > 79 characters)
-./tests/test_equipment.py:31: [E501] line too long (81 > 79 characters)
-./tests/test_equipment.py:40: [E302] expected 2 blank lines, found 1
-./tests/test_equipment.py:43: [E305] expected 2 blank lines after class or function definition, found 1
-./tests/test_equipment.py:46: [W293] blank line contains whitespace
-./tests/test_equipment.py:46: [W292] no newline at end of file
-./utils/types.py:1: [E266] too many leading '#' for block comment
-./utils/types.py:1: [E501] line too long (85 > 79 characters)
-./utils/types.py:1: [W291] trailing whitespace
-./utils/types.py:2: [E501] line too long (85 > 79 characters)
-./utils/types.py:3: [E265] block comment should start with '# '
-./utils/types.py:3: [E501] line too long (83 > 79 characters)
-./utils/types.py:4: [E265] block comment should start with '# '
-./utils/types.py:4: [E501] line too long (83 > 79 characters)
-./utils/types.py:5: [E501] line too long (85 > 79 characters)
-./utils/types.py:5: [W291] trailing whitespace
-./utils/types.py:6: [E501] line too long (85 > 79 characters)
-./utils/types.py:17: [E302] expected 2 blank lines, found 1
-./utils/types.py:17: [E231] missing whitespace after ':'
-./utils/types.py:20: [E302] expected 2 blank lines, found 1
-./utils/types.py:20: [E231] missing whitespace after ':'
-./utils/types.py:23: [E302] expected 2 blank lines, found 1
-./utils/types.py:23: [E231] missing whitespace after ':'
-./utils/types.py:26: [E302] expected 2 blank lines, found 1
-./utils/types.py:28: [W293] blank line contains whitespace
-./utils/types.py:38: [W293] blank line contains whitespace
-./utils/types.py:42: [W291] trailing whitespace
-./utils/types.py:44: [W391] blank line at end of file
-150
+./core/armor.py:27:49: E271 multiple spaces after keyword
+./core/armor.py:28:52: E271 multiple spaces after keyword
+./core/armor.py:29:49: E271 multiple spaces after keyword
+./core/armor.py:30:52: E271 multiple spaces after keyword
+./core/armor.py:31:55: E271 multiple spaces after keyword
+./core/armor.py:80:28: E226 missing whitespace around arithmetic operator
+./core/armor.py:85:1: E302 expected 2 blank lines, found 1
+./core/equipment.py:1:1: E266 too many leading '#' for block comment
+./core/equipment.py:1:86: W291 trailing whitespace
+./core/equipment.py:3:1: E265 block comment should start with '# '
+./core/equipment.py:4:1: E265 block comment should start with '# '
+./core/equipment.py:5:86: W291 trailing whitespace
+./core/equipment.py:6:86: W291 trailing whitespace
+./core/equipment.py:7:86: W291 trailing whitespace
+./core/equipment.py:14:1: E722 do not use bare 'except'
+./core/equipment.py:17:1: E302 expected 2 blank lines, found 1
+./core/equipment.py:19:127: W291 trailing whitespace
+./core/equipment.py:37:15: E222 multiple spaces after operator
+./core/equipment.py:45:28: E226 missing whitespace around arithmetic operator
+./core/equipment.py:59:28: W292 no newline at end of file
+./core/equipment.py:59:28: W292 no newline at end of file
+./core/equipment.py:59:28: W292 no newline at end of file
+./tests/test_armor.py:1:1: E266 too many leading '#' for block comment
+./tests/test_armor.py:1:86: W291 trailing whitespace
+./tests/test_armor.py:3:1: E265 block comment should start with '# '
+./tests/test_armor.py:4:1: E265 block comment should start with '# '
+./tests/test_armor.py:6:86: W291 trailing whitespace
+./tests/test_armor.py:10:1: F401 'core.armor' imported but unused
+./tests/test_armor.py:11:1: F403 'from utils.types import *' used; unable to detect undefined names
+./tests/test_armor.py:11:1: F401 'utils.types.*' imported but unused
+./tests/test_armor.py:26:10: E111 indentation is not a multiple of 4
+./tests/test_armor.py:26:10: E117 over-indented
+./tests/test_armor.py:32:1: E305 expected 2 blank lines after class or function definition, found 1
+./tests/test_armor.py:33:20: W292 no newline at end of file
+./tests/test_equipment.py:1:1: E266 too many leading '#' for block comment
+./tests/test_equipment.py:1:86: W291 trailing whitespace
+./tests/test_equipment.py:3:1: E265 block comment should start with '# '
+./tests/test_equipment.py:4:1: E265 block comment should start with '# '
+./tests/test_equipment.py:5:86: W291 trailing whitespace
+./tests/test_equipment.py:9:16: E401 multiple imports on one line
+./tests/test_equipment.py:11:1: F403 'from utils.types import *' used; unable to detect undefined names
+./tests/test_equipment.py:11:1: F401 'utils.types.*' imported but unused
+./tests/test_equipment.py:13:1: E302 expected 2 blank lines, found 1
+./tests/test_equipment.py:16:5: E303 too many blank lines (2)
+./tests/test_equipment.py:19:9: E265 block comment should start with '# '
+./tests/test_equipment.py:31:50: E226 missing whitespace around arithmetic operator
+./tests/test_equipment.py:40:1: E302 expected 2 blank lines, found 1
+./tests/test_equipment.py:43:1: E305 expected 2 blank lines after class or function definition, found 1
+./tests/test_equipment.py:46:5: W292 no newline at end of file
+./utils/types.py:1:1: E266 too many leading '#' for block comment
+./utils/types.py:1:86: W291 trailing whitespace
+./utils/types.py:3:1: E265 block comment should start with '# '
+./utils/types.py:4:1: E265 block comment should start with '# '
+./utils/types.py:5:86: W291 trailing whitespace
+./utils/types.py:17:1: E302 expected 2 blank lines, found 1
+./utils/types.py:20:1: E302 expected 2 blank lines, found 1
+./utils/types.py:23:1: E302 expected 2 blank lines, found 1
+./utils/types.py:26:1: E302 expected 2 blank lines, found 1
+./utils/types.py:42:15: E226 missing whitespace around arithmetic operator
+./utils/types.py:42:20: E226 missing whitespace around arithmetic operator
+./utils/types.py:42:24: W291 trailing whitespace
+./utils/types.py:44:1: W391 blank line at end of file
+62

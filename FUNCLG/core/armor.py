@@ -1,35 +1,39 @@
-#####################################################################################   
-#   Programmer: Jevin Evans                                                         #
-#	Date: 7/15/2021                                                                 #
-#	Program: Armor Class                                                            #
-#   Description: The Armor class is made to store equipment itmes for a character.  #      
-#####################################################################################
+#############################################################################
+# Programmer: Jevin Evans                                                   #
+# Date: 7/15/2021                                                           #
+# Program: Armor Class                                                      #
+# Description:    The Armor class is made to store equipment itmes for a    #
+#                   character.                                              #
+#############################################################################
 
 import json
 try:
     from core.equipment import Equipment
     from utils.types import getItemType, getArmorType
-except:
+except ImportError:
     from FUNCLG.core.equipment import Equipment
     from FUNCLG.utils.types import getItemType, getArmorType
 
-class Armor():
-    numArm = 0
 
-    def __init__(self, armorType:int=0, head:Equipment=None, chest:Equipment=None, back:Equipment=None, pants:Equipment=None, weapon:Equipment=None):
-        self.name = "Armor_"+str(numArm)
+class Armor():
+  
+    _id = 0
+
+    def __init__(self, armorType:int = 0, head:Equipment = None, chest:Equipment = None, back:Equipment = None, pants:Equipment = None, weapon:Equipment = None):
+        self.name = "Armor_" + str(Armor._id)
         self.armorType = armorType
         
-        # Requires that th
-        self.head = head if getArmorType(head) == getArmorType(self.armorType) or head.armorType == None else None
-        self.chest = chest if getArmorType(chest) == getArmorType(self.armorType) or chest.armorType == None else None
-        self.back = back if getArmorType(back) == getArmorType(self.armorType) or back.armorType == None else None
-        self.pants = pants if getArmorType(pants) == getArmorType(self.armorType) or pants.armorType == None else None
-        self.weapon = weapon if getArmorType(weapon) == getArmorType(self.armorType) or weapon.armorType == None else None
-        numArm += 1
+        # Requires that the equipment is the same armore time
+        self.head = head if head is not None and  getArmorType(head.armorType) == getArmorType(self.armorType) else None
+        self.chest = chest if chest is not None and  getArmorType(chest.armorType) == getArmorType(self.armorType) else None
+        self.back = back if back is not None and  getArmorType(back.armorType) == getArmorType(self.armorType) else None
+        self.pants = pants if pants is not None and  getArmorType(pants.armorType) == getArmorType(self.armorType) else None
+        self.weapon = weapon if weapon is not None and  getArmorType(weapon.armorType) == getArmorType(self.armorType) else None
+        Armor._id += 1
 
     def __str__(self):
-        temp = "Armor: <"
+        # Eventually add the stats to the class as well
+        temp = f"{self.name}: <"
         temp += "H:1, " if self.head else "H:0, "
         temp += "C:1, " if self.chest else "C:0, "
         temp += "B:1, " if self.back else "B:0, "
@@ -41,7 +45,7 @@ class Armor():
     # TODO: Consider if this should be one method or multiples for each type
     def equip(self, item:Equipment):
         if getItemType(item.itemType) == "Helmet":
-            self.head 
+            self.head
         elif getItemType(item.itemType) == "Chest":
             self.chest
         elif getItemType(item.itemType) == "Back":
@@ -52,7 +56,7 @@ class Armor():
             self.weapon
         else:
             print(f"{item}, is not compatable with this armor")
-    
+
     def dequip(self, item):
         temp = None
         if getItemType(item.itemType) == "Helmet":
@@ -67,7 +71,7 @@ class Armor():
             temp, self.weapon = self.weapon, None
         else:
             print("Not a valid dequip spot.")
-        
+
         return temp
 
     # def details(self):
@@ -78,3 +82,6 @@ class Armor():
 
     # def export(self):
 
+def main():
+    newArm = Armor()
+    print(newArm)
