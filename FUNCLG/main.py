@@ -1,3 +1,3 @@
-from core.equipment import main
+from core.armor import main
 
 main()
