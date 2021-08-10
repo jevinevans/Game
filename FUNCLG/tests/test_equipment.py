@@ -34,7 +34,10 @@ class EquipmentTest(unittest.TestCase):
         if os.path.exists(f"{equip.name}.json"):
             os.remove(f"{equip.name}.json")
 
-    # def test__str__(self):
+    def test__str__(self):
+        equip = self.setup()
+        self.assertEqual(equip.__str__(), "Test_Equipment (lvl. 2) [Light Helmet]")
+        
     # def test_details(self):
     # def test_export(self):
     # def test_getStats(self:)
