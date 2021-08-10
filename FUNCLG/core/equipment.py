@@ -1,10 +1,10 @@
-#####################################################################################   
+#####################################################################################
 #   Programmer: Jevin Evans                                                         #
-#	Date: 7/13/2021                                                                 #
-#	Program: Equipment Class                                                        #
-#   Description: The Equipment class allows for creation of objects in the game     # 
-#       to be used by characters and placed inside of the armor or in other         # 
-#       holders/storage containers inside of the game.                              #      
+#   Date: 7/13/2021                                                                 #
+#   Program: Equipment Class                                                        #
+#   Description: The Equipment class allows for creation of objects in the game     #
+#       to be used by characters and placed inside of the armor or in other         #
+#       holders/storage containers inside of the game.                              #
 #####################################################################################
 
 import json
@@ -16,7 +16,8 @@ except:
 
 class Equipment():
 
-    def __init__(self, name='', description='', armorType=None, itemType=None, weaponType=None, itemLevel=0, abilityPoints=0):        
+
+    def __init__(self, name='', description='', armorType=None, itemType=None, weaponType=None, itemLevel=0, abilityPoints=0):
         """
             Creates an equipment item
         """
@@ -34,7 +35,7 @@ class Equipment():
 
     def details(self):
         titleLen = 2 + len(self.name)
-        desc =  f"\n {self.name} \n{''.join(['-' for x in range(titleLen)])}"
+        desc = f"\n {self.name} \n{''.join(['-' for x in range(titleLen)])}"
         desc += f"\nLevel:{self.itemLevel:3d} | Ability Pts: {self.abilityPoints} "
         desc += "ATK" if getItemType(self.itemType) == "Weapon" else "DEF"
         desc += f"\nType: {getItemDescription(self.itemType, self.armorType, self.weaponType)}"
@@ -42,7 +43,7 @@ class Equipment():
         return desc
 
     def printToFile(self):
-        with open(self.name+".json", "w") as oFile:
+        with open(self.name + ".json", "w") as oFile:
             json.dump(self.__dict__, oFile)
     
     def export(self):

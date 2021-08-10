@@ -16,6 +16,6 @@ menu
         - creating
         - edit
         - delete
-    - settings 
+    - settings
         - game settings (not sure yet)
 """

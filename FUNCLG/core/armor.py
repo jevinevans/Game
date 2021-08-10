@@ -24,11 +24,11 @@ class Armor():
         self.armorType = armorType
         
         # Requires that the equipment is the same armore time
-        self.head = head if head is not None and  getArmorType(head.armorType) == getArmorType(self.armorType) else None
-        self.chest = chest if chest is not None and  getArmorType(chest.armorType) == getArmorType(self.armorType) else None
-        self.back = back if back is not None and  getArmorType(back.armorType) == getArmorType(self.armorType) else None
-        self.pants = pants if pants is not None and  getArmorType(pants.armorType) == getArmorType(self.armorType) else None
-        self.weapon = weapon if weapon is not None and  getArmorType(weapon.armorType) == getArmorType(self.armorType) else None
+        self.head = head if head is not None and getArmorType(head.armorType) == getArmorType(self.armorType) else None
+        self.chest = chest if chest is not None and getArmorType(chest.armorType) == getArmorType(self.armorType) else None
+        self.back = back if back is not None and getArmorType(back.armorType) == getArmorType(self.armorType) else None
+        self.pants = pants if pants is not None and getArmorType(pants.armorType) == getArmorType(self.armorType) else None
+        self.weapon = weapon if weapon is not None and getArmorType(weapon.armorType) == getArmorType(self.armorType) else None
         Armor._id += 1
 
     def __str__(self):
@@ -77,10 +77,11 @@ class Armor():
     # def details(self):
 
     def printToFile(self):
-        with open(self.name+".json", "w") as oFile:
+        with open(self.name + ".json", "w") as oFile:
             json.dump(self.__dict__, oFile)
 
     # def export(self):
+
 
 def main():
     newArm = Armor()
