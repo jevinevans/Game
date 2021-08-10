@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Aug 10 15:58:43 CDT 2021 
+Date: Tue Aug 10 17:01:48 CDT 2021 
 
 ---UNITTEST---
 
@@ -12,11 +12,12 @@ test_init (tests.test_armor.ArmorTest)
 temp ... ok
 test_printToFile (tests.test_armor.ArmorTest)
 Needs to include the armor printout as well ... ok
+test__str__ (tests.test_equipment.EquipmentTest) ... ok
 test_init (tests.test_equipment.EquipmentTest) ... ok
 test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.002s
+Ran 7 tests in 0.002s
 
 OK
 
