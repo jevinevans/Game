@@ -16,7 +16,7 @@ except ImportError:
 
 
 class Armor():
-  
+
     _id = 0
 
     def __init__(self, armorType:int = 0, head:Equipment = None, chest:Equipment = None, back:Equipment = None, pants:Equipment = None, weapon:Equipment = None):

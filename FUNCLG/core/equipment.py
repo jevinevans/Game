@@ -11,11 +11,11 @@ import json
 
 try:
     from utils.types import getItemDescription, getItemType
-except:
+except ImportError:
     from FUNCLG.utils.types import getItemDescription, getItemType
 
-class Equipment():
 
+class Equipment():
 
     def __init__(self, name='', description='', armorType=None, itemType=None, weaponType=None, itemLevel=0, abilityPoints=0):
         """

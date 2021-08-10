@@ -1,22 +1,24 @@
-#####################################################################################   
+#####################################################################################
 #   Programmer: Jevin Evans                                                         #
-#	Date: 7/15/2021                                                                 #
-#	Program: Equipment Class Test                                                   #
-#   Description: The is a unit test for the equipment class.                        #      
+#   Date: 7/15/2021                                                                 #
+#   Program: Equipment Class Test                                                   #
+#   Description: The is a unit test for the equipment class.                        #
 #####################################################################################
 
 
 import unittest, os
 from core import equipment
-from utils.types import *
+# from utils.types import *
+
 
 class EquipmentTest(unittest.TestCase):
 
-    
-    def test_init(self):
-        equip = equipment.Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
+    def setup(self):
+        return equipment.Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
 
-        #Testing proper initialization
+    def test_init(self):
+        equip = self.setup()
+        # Testing proper initialization
         self.assertEqual(equip.name, "Test_Equipment")
         self.assertEqual(equip.description, "This is a test for the equipment class")
         self.assertEqual(equip.armorType, 0)
@@ -26,9 +28,9 @@ class EquipmentTest(unittest.TestCase):
         self.assertGreater(equip.itemLevel, 0)
 
     def test_printToFile(self):
-        equip = equipment.Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
+        equip = self.setup()
         equip.printToFile()
-        self.assertTrue(os.path.exists(equip.name+".json"), "PrintToFile Failed")
+        self.assertTrue(os.path.exists(equip.name + ".json"), "PrintToFile Failed")
         if os.path.exists(f"{equip.name}.json"):
             os.remove(f"{equip.name}.json")
 
@@ -37,10 +39,10 @@ class EquipmentTest(unittest.TestCase):
     # def test_export(self):
     # def test_getStats(self:)
 
+
 def run():
     unittest.main()
 
+
 if __name__ == "__main__":
     unittest.main()
-
-    

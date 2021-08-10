@@ -1,9 +1,9 @@
-#####################################################################################   
+#####################################################################################
 #   Programmer: Jevin Evans                                                         #
-#	Date: 7/15/2021                                                                 #
-#	Program: Armor Class Test                                                       #
+#   Date: 7/15/2021                                                                 #
+#   Program: Armor Class Test                                                       #
 #   Description: The is a unit test for the armor class and its interations         #
-#       with the equipment class.                                                   #      
+#       with the equipment class.                                                   #
 #####################################################################################
 
 import unittest
@@ -23,11 +23,12 @@ class ArmorTest(unittest.TestCase):
         "temp"
 
     def test_printToFile(self):
-         "Needs to include the armor printout as well"
+        "Needs to include the armor printout as well"
 
 
 def run():
     unittest.main()
+
 
 if __name__ == "__main__":
     unittest.main()

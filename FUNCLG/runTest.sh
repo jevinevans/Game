@@ -10,6 +10,6 @@ python -m unittest tests/test* -v 2>> $REPORT
 
 echo -e "\n---Flake 8----\n" >> $REPORT
 
-INGS="E231,E266,E501,W293"
+IGNS="E231,E266,E401,E501,W293"
 
 flake8 --ignore=$IGNS --count . >> $REPORT
