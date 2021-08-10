@@ -13,4 +13,3 @@ echo -e "\n---Flake 8----\n" >> $REPORT
 IGNS="E501,E231,W293"
 
 flake8 --ignore=$IGNS --count . >> $REPORT
-
