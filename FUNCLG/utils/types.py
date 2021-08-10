@@ -30,17 +30,17 @@ def getWeaponType(WT:int) -> str:
 def getItemDescription(IT=None, AT=None, WT=None) -> str:
     item = ''
     
-    if IT:
-        if IT == 4 and WT:
+    if IT is not None:
+        if IT == 4 and WT is not None:
             item += getWeaponType(WT)
         else:
-            item += getItemType(IT) + " Item"
-    elif WT:
+            item += getItemType(IT)
+    elif WT is not None:
         item = getWeaponType(WT)
     else:
         item = "Broken Item"
     
-    if AT:
+    if AT is not None:
         item = getArmorType(AT) + " " + item
 
     return '[' + item + ']'
