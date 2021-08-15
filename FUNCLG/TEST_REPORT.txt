@@ -1,17 +1,16 @@
 ######TESTING REPORT######
 
-Date: Sun Aug 15 00:29:46 CDT 2021 
+Date: Sun Aug 15 01:41:21 CDT 2021 
 
 ---UNITTEST---
 
 test_dequip (tests.test_armor.ArmorTest)
-temp ... ok
+Incomplete Test ... FAIL
 test_equip (tests.test_armor.ArmorTest)
-temp ... ok
+Incomplete Test ... FAIL
 test_init (tests.test_armor.ArmorTest)
-temp ... ok
-test_printToFile (tests.test_armor.ArmorTest)
-Needs to include the armor printout as well ... ok
+Incomplete Test ... FAIL
+test_printToFile (tests.test_armor.ArmorTest) ... ok
 test__str__ (tests.test_equipment.EquipmentTest) ... ok
 test_details (tests.test_equipment.EquipmentTest) ... ok
 test_export1 (tests.test_equipment.EquipmentTest) ... ok
@@ -19,14 +18,41 @@ test_export2 (tests.test_equipment.EquipmentTest) ... ok
 test_init (tests.test_equipment.EquipmentTest) ... ok
 test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 
+======================================================================
+FAIL: test_dequip (tests.test_armor.ArmorTest)
+Incomplete Test
 ----------------------------------------------------------------------
-Ran 10 tests in 0.002s
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 43, in test_dequip
+    self.fail("Incomplete Test")
+AssertionError: Incomplete Test
 
-OK
+======================================================================
+FAIL: test_equip (tests.test_armor.ArmorTest)
+Incomplete Test
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 39, in test_equip
+    self.fail("Incomplete Test")
+AssertionError: Incomplete Test
+
+======================================================================
+FAIL: test_init (tests.test_armor.ArmorTest)
+Incomplete Test
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 35, in test_init
+    self.fail("Incomplete Test")
+AssertionError: Incomplete Test
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.005s
+
+FAILED (failures=3)
 
 ---Flake 8----
 
-./tests/test_armor.py:10:1: F401 'core.armor' imported but unused
-./tests/test_armor.py:11:1: F403 'from utils.types import *' used; unable to detect undefined names
-./tests/test_armor.py:11:1: F401 'utils.types.*' imported but unused
+./core/armor.py:44:7: T101 fixme found (TODO)
+./core/armor.py:45:7: T101 fixme found (TODO)
+./core/equipment.py:51:11: T101 fixme found (TODO)
 3
