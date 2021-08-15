@@ -28,16 +28,12 @@ class EquipmentTest(unittest.TestCase):
         self.assertGreater(equip.itemLevel, 0)
 
     def test_printToFile(self):
-        equip = self.setup()
-        equip.printToFile()
-        self.assertTrue(os.path.exists(equip.name + ".json"), "PrintToFile Failed")
-        if os.path.exists(f"{equip.name}.json"):
-            os.remove(f"{equip.name}.json")
+        equipObj = self.setup()
+        equipObj.printToFile()
+        self.assertTrue(os.path.exists(equipObj.name + ".json"), "PrintToFile Failed")
+        if os.path.exists(f"{equipObj.name}.json"):
+            os.remove(f"{equipObj.name}.json")
 
-    def test__str__(self):
-        equip = self.setup()
-        self.assertEqual(equip.__str__(), "Test_Equipment (lvl. 2) [Light Helmet]")
-        
     # def test_details(self):
     # def test_export(self):
     # def test_getStats(self:)
