@@ -49,9 +49,10 @@ class EquipmentTest(unittest.TestCase):
     def test_printToFile(self):
         equipObj = self.setup()
         equipObj.printToFile()
-        self.assertTrue(os.path.exists(equipObj.name + ".json"), "PrintToFile Failed")
-        if os.path.exists(f"{equipObj.name}.json"):
-            os.remove(f"{equipObj.name}.json")
+        filename = f"{equipObj.name}.json"
+        self.assertTrue(os.path.exists(filename), "PrintToFile Failed")
+        if os.path.exists(filename):
+            os.remove(filename)
 
     def test_export1(self):
         from json import loads

@@ -23,7 +23,12 @@ class ArmorTest(unittest.TestCase):
         "temp"
 
     def test_printToFile(self):
-        "Needs to include the armor printout as well"
+        arm, _w = self.setup(False)
+        arm.printToFile()
+        filename = f"{arm.name}.json"
+        self.assertTrue(os.path.exists(filename), "PrintToFile Failed")
+        if os.path.exists(filename):
+            os.remove(filename)
 
 
 def run():
