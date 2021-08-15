@@ -22,7 +22,7 @@ class Armor():
     def __init__(self, armorType:int = 0, head:Equipment = None, chest:Equipment = None, back:Equipment = None, pants:Equipment = None, weapon:Equipment = None):
         self.name = "Armor_" + str(Armor._id)
         self.armorType = armorType
-        
+        # self.stats = #Stat Object
         # Requires that the equipment is the same armor time
         self.head = head if head is not None and getArmorType(head.armorType) == getArmorType(self.armorType) else None
         self.chest = chest if chest is not None and getArmorType(chest.armorType) == getArmorType(self.armorType) else None
@@ -30,6 +30,7 @@ class Armor():
         self.pants = pants if pants is not None and getArmorType(pants.armorType) == getArmorType(self.armorType) else None
         self.weapon = weapon if weapon is not None and getArmorType(weapon.armorType) == getArmorType(self.armorType) else None
         Armor._id += 1
+
 
     def __str__(self):
         # Eventually add the stats to the class as well
@@ -80,6 +81,7 @@ class Armor():
         with open(self.name + ".json", "w") as oFile:
             json.dump(self.__dict__, oFile)
 
+    # def getStats(self):
     # def export(self):
 
 

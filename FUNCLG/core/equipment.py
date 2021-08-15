@@ -29,6 +29,7 @@ class Equipment():
         self.weaponType = weaponType
         self.level = level
         self.abilityPoints = abilityPoints
+        #self.stats = #STAT Object
     
     def __str__(self):
         return f"{self.name} (lvl. {self.level}) {self.getItemDescription()}"
