@@ -17,5 +17,13 @@ menu
         - edit
         - delete
     - settings
+        - Manage Content
+            - Equipment
+            - Roles
+            - Powers
+            - Enemies
         - game settings (not sure yet)
+            - difficulyy
+            - number of levels?
+
 """
