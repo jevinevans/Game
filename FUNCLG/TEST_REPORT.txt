@@ -1,15 +1,12 @@
 ######TESTING REPORT######
 
-Date: Sun Aug 15 01:41:21 CDT 2021 
+Date: Sun Aug 15 01:55:23 CDT 2021 
 
 ---UNITTEST---
 
-test_dequip (tests.test_armor.ArmorTest)
-Incomplete Test ... FAIL
-test_equip (tests.test_armor.ArmorTest)
-Incomplete Test ... FAIL
-test_init (tests.test_armor.ArmorTest)
-Incomplete Test ... FAIL
+test_dequip (tests.test_armor.ArmorTest) ... FAIL
+test_equip (tests.test_armor.ArmorTest) ... FAIL
+test_init (tests.test_armor.ArmorTest) ... FAIL
 test_printToFile (tests.test_armor.ArmorTest) ... ok
 test__str__ (tests.test_equipment.EquipmentTest) ... ok
 test_details (tests.test_equipment.EquipmentTest) ... ok
@@ -20,7 +17,6 @@ test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 
 ======================================================================
 FAIL: test_dequip (tests.test_armor.ArmorTest)
-Incomplete Test
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 43, in test_dequip
@@ -29,7 +25,6 @@ AssertionError: Incomplete Test
 
 ======================================================================
 FAIL: test_equip (tests.test_armor.ArmorTest)
-Incomplete Test
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 39, in test_equip
@@ -38,7 +33,6 @@ AssertionError: Incomplete Test
 
 ======================================================================
 FAIL: test_init (tests.test_armor.ArmorTest)
-Incomplete Test
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 35, in test_init
@@ -46,7 +40,7 @@ Traceback (most recent call last):
 AssertionError: Incomplete Test
 
 ----------------------------------------------------------------------
-Ran 10 tests in 0.005s
+Ran 10 tests in 0.003s
 
 FAILED (failures=3)
 
@@ -55,4 +49,7 @@ FAILED (failures=3)
 ./core/armor.py:44:7: T101 fixme found (TODO)
 ./core/armor.py:45:7: T101 fixme found (TODO)
 ./core/equipment.py:51:11: T101 fixme found (TODO)
-3
+./tests/test_armor.py:34:11: T101 fixme found (TODO)
+./tests/test_armor.py:38:11: T101 fixme found (TODO)
+./tests/test_armor.py:42:11: T101 fixme found (TODO)
+6

@@ -31,15 +31,15 @@ class ArmorTest(unittest.TestCase):
             return Armor(armorType, equips['head'], equips['chest'], equips['back'], equips['pants'], equips['sword']), equips['wand']
 
     def test_init(self):
-        "Incomplete Test"
+        # TODO: Complete Test
         self.fail("Incomplete Test")
 
     def test_equip(self):
-        "Incomplete Test"
+        # TODO: Complete Test
         self.fail("Incomplete Test")
 
     def test_dequip(self):
-        "Incomplete Test"
+        # TODO: Complete Test
         self.fail("Incomplete Test")
 
     def test_printToFile(self):
