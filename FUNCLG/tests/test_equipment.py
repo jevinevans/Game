@@ -7,14 +7,14 @@
 
 
 import unittest, os
-from core import equipment
+from core.equipment import Equipment
 # from utils.types import *
 
 
 class EquipmentTest(unittest.TestCase):
 
     def setup(self):
-        return equipment.Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
+        return Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
 
     def test_init(self):
         equipObj = self.setup()
