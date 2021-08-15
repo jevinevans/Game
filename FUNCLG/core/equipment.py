@@ -10,9 +10,9 @@
 import json
 
 try:
-    from utils.types import getItemDescription, getItemType
+    import utils.types as uTypes
 except ImportError:
-    from FUNCLG.utils.types import getItemDescription, getItemType
+    import FUNCLG.utils.types as uTypes
 
 
 class Equipment():
@@ -31,14 +31,14 @@ class Equipment():
         self.abilityPoints = abilityPoints
     
     def __str__(self):
-        return f"{self.name} (lvl. {self.itemLevel}) {getItemDescription(self.itemType, self.armorType, self.weaponType)}"
+        return f"{self.name} (lvl. {self.level}) {self.getItemDescription()}"
 
     def details(self):
         titleLen = 2 + len(self.name)
         desc = f"\n {self.name} \n{''.join(['-' for x in range(titleLen)])}"
-        desc += f"\nLevel:{self.itemLevel:3d} | Ability Pts: {self.abilityPoints} "
-        desc += "ATK" if getItemType(self.itemType) == "Weapon" else "DEF"
-        desc += f"\nType: {getItemDescription(self.itemType, self.armorType, self.weaponType)}"
+        desc += f"\nLevel:{self.level:3d} | Ability Pts: {self.abilityPoints} "
+        desc += "ATK" if self.getItemType() == "Weapon" else "DEF"
+        desc += f"\nType: {self.getItemDescription()}"
         desc += f"\nDescription: {self.description}"
         return desc
 
@@ -49,10 +49,22 @@ class Equipment():
     def export(self):
         return json.dumps(self.__dict__)
 
+    def getItemType(self):
+        return uTypes.getItemType(self.itemType)
+    
+    def getArmorType(self):
+        return uTypes.getArmorType(self.armorType)
+    
+    def getWeaponType(self):
+        return uTypes.getWeaponType(self.weaponType)
+    
+    def getItemDescription(self):
+        return uTypes.getItemDescription(self.itemType, self.armorType, self.weaponType)
+
     # def getStats(self):
 
 # def main():
-#     tempE = Equipment("excelsior", "This is a temp example is used to describe a simple sword.", itemType=4, weaponType=0, itemLevel=52, abilityPoints=500)
+#     tempE = Equipment("excelsior", "This is a temp example is used to describe a simple sword.", itemType=4, weaponType=0, level=52, abilityPoints=500)
 #     print(tempE)
 
 #     print(tempE.__dict__)
