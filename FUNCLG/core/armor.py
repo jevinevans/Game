@@ -23,7 +23,7 @@ class Armor():
         self.name = "Armor_" + str(Armor._id)
         self.armorType = armorType
         
-        # Requires that the equipment is the same armore time
+        # Requires that the equipment is the same armor time
         self.head = head if head is not None and getArmorType(head.armorType) == getArmorType(self.armorType) else None
         self.chest = chest if chest is not None and getArmorType(chest.armorType) == getArmorType(self.armorType) else None
         self.back = back if back is not None and getArmorType(back.armorType) == getArmorType(self.armorType) else None
