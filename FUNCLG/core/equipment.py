@@ -45,9 +45,10 @@ class Equipment():
 
     def printToFile(self):
         with open(self.name + ".json", "w") as oFile:
-            json.dump(self.__dict__, oFile)
+            json.dump(self.export(), oFile)
     
     def export(self):
+        # TODO: May have to change function when STATS object is integrated
         return self.__dict__
 
     def getItemType(self):
