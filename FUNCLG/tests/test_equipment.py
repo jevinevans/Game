@@ -17,15 +17,34 @@ class EquipmentTest(unittest.TestCase):
         return equipment.Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
 
     def test_init(self):
-        equip = self.setup()
+        equipObj = self.setup()
         # Testing proper initialization
-        self.assertEqual(equip.name, "Test_Equipment")
-        self.assertEqual(equip.description, "This is a test for the equipment class")
-        self.assertEqual(equip.armorType, 0)
-        self.assertEqual(equip.itemType, 0)
-        self.assertIsNone(equip.weaponType)
-        self.assertGreater(equip.abilityPoints, 0)
-        self.assertGreater(equip.itemLevel, 0)
+        self.assertEqual(equipObj.name, "Test_Equipment")
+        self.assertEqual(equipObj.description, "This is a test for the equipment class")
+        self.assertEqual(equipObj.armorType, 0)
+        self.assertEqual(equipObj.itemType, 0)
+        self.assertIsNone(equipObj.weaponType)
+        self.assertGreater(equipObj.abilityPoints, 0)
+        self.assertGreater(equipObj.level, 0)
+
+    def test__str__(self):
+        equipObj = self.setup()
+        self.assertEqual(equipObj.__str__(), "Test_Equipment (lvl. 2) [Light Helmet]")
+        """ Testing Different Level and Armor Type"""
+        equipObj.level = 50
+        equipObj.armorType = 1
+        self.assertEqual(equipObj.__str__(), "Test_Equipment (lvl. 50) [Medium Helmet]")
+        
+    def test_details(self):
+        equipObj = self.setup()
+        eDetails = equipObj.details()
+        self.assertIn("-" * (2 + len(equipObj.name)), eDetails)
+        self.assertIn(equipObj.name, eDetails)
+        self.assertIn(str(equipObj.level), eDetails)
+        self.assertIn(str(equipObj.abilityPoints), eDetails)
+        self.assertIn(equipObj.getItemType(), eDetails)
+        self.assertIn(equipObj.getItemDescription(), eDetails)
+        self.assertIn(equipObj.description, eDetails)
 
     def test_printToFile(self):
         equipObj = self.setup()
@@ -34,8 +53,18 @@ class EquipmentTest(unittest.TestCase):
         if os.path.exists(f"{equipObj.name}.json"):
             os.remove(f"{equipObj.name}.json")
 
-    # def test_details(self):
-    # def test_export(self):
+    def test_export1(self):
+        from json import loads
+        """\tThis may not be the best test
+        Test for null weapon"""
+        equipObj = self.setup()
+        self.assertEqual(loads(equipObj.export()), equipObj.__dict__)
+    
+    def test_export2(self):
+        equipObj = self.setup()
+        equipObj.weaponType = 2
+        self.assertEqual(eval(equipObj.export()), equipObj.__dict__)
+        """\tThis may not be the best test"""
     # def test_getStats(self:)
 
 
