@@ -55,17 +55,14 @@ class EquipmentTest(unittest.TestCase):
             os.remove(filename)
 
     def test_export1(self):
-        from json import loads
-        """\tThis may not be the best test
-        Test for null weapon"""
         equipObj = self.setup()
-        self.assertEqual(loads(equipObj.export()), equipObj.__dict__)
+        self.assertEqual(equipObj.export(), equipObj.__dict__)
     
     def test_export2(self):
         equipObj = self.setup()
         equipObj.weaponType = 2
-        self.assertEqual(eval(equipObj.export()), equipObj.__dict__)
-        """\tThis may not be the best test"""
+        self.assertEqual(equipObj.export(), equipObj.__dict__)
+
     # def test_getStats(self:)
 
 

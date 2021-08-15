@@ -48,7 +48,7 @@ class Equipment():
             json.dump(self.__dict__, oFile)
     
     def export(self):
-        return json.dumps(self.__dict__)
+        return self.__dict__
 
     def getItemType(self):
         return uTypes.getItemType(self.itemType)
