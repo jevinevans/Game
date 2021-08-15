@@ -31,7 +31,6 @@ class Armor():
         self.weapon = weapon if weapon is not None and getArmorType(weapon.armorType) == getArmorType(self.armorType) else None
         Armor._id += 1
 
-
     def __str__(self):
         # Eventually add the stats to the class as well
         temp = f"{self.name}: <"
@@ -78,11 +77,16 @@ class Armor():
     # def details(self):
 
     def printToFile(self):
+        printable = self.export()
+        for x, y in printable.items():
+            if isinstance(y, Equipment):
+                printable[x] = y.export()
         with open(self.name + ".json", "w") as oFile:
             json.dump(self.__dict__, oFile)
 
     # def getStats(self):
-    # def export(self):
+    def export(self):
+        return self.__dict__
 
 
 def main():
