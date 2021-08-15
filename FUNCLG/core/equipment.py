@@ -17,7 +17,7 @@ except ImportError:
 
 class Equipment():
 
-    def __init__(self, name='', description='', armorType=None, itemType=None, weaponType=None, itemLevel=0, abilityPoints=0):
+    def __init__(self, name='', description='', armorType=None, itemType=None, weaponType=None, level=0, abilityPoints=0):
         """
             Creates an equipment item
         """
@@ -27,7 +27,7 @@ class Equipment():
         self.armorType = armorType
         self.itemType = itemType
         self.weaponType = weaponType
-        self.itemLevel = itemLevel
+        self.level = level
         self.abilityPoints = abilityPoints
     
     def __str__(self):
