@@ -86,7 +86,11 @@ class Armor():
 
     # def getStats(self):
     def export(self):
-        return self.__dict__
+        exporter = self.__dict__
+        for x, y in exporter.items():
+            if isinstance(y, Equipment):
+                exporter[x] = y.export()
+        return
 
 
 def main():
