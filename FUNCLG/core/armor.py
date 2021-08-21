@@ -76,15 +76,10 @@ class Armor():
 
     # def details(self):
 
-    def printToFile(self):
-        printable = self.export()
-        for x, y in printable.items():
-            if isinstance(y, Equipment):
-                printable[x] = y.export()
+    def printToFile(self):        
         with open(self.name + ".json", "w") as oFile:
-            json.dump(self.__dict__, oFile)
+            json.dump(self.export(), oFile)
 
-    # def getStats(self):
     def export(self):
         exporter = self.__dict__
         for x, y in exporter.items():
@@ -92,6 +87,7 @@ class Armor():
                 exporter[x] = y.export()
         return
 
+    # def getStats(self):
 
 def main():
     newArm = Armor()
