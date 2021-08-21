@@ -44,19 +44,24 @@ class Armor():
     # TODO: Need to test if I need to copy equipment or it will link right
     # TODO: Consider if this should be one method or multiples for each type
     def equip(self, item:Equipment):
+        temp = None
         if getItemType(item.itemType) == "Helmet":
-            self.head
+            self.head, temp = item, self.head 
         elif getItemType(item.itemType) == "Chest":
-            self.chest
+            self.chest, temp = item, self.chest
         elif getItemType(item.itemType) == "Back":
-            self.back
+            self.back, temp = item, self.back
         elif getItemType(item.itemType) == "Pants":
-            self.pants
+            self.pants, temp = item, self.pants
         elif getItemType(item.itemType) == "Weapon":
-            self.weapon
+            self.weapon, temp = item, self.weapon
         else:
             print(f"{item}, is not compatable with this armor")
-
+            return item
+        # Returns previously equiped item, if there was one
+        if isinstance(temp, Equipment):
+            return temp
+        
     def dequip(self, item):
         temp = None
         if getItemType(item.itemType) == "Helmet":

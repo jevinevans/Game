@@ -49,6 +49,7 @@ class Equipment():
     
     def export(self):
         # TODO: May have to change function when STATS object is integrated
+        # Function will just need to call the export for each 
         return self.__dict__
 
     def getItemType(self):
