@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Aug 15 01:55:23 CDT 2021 
+Date: Sat Aug 21 23:43:26 CDT 2021 
 
 ---UNITTEST---
 
@@ -48,7 +48,7 @@ FAILED (failures=3)
 
 ./core/armor.py:44:7: T101 fixme found (TODO)
 ./core/armor.py:45:7: T101 fixme found (TODO)
-./core/equipment.py:51:11: T101 fixme found (TODO)
+./core/equipment.py:52:11: T101 fixme found (TODO)
 ./tests/test_armor.py:34:11: T101 fixme found (TODO)
 ./tests/test_armor.py:38:11: T101 fixme found (TODO)
 ./tests/test_armor.py:42:11: T101 fixme found (TODO)
