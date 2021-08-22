@@ -9,10 +9,10 @@
 import json
 try:
     from core.equipment import Equipment
-    from utils.types import getItemType, getArmorType, ITEM_TYPES
+    from utils.types import ITEM_TYPES
 except ImportError:
     from FUNCLG.core.equipment import Equipment
-    from FUNCLG.utils.types import getItemType, getArmorType, ITEM_TYPES
+    from FUNCLG.utils.types import ITEM_TYPES
 
 
 class Armor():
@@ -47,7 +47,7 @@ class Armor():
         temp = None
         if item is not None and item.armorType == self.armorType:
             if item.getItemType() == "Head":
-                self.head, temp = item, self.head 
+                self.head, temp = item, self.head
             elif item.getItemType() == "Chest":
                 self.chest, temp = item, self.chest
             elif item.getItemType() == "Back":
@@ -65,7 +65,7 @@ class Armor():
         
     def dequip(self, item):
         """
-            Removes the currently equiped item in the current position and wil return an item if there is something already equiped. 
+            Removes the currently equiped item in the current position and wil return an item if there is something already equiped.
         """
         temp = None
         itemType = ''
@@ -103,7 +103,7 @@ class Armor():
         desc += f"\nWeapon: {self.weapon.__str__()}" if self.weapon else "\nWeapon: None"
         return desc
 
-    def printToFile(self):        
+    def printToFile(self):
         with open(self.name + ".json", "w") as oFile:
             json.dump(self.export(), oFile)
 
@@ -117,7 +117,7 @@ class Armor():
     # def getStats(self):
         # Will be a sum of the equipment stats, may or may not display the name and stats
 
-def main():
+# def main():
     # weapon = Equipment("excelsior", "Special sword of power", armorType=2, itemType=4, weaponType=0, level=5, abilityPoints=50)
     # weapon1 = Equipment("Yldris Wand", "Special wand of power", armorType=2, itemType=4, weaponType=1, level=5, abilityPoints=60)
     # head = Equipment("Shining Top", "Top hat that sparkles", 2, 0, None, 5, 40)
