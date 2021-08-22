@@ -27,7 +27,7 @@ class EquipmentTest(unittest.TestCase):
         self.assertGreater(equipObj.abilityPoints, 0)
         self.assertGreater(equipObj.level, 0)
 
-    def test__str__(self):
+    def test_str(self):
         equipObj = self.setup()
         self.assertEqual(equipObj.__str__(), "Test_Equipment [2]")
         """ Testing Different Level and Armor Type"""
