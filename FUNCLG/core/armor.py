@@ -9,10 +9,10 @@
 import json
 try:
     from core.equipment import Equipment
-    from utils.types import getItemType, getArmorType
+    from utils.types import getItemType, getArmorType, ITEM_TYPES
 except ImportError:
     from FUNCLG.core.equipment import Equipment
-    from FUNCLG.utils.types import getItemType, getArmorType
+    from FUNCLG.utils.types import getItemType, getArmorType, ITEM_TYPES
 
 
 class Armor():
@@ -46,7 +46,7 @@ class Armor():
     def equip(self, item:Equipment):
         temp = None
         if item is not None and item.armorType == self.armorType:
-            if item.getItemType() == "Helmet":
+            if item.getItemType() == "Head":
                 self.head, temp = item, self.head 
             elif item.getItemType() == "Chest":
                 self.chest, temp = item, self.chest
@@ -57,23 +57,37 @@ class Armor():
             elif item.getItemType() == "Weapon":
                 self.weapon, temp = item, self.weapon
         else:
-            print(f"{item}, is not compatable with this armor")
+            print(f"\n{item}, is not compatable with this armor")
             return item
         # Returns previously equiped item, if there was one
         if isinstance(temp, Equipment):
             return temp
         
     def dequip(self, item):
+        """
+            Removes the currently equiped item in the current position and wil return an item if there is something already equiped. 
+        """
         temp = None
-        if getItemType(item.itemType) == "Helmet":
+        itemType = ''
+        if isinstance(item, int):
+            itemType = ITEM_TYPES[item]
+        elif isinstance(item, str):
+            itemType = item.capitalize()
+            if itemType not in ITEM_TYPES:
+                print("Dequip Error:")
+                return
+        elif isinstance(item, Equipment):
+            itemType = item.getItemType()
+
+        if itemType == "Head":
             temp, self.head = self.head, None
-        elif getItemType(item.itemType) == "Chest":
+        elif itemType == "Chest":
             temp, self.chest = self.chest, None
-        elif getItemType(item.itemType) == "Back":
+        elif itemType == "Back":
             temp, self.back = self.back, None
-        elif getItemType(item.itemType) == "Pants":
+        elif itemType == "Pants":
             temp, self.pants = self.pants, None
-        elif getItemType(item.itemType) == "Weapon":
+        elif itemType == "Weapon":
             temp, self.weapon = self.weapon, None
         else:
             print("Not a valid dequip spot.")
@@ -86,7 +100,7 @@ class Armor():
         desc += f"\nChest: {self.chest.__str__()}" if self.chest else "\nChest: None"
         desc += f"\nBack: {self.back.__str__()}" if self.back else "\nBack: None"
         desc += f"\nPants: {self.pants.__str__()}" if self.pants else "\nPants: None"
-        desc += f"\nWeapons: {self.weapon.__str__()}" if self.weapon else "\nWeapon: None"
+        desc += f"\nWeapon: {self.weapon.__str__()}" if self.weapon else "\nWeapon: None"
         return desc
 
     def printToFile(self):        
@@ -98,9 +112,10 @@ class Armor():
         for x, y in exporter.items():
             if isinstance(y, Equipment):
                 exporter[x] = y.export()
-        return
+        return exporter
 
     # def getStats(self):
+        # Will be a sum of the equipment stats, may or may not display the name and stats
 
 def main():
     # weapon = Equipment("excelsior", "Special sword of power", armorType=2, itemType=4, weaponType=0, level=5, abilityPoints=50)
@@ -134,6 +149,3 @@ def main():
 
     # print()
     # print(newArm.export())
-
-
-    
