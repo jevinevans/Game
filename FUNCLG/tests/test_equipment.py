@@ -29,11 +29,10 @@ class EquipmentTest(unittest.TestCase):
 
     def test__str__(self):
         equipObj = self.setup()
-        self.assertEqual(equipObj.__str__(), "Test_Equipment (lvl. 2) [Light Helmet]")
+        self.assertEqual(equipObj.__str__(), "Test_Equipment [2]")
         """ Testing Different Level and Armor Type"""
         equipObj.level = 50
-        equipObj.armorType = 1
-        self.assertEqual(equipObj.__str__(), "Test_Equipment (lvl. 50) [Medium Helmet]")
+        self.assertEqual(equipObj.__str__(), "Test_Equipment [50]")
         
     def test_details(self):
         equipObj = self.setup()
