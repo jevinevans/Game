@@ -5,8 +5,8 @@
 #   Description: This defines lists and functions for certain constands             #
 #####################################################################################
 
-# Item Types: 0 - Helmet, 1 - Chest, 2 - Back, 3 - Pants, 4 - Weapon
-ITEM_TYPES = ["Helmet", "Chest", "Back", "Pants", "Weapon"]
+# Item Types: 0 - Head, 1 - Chest, 2 - Back, 3 - Pants, 4 - Weapon
+ITEM_TYPES = ["Head", "Chest", "Back", "Pants", "Weapon"]
 
 # Armor Types: 0 - Light,  1 - Medium,  2 - Heavy
 ARMOR_TYPES = ["Light", "Medium", "Heavy"]
