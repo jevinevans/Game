@@ -103,5 +103,37 @@ class Armor():
     # def getStats(self):
 
 def main():
-    newArm = Armor()
-    print(newArm)
+    # weapon = Equipment("excelsior", "Special sword of power", armorType=2, itemType=4, weaponType=0, level=5, abilityPoints=50)
+    # weapon1 = Equipment("Yldris Wand", "Special wand of power", armorType=2, itemType=4, weaponType=1, level=5, abilityPoints=60)
+    # head = Equipment("Shining Top", "Top hat that sparkles", 2, 0, None, 5, 40)
+    # chest = Equipment("Black suit", "Basic black suit", 2, 1, None, 1, 10)
+    # back = Equipment("Should cape", "Simple shoulder coat that cover shoulder", 2, 2, None, 2, 20)
+    # pants = Equipment("Suit pants", "Basic suit pant", 2, 3, None, 2, 15)
+
+    # newArm = Armor(2, chest=chest, pants=pants)
+    # print(newArm)
+    
+    # newArm.equip(head)
+    # newArm.equip(back)
+    # newArm.equip(weapon)
+
+    # print(newArm)
+    # print(newArm.details())
+
+    # temp = newArm.dequip("weapon")
+
+    # print(f"\nDequiped: {temp}")
+    # print(newArm)
+    # print(newArm.details())
+
+    # temp = newArm.equip(temp)
+    # print(newArm.details())
+
+    # newArm.equip(weapon1)
+    # print(newArm.details())
+
+    # print()
+    # print(newArm.export())
+
+
+    
