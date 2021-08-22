@@ -22,34 +22,80 @@ class ArmorTest(unittest.TestCase):
         equips['pants'] = Equipment("Gold pants", "Pants piece for Amror Test", armorType, 3, None, randint(0,100), randint(0,500))
         equips['sword'] = Equipment("Gold Sword", "Sword weapon for Armor Test", armorType, 4, 0, randint(0,100), randint(0,500))
         equips['wand'] = Equipment("Gold Wand", "Wand weapon for Armor Test", armorType + 1, 4, 1, randint(0,100), randint(0,500))
+        equips['knife'] = Equipment("Gold Knife", "Knife weapon for Armor Test", armorType, 4, 2, randint(0,100), randint(0,500))
 
         if raw:
             """Returns new Armor and dict of equipments"""
             return Armor(armorType), equips
         else:
             """Returns full equiped Armor plus other weapon"""
-            return Armor(armorType, equips['head'], equips['chest'], equips['back'], equips['pants'], equips['sword']), equips['wand']
+            return Armor(armorType, equips['head'], equips['chest'], equips['back'], equips['pants'], equips['sword']), equips
 
     def test_init(self):
-        # TODO: Complete Test
-        self.fail("Incomplete Test")
+        """
+            Testing blank armor initialization
+        """
+        arm = setup()
+
+        """
+            Testing creation of full armor initialization
+        """
+        arm = setup(False)
+        self.fail("Need to Create Test")
+
+    def test_str(self):
+        """
+            Testing object print format
+        """
+        self.fail("Need to Create Test")
 
     def test_equip(self):
-        # TODO: Complete Test
-        self.fail("Incomplete Test")
+        """
+            Testing that the equip function for success
+        """
+        # TODO: testing ability to equip items empty location
+        self.fail("Need to Create Test")
+
+        # TODO: testing ability to equip an item that is not empty and return it
+        self.fail("Need to Create Test")
+
+        # TODO: testing ability to not equip uncompatible items
+        self.fail("Need to Create Test")
 
     def test_dequip(self):
-        # TODO: Complete Test
-        self.fail("Incomplete Test")
+        # TODO: test integer ability to dequip item
+        self.fail("Need to Create Test")
+
+        # TODO: test string ability to dequip
+        self.fail("Need to Create Test")
+        
+        # TODO: test error dequip
+        self.fail("Need to Create Test")
+
+        # TODO: test attempt to dequip on empty Armor
+        self.fail("Need to Create Test")
+
+    def test_details(self):
+        # TODO: test full armor detail
+        self.fail("Need to Create Test")
+
+        # TODO: test empty details
+        self.fail("Need to Create Test")
 
     def test_printToFile(self):
-        arm, _w = self.setup(False)
+        """
+            Testing printToFile existance
+        """
+        arm, equips = self.setup(False)
         arm.printToFile()
         filename = f"{arm.name}.json"
         self.assertTrue(os.path.exists(filename), "PrintToFile Failed")
         if os.path.exists(filename):
             os.remove(filename)
 
+    def test_export(self):
+        # TODO: test against proper dict option and reload
+        self.fail("Need to Create Test")
 
 def run():
     unittest.main()

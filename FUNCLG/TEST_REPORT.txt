@@ -1,55 +1,100 @@
 ######TESTING REPORT######
 
-Date: Sat Aug 21 23:43:26 CDT 2021 
+Date: Sun Aug 22 11:37:54 CDT 2021 
 
 ---UNITTEST---
 
 test_dequip (tests.test_armor.ArmorTest) ... FAIL
-test_equip (tests.test_armor.ArmorTest) ... FAIL
-test_init (tests.test_armor.ArmorTest) ... FAIL
-test_printToFile (tests.test_armor.ArmorTest) ... ok
-test__str__ (tests.test_equipment.EquipmentTest) ... ok
+test_details (tests.test_armor.ArmorTest) ... FAIL
+test_equip (tests.test_armor.ArmorTest)
+Testing that the equip function for success ... FAIL
+test_export (tests.test_armor.ArmorTest) ... FAIL
+test_init (tests.test_armor.ArmorTest)
+Testing blank armor initialization ... ERROR
+test_printToFile (tests.test_armor.ArmorTest)
+Testing printToFile existance ... ok
+test_str (tests.test_armor.ArmorTest)
+Testing object print format ... FAIL
 test_details (tests.test_equipment.EquipmentTest) ... ok
 test_export1 (tests.test_equipment.EquipmentTest) ... ok
-test_export2 (tests.test_equipment.EquipmentTest) ... ok
 test_init (tests.test_equipment.EquipmentTest) ... ok
 test_printToFile (tests.test_equipment.EquipmentTest) ... ok
+test_str (tests.test_equipment.EquipmentTest) ... ok
+
+======================================================================
+ERROR: test_init (tests.test_armor.ArmorTest)
+Testing blank armor initialization
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 38, in test_init
+    arm = setup()
+NameError: name 'setup' is not defined
 
 ======================================================================
 FAIL: test_dequip (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 43, in test_dequip
-    self.fail("Incomplete Test")
-AssertionError: Incomplete Test
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 67, in test_dequip
+    self.fail("Need to Create Test")
+AssertionError: Need to Create Test
+
+======================================================================
+FAIL: test_details (tests.test_armor.ArmorTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 80, in test_details
+    self.fail("Need to Create Test")
+AssertionError: Need to Create Test
 
 ======================================================================
 FAIL: test_equip (tests.test_armor.ArmorTest)
+Testing that the equip function for success
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 39, in test_equip
-    self.fail("Incomplete Test")
-AssertionError: Incomplete Test
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 57, in test_equip
+    self.fail("Need to Create Test")
+AssertionError: Need to Create Test
 
 ======================================================================
-FAIL: test_init (tests.test_armor.ArmorTest)
+FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 35, in test_init
-    self.fail("Incomplete Test")
-AssertionError: Incomplete Test
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 98, in test_export
+    self.fail("Need to Create Test")
+AssertionError: Need to Create Test
+
+======================================================================
+FAIL: test_str (tests.test_armor.ArmorTest)
+Testing object print format
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 50, in test_str
+    self.fail("Need to Create Test")
+AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 10 tests in 0.003s
+Ran 12 tests in 0.004s
 
-FAILED (failures=3)
+FAILED (failures=5, errors=1)
 
 ---Flake 8----
 
 ./core/armor.py:44:7: T101 fixme found (TODO)
 ./core/armor.py:45:7: T101 fixme found (TODO)
 ./core/equipment.py:52:11: T101 fixme found (TODO)
-./tests/test_armor.py:34:11: T101 fixme found (TODO)
-./tests/test_armor.py:38:11: T101 fixme found (TODO)
-./tests/test_armor.py:42:11: T101 fixme found (TODO)
-6
+./core/equipment.py:69:11: T101 fixme found (TODO)
+./tests/test_armor.py:38:15: F821 undefined name 'setup'
+./tests/test_armor.py:43:9: F841 local variable 'arm' is assigned to but never used
+./tests/test_armor.py:43:15: F821 undefined name 'setup'
+./tests/test_armor.py:56:11: T101 fixme found (TODO)
+./tests/test_armor.py:59:11: T101 fixme found (TODO)
+./tests/test_armor.py:62:11: T101 fixme found (TODO)
+./tests/test_armor.py:66:11: T101 fixme found (TODO)
+./tests/test_armor.py:69:11: T101 fixme found (TODO)
+./tests/test_armor.py:72:11: T101 fixme found (TODO)
+./tests/test_armor.py:75:11: T101 fixme found (TODO)
+./tests/test_armor.py:79:11: T101 fixme found (TODO)
+./tests/test_armor.py:82:11: T101 fixme found (TODO)
+./tests/test_armor.py:97:11: T101 fixme found (TODO)
+./tests/test_armor.py:100:1: E302 expected 2 blank lines, found 1
+18
