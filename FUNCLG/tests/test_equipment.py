@@ -54,11 +54,11 @@ class EquipmentTest(unittest.TestCase):
             os.remove(filename)
 
     def test_export1(self):
+        # Testing of null value
         equipObj = self.setup()
         self.assertEqual(equipObj.export(), equipObj.__dict__)
-    
-    def test_export2(self):
-        equipObj = self.setup()
+
+        # Testing with proper armor type
         equipObj.weaponType = 2
         self.assertEqual(equipObj.export(), equipObj.__dict__)
 

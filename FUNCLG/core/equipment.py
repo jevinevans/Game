@@ -66,6 +66,7 @@ class Equipment():
         return uTypes.getItemDescription(self.itemType, self.armorType, self.weaponType)
 
     # def getStats(self):
+        # TODO: Defined method
 
 # def main():
 #     tempE = Equipment("excelsior", "This is a temp example is used to describe a simple sword.", itemType=4, weaponType=0, level=52, abilityPoints=500)
