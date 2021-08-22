@@ -45,16 +45,17 @@ class Armor():
     # TODO: Consider if this should be one method or multiples for each type
     def equip(self, item:Equipment):
         temp = None
-        if getItemType(item.itemType) == "Helmet":
-            self.head, temp = item, self.head 
-        elif getItemType(item.itemType) == "Chest":
-            self.chest, temp = item, self.chest
-        elif getItemType(item.itemType) == "Back":
-            self.back, temp = item, self.back
-        elif getItemType(item.itemType) == "Pants":
-            self.pants, temp = item, self.pants
-        elif getItemType(item.itemType) == "Weapon":
-            self.weapon, temp = item, self.weapon
+        if item is not None and item.armorType == self.armorType:
+            if item.getItemType() == "Helmet":
+                self.head, temp = item, self.head 
+            elif item.getItemType() == "Chest":
+                self.chest, temp = item, self.chest
+            elif item.getItemType() == "Back":
+                self.back, temp = item, self.back
+            elif item.getItemType() == "Pants":
+                self.pants, temp = item, self.pants
+            elif item.getItemType() == "Weapon":
+                self.weapon, temp = item, self.weapon
         else:
             print(f"{item}, is not compatable with this armor")
             return item
