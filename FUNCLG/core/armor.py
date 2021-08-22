@@ -24,11 +24,11 @@ class Armor():
         self.armorType = armorType
         # self.stats = #Stat Object
         # Requires that the equipment is the same armor time
-        self.head = head if head is not None and getArmorType(head.armorType) == getArmorType(self.armorType) else None
-        self.chest = chest if chest is not None and getArmorType(chest.armorType) == getArmorType(self.armorType) else None
-        self.back = back if back is not None and getArmorType(back.armorType) == getArmorType(self.armorType) else None
-        self.pants = pants if pants is not None and getArmorType(pants.armorType) == getArmorType(self.armorType) else None
-        self.weapon = weapon if weapon is not None and getArmorType(weapon.armorType) == getArmorType(self.armorType) else None
+        self.head = head if head is not None and head.armorType == self.armorType else None
+        self.chest = chest if chest is not None and chest.armorType == self.armorType else None
+        self.back = back if back is not None and back.armorType == self.armorType else None
+        self.pants = pants if pants is not None and pants.armorType == self.armorType else None
+        self.weapon = weapon if weapon is not None and weapon.armorType == self.armorType else None
         Armor._id += 1
 
     def __str__(self):
