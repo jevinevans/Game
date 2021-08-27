@@ -16,6 +16,7 @@ class ArmorTest(unittest.TestCase):
     def setup(self, raw=True):
         armorType = 1
         equips = {}
+        equips['armorType'] = armorType
         equips['head'] = Equipment("Gold Head", "Head piece for Armor Test.", armorType, 0, None, randint(0,100), randint(0,500))
         equips['chest'] = Equipment("Gold Chest", "Chest piece for Armor Test.", armorType, 1, None, randint(0,100), randint(0,500))
         equips['back'] = Equipment("Gold Cape", "Back piece for Armor Test.", armorType, 2, None, randint(0,100), randint(0,500))
@@ -32,16 +33,29 @@ class ArmorTest(unittest.TestCase):
             return Armor(armorType, equips['head'], equips['chest'], equips['back'], equips['pants'], equips['sword']), equips
 
     def test_init(self):
-        """
-            Testing blank armor initialization
-        """
-        arm = setup()
+        # Testing blank armor initialization
 
-        """
-            Testing creation of full armor initialization
-        """
-        arm = setup(False)
-        self.fail("Need to Create Test")
+        arm, equips = self.setup()
+        self.assertEqual(arm.armorType, equips['armorType'])
+        self.assertIsNone(arm.head, "Armor Equipment field is not none")
+        self.assertIsNone(arm.chest, "Armor Equipment field is not none")
+        self.assertIsNone(arm.back, "Armor Equipment field is not none")
+        self.assertIsNone(arm.pants, "Armor Equipment field is not none")
+        self.assertIsNone(arm.weapon, "Armor Equipment field is not none")
+
+        self.assertEqual(Armor._id, 1)
+        
+        # Testing creation of full armor initialization
+
+        arm, equips = self.setup(False)
+        self.assertEqual(arm.armorType, equips['armorType'])
+        self.assertEqual(arm.head, equips["head"])
+        self.assertEqual(arm.chest, equips["chest"])
+        self.assertEqual(arm.back, equips["back"])
+        self.assertEqual(arm.pants, equips["pants"])
+        self.assertEqual(arm.weapon, equips["sword"])
+
+        self.assertEqual(Armor._id, 2)
 
     def test_str(self):
         """

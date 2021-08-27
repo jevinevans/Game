@@ -21,7 +21,7 @@ class Armor():
 
     def __init__(self, armorType:int = 0, head:Equipment = None, chest:Equipment = None, back:Equipment = None, pants:Equipment = None, weapon:Equipment = None):
         self.name = "Armor_" + str(Armor._id)
-        self.armorType = armorType if armorType in ARMOR_TYPES else 0
+        self.armorType = armorType if armorType <= len(ARMOR_TYPES) and armorType >= 0 else 0
         # self.stats = #Stat Object
         # Requires that the equipment is the same armor time
         self.head = head if head is not None and head.armorType == self.armorType else None
