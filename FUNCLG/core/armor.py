@@ -29,6 +29,8 @@ class Armor():
         self.back = back if back is not None and back.armorType == self.armorType else None
         self.pants = pants if pants is not None and pants.armorType == self.armorType else None
         self.weapon = weapon if weapon is not None and weapon.armorType == self.armorType else None
+        
+        # Call stats update function self.???
         Armor._id += 1
 
     def __str__(self):
