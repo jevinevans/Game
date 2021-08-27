@@ -1,5 +1,5 @@
 +==========================================+
-|	Total Directories: 33			|
+|	Total Directories: 32			|
 |	Files: 139				|
 +==========================================+
 
@@ -169,9 +169,8 @@
 ./Logs/2021/Log_2021_07_13.md
 ./Logs/2021/Log_2021_07_19.md
 ./Logs/2021/Log_2021_08_09.md
+./Logs/2021/Log_2021_08_21.md
 ./README.md
 ./Scan_Directories.py
 ./docs
 ./docs/Basic Player Game Info.txt
-./tests
-./tests/test_equipment.py
