@@ -55,7 +55,8 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.pants, equips["pants"])
         self.assertEqual(arm.weapon, equips["sword"])
 
-        self.assertEqual(Armor._id, 2)
+    def test_Armor_ID(self):
+        "Testing the increase of Armor_ID increase"
 
     def test_str(self):
         # Testing object print format
