@@ -44,7 +44,7 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNone(arm.weapon, "Armor Equipment field is not none")
 
         self.assertEqual(Armor._id, 1)
-        
+
         # Testing creation of full armor initialization
 
         arm, equips = self.setup(False)
@@ -58,11 +58,19 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(Armor._id, 2)
 
     def test_str(self):
-        """
-            Testing object print format
-        """
-        self.fail("Need to Create Test")
+        # Testing object print format
 
+        # Testing Raw Armor 
+        arm, equips = self.setup()
+        self.assertEqual(arm.__str__(), "Armor_3: <H:0, C:0, B:0, P:0, W:0>")
+        
+        # Testing Partial Armor - Head Chest Pants
+        arm, equips = self.setup()
+        arm.head = equips['head']
+        arm.chest = equips['chest']
+        arm.pants = equips['pants']
+        self.assertEqual(arm.__str__(), "Armor_4: <H:1, C:1, B:0, P:1, W:0>")
+        
     def test_equip(self):
         """
             Testing that the equip function for success
@@ -97,9 +105,8 @@ class ArmorTest(unittest.TestCase):
         self.fail("Need to Create Test")
 
     def test_printToFile(self):
-        """
-            Testing printToFile existance
-        """
+        # Testing printToFile existance
+
         arm, equips = self.setup(False)
         arm.printToFile()
         filename = f"{arm.name}.json"

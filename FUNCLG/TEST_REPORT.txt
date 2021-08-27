@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Thu Aug 26 20:36:03 CDT 2021 
+Date: Thu Aug 26 21:13:19 CDT 2021 
 
 ---UNITTEST---
 
@@ -10,10 +10,8 @@ test_equip (tests.test_armor.ArmorTest)
 Testing that the equip function for success ... FAIL
 test_export (tests.test_armor.ArmorTest) ... FAIL
 test_init (tests.test_armor.ArmorTest) ... ok
-test_printToFile (tests.test_armor.ArmorTest)
-Testing printToFile existance ... ok
-test_str (tests.test_armor.ArmorTest)
-Testing object print format ... FAIL
+test_printToFile (tests.test_armor.ArmorTest) ... ok
+test_str (tests.test_armor.ArmorTest) ... ok
 test_details (tests.test_equipment.EquipmentTest) ... ok
 test_export1 (tests.test_equipment.EquipmentTest) ... ok
 test_init (tests.test_equipment.EquipmentTest) ... ok
@@ -24,7 +22,7 @@ test_str (tests.test_equipment.EquipmentTest) ... ok
 FAIL: test_dequip (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 81, in test_dequip
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 89, in test_dequip
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -32,7 +30,7 @@ AssertionError: Need to Create Test
 FAIL: test_details (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 94, in test_details
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 102, in test_details
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -41,7 +39,7 @@ FAIL: test_equip (tests.test_armor.ArmorTest)
 Testing that the equip function for success
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 71, in test_equip
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 79, in test_equip
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -49,23 +47,14 @@ AssertionError: Need to Create Test
 FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 112, in test_export
-    self.fail("Need to Create Test")
-AssertionError: Need to Create Test
-
-======================================================================
-FAIL: test_str (tests.test_armor.ArmorTest)
-Testing object print format
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 64, in test_str
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 119, in test_export
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 12 tests in 0.009s
+Ran 12 tests in 0.011s
 
-FAILED (failures=5)
+FAILED (failures=4)
 
 ---Flake 8----
 
@@ -73,15 +62,16 @@ FAILED (failures=5)
 ./core/armor.py:47:7: T101 fixme found (TODO)
 ./core/equipment.py:52:11: T101 fixme found (TODO)
 ./core/equipment.py:69:11: T101 fixme found (TODO)
-./tests/test_armor.py:70:11: T101 fixme found (TODO)
-./tests/test_armor.py:73:11: T101 fixme found (TODO)
-./tests/test_armor.py:76:11: T101 fixme found (TODO)
-./tests/test_armor.py:80:11: T101 fixme found (TODO)
-./tests/test_armor.py:83:11: T101 fixme found (TODO)
-./tests/test_armor.py:86:11: T101 fixme found (TODO)
-./tests/test_armor.py:89:11: T101 fixme found (TODO)
-./tests/test_armor.py:93:11: T101 fixme found (TODO)
-./tests/test_armor.py:96:11: T101 fixme found (TODO)
-./tests/test_armor.py:111:11: T101 fixme found (TODO)
-./tests/test_armor.py:114:1: E302 expected 2 blank lines, found 1
-15
+./tests/test_armor.py:63:28: W291 trailing whitespace
+./tests/test_armor.py:78:11: T101 fixme found (TODO)
+./tests/test_armor.py:81:11: T101 fixme found (TODO)
+./tests/test_armor.py:84:11: T101 fixme found (TODO)
+./tests/test_armor.py:88:11: T101 fixme found (TODO)
+./tests/test_armor.py:91:11: T101 fixme found (TODO)
+./tests/test_armor.py:94:11: T101 fixme found (TODO)
+./tests/test_armor.py:97:11: T101 fixme found (TODO)
+./tests/test_armor.py:101:11: T101 fixme found (TODO)
+./tests/test_armor.py:104:11: T101 fixme found (TODO)
+./tests/test_armor.py:118:11: T101 fixme found (TODO)
+./tests/test_armor.py:121:1: E302 expected 2 blank lines, found 1
+16
