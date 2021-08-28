@@ -94,10 +94,17 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.back, equips['back'])
         self.assertEqual(arm.pants, equips['pants'])
         self.assertEqual(arm.weapon, equips['sword'])
-        # self.fail("Need to Create Test 1")
 
-        # TODO: testing ability to equip an item that is not empty and return it
-        self.fail("Need to Create Test")
+        # 2 - Testing ability to equip an item that is not empty and return it (change equips)
+        arm, equips = self.setup(False)
+
+        temp = None
+        self.assertIsNone(temp)
+
+        temp = arm.equip(equips['knife'])
+        self.assertIsNotNone(temp)
+        self.assertEqual(temp, equips['sword'])
+        self.assertEqual(arm.weapon, equips['knife'])
 
         # TODO: testing ability to not equip uncompatible items
         self.fail("Need to Create Test")
