@@ -77,7 +77,25 @@ class ArmorTest(unittest.TestCase):
             Testing that the equip function for success
         """
         # TODO: testing ability to equip items empty location
-        self.fail("Need to Create Test")
+        arm, equips = self.setup()
+        arm.equip(equips['head'])
+        arm.equip(equips['chest'])
+        arm.equip(equips['back'])
+        arm.equip(equips['pants'])
+        arm.equip(equips['sword'])
+
+        self.assertIsNotNone(arm.head)
+        self.assertIsNotNone(arm.chest)
+        self.assertIsNotNone(arm.back)
+        self.assertIsNotNone(arm.pants)
+        self.assertIsNotNone(arm.weapon)
+
+        self.assertEqual(arm.head, equips['head'])
+        self.assertEqual(arm.chest, equips['chest'])
+        self.assertEqual(arm.back, equips['back'])
+        self.assertEqual(arm.pants, equips['pants'])
+        self.assertEqual(arm.weapon, equips['sword'])
+        # self.fail("Need to Create Test 1")
 
         # TODO: testing ability to equip an item that is not empty and return it
         self.fail("Need to Create Test")
