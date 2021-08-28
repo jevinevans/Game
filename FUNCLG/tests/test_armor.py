@@ -43,7 +43,7 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNone(arm.pants, "Armor Equipment field is not none")
         self.assertIsNone(arm.weapon, "Armor Equipment field is not none")
 
-        self.assertEqual(Armor._id-1, int(arm.name.split("_")[1]))
+        self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
 
         # Testing creation of full armor initialization
 
@@ -55,12 +55,12 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.pants, equips["pants"])
         self.assertEqual(arm.weapon, equips["sword"])
 
-        self.assertEqual(Armor._id-1, int(arm.name.split("_")[1]))
+        self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
         
     def test_str(self):
         # Testing object print format
 
-        # Testing Raw Armor 
+        # Testing Raw Armor
         arm, equips = self.setup()
         self.assertEqual(arm.__str__(), f"Armor_{Armor._id-1}: <H:0, C:0, B:0, P:0, W:0>")
         
