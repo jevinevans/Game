@@ -53,7 +53,7 @@ class EquipmentTest(unittest.TestCase):
         if os.path.exists(filename):
             os.remove(filename)
 
-    def test_export1(self):
+    def test_export(self):
         # Testing of null value
         equipObj = self.setup()
         self.assertEqual(equipObj.export(), equipObj.__dict__)
