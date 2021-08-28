@@ -106,8 +106,15 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(temp, equips['sword'])
         self.assertEqual(arm.weapon, equips['knife'])
 
-        # TODO: testing ability to not equip uncompatible items
-        self.fail("Need to Create Test")
+        # 3 - Testing ability to not equip uncompatible items
+        arm, equips = self.setup(False)
+        temp = None
+        self.assertIsNone(temp)
+        
+        temp = arm.equip(equips['wand'])
+        self.assertIsNotNone(temp)
+        self.assertEqual(temp, equips['wand'])
+        self.assertEqual(arm.weapon, equips['sword'])
 
     def test_dequip(self):
         # TODO: test integer ability to dequip item
