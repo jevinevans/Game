@@ -12,4 +12,4 @@ echo -e "\n---Flake 8----\n" >> $REPORT
 
 IGNS="E231,E266,E401,E501,W293"
 
-flake8 --ignore=$IGNS --count . >> $REPORT
+flake8 --ignore=$IGNS --count . | sort >> $REPORT
