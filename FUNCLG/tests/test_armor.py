@@ -33,7 +33,7 @@ class ArmorTest(unittest.TestCase):
             return Armor(armorType, equips['head'], equips['chest'], equips['back'], equips['pants'], equips['sword']), equips
 
     def test_init(self):
-        # Testing blank armor initialization
+        # 1 - Testing blank armor initialization
 
         arm, equips = self.setup()
         self.assertEqual(arm.armorType, equips['armorType'])
@@ -45,7 +45,7 @@ class ArmorTest(unittest.TestCase):
 
         self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
 
-        # Testing creation of full armor initialization
+        # 2 - Testing creation of full armor initialization
 
         arm, equips = self.setup(False)
         self.assertEqual(arm.armorType, equips['armorType'])
@@ -60,11 +60,11 @@ class ArmorTest(unittest.TestCase):
     def test_str(self):
         # Testing object print format
 
-        # Testing Raw Armor
+        # 1 - Testing Raw Armor
         arm, equips = self.setup()
         self.assertEqual(arm.__str__(), f"Armor_{Armor._id-1}: <H:0, C:0, B:0, P:0, W:0>")
         
-        # Testing Partial Armor - Head Chest Pants
+        # 2 - Testing Partial Armor - Head Chest Pants
         arm, equips = self.setup()
         arm.head = equips['head']
         arm.chest = equips['chest']
@@ -75,7 +75,7 @@ class ArmorTest(unittest.TestCase):
         """
             Testing that the equip function for success
         """
-        # TODO: testing ability to equip items empty location
+        # 1 - Testing ability to equip items empty location
         arm, equips = self.setup()
         arm.equip(equips['head'])
         arm.equip(equips['chest'])
@@ -149,6 +149,7 @@ class ArmorTest(unittest.TestCase):
     def test_export(self):
         # TODO: test against proper dict option and reload
         self.fail("Need to Create Test")
+
 
 def run():
     unittest.main()
