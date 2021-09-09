@@ -7,12 +7,13 @@
 #############################################################################
 
 import json
+
 try:
     from core.equipment import Equipment
-    from utils.types import ITEM_TYPES, ARMOR_TYPES
+    from utils.types import ARMOR_TYPES, ITEM_TYPES
 except ImportError:
     from FUNCLG.core.equipment import Equipment
-    from FUNCLG.utils.types import ITEM_TYPES, ARMOR_TYPES
+    from FUNCLG.utils.types import ARMOR_TYPES, ITEM_TYPES
 
 
 class Armor():

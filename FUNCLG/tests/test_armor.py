@@ -6,8 +6,10 @@
 #       with the equipment class.                                                   #
 #####################################################################################
 
-import unittest, os
+import os
+import unittest
 from random import randint
+
 from core.armor import Armor
 from core.equipment import Equipment
 

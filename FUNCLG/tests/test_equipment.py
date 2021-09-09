@@ -6,8 +6,11 @@
 #####################################################################################
 
 
-import unittest, os
+import os
+import unittest
+
 from core.equipment import Equipment
+
 # from utils.types import *
 
 
