@@ -95,14 +95,17 @@ class Armor:
         temp = None
         itemType = ""
         if isinstance(item, int):
+            # If the user sends the item type value
             itemType = ITEM_TYPES[item]
         elif isinstance(item, str):
+            # If the user sends the name of the value
             itemType = item.capitalize()
             if itemType not in ITEM_TYPES:
                 print("Dequip Error:")
                 return
-        elif isinstance(item, Equipment):
-            itemType = item.getItemType()
+        # elif isinstance(item, Equipment):
+        #     # Future for if the user selects the item to unequip may send item may remove all together
+        #     itemType = item.getItemType()
 
         if itemType == "Head":
             temp, self.head = self.head, None
