@@ -12,6 +12,7 @@ from random import randint
 
 from core.armor import Armor
 from core.equipment import Equipment
+from utils.types import ITEM_TYPES
 
 
 class ArmorTest(unittest.TestCase):
@@ -144,9 +145,6 @@ class ArmorTest(unittest.TestCase):
         )
 
     def test_equip(self):
-        """
-        Testing that the equip function for success
-        """
         # 1 - Testing ability to equip items empty location
         arm, equips = self.setup()
         arm.equip(equips["head"])
@@ -211,7 +209,6 @@ class ArmorTest(unittest.TestCase):
             self.assertIsNotNone(temp)
 
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
-        # self.fail("Test 1.b")
 
         # TODO: Test 2.a Testing dequip error for integer value
         self.fail("Test 2.a")
