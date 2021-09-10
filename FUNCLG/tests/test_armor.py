@@ -18,27 +18,93 @@ class ArmorTest(unittest.TestCase):
     def setup(self, raw=True):
         armorType = 1
         equips = {}
-        equips['armorType'] = armorType
-        equips['head'] = Equipment("Gold Head", "Head piece for Armor Test.", armorType, 0, None, randint(0,100), randint(0,500))
-        equips['chest'] = Equipment("Gold Chest", "Chest piece for Armor Test.", armorType, 1, None, randint(0,100), randint(0,500))
-        equips['back'] = Equipment("Gold Cape", "Back piece for Armor Test.", armorType, 2, None, randint(0,100), randint(0,500))
-        equips['pants'] = Equipment("Gold pants", "Pants piece for Amror Test", armorType, 3, None, randint(0,100), randint(0,500))
-        equips['sword'] = Equipment("Gold Sword", "Sword weapon for Armor Test", armorType, 4, 0, randint(0,100), randint(0,500))
-        equips['wand'] = Equipment("Gold Wand", "Wand weapon for Armor Test", armorType + 1, 4, 1, randint(0,100), randint(0,500))
-        equips['knife'] = Equipment("Gold Knife", "Knife weapon for Armor Test", armorType, 4, 2, randint(0,100), randint(0,500))
+        equips["armorType"] = armorType
+        equips["head"] = Equipment(
+            "Gold Head",
+            "Head piece for Armor Test.",
+            armorType,
+            0,
+            None,
+            randint(0, 100),
+            randint(0, 500),
+        )
+        equips["chest"] = Equipment(
+            "Gold Chest",
+            "Chest piece for Armor Test.",
+            armorType,
+            1,
+            None,
+            randint(0, 100),
+            randint(0, 500),
+        )
+        equips["back"] = Equipment(
+            "Gold Cape",
+            "Back piece for Armor Test.",
+            armorType,
+            2,
+            None,
+            randint(0, 100),
+            randint(0, 500),
+        )
+        equips["pants"] = Equipment(
+            "Gold pants",
+            "Pants piece for Amror Test",
+            armorType,
+            3,
+            None,
+            randint(0, 100),
+            randint(0, 500),
+        )
+        equips["sword"] = Equipment(
+            "Gold Sword",
+            "Sword weapon for Armor Test",
+            armorType,
+            4,
+            0,
+            randint(0, 100),
+            randint(0, 500),
+        )
+        equips["wand"] = Equipment(
+            "Gold Wand",
+            "Wand weapon for Armor Test",
+            armorType + 1,
+            4,
+            1,
+            randint(0, 100),
+            randint(0, 500),
+        )
+        equips["knife"] = Equipment(
+            "Gold Knife",
+            "Knife weapon for Armor Test",
+            armorType,
+            4,
+            2,
+            randint(0, 100),
+            randint(0, 500),
+        )
 
         if raw:
             """Returns new Armor and dict of equipments"""
             return Armor(armorType), equips
         else:
             """Returns full equiped Armor plus other weapon"""
-            return Armor(armorType, equips['head'], equips['chest'], equips['back'], equips['pants'], equips['sword']), equips
+            return (
+                Armor(
+                    armorType,
+                    equips["head"],
+                    equips["chest"],
+                    equips["back"],
+                    equips["pants"],
+                    equips["sword"],
+                ),
+                equips,
+            )
 
     def test_init(self):
         # 1 - Testing blank armor initialization
 
         arm, equips = self.setup()
-        self.assertEqual(arm.armorType, equips['armorType'])
+        self.assertEqual(arm.armorType, equips["armorType"])
         self.assertIsNone(arm.head, "Armor Equipment field is not none")
         self.assertIsNone(arm.chest, "Armor Equipment field is not none")
         self.assertIsNone(arm.back, "Armor Equipment field is not none")
@@ -50,7 +116,7 @@ class ArmorTest(unittest.TestCase):
         # 2 - Testing creation of full armor initialization
 
         arm, equips = self.setup(False)
-        self.assertEqual(arm.armorType, equips['armorType'])
+        self.assertEqual(arm.armorType, equips["armorType"])
         self.assertEqual(arm.head, equips["head"])
         self.assertEqual(arm.chest, equips["chest"])
         self.assertEqual(arm.back, equips["back"])
@@ -58,32 +124,36 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.weapon, equips["sword"])
 
         self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
-        
+
     def test_str(self):
         # Testing object print format
 
         # 1 - Testing Raw Armor
         arm, equips = self.setup()
-        self.assertEqual(arm.__str__(), f"Armor_{Armor._id-1}: <H:0, C:0, B:0, P:0, W:0>")
-        
+        self.assertEqual(
+            arm.__str__(), f"Armor_{Armor._id-1}: <H:0, C:0, B:0, P:0, W:0>"
+        )
+
         # 2 - Testing Partial Armor - Head Chest Pants
         arm, equips = self.setup()
-        arm.head = equips['head']
-        arm.chest = equips['chest']
-        arm.pants = equips['pants']
-        self.assertEqual(arm.__str__(), f"Armor_{Armor._id-1}: <H:1, C:1, B:0, P:1, W:0>")
-        
+        arm.head = equips["head"]
+        arm.chest = equips["chest"]
+        arm.pants = equips["pants"]
+        self.assertEqual(
+            arm.__str__(), f"Armor_{Armor._id-1}: <H:1, C:1, B:0, P:1, W:0>"
+        )
+
     def test_equip(self):
         """
-            Testing that the equip function for success
+        Testing that the equip function for success
         """
         # 1 - Testing ability to equip items empty location
         arm, equips = self.setup()
-        arm.equip(equips['head'])
-        arm.equip(equips['chest'])
-        arm.equip(equips['back'])
-        arm.equip(equips['pants'])
-        arm.equip(equips['sword'])
+        arm.equip(equips["head"])
+        arm.equip(equips["chest"])
+        arm.equip(equips["back"])
+        arm.equip(equips["pants"])
+        arm.equip(equips["sword"])
 
         self.assertIsNotNone(arm.head)
         self.assertIsNotNone(arm.chest)
@@ -91,11 +161,11 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNotNone(arm.pants)
         self.assertIsNotNone(arm.weapon)
 
-        self.assertEqual(arm.head, equips['head'])
-        self.assertEqual(arm.chest, equips['chest'])
-        self.assertEqual(arm.back, equips['back'])
-        self.assertEqual(arm.pants, equips['pants'])
-        self.assertEqual(arm.weapon, equips['sword'])
+        self.assertEqual(arm.head, equips["head"])
+        self.assertEqual(arm.chest, equips["chest"])
+        self.assertEqual(arm.back, equips["back"])
+        self.assertEqual(arm.pants, equips["pants"])
+        self.assertEqual(arm.weapon, equips["sword"])
 
         # 2 - Testing ability to equip an item that is not empty and return it (change equips)
         arm, equips = self.setup(False)
@@ -103,20 +173,20 @@ class ArmorTest(unittest.TestCase):
         temp = None
         self.assertIsNone(temp)
 
-        temp = arm.equip(equips['knife'])
+        temp = arm.equip(equips["knife"])
         self.assertIsNotNone(temp)
-        self.assertEqual(temp, equips['sword'])
-        self.assertEqual(arm.weapon, equips['knife'])
+        self.assertEqual(temp, equips["sword"])
+        self.assertEqual(arm.weapon, equips["knife"])
 
         # 3 - Testing ability to not equip uncompatible items
         arm, equips = self.setup(False)
         temp = None
         self.assertIsNone(temp)
-        
-        temp = arm.equip(equips['wand'])
+
+        temp = arm.equip(equips["wand"])
         self.assertIsNotNone(temp)
-        self.assertEqual(temp, equips['wand'])
-        self.assertEqual(arm.weapon, equips['sword'])
+        self.assertEqual(temp, equips["wand"])
+        self.assertEqual(arm.weapon, equips["sword"])
 
     def test_dequip(self):
         # TODO: test integer ability to dequip item
@@ -124,7 +194,7 @@ class ArmorTest(unittest.TestCase):
 
         # TODO: test string ability to dequip
         self.fail("Need to Create Test")
-        
+
         # TODO: test error dequip
         self.fail("Need to Create Test")
 

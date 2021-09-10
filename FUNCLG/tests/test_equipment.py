@@ -15,9 +15,16 @@ from core.equipment import Equipment
 
 
 class EquipmentTest(unittest.TestCase):
-
     def setup(self):
-        return Equipment("Test_Equipment", "This is a test for the equipment class", 0, 0, None, 2, 50)
+        return Equipment(
+            "Test_Equipment",
+            "This is a test for the equipment class",
+            0,
+            0,
+            None,
+            2,
+            50,
+        )
 
     def test_init(self):
         equipObj = self.setup()
@@ -36,7 +43,7 @@ class EquipmentTest(unittest.TestCase):
         """ Testing Different Level and Armor Type"""
         equipObj.level = 50
         self.assertEqual(equipObj.__str__(), "Test_Equipment [50]")
-        
+
     def test_details(self):
         equipObj = self.setup()
         eDetails = equipObj.details()

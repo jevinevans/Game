@@ -15,21 +15,21 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy"]
 WEAPON_TYPES = ["Sword", "Wand", "Knife"]
 
 
-def getItemType(IT:int) -> str:
+def getItemType(IT: int) -> str:
     return ITEM_TYPES[IT]
 
 
-def getArmorType(AT:int) -> str:
+def getArmorType(AT: int) -> str:
     return ARMOR_TYPES[AT]
 
 
-def getWeaponType(WT:int) -> str:
+def getWeaponType(WT: int) -> str:
     return WEAPON_TYPES[WT]
 
 
 def getItemDescription(IT=None, AT=None, WT=None) -> str:
-    item = ''
-    
+    item = ""
+
     if IT is not None:
         if IT == 4 and WT is not None:
             item += getWeaponType(WT)
@@ -39,8 +39,8 @@ def getItemDescription(IT=None, AT=None, WT=None) -> str:
         item = getWeaponType(WT)
     else:
         item = "Broken Item"
-    
+
     if AT is not None:
         item = getArmorType(AT) + " " + item
 
-    return '[' + item + ']'
+    return "[" + item + "]"

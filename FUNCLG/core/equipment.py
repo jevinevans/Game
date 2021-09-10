@@ -15,13 +15,21 @@ except ImportError:
     import FUNCLG.utils.types as uTypes
 
 
-class Equipment():
+class Equipment:
+    def __init__(
+        self,
+        name="",
+        description="",
+        armorType=None,
+        itemType=None,
+        weaponType=None,
+        level=0,
+        abilityPoints=0,
+    ):
+        """
+        Creates an equipment item
+        """
 
-    def __init__(self, name='', description='', armorType=None, itemType=None, weaponType=None, level=0, abilityPoints=0):
-        """
-            Creates an equipment item
-        """
-        
         self.name = name
         self.description = description
         self.armorType = armorType
@@ -30,7 +38,7 @@ class Equipment():
         self.level = level
         self.abilityPoints = abilityPoints
         # self.stats = #STAT Object /may replace abiilty points with stats
-    
+
     def __str__(self):
         "Returns the name and level of the item"
         return f"{self.name} [{self.level}]"
@@ -47,7 +55,7 @@ class Equipment():
     def printToFile(self):
         with open(self.name + ".json", "w") as oFile:
             json.dump(self.export(), oFile)
-    
+
     def export(self):
         # TODO: May have to change function when STATS object is integrated
         # Function will just need to call the export for each
@@ -55,18 +63,19 @@ class Equipment():
 
     def getItemType(self):
         return uTypes.getItemType(self.itemType)
-    
+
     def getArmorType(self):
         return uTypes.getArmorType(self.armorType)
-    
+
     def getWeaponType(self):
         return uTypes.getWeaponType(self.weaponType)
-    
+
     def getItemDescription(self):
         return uTypes.getItemDescription(self.itemType, self.armorType, self.weaponType)
 
     # def getStats(self):
-        # TODO: Defined method
+    # TODO: Defined method
+
 
 # def main():
 #     tempE = Equipment("excelsior", "This is a temp example is used to describe a simple sword.", itemType=4, weaponType=0, level=52, abilityPoints=500)

@@ -8,6 +8,9 @@ echo -e "######TESTING REPORT######\n\nDate: $TODAY \n\n---UNITTEST---\n" > $REP
 
 python -m unittest tests/test* -v 2>> $REPORT
 
+black .
+isort .
+
 echo -e "\n---Flake 8----\n" >> $REPORT
 
 IGNS="E231,E266,E401,E501,W293"

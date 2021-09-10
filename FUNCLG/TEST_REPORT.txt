@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri Aug 27 20:17:31 CDT 2021 
+Date: Thu Sep  9 15:59:39 CDT 2021 
 
 ---UNITTEST---
 
@@ -13,7 +13,7 @@ test_init (tests.test_armor.ArmorTest) ... ok
 test_printToFile (tests.test_armor.ArmorTest) ... ok
 test_str (tests.test_armor.ArmorTest) ... ok
 test_details (tests.test_equipment.EquipmentTest) ... ok
-test_export1 (tests.test_equipment.EquipmentTest) ... ok
+test_export (tests.test_equipment.EquipmentTest) ... ok
 test_init (tests.test_equipment.EquipmentTest) ... ok
 test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 test_str (tests.test_equipment.EquipmentTest) ... ok
@@ -22,7 +22,7 @@ test_str (tests.test_equipment.EquipmentTest) ... ok
 FAIL: test_dequip (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 121, in test_dequip
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 193, in test_dequip
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -30,7 +30,7 @@ AssertionError: Need to Create Test
 FAIL: test_details (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 134, in test_details
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 206, in test_details
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -38,26 +38,15 @@ AssertionError: Need to Create Test
 FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/tests/test_armor.py", line 153, in test_export
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 225, in test_export
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 12 tests in 0.025s
+Ran 12 tests in 0.051s
 
 FAILED (failures=3)
 
 ---Flake 8----
 
-./core/armor.py:46:7: T101 fixme found (TODO)
-./core/armor.py:47:7: T101 fixme found (TODO)
-./core/equipment.py:52:11: T101 fixme found (TODO)
-./core/equipment.py:69:11: T101 fixme found (TODO)
-./tests/test_armor.py:120:11: T101 fixme found (TODO)
-./tests/test_armor.py:123:11: T101 fixme found (TODO)
-./tests/test_armor.py:126:11: T101 fixme found (TODO)
-./tests/test_armor.py:129:11: T101 fixme found (TODO)
-./tests/test_armor.py:133:11: T101 fixme found (TODO)
-./tests/test_armor.py:136:11: T101 fixme found (TODO)
-./tests/test_armor.py:150:11: T101 fixme found (TODO)
-11
+0
