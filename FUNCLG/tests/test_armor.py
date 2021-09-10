@@ -6,6 +6,7 @@
 #       with the equipment class.                                                   #
 #####################################################################################
 
+
 import os
 import unittest
 from random import randint
@@ -211,11 +212,18 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNone(arms.dequip(-1))
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
 
-        # TODO: Test 2.b Testing dequip error for integer value
-        self.fail("Test 2.b")
+        # Test 2.b Testing dequip error for string value
+        arms, equips = self.setup(False)
 
-        # TODO: Test 2.b Testing dequip error for other value
-        self.fail("Test 2.c")
+        self.assertIsNone(arms.dequip("jagiejoijga"))
+        self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
+
+        # Test 2.c Testing dequip error for other value
+        arms, equips = self.setup(False)
+
+        self.assertIsNone(arms.dequip(["head", "chest"]))
+        self.assertIsNone(arms.dequip(dict()))
+        self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
 
         # TODO: Test 3.a Dequipping an empty slot with integer
         self.fail("Test 3.a")
