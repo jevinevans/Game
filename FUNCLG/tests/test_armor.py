@@ -189,24 +189,19 @@ class ArmorTest(unittest.TestCase):
     def test_dequip(self):
         # Test 1.a: Basic dequip, dequiping with integer, with item equipped
         arms, equips = self.setup(False)
-        temp = None
 
         # Will do a full dequip of all items
         for x in range(5):
-            temp = arms.dequip(x)
-            self.assertIsNotNone(temp)
+            self.assertIsNotNone(arms.dequip(x))
 
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
 
         # TODO: Test 1.b Basic dequip, dequiping with string, with item equipped
         arms, equips = self.setup(False)
-        temp = None
 
         # Will do a full dequip of all items
         for x in ITEM_TYPES:
-            temp = arms.dequip(x)
-            print(f"Dequiping: {x}, {arms}")
-            self.assertIsNotNone(temp)
+            self.assertIsNotNone(arms.dequip(x))
 
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
 
