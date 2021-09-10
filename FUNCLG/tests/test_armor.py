@@ -196,7 +196,7 @@ class ArmorTest(unittest.TestCase):
 
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
 
-        # TODO: Test 1.b Basic dequip, dequiping with string, with item equipped
+        # Test 1.b Basic dequip, dequiping with string, with item equipped
         arms, equips = self.setup(False)
 
         # Will do a full dequip of all items
@@ -205,8 +205,11 @@ class ArmorTest(unittest.TestCase):
 
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
 
-        # TODO: Test 2.a Testing dequip error for integer value
-        self.fail("Test 2.a")
+        # Test 2.a Testing dequip error for integer value
+        arms, equips = self.setup(False)
+
+        self.assertIsNone(arms.dequip(-1))
+        self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
 
         # TODO: Test 2.b Testing dequip error for integer value
         self.fail("Test 2.b")

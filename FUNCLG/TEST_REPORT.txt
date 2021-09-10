@@ -1,10 +1,10 @@
 ######TESTING REPORT######
 
-Date: Fri Sep 10 17:52:45 CDT 2021 
+Date: Fri Sep 10 17:56:50 CDT 2021 
 
 ---UNITTEST---
 
-test_dequip (tests.test_armor.ArmorTest) ... ERROR
+test_dequip (tests.test_armor.ArmorTest) ... FAIL
 test_details (tests.test_armor.ArmorTest) ... FAIL
 test_equip (tests.test_armor.ArmorTest) ... ok
 test_export (tests.test_armor.ArmorTest) ... FAIL
@@ -18,14 +18,12 @@ test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 test_str (tests.test_equipment.EquipmentTest) ... ok
 
 ======================================================================
-ERROR: test_dequip (tests.test_armor.ArmorTest)
+FAIL: test_dequip (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 195, in test_dequip
-    self.assertIsNotNone(arms.dequip(x))
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/core/armor.py", line 99, in dequip
-    if item < 0 or item >= len(item):
-TypeError: object of type 'int' has no len()
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 216, in test_dequip
+    self.fail("Test 2.b")
+AssertionError: Test 2.b
 
 ======================================================================
 FAIL: test_details (tests.test_armor.ArmorTest)
@@ -44,9 +42,9 @@ Traceback (most recent call last):
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 12 tests in 0.014s
+Ran 12 tests in 0.011s
 
-FAILED (failures=2, errors=1)
+FAILED (failures=3)
 
 ---Flake 8----
 
