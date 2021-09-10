@@ -6,17 +6,17 @@ TODAY=$(date)
 
 echo -e "######TESTING REPORT######\n\nDate: $TODAY \n\n---UNITTEST---\n" > $REPORT
 
-echo "Running Unittest..."
+printf "\n*****Running Unittest*****\n"
 python -m unittest tests/test* -v 2>> $REPORT
-echo "Done\n"
+printf "*****DONE*****\n"
 
-echo "Running Black formatter..."
+printf "\n*****Running Black formatter*****\n"
 black .
-echo "Done\n"
+printf "*****DONE*****\n"
 
-echo "Running Isort..."
+printf "\n*****Running Isort*****\n"
 isort .
-echo "Done.\n"
+printf "*****DONE*****\n"
 
 echo -e "\n---Flake 8----\n" >> $REPORT
 
