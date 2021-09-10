@@ -221,7 +221,6 @@ class ArmorTest(unittest.TestCase):
     def test_export(self):
         # TODO: test against proper dict option and reload
         arm, equips = self.setup()
-        print(arm.export())
         self.fail("Need to Create Test")
 
 
