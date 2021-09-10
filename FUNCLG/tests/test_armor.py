@@ -189,17 +189,44 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.weapon, equips["sword"])
 
     def test_dequip(self):
-        # TODO: test integer ability to dequip item
-        self.fail("Need to Create Test")
+        # Test 1.a: Basic dequip, dequiping with integer, with item equipped
+        arms, equips = self.setup(False)
+        temp = None
 
-        # TODO: test string ability to dequip
-        self.fail("Need to Create Test")
+        # Will do a full dequip of all items
+        for x in range(5):
+            temp = arms.dequip(x)
+            self.assertIsNotNone(temp)
 
-        # TODO: test error dequip
-        self.fail("Need to Create Test")
+        self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
 
-        # TODO: test attempt to dequip on empty Armor
-        self.fail("Need to Create Test")
+        # TODO: Test 1.b Basic dequip, dequiping with string, with item equipped
+        arms, equips = self.setup(False)
+        temp = None
+
+        # Will do a full dequip of all items
+        for x in ITEM_TYPES:
+            temp = arms.dequip(x)
+            print(f"Dequiping: {x}, {arms}")
+            self.assertIsNotNone(temp)
+
+        self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
+        # self.fail("Test 1.b")
+
+        # TODO: Test 2.a Testing dequip error for integer value
+        self.fail("Test 2.a")
+
+        # TODO: Test 2.b Testing dequip error for integer value
+        self.fail("Test 2.b")
+
+        # TODO: Test 2.b Testing dequip error for other value
+        self.fail("Test 2.c")
+
+        # TODO: Test 3.a Dequipping an empty slot with integer
+        self.fail("Test 3.a")
+
+        # TODO: Test 3.b Dequipping an empty slot with string
+        self.fail("Test 3.b")
 
     def test_details(self):
         # TODO: test full armor detail
