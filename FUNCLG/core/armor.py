@@ -121,7 +121,7 @@ class Armor:
         elif itemType == "Weapon":
             temp, self.weapon = self.weapon, None
         else:
-            print("Not a valid dequip spot.")
+            print("Not a valid dequip choice.")
 
         return temp
 
