@@ -96,9 +96,9 @@ class Armor:
         itemType = ""
         if isinstance(item, int):
             # If the user sends the item type value
-            if item < 0 or item >= len(item):
+            if item < 0 or item >= len(ITEM_TYPES):
                 print("ERROR: Armor.Dequip Invalid dequip slot.")
-                return 
+                return
             itemType = ITEM_TYPES[item]
         elif isinstance(item, str):
             # If the user sends the name of the value

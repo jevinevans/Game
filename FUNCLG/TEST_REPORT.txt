@@ -1,10 +1,10 @@
 ######TESTING REPORT######
 
-Date: Fri Sep 10 17:25:36 CDT 2021 
+Date: Fri Sep 10 17:52:45 CDT 2021 
 
 ---UNITTEST---
 
-test_dequip (tests.test_armor.ArmorTest) ... FAIL
+test_dequip (tests.test_armor.ArmorTest) ... ERROR
 test_details (tests.test_armor.ArmorTest) ... FAIL
 test_equip (tests.test_armor.ArmorTest) ... ok
 test_export (tests.test_armor.ArmorTest) ... FAIL
@@ -18,18 +18,20 @@ test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 test_str (tests.test_equipment.EquipmentTest) ... ok
 
 ======================================================================
-FAIL: test_dequip (tests.test_armor.ArmorTest)
+ERROR: test_dequip (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 215, in test_dequip
-    self.fail("Test 2.a")
-AssertionError: Test 2.a
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 195, in test_dequip
+    self.assertIsNotNone(arms.dequip(x))
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/core/armor.py", line 99, in dequip
+    if item < 0 or item >= len(item):
+TypeError: object of type 'int' has no len()
 
 ======================================================================
 FAIL: test_details (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 231, in test_details
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 229, in test_details
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -37,14 +39,14 @@ AssertionError: Need to Create Test
 FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 249, in test_export
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 247, in test_export
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 12 tests in 0.036s
+Ran 12 tests in 0.014s
 
-FAILED (failures=3)
+FAILED (failures=2, errors=1)
 
 ---Flake 8----
 
