@@ -11,9 +11,9 @@ import os
 import unittest
 from random import randint
 
-from core.armor import Armor
-from core.equipment import Equipment
-from utils.types import ITEM_TYPES
+from FUNCLG.core.armor import Armor
+from FUNCLG.core.equipment import Equipment
+from FUNCLG.utils.types import ITEM_TYPES
 
 
 class ArmorTest(unittest.TestCase):

@@ -8,13 +8,9 @@
 
 import json
 
-try:
-    from core.equipment import Equipment
-    from utils.types import ARMOR_TYPES, ITEM_TYPES
-except ImportError:
-    from FUNCLG.core.equipment import Equipment
-    from FUNCLG.utils.types import ARMOR_TYPES, ITEM_TYPES
 
+from .equipment import Equipment
+from ..utils.types import ARMOR_TYPES, ITEM_TYPES
 
 class Armor:
 

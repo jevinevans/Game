@@ -9,10 +9,7 @@
 
 import json
 
-try:
-    import utils.types as uTypes
-except ImportError:
-    import FUNCLG.utils.types as uTypes
+from ..utils import types as uTypes
 
 
 class Equipment:
