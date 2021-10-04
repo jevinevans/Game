@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 32			|
-|	Files: 139				|
+|	Files: 140				|
 +==========================================+
 
 ./CodeTests
@@ -98,7 +98,6 @@
 ./Deprecated/Makefile
 ./Deprecated/Run.bat
 ./FUNCLG
-./FUNCLG/TEST_REPORT.txt
 ./FUNCLG/__init__.py
 ./FUNCLG/__main__.py
 ./FUNCLG/core
@@ -106,11 +105,6 @@
 ./FUNCLG/core/armor.py
 ./FUNCLG/core/equipment.py
 ./FUNCLG/main.py
-./FUNCLG/runTest.sh
-./FUNCLG/tests
-./FUNCLG/tests/__init__.py
-./FUNCLG/tests/test_armor.py
-./FUNCLG/tests/test_equipment.py
 ./FUNCLG/utils
 ./FUNCLG/utils/__init__.py
 ./FUNCLG/utils/types.py
@@ -170,7 +164,14 @@
 ./Logs/2021/Log_2021_07_19.md
 ./Logs/2021/Log_2021_08_09.md
 ./Logs/2021/Log_2021_08_21.md
+./Logs/2021/Log_2021_09_09.md
 ./README.md
 ./Scan_Directories.py
+./TEST_REPORT.txt
 ./docs
 ./docs/Basic Player Game Info.txt
+./runTest.sh
+./tests
+./tests/__init__.py
+./tests/test_armor.py
+./tests/test_equipment.py

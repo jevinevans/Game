@@ -7,6 +7,7 @@ countd = countf = lines = 0
 
 printlist = list()
 
+
 def ignoringItem(pathname):
     ignores = [".git", ".gitignore", ".pyc", "__pycache__", ".vscode"]
 
@@ -15,21 +16,22 @@ def ignoringItem(pathname):
             return True
     return False
 
+
 for root, dirs, files in os.walk("."):
     try:
         for name in dirs:
-            if ignoringItem(os.path.join(root,name)):
+            if ignoringItem(os.path.join(root, name)):
                 continue
-            #filelist.write("=====DIRECTORIES=====\n")
+            # filelist.write("=====DIRECTORIES=====\n")
             else:
                 printlist.append(os.path.join(root, name))
             # filelist.write("\n")
             countd += 1
         for file in files:
-            if ignoringItem(os.path.join(root,file)):
+            if ignoringItem(os.path.join(root, file)):
                 continue
             # filelist.write("=====FILES=====\n")
-            printlist.append(os.path.join(root,file))
+            printlist.append(os.path.join(root, file))
             try:
                 tFile = os.path.join(root, file)
                 with open(tFile, "r") as document:
@@ -43,7 +45,7 @@ for root, dirs, files in os.walk("."):
             countf += 1
     except:
         continue
-    
+
 filelist.write("+==========================================+\n")
 filelist.write("|\tTotal Directories: ")
 filelist.write(str(countd))
@@ -56,7 +58,7 @@ printlist.sort()
 filelist.write("\n")
 
 for x in printlist:
-    filelist.write(x)        
+    filelist.write(x)
     filelist.write("\n")
 
 print("Total Lines:", lines)
