@@ -8,9 +8,9 @@
 
 import json
 
-
-from .equipment import Equipment
 from ..utils.types import ARMOR_TYPES, ITEM_TYPES
+from .equipment import Equipment
+
 
 class Armor:
 
@@ -84,6 +84,7 @@ class Armor:
         if isinstance(temp, Equipment):
             return temp
 
+    # TODO: remove the word ERROR from this message
     def dequip(self, item):
         """
         Removes the currently equiped item in the current position and wil return an item if there is something already equiped.

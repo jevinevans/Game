@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri Sep 10 18:18:58 CDT 2021 
+Date: Mon Oct  4 14:51:45 CDT 2021 
 
 ---UNITTEST---
 
@@ -21,7 +21,7 @@ test_str (tests.test_equipment.EquipmentTest) ... ok
 FAIL: test_dequip (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 231, in test_dequip
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/tests/test_armor.py", line 229, in test_dequip
     self.fail("Test 3.a")
 AssertionError: Test 3.a
 
@@ -29,7 +29,7 @@ AssertionError: Test 3.a
 FAIL: test_details (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 238, in test_details
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/tests/test_armor.py", line 236, in test_details
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -37,7 +37,7 @@ AssertionError: Need to Create Test
 FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/FUNCLG/tests/test_armor.py", line 256, in test_export
+  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/tests/test_armor.py", line 254, in test_export
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
