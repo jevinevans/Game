@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 32			|
-|	Files: 140				|
+|	Total Directories: 30			|
+|	Files: 127				|
 +==========================================+
 
 ./CodeTests
@@ -25,11 +25,6 @@
 ./CodeTests/CodeTest_[Template]/Template_CodeTest_Log.md
 ./CodeTests/CodeTest_[Template]/makefile
 ./CodeTests/CodeTest_[Template]/run.bat
-./CodeTests/Equipment
-./CodeTests/Equipment/CodeTest_Equipment.cpp
-./CodeTests/Equipment/Equipment_CodeTest_Log.md
-./CodeTests/Equipment/makefile
-./CodeTests/Equipment/run.bat
 ./CodeTests/Functions
 ./CodeTests/Functions/CodeTest_Functions.cpp
 ./CodeTests/Functions/Equipment_Print_Results.txt
@@ -85,18 +80,6 @@
 ./CodeTests/_TestFiles/EquipmentTest.txt
 ./CodeTests/_TestFiles/RolesTest.txt
 ./CodeTests/makefile
-./Deprecated
-./Deprecated/CodeTestErrors.txt
-./Deprecated/CodeTests.bat
-./Deprecated/FUNCLG.cpp
-./Deprecated/FUNCLG_Errors.txt
-./Deprecated/FUNCLG_Make_Errors.txt
-./Deprecated/FUNCLG_Results.txt
-./Deprecated/Functions.cpp
-./Deprecated/Includes
-./Deprecated/Includes/Equipment.h
-./Deprecated/Makefile
-./Deprecated/Run.bat
 ./FUNCLG
 ./FUNCLG/__init__.py
 ./FUNCLG/__main__.py
@@ -105,6 +88,7 @@
 ./FUNCLG/core/armor.py
 ./FUNCLG/core/equipment.py
 ./FUNCLG/main.py
+./FUNCLG/tests
 ./FUNCLG/utils
 ./FUNCLG/utils/__init__.py
 ./FUNCLG/utils/types.py
@@ -165,6 +149,7 @@
 ./Logs/2021/Log_2021_08_09.md
 ./Logs/2021/Log_2021_08_21.md
 ./Logs/2021/Log_2021_09_09.md
+./Logs/2021/Log_2021_10_04.md
 ./README.md
 ./Scan_Directories.py
 ./TEST_REPORT.txt

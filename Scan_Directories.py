@@ -8,11 +8,22 @@ countd = countf = lines = 0
 printlist = list()
 
 
-def ignoringItem(pathname):
-    ignores = [".git", ".gitignore", ".pyc", "__pycache__", ".vscode"]
+# BME = Beginning End
+def ignoredItems(pathname, FolderOnly = False):
+    ignoredFiles = [".gitignore", ".pyc", "lib64", "pyvenv.cfg"]
+    ignoredFolders = ["__pycache__", "Deprecated", "lib", "include", "share","bin",".git", ".vscode"]
+
+    if FolderOnly:
+        ignores = ignoredFolders
+    else:
+        ignores = ignoredFiles + ignoredFolders
 
     for ignore in ignores:
-        if ignore in pathname:
+        if True in (True for x in ("__pycache__", ".git") if x in pathname):
+            return True
+        if pathname.startswith('./'+ignore):
+            return True
+        if not FolderOnly and pathname.endswith(ignore):
             return True
     return False
 
@@ -20,28 +31,22 @@ def ignoringItem(pathname):
 for root, dirs, files in os.walk("."):
     try:
         for name in dirs:
-            if ignoringItem(os.path.join(root, name)):
+            if ignoredItems(os.path.join(root, name), True):
                 continue
-            # filelist.write("=====DIRECTORIES=====\n")
             else:
                 printlist.append(os.path.join(root, name))
-            # filelist.write("\n")
             countd += 1
         for file in files:
-            if ignoringItem(os.path.join(root, file)):
+            if ignoredItems(os.path.join(root,file)):
                 continue
-            # filelist.write("=====FILES=====\n")
             printlist.append(os.path.join(root, file))
             try:
                 tFile = os.path.join(root, file)
                 with open(tFile, "r") as document:
                     temp = len(document.read().split("\n"))
                     lines += temp
-                    print(temp, end=" ")
-                    print(tFile)
             except:
                 continue
-            # filelist.write("\n")
             countf += 1
     except:
         continue
@@ -64,4 +69,9 @@ for x in printlist:
 print("Total Lines:", lines)
 filelist.close()
 
-webbrowser.open("GAMES_DIRECTORIES_AND_FILES.txt")
+print("+==============================+")
+print(f"|{str('Total Directories: ' + str(countd)).center(30)}|")
+print(f"|{str('Files: ' + str(countf)).center(30)}|")
+print("+==============================+")
+
+# webbrowser.open("GAMES_DIRECTORIES_AND_FILES.txt")
