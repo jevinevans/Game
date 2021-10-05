@@ -11,11 +11,11 @@ python -m unittest tests/test* -v 2>> $REPORT
 printf "*****DONE*****\n"
 
 printf "\n*****Running Black formatter*****\n"
-black .
+black ./FUNCLG
 printf "*****DONE*****\n"
 
 printf "\n*****Running Isort*****\n"
-isort .
+isort ./FUNCLG
 printf "*****DONE*****\n"
 
 echo -e "\n---Flake 8----\n" >> $REPORT
