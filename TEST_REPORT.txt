@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Oct  4 14:51:45 CDT 2021 
+Date: Mon Oct  4 22:10:33 CDT 2021 
 
 ---UNITTEST---
 
@@ -21,7 +21,7 @@ test_str (tests.test_equipment.EquipmentTest) ... ok
 FAIL: test_dequip (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/tests/test_armor.py", line 229, in test_dequip
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 229, in test_dequip
     self.fail("Test 3.a")
 AssertionError: Test 3.a
 
@@ -29,7 +29,7 @@ AssertionError: Test 3.a
 FAIL: test_details (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/tests/test_armor.py", line 236, in test_details
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 236, in test_details
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -37,15 +37,21 @@ AssertionError: Need to Create Test
 FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/Jevin.Evans/Documents/CODE/Game/tests/test_armor.py", line 254, in test_export
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 254, in test_export
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 12 tests in 0.012s
+Ran 12 tests in 0.017s
 
 FAILED (failures=3)
 
 ---Flake 8----
 
-0
+./FUNCLG/core/armor.py:136:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:65:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:66:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:87:7: T101 fixme found (TODO)
+./FUNCLG/core/equipment.py:57:11: T101 fixme found (TODO)
+./FUNCLG/core/equipment.py:74:7: T101 fixme found (TODO)
+6
