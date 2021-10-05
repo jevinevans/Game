@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 30			|
-|	Files: 127				|
+|	Total Directories: 27			|
+|	Files: 122				|
 +==========================================+
 
 ./CodeTests
@@ -32,12 +32,6 @@
 ./CodeTests/Functions/Roles_Print_Results.txt
 ./CodeTests/Functions/makefile
 ./CodeTests/Functions/run.bat
-./CodeTests/LinkedList
-./CodeTests/LinkedList/Equipment
-./CodeTests/LinkedList/Equipment/CodeTest_LinkList_Equipement.cpp
-./CodeTests/LinkedList/Roles
-./CodeTests/LinkedList/Roles/CodeTest_LinkList_Roles.cpp
-./CodeTests/LinkedList/makefile
 ./CodeTests/Roles
 ./CodeTests/Roles/CodeTest_Roles_1
 ./CodeTests/Roles/CodeTest_Roles_1/Ability.txt
@@ -95,11 +89,8 @@
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./Includes
 ./Includes/Abilities.h
-./Includes/Armor.h
 ./Includes/Character.h
-./Includes/Combat.h
 ./Includes/Functions.h
-./Includes/LinkedList.h
 ./Includes/Roles.h
 ./Includes/Stats.h
 ./Logs
@@ -155,6 +146,7 @@
 ./TEST_REPORT.txt
 ./docs
 ./docs/Basic Player Game Info.txt
+./requirements.txt
 ./runTest.sh
 ./tests
 ./tests/__init__.py
