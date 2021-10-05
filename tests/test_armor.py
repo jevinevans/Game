@@ -253,6 +253,15 @@ class ArmorTest(unittest.TestCase):
         arm, equips = self.setup()
         self.fail("Need to Create Test")
 
+    def test_itemCopy(self):
+        arm1, _ = self.setup(False)
+        arm2, _ = self.setup(False)
+        self.assertNotEqual(id(arm1), id(arm2))
+        self.assertNotEqual(id(arm1.head), id(arm2.head))
+        self.assertNotEqual(id(arm1.chest), id(arm2.chest))
+        self.assertNotEqual(id(arm1.back), id(arm2.back))
+        self.assertNotEqual(id(arm1.pants), id(arm2.pants))
+        self.assertNotEqual(id(arm1.weapon), id(arm2.weapon))
 
 def run():
     unittest.main()

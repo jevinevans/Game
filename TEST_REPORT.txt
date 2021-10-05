@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Oct  4 22:10:33 CDT 2021 
+Date: Mon Oct  4 23:25:24 CDT 2021 
 
 ---UNITTEST---
 
@@ -9,6 +9,7 @@ test_details (tests.test_armor.ArmorTest) ... FAIL
 test_equip (tests.test_armor.ArmorTest) ... ok
 test_export (tests.test_armor.ArmorTest) ... FAIL
 test_init (tests.test_armor.ArmorTest) ... ok
+test_itemCopy (tests.test_armor.ArmorTest) ... ok
 test_printToFile (tests.test_armor.ArmorTest) ... ok
 test_str (tests.test_armor.ArmorTest) ... ok
 test_details (tests.test_equipment.EquipmentTest) ... ok
@@ -42,16 +43,18 @@ Traceback (most recent call last):
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 12 tests in 0.017s
+Ran 13 tests in 0.013s
 
 FAILED (failures=3)
 
 ---Flake 8----
 
-./FUNCLG/core/armor.py:136:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:137:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:158:7: T101 fixme found (TODO)
 ./FUNCLG/core/armor.py:65:7: T101 fixme found (TODO)
 ./FUNCLG/core/armor.py:66:7: T101 fixme found (TODO)
 ./FUNCLG/core/armor.py:87:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:88:7: T101 fixme found (TODO)
 ./FUNCLG/core/equipment.py:57:11: T101 fixme found (TODO)
 ./FUNCLG/core/equipment.py:74:7: T101 fixme found (TODO)
-6
+8
