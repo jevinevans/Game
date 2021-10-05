@@ -9,9 +9,19 @@ printlist = list()
 
 
 # BME = Beginning End
-def ignoredItems(pathname, FolderOnly = False):
+def ignoredItems(pathname, FolderOnly=False):
     ignoredFiles = [".gitignore", ".pyc", "lib64", "pyvenv.cfg"]
-    ignoredFolders = ["__pycache__", "Deprecated", "lib", "include", "share","bin",".git", ".vscode"]
+
+    ignoredFolders = [
+        "__pycache__",
+        "Deprecated",
+        "lib",
+        "include",
+        "share",
+        "bin",
+        ".git",
+        ".vscode",
+    ]
 
     if FolderOnly:
         ignores = ignoredFolders
@@ -21,7 +31,7 @@ def ignoredItems(pathname, FolderOnly = False):
     for ignore in ignores:
         if True in (True for x in ("__pycache__", ".git") if x in pathname):
             return True
-        if pathname.startswith('./'+ignore):
+        if pathname.startswith("./" + ignore):
             return True
         if not FolderOnly and pathname.endswith(ignore):
             return True
@@ -37,7 +47,7 @@ for root, dirs, files in os.walk("."):
                 printlist.append(os.path.join(root, name))
             countd += 1
         for file in files:
-            if ignoredItems(os.path.join(root,file)):
+            if ignoredItems(os.path.join(root, file)):
                 continue
             printlist.append(os.path.join(root, file))
             try:
