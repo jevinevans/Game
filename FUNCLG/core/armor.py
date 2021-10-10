@@ -7,7 +7,7 @@
 #############################################################################
 
 import json
-
+from typing import Dict, Union
 from ..utils.types import ARMOR_TYPES, ITEM_TYPES
 from .equipment import Equipment
 
@@ -52,7 +52,7 @@ class Armor:
         # Call stats update function self.???
         Armor._id += 1
 
-    def __str__(self):
+    def __str__(self) -> str:
         # Eventually add the stats to the class as well
         temp = f"{self.name}: <"
         temp += "H:1, " if self.head else "H:0, "
@@ -62,7 +62,7 @@ class Armor:
         temp += "W:1>" if self.weapon else "W:0>"
         return temp
 
-    def equip(self, item: Equipment):
+    def equip(self, item: Equipment) -> Union[Equipment, None]:
         temp = None
         if item is not None and item.armorType == self.armorType:
             if item.getItemType() == "Head":
@@ -75,6 +75,7 @@ class Armor:
                 self.pants, temp = item, self.pants
             elif item.getItemType() == "Weapon":
                 self.weapon, temp = item, self.weapon
+            print(f"Successfully equipped {item}!")
         else:
             print(f"\n{item}, is not compatable with this armor")
             return item
@@ -83,7 +84,7 @@ class Armor:
             return temp
 
     # TODO: Consider return a status and the item, for faster check
-    def dequip(self, item):
+    def dequip(self, item) -> Union[None, Equipment]:
         """
         Removes the currently equiped item in the current position and wil return an item if there is something already equiped.
         """
@@ -92,14 +93,14 @@ class Armor:
         if isinstance(item, int):
             # If the user sends the item type value
             if item < 0 or item >= len(ITEM_TYPES):
-                print("Invalid dequip.")
+                print("Failed to Dequip: Not a valid slot")
                 return
             itemType = ITEM_TYPES[item]
         elif isinstance(item, str):
             # If the user sends the name of the value
             itemType = item.capitalize()
             if itemType not in ITEM_TYPES:
-                print("Invalid dequip.")
+                print("Failed to Dequip: Not a valid slot")
                 return
         # elif isinstance(item, Equipment):
         #     # Future for if the user selects the item to unequip may send item may remove all together
@@ -116,11 +117,11 @@ class Armor:
         elif itemType == "Weapon":
             temp, self.weapon = self.weapon, None
         else:
-            print("Not a valid dequip choice.")
+            print("Failed to Dequip: Not a valid slot")
 
         return temp
 
-    def details(self):
+    def details(self) -> str:
         desc = f"\n Armor \n{''.join(['-' for x in range(7)])}"
         desc += f"\nHead: {self.head.__str__()}"
         desc += f"\nChest: {self.chest.__str__()}"
@@ -129,11 +130,11 @@ class Armor:
         desc += f"\nWeapon: {self.weapon.__str__()}"
         return desc
 
-    def printToFile(self):
+    def printToFile(self) -> None:
         with open(self.name + ".json", "w") as oFile:
             json.dump(self.export(), oFile)
 
-    def export(self):
+    def export(self) -> Dict:
         exporter = self.__dict__
         for x, y in exporter.items():
             if isinstance(y, Equipment):

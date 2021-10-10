@@ -10,79 +10,79 @@
 import os
 import unittest
 from random import randint
-
+from typing import Tuple, Dict
 from FUNCLG.core.armor import Armor
 from FUNCLG.core.equipment import Equipment
 from FUNCLG.utils.types import ITEM_TYPES
 
 
 class ArmorTest(unittest.TestCase):
-    def setup(self, raw=True):
+    def setup(self, raw=True) -> Tuple[Equipment, Dict[str, Equipment]]:
         armorType = 1
         equips = {}
         equips["armorType"] = armorType
         equips["head"] = Equipment(
-            "Gold Head",
-            "Head piece for Armor Test.",
-            armorType,
-            0,
-            None,
-            randint(0, 100),
-            randint(0, 500),
+            name = "Gold Head",
+            description = "Head piece for Armor Test.",
+            armorType = armorType,
+            armorType = 0,
+            NonitemType = e,
+            level = randint(0, 100),
+            abilityPoints = randint(0, 500),
         )
         equips["chest"] = Equipment(
-            "Gold Chest",
-            "Chest piece for Armor Test.",
-            armorType,
-            1,
-            None,
-            randint(0, 100),
-            randint(0, 500),
+            name = "Gold Chest",
+            description = "Chest piece for Armor Test.",
+            armorType = armorType,
+            armorType = 1,
+            NonitemType = e,
+            level = randint(0, 100),
+            abilityPoints = randint(0, 500),
         )
         equips["back"] = Equipment(
-            "Gold Cape",
-            "Back piece for Armor Test.",
-            armorType,
-            2,
-            None,
-            randint(0, 100),
-            randint(0, 500),
+            name = "Gold Cape",
+            description = "Back piece for Armor Test.",
+            armorType = armorType,
+            armorType = 2,
+            NonitemType = e,
+            level = randint(0, 100),
+            abilityPoints = randint(0, 500),
         )
         equips["pants"] = Equipment(
-            "Gold pants",
-            "Pants piece for Amror Test",
-            armorType,
-            3,
-            None,
-            randint(0, 100),
-            randint(0, 500),
+            name = "Gold pants",
+            description = "Pants piece for Amror Test",
+            armorType = armorType,
+            armorType = 3,
+            NonitemType = e,
+            level = randint(0, 100),
+            abilityPoints = randint(0, 500),
         )
         equips["sword"] = Equipment(
-            "Gold Sword",
-            "Sword weapon for Armor Test",
-            armorType,
-            4,
-            0,
-            randint(0, 100),
-            randint(0, 500),
+            name = "Gold Sword",
+            description = "Sword weapon for Armor Test",
+            armorType = armorType,
+            armorType = 4,
+            itemType = 0,
+            level = randint(0, 100),
+            abilityPoints = randint(0, 500),
         )
         equips["wand"] = Equipment(
-            "Gold Wand",
-            "Wand weapon for Armor Test",
-            armorType + 1,
-            4,
-            1,
-            randint(0, 100),
-            randint(0, 500),
+            name = "Gold Wand",
+            description = "Wand weapon for Armor Test",
+            armorType = armorType + 1,
+            armorType = 4,
+            itemType = 1,
+            level = randint(0, 100),
+            abilityPoints = randint(0, 500),
         )
         equips["knife"] = Equipment(
-            "Gold Knife",
-            "Knife weapon for Armor Test",
-            armorType,
-            4,
-            2,
-            randint(0, 100),
-            randint(0, 500),
+            name = "Gold Knife",
+            description = "Knife weapon for Armor Test",
+            armorType = armorType,
+            armorType = 4,
+            itemType = 2,
+            level = randint(0, 100),
+            abilityPoints = randint(0, 500),
         )
 
         if raw:
