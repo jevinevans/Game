@@ -232,7 +232,7 @@ class ArmorTest(unittest.TestCase):
             self.assertIsNone(arms.dequip(x))
         
 
-        # TODO: Test 3.b Dequipping an empty slot with string
+        # Test 3.b Dequipping an empty slot with string
         for x in ITEM_TYPES:
             self.assertIsNone(arms.dequip(x))
 
