@@ -122,7 +122,7 @@ class Armor:
             print("Not a valid dequip choice.")
 
         return temp
-
+        
     def details(self):
         desc = f"\n Armor \n{''.join(['-' for x in range(7)])}"
         desc += f"\nHead: {self.head.__str__()}" if self.head else "\nHead: None"
@@ -133,16 +133,6 @@ class Armor:
             f"\nWeapon: {self.weapon.__str__()}" if self.weapon else "\nWeapon: None"
         )
         return desc
-
-    # TODO: Write tests and see if the below method works how I want and is more effcient
-    # def details(self):
-    #     desc = f"\n Armor \n{''.join(['-' for x in range(7)])}"
-    #     desc += f"\nHead: {self.head.__str__()}"
-    #     desc += f"\nChest: {self.chest.__str__()}"
-    #     desc += f"\nBack: {self.back.__str__()}"
-    #     desc += f"\nPants: {self.pants.__str__()}"
-    #     desc += f"\nWeapon: {self.weapon.__str__()}"
-    #     return desc
 
     def printToFile(self):
         with open(self.name + ".json", "w") as oFile:
