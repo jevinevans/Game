@@ -8,7 +8,7 @@
 #####################################################################################
 
 import json
-from typing import Any, Dict, Union
+from typing import Any, Dict, Optional
 
 from ..utils import types as uTypes
 
@@ -18,9 +18,9 @@ class Equipment:
         self,
         name: str = "",
         description: str = "",
-        armorType: Union[str, None] = None,
-        itemType: Union[str, None] = None,
-        weaponType: Union[str, None] = None,
+        armorType: Optional[str] = None,
+        itemType: Optional[str] = None,
+        weaponType: Optional[str] = None,
         level: int = 0,
         abilityPoints: int = 0,
     ) -> None:

@@ -8,22 +8,22 @@
 
 import os
 import unittest
-
+from typing import Any
 from FUNCLG.core.equipment import Equipment
 
 # from utils.types import *
 
 
 class EquipmentTest(unittest.TestCase):
-    def setup(self):
+    def setup(self) -> Equipment:
         return Equipment(
-            "Test_Equipment",
-            "This is a test for the equipment class",
-            0,
-            0,
-            None,
-            2,
-            50,
+         name="Test_Equipment",
+            description="This is a test for the equipment class",
+            armorType=0,
+            itemType=0,
+            weaponType=None,
+            level=2,
+            abilityPoints=50,
         )
 
     def test_init(self):
@@ -73,11 +73,3 @@ class EquipmentTest(unittest.TestCase):
         self.assertEqual(equipObj.export(), equipObj.__dict__)
 
     # def test_getStats(self:)
-
-
-def run():
-    unittest.main()
-
-
-if __name__ == "__main__":
-    unittest.main()
