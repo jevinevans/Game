@@ -1,10 +1,10 @@
 ######TESTING REPORT######
 
-Date: Sun Oct 10 11:40:24 CDT 2021 
+Date: Sun Oct 10 13:08:38 CDT 2021 
 
 ---UNITTEST---
 
-test_dequip (tests.test_armor.ArmorTest) ... FAIL
+test_dequip (tests.test_armor.ArmorTest) ... ok
 test_details (tests.test_armor.ArmorTest) ... FAIL
 test_equip (tests.test_armor.ArmorTest) ... ok
 test_export (tests.test_armor.ArmorTest) ... FAIL
@@ -19,18 +19,10 @@ test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 test_str (tests.test_equipment.EquipmentTest) ... ok
 
 ======================================================================
-FAIL: test_dequip (tests.test_armor.ArmorTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 229, in test_dequip
-    self.fail("Test 3.a")
-AssertionError: Test 3.a
-
-======================================================================
 FAIL: test_details (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 236, in test_details
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 241, in test_details
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
@@ -38,18 +30,18 @@ AssertionError: Need to Create Test
 FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 256, in test_export
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 261, in test_export
     self.fail("Need to Create Test")
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.020s
+Ran 13 tests in 0.110s
 
-FAILED (failures=3)
+FAILED (failures=2)
 
 ---Flake 8----
 
-./FUNCLG/core/armor.py:145:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:147:7: T101 fixme found (TODO)
 ./FUNCLG/core/armor.py:87:7: T101 fixme found (TODO)
 ./FUNCLG/core/equipment.py:60:11: T101 fixme found (TODO)
 ./FUNCLG/core/equipment.py:76:7: T101 fixme found (TODO)

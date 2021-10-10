@@ -225,11 +225,16 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNone(arms.dequip(dict()))
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
 
-        # TODO: Test 3.a Dequipping an empty slot with integer
-        self.fail("Test 3.a")
+        # Test 3.a Dequipping an empty slot with integer
+        arms, equips = self.setup()
+        print("\n\nDequip Test\n")
+        for x in range(len(ITEM_TYPES)):
+            self.assertIsNone(arms.dequip(x))
+        
 
         # TODO: Test 3.b Dequipping an empty slot with string
-        self.fail("Test 3.b")
+        for x in ITEM_TYPES:
+            self.assertIsNone(arms.dequip(x))
 
     def test_details(self):
         # TODO: test full armor details
