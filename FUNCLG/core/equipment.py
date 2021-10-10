@@ -8,6 +8,7 @@
 #####################################################################################
 
 import json
+from typing import Any, Dict, Union
 
 from ..utils import types as uTypes
 
@@ -15,14 +16,14 @@ from ..utils import types as uTypes
 class Equipment:
     def __init__(
         self,
-        name="",
-        description="",
-        armorType=None,
-        itemType=None,
-        weaponType=None,
-        level=0,
-        abilityPoints=0,
-    ):
+        name: str = "",
+        description: str = "",
+        armorType: Union[str, None] = None,
+        itemType: Union[str, None] = None,
+        weaponType: Union[str, None] = None,
+        level: int = 0,
+        abilityPoints: int = 0,
+    ) -> None:
         """
         Creates an equipment item
         """
@@ -36,11 +37,13 @@ class Equipment:
         self.abilityPoints = abilityPoints
         # self.stats = #STAT Object /may replace abiilty points with stats
 
-    def __str__(self):
-        "Returns the name and level of the item"
+    def __str__(self) -> str:
+        """
+        Returns the name and level of the item
+        """
         return f"{self.name} [{self.level}]"
 
-    def details(self):
+    def details(self) -> str:
         titleLen = 2 + len(self.name)
         desc = f"\n {self.name} \n{''.join(['-' for x in range(titleLen)])}"
         desc += f"\nLevel:{self.level:3d} | Ability Pts: {self.abilityPoints} "
@@ -49,35 +52,26 @@ class Equipment:
         desc += f"\nDescription: {self.description}"
         return desc
 
-    def printToFile(self):
+    def printToFile(self) -> None:
         with open(self.name + ".json", "w") as oFile:
             json.dump(self.export(), oFile)
 
-    def export(self):
+    def export(self) -> Dict[str, Any]:
         # TODO: May have to change function when STATS object is integrated
         # Function will just need to call the export for each
         return self.__dict__
 
-    def getItemType(self):
+    def getItemType(self) -> str:
         return uTypes.getItemType(self.itemType)
 
-    def getArmorType(self):
+    def getArmorType(self) -> str:
         return uTypes.getArmorType(self.armorType)
 
-    def getWeaponType(self):
+    def getWeaponType(self) -> str:
         return uTypes.getWeaponType(self.weaponType)
 
-    def getItemDescription(self):
+    def getItemDescription(self) -> str:
         return uTypes.getItemDescription(self.itemType, self.armorType, self.weaponType)
 
     # def getStats(self):
     # TODO: Defined method
-
-
-# def main():
-#     tempE = Equipment("excelsior", "This is a temp example is used to describe a simple sword.", itemType=4, weaponType=0, level=52, abilityPoints=500)
-#     print(tempE)
-
-#     print(tempE.__dict__)
-#     print()
-#     print(tempE.export())
