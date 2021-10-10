@@ -76,7 +76,7 @@ class Armor:
                 self.pants, temp = item, self.pants
             elif item.getItemType() == "Weapon":
                 self.weapon, temp = item, self.weapon
-            print(f"Successfully equipped {item}!")
+            print(f"Equipped: {item}")
         else:
             print(f"\n{item}, is not compatable with this armor")
             return item
@@ -94,18 +94,21 @@ class Armor:
         if isinstance(item, int):
             # If the user sends the item type value
             if item < 0 or item >= len(ITEM_TYPES):
-                print("Failed to Dequip: Not a valid slot")
+                print(f"Failed to Dequip: {item}")
                 return
             itemType = ITEM_TYPES[item]
         elif isinstance(item, str):
             # If the user sends the name of the value
             itemType = item.capitalize()
             if itemType not in ITEM_TYPES:
-                print("Failed to Dequip: Not a valid slot")
+                print(f"Failed to Dequip: {item}")
                 return
         # elif isinstance(item, Equipment):
         #     # Future for if the user selects the item to unequip may send item may remove all together
         #     itemType = item.getItemType()
+        else:
+            print(f"Failed to Dequip: {item}")
+            return
 
         if itemType == "Head":
             temp, self.head = self.head, None
@@ -117,9 +120,8 @@ class Armor:
             temp, self.pants = self.pants, None
         elif itemType == "Weapon":
             temp, self.weapon = self.weapon, None
-        else:
-            print("Failed to Dequip: Not a valid slot")
 
+        print(f"Dequipped: {temp}")
         return temp
 
     def details(self) -> str:
