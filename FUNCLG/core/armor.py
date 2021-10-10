@@ -8,6 +8,7 @@
 
 import json
 from typing import Dict, Union
+
 from ..utils.types import ARMOR_TYPES, ITEM_TYPES
 from .equipment import Equipment
 
