@@ -232,8 +232,10 @@ class ArmorTest(unittest.TestCase):
         self.fail("Test 3.b")
 
     def test_details(self):
-        # TODO: test full armor detail
+        # TODO: test full armor details
         self.fail("Need to Create Test")
+
+        # TODO: test partial armor details
 
         # TODO: test empty details
         self.fail("Need to Create Test")

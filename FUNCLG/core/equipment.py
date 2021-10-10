@@ -73,5 +73,5 @@ class Equipment:
     def getItemDescription(self) -> str:
         return uTypes.getItemDescription(self.itemType, self.armorType, self.weaponType)
 
-    # def getStats(self):
     # TODO: Defined method
+    # def getStats(self):

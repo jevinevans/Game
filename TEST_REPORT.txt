@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Oct 10 10:45:00 CDT 2021 
+Date: Sun Oct 10 11:05:10 CDT 2021 
 
 ---UNITTEST---
 
@@ -43,17 +43,14 @@ Traceback (most recent call last):
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.017s
+Ran 13 tests in 0.013s
 
 FAILED (failures=3)
 
 ---Flake 8----
 
-./FUNCLG/core/armor.py:146:7: T101 fixme found (TODO)
-./FUNCLG/core/armor.py:65:7: T101 fixme found (TODO)
-./FUNCLG/core/armor.py:66:7: T101 fixme found (TODO)
-./FUNCLG/core/armor.py:87:7: T101 fixme found (TODO)
-./FUNCLG/core/armor.py:88:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:143:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:85:7: T101 fixme found (TODO)
 ./FUNCLG/core/equipment.py:60:11: T101 fixme found (TODO)
-./FUNCLG/core/equipment.py:77:7: T101 fixme found (TODO)
-7
+./FUNCLG/core/equipment.py:76:7: T101 fixme found (TODO)
+4

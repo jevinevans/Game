@@ -24,7 +24,7 @@ class Armor:
         back: Equipment = None,
         pants: Equipment = None,
         weapon: Equipment = None,
-    ):
+    ) -> None:
         self.name = "Armor_" + str(Armor._id)
         self.armorType = (
             armorType if armorType <= len(ARMOR_TYPES) and armorType >= 0 else 0
@@ -62,8 +62,6 @@ class Armor:
         temp += "W:1>" if self.weapon else "W:0>"
         return temp
 
-    # TODO: Need to test if I need to copy equipment or it will link right
-    # TODO: Consider if this should be one method or multiples for each type
     def equip(self, item: Equipment):
         temp = None
         if item is not None and item.armorType == self.armorType:
@@ -84,7 +82,6 @@ class Armor:
         if isinstance(temp, Equipment):
             return temp
 
-    # TODO: remove the word ERROR from this message
     # TODO: Consider return a status and the item, for faster check
     def dequip(self, item):
         """
@@ -95,14 +92,14 @@ class Armor:
         if isinstance(item, int):
             # If the user sends the item type value
             if item < 0 or item >= len(ITEM_TYPES):
-                print("ERROR: Armor.Dequip Invalid dequip slot.")
+                print("Invalid dequip.")
                 return
             itemType = ITEM_TYPES[item]
         elif isinstance(item, str):
             # If the user sends the name of the value
             itemType = item.capitalize()
             if itemType not in ITEM_TYPES:
-                print("ERROR: Armor.Dequip Invalid dequip slot.")
+                print("Invalid dequip.")
                 return
         # elif isinstance(item, Equipment):
         #     # Future for if the user selects the item to unequip may send item may remove all together
