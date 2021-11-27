@@ -92,12 +92,12 @@ class ArmorTest(unittest.TestCase):
             """Returns full equiped Armor plus other weapon"""
             return (
                 Armor(
-                    armorType,
-                    equips["head"],
-                    equips["chest"],
-                    equips["back"],
-                    equips["pants"],
-                    equips["sword"],
+                    armorType = armorType,
+                    head = equips["head"],
+                    chest = equips["chest"],
+                    back = equips["back"],
+                    pants = equips["pants"],
+                    weapon = equips["sword"],
                 ),
                 equips,
             )
@@ -188,7 +188,7 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.weapon, equips["sword"])
 
     def test_dequip(self):
-        # Test 1.a: Basic dequip, dequiping with integer, with item equipped
+        # Test 1.a Basic dequip, dequiping with integer, with item equipped
         arms, equips = self.setup(False)
 
         # Will do a full dequip of all items
@@ -200,7 +200,6 @@ class ArmorTest(unittest.TestCase):
         # Test 1.b Basic dequip, dequiping with string, with item equipped
         arms, equips = self.setup(False)
 
-        # Will do a full dequip of all items
         for x in ITEM_TYPES:
             self.assertIsNotNone(arms.dequip(x))
 
@@ -231,16 +230,22 @@ class ArmorTest(unittest.TestCase):
         for x in range(len(ITEM_TYPES)):
             self.assertIsNone(arms.dequip(x))
         
-
         # Test 3.b Dequipping an empty slot with string
         for x in ITEM_TYPES:
             self.assertIsNone(arms.dequip(x))
 
     def test_details(self):
         # TODO: test full armor details
+        print("\n---TESTING---\n")
+        arms, equips = self.setup(False)
+        print(arms.details())
+        for _, equipment in equips.items():
+            self.assertIn(equipment.__str__(), arms.details())
+
         self.fail("Need to Create Test")
 
         # TODO: test partial armor details
+        self.fail("Need to create test")
 
         # TODO: test empty details
         self.fail("Need to Create Test")
@@ -269,10 +274,3 @@ class ArmorTest(unittest.TestCase):
         self.assertNotEqual(id(arm1.back), id(arm2.back))
         self.assertNotEqual(id(arm1.pants), id(arm2.pants))
         self.assertNotEqual(id(arm1.weapon), id(arm2.weapon))
-
-def run():
-    unittest.main()
-
-
-if __name__ == "__main__":
-    unittest.main()

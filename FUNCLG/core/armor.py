@@ -130,7 +130,7 @@ class Armor:
         desc += f"\nChest: {self.chest.__str__()}"
         desc += f"\nBack: {self.back.__str__()}"
         desc += f"\nPants: {self.pants.__str__()}"
-        desc += f"\nWeapon: {self.weapon.__str__()}"
+        desc += f"\nWeapon: {self.weapon.__str__()}\n"
         return desc
 
     def printToFile(self) -> None:
