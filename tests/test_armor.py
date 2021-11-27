@@ -235,20 +235,15 @@ class ArmorTest(unittest.TestCase):
             self.assertIsNone(arms.dequip(x))
 
     def test_details(self):
-        # TODO: test full armor details
-        print("\n---TESTING---\n")
-        arms, equips = self.setup(False)
-        print(arms.details())
-        for _, equipment in equips.items():
+        # 1.a Test full armor details
+        arms, _ = self.setup(False)
+        for equipment in arms.getEquipment():
             self.assertIn(equipment.__str__(), arms.details())
 
-        self.fail("Need to Create Test")
-
-        # TODO: test partial armor details
-        self.fail("Need to create test")
-
-        # TODO: test empty details
-        self.fail("Need to Create Test")
+        # 1.b Test empty details
+        arms, _ = self.setup()
+        for equipment in arms.getEquipment():
+            self.assertIn(equipment.__str__(), arms.details())
 
     def test_printToFile(self):
         # Testing printToFile existance

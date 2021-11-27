@@ -1,11 +1,11 @@
 ######TESTING REPORT######
 
-Date: Sun Oct 10 13:08:38 CDT 2021 
+Date: Sat Nov 27 14:45:04 CST 2021 
 
 ---UNITTEST---
 
 test_dequip (tests.test_armor.ArmorTest) ... ok
-test_details (tests.test_armor.ArmorTest) ... FAIL
+test_details (tests.test_armor.ArmorTest) ... ok
 test_equip (tests.test_armor.ArmorTest) ... ok
 test_export (tests.test_armor.ArmorTest) ... FAIL
 test_init (tests.test_armor.ArmorTest) ... ok
@@ -19,14 +19,6 @@ test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 test_str (tests.test_equipment.EquipmentTest) ... ok
 
 ======================================================================
-FAIL: test_details (tests.test_armor.ArmorTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_armor.py", line 241, in test_details
-    self.fail("Need to Create Test")
-AssertionError: Need to Create Test
-
-======================================================================
 FAIL: test_export (tests.test_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
@@ -35,13 +27,13 @@ Traceback (most recent call last):
 AssertionError: Need to Create Test
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.110s
+Ran 13 tests in 0.257s
 
-FAILED (failures=2)
+FAILED (failures=1)
 
 ---Flake 8----
 
-./FUNCLG/core/armor.py:147:7: T101 fixme found (TODO)
+./FUNCLG/core/armor.py:151:7: T101 fixme found (TODO)
 ./FUNCLG/core/armor.py:87:7: T101 fixme found (TODO)
 ./FUNCLG/core/equipment.py:60:11: T101 fixme found (TODO)
 ./FUNCLG/core/equipment.py:76:7: T101 fixme found (TODO)

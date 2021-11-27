@@ -7,7 +7,7 @@
 #############################################################################
 
 import json
-from typing import Dict, Union
+from typing import Dict, Union, List
 
 from ..utils.types import ARMOR_TYPES, ITEM_TYPES
 from .equipment import Equipment
@@ -132,6 +132,10 @@ class Armor:
         desc += f"\nPants: {self.pants.__str__()}"
         desc += f"\nWeapon: {self.weapon.__str__()}\n"
         return desc
+
+    def getEquipment(self) -> List[Equipment]:
+        """Returns the equipped armor"""
+        return [self.head, self.chest, self.back, self.pants, self.weapon]
 
     def printToFile(self) -> None:
         with open(self.name + ".json", "w") as oFile:
