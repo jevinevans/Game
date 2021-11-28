@@ -7,7 +7,7 @@
 #############################################################################
 
 import json
-from typing import Dict, Union, List
+from typing import Dict, List, Union
 
 from ..utils.types import ARMOR_TYPES, ITEM_TYPES
 from .equipment import Equipment
@@ -148,6 +148,9 @@ class Armor:
                 exporter[x] = y.export()
         return exporter
 
+    # TODO: Need to create an import function that is static to the method
+    #  @staticmethod
+    #  def import()
     # TODO: Need to create a define stats for armor
     # def getStats(self):
     # Will be a sum of the equipment stats, may or may not display the name and stats

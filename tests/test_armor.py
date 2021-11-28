@@ -189,7 +189,7 @@ class ArmorTest(unittest.TestCase):
 
     def test_dequip(self):
         # Test 1.a Basic dequip, dequiping with integer, with item equipped
-        arms, equips = self.setup(False)
+        arms, _ = self.setup(False)
 
         # Will do a full dequip of all items
         for x in range(5):
@@ -198,7 +198,7 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
 
         # Test 1.b Basic dequip, dequiping with string, with item equipped
-        arms, equips = self.setup(False)
+        arms, _ = self.setup(False)
 
         for x in ITEM_TYPES:
             self.assertIsNotNone(arms.dequip(x))
@@ -206,26 +206,26 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
 
         # Test 2.a Testing dequip error for integer value
-        arms, equips = self.setup(False)
+        arms, _ = self.setup(False)
 
         self.assertIsNone(arms.dequip(-1))
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
 
         # Test 2.b Testing dequip error for string value
-        arms, equips = self.setup(False)
+        arms, _ = self.setup(False)
 
         self.assertIsNone(arms.dequip("jagiejoijga"))
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
 
         # Test 2.c Testing dequip error for other value
-        arms, equips = self.setup(False)
+        arms, _ = self.setup(False)
 
         self.assertIsNone(arms.dequip(["head", "chest"]))
         self.assertIsNone(arms.dequip(dict()))
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
 
         # Test 3.a Dequipping an empty slot with integer
-        arms, equips = self.setup()
+        arms, _ = self.setup()
         print("\n\nDequip Test\n")
         for x in range(len(ITEM_TYPES)):
             self.assertIsNone(arms.dequip(x))
@@ -246,9 +246,8 @@ class ArmorTest(unittest.TestCase):
             self.assertIn(equipment.__str__(), arms.details())
 
     def test_printToFile(self):
-        # Testing printToFile existance
-
-        arm, equips = self.setup(False)
+        # 1. Testing printToFile existance
+        arm, _ = self.setup(False)
         arm.printToFile()
         filename = f"{arm.name}.json"
         self.assertTrue(os.path.exists(filename), "PrintToFile Failed")
@@ -257,8 +256,8 @@ class ArmorTest(unittest.TestCase):
 
     def test_export(self):
         # TODO: test against proper dict option and reload
-        arm, equips = self.setup()
-        self.fail("Need to Create Test")
+        arm, _ = self.setup(False)
+        self.assertEqual(arm.export(), arm.__dict__)
 
     def test_itemCopy(self):
         arm1, _ = self.setup(False)
