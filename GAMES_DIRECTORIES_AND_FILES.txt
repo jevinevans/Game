@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 27			|
-|	Files: 122				|
+|	Files: 123				|
 +==========================================+
 
 ./CodeTests
@@ -141,6 +141,7 @@
 ./Logs/2021/Log_2021_08_21.md
 ./Logs/2021/Log_2021_09_09.md
 ./Logs/2021/Log_2021_10_04.md
+./Logs/2021/Log_2021_11_28 copy.md
 ./README.md
 ./Scan_Directories.py
 ./TEST_REPORT.txt
