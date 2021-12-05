@@ -1,5 +1,5 @@
 +==========================================+
-|	Total Directories: 27			|
+|	Total Directories: 26			|
 |	Files: 123				|
 +==========================================+
 
@@ -15,11 +15,6 @@
 ./CodeTests/Abilities/CodeTest_Abilities_2/makefile
 ./CodeTests/Abilities/CodeTest_Abilities_2/run.bat
 ./CodeTests/Abilities/makefile
-./CodeTests/Armor
-./CodeTests/Armor/Armor_CodeTest_Log.md
-./CodeTests/Armor/CodeTest_Armor.cpp
-./CodeTests/Armor/makefile
-./CodeTests/Armor/run.bat
 ./CodeTests/CodeTest_[Template]
 ./CodeTests/CodeTest_[Template]/CodeTest_[Template].cpp
 ./CodeTests/CodeTest_[Template]/Template_CodeTest_Log.md
@@ -90,6 +85,8 @@
 ./Includes
 ./Includes/Abilities.h
 ./Includes/Character.h
+./Includes/FUNCLG.cpp
+./Includes/Functions.cpp
 ./Includes/Functions.h
 ./Includes/Roles.h
 ./Includes/Stats.h
@@ -141,12 +138,14 @@
 ./Logs/2021/Log_2021_08_21.md
 ./Logs/2021/Log_2021_09_09.md
 ./Logs/2021/Log_2021_10_04.md
-./Logs/2021/Log_2021_11_28 copy.md
+./Logs/2021/Log_2021_11_28.md
 ./README.md
 ./Scan_Directories.py
 ./TEST_REPORT.txt
 ./docs
 ./docs/Basic Player Game Info.txt
+./poetry.lock
+./pyproject.toml
 ./requirements.txt
 ./runTest.sh
 ./tests

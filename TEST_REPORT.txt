@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Nov 28 12:53:08 CST 2021 
+Date: Sun Dec  5 01:17:08 CST 2021 
 
 ---UNITTEST---
 
@@ -19,7 +19,7 @@ test_printToFile (tests.test_equipment.EquipmentTest) ... ok
 test_str (tests.test_equipment.EquipmentTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.022s
+Ran 13 tests in 0.158s
 
 OK
 

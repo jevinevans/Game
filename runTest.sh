@@ -7,7 +7,7 @@ TODAY=$(date)
 echo -e "######TESTING REPORT######\n\nDate: $TODAY \n\n---UNITTEST---\n" > $REPORT
 
 printf "\n*****Running Unittest*****\n"
-python -m unittest tests/test* -v 2>> $REPORT
+poetry run python -m unittest tests/test* -v 2>> $REPORT
 printf "*****DONE*****\n"
 
 printf "\n*****Running Black formatter*****\n"
@@ -24,4 +24,4 @@ IGNS="E231,E266,E401,E501,W293"
 
 flake8 --ignore=$IGNS --count ./FUNCLG | sort >> $REPORT
 
-python Scan_Directories.py
+poetry run python Scan_Directories.py

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "funclg"
+version = "0.2.0"
+description = "Fun way to build your own CLI game"
+authors = ["Jevin Evans <jevyjev324@me.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+loguru = "^0.5.3"
+
+[tool.poetry.dev-dependencies]
+black = "^21.11b1"
+isort = "^5.10.1"
+xenon = "^0.8.0"
+pylint = "^2.12.2"
+bandit = "^1.7.1"
+pyright = "^0.0.13"
+flake8 = "^4.0.1"
+flake8-fixme = "^1.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
