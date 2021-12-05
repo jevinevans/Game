@@ -10,15 +10,11 @@ printlist = list()
 
 # BME = Beginning End
 def ignoredItems(pathname, FolderOnly=False):
-    ignoredFiles = [".gitignore", ".pyc", "lib64", "pyvenv.cfg"]
+    ignoredFiles = [".gitignore", ".pyc", ]
 
     ignoredFolders = [
         "__pycache__",
         "Deprecated",
-        "lib",
-        "include",
-        "share",
-        "bin",
         ".git",
         ".vscode",
     ]
