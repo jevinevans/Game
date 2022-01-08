@@ -9,7 +9,7 @@
 import os
 import unittest
 from typing import Any
-from FUNCLG.core.equipment import Equipment
+from FUNCLG.character.equipment import Equipment
 
 # from utils.types import *
 

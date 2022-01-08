@@ -11,8 +11,8 @@ import os
 import unittest
 from random import randint
 from typing import Tuple, Dict
-from FUNCLG.core.armor import Armor
-from FUNCLG.core.equipment import Equipment
+from FUNCLG.character.armor import Armor
+from FUNCLG.character.equipment import Equipment
 from FUNCLG.utils.types import ITEM_TYPES
 
 
