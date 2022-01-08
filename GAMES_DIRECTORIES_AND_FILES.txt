@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 26			|
-|	Files: 123				|
+|	Total Directories: 27			|
+|	Files: 125				|
 +==========================================+
 
 ./CodeTests
@@ -72,10 +72,11 @@
 ./FUNCLG
 ./FUNCLG/__init__.py
 ./FUNCLG/__main__.py
-./FUNCLG/core
-./FUNCLG/core/__init__.py
-./FUNCLG/core/armor.py
-./FUNCLG/core/equipment.py
+./FUNCLG/character
+./FUNCLG/character/__init__.py
+./FUNCLG/character/abilities.py
+./FUNCLG/character/armor.py
+./FUNCLG/character/equipment.py
 ./FUNCLG/main.py
 ./FUNCLG/tests
 ./FUNCLG/utils
@@ -139,9 +140,11 @@
 ./Logs/2021/Log_2021_09_09.md
 ./Logs/2021/Log_2021_10_04.md
 ./Logs/2021/Log_2021_11_28.md
+./Logs/2022
 ./README.md
 ./Scan_Directories.py
 ./TEST_REPORT.txt
+./codeQuality.sh
 ./docs
 ./docs/Basic Player Game Info.txt
 ./poetry.lock
