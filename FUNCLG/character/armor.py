@@ -1,10 +1,8 @@
-#############################################################################
-# Programmer: Jevin Evans                                                   #
-# Date: 7/15/2021                                                           #
-# Program: Armor Class                                                      #
-# Description:    The Armor class is made to store equipment itmes for a    #
-#                   character.                                              #
-#############################################################################
+"""
+Programmer: Jevin Evans
+Date: 7.15.2021
+Description: The Armor class is made to store equipment itmes for a character.
+"""
 
 import json
 from typing import Dict, List, Union
@@ -27,28 +25,14 @@ class Armor:
         weapon: Equipment = None,
     ) -> None:
         self.name = "Armor_" + str(Armor._id)
-        self.armorType = (
-            armorType if armorType <= len(ARMOR_TYPES) and armorType >= 0 else 0
-        )
+        self.armorType = armorType if armorType <= len(ARMOR_TYPES) and armorType >= 0 else 0
         # self.stats = #Stat Object
         # Requires that the equipment is the same armor time
-        self.head = (
-            head if head is not None and head.armorType == self.armorType else None
-        )
-        self.chest = (
-            chest if chest is not None and chest.armorType == self.armorType else None
-        )
-        self.back = (
-            back if back is not None and back.armorType == self.armorType else None
-        )
-        self.pants = (
-            pants if pants is not None and pants.armorType == self.armorType else None
-        )
-        self.weapon = (
-            weapon
-            if weapon is not None and weapon.armorType == self.armorType
-            else None
-        )
+        self.head = head if head is not None and head.armorType == self.armorType else None
+        self.chest = chest if chest is not None and chest.armorType == self.armorType else None
+        self.back = back if back is not None and back.armorType == self.armorType else None
+        self.pants = pants if pants is not None and pants.armorType == self.armorType else None
+        self.weapon = weapon if weapon is not None and weapon.armorType == self.armorType else None
 
         # Call stats update function self.???
         Armor._id += 1
@@ -66,15 +50,15 @@ class Armor:
     def equip(self, item: Equipment) -> Union[Equipment, None]:
         temp = None
         if item is not None and item.armorType == self.armorType:
-            if item.getItemType() == "Head":
+            if item.get_item_type() == "Head":
                 self.head, temp = item, self.head
-            elif item.getItemType() == "Chest":
+            elif item.get_item_type() == "Chest":
                 self.chest, temp = item, self.chest
-            elif item.getItemType() == "Back":
+            elif item.get_item_type() == "Back":
                 self.back, temp = item, self.back
-            elif item.getItemType() == "Pants":
+            elif item.get_item_type() == "Pants":
                 self.pants, temp = item, self.pants
-            elif item.getItemType() == "Weapon":
+            elif item.get_item_type() == "Weapon":
                 self.weapon, temp = item, self.weapon
             print(f"Equipped: {item}")
         else:

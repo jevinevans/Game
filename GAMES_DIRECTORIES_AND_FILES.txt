@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 27			|
-|	Files: 125				|
+|	Total Directories: 26			|
+|	Files: 126				|
 +==========================================+
 
 ./CodeTests
@@ -78,7 +78,6 @@
 ./FUNCLG/character/armor.py
 ./FUNCLG/character/equipment.py
 ./FUNCLG/main.py
-./FUNCLG/tests
 ./FUNCLG/utils
 ./FUNCLG/utils/__init__.py
 ./FUNCLG/utils/types.py
@@ -141,6 +140,7 @@
 ./Logs/2021/Log_2021_10_04.md
 ./Logs/2021/Log_2021_11_28.md
 ./Logs/2022
+./Logs/2022/Log_2022_01_08.md
 ./README.md
 ./Scan_Directories.py
 ./TEST_REPORT.txt

@@ -51,13 +51,13 @@ class EquipmentTest(unittest.TestCase):
         self.assertIn(equipObj.name, eDetails)
         self.assertIn(str(equipObj.level), eDetails)
         self.assertIn(str(equipObj.abilityPoints), eDetails)
-        self.assertIn(equipObj.getItemType(), eDetails)
-        self.assertIn(equipObj.getItemDescription(), eDetails)
+        self.assertIn(equipObj.get_item_type(), eDetails)
+        self.assertIn(equipObj.get_item_description(), eDetails)
         self.assertIn(equipObj.description, eDetails)
 
-    def test_printToFile(self):
+    def test_print_to_file(self):
         equipObj = self.setup()
-        equipObj.printToFile()
+        equipObj.print_to_file()
         filename = f"{equipObj.name}.json"
         self.assertTrue(os.path.exists(filename), "PrintToFile Failed")
         if os.path.exists(filename):
@@ -72,4 +72,4 @@ class EquipmentTest(unittest.TestCase):
         equipObj.weaponType = 2
         self.assertEqual(equipObj.export(), equipObj.__dict__)
 
-    # def test_getStats(self:)
+    # TODO: def test_getStats(self:)

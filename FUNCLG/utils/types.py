@@ -14,33 +14,46 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy"]
 # Weapon Types: 0 - Sword, 1 - Wand, 2 - Knife
 WEAPON_TYPES = ["Sword", "Wand", "Knife"]
 
-
-def getItemType(IT: int) -> str:
-    return ITEM_TYPES[IT]
-
-
-def getArmorType(AT: int) -> str:
-    return ARMOR_TYPES[AT]
-
-
-def getWeaponType(WT: int) -> str:
-    return WEAPON_TYPES[WT]
+ABILITY_TYPES = {
+    "Magic": {"Damage"},
+    "Physical": {"Damage"},
+    "Healing": {"Boost"},
+    "Repair": {"Boost"},
+    "None": {"None"},
+}
 
 
-def getItemDescription(IT=None, AT=None, WT=None) -> str:
+def get_ability_effect_type(a_type: str) -> str:
+    "Returns the effect type of the provided ability"
+    return ABILITY_TYPES[a_type]
+
+
+def get_item_type(item_type: int) -> str:
+    return ITEM_TYPES[item_type]
+
+
+def get_armor_type(armor_type: int) -> str:
+    return ARMOR_TYPES[armor_type]
+
+
+def get_weapon_type(weapon_type: int) -> str:
+    return WEAPON_TYPES[weapon_type]
+
+
+def get_item_description(item_type=None, armor_type=None, weapon_type=None) -> str:
     item = ""
 
-    if IT is not None:
-        if IT == 4 and WT is not None:
-            item += getWeaponType(WT)
+    if item_type is not None:
+        if item_type == 4 and weapon_type is not None:
+            item += get_weapon_type(weapon_type)
         else:
-            item += getItemType(IT)
-    elif WT is not None:
-        item = getWeaponType(WT)
+            item += get_item_type(item_type)
+    elif weapon_type is not None:
+        item = get_weapon_type(weapon_type)
     else:
         item = "Broken Item"
 
-    if AT is not None:
-        item = getArmorType(AT) + " " + item
+    if armor_type is not None:
+        item = get_armor_type(armor_type) + " " + item
 
     return "[" + item + "]"

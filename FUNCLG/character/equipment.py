@@ -1,11 +1,10 @@
-#####################################################################################
-#   Programmer: Jevin Evans                                                         #
-#   Date: 7/13/2021                                                                 #
-#   Program: Equipment Class                                                        #
-#   Description: The Equipment class allows for creation of objects in the game     #
-#       to be used by characters and placed inside of the armor or in other         #
-#       holders/storage containers inside of the game.                              #
-#####################################################################################
+"""   
+Programmer: Jevin Evans
+Date: 7.13.2021
+Description: The Equipment class allows for creation of objects in the game to be used by 
+    characters and placed inside of the armor or in other holders/storage containers inside 
+    of the game.
+"""
 
 import json
 from typing import Any, Dict, Optional
@@ -47,12 +46,12 @@ class Equipment:
         titleLen = 2 + len(self.name)
         desc = f"\n {self.name} \n{''.join(['-' for x in range(titleLen)])}"
         desc += f"\nLevel:{self.level:3d} | Ability Pts: {self.abilityPoints} "
-        desc += "ATK" if self.getItemType() == "Weapon" else "DEF"
-        desc += f"\nType: {self.getItemDescription()}"
+        desc += "ATK" if self.get_item_type() == "Weapon" else "DEF"
+        desc += f"\nType: {self.get_item_description()}"
         desc += f"\nDescription: {self.description}"
         return desc
 
-    def printToFile(self) -> None:
+    def print_to_file(self) -> None:
         with open(self.name + ".json", "w") as oFile:
             json.dump(self.export(), oFile)
 
@@ -61,17 +60,17 @@ class Equipment:
         # Function will just need to call the export for each
         return self.__dict__
 
-    def getItemType(self) -> str:
-        return uTypes.getItemType(self.itemType)
+    def get_item_type(self) -> str:
+        return uTypes.get_item_type(self.itemType)
 
-    def getArmorType(self) -> str:
-        return uTypes.getArmorType(self.armorType)
+    def get_armor_type(self) -> str:
+        return uTypes.get_armor_type(self.armorType)
 
-    def getWeaponType(self) -> str:
-        return uTypes.getWeaponType(self.weaponType)
+    def get_weapon_type(self) -> str:
+        return uTypes.get_weapon_type(self.weaponType)
 
-    def getItemDescription(self) -> str:
-        return uTypes.getItemDescription(self.itemType, self.armorType, self.weaponType)
+    def get_item_description(self) -> str:
+        return uTypes.get_item_description(self.itemType, self.armorType, self.weaponType)
 
     # TODO: Defined method
     # def getStats(self):
