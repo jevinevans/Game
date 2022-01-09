@@ -1,10 +1,9 @@
-#####################################################################################
-#   Programmer: Jevin Evans                                                         #
-#   Date: 7/13/2021                                                                 #
-#   Program: Types                                                                  #
-#   Description: This defines lists and functions for certain constands             #
-#####################################################################################
-
+"""
+Programmer: Jevin Evans
+Date: 7.13.2021
+Description: This defines lists and functions for certain constands
+"""
+from typing import Tuple
 # Item Types: 0 - Head, 1 - Chest, 2 - Back, 3 - Pants, 4 - Weapon
 ITEM_TYPES = ["Head", "Chest", "Back", "Pants", "Weapon"]
 
@@ -15,15 +14,15 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy"]
 WEAPON_TYPES = ["Sword", "Wand", "Knife"]
 
 ABILITY_TYPES = {
-    "Magic": {"Damage"},
-    "Physical": {"Damage"},
-    "Healing": {"Boost"},
-    "Repair": {"Boost"},
-    "None": {"None"},
+    "Magic": ("Damage",-1),
+    "Physical": ("Damage",-1),
+    "Healing": ("Boost",1),
+    "Repair": ("Boost",1),
+    "None": ("None", 0),
 }
 
 
-def get_ability_effect_type(a_type: str) -> str:
+def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
     "Returns the effect type of the provided ability"
     return ABILITY_TYPES[a_type]
 

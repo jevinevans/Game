@@ -16,30 +16,29 @@ class Abilities:
     """
     Defines character/monster abilities
     """
+
     def __init__(
         self,
         name: str,
-        a_type: str,
+        ability_type: str,
         effect: int,
         description: str,
     ) -> None:
         self.name = name
-        self.ability_type = a_type if a_type in ABILITY_TYPES else "None"
-        self.effect_type = get_ability_effect_type(a_type)
-        self.effect = effect  # TODO: Will become stats, and a specific sub class that will be more focused for armor
+        self.ability_type = ability_type if ability_type in ABILITY_TYPES else "None"
+        self.ability_group, effect_type = get_ability_effect_type(self.ability_type)
+        self.effect = effect*effect_type  # TODO: Will become stats, and a specific sub class that will be more focused for armor
         self.description = description
-        # Validation will be done during creation
+        # TODO: Validation will be done during creation
 
     def __str__(self):
-        sign = "-" if self.effect_type == "Damage" else "+"
-        return f"{self.name} ({self.ability_type}): {sign}{self.effect}"
+        return f"{self.name} ({self.ability_type}): {self.effect}"
 
     def details(self):
-        sign = "-" if self.effect_type == "Damage" else "+"
         desc = f"\n{self.name}\n{''.join(['-' for x in range(len(self.name))])}"
         desc += f"\nDescription: {self.description}"
-        desc += f"\nType: {self.ability_type} ({self.effect_type})"
-        desc += f"\nEffect: {sign}{self.effect}"
+        desc += f"\nType: {self.ability_type} ({self.ability_group})"
+        desc += f"\nEffect: {self.effect}"
 
     def export(self) -> Dict[str, Any]:
         return self.__dict__
