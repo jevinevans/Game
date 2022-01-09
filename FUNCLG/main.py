@@ -1,8 +1,3 @@
-from core.armor import main
-
-main()
-
-
 """
 Welcom message
 

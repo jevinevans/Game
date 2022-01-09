@@ -12,6 +12,9 @@ from .equipment import Equipment
 
 
 class Armor:
+    """
+    Creates an armor object for a character
+    """
 
     _id = 0
 
@@ -117,7 +120,7 @@ class Armor:
         desc += f"\nWeapon: {self.weapon.__str__()}\n"
         return desc
 
-    def getEquipment(self) -> List[Equipment]:
+    def getEquipment(self) -> List[Union[Equipment, None]]:
         """Returns the equipped armor"""
         return [self.head, self.chest, self.back, self.pants, self.weapon]
 
