@@ -1,10 +1,8 @@
-#####################################################################################
-#   Programmer: Jevin Evans                                                         #
-#   Date: 7/15/2021                                                                 #
-#   Program: Armor Class Test                                                       #
-#   Description: The is a unit test for the armor class and its interations         #
-#       with the equipment class.                                                   #
-#####################################################################################
+"""
+Programmer: Jevin Evans
+Date: 7.15.2021
+Description: The is a unit test for the armor class and its interations with the equipment class.
+"""
 
 
 import os
@@ -102,7 +100,7 @@ class ArmorTest(unittest.TestCase):
                 equips,
             )
 
-    def test_init(self):
+    def test_armor_init(self):
         # 1 - Testing blank armor initialization
 
         arm, equips = self.setup()
@@ -112,7 +110,6 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNone(arm.back, "Armor Equipment field is not none")
         self.assertIsNone(arm.pants, "Armor Equipment field is not none")
         self.assertIsNone(arm.weapon, "Armor Equipment field is not none")
-
         self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
 
         # 2 - Testing creation of full armor initialization
@@ -127,7 +124,7 @@ class ArmorTest(unittest.TestCase):
 
         self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
 
-    def test_str(self):
+    def test_armor_str(self):
         # Testing object print format
 
         # 1 - Testing Raw Armor
@@ -145,7 +142,7 @@ class ArmorTest(unittest.TestCase):
             arm.__str__(), f"Armor_{Armor._id-1}: <H:1, C:1, B:0, P:1, W:0>"
         )
 
-    def test_equip(self):
+    def test_armor_equip(self):
         # 1 - Testing ability to equip items empty location
         arm, equips = self.setup()
         arm.equip(equips["head"])
@@ -187,7 +184,7 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(temp, equips["wand"])
         self.assertEqual(arm.weapon, equips["sword"])
 
-    def test_dequip(self):
+    def test_armor_dequip(self):
         # Test 1.a Basic dequip, dequiping with integer, with item equipped
         arms, _ = self.setup(False)
 
@@ -226,7 +223,6 @@ class ArmorTest(unittest.TestCase):
 
         # Test 3.a Dequipping an empty slot with integer
         arms, _ = self.setup()
-        print("\n\nDequip Test\n")
         for x in range(len(ITEM_TYPES)):
             self.assertIsNone(arms.dequip(x))
         
@@ -234,32 +230,35 @@ class ArmorTest(unittest.TestCase):
         for x in ITEM_TYPES:
             self.assertIsNone(arms.dequip(x))
 
-    def test_details(self):
+    def test_armor_details(self):
         # 1.a Test full armor details
         arms, _ = self.setup(False)
-        for equipment in arms.getEquipment():
-            self.assertIn(equipment.__str__(), arms.details())
-
-        # 1.b Test empty details
+        self.assertIsNotNone(arms.details())
+        self.assertIsInstance(arms.details(), str)
+        
         arms, _ = self.setup()
-        for equipment in arms.getEquipment():
-            self.assertIn(equipment.__str__(), arms.details())
+        self.assertIsNotNone(arms.details())
+        self.assertIsInstance(arms.details(), str)
 
-    def test_printToFile(self):
+    def test_armor_printToFile(self):
         # 1. Testing printToFile existance
         arm, _ = self.setup(False)
         arm.printToFile()
         filename = f"{arm.name}.json"
-        self.assertTrue(os.path.exists(filename), "PrintToFile Failed")
+        self.assertTrue(os.path.exists(filename), "Armor: print_to_file Failed")
         if os.path.exists(filename):
             os.remove(filename)
 
-    def test_export(self):
-        # TODO: test against proper dict option and reload
+    def test_armor_export(self):
         arm, _ = self.setup(False)
-        self.assertEqual(arm.export(), arm.__dict__)
+        self.assertIsNotNone(arm.export())
+        self.assertIsInstance(arm.export(), dict)
 
-    def test_itemCopy(self):
+        arm, _ = self.setup()
+        self.assertIsNotNone(arm.export())
+        self.assertIsInstance(arm.export(), dict)
+
+    def test_armor_itemCopy(self):
         arm1, _ = self.setup(False)
         arm2, _ = self.setup(False)
         self.assertNotEqual(id(arm1), id(arm2))
@@ -268,3 +267,11 @@ class ArmorTest(unittest.TestCase):
         self.assertNotEqual(id(arm1.back), id(arm2.back))
         self.assertNotEqual(id(arm1.pants), id(arm2.pants))
         self.assertNotEqual(id(arm1.weapon), id(arm2.weapon))
+    
+    def test_armor_outpu_examples(self):
+        arm, _ = self.setup(raw=False)
+        print(f"\n{'Armor Example Output'.center(80, '-')}")
+        print(f"\n__str__ Output:\n{arm}")
+        print(f"\ndetails Output:{arm.details()}")
+        print(f"\nexport Output:\n{arm.export()}")
+        print(f"\n{'Done'.center(80, '-')}")

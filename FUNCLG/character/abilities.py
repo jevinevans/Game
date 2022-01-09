@@ -27,7 +27,9 @@ class Abilities:
         self.name = name
         self.ability_type = ability_type if ability_type in ABILITY_TYPES else "None"
         self.ability_group, effect_type = get_ability_effect_type(self.ability_type)
-        self.effect = effect*effect_type  # TODO: Will become stats, and a specific sub class that will be more focused for armor
+        self.effect = (
+            effect * effect_type
+        )  # TODO: Will become stats, and a specific sub class that will be more focused for armor
         self.description = description
         # TODO: Validation will be done during creation
 
@@ -39,6 +41,7 @@ class Abilities:
         desc += f"\nDescription: {self.description}"
         desc += f"\nType: {self.ability_type} ({self.ability_group})"
         desc += f"\nEffect: {self.effect}"
+        return desc
 
     def export(self) -> Dict[str, Any]:
         return self.__dict__

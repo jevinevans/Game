@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 26			|
-|	Files: 126				|
+|	Files: 127				|
 +==========================================+
 
 ./CodeTests
@@ -153,5 +153,6 @@
 ./runTest.sh
 ./tests
 ./tests/__init__.py
+./tests/test_abilities.py
 ./tests/test_armor.py
 ./tests/test_equipment.py
