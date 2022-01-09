@@ -43,9 +43,8 @@ class Equipment:
         return f"{self.name} [{self.level}]"
 
     def details(self) -> str:
-        titleLen = 2 + len(self.name)
-        desc = f"\n {self.name} \n{''.join(['-' for x in range(titleLen)])}"
-        desc += f"\nLevel:{self.level:3d} | Ability Pts: {self.abilityPoints} "
+        desc = f"\n{self.name}\n{''.join(['-' for x in range(len(self.name))])}"
+        desc += f"\nLevel:{self.level:3d}\nAbility Pts: {self.abilityPoints} "
         desc += "ATK" if self.get_item_type() == "Weapon" else "DEF"
         desc += f"\nType: {self.get_item_description()}"
         desc += f"\nDescription: {self.description}"
