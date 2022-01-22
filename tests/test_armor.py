@@ -15,82 +15,82 @@ from FUNCLG.utils.types import ITEM_TYPES
 
 
 class ArmorTest(unittest.TestCase):
-    def setup(self, raw=True) -> Tuple[Equipment, Dict[str, Equipment]]:
-        armorType = 1
+    def setup(self, raw=True) -> Tuple[Armor, Dict[str, Equipment]]:
+        armor_type = 1
         equips = {}
-        equips["armorType"] = armorType
+        equips["armor_type"] = armor_type
         equips["head"] = Equipment(
             name = "Gold Head",
             description = "Head piece for Armor Test.",
-            armorType = armorType,
-            itemType = 0,
-            weaponType = None,
+            armor_type = armor_type,
+            item_type = 0,
+            weapon_type = None,
             level = randint(0, 100),
-            abilityPoints = randint(0, 500),
+            damage = randint(0, 500),
         )
         equips["chest"] = Equipment(
             name = "Gold Chest",
             description = "Chest piece for Armor Test.",
-            armorType = armorType,
-            itemType = 1,
-            weaponType = None,
+            armor_type = armor_type,
+            item_type = 1,
+            weapon_type = None,
             level = randint(0, 100),
-            abilityPoints = randint(0, 500),
+            damage = randint(0, 500),
         )
         equips["back"] = Equipment(
             name = "Gold Cape",
             description = "Back piece for Armor Test.",
-            armorType = armorType,
-            itemType = 2,
-            weaponType = None,
+            armor_type = armor_type,
+            item_type = 2,
+            weapon_type = None,
             level = randint(0, 100),
-            abilityPoints = randint(0, 500),
+            damage = randint(0, 500),
         )
         equips["pants"] = Equipment(
             name = "Gold pants",
             description = "Pants piece for Amror Test",
-            armorType = armorType,
-            itemType = 3,
-            weaponType = None,
+            armor_type = armor_type,
+            item_type = 3,
+            weapon_type = None,
             level = randint(0, 100),
-            abilityPoints = randint(0, 500),
+            damage = randint(0, 500),
         )
         equips["sword"] = Equipment(
             name = "Gold Sword",
             description = "Sword weapon for Armor Test",
-            armorType = armorType,
-            itemType = 4,
-            weaponType = 0,
+            armor_type = armor_type,
+            item_type = 4,
+            weapon_type = 0,
             level = randint(0, 100),
-            abilityPoints = randint(0, 500),
+            damage = randint(0, 500),
         )
         equips["wand"] = Equipment(
             name = "Gold Wand",
             description = "Wand weapon for Armor Test",
-            armorType = armorType + 1,
-            itemType = 4,
-            weaponType = 1,
+            armor_type = armor_type + 1,
+            item_type = 4,
+            weapon_type = 1,
             level = randint(0, 100),
-            abilityPoints = randint(0, 500),
+            damage = randint(0, 500),
         )
         equips["knife"] = Equipment(
             name = "Gold Knife",
             description = "Knife weapon for Armor Test",
-            armorType = armorType,
-            itemType = 4,
-            weaponType = 2,
+            armor_type = armor_type,
+            item_type = 4,
+            weapon_type = 2,
             level = randint(0, 100),
-            abilityPoints = randint(0, 500),
+            damage = randint(0, 500),
         )
 
         if raw:
             """Returns new Armor and dict of equipments"""
-            return Armor(armorType), equips
+            return Armor(armor_type), equips
         else:
             """Returns full equiped Armor plus other weapon"""
             return (
                 Armor(
-                    armorType = armorType,
+                    armor_type = armor_type,
                     head = equips["head"],
                     chest = equips["chest"],
                     back = equips["back"],
@@ -104,7 +104,7 @@ class ArmorTest(unittest.TestCase):
         # 1 - Testing blank armor initialization
 
         arm, equips = self.setup()
-        self.assertEqual(arm.armorType, equips["armorType"])
+        self.assertEqual(arm.armor_type, equips["armor_type"])
         self.assertIsNone(arm.head, "Armor Equipment field is not none")
         self.assertIsNone(arm.chest, "Armor Equipment field is not none")
         self.assertIsNone(arm.back, "Armor Equipment field is not none")
@@ -115,7 +115,7 @@ class ArmorTest(unittest.TestCase):
         # 2 - Testing creation of full armor initialization
 
         arm, equips = self.setup(False)
-        self.assertEqual(arm.armorType, equips["armorType"])
+        self.assertEqual(arm.armor_type, equips["armor_type"])
         self.assertEqual(arm.head, equips["head"])
         self.assertEqual(arm.chest, equips["chest"])
         self.assertEqual(arm.back, equips["back"])
@@ -187,7 +187,7 @@ class ArmorTest(unittest.TestCase):
     def test_armor_dequip(self):
         # Test 1.a Basic dequip, dequiping with integer, with item equipped
         arms, _ = self.setup(False)
-
+        
         # Will do a full dequip of all items
         for x in range(5):
             self.assertIsNotNone(arms.dequip(x))
@@ -240,10 +240,10 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNotNone(arms.details())
         self.assertIsInstance(arms.details(), str)
 
-    def test_armor_printToFile(self):
+    def test_armor_print_to_file(self):
         # 1. Testing printToFile existance
         arm, _ = self.setup(False)
-        arm.printToFile()
+        arm.print_to_file()
         filename = f"{arm.name}.json"
         self.assertTrue(os.path.exists(filename), "Armor: print_to_file Failed")
         if os.path.exists(filename):
@@ -258,7 +258,7 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNotNone(arm.export())
         self.assertIsInstance(arm.export(), dict)
 
-    def test_armor_itemCopy(self):
+    def test_armor_item_copy(self):
         arm1, _ = self.setup(False)
         arm2, _ = self.setup(False)
         self.assertNotEqual(id(arm1), id(arm2))
@@ -268,7 +268,7 @@ class ArmorTest(unittest.TestCase):
         self.assertNotEqual(id(arm1.pants), id(arm2.pants))
         self.assertNotEqual(id(arm1.weapon), id(arm2.weapon))
     
-    def test_armor_outpu_examples(self):
+    def test_armor_output_examples(self):
         arm, _ = self.setup(raw=False)
         print(f"\n{'Armor Example Output'.center(80, '-')}")
         print(f"\n__str__ Output:\n{arm}")

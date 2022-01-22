@@ -20,7 +20,7 @@ class Armor:
 
     def __init__(
         self,
-        armorType: int = 0,
+        armor_type: int = 0,
         head: Equipment = None,
         chest: Equipment = None,
         back: Equipment = None,
@@ -28,14 +28,16 @@ class Armor:
         weapon: Equipment = None,
     ) -> None:
         self.name = "Armor_" + str(Armor._id)
-        self.armorType = armorType if armorType <= len(ARMOR_TYPES) and armorType >= 0 else 0
+        self.armor_type = armor_type if armor_type <= len(ARMOR_TYPES) and armor_type >= 0 else 0
         # self.stats = #Stat Object
         # Requires that the equipment is the same armor time
-        self.head = head if head is not None and head.armorType == self.armorType else None
-        self.chest = chest if chest is not None and chest.armorType == self.armorType else None
-        self.back = back if back is not None and back.armorType == self.armorType else None
-        self.pants = pants if pants is not None and pants.armorType == self.armorType else None
-        self.weapon = weapon if weapon is not None and weapon.armorType == self.armorType else None
+        self.head = head if head is not None and head.armor_type == self.armor_type else None
+        self.chest = chest if chest is not None and chest.armor_type == self.armor_type else None
+        self.back = back if back is not None and back.armor_type == self.armor_type else None
+        self.pants = pants if pants is not None and pants.armor_type == self.armor_type else None
+        self.weapon = (
+            weapon if weapon is not None and weapon.armor_type == self.armor_type else None
+        )
 
         # Call stats update function self.???
         Armor._id += 1
@@ -52,7 +54,7 @@ class Armor:
 
     def equip(self, item: Equipment) -> Union[Equipment, None]:
         temp = None
-        if item is not None and item.armorType == self.armorType:
+        if item is not None and item.armor_type == self.armor_type:
             if item.get_item_type() == "Head":
                 self.head, temp = item, self.head
             elif item.get_item_type() == "Chest":
@@ -120,13 +122,13 @@ class Armor:
         desc += f"\nWeapon: {self.weapon.__str__()}\n"
         return desc
 
-    def getEquipment(self) -> List[Union[Equipment, None]]:
+    def get_equipment(self) -> List[Union[Equipment, None]]:
         """Returns the equipped armor"""
         return [self.head, self.chest, self.back, self.pants, self.weapon]
 
-    def printToFile(self) -> None:
-        with open(self.name + ".json", "w") as oFile:
-            json.dump(self.export(), oFile)
+    def print_to_file(self) -> None:
+        with open(self.name + ".json", "w", encoding="utf-8") as out_file:
+            json.dump(self.export(), out_file)
 
     def export(self) -> Dict:
         exporter = self.__dict__
