@@ -14,7 +14,7 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
 # Weapon Types: 0 - Sword, 1 - Wand, 2 - Knife, -1 - (Not a Weapon)
 WEAPON_TYPES = ["Sword", "Wand", "Knife", ""]
 
-ABILITY_TYPES = {
+CLASS_TYPES = {
     "Magic": ("Damage", -1),
     "Physical": ("Damage", -1),
     "Healing": ("Boost", 1),
@@ -25,7 +25,7 @@ ABILITY_TYPES = {
 
 def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
     "Returns the effect type of the provided ability"
-    return ABILITY_TYPES[a_type]
+    return CLASS_TYPES[a_type]
 
 
 def get_item_type(item_type: int) -> str:

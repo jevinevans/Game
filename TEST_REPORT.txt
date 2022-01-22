@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sat Jan 22 14:20:05 CST 2022 
+Date: Sat Jan 22 15:11:50 CST 2022 
 
 ---UNITTEST---
 
@@ -8,7 +8,7 @@ test_abilities_details (tests.test_abilities.AbilityTest) ... ok
 test_abilities_export (tests.test_abilities.AbilityTest) ... ok
 test_abilities_init (tests.test_abilities.AbilityTest) ... ok
 test_abilities_output_examples (tests.test_abilities.AbilityTest) ... ok
-test_abilities_print_to_file (tests.test_abilities.AbilityTest) ... 2022-01-22 14:20:06.984 | INFO     | FUNCLG.character.abilities:print_to_file:50 - Saving Fireball to Fireball.json
+test_abilities_print_to_file (tests.test_abilities.AbilityTest) ... 2022-01-22 15:11:52.420 | INFO     | FUNCLG.character.abilities:print_to_file:50 - Saving Ability: Fireball
 ok
 test_abilities_str (tests.test_abilities.AbilityTest) ... ok
 test_armor_dequip (tests.test_armor.ArmorTest) ... ok
@@ -28,7 +28,7 @@ test_equipment_print_to_file (tests.test_equipment.EquipmentTest) ... ok
 test_equipment_str (tests.test_equipment.EquipmentTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 21 tests in 0.479s
+Ran 21 tests in 0.888s
 
 OK
 
@@ -39,17 +39,18 @@ OK
 ./FUNCLG/character/armor.py:140:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:143:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:76:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:36:35: W291 trailing whitespace
 ./FUNCLG/character/equipment.py:62:11: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:78:7: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:10:1: F401 '.abilities.Abilities' imported but unused
-./FUNCLG/character/roles.py:7:1: F401 'json' imported but unused
-./FUNCLG/character/roles.py:8:1: F401 'typing.Dict' imported but unused
+./FUNCLG/character/roles.py:34:11: T101 fixme found (TODO)
+./FUNCLG/character/roles.py:39:7: T101 fixme found (TODO)
+./FUNCLG/character/roles.py:42:7: T101 fixme found (TODO)
+./FUNCLG/character/roles.py:45:7: T101 fixme found (TODO)
+./FUNCLG/character/roles.py:48:7: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:43:3: T101 fixme found (TODO)
-12
+13
 -----ISORT-----
 -----BLACK-----
-reformatted FUNCLG/character/equipment.py
+reformatted FUNCLG/character/roles.py
 All done! ✨ 🍰 ✨
 1 file reformatted, 9 files left unchanged.
 -----BANDIT-----
@@ -80,14 +81,42 @@ FUNCLG/character/equipment.py:62:9: W0511: TODO: May have to change function whe
 FUNCLG/character/equipment.py:78:5: W0511: TODO: Defined method (fixme)
 FUNCLG/character/equipment.py:20:4: R0913: Too many arguments (8/5) (too-many-arguments)
 ************* Module FUNCLG.character.roles
-FUNCLG/character/roles.py:15:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-FUNCLG/character/roles.py:7:0: W0611: Unused import json (unused-import)
-FUNCLG/character/roles.py:8:0: W0611: Unused Dict imported from typing (unused-import)
-FUNCLG/character/roles.py:10:0: W0611: Unused Abilities imported from abilities (unused-import)
+FUNCLG/character/roles.py:34:9: W0511: TODO: self.stats (fixme)
+FUNCLG/character/roles.py:39:5: W0511: TODO: Complete add_power function (fixme)
+FUNCLG/character/roles.py:43:5: W0511: TODO: Complete get_powers function (fixme)
+FUNCLG/character/roles.py:47:5: W0511: TODO: Complete use_power function (fixme)
+FUNCLG/character/roles.py:51:5: W0511: TODO: Complete remove_power function (fixme)
+FUNCLG/character/roles.py:21:4: R0913: Too many arguments (6/5) (too-many-arguments)
+FUNCLG/character/roles.py:40:4: E0211: Method has no argument (no-method-argument)
+FUNCLG/character/roles.py:44:4: E0211: Method has no argument (no-method-argument)
+FUNCLG/character/roles.py:48:4: E0211: Method has no argument (no-method-argument)
+FUNCLG/character/roles.py:52:4: E0211: Method has no argument (no-method-argument)
 ************* Module FUNCLG.utils.types
 FUNCLG/utils/types.py:43:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.69/10 (previous run: 8.71/10, -0.02)
+Your code has been rated at 7.83/10 (previous run: 8.97/10, -1.14)
 
 -----PYRIGHT-----
+Traceback (most recent call last):
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>
+    sys.exit(entrypoint())
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 46, in entrypoint
+    sys.exit(main(sys.argv[1:]))
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 20, in main
+    return run(*args, **kwargs).returncode
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 42, in run
+    return node.run('npx', *pre_args, f'pyright@{version}', *args, **kwargs)
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/node.py", line 112, in run
+    return subprocess.run(node_args, env=env, **kwargs)
+  File "/usr/lib/python3.8/subprocess.py", line 495, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/lib/python3.8/subprocess.py", line 1020, in communicate
+    self.wait()
+  File "/usr/lib/python3.8/subprocess.py", line 1083, in wait
+    return self._wait(timeout=timeout)
+  File "/usr/lib/python3.8/subprocess.py", line 1806, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/usr/lib/python3.8/subprocess.py", line 1764, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt

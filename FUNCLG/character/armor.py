@@ -141,5 +141,5 @@ class Armor:
     #  @staticmethod
     #  def import()
     # TODO: Need to create a define stats for armor
-    # def getStats(self):
+    # def get_stats(self):
     # Will be a sum of the equipment stats, may or may not display the name and stats

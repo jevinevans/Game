@@ -13,11 +13,11 @@ from typing import Dict
 class AbilityTest(unittest.TestCase):
     def setup(self) -> Dict[str, Abilities]:
         test_abilities = {}
-        test_abilities["Magic"] = Abilities(name = "Fireball", ability_type="Magic", effect=randint(1, 50), description="A blazing ball of fire")
-        test_abilities["Physical"] = Abilities(name = "Slash", ability_type="Physical", effect=randint(1, 50), description="A slashing strike with a sharp weapon")
-        test_abilities["Repair"] = Abilities(name = "Armor Fix", ability_type="Repair", effect=randint(1, 50), description="Repairs the armor of the user")
-        test_abilities["Healing"] = Abilities(name = "Holy Light", ability_type="Healing", effect=randint(1, 50), description="Heals the user")
-        test_abilities["Error"] = Abilities(name = "Error Test", ability_type="error", effect=randint(1, 50), description="Testing if this will default to None") 
+        test_abilities["Magic"] = Abilities(name = "Fireball", class_type="Magic", effect=randint(1, 50), description="A blazing ball of fire")
+        test_abilities["Physical"] = Abilities(name = "Slash", class_type="Physical", effect=randint(1, 50), description="A slashing strike with a sharp weapon")
+        test_abilities["Repair"] = Abilities(name = "Armor Fix", class_type="Repair", effect=randint(1, 50), description="Repairs the armor of the user")
+        test_abilities["Healing"] = Abilities(name = "Holy Light", class_type="Healing", effect=randint(1, 50), description="Heals the user")
+        test_abilities["Error"] = Abilities(name = "Error Test", class_type="error", effect=randint(1, 50), description="Testing if this will default to None") 
 
         return test_abilities
     
@@ -26,7 +26,7 @@ class AbilityTest(unittest.TestCase):
         valid_neg, valid_pos, invalid = test_abilities["Magic"], test_abilities["Healing"], test_abilities["Error"]
         # Test Valid Negative Effect
         self.assertEqual(valid_neg.name, "Fireball")
-        self.assertEqual(valid_neg.ability_type, "Magic")
+        self.assertEqual(valid_neg.class_type, "Magic")
         self.assertEqual(valid_neg.ability_group, "Damage")
         self.assertIsInstance(valid_neg.effect, int)
         self.assertLessEqual(valid_neg.effect, -1)
@@ -36,7 +36,7 @@ class AbilityTest(unittest.TestCase):
         self.assertGreaterEqual(valid_pos.effect, 1)
 
         # Test Invalid
-        self.assertEqual(invalid.ability_type, "None")
+        self.assertEqual(invalid.class_type, "None")
         self.assertEqual(invalid.ability_group, "None")
         self.assertEqual(invalid.effect, 0)
 
