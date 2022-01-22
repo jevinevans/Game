@@ -19,4 +19,4 @@ flake8 --ignore=$IGNS --count ./FUNCLG | sort >> $REPORT
 poetry run python Scan_Directories.py
 
 echo -e "\n---Code Quality Report---\n"
-./codeQuality.sh ./FUNCLG >> $REPORT
+./codeQuality.sh ./FUNCLG &>> $REPORT

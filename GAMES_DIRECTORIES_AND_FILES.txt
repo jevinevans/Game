@@ -77,13 +77,13 @@
 ./FUNCLG/character/abilities.py
 ./FUNCLG/character/armor.py
 ./FUNCLG/character/equipment.py
+./FUNCLG/character/roles.py
 ./FUNCLG/main.py
 ./FUNCLG/utils
 ./FUNCLG/utils/__init__.py
 ./FUNCLG/utils/types.py
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./Includes
-./Includes/Abilities.h
 ./Includes/Character.h
 ./Includes/FUNCLG.cpp
 ./Includes/Functions.cpp
