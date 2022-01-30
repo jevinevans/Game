@@ -14,11 +14,14 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
 # Weapon Types: 0 - Sword, 1 - Wand, 2 - Knife, -1 - (Not a Weapon)
 WEAPON_TYPES = ["Sword", "Wand", "Knife", ""]
 
+# TODO: Rework
 CLASS_TYPES = {
     "Magic": ("Damage", -1),
     "Physical": ("Damage", -1),
     "Healing": ("Boost", 1),
     "Repair": ("Boost", 1),
+    "Buff": ("Boost", 1),
+    "Curse": ("Damage", -1),
     "None": ("None", 0),
 }
 

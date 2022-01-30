@@ -50,3 +50,6 @@ class Abilities:
         logger.info(f"Saving Ability: {self.name}")
         with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
             json.dump(self.export(), out_file)
+
+    # TODO: Define what happens when using a power. Damage and effect on which stat
+    # def use()
