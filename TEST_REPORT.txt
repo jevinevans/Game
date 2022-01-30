@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Jan 30 15:00:25 CST 2022 
+Date: Sun Jan 30 15:16:43 CST 2022 
 
 ---UNITTEST---
 
@@ -8,7 +8,7 @@ test_abilities_details (tests.test_abilities.AbilityTest) ... ok
 test_abilities_export (tests.test_abilities.AbilityTest) ... ok
 test_abilities_init (tests.test_abilities.AbilityTest) ... ok
 test_abilities_output_examples (tests.test_abilities.AbilityTest) ... ok
-test_abilities_print_to_file (tests.test_abilities.AbilityTest) ... 2022-01-30 15:00:26.849 | INFO     | FUNCLG.character.abilities:print_to_file:50 - Saving Ability: Fireball
+test_abilities_print_to_file (tests.test_abilities.AbilityTest) ... 2022-01-30 15:16:45.152 | INFO     | FUNCLG.character.abilities:print_to_file:50 - Saving Ability: Fireball
 ok
 test_abilities_str (tests.test_abilities.AbilityTest) ... ok
 test_armor_dequip (tests.test_armor.ArmorTest) ... ok
@@ -28,7 +28,7 @@ test_equipment_print_to_file (tests.test_equipment.EquipmentTest) ... ok
 test_equipment_str (tests.test_equipment.EquipmentTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 21 tests in 0.580s
+Ran 21 tests in 0.924s
 
 OK
 
@@ -44,13 +44,11 @@ OK
 ./FUNCLG/character/armor.py:77:7: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:62:11: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:78:7: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:30:7: E261 at least two spaces before inline comment
-./FUNCLG/character/roles.py:30:8: E262 inline comment should start with '# '
 ./FUNCLG/character/roles.py:40:11: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:58:7: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:46:3: T101 fixme found (TODO)
-16
+14
 
 ---Code Quality Report---
 
@@ -60,9 +58,8 @@ OK
 
 -----BLACK-----
 
-reformatted FUNCLG/character/roles.py
 All done! ✨ 🍰 ✨
-1 file reformatted, 9 files left unchanged.
+10 files left unchanged.
 
 -----BANDIT-----
 
@@ -116,4 +113,4 @@ Assuming Python platform Linux
 Searching for source files
 Found 10 source files
 0 errors, 0 warnings, 0 informations 
-Completed in 1.41sec
+Completed in 1.487sec

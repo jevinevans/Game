@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 26			|
-|	Files: 127				|
+|	Files: 128				|
 +==========================================+
 
 ./CodeTests
@@ -156,3 +156,4 @@
 ./tests/test_abilities.py
 ./tests/test_armor.py
 ./tests/test_equipment.py
+./tests/test_roles.py

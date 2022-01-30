@@ -16,6 +16,7 @@ class Armor:
     Creates an armor object for a character
     """
 
+    # TODO: Remove use from class
     _id = 0
 
     def __init__(

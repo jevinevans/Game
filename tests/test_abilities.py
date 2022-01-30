@@ -7,23 +7,54 @@ Description: The is a unit test for the abilties class.
 import os
 import unittest
 from random import randint
-from FUNCLG.character.abilities import Abilities
 from typing import Dict
+
+from FUNCLG.character.abilities import Abilities
+
 
 class AbilityTest(unittest.TestCase):
     def setup(self) -> Dict[str, Abilities]:
         test_abilities = {}
-        test_abilities["Magic"] = Abilities(name = "Fireball", class_type="Magic", effect=randint(1, 50), description="A blazing ball of fire")
-        test_abilities["Physical"] = Abilities(name = "Slash", class_type="Physical", effect=randint(1, 50), description="A slashing strike with a sharp weapon")
-        test_abilities["Repair"] = Abilities(name = "Armor Fix", class_type="Repair", effect=randint(1, 50), description="Repairs the armor of the user")
-        test_abilities["Healing"] = Abilities(name = "Holy Light", class_type="Healing", effect=randint(1, 50), description="Heals the user")
-        test_abilities["Error"] = Abilities(name = "Error Test", class_type="error", effect=randint(1, 50), description="Testing if this will default to None") 
+        test_abilities["Magic"] = Abilities(
+            name="Fireball",
+            class_type="Magic",
+            effect=randint(1, 50),
+            description="A blazing ball of fire",
+        )
+        test_abilities["Physical"] = Abilities(
+            name="Slash",
+            class_type="Physical",
+            effect=randint(1, 50),
+            description="A slashing strike with a sharp weapon",
+        )
+        test_abilities["Repair"] = Abilities(
+            name="Armor Fix",
+            class_type="Repair",
+            effect=randint(1, 50),
+            description="Repairs the armor of the user",
+        )
+        test_abilities["Healing"] = Abilities(
+            name="Holy Light",
+            class_type="Healing",
+            effect=randint(1, 50),
+            description="Heals the user",
+        )
+        test_abilities["Error"] = Abilities(
+            name="Error Test",
+            class_type="error",
+            effect=randint(1, 50),
+            description="Testing if this will default to None",
+        )
 
         return test_abilities
-    
+
     def test_abilities_init(self):
         test_abilities = self.setup()
-        valid_neg, valid_pos, invalid = test_abilities["Magic"], test_abilities["Healing"], test_abilities["Error"]
+        valid_neg, valid_pos, invalid = (
+            test_abilities["Magic"],
+            test_abilities["Healing"],
+            test_abilities["Error"],
+        )
         # Test Valid Negative Effect
         self.assertEqual(valid_neg.name, "Fireball")
         self.assertEqual(valid_neg.class_type, "Magic")
@@ -50,7 +81,7 @@ class AbilityTest(unittest.TestCase):
             self.assertIsNotNone(ability.details())
             self.assertIsInstance(ability.details(), str)
 
-    def test_abilities_export(self):               
+    def test_abilities_export(self):
         for _, ability in self.setup().items():
             self.assertIsNotNone(ability.export())
             self.assertIsInstance(ability.export(), dict)
@@ -62,7 +93,7 @@ class AbilityTest(unittest.TestCase):
         self.assertTrue(os.path.exists(filename), "Abilities: print_to_file Failed")
         if os.path.exists(filename):
             os.remove(filename)
-    
+
     def test_abilities_output_examples(self):
         damage_ability = self.setup()["Magic"]
         print(f"\n{'Abilites Example Output'.center(80, '-')}")
