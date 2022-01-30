@@ -1,5 +1,5 @@
 echo "-----ISORT-----"
-poetry run isort --profile=black $1
+poetry run isort $1
 echo "-----BLACK-----"
 poetry run black $1
 echo "-----BANDIT-----"
