@@ -29,8 +29,9 @@ class Armor:
     ) -> None:
         self.name = "Armor_" + str(Armor._id)
         self.armor_type = armor_type if armor_type <= len(ARMOR_TYPES) and armor_type >= 0 else 0
-        # self.stats = #Stat Object
+        # self.stats = #TODO: Stat Object
         # Requires that the equipment is the same armor time
+        # TODO: Create a validation method
         self.head = head if head is not None and head.armor_type == self.armor_type else None
         self.chest = chest if chest is not None and chest.armor_type == self.armor_type else None
         self.back = back if back is not None and back.armor_type == self.armor_type else None
@@ -79,35 +80,35 @@ class Armor:
         Removes the currently equiped item in the current position and wil return an item if there is something already equiped.
         """
         temp = None
-        itemType = ""
+        item_type = ""
         if isinstance(item, int):
             # If the user sends the item type value
             if item < 0 or item >= len(ITEM_TYPES):
                 print(f"Failed to Dequip: {item}")
                 return
-            itemType = ITEM_TYPES[item]
+            item_type = ITEM_TYPES[item]
         elif isinstance(item, str):
             # If the user sends the name of the value
-            itemType = item.capitalize()
-            if itemType not in ITEM_TYPES:
+            item_type = item.capitalize()
+            if item_type not in ITEM_TYPES:
                 print(f"Failed to Dequip: {item}")
                 return
         # elif isinstance(item, Equipment):
         #     # Future for if the user selects the item to unequip may send item may remove all together
-        #     itemType = item.getItemType()
+        #     item_type = item.getItem_type()
         else:
             print(f"Failed to Dequip: {item}")
             return
 
-        if itemType == "Head":
+        if item_type == "Head":
             temp, self.head = self.head, None
-        elif itemType == "Chest":
+        elif item_type == "Chest":
             temp, self.chest = self.chest, None
-        elif itemType == "Back":
+        elif item_type == "Back":
             temp, self.back = self.back, None
-        elif itemType == "Pants":
+        elif item_type == "Pants":
             temp, self.pants = self.pants, None
-        elif itemType == "Weapon":
+        elif item_type == "Weapon":
             temp, self.weapon = self.weapon, None
 
         print(f"Dequipped: {temp}")
@@ -132,9 +133,9 @@ class Armor:
 
     def export(self) -> Dict:
         exporter = self.__dict__
-        for x, y in exporter.items():
-            if isinstance(y, Equipment):
-                exporter[x] = y.export()
+        for key, value in exporter.items():
+            if isinstance(value, Equipment):
+                exporter[key] = value.export()
         return exporter
 
     # TODO: Need to create an import function that is static to the method

@@ -18,5 +18,22 @@ flake8 --ignore=$IGNS --count ./FUNCLG | sort >> $REPORT
 
 poetry run python Scan_Directories.py
 
-echo -e "\n---Code Quality Report---\n"
-./codeQuality.sh ./FUNCLG &>> $REPORT
+echo -e "\n---Code Quality Report---\n" >> $REPORT
+echo -e "\n-----ISORT-----\n" >> $REPORT
+echo -e "\n-----ISORT-----\n"
+poetry run isort ./FUNCLG &>> $REPORT
+echo -e "\n-----BLACK-----\n" >> $REPORT
+echo -e "\n-----BLACK-----\n"
+poetry run black ./FUNCLG &>> $REPORT
+echo -e "\n-----BANDIT-----\n" >> $REPORT
+echo -e "\n-----BANDIT-----\n"
+poetry run bandit -rq -ii -ll ./FUNCLG &>> $REPORT
+echo -e "\n-----XENON-----\n" >> $REPORT
+echo -e "\n-----XENON-----\n"
+poetry run xenon --max-absolute B ./FUNCLG &>> $REPORT
+echo -e "\n-----PYLINT-----\n" >> $REPORT
+echo -e "\n-----PYLINT-----\n"
+poetry run pylint ./FUNCLG &>> $REPORT
+echo -e "\n-----PYRIGHT-----\n" >> $REPORT
+echo -e "\n-----PYRIGHT-----\n"
+poetry run pyright ./FUNCLG &>> $REPORT

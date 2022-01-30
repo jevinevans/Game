@@ -27,7 +27,7 @@ class Roles:
         armor_type: int,
         class_types: Union[List, None],
         abilities: Union[List, None],
-    ):
+    ):  # pylint: disable=too-many-arguments
         self.name = name
         self.description = description
         self.armor_type = armor_type
@@ -48,9 +48,8 @@ class Roles:
                 self.abilities.append(ability)
                 logger.success(f"Added {ability.name} to {self.name}")
                 return 0
-            else:
-                logger.warning("No open slot for an ability")
-                return 5
+            logger.warning("No open slot for an ability")
+            return 5
         logger.error(
             f"{ability.name}({ability.class_type}) is not compatible with {self.name}({self.class_types})"
         )
@@ -82,9 +81,9 @@ class Roles:
 
     def export(self) -> Dict[str, Any]:
         exporter = self.__dict__
-        for key, index in exporter.items():
-            if isinstance(index, Abilities):
-                exporter[key] = index.export()
+        for key, value in exporter.items():
+            if isinstance(value, Abilities):
+                exporter[key] = value.export()
         return exporter
 
     def print_to_file(self) -> None:
