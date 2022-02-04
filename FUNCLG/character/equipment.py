@@ -46,6 +46,7 @@ class Equipment:
         """
         return f"{self.name} [{self.level}]"
 
+    # TODO: add indention factor
     def details(self) -> str:
         desc = f"\n{self.name}\n{''.join(['-' for x in range(len(self.name))])}"
         desc += f"\nLevel:{self.level:3d}\nAbility Pts: {self.damage} "

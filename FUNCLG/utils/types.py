@@ -21,7 +21,7 @@ CLASS_TYPES = {
     "Healing": ("Boost", 1),
     "Repair": ("Boost", 1),
     "Buff": ("Boost", 1),
-    "Curse": ("Damage", -1),
+    "Debuff": ("Damage", -1),
     "None": ("None", 0),
 }
 

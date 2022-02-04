@@ -36,6 +36,7 @@ class Abilities:
     def __str__(self):
         return f"{self.name} ({self.class_type}): {self.effect}"
 
+    # TODO: add indention factor
     def details(self):
         desc = f"\n{self.name}\n{''.join(['-' for x in range(len(self.name))])}"
         desc += f"\nDescription: {self.description}"

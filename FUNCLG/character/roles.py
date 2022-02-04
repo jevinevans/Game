@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Union
 
 from loguru import logger
 
-from ..utils.types import CLASS_TYPES
+from ..utils.types import CLASS_TYPES, get_armor_type
 from .abilities import Abilities
 
 
@@ -26,7 +26,7 @@ class Roles:
         description: str,
         armor_type: int,
         class_types: Union[List, None],
-        abilities: Union[List, None],
+        abilities: Union[List, None] = None,
     ):  # pylint: disable=too-many-arguments
         self.name = name
         self.description = description
@@ -40,50 +40,54 @@ class Roles:
         # TODO: self.stats
 
     def __str__(self):
-        return f"Class: {self.name} | Class Type: {self.class_types} | Armor Type: {self.armor_type} | Abilities: {len(self.abilities)}"
+        return f"Class: {self.name} | Class Type: {self.class_types} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
 
+    # TODO: add check/validation for duplicates
     def add_power(self, ability: Abilities) -> int:
         if ability.class_type in self.class_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
                 self.abilities.append(ability)
                 logger.success(f"Added {ability.name} to {self.name}")
                 return 0
-            logger.warning("No open slot for an ability")
-            return 5
+            logger.warning("Max abilities reached!")
+            return 3
         logger.error(
             f"{ability.name}({ability.class_type}) is not compatible with {self.name}({self.class_types})"
         )
         return 1
 
-    # TODO: Complete use_power function
-    # I think I am going to wait for stats integration because of how each power can effect the stats
-    # def use_power(self, index:int):
-
-    def remove_power(self, index: int):
-        # Validation will be done at a higher level
-        if self.abilities and index < len(self.abilities):
-            old_ability = self.abilities.pop(index)
-        del old_ability
-
-    def get_powers(self):
-        if len(self.abilities):
-            for ability in self.abilities:
-                print(ability)
+    def get_power(self, index: int):
+        """Returns the wanted power"""
+        if self.abilities and index < len(self.abilities) and index >= -1:
+            return self.abilities[index]
         else:
-            print("This role has no abilities")
+            return None
 
+    def remove_power(self, index: int) -> bool:
+        # Validation will be done at a higher level
+        if self.abilities and index < len(self.abilities) and index >= -1:
+            old_ability = self.abilities.pop(index)
+            del old_ability
+            return True
+        return False
+
+    # TODO add indention factor
     def details(self):
         desc = f"\n Class: {self.name} \n{''.join(['-' for x in range(len(self.name)+9)])}"
-        desc += f"\nArmor Type: {self.armor_type}\nDescription: {self.description}\nAbilities:\n"
+        desc += f"\nArmor Type: {get_armor_type(self.armor_type)}\nDescription: {self.description}\n\nAbilities:\n"
         for ability in self.abilities:
+            desc += "\t"
             desc += ability.details()
+            desc += "\n"
         return desc
 
     def export(self) -> Dict[str, Any]:
         exporter = self.__dict__
         for key, value in exporter.items():
-            if isinstance(value, Abilities):
-                exporter[key] = value.export()
+            if key == "abilities" and len(value) > 0:
+                for index, ability in enumerate(value):
+                    if isinstance(ability, Abilities):
+                        exporter[key][index] = ability.export()
         return exporter
 
     def print_to_file(self) -> None:

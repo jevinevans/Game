@@ -115,6 +115,7 @@ class Armor:
         print(f"Dequipped: {temp}")
         return temp
 
+    # TODO: Add indention factor
     def details(self) -> str:
         desc = f"\n Armor \n{''.join(['-' for x in range(7)])}"
         desc += f"\nHead: {self.head.__str__()}"
