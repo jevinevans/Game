@@ -101,3 +101,22 @@ class AbilityTest(unittest.TestCase):
         print(f"\ndetails Output:{damage_ability.details()}")
         print(f"\nexport Output:\n{damage_ability.export()}")
         print(f"\n{'Done'.center(80, '-')}")
+
+    def test_abilities_copy(self):
+        abilities = self.setup()
+
+        repair_1 = abilities["Repair"]
+        repair_2 = repair_1.copy()
+
+        # Test object difference
+        self.assertNotEqual(repair_1, repair_2)
+        self.assertNotEqual(id(repair_1), id(repair_2))
+        
+        # Test Information is the same
+        self.assertEqual(repair_1.name, repair_2.name)
+        self.assertEqual(repair_1.class_type, repair_2.class_type)
+        self.assertEqual(repair_1.ability_group, repair_2.ability_group)
+        self.assertEqual(repair_1.effect, repair_2.effect)
+        self.assertEqual(repair_1.description, repair_2.description)
+
+        
