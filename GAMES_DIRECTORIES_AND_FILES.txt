@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 26			|
-|	Files: 128				|
+|	Files: 127				|
 +==========================================+
 
 ./CodeTests
@@ -88,7 +88,6 @@
 ./Includes/FUNCLG.cpp
 ./Includes/Functions.cpp
 ./Includes/Functions.h
-./Includes/Roles.h
 ./Includes/Stats.h
 ./Logs
 ./Logs/2018

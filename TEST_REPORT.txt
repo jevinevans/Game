@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Jan 30 15:16:43 CST 2022 
+Date: Thu Feb  3 23:04:56 CST 2022 
 
 ---UNITTEST---
 
@@ -8,7 +8,7 @@ test_abilities_details (tests.test_abilities.AbilityTest) ... ok
 test_abilities_export (tests.test_abilities.AbilityTest) ... ok
 test_abilities_init (tests.test_abilities.AbilityTest) ... ok
 test_abilities_output_examples (tests.test_abilities.AbilityTest) ... ok
-test_abilities_print_to_file (tests.test_abilities.AbilityTest) ... 2022-01-30 15:16:45.152 | INFO     | FUNCLG.character.abilities:print_to_file:50 - Saving Ability: Fireball
+test_abilities_print_to_file (tests.test_abilities.AbilityTest) ... 2022-02-03 23:04:57.751 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
 ok
 test_abilities_str (tests.test_abilities.AbilityTest) ... ok
 test_armor_dequip (tests.test_armor.ArmorTest) ... ok
@@ -26,29 +26,62 @@ test_equipment_init (tests.test_equipment.EquipmentTest) ... ok
 test_equipment_output_examples (tests.test_equipment.EquipmentTest) ... ok
 test_equipment_print_to_file (tests.test_equipment.EquipmentTest) ... ok
 test_equipment_str (tests.test_equipment.EquipmentTest) ... ok
+test_roles_add_power (tests.test_roles.RolesTest) ... 2022-02-03 23:04:58.239 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
+2022-02-03 23:04:58.240 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
+2022-02-03 23:04:58.241 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
+2022-02-03 23:04:58.241 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-02-03 23:04:58.242 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
+ok
+test_roles_details (tests.test_roles.RolesTest) ... ok
+test_roles_export (tests.test_roles.RolesTest) ... ok
+test_roles_get_power (tests.test_roles.RolesTest) ... ERROR
+test_roles_init (tests.test_roles.RolesTest) ... ok
+test_roles_output_examples (tests.test_roles.RolesTest) ... ok
+test_roles_print_to_file (tests.test_roles.RolesTest) ... 2022-02-03 23:04:58.577 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Warrior
+2022-02-03 23:04:58.582 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Rouge
+2022-02-03 23:04:58.586 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Mage
+ok
+test_roles_remove_power (tests.test_roles.RolesTest) ... ok
+test_roles_str (tests.test_roles.RolesTest) ... ok
+
+======================================================================
+ERROR: test_roles_get_power (tests.test_roles.RolesTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_roles.py", line 139, in test_roles_get_power
+    self.assertIsNone(warrior.get_power(1000))
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/roles.py", line 62, in get_power
+    return self.abilities[index]
+IndexError: list index out of range
 
 ----------------------------------------------------------------------
-Ran 21 tests in 0.924s
+Ran 30 tests in 0.916s
 
-OK
+FAILED (errors=1)
 
 ---Flake 8----
 
 ./FUNCLG/character/abilities.py:32:14: T101 fixme found (TODO)
 ./FUNCLG/character/abilities.py:34:11: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:54:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:141:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:144:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:32:25: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:34:11: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:77:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:62:11: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:78:7: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:39:7: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:55:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:118:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:143:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:146:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:19:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:33:25: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:35:11: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:78:7: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:49:7: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:63:11: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:79:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:40:11: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:58:7: T101 fixme found (TODO)
+./FUNCLG/character/roles.py:45:7: T101 fixme found (TODO)
+./FUNCLG/character/roles.py:68:13: F841 local variable 'old_ability' is assigned to but never used
+./FUNCLG/character/roles.py:73:7: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:46:3: T101 fixme found (TODO)
-14
+20
 
 ---Code Quality Report---
 
@@ -66,8 +99,8 @@ All done! ✨ 🍰 ✨
 
 -----XENON-----
 
-ERROR:xenon:block "FUNCLG/character/armor.py:21 __init__" has a rank of C
-ERROR:xenon:block "FUNCLG/character/armor.py:78 dequip" has a rank of C
+ERROR:xenon:block "FUNCLG/character/armor.py:22 __init__" has a rank of C
+ERROR:xenon:block "FUNCLG/character/armor.py:79 dequip" has a rank of C
 
 -----PYLINT-----
 
@@ -76,30 +109,35 @@ FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_cas
 ************* Module FUNCLG.character.abilities
 FUNCLG/character/abilities.py:32:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 FUNCLG/character/abilities.py:34:9: W0511: TODO: Validation will be done during creation (fixme)
-FUNCLG/character/abilities.py:54:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
+FUNCLG/character/abilities.py:39:5: W0511: TODO: add indention factor (fixme)
+FUNCLG/character/abilities.py:55:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
 ************* Module FUNCLG.character.armor
-FUNCLG/character/armor.py:32:9: W0511: self.stats = #TODO: Stat Object (fixme)
-FUNCLG/character/armor.py:34:9: W0511: TODO: Create a validation method (fixme)
-FUNCLG/character/armor.py:77:5: W0511: TODO: Consider return a status and the item, for faster check (fixme)
-FUNCLG/character/armor.py:141:5: W0511: TODO: Need to create an import function that is static to the method (fixme)
-FUNCLG/character/armor.py:144:5: W0511: TODO: Need to create a define stats for armor (fixme)
-FUNCLG/character/armor.py:21:4: R0913: Too many arguments (7/5) (too-many-arguments)
-FUNCLG/character/armor.py:31:40: R1716: Simplify chained comparison between the operands (chained-comparison)
-FUNCLG/character/armor.py:56:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-FUNCLG/character/armor.py:78:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+FUNCLG/character/armor.py:19:5: W0511: TODO: Remove use from class (fixme)
+FUNCLG/character/armor.py:33:9: W0511: self.stats = #TODO: Stat Object (fixme)
+FUNCLG/character/armor.py:35:9: W0511: TODO: Create a validation method (fixme)
+FUNCLG/character/armor.py:78:5: W0511: TODO: Consider return a status and the item, for faster check (fixme)
+FUNCLG/character/armor.py:118:5: W0511: TODO: Add indention factor (fixme)
+FUNCLG/character/armor.py:143:5: W0511: TODO: Need to create an import function that is static to the method (fixme)
+FUNCLG/character/armor.py:146:5: W0511: TODO: Need to create a define stats for armor (fixme)
+FUNCLG/character/armor.py:22:4: R0913: Too many arguments (7/5) (too-many-arguments)
+FUNCLG/character/armor.py:32:40: R1716: Simplify chained comparison between the operands (chained-comparison)
+FUNCLG/character/armor.py:57:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+FUNCLG/character/armor.py:79:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
 ************* Module FUNCLG.character.equipment
-FUNCLG/character/equipment.py:62:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
-FUNCLG/character/equipment.py:78:5: W0511: TODO: Defined method (fixme)
+FUNCLG/character/equipment.py:49:5: W0511: TODO: add indention factor (fixme)
+FUNCLG/character/equipment.py:63:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
+FUNCLG/character/equipment.py:79:5: W0511: TODO: Defined method (fixme)
 FUNCLG/character/equipment.py:20:4: R0913: Too many arguments (8/5) (too-many-arguments)
 ************* Module FUNCLG.character.roles
 FUNCLG/character/roles.py:40:9: W0511: TODO: self.stats (fixme)
-FUNCLG/character/roles.py:58:5: W0511: TODO: Complete use_power function (fixme)
+FUNCLG/character/roles.py:45:5: W0511: TODO: add check/validation for duplicates (fixme)
+FUNCLG/character/roles.py:73:5: W0511: TODO add indention factor (fixme)
 ************* Module FUNCLG.utils.types
 FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
 FUNCLG/utils/types.py:46:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.10/10 (previous run: 9.10/10, +0.00)
+Your code has been rated at 8.89/10 (previous run: 8.85/10, +0.04)
 
 
 -----PYRIGHT-----
@@ -113,4 +151,4 @@ Assuming Python platform Linux
 Searching for source files
 Found 10 source files
 0 errors, 0 warnings, 0 informations 
-Completed in 1.487sec
+Completed in 1.882sec

@@ -58,14 +58,13 @@ class Roles:
 
     def get_power(self, index: int):
         """Returns the wanted power"""
-        if self.abilities and index < len(self.abilities) and index >= -1:
+        if self.abilities and (index < len(self.abilities) or index >= -1):
             return self.abilities[index]
-        else:
-            return None
+        return None
 
     def remove_power(self, index: int) -> bool:
         # Validation will be done at a higher level
-        if self.abilities and index < len(self.abilities) and index >= -1:
+        if self.abilities and (index < len(self.abilities) or index >= -1):
             old_ability = self.abilities.pop(index)
             del old_ability
             return True
@@ -87,7 +86,7 @@ class Roles:
             if key == "abilities" and len(value) > 0:
                 for index, ability in enumerate(value):
                     if isinstance(ability, Abilities):
-                        exporter[key][index] = ability.export()
+                        value[index] = ability.export()
         return exporter
 
     def print_to_file(self) -> None:
