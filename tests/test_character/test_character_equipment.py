@@ -101,8 +101,8 @@ class EquipmentTest(unittest.TestCase):
     # TODO: def test_equipment_getStats(self:)
 
     def test_equipment_duplicate_call(self):
-        e1 = self.get_equipment()[0]
-        e2 = self.get_equipment()[0]
+        e1 = self.get_weapon()
+        e2 = self.get_weapon()
 
         self.assertNotEqual(e1, e2)
         self.assertNotEqual(id(e1), id(e2))

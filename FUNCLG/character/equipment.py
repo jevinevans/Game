@@ -8,6 +8,7 @@ Description: The Equipment class allows for creation of objects in the game to b
 
 import json
 from typing import Any, Dict
+from typing_extensions import Self
 
 from ..utils import types as uTypes
 
@@ -75,6 +76,11 @@ class Equipment:
 
     def get_item_description(self) -> str:
         return uTypes.get_item_description(self.item_type, self.armor_type, self.weapon_type)
+
+    # TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **)
+    def copy(self) -> Self:
+        """Copies the current object"""
+        return Equipment(self.name, self.description, self.item_type, self.armor_type, self.weapon_type, self.level, self.damage)
 
     # TODO: Defined method
     # def get_stats(self):

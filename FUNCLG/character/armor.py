@@ -7,7 +7,9 @@ Description: The Armor class is made to store equipment itmes for a character.
 import json
 from typing import Dict, List, Union
 
-from ..utils.types import ARMOR_TYPES, ITEM_TYPES
+from loguru import logger
+
+from ..utils.types import ARMOR_TYPES, ITEM_TYPES, get_armor_type
 from .equipment import Equipment
 
 
@@ -15,9 +17,6 @@ class Armor:
     """
     Creates an armor object for a character
     """
-
-    # TODO: Remove use from class
-    _id = 0
 
     def __init__(
         self,
@@ -28,7 +27,6 @@ class Armor:
         pants: Equipment = None,
         weapon: Equipment = None,
     ) -> None:
-        self.name = "Armor_" + str(Armor._id)
         self.armor_type = armor_type if armor_type <= len(ARMOR_TYPES) and armor_type >= 0 else 0
         # self.stats = #TODO: Stat Object
         # Requires that the equipment is the same armor time
@@ -41,12 +39,19 @@ class Armor:
             weapon if weapon is not None and weapon.armor_type == self.armor_type else None
         )
 
-        # Call stats update function self.???
-        Armor._id += 1
+    def validate_equipment(self, item: Equipment) -> Union[Equipment, None]:
+        """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
+        if item.armor_type == self.armor_type:
+            logger.success(f"Equipped: {item}")
+            return item
+        logger.error(
+            f"{item.name}({get_armor_type(item.armor_type)}) is not compatable with {get_armor_type(self.armor_type)}."
+        )
+        return None
 
     def __str__(self) -> str:
         # Eventually add the stats to the class as well
-        temp = f"{self.name}: <"
+        temp = f"{get_armor_type(self.armor_type)} Armor: <"
         temp += "H:1, " if self.head else "H:0, "
         temp += "C:1, " if self.chest else "C:0, "
         temp += "B:1, " if self.back else "B:0, "
@@ -117,7 +122,8 @@ class Armor:
 
     # TODO: Add indention factor
     def details(self) -> str:
-        desc = f"\n Armor \n{''.join(['-' for x in range(7)])}"
+        title = f"Armor ({get_armor_type(self.armor_type)})"
+        desc = f"\n {title} \n{''.join(['-' for x in range(len(title)+2)])}"
         desc += f"\nHead: {self.head.__str__()}"
         desc += f"\nChest: {self.chest.__str__()}"
         desc += f"\nBack: {self.back.__str__()}"
@@ -130,7 +136,8 @@ class Armor:
         return [self.head, self.chest, self.back, self.pants, self.weapon]
 
     def print_to_file(self) -> None:
-        with open(self.name + ".json", "w", encoding="utf-8") as out_file:
+        with open(f"Armor_{id(self)}.json", "w", encoding="utf-8") as out_file:
+            logger.info(f"Saving Armor: {out_file.name}")
             json.dump(self.export(), out_file)
 
     def export(self) -> Dict:
