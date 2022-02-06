@@ -186,7 +186,6 @@ class ArmorTest(unittest.TestCase):
 
         # Will do a full dequip of all items
         for position in range(5):
-            print(arms)
             self.assertIsNotNone(arms.dequip(position))
 
         self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")

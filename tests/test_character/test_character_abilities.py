@@ -118,5 +118,3 @@ class AbilityTest(unittest.TestCase):
         self.assertEqual(repair_1.ability_group, repair_2.ability_group)
         self.assertEqual(repair_1.effect, repair_2.effect)
         self.assertEqual(repair_1.description, repair_2.description)
-
-        

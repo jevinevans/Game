@@ -1,14 +1,15 @@
 ######TESTING REPORT######
 
-Date: Sun Feb  6 13:49:08 CST 2022 
+Date: Sun Feb  6 14:01:29 CST 2022 
 
 ---UNITTEST---
 
+test_abilities_copy (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_details (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_export (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_init (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_output_examples (test_character.test_character_abilities.AbilityTest) ... ok
-test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-02-06 13:49:09.240 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
+test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-02-06 14:01:30.948 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
 ok
 test_abilities_str (test_character.test_character_abilities.AbilityTest) ... ok
 test_armor_dequip (test_character.test_character_armor.ArmorTest) ... ok
@@ -28,23 +29,23 @@ test_equipment_init (test_character.test_character_equipment.EquipmentTest) ... 
 test_equipment_output_examples (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_print_to_file (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_str (test_character.test_character_equipment.EquipmentTest) ... ok
-test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:49:09.248 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
-2022-02-06 13:49:09.248 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
-2022-02-06 13:49:09.248 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
-2022-02-06 13:49:09.249 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
-2022-02-06 13:49:09.249 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
+test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-02-06 14:01:30.956 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
+2022-02-06 14:01:30.956 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
+2022-02-06 14:01:30.957 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
+2022-02-06 14:01:30.957 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-02-06 14:01:30.957 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
 ok
 test_roles_details (test_character.test_character_roles.RolesTest) ... ok
-test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:49:09.249 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Rouge
-2022-02-06 13:49:09.249 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Warrior
+test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-02-06 14:01:30.957 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Rouge
+2022-02-06 14:01:30.957 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Warrior
 ok
 test_roles_export (test_character.test_character_roles.RolesTest) ... ok
 test_roles_get_power (test_character.test_character_roles.RolesTest) ... ok
 test_roles_init (test_character.test_character_roles.RolesTest) ... ok
 test_roles_output_examples (test_character.test_character_roles.RolesTest) ... ok
-test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:49:09.250 | INFO     | FUNCLG.character.roles:print_to_file:94 - Saving Role: Warrior
-2022-02-06 13:49:09.252 | INFO     | FUNCLG.character.roles:print_to_file:94 - Saving Role: Rouge
-2022-02-06 13:49:09.253 | INFO     | FUNCLG.character.roles:print_to_file:94 - Saving Role: Mage
+test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-02-06 14:01:30.958 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Warrior
+2022-02-06 14:01:30.960 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Rouge
+2022-02-06 14:01:30.961 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Mage
 ok
 test_roles_remove_power (test_character.test_character_roles.RolesTest) ... ok
 test_roles_str (test_character.test_character_roles.RolesTest) ... ok
@@ -53,12 +54,12 @@ test_roles_str (test_character.test_character_roles.RolesTest) ... ok
 FAIL: test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 283, in test_armor_same_item_different_armors
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 282, in test_armor_same_item_different_armors
     self.assertNotEqual(arm1.head, arm2.head)
-AssertionError: <FUNCLG.character.equipment.Equipment object at 0x7fd6ca3fcc10> == <FUNCLG.character.equipment.Equipment object at 0x7fd6ca3fcc10>
+AssertionError: <FUNCLG.character.equipment.Equipment object at 0x7f076ab08fa0> == <FUNCLG.character.equipment.Equipment object at 0x7f076ab08fa0>
 
 ----------------------------------------------------------------------
-Ran 33 tests in 0.016s
+Ran 34 tests in 0.016s
 
 FAILED (failures=1)
 
@@ -83,9 +84,10 @@ FAILED (failures=1)
 ./FUNCLG/character/roles.py:45:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:68:13: F841 local variable 'old_ability' is assigned to but never used
 ./FUNCLG/character/roles.py:73:7: T101 fixme found (TODO)
+./FUNCLG/character/roles.py:82:38: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:46:3: T101 fixme found (TODO)
-21
+22
 
 ---Code Quality Report---
 
@@ -137,6 +139,7 @@ FUNCLG/character/equipment.py:20:4: R0913: Too many arguments (8/5) (too-many-ar
 FUNCLG/character/roles.py:40:9: W0511: TODO: self.stats (fixme)
 FUNCLG/character/roles.py:45:5: W0511: TODO: add check/validation for duplicates (fixme)
 FUNCLG/character/roles.py:73:5: W0511: TODO add indention factor (fixme)
+FUNCLG/character/roles.py:82:36: W0511: TODO: Add indention here too (fixme)
 FUNCLG/character/roles.py:61:31: R1716: Simplify chained comparison between the operands (chained-comparison)
 FUNCLG/character/roles.py:67:31: R1716: Simplify chained comparison between the operands (chained-comparison)
 ************* Module FUNCLG.utils.types
@@ -144,7 +147,7 @@ FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
 FUNCLG/utils/types.py:46:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.77/10 (previous run: 8.77/10, +0.00)
+Your code has been rated at 8.73/10 (previous run: 8.73/10, +0.00)
 
 
 -----PYRIGHT-----

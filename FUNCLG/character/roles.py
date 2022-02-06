@@ -73,11 +73,13 @@ class Roles:
     # TODO add indention factor
     def details(self):
         desc = f"\n Class: {self.name} \n{''.join(['-' for x in range(len(self.name)+9)])}"
-        desc += f"\nArmor Type: {get_armor_type(self.armor_type)}\nDescription: {self.description}\n\nAbilities:\n"
-        for ability in self.abilities:
-            desc += "\t"
-            desc += ability.details()
-            desc += "\n"
+        desc += f"\nArmor Type: {get_armor_type(self.armor_type)}\nDescription: {self.description}\n\nRole Abilities:\n"
+        if self.abilities:
+            for ability in self.abilities:
+                desc += ability.details()
+                desc += "\n"
+        else:
+            desc += "No Abilites"  # TODO: Add indention here too
         return desc
 
     def export(self) -> Dict[str, Any]:

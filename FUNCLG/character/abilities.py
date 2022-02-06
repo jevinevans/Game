@@ -8,6 +8,7 @@ import json
 from typing import Any, Dict
 
 from loguru import logger
+from typing_extensions import Self
 
 from ..utils.types import CLASS_TYPES, get_ability_effect_type
 
@@ -52,8 +53,8 @@ class Abilities:
         with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
             json.dump(self.export(), out_file)
 
-    # TODO: Look to see if this is the best way to copy an object
-    def copy(self):
+    # TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **)
+    def copy(self) -> Self:
         """Returns a copy of the object"""
         return Abilities(self.name, self.class_type, self.effect, self.description)
 
