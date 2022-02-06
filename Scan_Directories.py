@@ -48,9 +48,10 @@ for root, dirs, files in os.walk("."):
             printlist.append(os.path.join(root, file))
             try:
                 tFile = os.path.join(root, file)
-                with open(tFile, "r") as document:
-                    temp = len(document.read().split("\n"))
-                    lines += temp
+                if tFile.endswith(".py"):
+                    with open(tFile, "r") as document:
+                        temp = len(document.read().split("\n"))
+                        lines += temp
             except:
                 continue
             countf += 1

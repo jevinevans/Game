@@ -2,34 +2,34 @@
 ----------------------------Abilites Example Output-----------------------------
 
 __str__ Output:
-Fireball (Magic): -40
+Fireball (Magic): -34
 
 details Output:
 Fireball
 --------
 Description: A blazing ball of fire
 Type: Magic (Damage)
-Effect: -40
+Effect: -34
 
 export Output:
-{'name': 'Fireball', 'class_type': 'Magic', 'ability_group': 'Damage', 'effect': -40, 'description': 'A blazing ball of fire'}
+{'name': 'Fireball', 'class_type': 'Magic', 'ability_group': 'Damage', 'effect': -34, 'description': 'A blazing ball of fire'}
 
 --------------------------------------Done--------------------------------------
 Armor_0: <H:1, C:1, B:1, P:1, W:1>
-Dequipped: Gold Head [69]
+Dequipped: Gold Head [97]
 Armor_0: <H:0, C:1, B:1, P:1, W:1>
-Dequipped: Gold Chest [36]
+Dequipped: Gold Chest [69]
 Armor_0: <H:0, C:0, B:1, P:1, W:1>
-Dequipped: Gold Cape [37]
+Dequipped: Gold Cape [82]
 Armor_0: <H:0, C:0, B:0, P:1, W:1>
-Dequipped: Gold pants [33]
+Dequipped: Gold pants [72]
 Armor_0: <H:0, C:0, B:0, P:0, W:1>
-Dequipped: Gold Sword [74]
-Dequipped: Gold Head [15]
-Dequipped: Gold Chest [90]
-Dequipped: Gold Cape [95]
-Dequipped: Gold pants [25]
-Dequipped: Gold Sword [30]
+Dequipped: Gold Sword [43]
+Dequipped: Gold Head [94]
+Dequipped: Gold Chest [81]
+Dequipped: Gold Cape [2]
+Dequipped: Gold pants [17]
+Dequipped: Gold Sword [58]
 Failed to Dequip: -1
 Failed to Dequip: jagiejoijga
 Failed to Dequip: ['head', 'chest']
@@ -44,14 +44,14 @@ Dequipped: None
 Dequipped: None
 Dequipped: None
 Dequipped: None
-Equipped: Gold Head [40]
-Equipped: Gold Chest [90]
-Equipped: Gold Cape [81]
-Equipped: Gold pants [76]
-Equipped: Gold Sword [81]
-Equipped: Gold Knife [61]
+Equipped: Gold Head [9]
+Equipped: Gold Chest [89]
+Equipped: Gold Cape [33]
+Equipped: Gold pants [9]
+Equipped: Gold Sword [93]
+Equipped: Gold Knife [68]
 
-Gold Wand [23], is not compatable with this armor
+Gold Wand [75], is not compatable with this armor
 
 ------------------------------Armor Example Output------------------------------
 
@@ -61,19 +61,19 @@ Armor_17: <H:1, C:1, B:1, P:1, W:1>
 details Output:
  Armor 
 -------
-Head: Gold Head [44]
-Chest: Gold Chest [16]
-Back: Gold Cape [60]
-Pants: Gold pants [90]
-Weapon: Gold Sword [96]
+Head: Gold Head [95]
+Chest: Gold Chest [28]
+Back: Gold Cape [11]
+Pants: Gold pants [89]
+Weapon: Gold Sword [100]
 
 
 export Output:
-{'name': 'Armor_17', 'armor_type': 1, 'head': {'name': 'Gold Head', 'description': 'Head piece for Armor Test.', 'item_type': 0, 'armor_type': 1, 'weapon_type': -1, 'level': 44, 'damage': 365}, 'chest': {'name': 'Gold Chest', 'description': 'Chest piece for Armor Test.', 'item_type': 1, 'armor_type': 1, 'weapon_type': -1, 'level': 16, 'damage': 479}, 'back': {'name': 'Gold Cape', 'description': 'Back piece for Armor Test.', 'item_type': 2, 'armor_type': 1, 'weapon_type': -1, 'level': 60, 'damage': 136}, 'pants': {'name': 'Gold pants', 'description': 'Pants piece for Amror Test', 'item_type': 3, 'armor_type': 1, 'weapon_type': -1, 'level': 90, 'damage': 192}, 'weapon': {'name': 'Gold Sword', 'description': 'Sword weapon for Armor Test', 'item_type': 4, 'armor_type': 1, 'weapon_type': 0, 'level': 96, 'damage': 239}}
+{'name': 'Armor_17', 'armor_type': 1, 'head': {'name': 'Gold Head', 'description': 'Head piece for Armor Test.', 'item_type': 0, 'armor_type': 1, 'weapon_type': -1, 'level': 95, 'damage': 402}, 'chest': {'name': 'Gold Chest', 'description': 'Chest piece for Armor Test.', 'item_type': 1, 'armor_type': 1, 'weapon_type': -1, 'level': 28, 'damage': 270}, 'back': {'name': 'Gold Cape', 'description': 'Back piece for Armor Test.', 'item_type': 2, 'armor_type': 1, 'weapon_type': -1, 'level': 11, 'damage': 49}, 'pants': {'name': 'Gold pants', 'description': 'Pants piece for Amror Test', 'item_type': 3, 'armor_type': 1, 'weapon_type': -1, 'level': 89, 'damage': 95}, 'weapon': {'name': 'Gold Sword', 'description': 'Sword weapon for Armor Test', 'item_type': 4, 'armor_type': 1, 'weapon_type': 0, 'level': 100, 'damage': 182}}
 
 --------------------------------------Done--------------------------------------
-Equipped: Gold Head [49]
-Equipped: Gold Head [49]
+Equipped: Gold Head [35]
+Equipped: Gold Head [35]
 
 ----------------------------Equipment Example Output----------------------------
 
@@ -85,11 +85,11 @@ Test_Equipment
 --------------
 Level:  2
 Ability Pts: 50 DEF
-Type: [Medium Head]
+Type: [Heavy Head]
 Description: This is a test for the equipment class
 
 export Output:
-{'name': 'Test_Equipment', 'description': 'This is a test for the equipment class', 'item_type': 0, 'armor_type': 1, 'weapon_type': -1, 'level': 2, 'damage': 50}
+{'name': 'Test_Equipment', 'description': 'This is a test for the equipment class', 'item_type': 0, 'armor_type': 2, 'weapon_type': -1, 'level': 2, 'damage': 50}
 
 __str__ Output:
 Test_Equipment [2]
@@ -106,8 +106,6 @@ export Output:
 {'name': 'Test_Equipment', 'description': 'This is a test for the equipment class', 'item_type': 4, 'armor_type': -1, 'weapon_type': 1, 'level': 2, 'damage': 50}
 
 --------------------------------------Done--------------------------------------
-Class: Rouge | Class Type: ['Physical'] | Armor Type: Light | Abilities: 1 
- Class: Warrior | Class Type: ['Physical'] | Armor Type: Heavy | Abilities: 1
 
 ------------------------------Roles Example Output------------------------------
 
@@ -121,22 +119,20 @@ Armor Type: Heavy
 Description: Sword whielding champions that defend the lang
 
 Abilities:
-	
+
 Slash
 -----
 Description: A slashing strike with a sharp weapon
 Type: Physical (Damage)
-Effect: 26
-	
+Effect: 48
 Holy Light
 ----------
 Description: Heals the user
 Type: Healing (Boost)
-Effect: 12
-
+Effect: 22
 
 export Output:
-{'name': 'Warrior', 'description': 'Sword whielding champions that defend the lang', 'armor_type': 2, 'class_types': ['Buff', 'Physical', 'Debuff', 'Healing'], 'abilities': [{'name': 'Slash', 'class_type': 'Physical', 'ability_group': 'Damage', 'effect': 26, 'description': 'A slashing strike with a sharp weapon'}, {'name': 'Holy Light', 'class_type': 'Healing', 'ability_group': 'Boost', 'effect': 12, 'description': 'Heals the user'}]}
+{'name': 'Warrior', 'description': 'Sword whielding champions that defend the lang', 'armor_type': 2, 'class_types': ['Buff', 'Physical', 'Debuff', 'Healing'], 'abilities': [{'name': 'Slash', 'class_type': 'Physical', 'ability_group': 'Damage', 'effect': 48, 'description': 'A slashing strike with a sharp weapon'}, {'name': 'Holy Light', 'class_type': 'Healing', 'ability_group': 'Boost', 'effect': 22, 'description': 'Heals the user'}]}
 
 __str__ Output:
 Class: Rouge | Class Type: ['Buff', 'Debuff', 'Physical'] | Armor Type: Light | Abilities: 1
@@ -148,16 +144,15 @@ Armor Type: Light
 Description: Agile knife wheilders that are quick and deadly
 
 Abilities:
-	
+
 Debuff Test
 -----------
 Description: Reduces enemy defenses
 Type: Debuff (Damage)
-Effect: 2
-
+Effect: 4
 
 export Output:
-{'name': 'Rouge', 'description': 'Agile knife wheilders that are quick and deadly', 'armor_type': 0, 'class_types': ['Buff', 'Debuff', 'Physical'], 'abilities': [{'name': 'Debuff Test', 'class_type': 'Debuff', 'ability_group': 'Damage', 'effect': 2, 'description': 'Reduces enemy defenses'}]}
+{'name': 'Rouge', 'description': 'Agile knife wheilders that are quick and deadly', 'armor_type': 0, 'class_types': ['Buff', 'Debuff', 'Physical'], 'abilities': [{'name': 'Debuff Test', 'class_type': 'Debuff', 'ability_group': 'Damage', 'effect': 4, 'description': 'Reduces enemy defenses'}]}
 
 __str__ Output:
 Class: Mage | Class Type: ['Buff', 'Magic', 'Debuff'] | Armor Type: Medium | Abilities: 0
@@ -169,7 +164,7 @@ Armor Type: Medium
 Description: Blessed individuals that can command and control the aspects of magic
 
 Abilities:
-
+  ---No Abilites---
 
 export Output:
 {'name': 'Mage', 'description': 'Blessed individuals that can command and control the aspects of magic', 'armor_type': 1, 'class_types': ['Buff', 'Magic', 'Debuff'], 'abilities': []}

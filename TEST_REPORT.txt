@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Feb  6 13:35:40 CST 2022 
+Date: Sun Feb  6 13:49:08 CST 2022 
 
 ---UNITTEST---
 
@@ -8,7 +8,7 @@ test_abilities_details (test_character.test_character_abilities.AbilityTest) ...
 test_abilities_export (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_init (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_output_examples (test_character.test_character_abilities.AbilityTest) ... ok
-test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-02-06 13:35:42.534 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
+test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-02-06 13:49:09.240 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
 ok
 test_abilities_str (test_character.test_character_abilities.AbilityTest) ... ok
 test_armor_dequip (test_character.test_character_armor.ArmorTest) ... ok
@@ -28,23 +28,23 @@ test_equipment_init (test_character.test_character_equipment.EquipmentTest) ... 
 test_equipment_output_examples (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_print_to_file (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_str (test_character.test_character_equipment.EquipmentTest) ... ok
-test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:35:42.553 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
-2022-02-06 13:35:42.553 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
-2022-02-06 13:35:42.553 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
-2022-02-06 13:35:42.554 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
-2022-02-06 13:35:42.554 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
+test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:49:09.248 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
+2022-02-06 13:49:09.248 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
+2022-02-06 13:49:09.248 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
+2022-02-06 13:49:09.249 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-02-06 13:49:09.249 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
 ok
 test_roles_details (test_character.test_character_roles.RolesTest) ... ok
-test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:35:42.555 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Rouge
-2022-02-06 13:35:42.555 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Warrior
+test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:49:09.249 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Rouge
+2022-02-06 13:49:09.249 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Warrior
 ok
 test_roles_export (test_character.test_character_roles.RolesTest) ... ok
 test_roles_get_power (test_character.test_character_roles.RolesTest) ... ok
 test_roles_init (test_character.test_character_roles.RolesTest) ... ok
 test_roles_output_examples (test_character.test_character_roles.RolesTest) ... ok
-test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:35:42.557 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Warrior
-2022-02-06 13:35:42.560 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Rouge
-2022-02-06 13:35:42.564 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Mage
+test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:49:09.250 | INFO     | FUNCLG.character.roles:print_to_file:94 - Saving Role: Warrior
+2022-02-06 13:49:09.252 | INFO     | FUNCLG.character.roles:print_to_file:94 - Saving Role: Rouge
+2022-02-06 13:49:09.253 | INFO     | FUNCLG.character.roles:print_to_file:94 - Saving Role: Mage
 ok
 test_roles_remove_power (test_character.test_character_roles.RolesTest) ... ok
 test_roles_str (test_character.test_character_roles.RolesTest) ... ok
@@ -55,10 +55,10 @@ FAIL: test_armor_same_item_different_armors (test_character.test_character_armor
 Traceback (most recent call last):
   File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 283, in test_armor_same_item_different_armors
     self.assertNotEqual(arm1.head, arm2.head)
-AssertionError: <FUNCLG.character.equipment.Equipment object at 0x7fb17fd0cc10> == <FUNCLG.character.equipment.Equipment object at 0x7fb17fd0cc10>
+AssertionError: <FUNCLG.character.equipment.Equipment object at 0x7fd6ca3fcc10> == <FUNCLG.character.equipment.Equipment object at 0x7fd6ca3fcc10>
 
 ----------------------------------------------------------------------
-Ran 33 tests in 0.035s
+Ran 33 tests in 0.016s
 
 FAILED (failures=1)
 
