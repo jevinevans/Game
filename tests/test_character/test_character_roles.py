@@ -190,7 +190,6 @@ class RolesTest(unittest.TestCase):
 
         self.assertEqual(rouge.add_power(abilities["Physical"]), 0)
         self.assertEqual(warrior.add_power(abilities["Physical"]), 0)
-        print(rouge, "\n", warrior)
         self.assertNotEqual(warrior.get_power(0), rouge.get_power(0))
 
 

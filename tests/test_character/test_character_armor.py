@@ -272,3 +272,13 @@ class ArmorTest(unittest.TestCase):
         print(f"\ndetails Output:{arm.details()}")
         print(f"\nexport Output:\n{arm.export()}")
         print(f"\n{'Done'.center(80, '-')}")
+
+    def test_armor_same_item_different_armors(self):
+        arm1, equips = self.setup(raw=True)
+        arm2, _ = self.setup(raw=True)
+
+        arm1.equip(equips["head"])
+        arm2.equip(equips["head"])
+
+        self.assertNotEqual(arm1.head, arm2.head)
+        self.assertNotEqual(id(arm1.head), id(arm2.head))

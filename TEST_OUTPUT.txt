@@ -1,0 +1,177 @@
+
+----------------------------Abilites Example Output-----------------------------
+
+__str__ Output:
+Fireball (Magic): -40
+
+details Output:
+Fireball
+--------
+Description: A blazing ball of fire
+Type: Magic (Damage)
+Effect: -40
+
+export Output:
+{'name': 'Fireball', 'class_type': 'Magic', 'ability_group': 'Damage', 'effect': -40, 'description': 'A blazing ball of fire'}
+
+--------------------------------------Done--------------------------------------
+Armor_0: <H:1, C:1, B:1, P:1, W:1>
+Dequipped: Gold Head [69]
+Armor_0: <H:0, C:1, B:1, P:1, W:1>
+Dequipped: Gold Chest [36]
+Armor_0: <H:0, C:0, B:1, P:1, W:1>
+Dequipped: Gold Cape [37]
+Armor_0: <H:0, C:0, B:0, P:1, W:1>
+Dequipped: Gold pants [33]
+Armor_0: <H:0, C:0, B:0, P:0, W:1>
+Dequipped: Gold Sword [74]
+Dequipped: Gold Head [15]
+Dequipped: Gold Chest [90]
+Dequipped: Gold Cape [95]
+Dequipped: Gold pants [25]
+Dequipped: Gold Sword [30]
+Failed to Dequip: -1
+Failed to Dequip: jagiejoijga
+Failed to Dequip: ['head', 'chest']
+Failed to Dequip: {}
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Dequipped: None
+Equipped: Gold Head [40]
+Equipped: Gold Chest [90]
+Equipped: Gold Cape [81]
+Equipped: Gold pants [76]
+Equipped: Gold Sword [81]
+Equipped: Gold Knife [61]
+
+Gold Wand [23], is not compatable with this armor
+
+------------------------------Armor Example Output------------------------------
+
+__str__ Output:
+Armor_17: <H:1, C:1, B:1, P:1, W:1>
+
+details Output:
+ Armor 
+-------
+Head: Gold Head [44]
+Chest: Gold Chest [16]
+Back: Gold Cape [60]
+Pants: Gold pants [90]
+Weapon: Gold Sword [96]
+
+
+export Output:
+{'name': 'Armor_17', 'armor_type': 1, 'head': {'name': 'Gold Head', 'description': 'Head piece for Armor Test.', 'item_type': 0, 'armor_type': 1, 'weapon_type': -1, 'level': 44, 'damage': 365}, 'chest': {'name': 'Gold Chest', 'description': 'Chest piece for Armor Test.', 'item_type': 1, 'armor_type': 1, 'weapon_type': -1, 'level': 16, 'damage': 479}, 'back': {'name': 'Gold Cape', 'description': 'Back piece for Armor Test.', 'item_type': 2, 'armor_type': 1, 'weapon_type': -1, 'level': 60, 'damage': 136}, 'pants': {'name': 'Gold pants', 'description': 'Pants piece for Amror Test', 'item_type': 3, 'armor_type': 1, 'weapon_type': -1, 'level': 90, 'damage': 192}, 'weapon': {'name': 'Gold Sword', 'description': 'Sword weapon for Armor Test', 'item_type': 4, 'armor_type': 1, 'weapon_type': 0, 'level': 96, 'damage': 239}}
+
+--------------------------------------Done--------------------------------------
+Equipped: Gold Head [49]
+Equipped: Gold Head [49]
+
+----------------------------Equipment Example Output----------------------------
+
+__str__ Output:
+Test_Equipment [2]
+
+details Output: 
+Test_Equipment
+--------------
+Level:  2
+Ability Pts: 50 DEF
+Type: [Medium Head]
+Description: This is a test for the equipment class
+
+export Output:
+{'name': 'Test_Equipment', 'description': 'This is a test for the equipment class', 'item_type': 0, 'armor_type': 1, 'weapon_type': -1, 'level': 2, 'damage': 50}
+
+__str__ Output:
+Test_Equipment [2]
+
+details Output: 
+Test_Equipment
+--------------
+Level:  2
+Ability Pts: 50 ATK
+Type: [Wand]
+Description: This is a test for the equipment class
+
+export Output:
+{'name': 'Test_Equipment', 'description': 'This is a test for the equipment class', 'item_type': 4, 'armor_type': -1, 'weapon_type': 1, 'level': 2, 'damage': 50}
+
+--------------------------------------Done--------------------------------------
+Class: Rouge | Class Type: ['Physical'] | Armor Type: Light | Abilities: 1 
+ Class: Warrior | Class Type: ['Physical'] | Armor Type: Heavy | Abilities: 1
+
+------------------------------Roles Example Output------------------------------
+
+__str__ Output:
+Class: Warrior | Class Type: ['Buff', 'Physical', 'Debuff', 'Healing'] | Armor Type: Heavy | Abilities: 2
+
+details Output: 
+ Class: Warrior 
+----------------
+Armor Type: Heavy
+Description: Sword whielding champions that defend the lang
+
+Abilities:
+	
+Slash
+-----
+Description: A slashing strike with a sharp weapon
+Type: Physical (Damage)
+Effect: 26
+	
+Holy Light
+----------
+Description: Heals the user
+Type: Healing (Boost)
+Effect: 12
+
+
+export Output:
+{'name': 'Warrior', 'description': 'Sword whielding champions that defend the lang', 'armor_type': 2, 'class_types': ['Buff', 'Physical', 'Debuff', 'Healing'], 'abilities': [{'name': 'Slash', 'class_type': 'Physical', 'ability_group': 'Damage', 'effect': 26, 'description': 'A slashing strike with a sharp weapon'}, {'name': 'Holy Light', 'class_type': 'Healing', 'ability_group': 'Boost', 'effect': 12, 'description': 'Heals the user'}]}
+
+__str__ Output:
+Class: Rouge | Class Type: ['Buff', 'Debuff', 'Physical'] | Armor Type: Light | Abilities: 1
+
+details Output: 
+ Class: Rouge 
+--------------
+Armor Type: Light
+Description: Agile knife wheilders that are quick and deadly
+
+Abilities:
+	
+Debuff Test
+-----------
+Description: Reduces enemy defenses
+Type: Debuff (Damage)
+Effect: 2
+
+
+export Output:
+{'name': 'Rouge', 'description': 'Agile knife wheilders that are quick and deadly', 'armor_type': 0, 'class_types': ['Buff', 'Debuff', 'Physical'], 'abilities': [{'name': 'Debuff Test', 'class_type': 'Debuff', 'ability_group': 'Damage', 'effect': 2, 'description': 'Reduces enemy defenses'}]}
+
+__str__ Output:
+Class: Mage | Class Type: ['Buff', 'Magic', 'Debuff'] | Armor Type: Medium | Abilities: 0
+
+details Output: 
+ Class: Mage 
+-------------
+Armor Type: Medium
+Description: Blessed individuals that can command and control the aspects of magic
+
+Abilities:
+
+
+export Output:
+{'name': 'Mage', 'description': 'Blessed individuals that can command and control the aspects of magic', 'armor_type': 1, 'class_types': ['Buff', 'Magic', 'Debuff'], 'abilities': []}
+
+--------------------------------------Done--------------------------------------

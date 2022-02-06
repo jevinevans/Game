@@ -99,3 +99,10 @@ class EquipmentTest(unittest.TestCase):
         print(f"\n{'Done'.center(80, '-')}")
 
     # TODO: def test_equipment_getStats(self:)
+
+    def test_equipment_duplicate_call(self):
+        e1 = self.get_equipment()[0]
+        e2 = self.get_equipment()[0]
+
+        self.assertNotEqual(e1, e2)
+        self.assertNotEqual(id(e1), id(e2))

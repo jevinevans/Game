@@ -1,63 +1,66 @@
 ######TESTING REPORT######
 
-Date: Thu Feb  3 23:04:56 CST 2022 
+Date: Sun Feb  6 13:35:40 CST 2022 
 
 ---UNITTEST---
 
-test_abilities_details (tests.test_abilities.AbilityTest) ... ok
-test_abilities_export (tests.test_abilities.AbilityTest) ... ok
-test_abilities_init (tests.test_abilities.AbilityTest) ... ok
-test_abilities_output_examples (tests.test_abilities.AbilityTest) ... ok
-test_abilities_print_to_file (tests.test_abilities.AbilityTest) ... 2022-02-03 23:04:57.751 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
+test_abilities_details (test_character.test_character_abilities.AbilityTest) ... ok
+test_abilities_export (test_character.test_character_abilities.AbilityTest) ... ok
+test_abilities_init (test_character.test_character_abilities.AbilityTest) ... ok
+test_abilities_output_examples (test_character.test_character_abilities.AbilityTest) ... ok
+test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-02-06 13:35:42.534 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
 ok
-test_abilities_str (tests.test_abilities.AbilityTest) ... ok
-test_armor_dequip (tests.test_armor.ArmorTest) ... ok
-test_armor_details (tests.test_armor.ArmorTest) ... ok
-test_armor_equip (tests.test_armor.ArmorTest) ... ok
-test_armor_export (tests.test_armor.ArmorTest) ... ok
-test_armor_init (tests.test_armor.ArmorTest) ... ok
-test_armor_item_copy (tests.test_armor.ArmorTest) ... ok
-test_armor_output_examples (tests.test_armor.ArmorTest) ... ok
-test_armor_print_to_file (tests.test_armor.ArmorTest) ... ok
-test_armor_str (tests.test_armor.ArmorTest) ... ok
-test_equipment_details (tests.test_equipment.EquipmentTest) ... ok
-test_equipment_export (tests.test_equipment.EquipmentTest) ... ok
-test_equipment_init (tests.test_equipment.EquipmentTest) ... ok
-test_equipment_output_examples (tests.test_equipment.EquipmentTest) ... ok
-test_equipment_print_to_file (tests.test_equipment.EquipmentTest) ... ok
-test_equipment_str (tests.test_equipment.EquipmentTest) ... ok
-test_roles_add_power (tests.test_roles.RolesTest) ... 2022-02-03 23:04:58.239 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
-2022-02-03 23:04:58.240 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
-2022-02-03 23:04:58.241 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
-2022-02-03 23:04:58.241 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
-2022-02-03 23:04:58.242 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
+test_abilities_str (test_character.test_character_abilities.AbilityTest) ... ok
+test_armor_dequip (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_details (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_equip (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_export (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_init (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_item_copy (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_output_examples (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_print_to_file (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest) ... FAIL
+test_armor_str (test_character.test_character_armor.ArmorTest) ... ok
+test_equipment_details (test_character.test_character_equipment.EquipmentTest) ... ok
+test_equipment_duplicate_call (test_character.test_character_equipment.EquipmentTest) ... ok
+test_equipment_export (test_character.test_character_equipment.EquipmentTest) ... ok
+test_equipment_init (test_character.test_character_equipment.EquipmentTest) ... ok
+test_equipment_output_examples (test_character.test_character_equipment.EquipmentTest) ... ok
+test_equipment_print_to_file (test_character.test_character_equipment.EquipmentTest) ... ok
+test_equipment_str (test_character.test_character_equipment.EquipmentTest) ... ok
+test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:35:42.553 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
+2022-02-06 13:35:42.553 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
+2022-02-06 13:35:42.553 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
+2022-02-06 13:35:42.554 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-02-06 13:35:42.554 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
 ok
-test_roles_details (tests.test_roles.RolesTest) ... ok
-test_roles_export (tests.test_roles.RolesTest) ... ok
-test_roles_get_power (tests.test_roles.RolesTest) ... ERROR
-test_roles_init (tests.test_roles.RolesTest) ... ok
-test_roles_output_examples (tests.test_roles.RolesTest) ... ok
-test_roles_print_to_file (tests.test_roles.RolesTest) ... 2022-02-03 23:04:58.577 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Warrior
-2022-02-03 23:04:58.582 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Rouge
-2022-02-03 23:04:58.586 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Mage
+test_roles_details (test_character.test_character_roles.RolesTest) ... ok
+test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:35:42.555 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Rouge
+2022-02-06 13:35:42.555 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Warrior
 ok
-test_roles_remove_power (tests.test_roles.RolesTest) ... ok
-test_roles_str (tests.test_roles.RolesTest) ... ok
+test_roles_export (test_character.test_character_roles.RolesTest) ... ok
+test_roles_get_power (test_character.test_character_roles.RolesTest) ... ok
+test_roles_init (test_character.test_character_roles.RolesTest) ... ok
+test_roles_output_examples (test_character.test_character_roles.RolesTest) ... ok
+test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-02-06 13:35:42.557 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Warrior
+2022-02-06 13:35:42.560 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Rouge
+2022-02-06 13:35:42.564 | INFO     | FUNCLG.character.roles:print_to_file:93 - Saving Role: Mage
+ok
+test_roles_remove_power (test_character.test_character_roles.RolesTest) ... ok
+test_roles_str (test_character.test_character_roles.RolesTest) ... ok
 
 ======================================================================
-ERROR: test_roles_get_power (tests.test_roles.RolesTest)
+FAIL: test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_roles.py", line 139, in test_roles_get_power
-    self.assertIsNone(warrior.get_power(1000))
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/roles.py", line 62, in get_power
-    return self.abilities[index]
-IndexError: list index out of range
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 283, in test_armor_same_item_different_armors
+    self.assertNotEqual(arm1.head, arm2.head)
+AssertionError: <FUNCLG.character.equipment.Equipment object at 0x7fb17fd0cc10> == <FUNCLG.character.equipment.Equipment object at 0x7fb17fd0cc10>
 
 ----------------------------------------------------------------------
-Ran 30 tests in 0.916s
+Ran 33 tests in 0.035s
 
-FAILED (errors=1)
+FAILED (failures=1)
 
 ---Flake 8----
 
@@ -65,6 +68,7 @@ FAILED (errors=1)
 ./FUNCLG/character/abilities.py:34:11: T101 fixme found (TODO)
 ./FUNCLG/character/abilities.py:39:7: T101 fixme found (TODO)
 ./FUNCLG/character/abilities.py:55:7: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:60:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:118:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:143:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:146:7: T101 fixme found (TODO)
@@ -81,7 +85,7 @@ FAILED (errors=1)
 ./FUNCLG/character/roles.py:73:7: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:46:3: T101 fixme found (TODO)
-20
+21
 
 ---Code Quality Report---
 
@@ -110,7 +114,8 @@ FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_cas
 FUNCLG/character/abilities.py:32:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 FUNCLG/character/abilities.py:34:9: W0511: TODO: Validation will be done during creation (fixme)
 FUNCLG/character/abilities.py:39:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/abilities.py:55:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
+FUNCLG/character/abilities.py:55:5: W0511: TODO: Look to see if this is the best way to copy an object (fixme)
+FUNCLG/character/abilities.py:60:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
 ************* Module FUNCLG.character.armor
 FUNCLG/character/armor.py:19:5: W0511: TODO: Remove use from class (fixme)
 FUNCLG/character/armor.py:33:9: W0511: self.stats = #TODO: Stat Object (fixme)
@@ -132,23 +137,33 @@ FUNCLG/character/equipment.py:20:4: R0913: Too many arguments (8/5) (too-many-ar
 FUNCLG/character/roles.py:40:9: W0511: TODO: self.stats (fixme)
 FUNCLG/character/roles.py:45:5: W0511: TODO: add check/validation for duplicates (fixme)
 FUNCLG/character/roles.py:73:5: W0511: TODO add indention factor (fixme)
+FUNCLG/character/roles.py:61:31: R1716: Simplify chained comparison between the operands (chained-comparison)
+FUNCLG/character/roles.py:67:31: R1716: Simplify chained comparison between the operands (chained-comparison)
 ************* Module FUNCLG.utils.types
 FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
 FUNCLG/utils/types.py:46:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.89/10 (previous run: 8.85/10, +0.04)
+Your code has been rated at 8.77/10 (previous run: 8.77/10, +0.00)
 
 
 -----PYRIGHT-----
 
-No configuration file found.
-pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
-Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
-Pyproject file "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml" is missing "[tool.pyright]" section.
-stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not a valid directory.
-Assuming Python platform Linux
-Searching for source files
-Found 10 source files
-0 errors, 0 warnings, 0 informations 
-Completed in 1.882sec
+Traceback (most recent call last):
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>
+    sys.exit(entrypoint())
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 46, in entrypoint
+    sys.exit(main(sys.argv[1:]))
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 20, in main
+    return run(*args, **kwargs).returncode
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 28, in run
+    version = node.latest('pyright')
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/node.py", line 133, in latest
+    proc = run(
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/node.py", line 112, in run
+    return subprocess.run(node_args, env=env, **kwargs)
+  File "/usr/lib/python3.8/subprocess.py", line 495, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/lib/python3.8/subprocess.py", line 1015, in communicate
+    stdout = self.stdout.read()
+KeyboardInterrupt

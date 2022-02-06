@@ -55,7 +55,7 @@ class Abilities:
     # TODO: Look to see if this is the best way to copy an object
     def copy(self):
         """Returns a copy of the object"""
-        return Abilities(self.name,self.class_type, self.effect, self.description)
+        return Abilities(self.name, self.class_type, self.effect, self.description)
 
     # TODO: Define what happens when using a power. Damage and effect on which stat
     # def use()

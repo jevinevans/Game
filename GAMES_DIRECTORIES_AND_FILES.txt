@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 26			|
-|	Files: 127				|
+|	Total Directories: 28			|
+|	Files: 138				|
 +==========================================+
 
 ./CodeTests
@@ -140,19 +140,36 @@
 ./Logs/2021/Log_2021_11_28.md
 ./Logs/2022
 ./Logs/2022/Log_2022_01_08.md
+./Logs/2022/Log_2022_02_06.md
 ./README.md
 ./Scan_Directories.py
+./TEST_OUTPUT.txt
 ./TEST_REPORT.txt
 ./codeQuality.sh
 ./docs
 ./docs/Basic Player Game Info.txt
+./docs/How to Make an RPG_ Stats _ How to Make an RPG.html
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/atoms_and_void.png
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/bootstrap.min.css
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/bootstrap.min.js.download
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/font-awesome.min.css
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/header.png
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/jquery.min.js.download
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/monokai.css
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/respond.min.js.download
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/style.css
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/wizardry.png
+./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/zelda.png
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt
 ./runTest.sh
 ./tests
 ./tests/__init__.py
-./tests/test_abilities.py
-./tests/test_armor.py
-./tests/test_equipment.py
-./tests/test_roles.py
+./tests/test_character
+./tests/test_character/__init__.py
+./tests/test_character/test_character_abilities.py
+./tests/test_character/test_character_armor.py
+./tests/test_character/test_character_equipment.py
+./tests/test_character/test_character_roles.py
