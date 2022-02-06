@@ -52,5 +52,10 @@ class Abilities:
         with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
             json.dump(self.export(), out_file)
 
+    # TODO: Look to see if this is the best way to copy an object
+    def copy(self):
+        """Returns a copy of the object"""
+        return Abilities(self.name,self.class_type, self.effect, self.description)
+
     # TODO: Define what happens when using a power. Damage and effect on which stat
     # def use()

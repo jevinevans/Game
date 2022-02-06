@@ -46,7 +46,7 @@ class Roles:
     def add_power(self, ability: Abilities) -> int:
         if ability.class_type in self.class_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
-                self.abilities.append(ability)
+                self.abilities.append(ability.copy())
                 logger.success(f"Added {ability.name} to {self.name}")
                 return 0
             logger.warning("Max abilities reached!")
@@ -58,13 +58,13 @@ class Roles:
 
     def get_power(self, index: int):
         """Returns the wanted power"""
-        if self.abilities and (index < len(self.abilities) or index >= -1):
+        if self.abilities and (index < len(self.abilities) and index >= -1):
             return self.abilities[index]
         return None
 
     def remove_power(self, index: int) -> bool:
         # Validation will be done at a higher level
-        if self.abilities and (index < len(self.abilities) or index >= -1):
+        if self.abilities and (index < len(self.abilities) and index >= -1):
             old_ability = self.abilities.pop(index)
             del old_ability
             return True
@@ -98,4 +98,4 @@ class Roles:
         """
         Validates that abilities added are compatable
         """
-        return [ability for ability in abilities if ability.class_type in self.class_types]
+        return [ability.copy() for ability in abilities if ability.class_type in self.class_types]

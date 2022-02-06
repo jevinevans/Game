@@ -182,3 +182,16 @@ class RolesTest(unittest.TestCase):
             print(f"\ndetails Output: {role.details()}")
             print(f"\nexport Output:\n{role.export()}")
         print(f"\n{'Done'.center(80, '-')}")
+    
+    def test_roles_duplicate_ability_assign(self):
+        warrior = Roles(name="Warrior", armor_type=2, description="Warrior class", class_types=["Physical"])
+        rouge = Roles(name="Rouge", armor_type=0, description="Rouge class", class_types=["Physical"])
+        abilities = self.create_abiities()
+
+        self.assertEqual(rouge.add_power(abilities["Physical"]), 0)
+        self.assertEqual(warrior.add_power(abilities["Physical"]), 0)
+        print(rouge, "\n", warrior)
+        self.assertNotEqual(warrior.get_power(0), rouge.get_power(0))
+
+
+
