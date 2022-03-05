@@ -135,11 +135,6 @@ class Armor:
         """Returns the equipped armor"""
         return [self.head, self.chest, self.back, self.pants, self.weapon]
 
-    def print_to_file(self) -> None:
-        with open(f"Armor_{id(self)}.json", "w", encoding="utf-8") as out_file:
-            logger.info(f"Saving Armor: {out_file.name}")
-            json.dump(self.export(), out_file)
-
     def export(self) -> Dict:
         exporter = self.__dict__
         for key, value in exporter.items():

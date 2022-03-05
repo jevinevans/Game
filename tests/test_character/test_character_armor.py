@@ -236,15 +236,6 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNotNone(arms.details())
         self.assertIsInstance(arms.details(), str)
 
-    def test_armor_print_to_file(self):
-        # 1. Testing printToFile existance
-        arm, _ = self.setup(False)
-        arm.print_to_file()
-        filename = f"{arm.name}.json"
-        self.assertTrue(os.path.exists(filename), "Armor: print_to_file Failed")
-        if os.path.exists(filename):
-            os.remove(filename)
-
     def test_armor_export(self):
         arm, _ = self.setup(False)
         self.assertIsNotNone(arm.export())
