@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Feb  6 14:01:29 CST 2022 
+Date: Fri Mar  4 18:59:02 CST 2022 
 
 ---UNITTEST---
 
@@ -9,19 +9,48 @@ test_abilities_details (test_character.test_character_abilities.AbilityTest) ...
 test_abilities_export (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_init (test_character.test_character_abilities.AbilityTest) ... ok
 test_abilities_output_examples (test_character.test_character_abilities.AbilityTest) ... ok
-test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-02-06 14:01:30.948 | INFO     | FUNCLG.character.abilities:print_to_file:51 - Saving Ability: Fireball
+test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-03-04 18:59:04.197 | INFO     | FUNCLG.character.abilities:print_to_file:52 - Saving Ability: Fireball
 ok
 test_abilities_str (test_character.test_character_abilities.AbilityTest) ... ok
-test_armor_dequip (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_details (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_equip (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_export (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_init (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_item_copy (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_output_examples (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_print_to_file (test_character.test_character_armor.ArmorTest) ... ok
-test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest) ... FAIL
-test_armor_str (test_character.test_character_armor.ArmorTest) ... ok
+test_armor_dequip (test_character.test_character_armor.ArmorTest) ... 2022-03-04 18:59:04.199 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Head [64]
+2022-03-04 18:59:04.200 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Chest [71]
+2022-03-04 18:59:04.200 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Cape [38]
+2022-03-04 18:59:04.200 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold pants [43]
+2022-03-04 18:59:04.200 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Sword [26]
+ERROR
+test_armor_details (test_character.test_character_armor.ArmorTest) ... 2022-03-04 18:59:04.202 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Head [35]
+2022-03-04 18:59:04.202 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Chest [64]
+2022-03-04 18:59:04.202 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Cape [88]
+2022-03-04 18:59:04.202 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold pants [69]
+2022-03-04 18:59:04.203 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Sword [45]
+ERROR
+test_armor_equip (test_character.test_character_armor.ArmorTest) ... ERROR
+test_armor_export (test_character.test_character_armor.ArmorTest) ... 2022-03-04 18:59:04.206 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Head [19]
+2022-03-04 18:59:04.206 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Chest [98]
+2022-03-04 18:59:04.206 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Cape [25]
+2022-03-04 18:59:04.206 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold pants [26]
+2022-03-04 18:59:04.206 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Sword [23]
+ERROR
+test_armor_init (test_character.test_character_armor.ArmorTest) ... ERROR
+test_armor_item_copy (test_character.test_character_armor.ArmorTest) ... 2022-03-04 18:59:04.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Head [100]
+2022-03-04 18:59:04.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Chest [69]
+2022-03-04 18:59:04.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Cape [100]
+2022-03-04 18:59:04.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold pants [82]
+2022-03-04 18:59:04.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Sword [60]
+2022-03-04 18:59:04.210 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Head [6]
+2022-03-04 18:59:04.210 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Chest [88]
+2022-03-04 18:59:04.210 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Cape [93]
+2022-03-04 18:59:04.210 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold pants [6]
+2022-03-04 18:59:04.210 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Sword [59]
+ok
+test_armor_output_examples (test_character.test_character_armor.ArmorTest) ... 2022-03-04 18:59:04.211 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Head [27]
+2022-03-04 18:59:04.211 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Chest [95]
+2022-03-04 18:59:04.211 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Cape [50]
+2022-03-04 18:59:04.211 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold pants [0]
+2022-03-04 18:59:04.211 | SUCCESS  | FUNCLG.character.armor:validate_equipment:41 - Equipped: Gold Sword [35]
+ok
+test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest) ... ERROR
+test_armor_str (test_character.test_character_armor.ArmorTest) ... ERROR
 test_equipment_details (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_duplicate_call (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_export (test_character.test_character_equipment.EquipmentTest) ... ok
@@ -29,57 +58,141 @@ test_equipment_init (test_character.test_character_equipment.EquipmentTest) ... 
 test_equipment_output_examples (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_print_to_file (test_character.test_character_equipment.EquipmentTest) ... ok
 test_equipment_str (test_character.test_character_equipment.EquipmentTest) ... ok
-test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-02-06 14:01:30.956 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
-2022-02-06 14:01:30.956 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
-2022-02-06 14:01:30.957 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
-2022-02-06 14:01:30.957 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
-2022-02-06 14:01:30.957 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
+test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-03-04 18:59:04.217 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Buff Test to Warrior
+2022-03-04 18:59:04.217 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Debuff Test to Warrior
+2022-03-04 18:59:04.217 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Armor Buff to Warrior
+2022-03-04 18:59:04.218 | ERROR    | FUNCLG.character.roles:add_power:54 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-03-04 18:59:04.218 | WARNING  | FUNCLG.character.roles:add_power:52 - Max abilities reached!
 ok
 test_roles_details (test_character.test_character_roles.RolesTest) ... ok
-test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-02-06 14:01:30.957 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Rouge
-2022-02-06 14:01:30.957 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Warrior
+test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-03-04 18:59:04.218 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Rouge
+2022-03-04 18:59:04.219 | SUCCESS  | FUNCLG.character.roles:add_power:50 - Added Slash to Warrior
 ok
 test_roles_export (test_character.test_character_roles.RolesTest) ... ok
 test_roles_get_power (test_character.test_character_roles.RolesTest) ... ok
 test_roles_init (test_character.test_character_roles.RolesTest) ... ok
 test_roles_output_examples (test_character.test_character_roles.RolesTest) ... ok
-test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-02-06 14:01:30.958 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Warrior
-2022-02-06 14:01:30.960 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Rouge
-2022-02-06 14:01:30.961 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Mage
+test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-03-04 18:59:04.220 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Warrior
+2022-03-04 18:59:04.222 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Rouge
+2022-03-04 18:59:04.224 | INFO     | FUNCLG.character.roles:print_to_file:95 - Saving Role: Mage
 ok
 test_roles_remove_power (test_character.test_character_roles.RolesTest) ... ok
 test_roles_str (test_character.test_character_roles.RolesTest) ... ok
 
 ======================================================================
-FAIL: test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest)
+ERROR: test_armor_dequip (test_character.test_character_armor.ArmorTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 282, in test_armor_same_item_different_armors
-    self.assertNotEqual(arm1.head, arm2.head)
-AssertionError: <FUNCLG.character.equipment.Equipment object at 0x7f076ab08fa0> == <FUNCLG.character.equipment.Equipment object at 0x7f076ab08fa0>
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 191, in test_armor_dequip
+    self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
+AttributeError: 'Armor' object has no attribute 'name'
+
+======================================================================
+ERROR: test_armor_details (test_character.test_character_armor.ArmorTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 235, in test_armor_details
+    arms, _ = self.setup()
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 89, in setup
+    return Armor(armor_type), equips
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 32, in __init__
+    self.head = self.validate_equipment(head)
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 40, in validate_equipment
+    if item.armor_type == self.armor_type:
+AttributeError: 'NoneType' object has no attribute 'armor_type'
+
+======================================================================
+ERROR: test_armor_equip (test_character.test_character_armor.ArmorTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 143, in test_armor_equip
+    arm, equips = self.setup()
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 89, in setup
+    return Armor(armor_type), equips
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 32, in __init__
+    self.head = self.validate_equipment(head)
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 40, in validate_equipment
+    if item.armor_type == self.armor_type:
+AttributeError: 'NoneType' object has no attribute 'armor_type'
+
+======================================================================
+ERROR: test_armor_export (test_character.test_character_armor.ArmorTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 244, in test_armor_export
+    arm, _ = self.setup()
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 89, in setup
+    return Armor(armor_type), equips
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 32, in __init__
+    self.head = self.validate_equipment(head)
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 40, in validate_equipment
+    if item.armor_type == self.armor_type:
+AttributeError: 'NoneType' object has no attribute 'armor_type'
+
+======================================================================
+ERROR: test_armor_init (test_character.test_character_armor.ArmorTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 106, in test_armor_init
+    arm, equips = self.setup()
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 89, in setup
+    return Armor(armor_type), equips
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 32, in __init__
+    self.head = self.validate_equipment(head)
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 40, in validate_equipment
+    if item.armor_type == self.armor_type:
+AttributeError: 'NoneType' object has no attribute 'armor_type'
+
+======================================================================
+ERROR: test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 267, in test_armor_same_item_different_armors
+    arm1, equips = self.setup(raw=True)
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 89, in setup
+    return Armor(armor_type), equips
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 32, in __init__
+    self.head = self.validate_equipment(head)
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 40, in validate_equipment
+    if item.armor_type == self.armor_type:
+AttributeError: 'NoneType' object has no attribute 'armor_type'
+
+======================================================================
+ERROR: test_armor_str (test_character.test_character_armor.ArmorTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 131, in test_armor_str
+    arm, equips = self.setup()
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py", line 89, in setup
+    return Armor(armor_type), equips
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 32, in __init__
+    self.head = self.validate_equipment(head)
+  File "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py", line 40, in validate_equipment
+    if item.armor_type == self.armor_type:
+AttributeError: 'NoneType' object has no attribute 'armor_type'
 
 ----------------------------------------------------------------------
-Ran 34 tests in 0.016s
+Ran 33 tests in 0.032s
 
-FAILED (failures=1)
+FAILED (errors=7)
 
 ---Flake 8----
 
-./FUNCLG/character/abilities.py:32:14: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:34:11: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:39:7: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:55:7: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:60:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:118:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:143:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:146:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:19:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:33:25: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:35:11: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:78:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:49:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:63:11: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:79:7: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:33:14: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:35:11: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:40:7: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:56:7: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:61:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:119:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:141:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:144:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:31:25: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:79:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:7:1: F401 'json' imported but unused
+./FUNCLG/character/equipment.py:51:7: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:65:11: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:81:7: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:94:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:40:11: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:45:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:68:13: F841 local variable 'old_ability' is assigned to but never used
@@ -105,36 +218,35 @@ All done! ✨ 🍰 ✨
 
 -----XENON-----
 
-ERROR:xenon:block "FUNCLG/character/armor.py:22 __init__" has a rank of C
-ERROR:xenon:block "FUNCLG/character/armor.py:79 dequip" has a rank of C
+ERROR:xenon:block "FUNCLG/character/armor.py:80 dequip" has a rank of C
 
 -----PYLINT-----
 
 ************* Module FUNCLG
 FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_case naming style (invalid-name)
 ************* Module FUNCLG.character.abilities
-FUNCLG/character/abilities.py:32:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
-FUNCLG/character/abilities.py:34:9: W0511: TODO: Validation will be done during creation (fixme)
-FUNCLG/character/abilities.py:39:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/abilities.py:55:5: W0511: TODO: Look to see if this is the best way to copy an object (fixme)
-FUNCLG/character/abilities.py:60:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
+FUNCLG/character/abilities.py:33:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
+FUNCLG/character/abilities.py:35:9: W0511: TODO: Validation will be done during creation (fixme)
+FUNCLG/character/abilities.py:40:5: W0511: TODO: add indention factor (fixme)
+FUNCLG/character/abilities.py:56:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
+FUNCLG/character/abilities.py:61:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
 ************* Module FUNCLG.character.armor
-FUNCLG/character/armor.py:19:5: W0511: TODO: Remove use from class (fixme)
-FUNCLG/character/armor.py:33:9: W0511: self.stats = #TODO: Stat Object (fixme)
-FUNCLG/character/armor.py:35:9: W0511: TODO: Create a validation method (fixme)
-FUNCLG/character/armor.py:78:5: W0511: TODO: Consider return a status and the item, for faster check (fixme)
-FUNCLG/character/armor.py:118:5: W0511: TODO: Add indention factor (fixme)
-FUNCLG/character/armor.py:143:5: W0511: TODO: Need to create an import function that is static to the method (fixme)
-FUNCLG/character/armor.py:146:5: W0511: TODO: Need to create a define stats for armor (fixme)
-FUNCLG/character/armor.py:22:4: R0913: Too many arguments (7/5) (too-many-arguments)
-FUNCLG/character/armor.py:32:40: R1716: Simplify chained comparison between the operands (chained-comparison)
-FUNCLG/character/armor.py:57:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-FUNCLG/character/armor.py:79:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+FUNCLG/character/armor.py:31:9: W0511: self.stats = #TODO: Stat Object (fixme)
+FUNCLG/character/armor.py:79:5: W0511: TODO: Consider return a status and the item, for faster check (fixme)
+FUNCLG/character/armor.py:119:5: W0511: TODO: Add indention factor (fixme)
+FUNCLG/character/armor.py:141:5: W0511: TODO: Need to create an import function that is static to the method (fixme)
+FUNCLG/character/armor.py:144:5: W0511: TODO: Need to create a define stats for armor (fixme)
+FUNCLG/character/armor.py:21:4: R0913: Too many arguments (7/5) (too-many-arguments)
+FUNCLG/character/armor.py:30:40: R1716: Simplify chained comparison between the operands (chained-comparison)
+FUNCLG/character/armor.py:58:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+FUNCLG/character/armor.py:80:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+FUNCLG/character/armor.py:7:0: W0611: Unused import json (unused-import)
 ************* Module FUNCLG.character.equipment
-FUNCLG/character/equipment.py:49:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/equipment.py:63:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
-FUNCLG/character/equipment.py:79:5: W0511: TODO: Defined method (fixme)
-FUNCLG/character/equipment.py:20:4: R0913: Too many arguments (8/5) (too-many-arguments)
+FUNCLG/character/equipment.py:51:5: W0511: TODO: add indention factor (fixme)
+FUNCLG/character/equipment.py:65:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
+FUNCLG/character/equipment.py:81:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
+FUNCLG/character/equipment.py:94:5: W0511: TODO: Defined method (fixme)
+FUNCLG/character/equipment.py:22:4: R0913: Too many arguments (8/5) (too-many-arguments)
 ************* Module FUNCLG.character.roles
 FUNCLG/character/roles.py:40:9: W0511: TODO: self.stats (fixme)
 FUNCLG/character/roles.py:45:5: W0511: TODO: add check/validation for duplicates (fixme)
@@ -147,7 +259,7 @@ FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
 FUNCLG/utils/types.py:46:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.73/10 (previous run: 8.73/10, +0.00)
+Your code has been rated at 8.77/10 (previous run: 8.77/10, +0.00)
 
 
 -----PYRIGHT-----

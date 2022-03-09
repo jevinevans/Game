@@ -29,21 +29,17 @@ class Armor:
     ) -> None:
         self.armor_type = armor_type if armor_type <= len(ARMOR_TYPES) and armor_type >= 0 else 0
         # self.stats = #TODO: Stat Object
-        # Requires that the equipment is the same armor time
-        # TODO: Create a validation method
-        self.head = head if head is not None and head.armor_type == self.armor_type else None
-        self.chest = chest if chest is not None and chest.armor_type == self.armor_type else None
-        self.back = back if back is not None and back.armor_type == self.armor_type else None
-        self.pants = pants if pants is not None and pants.armor_type == self.armor_type else None
-        self.weapon = (
-            weapon if weapon is not None and weapon.armor_type == self.armor_type else None
-        )
+        self.head = self.validate_equipment(head)
+        self.chest = self.validate_equipment(chest)
+        self.back = self.validate_equipment(back)
+        self.pants = self.validate_equipment(pants)
+        self.weapon = self.validate_equipment(weapon)
 
     def validate_equipment(self, item: Equipment) -> Union[Equipment, None]:
         """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
         if item.armor_type == self.armor_type:
             logger.success(f"Equipped: {item}")
-            return item
+            return item.copy()
         logger.error(
             f"{item.name}({get_armor_type(item.armor_type)}) is not compatable with {get_armor_type(self.armor_type)}."
         )
