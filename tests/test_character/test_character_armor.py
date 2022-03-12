@@ -110,33 +110,36 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNone(arm.back, "Armor Equipment field is not none")
         self.assertIsNone(arm.pants, "Armor Equipment field is not none")
         self.assertIsNone(arm.weapon, "Armor Equipment field is not none")
-        self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
 
         # 2 - Testing creation of full armor initialization
 
         arm, equips = self.setup(False)
         self.assertEqual(arm.armor_type, equips["armor_type"])
-        self.assertEqual(arm.head, equips["head"])
-        self.assertEqual(arm.chest, equips["chest"])
-        self.assertEqual(arm.back, equips["back"])
-        self.assertEqual(arm.pants, equips["pants"])
-        self.assertEqual(arm.weapon, equips["sword"])
+        self.assertNotEqual(arm.head, equips["head"])
+        self.assertNotEqual(arm.chest, equips["chest"])
+        self.assertNotEqual(arm.back, equips["back"])
+        self.assertNotEqual(arm.pants, equips["pants"])
+        self.assertNotEqual(arm.weapon, equips["sword"])
 
-        self.assertEqual(Armor._id - 1, int(arm.name.split("_")[1]))
-
+        self.assertEqual(arm.head.name, equips["head"].name)
+        self.assertEqual(arm.chest.name, equips["chest"].name)
+        self.assertEqual(arm.back.name, equips["back"].name)
+        self.assertEqual(arm.pants.name, equips["pants"].name)
+        self.assertEqual(arm.weapon.name, equips["sword"].name)
+        
     def test_armor_str(self):
         # Testing object print format
 
         # 1 - Testing Raw Armor
         arm, equips = self.setup()
-        self.assertEqual(arm.__str__(), f"Armor_{Armor._id-1}: <H:0, C:0, B:0, P:0, W:0>")
+        self.assertEqual(arm.__str__(), f"Medium Armor: <H:0, C:0, B:0, P:0, W:0>")
 
         # 2 - Testing Partial Armor - Head Chest Pants
         arm, equips = self.setup()
         arm.head = equips["head"]
         arm.chest = equips["chest"]
         arm.pants = equips["pants"]
-        self.assertEqual(arm.__str__(), f"Armor_{Armor._id-1}: <H:1, C:1, B:0, P:1, W:0>")
+        self.assertEqual(arm.__str__(), f"Medium Armor: <H:1, C:1, B:0, P:1, W:0>")
 
     def test_armor_equip(self):
         # 1 - Testing ability to equip items empty location
@@ -153,32 +156,22 @@ class ArmorTest(unittest.TestCase):
         self.assertIsNotNone(arm.pants)
         self.assertIsNotNone(arm.weapon)
 
-        self.assertEqual(arm.head, equips["head"])
-        self.assertEqual(arm.chest, equips["chest"])
-        self.assertEqual(arm.back, equips["back"])
-        self.assertEqual(arm.pants, equips["pants"])
-        self.assertEqual(arm.weapon, equips["sword"])
+        self.assertEqual(arm.head.name, equips["head"].name)
+        self.assertEqual(arm.chest.name, equips["chest"].name)
+        self.assertEqual(arm.back.name, equips["back"].name)
+        self.assertEqual(arm.pants.name, equips["pants"].name)
+        self.assertEqual(arm.weapon.name, equips["sword"].name)
 
         # 2 - Testing ability to equip an item that is not empty and return it (change equips)
         arm, equips = self.setup(False)
-
-        temp = None
-        self.assertIsNone(temp)
-
-        temp = arm.equip(equips["knife"])
-        self.assertIsNotNone(temp)
-        self.assertEqual(temp, equips["sword"])
-        self.assertEqual(arm.weapon, equips["knife"])
+        arm.equip(equips["knife"])
+        self.assertEqual(arm.weapon.name, equips["knife"].name)
 
         # 3 - Testing ability to not equip uncompatible items
         arm, equips = self.setup(False)
-        temp = None
-        self.assertIsNone(temp)
 
-        temp = arm.equip(equips["wand"])
-        self.assertIsNotNone(temp)
-        self.assertEqual(temp, equips["wand"])
-        self.assertEqual(arm.weapon, equips["sword"])
+        arm.equip(equips["wand"])
+        self.assertEqual(arm.weapon.name, equips["sword"].name)
 
     def test_armor_dequip(self):
         # Test 1.a Basic dequip, dequiping with integer, with item equipped
@@ -188,7 +181,7 @@ class ArmorTest(unittest.TestCase):
         for position in range(5):
             self.assertIsNotNone(arms.dequip(position))
 
-        self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
+        self.assertEqual(arms.__str__(), f"Medium Armor: <H:0, C:0, B:0, P:0, W:0>")
 
         # Test 1.b Basic dequip, dequiping with string, with item equipped
         arms, _ = self.setup(False)
@@ -196,26 +189,26 @@ class ArmorTest(unittest.TestCase):
         for item in ITEM_TYPES:
             self.assertIsNotNone(arms.dequip(item))
 
-        self.assertEqual(arms.__str__(), f"{arms.name}: <H:0, C:0, B:0, P:0, W:0>")
+        self.assertEqual(arms.__str__(), f"Medium Armor: <H:0, C:0, B:0, P:0, W:0>")
 
         # Test 2.a Testing dequip error for integer value
         arms, _ = self.setup(False)
 
         self.assertIsNone(arms.dequip(-1))
-        self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
+        self.assertEqual(arms.__str__(), f"Medium Armor: <H:1, C:1, B:1, P:1, W:1>")
 
         # Test 2.b Testing dequip error for string value
         arms, _ = self.setup(False)
 
         self.assertIsNone(arms.dequip("jagiejoijga"))
-        self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
+        self.assertEqual(arms.__str__(), f"Medium Armor: <H:1, C:1, B:1, P:1, W:1>")
 
         # Test 2.c Testing dequip error for other value
         arms, _ = self.setup(False)
 
         self.assertIsNone(arms.dequip(["head", "chest"]))
         self.assertIsNone(arms.dequip({}))
-        self.assertEqual(arms.__str__(), f"{arms.name}: <H:1, C:1, B:1, P:1, W:1>")
+        self.assertEqual(arms.__str__(), f"Medium Armor: <H:1, C:1, B:1, P:1, W:1>")
 
         # Test 3.a Dequipping an empty slot with integer
         arms, _ = self.setup()

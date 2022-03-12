@@ -5,7 +5,7 @@ Description: The Armor class is made to store equipment itmes for a character.
 """
 
 import json
-from typing import Dict, List, Union
+from typing import Dict, List, Optional, Union
 
 from loguru import logger
 
@@ -35,14 +35,13 @@ class Armor:
         self.pants = self.validate_equipment(pants)
         self.weapon = self.validate_equipment(weapon)
 
-    def validate_equipment(self, item: Equipment) -> Union[Equipment, None]:
+    def validate_equipment(self, item: Optional[Equipment]) -> Union[Equipment, None]:
         """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
-        if item.armor_type == self.armor_type:
-            logger.success(f"Equipped: {item}")
-            return item.copy()
-        logger.error(
-            f"{item.name}({get_armor_type(item.armor_type)}) is not compatable with {get_armor_type(self.armor_type)}."
-        )
+        if isinstance(item, Equipment):
+            if item.armor_type == self.armor_type:
+                logger.success(f"Equipped: {item}")
+                return item.copy()
+        logger.error(f"{item} is not compatable with this armor.")
         return None
 
     def __str__(self) -> str:
@@ -55,26 +54,22 @@ class Armor:
         temp += "W:1>" if self.weapon else "W:0>"
         return temp
 
+    def _equip_head(self, item: Equipment):
+        self.head = item
+    def _equip_chest(self, item: Equipment):
+        self.chest = item
+    def _equip_back(self, item: Equipment):
+        self.back = item
+    def _equip_pants(self, item: Equipment):
+        self.pants = item
+    def _equip_weapon(self, item: Equipment):
+        self.weapon = item
+
     def equip(self, item: Equipment) -> Union[Equipment, None]:
-        temp = None
-        if item is not None and item.armor_type == self.armor_type:
-            if item.get_item_type() == "Head":
-                self.head, temp = item, self.head
-            elif item.get_item_type() == "Chest":
-                self.chest, temp = item, self.chest
-            elif item.get_item_type() == "Back":
-                self.back, temp = item, self.back
-            elif item.get_item_type() == "Pants":
-                self.pants, temp = item, self.pants
-            elif item.get_item_type() == "Weapon":
-                self.weapon, temp = item, self.weapon
-            print(f"Equipped: {item}")
-        else:
-            print(f"\n{item}, is not compatable with this armor")
-            return item
-        # Returns previously equiped item, if there was one
-        if isinstance(temp, Equipment):
-            return temp
+        if new_item := self.validate_equipment(item):
+            if equip_func := getattr(self, "_equip_"+item.get_item_type().lower()):
+                equip_func(new_item)
+            
 
     # TODO: Consider return a status and the item, for faster check
     def dequip(self, item) -> Union[None, Equipment]:
