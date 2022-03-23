@@ -111,7 +111,7 @@ class AbilityTest(unittest.TestCase):
         # Test object difference
         self.assertNotEqual(repair_1, repair_2)
         self.assertNotEqual(id(repair_1), id(repair_2))
-        
+
         # Test Information is the same
         self.assertEqual(repair_1.name, repair_2.name)
         self.assertEqual(repair_1.damage_type, repair_2.damage_type)

@@ -94,10 +94,9 @@ class EquipmentTest(unittest.TestCase):
         print(f"\n{'Equipment Example Output'.center(80, '-')}")
         for equip in EquipmentTest.get_equipment():
             print(f"\n__str__ Output:\n{equip}")
-            print(f"\ndetails Output: {equip.details()}")
+            print(f"\ndetails Output:\n{equip.details()}")
             print(f"\nexport Output:\n{equip.export()}")
         print(f"\n{'Done'.center(80, '-')}")
-
 
     def test_equipment_duplicate_call(self):
         e1 = self.get_weapon()
@@ -105,5 +104,5 @@ class EquipmentTest(unittest.TestCase):
 
         self.assertNotEqual(e1, e2)
         self.assertNotEqual(id(e1), id(e2))
-        
+
     # TODO: def test_equipment_getStats(self:)

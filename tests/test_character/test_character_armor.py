@@ -126,7 +126,7 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.back.name, equips["back"].name)
         self.assertEqual(arm.pants.name, equips["pants"].name)
         self.assertEqual(arm.weapon.name, equips["sword"].name)
-        
+
     def test_armor_str(self):
         # Testing object print format
 

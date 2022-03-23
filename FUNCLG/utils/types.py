@@ -25,7 +25,7 @@ DAMAGE_TYPES = {
     "None": ("None", 0),
 }
 
-STAT_TYPES = ["HP", "MP", "ATK", "DEF"]
+STAT_TYPES = ["health", "energy", "attack", "defense"]
 
 
 def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
