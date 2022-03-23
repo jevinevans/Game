@@ -14,7 +14,7 @@ from typing_extensions import Self
 
 from ..utils import types as uTypes
 
-logger.add("./logs/character/equipment.log")
+logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 
 
 class Equipment:

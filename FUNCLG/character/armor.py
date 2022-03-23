@@ -4,7 +4,6 @@ Date: 7.15.2021
 Description: The Armor class is made to store equipment itmes for a character.
 """
 
-import json
 from typing import Dict, List, Optional, Union
 
 from loguru import logger
@@ -12,7 +11,7 @@ from loguru import logger
 from ..utils.types import ARMOR_TYPES, ITEM_TYPES, get_armor_type
 from .equipment import Equipment
 
-logger.add("./logs/character/armor.log")
+logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
 
 class Armor:

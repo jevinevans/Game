@@ -12,7 +12,7 @@ from loguru import logger
 from ..utils.types import DAMAGE_TYPES, get_armor_type
 from .abilities import Abilities
 
-logger.add("./logs/character/roles.log")
+logger.add("./logs/character/roles.log", rotation="1 MB", retention=5)
 
 
 class Roles:
