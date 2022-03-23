@@ -17,31 +17,31 @@ class AbilityTest(unittest.TestCase):
         test_abilities = {}
         test_abilities["Magic"] = Abilities(
             name="Fireball",
-            class_type="Magic",
+            damage_type="Magic",
             effect=randint(1, 50),
             description="A blazing ball of fire",
         )
         test_abilities["Physical"] = Abilities(
             name="Slash",
-            class_type="Physical",
+            damage_type="Physical",
             effect=randint(1, 50),
             description="A slashing strike with a sharp weapon",
         )
         test_abilities["Repair"] = Abilities(
             name="Armor Fix",
-            class_type="Repair",
+            damage_type="Repair",
             effect=randint(1, 50),
             description="Repairs the armor of the user",
         )
         test_abilities["Healing"] = Abilities(
             name="Holy Light",
-            class_type="Healing",
+            damage_type="Healing",
             effect=randint(1, 50),
             description="Heals the user",
         )
         test_abilities["Error"] = Abilities(
             name="Error Test",
-            class_type="error",
+            damage_type="error",
             effect=randint(1, 50),
             description="Testing if this will default to None",
         )
@@ -57,7 +57,7 @@ class AbilityTest(unittest.TestCase):
         )
         # Test Valid Negative Effect
         self.assertEqual(valid_neg.name, "Fireball")
-        self.assertEqual(valid_neg.class_type, "Magic")
+        self.assertEqual(valid_neg.damage_type, "Magic")
         self.assertEqual(valid_neg.ability_group, "Damage")
         self.assertIsInstance(valid_neg.effect, int)
         self.assertLessEqual(valid_neg.effect, -1)
@@ -67,7 +67,7 @@ class AbilityTest(unittest.TestCase):
         self.assertGreaterEqual(valid_pos.effect, 1)
 
         # Test Invalid
-        self.assertEqual(invalid.class_type, "None")
+        self.assertEqual(invalid.damage_type, "None")
         self.assertEqual(invalid.ability_group, "None")
         self.assertEqual(invalid.effect, 0)
 
@@ -114,7 +114,7 @@ class AbilityTest(unittest.TestCase):
         
         # Test Information is the same
         self.assertEqual(repair_1.name, repair_2.name)
-        self.assertEqual(repair_1.class_type, repair_2.class_type)
+        self.assertEqual(repair_1.damage_type, repair_2.damage_type)
         self.assertEqual(repair_1.ability_group, repair_2.ability_group)
         self.assertEqual(repair_1.effect, repair_2.effect)
         self.assertEqual(repair_1.description, repair_2.description)

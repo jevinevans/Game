@@ -1,23 +1,15 @@
-######TESTING REPORT######
-
-Date: Wed Mar 23 07:06:59 CDT 2022 
-
----UNITTEST---
-
-test_abilities_copy (test_character.test_character_abilities.AbilityTest) ... 2022-03-23 07:07:01.105 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.105 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.106 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.107 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
 2022-03-23 07:07:01.107 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.108 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
 2022-03-23 07:07:01.109 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
-ok
-test_abilities_details (test_character.test_character_abilities.AbilityTest) ... 2022-03-23 07:07:01.110 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.110 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.111 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.112 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
 2022-03-23 07:07:01.112 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.113 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
-ok
-test_abilities_export (test_character.test_character_abilities.AbilityTest) ... 2022-03-23 07:07:01.114 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.114 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.114 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.115 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
 2022-03-23 07:07:01.115 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
@@ -32,35 +24,30 @@ test_abilities_export (test_character.test_character_abilities.AbilityTest) ... 
 2022-03-23 07:07:01.121 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
 2022-03-23 07:07:01.121 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Error Test
 2022-03-23 07:07:01.122 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Error Test
-ok
-test_abilities_init (test_character.test_character_abilities.AbilityTest) ... 2022-03-23 07:07:01.123 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.123 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.123 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.124 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
 2022-03-23 07:07:01.125 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.125 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
-ok
-test_abilities_output_examples (test_character.test_character_abilities.AbilityTest) ... 2022-03-23 07:07:01.126 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.126 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.127 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.127 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
 2022-03-23 07:07:01.128 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.128 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
 2022-03-23 07:07:01.129 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Fireball
-ok
-test_abilities_print_to_file (test_character.test_character_abilities.AbilityTest) ... 2022-03-23 07:07:01.130 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.130 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.130 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.131 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
 2022-03-23 07:07:01.132 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.132 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
 2022-03-23 07:07:01.133 | INFO     | FUNCLG.character.abilities:print_to_file:54 - Saving Ability: Fireball
 2022-03-23 07:07:01.134 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Fireball
-ok
-test_abilities_str (test_character.test_character_abilities.AbilityTest) ... 2022-03-23 07:07:01.137 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.137 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.137 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.138 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
 2022-03-23 07:07:01.138 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.139 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
-ok
-test_armor_dequip (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.140 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.140 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.140 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.141 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.142 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -157,8 +144,7 @@ test_armor_dequip (test_character.test_character_armor.ArmorTest) ... 2022-03-23
 2022-03-23 07:07:01.177 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.177 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.178 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
-ok
-test_armor_details (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.178 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.178 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.179 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.179 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.179 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -187,8 +173,7 @@ test_armor_details (test_character.test_character_armor.ArmorTest) ... 2022-03-2
 2022-03-23 07:07:01.188 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.188 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.188 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
-ok
-test_armor_equip (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.189 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.189 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.189 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.190 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.190 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -247,8 +232,7 @@ test_armor_equip (test_character.test_character_armor.ArmorTest) ... 2022-03-23 
 2022-03-23 07:07:01.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [51]
 2022-03-23 07:07:01.209 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
 2022-03-23 07:07:01.210 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - Gold Wand [78] is not compatable with this armor.
-ok
-test_armor_export (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.210 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.210 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.210 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.211 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.211 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -282,8 +266,7 @@ test_armor_export (test_character.test_character_armor.ArmorTest) ... 2022-03-23
 2022-03-23 07:07:01.221 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.222 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.222 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
-ok
-test_armor_init (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.223 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.223 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.223 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.223 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.224 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -312,8 +295,7 @@ test_armor_init (test_character.test_character_armor.ArmorTest) ... 2022-03-23 0
 2022-03-23 07:07:01.232 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
 2022-03-23 07:07:01.232 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [78]
 2022-03-23 07:07:01.232 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
-ok
-test_armor_item_copy (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.233 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.233 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.233 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.233 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.234 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -347,8 +329,7 @@ test_armor_item_copy (test_character.test_character_armor.ArmorTest) ... 2022-03
 2022-03-23 07:07:01.244 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
 2022-03-23 07:07:01.245 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [90]
 2022-03-23 07:07:01.245 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
-ok
-test_armor_output_examples (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.245 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.245 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.246 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.246 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.247 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -370,8 +351,7 @@ test_armor_output_examples (test_character.test_character_armor.ArmorTest) ... 2
 2022-03-23 07:07:01.254 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Cape
 2022-03-23 07:07:01.254 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold pants
 2022-03-23 07:07:01.255 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Sword
-ok
-test_armor_same_item_different_armors (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.255 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.255 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.256 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.256 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.257 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -399,8 +379,7 @@ test_armor_same_item_different_armors (test_character.test_character_armor.Armor
 2022-03-23 07:07:01.266 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.267 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [15]
 2022-03-23 07:07:01.267 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
-ok
-test_armor_str (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07:07:01.268 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.268 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
 2022-03-23 07:07:01.268 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
 2022-03-23 07:07:01.269 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
 2022-03-23 07:07:01.269 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
@@ -424,36 +403,28 @@ test_armor_str (test_character.test_character_armor.ArmorTest) ... 2022-03-23 07
 2022-03-23 07:07:01.278 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.279 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
 2022-03-23 07:07:01.279 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
-ok
-test_equipment_details (test_character.test_character_equipment.EquipmentTest) ... 2022-03-23 07:07:01.280 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.280 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
-ok
-test_equipment_duplicate_call (test_character.test_character_equipment.EquipmentTest) ... 2022-03-23 07:07:01.281 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.280 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.281 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
-ok
-test_equipment_export (test_character.test_character_equipment.EquipmentTest) ... 2022-03-23 07:07:01.282 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.281 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.282 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.282 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.283 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
 2022-03-23 07:07:01.283 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
 2022-03-23 07:07:01.284 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
 2022-03-23 07:07:01.284 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
-ok
-test_equipment_init (test_character.test_character_equipment.EquipmentTest) ... 2022-03-23 07:07:01.285 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.285 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
-ok
-test_equipment_output_examples (test_character.test_character_equipment.EquipmentTest) ... 2022-03-23 07:07:01.286 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.285 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.286 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.286 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.287 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
 2022-03-23 07:07:01.287 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
-ok
-test_equipment_print_to_file (test_character.test_character_equipment.EquipmentTest) ... 2022-03-23 07:07:01.288 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.288 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.288 | INFO     | FUNCLG.character.equipment:print_to_file:64 - Saving Equipment: Test_Equipment
 2022-03-23 07:07:01.289 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
-ok
-test_equipment_str (test_character.test_character_equipment.EquipmentTest) ... 2022-03-23 07:07:01.291 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.291 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
 2022-03-23 07:07:01.292 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
-ok
-test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.293 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.293 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.293 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.293 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.294 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -478,8 +449,7 @@ test_roles_add_power (test_character.test_character_roles.RolesTest) ... 2022-03
 2022-03-23 07:07:01.301 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Armor Buff to Warrior
 2022-03-23 07:07:01.302 | WARNING  | FUNCLG.character.roles:add_power:57 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
 2022-03-23 07:07:01.302 | WARNING  | FUNCLG.character.roles:add_power:55 - Max abilities reached!
-ok
-test_roles_details (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.303 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.303 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.303 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.304 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.304 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -499,8 +469,7 @@ test_roles_details (test_character.test_character_roles.RolesTest) ... 2022-03-2
 2022-03-23 07:07:01.311 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
 2022-03-23 07:07:01.311 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
 2022-03-23 07:07:01.311 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
-ok
-test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.312 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.312 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
 2022-03-23 07:07:01.312 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
 2022-03-23 07:07:01.313 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.314 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
@@ -513,8 +482,7 @@ test_roles_duplicate_ability_assign (test_character.test_character_roles.RolesTe
 2022-03-23 07:07:01.317 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Rouge
 2022-03-23 07:07:01.318 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.319 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Warrior
-ok
-test_roles_export (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.319 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.319 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.320 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.320 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.321 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -543,8 +511,7 @@ test_roles_export (test_character.test_character_roles.RolesTest) ... 2022-03-23
 2022-03-23 07:07:01.333 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
 2022-03-23 07:07:01.333 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
 2022-03-23 07:07:01.334 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
-ok
-test_roles_get_power (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.334 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.334 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.335 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.335 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.336 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -555,8 +522,7 @@ test_roles_get_power (test_character.test_character_roles.RolesTest) ... 2022-03
 2022-03-23 07:07:01.339 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.340 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
 2022-03-23 07:07:01.340 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
-ok
-test_roles_init (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.342 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.342 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.342 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.343 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.344 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -576,8 +542,7 @@ test_roles_init (test_character.test_character_roles.RolesTest) ... 2022-03-23 0
 2022-03-23 07:07:01.352 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
 2022-03-23 07:07:01.352 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
 2022-03-23 07:07:01.353 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
-ok
-test_roles_output_examples (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.354 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.354 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.354 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.355 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.356 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -603,8 +568,7 @@ test_roles_output_examples (test_character.test_character_roles.RolesTest) ... 2
 2022-03-23 07:07:01.369 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
 2022-03-23 07:07:01.369 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
 2022-03-23 07:07:01.370 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
-ok
-test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.371 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.371 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.372 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.372 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.373 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -633,8 +597,7 @@ test_roles_print_to_file (test_character.test_character_roles.RolesTest) ... 202
 2022-03-23 07:07:01.392 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
 2022-03-23 07:07:01.394 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Mage
 2022-03-23 07:07:01.395 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
-ok
-test_roles_remove_power (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.397 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.397 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.398 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.399 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.399 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -644,8 +607,7 @@ test_roles_remove_power (test_character.test_character_roles.RolesTest) ... 2022
 2022-03-23 07:07:01.401 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.402 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.402 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
-ok
-test_roles_str (test_character.test_character_roles.RolesTest) ... 2022-03-23 07:07:01.403 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.403 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
 2022-03-23 07:07:01.404 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
 2022-03-23 07:07:01.404 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
 2022-03-23 07:07:01.405 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
@@ -665,137 +627,3 @@ test_roles_str (test_character.test_character_roles.RolesTest) ... 2022-03-23 07
 2022-03-23 07:07:01.412 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
 2022-03-23 07:07:01.413 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
 2022-03-23 07:07:01.413 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
-ok
-
-----------------------------------------------------------------------
-Ran 33 tests in 0.309s
-
-OK
-
----Flake 8----
-
-./FUNCLG/character/abilities.py:17:1: E302 expected 2 blank lines, found 1
-./FUNCLG/character/abilities.py:34:14: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:36:11: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:38:5: E301 expected 1 blank line, found 0
-./FUNCLG/character/abilities.py:41:7: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:58:7: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:63:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:119:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:141:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:144:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:33:25: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:79:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:7:1: F401 'json' imported but unused
-./FUNCLG/character/equipment.py:19:1: E302 expected 2 blank lines, found 1
-./FUNCLG/character/equipment.py:54:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:69:11: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:86:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:99:7: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:42:11: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:48:7: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:71:13: F841 local variable 'old_ability' is assigned to but never used
-./FUNCLG/character/roles.py:76:7: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:85:38: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:10:1: F401 'loguru.logger' imported but unused
-./FUNCLG/character/stats.py:7:1: F401 'json' imported but unused
-./FUNCLG/character/stats.py:8:1: F401 'typing.Any' imported but unused
-./FUNCLG/character/stats.py:8:1: F401 'typing.Dict' imported but unused
-./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
-./FUNCLG/utils/types.py:46:3: T101 fixme found (TODO)
-29
-
----Code Quality Report---
-
-
------ISORT-----
-
-
------BLACK-----
-
-reformatted FUNCLG/character/abilities.py
-reformatted FUNCLG/character/equipment.py
-All done! ✨ 🍰 ✨
-2 files reformatted, 9 files left unchanged.
-
------BANDIT-----
-
-
------XENON-----
-
-ERROR:xenon:block "FUNCLG/character/armor.py:80 dequip" has a rank of C
-
------PYLINT-----
-
-************* Module FUNCLG
-FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_case naming style (invalid-name)
-************* Module FUNCLG.character.abilities
-FUNCLG/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
-FUNCLG/character/abilities.py:37:9: W0511: TODO: Validation will be done during creation (fixme)
-FUNCLG/character/abilities.py:43:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/abilities.py:60:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
-FUNCLG/character/abilities.py:65:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
-************* Module FUNCLG.character.armor
-FUNCLG/character/armor.py:33:9: W0511: self.stats = #TODO: Stat Object (fixme)
-FUNCLG/character/armor.py:79:5: W0511: TODO: Consider return a status and the item, for faster check (fixme)
-FUNCLG/character/armor.py:119:5: W0511: TODO: Add indention factor (fixme)
-FUNCLG/character/armor.py:141:5: W0511: TODO: Need to create an import function that is static to the method (fixme)
-FUNCLG/character/armor.py:144:5: W0511: TODO: Need to create a define stats for armor (fixme)
-FUNCLG/character/armor.py:23:4: R0913: Too many arguments (7/5) (too-many-arguments)
-FUNCLG/character/armor.py:32:40: R1716: Simplify chained comparison between the operands (chained-comparison)
-FUNCLG/character/armor.py:80:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-FUNCLG/character/armor.py:7:0: W0611: Unused import json (unused-import)
-************* Module FUNCLG.character.equipment
-FUNCLG/character/equipment.py:55:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/equipment.py:70:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
-FUNCLG/character/equipment.py:87:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
-FUNCLG/character/equipment.py:100:5: W0511: TODO: Defined method (fixme)
-FUNCLG/character/equipment.py:25:4: R0913: Too many arguments (8/5) (too-many-arguments)
-************* Module FUNCLG.character.roles
-FUNCLG/character/roles.py:42:9: W0511: TODO: self.stats (fixme)
-FUNCLG/character/roles.py:48:5: W0511: TODO: add check/validation for duplicates (fixme)
-FUNCLG/character/roles.py:76:5: W0511: TODO add indention factor (fixme)
-FUNCLG/character/roles.py:85:36: W0511: TODO: Add indention here too (fixme)
-FUNCLG/character/roles.py:64:31: R1716: Simplify chained comparison between the operands (chained-comparison)
-FUNCLG/character/roles.py:70:31: R1716: Simplify chained comparison between the operands (chained-comparison)
-************* Module FUNCLG.character.stats
-FUNCLG/character/stats.py:13:0: C0115: Missing class docstring (missing-class-docstring)
-FUNCLG/character/stats.py:14:23: C0103: Argument name "HP" doesn't conform to snake_case naming style (invalid-name)
-FUNCLG/character/stats.py:14:27: C0103: Argument name "MP" doesn't conform to snake_case naming style (invalid-name)
-FUNCLG/character/stats.py:13:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-FUNCLG/character/stats.py:7:0: W0611: Unused import json (unused-import)
-FUNCLG/character/stats.py:8:0: W0611: Unused Any imported from typing (unused-import)
-FUNCLG/character/stats.py:8:0: W0611: Unused Dict imported from typing (unused-import)
-FUNCLG/character/stats.py:10:0: W0611: Unused logger imported from loguru (unused-import)
-************* Module FUNCLG.utils.types
-FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
-FUNCLG/utils/types.py:46:1: W0511: TODO: needs to be fixed (fixme)
-
-------------------------------------------------------------------
-Your code has been rated at 8.55/10 (previous run: 8.49/10, +0.06)
-
-
------PYRIGHT-----
-
-Traceback (most recent call last):
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>
-    sys.exit(entrypoint())
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 46, in entrypoint
-    sys.exit(main(sys.argv[1:]))
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 20, in main
-    return run(*args, **kwargs).returncode
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 42, in run
-    return node.run('npx', *pre_args, f'pyright@{version}', *args, **kwargs)
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/node.py", line 112, in run
-    return subprocess.run(node_args, env=env, **kwargs)
-  File "/usr/lib/python3.8/subprocess.py", line 495, in run
-    stdout, stderr = process.communicate(input, timeout=timeout)
-  File "/usr/lib/python3.8/subprocess.py", line 1020, in communicate
-    self.wait()
-  File "/usr/lib/python3.8/subprocess.py", line 1083, in wait
-    return self._wait(timeout=timeout)
-  File "/usr/lib/python3.8/subprocess.py", line 1806, in _wait
-    (pid, sts) = self._try_wait(0)
-  File "/usr/lib/python3.8/subprocess.py", line 1764, in _try_wait
-    (pid, sts) = os.waitpid(self.pid, wait_flags)
-KeyboardInterrupt

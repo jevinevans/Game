@@ -15,7 +15,7 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
 WEAPON_TYPES = ["Sword", "Wand", "Knife", ""]
 
 # TODO: Rework
-CLASS_TYPES = {
+DAMAGE_TYPES = {
     "Magic": ("Damage", -1),
     "Physical": ("Damage", -1),
     "Healing": ("Boost", 1),
@@ -28,7 +28,7 @@ CLASS_TYPES = {
 
 def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
     "Returns the effect type of the provided ability"
-    return CLASS_TYPES[a_type]
+    return DAMAGE_TYPES[a_type]
 
 
 def get_item_type(item_type: int) -> str:

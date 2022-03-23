@@ -9,8 +9,10 @@ from typing import Any, Dict, List, Union
 
 from loguru import logger
 
-from ..utils.types import CLASS_TYPES, get_armor_type
+from ..utils.types import DAMAGE_TYPES, get_armor_type
 from .abilities import Abilities
+
+logger.add("./logs/character/roles.log")
 
 
 class Roles:
@@ -25,34 +27,35 @@ class Roles:
         name: str,
         description: str,
         armor_type: int,
-        class_types: Union[List, None],
+        damage_types: Union[List, None],
         abilities: Union[List, None] = None,
     ):  # pylint: disable=too-many-arguments
         self.name = name
         self.description = description
         self.armor_type = armor_type
-        self.class_types = (
-            [class_type for class_type in class_types if class_type in CLASS_TYPES]
-            if class_types
+        self.damage_types = (
+            [damage_type for damage_type in damage_types if damage_type in DAMAGE_TYPES]
+            if damage_types
             else "None"
         )
         self.abilities = self.validate_abilities(abilities) if abilities else []
         # TODO: self.stats
+        logger.info(f"Created Role: {name}")
 
     def __str__(self):
-        return f"Class: {self.name} | Class Type: {self.class_types} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
+        return f"Class: {self.name} | Class Type: {self.damage_types} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
 
     # TODO: add check/validation for duplicates
     def add_power(self, ability: Abilities) -> int:
-        if ability.class_type in self.class_types:
+        if ability.damage_type in self.damage_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
                 self.abilities.append(ability.copy())
                 logger.success(f"Added {ability.name} to {self.name}")
                 return 0
             logger.warning("Max abilities reached!")
             return 3
-        logger.error(
-            f"{ability.name}({ability.class_type}) is not compatible with {self.name}({self.class_types})"
+        logger.warning(
+            f"{ability.name}({ability.damage_type}) is not compatible with {self.name}({self.damage_types})"
         )
         return 1
 
@@ -83,6 +86,7 @@ class Roles:
         return desc
 
     def export(self) -> Dict[str, Any]:
+        logger.info(f"Exporting Role: {self.name}")
         exporter = self.__dict__
         for key, value in exporter.items():
             if key == "abilities" and len(value) > 0:
@@ -100,4 +104,4 @@ class Roles:
         """
         Validates that abilities added are compatable
         """
-        return [ability.copy() for ability in abilities if ability.class_type in self.class_types]
+        return [ability.copy() for ability in abilities if ability.damage_type in self.damage_types]

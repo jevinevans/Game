@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 28			|
-|	Files: 142				|
+|	Total Directories: 29			|
+|	Files: 136				|
 +==========================================+
 
 ./CodeTests
@@ -78,6 +78,7 @@
 ./FUNCLG/character/armor.py
 ./FUNCLG/character/equipment.py
 ./FUNCLG/character/roles.py
+./FUNCLG/character/stats.py
 ./FUNCLG/main.py
 ./FUNCLG/utils
 ./FUNCLG/utils/__init__.py
@@ -89,78 +90,72 @@
 ./Includes/Functions.cpp
 ./Includes/Functions.h
 ./Includes/Stats.h
-./Logs
-./Logs/2018
-./Logs/2018/Log_2018_August_2.txt
-./Logs/2018/Log_2018_December_11.txt
-./Logs/2018/Log_2018_December_21.txt.txt
-./Logs/2018/Log_2018_December_23.txt
-./Logs/2018/Log_2018_December_24.txt
-./Logs/2018/Log_2018_December_26.txt
-./Logs/2018/Log_2018_December_27.txt
-./Logs/2018/Log_2018_December_28.txt
-./Logs/2018/Log_2018_December_29.txt
-./Logs/2018/Log_2018_July_5.txt
-./Logs/2019
-./Logs/2019/Log_2019_January_2.txt
-./Logs/2019/Log_2019_January_3.txt
-./Logs/2019/Log_2019_July_19.txt
-./Logs/2019/Log_2019_July_23.txt
-./Logs/2020
-./Logs/2020/Log_2020_August_15.md
-./Logs/2020/Log_2020_February_17.txt
-./Logs/2020/Log_2020_February_2.txt
-./Logs/2020/Log_2020_July_24.md
-./Logs/2020/Log_2020_July_27.md
-./Logs/2020/Log_2020_July_3.md
-./Logs/2020/Log_2020_July_4.md
-./Logs/2020/Log_2020_July_5.md
-./Logs/2020/Log_2020_June_26.md
-./Logs/2020/Log_2020_June_27.md
-./Logs/2020/Log_2020_March_21.md
-./Logs/2020/Log_2020_March_22.md
-./Logs/2020/Log_2020_May_24.md
-./Logs/2020/Log_2020_May_25.md
-./Logs/2020/Log_2020_May_28.md
-./Logs/2020/Log_2020_May_29.md
-./Logs/2020/Log_2020_May_30.md
-./Logs/2021
-./Logs/2021/Log_2021_04_19.md
-./Logs/2021/Log_2021_05_28.md
-./Logs/2021/Log_2021_05_30.md
-./Logs/2021/Log_2021_05_31.md
-./Logs/2021/Log_2021_06_19.md
-./Logs/2021/Log_2021_06_30.md
-./Logs/2021/Log_2021_07_13.md
-./Logs/2021/Log_2021_07_19.md
-./Logs/2021/Log_2021_08_09.md
-./Logs/2021/Log_2021_08_21.md
-./Logs/2021/Log_2021_09_09.md
-./Logs/2021/Log_2021_10_04.md
-./Logs/2021/Log_2021_11_28.md
-./Logs/2022
-./Logs/2022/Log_2022_01_08.md
-./Logs/2022/Log_2022_02_06.md
 ./README.md
 ./Scan_Directories.py
 ./TEST_OUTPUT.txt
 ./TEST_REPORT.txt
+./changelogs
+./changelogs/2018
+./changelogs/2018/Log_2018_August_2.txt
+./changelogs/2018/Log_2018_December_11.txt
+./changelogs/2018/Log_2018_December_21.txt.txt
+./changelogs/2018/Log_2018_December_23.txt
+./changelogs/2018/Log_2018_December_24.txt
+./changelogs/2018/Log_2018_December_26.txt
+./changelogs/2018/Log_2018_December_27.txt
+./changelogs/2018/Log_2018_December_28.txt
+./changelogs/2018/Log_2018_December_29.txt
+./changelogs/2018/Log_2018_July_5.txt
+./changelogs/2019
+./changelogs/2019/Log_2019_January_2.txt
+./changelogs/2019/Log_2019_January_3.txt
+./changelogs/2019/Log_2019_July_19.txt
+./changelogs/2019/Log_2019_July_23.txt
+./changelogs/2020
+./changelogs/2020/Log_2020_August_15.md
+./changelogs/2020/Log_2020_February_17.txt
+./changelogs/2020/Log_2020_February_2.txt
+./changelogs/2020/Log_2020_July_24.md
+./changelogs/2020/Log_2020_July_27.md
+./changelogs/2020/Log_2020_July_3.md
+./changelogs/2020/Log_2020_July_4.md
+./changelogs/2020/Log_2020_July_5.md
+./changelogs/2020/Log_2020_June_26.md
+./changelogs/2020/Log_2020_June_27.md
+./changelogs/2020/Log_2020_March_21.md
+./changelogs/2020/Log_2020_March_22.md
+./changelogs/2020/Log_2020_May_24.md
+./changelogs/2020/Log_2020_May_25.md
+./changelogs/2020/Log_2020_May_28.md
+./changelogs/2020/Log_2020_May_29.md
+./changelogs/2020/Log_2020_May_30.md
+./changelogs/2021
+./changelogs/2021/Log_2021_04_19.md
+./changelogs/2021/Log_2021_05_28.md
+./changelogs/2021/Log_2021_05_30.md
+./changelogs/2021/Log_2021_05_31.md
+./changelogs/2021/Log_2021_06_19.md
+./changelogs/2021/Log_2021_06_30.md
+./changelogs/2021/Log_2021_07_13.md
+./changelogs/2021/Log_2021_07_19.md
+./changelogs/2021/Log_2021_08_09.md
+./changelogs/2021/Log_2021_08_21.md
+./changelogs/2021/Log_2021_09_09.md
+./changelogs/2021/Log_2021_10_04.md
+./changelogs/2021/Log_2021_11_28.md
+./changelogs/2022
+./changelogs/2022/Log_2022_01_08.md
+./changelogs/2022/Log_2022_02_06.md
+./changelogs/2022/Log_2022_03_23.md
 ./codeQuality.sh
 ./docs
 ./docs/Basic Player Game Info.txt
-./docs/How to Make an RPG_ Stats _ How to Make an RPG.html
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/atoms_and_void.png
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/bootstrap.min.css
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/bootstrap.min.js.download
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/font-awesome.min.css
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/header.png
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/jquery.min.js.download
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/monokai.css
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/respond.min.js.download
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/style.css
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/wizardry.png
-./docs/How to Make an RPG_ Stats _ How to Make an RPG_files/zelda.png
+./logs
+./logs/character
+./logs/character/abilities.log
+./logs/character/armor.log
+./logs/character/equipment.log
+./logs/character/roles.log
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt

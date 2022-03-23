@@ -9,9 +9,12 @@ Description: The Equipment class allows for creation of objects in the game to b
 import json
 from typing import Any, Dict
 
+from loguru import logger
 from typing_extensions import Self
 
 from ..utils import types as uTypes
+
+logger.add("./logs/character/equipment.log")
 
 
 class Equipment:
@@ -41,6 +44,7 @@ class Equipment:
         self.level = level
         self.damage = damage
         # self.stats = #STAT Object /may replace abiilty points with stats
+        logger.info(f"Created Equipment: {name}")
 
     def __str__(self) -> str:
         """
@@ -58,12 +62,14 @@ class Equipment:
         return desc
 
     def print_to_file(self) -> None:
+        logger.info(f"Saving Equipment: {self.name}")
         with open(self.name + ".json", "w", encoding="utf-8") as out_file:
             json.dump(self.export(), out_file)
 
     def export(self) -> Dict[str, Any]:
         # TODO: May have to change function when STATS object is integrated
         # Function will just need to call the export for each
+        logger.info(f"Exporting Role: {self.name}")
         return self.__dict__
 
     def get_item_type(self) -> str:

@@ -15,43 +15,43 @@ class RolesTest(unittest.TestCase):
         test_abilities = {}
         test_abilities["Magic"] = Abilities(
             name="Fireball",
-            class_type="Magic",
+            damage_type="Magic",
             effect=randint(1, 50),
             description="A blazing ball of fire",
         )
         test_abilities["Physical"] = Abilities(
             name="Slash",
-            class_type="Physical",
+            damage_type="Physical",
             effect=randint(1, 50),
             description="A slashing strike with a sharp weapon",
         )
         test_abilities["Healing"] = Abilities(
             name="Holy Light",
-            class_type="Healing",
+            damage_type="Healing",
             effect=randint(1, 50),
             description="Heals the user",
         )
         test_abilities["Buff"] = Abilities(
             name="Buff Test",
-            class_type="Buff",
+            damage_type="Buff",
             effect=randint(1, 50),
             description="Boost self attribute",
         )
         test_abilities["Buff_2"] = Abilities(
             name="Armor Buff",
-            class_type="Buff",
+            damage_type="Buff",
             effect=randint(1, 50),
             description="Adds extra defense",
         )
         test_abilities["Debuff"] = Abilities(
             name="Debuff Test",
-            class_type="Debuff",
+            damage_type="Debuff",
             effect=randint(1, 50),
             description="Reduces enemy defenses",
         )
         test_abilities["Debuff_2"] = Abilities(
             name="Drain",
-            class_type="Debuff",
+            damage_type="Debuff",
             effect=randint(1, 50),
             description="Reduces enemy mana",
         )
@@ -65,7 +65,7 @@ class RolesTest(unittest.TestCase):
             name="Warrior",
             description="Sword whielding champions that defend the lang",
             armor_type=2,
-            class_types=["Buff", "Physical", "Debuff", "Healing"],
+            damage_types=["Buff", "Physical", "Debuff", "Healing"],
             abilities=[test_abilities["Physical"], test_abilities["Healing"]],
         )
 
@@ -76,7 +76,7 @@ class RolesTest(unittest.TestCase):
             name="Mage",
             description="Blessed individuals that can command and control the aspects of magic",
             armor_type=1,
-            class_types=["Buff", "Magic", "Debuff", "Invalid_Type"],
+            damage_types=["Buff", "Magic", "Debuff", "Invalid_Type"],
         )
 
     @staticmethod
@@ -87,7 +87,7 @@ class RolesTest(unittest.TestCase):
             name="Rouge",
             description="Agile knife wheilders that are quick and deadly",
             armor_type=0,
-            class_types=["Buff", "Debuff", "Physical"],
+            damage_types=["Buff", "Debuff", "Physical"],
             abilities=[test_abilities["Magic"], test_abilities["Debuff"]],
         )
 
@@ -99,11 +99,11 @@ class RolesTest(unittest.TestCase):
         warrior, rouge, mage = self.get_roles()
 
         # Test All Good Init
-        self.assertEqual(len(warrior.class_types), 4)
+        self.assertEqual(len(warrior.damage_types), 4)
         self.assertEqual(len(warrior.abilities), 2)
 
         # Test Invalid Class Type Validation on Init
-        self.assertEqual(len(mage.class_types), 3)
+        self.assertEqual(len(mage.damage_types), 3)
 
         # Test Invalid Ability Validation on Init
         self.assertEqual(len(rouge.abilities), 1)
@@ -184,8 +184,8 @@ class RolesTest(unittest.TestCase):
         print(f"\n{'Done'.center(80, '-')}")
     
     def test_roles_duplicate_ability_assign(self):
-        warrior = Roles(name="Warrior", armor_type=2, description="Warrior class", class_types=["Physical"])
-        rouge = Roles(name="Rouge", armor_type=0, description="Rouge class", class_types=["Physical"])
+        warrior = Roles(name="Warrior", armor_type=2, description="Warrior class", damage_types=["Physical"])
+        rouge = Roles(name="Rouge", armor_type=0, description="Rouge class", damage_types=["Physical"])
         abilities = self.create_abiities()
 
         self.assertEqual(rouge.add_power(abilities["Physical"]), 0)

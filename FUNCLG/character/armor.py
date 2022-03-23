@@ -12,6 +12,8 @@ from loguru import logger
 from ..utils.types import ARMOR_TYPES, ITEM_TYPES, get_armor_type
 from .equipment import Equipment
 
+logger.add("./logs/character/armor.log")
+
 
 class Armor:
     """
@@ -41,7 +43,7 @@ class Armor:
             if item.armor_type == self.armor_type:
                 logger.success(f"Equipped: {item}")
                 return item.copy()
-        logger.error(f"{item} is not compatable with this armor.")
+        logger.warning(f"{item} is not compatable with this armor.")
         return None
 
     def __str__(self) -> str:
@@ -56,20 +58,23 @@ class Armor:
 
     def _equip_head(self, item: Equipment):
         self.head = item
+
     def _equip_chest(self, item: Equipment):
         self.chest = item
+
     def _equip_back(self, item: Equipment):
         self.back = item
+
     def _equip_pants(self, item: Equipment):
         self.pants = item
+
     def _equip_weapon(self, item: Equipment):
         self.weapon = item
 
     def equip(self, item: Equipment) -> Union[Equipment, None]:
         if new_item := self.validate_equipment(item):
-            if equip_func := getattr(self, "_equip_"+item.get_item_type().lower()):
+            if equip_func := getattr(self, "_equip_" + item.get_item_type().lower()):
                 equip_func(new_item)
-            
 
     # TODO: Consider return a status and the item, for faster check
     def dequip(self, item) -> Union[None, Equipment]:

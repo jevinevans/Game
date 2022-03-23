@@ -1,0 +1,1167 @@
+2022-03-23 06:52:44.219 | INFO     | FUNCLG.character.abilities:print_to_file:52 - Saving Ability: Fireball
+2022-03-23 06:52:44.251 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [83]
+2022-03-23 06:52:44.252 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [56]
+2022-03-23 06:52:44.252 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [40]
+2022-03-23 06:52:44.253 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [37]
+2022-03-23 06:52:44.253 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [80]
+2022-03-23 06:52:44.254 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [73]
+2022-03-23 06:52:44.255 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [13]
+2022-03-23 06:52:44.255 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [79]
+2022-03-23 06:52:44.256 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [40]
+2022-03-23 06:52:44.256 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [77]
+2022-03-23 06:52:44.257 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [89]
+2022-03-23 06:52:44.257 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [59]
+2022-03-23 06:52:44.257 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [54]
+2022-03-23 06:52:44.258 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [91]
+2022-03-23 06:52:44.258 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [82]
+2022-03-23 06:52:44.259 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [41]
+2022-03-23 06:52:44.259 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [31]
+2022-03-23 06:52:44.260 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [64]
+2022-03-23 06:52:44.260 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [90]
+2022-03-23 06:52:44.260 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [88]
+2022-03-23 06:52:44.261 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [3]
+2022-03-23 06:52:44.261 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [93]
+2022-03-23 06:52:44.262 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [16]
+2022-03-23 06:52:44.262 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [61]
+2022-03-23 06:52:44.262 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [47]
+2022-03-23 06:52:44.263 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.263 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.264 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.264 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.265 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.265 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [58]
+2022-03-23 06:52:44.266 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [56]
+2022-03-23 06:52:44.266 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [85]
+2022-03-23 06:52:44.267 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [22]
+2022-03-23 06:52:44.267 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [26]
+2022-03-23 06:52:44.268 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.268 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.269 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.269 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.269 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.270 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.271 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.271 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.271 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.272 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.272 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [38]
+2022-03-23 06:52:44.273 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [93]
+2022-03-23 06:52:44.273 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [51]
+2022-03-23 06:52:44.274 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [38]
+2022-03-23 06:52:44.274 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [10]
+2022-03-23 06:52:44.274 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [89]
+2022-03-23 06:52:44.275 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [7]
+2022-03-23 06:52:44.275 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [82]
+2022-03-23 06:52:44.276 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [61]
+2022-03-23 06:52:44.276 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [81]
+2022-03-23 06:52:44.276 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Knife [18]
+2022-03-23 06:52:44.277 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [64]
+2022-03-23 06:52:44.277 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [39]
+2022-03-23 06:52:44.278 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [60]
+2022-03-23 06:52:44.278 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [17]
+2022-03-23 06:52:44.278 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [44]
+2022-03-23 06:52:44.279 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - Gold Wand [86] is not compatable with this armor.
+2022-03-23 06:52:44.279 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [64]
+2022-03-23 06:52:44.280 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [22]
+2022-03-23 06:52:44.280 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [50]
+2022-03-23 06:52:44.280 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [89]
+2022-03-23 06:52:44.281 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [8]
+2022-03-23 06:52:44.281 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.282 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.282 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.282 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.283 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.283 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.284 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.284 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.285 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.285 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.285 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [82]
+2022-03-23 06:52:44.286 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [48]
+2022-03-23 06:52:44.286 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [34]
+2022-03-23 06:52:44.287 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [85]
+2022-03-23 06:52:44.287 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [19]
+2022-03-23 06:52:44.287 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [88]
+2022-03-23 06:52:44.288 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [64]
+2022-03-23 06:52:44.288 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [49]
+2022-03-23 06:52:44.289 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [84]
+2022-03-23 06:52:44.289 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [42]
+2022-03-23 06:52:44.290 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [85]
+2022-03-23 06:52:44.291 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [9]
+2022-03-23 06:52:44.291 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [41]
+2022-03-23 06:52:44.292 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [55]
+2022-03-23 06:52:44.293 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [76]
+2022-03-23 06:52:44.293 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [80]
+2022-03-23 06:52:44.294 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [33]
+2022-03-23 06:52:44.294 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [51]
+2022-03-23 06:52:44.294 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [61]
+2022-03-23 06:52:44.295 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [49]
+2022-03-23 06:52:44.296 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.296 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.297 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.297 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.297 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.298 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.298 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.299 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.299 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.300 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.300 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [6]
+2022-03-23 06:52:44.301 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [6]
+2022-03-23 06:52:44.301 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.302 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.302 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.302 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.303 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.303 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.303 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.304 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.304 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:52:44.305 | ERROR    | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-03-23 06:54:32.126 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [68]
+2022-03-23 06:54:32.128 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [42]
+2022-03-23 06:54:32.129 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [55]
+2022-03-23 06:54:32.130 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [98]
+2022-03-23 06:54:32.132 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [84]
+2022-03-23 06:54:32.137 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [33]
+2022-03-23 06:54:32.151 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [95]
+2022-03-23 06:54:32.162 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [100]
+2022-03-23 06:54:32.163 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [93]
+2022-03-23 06:54:32.164 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [0]
+2022-03-23 06:54:32.225 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [44]
+2022-03-23 06:54:32.242 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [35]
+2022-03-23 06:54:32.258 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [5]
+2022-03-23 06:54:32.271 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [73]
+2022-03-23 06:54:32.285 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [33]
+2022-03-23 06:54:32.301 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [88]
+2022-03-23 06:54:32.304 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [12]
+2022-03-23 06:54:32.320 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [86]
+2022-03-23 06:54:32.323 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [0]
+2022-03-23 06:54:32.347 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [95]
+2022-03-23 06:54:32.379 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [76]
+2022-03-23 06:54:32.382 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [80]
+2022-03-23 06:54:32.415 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [79]
+2022-03-23 06:54:32.418 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [50]
+2022-03-23 06:54:32.444 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [48]
+2022-03-23 06:54:32.495 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.511 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.525 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.541 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.558 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.711 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [29]
+2022-03-23 06:54:32.713 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [17]
+2022-03-23 06:54:32.746 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [70]
+2022-03-23 06:54:32.749 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [85]
+2022-03-23 06:54:32.780 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [17]
+2022-03-23 06:54:32.809 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.812 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.843 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.846 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.860 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.890 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.892 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.907 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.922 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.937 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:32.940 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [34]
+2022-03-23 06:54:32.952 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [42]
+2022-03-23 06:54:32.969 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [94]
+2022-03-23 06:54:32.972 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [30]
+2022-03-23 06:54:32.983 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [46]
+2022-03-23 06:54:33.000 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [18]
+2022-03-23 06:54:33.016 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [99]
+2022-03-23 06:54:33.031 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [81]
+2022-03-23 06:54:33.034 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [8]
+2022-03-23 06:54:33.049 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [20]
+2022-03-23 06:54:33.066 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Knife [42]
+2022-03-23 06:54:33.094 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [40]
+2022-03-23 06:54:33.097 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [42]
+2022-03-23 06:54:33.111 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [98]
+2022-03-23 06:54:33.131 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [24]
+2022-03-23 06:54:33.144 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [94]
+2022-03-23 06:54:33.160 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - Gold Wand [58] is not compatable with this armor.
+2022-03-23 06:54:33.177 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [17]
+2022-03-23 06:54:33.192 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [61]
+2022-03-23 06:54:33.206 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [57]
+2022-03-23 06:54:33.221 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [67]
+2022-03-23 06:54:33.225 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [36]
+2022-03-23 06:54:33.236 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.239 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.260 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.263 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.287 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.303 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.305 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.321 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.323 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.333 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.335 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [75]
+2022-03-23 06:54:33.343 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [87]
+2022-03-23 06:54:33.344 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [15]
+2022-03-23 06:54:33.367 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [93]
+2022-03-23 06:54:33.370 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [68]
+2022-03-23 06:54:33.388 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [98]
+2022-03-23 06:54:33.389 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [28]
+2022-03-23 06:54:33.411 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [37]
+2022-03-23 06:54:33.412 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [0]
+2022-03-23 06:54:33.428 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [24]
+2022-03-23 06:54:33.430 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [3]
+2022-03-23 06:54:33.443 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [9]
+2022-03-23 06:54:33.444 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [19]
+2022-03-23 06:54:33.464 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [32]
+2022-03-23 06:54:33.466 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [4]
+2022-03-23 06:54:33.488 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [14]
+2022-03-23 06:54:33.489 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [40]
+2022-03-23 06:54:33.510 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [93]
+2022-03-23 06:54:33.511 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [23]
+2022-03-23 06:54:33.535 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [49]
+2022-03-23 06:54:33.729 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.731 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.748 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.751 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.764 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.784 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.798 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.818 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.833 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.848 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.851 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [13]
+2022-03-23 06:54:33.867 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [13]
+2022-03-23 06:54:33.900 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.913 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.917 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.945 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.959 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.976 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.978 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:33.990 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:34.008 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:54:34.013 | ERROR    | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:06.418 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [33]
+2022-03-23 06:55:06.421 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [21]
+2022-03-23 06:55:06.422 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [86]
+2022-03-23 06:55:06.424 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [39]
+2022-03-23 06:55:06.426 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [22]
+2022-03-23 06:55:06.506 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [33]
+2022-03-23 06:55:06.538 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [35]
+2022-03-23 06:55:06.542 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [66]
+2022-03-23 06:55:06.578 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [6]
+2022-03-23 06:55:06.581 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [39]
+2022-03-23 06:55:06.680 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [78]
+2022-03-23 06:55:06.710 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [11]
+2022-03-23 06:55:06.712 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [4]
+2022-03-23 06:55:06.743 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [35]
+2022-03-23 06:55:06.745 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [13]
+2022-03-23 06:55:06.776 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [69]
+2022-03-23 06:55:06.809 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [55]
+2022-03-23 06:55:06.811 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [98]
+2022-03-23 06:55:06.843 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [16]
+2022-03-23 06:55:06.845 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [36]
+2022-03-23 06:55:06.876 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [77]
+2022-03-23 06:55:06.907 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [89]
+2022-03-23 06:55:06.909 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [37]
+2022-03-23 06:55:06.940 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [20]
+2022-03-23 06:55:06.942 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [66]
+2022-03-23 06:55:07.020 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [34]
+2022-03-23 06:55:07.022 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [9]
+2022-03-23 06:55:07.046 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [4]
+2022-03-23 06:55:07.049 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [25]
+2022-03-23 06:55:07.079 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [28]
+2022-03-23 06:55:07.112 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [44]
+2022-03-23 06:55:07.114 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [5]
+2022-03-23 06:55:07.117 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [4]
+2022-03-23 06:55:07.147 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [80]
+2022-03-23 06:55:07.149 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [93]
+2022-03-23 06:55:07.185 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [92]
+2022-03-23 06:55:07.187 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [74]
+2022-03-23 06:55:07.213 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [70]
+2022-03-23 06:55:07.215 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [42]
+2022-03-23 06:55:07.246 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [11]
+2022-03-23 06:55:07.249 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [65]
+2022-03-23 06:55:07.279 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [59]
+2022-03-23 06:55:07.282 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [16]
+2022-03-23 06:55:07.311 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [63]
+2022-03-23 06:55:07.314 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [52]
+2022-03-23 06:55:07.347 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [50]
+2022-03-23 06:55:07.349 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [25]
+2022-03-23 06:55:07.379 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [69]
+2022-03-23 06:55:07.382 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [93]
+2022-03-23 06:55:07.413 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [27]
+2022-03-23 06:55:18.074 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [3]
+2022-03-23 06:55:18.076 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [34]
+2022-03-23 06:55:18.077 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [13]
+2022-03-23 06:55:18.078 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [18]
+2022-03-23 06:55:18.079 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [54]
+2022-03-23 06:55:18.085 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [35]
+2022-03-23 06:55:18.086 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [19]
+2022-03-23 06:55:18.087 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [88]
+2022-03-23 06:55:18.088 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [42]
+2022-03-23 06:55:18.089 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [52]
+2022-03-23 06:55:18.095 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [40]
+2022-03-23 06:55:18.109 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [80]
+2022-03-23 06:55:18.123 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [6]
+2022-03-23 06:55:18.124 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [54]
+2022-03-23 06:55:18.126 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [91]
+2022-03-23 06:55:18.138 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [10]
+2022-03-23 06:55:18.169 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [38]
+2022-03-23 06:55:18.172 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [27]
+2022-03-23 06:55:18.208 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [39]
+2022-03-23 06:55:18.211 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [55]
+2022-03-23 06:55:18.280 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [3]
+2022-03-23 06:55:18.284 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [37]
+2022-03-23 06:55:18.322 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [73]
+2022-03-23 06:55:18.324 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [42]
+2022-03-23 06:55:18.360 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [11]
+2022-03-23 06:55:18.398 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.436 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.474 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.479 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.511 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.812 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [13]
+2022-03-23 06:55:18.823 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [25]
+2022-03-23 06:55:18.826 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [29]
+2022-03-23 06:55:18.856 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [26]
+2022-03-23 06:55:18.859 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [76]
+2022-03-23 06:55:18.890 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.892 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.913 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.928 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.958 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.981 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.994 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:18.996 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.017 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.034 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.066 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [52]
+2022-03-23 06:55:19.068 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [55]
+2022-03-23 06:55:19.105 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [65]
+2022-03-23 06:55:19.110 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [64]
+2022-03-23 06:55:19.140 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [56]
+2022-03-23 06:55:19.143 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [25]
+2022-03-23 06:55:19.175 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [8]
+2022-03-23 06:55:19.177 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [9]
+2022-03-23 06:55:19.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [14]
+2022-03-23 06:55:19.212 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [7]
+2022-03-23 06:55:19.243 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Knife [68]
+2022-03-23 06:55:19.245 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [76]
+2022-03-23 06:55:19.276 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [24]
+2022-03-23 06:55:19.307 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [77]
+2022-03-23 06:55:19.309 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [46]
+2022-03-23 06:55:19.337 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [25]
+2022-03-23 06:55:19.339 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - Gold Wand [78] is not compatable with this armor.
+2022-03-23 06:55:19.372 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [37]
+2022-03-23 06:55:19.374 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [12]
+2022-03-23 06:55:19.400 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [90]
+2022-03-23 06:55:19.402 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [12]
+2022-03-23 06:55:19.433 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [83]
+2022-03-23 06:55:19.435 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.466 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.468 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.500 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.501 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.534 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.535 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.564 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.566 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.598 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:19.599 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [49]
+2022-03-23 06:55:19.633 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [72]
+2022-03-23 06:55:19.665 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [77]
+2022-03-23 06:55:19.668 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [53]
+2022-03-23 06:55:19.705 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [49]
+2022-03-23 06:55:19.729 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [17]
+2022-03-23 06:55:19.740 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [46]
+2022-03-23 06:55:19.743 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [47]
+2022-03-23 06:55:19.773 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [53]
+2022-03-23 06:55:19.776 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [52]
+2022-03-23 06:55:19.807 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [92]
+2022-03-23 06:55:19.809 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [60]
+2022-03-23 06:55:19.840 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [35]
+2022-03-23 06:55:19.843 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [19]
+2022-03-23 06:55:19.874 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [0]
+2022-03-23 06:55:19.897 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [35]
+2022-03-23 06:55:19.908 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [56]
+2022-03-23 06:55:19.912 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [68]
+2022-03-23 06:55:19.931 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [44]
+2022-03-23 06:55:19.947 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [78]
+2022-03-23 06:55:20.397 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.408 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.443 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.478 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.480 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.511 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.514 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.550 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.553 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.591 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.623 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [7]
+2022-03-23 06:55:20.655 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [7]
+2022-03-23 06:55:20.670 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.684 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.687 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.712 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.714 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.727 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.728 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.730 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.732 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:55:20.746 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.818 | INFO     | FUNCLG.character.abilities:print_to_file:52 - Saving Ability: Fireball
+2022-03-23 06:59:03.820 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [16]
+2022-03-23 06:59:03.820 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [8]
+2022-03-23 06:59:03.821 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [63]
+2022-03-23 06:59:03.821 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [56]
+2022-03-23 06:59:03.821 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [88]
+2022-03-23 06:59:03.821 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [83]
+2022-03-23 06:59:03.822 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [79]
+2022-03-23 06:59:03.822 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [67]
+2022-03-23 06:59:03.822 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [51]
+2022-03-23 06:59:03.822 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [27]
+2022-03-23 06:59:03.823 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [68]
+2022-03-23 06:59:03.823 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [98]
+2022-03-23 06:59:03.823 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [97]
+2022-03-23 06:59:03.823 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [80]
+2022-03-23 06:59:03.824 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [54]
+2022-03-23 06:59:03.824 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [2]
+2022-03-23 06:59:03.824 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [80]
+2022-03-23 06:59:03.824 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [74]
+2022-03-23 06:59:03.825 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [54]
+2022-03-23 06:59:03.825 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [35]
+2022-03-23 06:59:03.825 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [50]
+2022-03-23 06:59:03.825 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [66]
+2022-03-23 06:59:03.825 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [81]
+2022-03-23 06:59:03.826 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [60]
+2022-03-23 06:59:03.826 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [33]
+2022-03-23 06:59:03.826 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.826 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.827 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.827 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.827 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.828 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [96]
+2022-03-23 06:59:03.828 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [39]
+2022-03-23 06:59:03.828 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [38]
+2022-03-23 06:59:03.828 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [73]
+2022-03-23 06:59:03.829 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [83]
+2022-03-23 06:59:03.829 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.829 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.829 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.829 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.830 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.830 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.830 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.831 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.831 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.831 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.831 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [18]
+2022-03-23 06:59:03.831 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [40]
+2022-03-23 06:59:03.832 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [55]
+2022-03-23 06:59:03.832 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [25]
+2022-03-23 06:59:03.832 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [91]
+2022-03-23 06:59:03.832 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [13]
+2022-03-23 06:59:03.833 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [88]
+2022-03-23 06:59:03.833 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [25]
+2022-03-23 06:59:03.833 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [89]
+2022-03-23 06:59:03.833 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [67]
+2022-03-23 06:59:03.834 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Knife [22]
+2022-03-23 06:59:03.834 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [92]
+2022-03-23 06:59:03.834 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [36]
+2022-03-23 06:59:03.834 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [8]
+2022-03-23 06:59:03.835 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [100]
+2022-03-23 06:59:03.835 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [72]
+2022-03-23 06:59:03.835 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - Gold Wand [68] is not compatable with this armor.
+2022-03-23 06:59:03.835 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [58]
+2022-03-23 06:59:03.836 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [27]
+2022-03-23 06:59:03.836 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [36]
+2022-03-23 06:59:03.836 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [53]
+2022-03-23 06:59:03.836 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [64]
+2022-03-23 06:59:03.837 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.837 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.837 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.838 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.838 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.838 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.838 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.839 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.839 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.839 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.839 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [98]
+2022-03-23 06:59:03.840 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [79]
+2022-03-23 06:59:03.840 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [95]
+2022-03-23 06:59:03.840 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [67]
+2022-03-23 06:59:03.840 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [74]
+2022-03-23 06:59:03.841 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [50]
+2022-03-23 06:59:03.841 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [60]
+2022-03-23 06:59:03.841 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [43]
+2022-03-23 06:59:03.841 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [55]
+2022-03-23 06:59:03.841 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [19]
+2022-03-23 06:59:03.842 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [58]
+2022-03-23 06:59:03.842 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [83]
+2022-03-23 06:59:03.842 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [20]
+2022-03-23 06:59:03.842 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [2]
+2022-03-23 06:59:03.843 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [51]
+2022-03-23 06:59:03.843 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [66]
+2022-03-23 06:59:03.843 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [89]
+2022-03-23 06:59:03.843 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [33]
+2022-03-23 06:59:03.844 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [40]
+2022-03-23 06:59:03.844 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [97]
+2022-03-23 06:59:03.844 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.845 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.845 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.845 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.845 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.846 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.846 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.846 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.846 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.846 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.847 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [88]
+2022-03-23 06:59:03.847 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [88]
+2022-03-23 06:59:03.847 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.847 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.848 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.848 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.848 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.848 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.849 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.849 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.849 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.849 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 06:59:03.852 | SUCCESS  | FUNCLG.character.roles:add_power:52 - Added Buff Test to Warrior
+2022-03-23 06:59:03.852 | SUCCESS  | FUNCLG.character.roles:add_power:52 - Added Debuff Test to Warrior
+2022-03-23 06:59:03.852 | SUCCESS  | FUNCLG.character.roles:add_power:52 - Added Armor Buff to Warrior
+2022-03-23 06:59:03.853 | WARNING  | FUNCLG.character.roles:add_power:56 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-03-23 06:59:03.853 | WARNING  | FUNCLG.character.roles:add_power:54 - Max abilities reached!
+2022-03-23 06:59:03.854 | SUCCESS  | FUNCLG.character.roles:add_power:52 - Added Slash to Rouge
+2022-03-23 06:59:03.854 | SUCCESS  | FUNCLG.character.roles:add_power:52 - Added Slash to Warrior
+2022-03-23 06:59:03.856 | INFO     | FUNCLG.character.roles:print_to_file:97 - Saving Role: Warrior
+2022-03-23 06:59:03.858 | INFO     | FUNCLG.character.roles:print_to_file:97 - Saving Role: Rouge
+2022-03-23 06:59:03.860 | INFO     | FUNCLG.character.roles:print_to_file:97 - Saving Role: Mage
+2022-03-23 07:07:01.105 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.106 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.107 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.107 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.108 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
+2022-03-23 07:07:01.109 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.110 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.111 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.112 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.112 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.113 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
+2022-03-23 07:07:01.114 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.114 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.115 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.115 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.116 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
+2022-03-23 07:07:01.117 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Fireball
+2022-03-23 07:07:01.117 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Fireball
+2022-03-23 07:07:01.118 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-03-23 07:07:01.118 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-03-23 07:07:01.119 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Armor Fix
+2022-03-23 07:07:01.120 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Armor Fix
+2022-03-23 07:07:01.120 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-03-23 07:07:01.121 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-03-23 07:07:01.121 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Error Test
+2022-03-23 07:07:01.122 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Error Test
+2022-03-23 07:07:01.123 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.123 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.124 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.125 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.125 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
+2022-03-23 07:07:01.126 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.127 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.127 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.128 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.128 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
+2022-03-23 07:07:01.129 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Fireball
+2022-03-23 07:07:01.130 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.130 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.131 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.132 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.132 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
+2022-03-23 07:07:01.133 | INFO     | FUNCLG.character.abilities:print_to_file:54 - Saving Ability: Fireball
+2022-03-23 07:07:01.134 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Fireball
+2022-03-23 07:07:01.137 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.137 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.138 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Fix
+2022-03-23 07:07:01.138 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.139 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Test
+2022-03-23 07:07:01.140 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.140 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.141 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.142 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.142 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.143 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.143 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.144 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [5]
+2022-03-23 07:07:01.144 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.145 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [24]
+2022-03-23 07:07:01.145 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.146 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [81]
+2022-03-23 07:07:01.146 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.147 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [31]
+2022-03-23 07:07:01.147 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.147 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [67]
+2022-03-23 07:07:01.148 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.148 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.149 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.149 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.150 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.150 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.151 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.151 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.151 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [47]
+2022-03-23 07:07:01.152 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.152 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [8]
+2022-03-23 07:07:01.153 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.153 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [98]
+2022-03-23 07:07:01.154 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.154 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [59]
+2022-03-23 07:07:01.155 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.155 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [27]
+2022-03-23 07:07:01.155 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.156 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.156 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.156 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.157 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.157 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.157 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.158 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.158 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [7]
+2022-03-23 07:07:01.159 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.159 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [32]
+2022-03-23 07:07:01.159 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.160 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [94]
+2022-03-23 07:07:01.160 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.160 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [75]
+2022-03-23 07:07:01.161 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.161 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [77]
+2022-03-23 07:07:01.161 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.162 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.162 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.162 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.163 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.163 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.163 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.164 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.164 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [42]
+2022-03-23 07:07:01.164 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.165 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [59]
+2022-03-23 07:07:01.165 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.166 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [87]
+2022-03-23 07:07:01.166 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.166 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [33]
+2022-03-23 07:07:01.167 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.167 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [6]
+2022-03-23 07:07:01.167 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.168 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.168 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.169 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.169 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.169 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.170 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.170 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.170 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [26]
+2022-03-23 07:07:01.171 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.171 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [15]
+2022-03-23 07:07:01.171 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.172 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [38]
+2022-03-23 07:07:01.172 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.172 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [42]
+2022-03-23 07:07:01.173 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.173 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [37]
+2022-03-23 07:07:01.173 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.174 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.174 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.175 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.175 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.175 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.176 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.176 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.176 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.177 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.177 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.177 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.178 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.178 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.179 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.179 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.179 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.180 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.180 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.180 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.181 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [100]
+2022-03-23 07:07:01.181 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.182 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [76]
+2022-03-23 07:07:01.182 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.182 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [50]
+2022-03-23 07:07:01.183 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.183 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [54]
+2022-03-23 07:07:01.183 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.184 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [62]
+2022-03-23 07:07:01.184 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.184 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.185 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.185 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.186 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.186 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.186 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.187 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.187 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.187 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.188 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.188 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.188 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.189 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.189 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.190 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.190 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.190 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.191 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.191 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.191 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.192 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.192 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.192 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.193 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.193 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [86]
+2022-03-23 07:07:01.194 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.194 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [28]
+2022-03-23 07:07:01.194 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.195 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [63]
+2022-03-23 07:07:01.195 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.195 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [26]
+2022-03-23 07:07:01.196 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.196 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [90]
+2022-03-23 07:07:01.196 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.197 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.197 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.197 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.198 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.198 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.198 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.199 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.199 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [60]
+2022-03-23 07:07:01.199 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.200 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [92]
+2022-03-23 07:07:01.200 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.201 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [39]
+2022-03-23 07:07:01.201 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.201 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [14]
+2022-03-23 07:07:01.202 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.202 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [76]
+2022-03-23 07:07:01.202 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.203 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Knife [70]
+2022-03-23 07:07:01.203 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.204 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.204 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.204 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.205 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.205 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.205 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.206 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.206 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [72]
+2022-03-23 07:07:01.206 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.207 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [70]
+2022-03-23 07:07:01.207 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.207 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [5]
+2022-03-23 07:07:01.208 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.208 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [62]
+2022-03-23 07:07:01.209 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.209 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [51]
+2022-03-23 07:07:01.209 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.210 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - Gold Wand [78] is not compatable with this armor.
+2022-03-23 07:07:01.210 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.210 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.211 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.211 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.211 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.212 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.212 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.212 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [33]
+2022-03-23 07:07:01.213 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.213 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [63]
+2022-03-23 07:07:01.213 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.214 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [89]
+2022-03-23 07:07:01.214 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.214 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [2]
+2022-03-23 07:07:01.215 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.215 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [22]
+2022-03-23 07:07:01.215 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.216 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Head
+2022-03-23 07:07:01.216 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Chest
+2022-03-23 07:07:01.216 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Cape
+2022-03-23 07:07:01.217 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold pants
+2022-03-23 07:07:01.217 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Sword
+2022-03-23 07:07:01.217 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.218 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.219 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.219 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.220 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.220 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.220 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.221 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.221 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.221 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.222 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.222 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.223 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.223 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.223 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.224 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.224 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.224 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.225 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.225 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.225 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.226 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.226 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.226 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.227 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.227 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.227 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.228 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.228 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.228 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.229 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.229 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [41]
+2022-03-23 07:07:01.229 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.230 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [82]
+2022-03-23 07:07:01.230 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.230 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [40]
+2022-03-23 07:07:01.231 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.231 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [84]
+2022-03-23 07:07:01.232 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.232 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [78]
+2022-03-23 07:07:01.232 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.233 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.233 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.233 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.234 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.234 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.235 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.235 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.236 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [66]
+2022-03-23 07:07:01.236 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.237 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [59]
+2022-03-23 07:07:01.237 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.237 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [60]
+2022-03-23 07:07:01.238 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.238 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [53]
+2022-03-23 07:07:01.238 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.239 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [26]
+2022-03-23 07:07:01.239 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.239 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.240 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.240 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.240 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.241 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.241 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.241 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.242 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [72]
+2022-03-23 07:07:01.242 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.242 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [60]
+2022-03-23 07:07:01.243 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.243 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [19]
+2022-03-23 07:07:01.243 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.244 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [73]
+2022-03-23 07:07:01.244 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.245 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [90]
+2022-03-23 07:07:01.245 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.245 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.246 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.246 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.247 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.247 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.248 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.248 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.249 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [50]
+2022-03-23 07:07:01.250 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.250 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Chest [22]
+2022-03-23 07:07:01.250 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.251 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Cape [41]
+2022-03-23 07:07:01.251 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.252 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold pants [91]
+2022-03-23 07:07:01.252 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.252 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Sword [85]
+2022-03-23 07:07:01.253 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.253 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Head
+2022-03-23 07:07:01.253 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Chest
+2022-03-23 07:07:01.254 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Cape
+2022-03-23 07:07:01.254 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold pants
+2022-03-23 07:07:01.255 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Gold Sword
+2022-03-23 07:07:01.255 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.256 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.256 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.257 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.257 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.258 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.258 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.258 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.259 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.259 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.260 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.260 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.260 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.261 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.261 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.261 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.262 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.262 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.263 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.264 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.264 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.264 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.265 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.265 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.266 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [15]
+2022-03-23 07:07:01.266 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.267 | SUCCESS  | FUNCLG.character.armor:validate_equipment:44 - Equipped: Gold Head [15]
+2022-03-23 07:07:01.267 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.268 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.268 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.269 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.269 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.270 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.270 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.271 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.271 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.271 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.272 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.273 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.273 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.274 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Head
+2022-03-23 07:07:01.274 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Chest
+2022-03-23 07:07:01.275 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Cape
+2022-03-23 07:07:01.275 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold pants
+2022-03-23 07:07:01.276 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Sword
+2022-03-23 07:07:01.276 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Wand
+2022-03-23 07:07:01.277 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Gold Knife
+2022-03-23 07:07:01.277 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.278 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.278 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.279 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.279 | WARNING  | FUNCLG.character.armor:validate_equipment:46 - None is not compatable with this armor.
+2022-03-23 07:07:01.280 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.280 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.281 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.281 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.282 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.282 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.283 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
+2022-03-23 07:07:01.283 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
+2022-03-23 07:07:01.284 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
+2022-03-23 07:07:01.284 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
+2022-03-23 07:07:01.285 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.285 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.286 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.286 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.287 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
+2022-03-23 07:07:01.287 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
+2022-03-23 07:07:01.288 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.288 | INFO     | FUNCLG.character.equipment:print_to_file:64 - Saving Equipment: Test_Equipment
+2022-03-23 07:07:01.289 | INFO     | FUNCLG.character.equipment:export:71 - Exporting Role: Test_Equipment
+2022-03-23 07:07:01.291 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.292 | INFO     | FUNCLG.character.equipment:__init__:46 - Created Equipment: Test_Equipment
+2022-03-23 07:07:01.293 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.293 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.293 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.294 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.294 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.295 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.295 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.295 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.296 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.296 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.297 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.297 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.297 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.298 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.298 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.299 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.299 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.299 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.300 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Buff Test to Warrior
+2022-03-23 07:07:01.300 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.301 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Debuff Test to Warrior
+2022-03-23 07:07:01.301 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.301 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Armor Buff to Warrior
+2022-03-23 07:07:01.302 | WARNING  | FUNCLG.character.roles:add_power:57 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-03-23 07:07:01.302 | WARNING  | FUNCLG.character.roles:add_power:55 - Max abilities reached!
+2022-03-23 07:07:01.303 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.303 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.304 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.304 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.304 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.305 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.306 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.306 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.306 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.307 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.308 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.308 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.308 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.309 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.309 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.310 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.310 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.311 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.311 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-03-23 07:07:01.311 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-03-23 07:07:01.312 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.312 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-03-23 07:07:01.313 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.314 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.314 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.315 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.315 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.316 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.316 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.317 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.317 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Rouge
+2022-03-23 07:07:01.318 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.319 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Warrior
+2022-03-23 07:07:01.319 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.320 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.320 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.321 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.321 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.322 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.322 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.323 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.323 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.324 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.325 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.325 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.326 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.326 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.327 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.327 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.327 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.328 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.328 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-03-23 07:07:01.329 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-03-23 07:07:01.329 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-03-23 07:07:01.330 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-03-23 07:07:01.331 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-03-23 07:07:01.331 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-03-23 07:07:01.332 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-03-23 07:07:01.332 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-03-23 07:07:01.333 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-03-23 07:07:01.333 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-03-23 07:07:01.334 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-03-23 07:07:01.334 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.335 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.335 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.336 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.337 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.337 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.338 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.339 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.339 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.340 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.340 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-03-23 07:07:01.342 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.342 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.343 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.344 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.344 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.345 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.345 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.346 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.346 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.347 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.348 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.348 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.349 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.349 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.350 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.350 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.351 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.352 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.352 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-03-23 07:07:01.353 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-03-23 07:07:01.354 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.354 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.355 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.356 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.357 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.357 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.358 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.359 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.360 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.360 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.361 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.361 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.362 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.363 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.363 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.364 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.365 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.365 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.366 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-03-23 07:07:01.366 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-03-23 07:07:01.367 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-03-23 07:07:01.367 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-03-23 07:07:01.368 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-03-23 07:07:01.369 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-03-23 07:07:01.369 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-03-23 07:07:01.370 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-03-23 07:07:01.371 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.372 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.372 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.373 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.373 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.374 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.375 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.375 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.376 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.376 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.377 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.377 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.378 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.378 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.379 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.380 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.380 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.381 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.381 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-03-23 07:07:01.382 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-03-23 07:07:01.382 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Warrior
+2022-03-23 07:07:01.384 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-03-23 07:07:01.385 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-03-23 07:07:01.386 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-03-23 07:07:01.389 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Rouge
+2022-03-23 07:07:01.391 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-03-23 07:07:01.392 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-03-23 07:07:01.394 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Mage
+2022-03-23 07:07:01.395 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-03-23 07:07:01.397 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.398 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.399 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.399 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.400 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.400 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.401 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.401 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.402 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.402 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.403 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.404 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.404 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.405 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.405 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.406 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.406 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.407 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.407 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.408 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-03-23 07:07:01.408 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-03-23 07:07:01.409 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-03-23 07:07:01.409 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-03-23 07:07:01.410 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-03-23 07:07:01.410 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-03-23 07:07:01.411 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.412 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-03-23 07:07:01.412 | INFO     | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-03-23 07:07:01.413 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-03-23 07:07:01.413 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
