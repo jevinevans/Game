@@ -17,6 +17,8 @@ bandit = "^1.7.1"
 pyright = "^0.0.13"
 flake8 = "^4.0.1"
 flake8-fixme = "^1.1.1"
+pytest = "^7.1.1"
+pytest-cov = "^3.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -33,3 +35,8 @@ disable = """,
     missing-function-docstring,
     line-too-long,
 """
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+include = ["FUNCLG/*"]

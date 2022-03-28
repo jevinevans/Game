@@ -7,3 +7,5 @@ pyvenv.cfg
 share/
 include/
 lib64
+.coverage
+logs/*
