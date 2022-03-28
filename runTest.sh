@@ -5,10 +5,10 @@ REPORT="TEST_REPORT.txt"
 OUTPUT="TEST_OUTPUT.txt"
 TODAY=$(date)
 
-echo -e "######TESTING REPORT######\n\nDate: $TODAY \n\n---UNITTEST---\n" > $REPORT
+echo -e "######TESTING REPORT######\n\nDate: $TODAY \n\n---PYTEST---\n" > $REPORT
 
-printf "\n*****Running Unittest*****\n"
-poetry run python -m unittest discover -s tests/ -v 2>> $REPORT > $OUTPUT
+printf "\n*****Running Tests*****\n"
+poetry run pytest --cov=FUNCLG/ tests/ >> $REPORT > $OUTPUT
 printf "*****DONE*****\n"
 
 echo -e "\n---Flake 8----\n" >> $REPORT
