@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Mar 28 17:17:27 CDT 2022 
+Date: Tue Mar 29 11:18:59 CDT 2022 
 
 ---PYTEST---
 
@@ -8,28 +8,13 @@ Date: Mon Mar 28 17:17:27 CDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 40 items
+collected 41 items
 
 tests/test_character/test_character_abilities.py .......                 [ 17%]
-tests/test_character/test_character_armor.py .........                   [ 40%]
-tests/test_character/test_character_equipment.py .......                 [ 57%]
-tests/test_character/test_character_modifiers.py ......                  [ 72%]
-tests/test_character/test_character_roles.py ..........                  [ 97%]
-tests/test_character/test_character_stats.py F                           [100%]
-
-=================================== FAILURES ===================================
-_______________________________ test_stats_init ________________________________
-
-    def test_stats_init():
->       stat_1 = Stats(
-            health=randint(1, 100),
-            energy=randint(1, 100),
-            attack=randint(0, 100),
-            defense=randint(1, 100),
-        )
-E       TypeError: __init__() got an unexpected keyword argument 'health'
-
-tests/test_character/test_character_stats.py:19: TypeError
+tests/test_character/test_character_armor.py .........                   [ 39%]
+tests/test_character/test_character_equipment.py .......                 [ 56%]
+tests/test_character/test_character_modifiers.py ........                [ 75%]
+tests/test_character/test_character_roles.py ..........                  [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                               Stmts   Miss  Cover   Missing
@@ -38,20 +23,21 @@ FUNCLG/__init__.py                     0      0   100%
 FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           0      0   100%
 FUNCLG/character/abilities.py         31      0   100%
-FUNCLG/character/armor.py             86      1    99%   131
+FUNCLG/character/armor.py             87      1    99%   131
 FUNCLG/character/equipment.py         42      2    95%   79, 82
 FUNCLG/character/modifiers.py         64      0   100%
 FUNCLG/character/roles.py             61      0   100%
-FUNCLG/character/stats.py             44     29    34%   27-34, 40, 43-44, 47-54, 62-67, 83-88, 91-95
+FUNCLG/character/stats.py             35     22    37%   27-34, 40, 43-44, 47-54, 59, 62-67
 FUNCLG/main.py                         0      0   100%
 FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
-FUNCLG/utils/types.py                 24      1    96%   57
+FUNCLG/utils/types.py                 24      1    96%   59
 ----------------------------------------------------------------
-TOTAL                                352     33    91%
+TOTAL                                344     26    92%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 90.62%
-========================= 1 failed, 39 passed in 1.47s =========================
+FAIL Required test coverage of 100.0% not reached. Total coverage: 92.44%
+
+============================== 41 passed in 1.24s ==============================
 
 ---Flake 8----
 
@@ -60,11 +46,12 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 90.62%
 ./FUNCLG/character/abilities.py:43:7: T101 fixme found (TODO)
 ./FUNCLG/character/abilities.py:60:7: T101 fixme found (TODO)
 ./FUNCLG/character/abilities.py:65:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:115:15: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:118:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:140:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:143:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:32:25: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:78:7: T101 fixme found (TODO)
+./FUNCLG/character/armor.py:78:19: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:100:7: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:55:7: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:70:11: T101 fixme found (TODO)
@@ -76,18 +63,20 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 90.62%
 ./FUNCLG/character/roles.py:71:13: F841 local variable 'old_ability' is assigned to but never used
 ./FUNCLG/character/roles.py:76:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:85:38: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:107:3: T101 fixme found (TODO)
 ./FUNCLG/character/stats.py:10:1: F401 'typing_extensions.Self' imported but unused
 ./FUNCLG/character/stats.py:12:1: F401 '..utils.types.STAT_TYPES' imported but unused
 ./FUNCLG/character/stats.py:21:7: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:57:11: T101 fixme found (TODO)
 ./FUNCLG/character/stats.py:70:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:77:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:74:3: T101 fixme found (TODO)
 ./FUNCLG/character/stats.py:7:1: F401 'typing.Union' imported but unused
-./FUNCLG/character/stats.py:81:7: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:84:30: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:82:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:84:67: W291 trailing whitespace
+./FUNCLG/character/stats.py:90:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:99:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
-./FUNCLG/utils/types.py:48:3: T101 fixme found (TODO)
-32
+./FUNCLG/utils/types.py:50:3: T101 fixme found (TODO)
+35
 
 ---Code Quality Report---
 
@@ -105,7 +94,6 @@ All done! ✨ 🍰 ✨
 
 -----XENON-----
 
-ERROR:xenon:block "FUNCLG/character/armor.py:79 dequip" has a rank of C
 
 -----PYLINT-----
 
@@ -119,13 +107,13 @@ FUNCLG/character/abilities.py:60:5: W0511: TODO: Look to see if this is the best
 FUNCLG/character/abilities.py:65:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
 ************* Module FUNCLG.character.armor
 FUNCLG/character/armor.py:32:9: W0511: self.stats = #TODO: Stat Object (fixme)
-FUNCLG/character/armor.py:78:5: W0511: TODO: Consider return a status and the item, for faster check (fixme)
+FUNCLG/character/armor.py:78:17: W0511: TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one) (fixme)
+FUNCLG/character/armor.py:115:13: W0511: TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one) (fixme)
 FUNCLG/character/armor.py:118:5: W0511: TODO: Add indention factor (fixme)
 FUNCLG/character/armor.py:140:5: W0511: TODO: Need to create an import function that is static to the method (fixme)
 FUNCLG/character/armor.py:143:5: W0511: TODO: Need to create a define stats for armor (fixme)
 FUNCLG/character/armor.py:22:4: R0913: Too many arguments (7/5) (too-many-arguments)
 FUNCLG/character/armor.py:31:40: R1716: Simplify chained comparison between the operands (chained-comparison)
-FUNCLG/character/armor.py:79:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
 ************* Module FUNCLG.character.equipment
 FUNCLG/character/equipment.py:55:5: W0511: TODO: add indention factor (fixme)
 FUNCLG/character/equipment.py:70:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
@@ -143,52 +131,66 @@ FUNCLG/character/roles.py:85:36: W0511: TODO: Add indention here too (fixme)
 FUNCLG/character/roles.py:64:31: R1716: Simplify chained comparison between the operands (chained-comparison)
 FUNCLG/character/roles.py:70:31: R1716: Simplify chained comparison between the operands (chained-comparison)
 ************* Module FUNCLG.character.stats
+FUNCLG/character/stats.py:84:66: C0303: Trailing whitespace (trailing-whitespace)
 FUNCLG/character/stats.py:21:5: W0511: TODO: Create a more abstract load based on STAT_TYPES (fixme)
-FUNCLG/character/stats.py:57:9: W0511: TODO: Complete (fixme)
-FUNCLG/character/stats.py:70:1: W0511: TODO: Create an armor stat (fixme)
-FUNCLG/character/stats.py:77:1: W0511: TODO: Create a role stat class (fixme)
-FUNCLG/character/stats.py:81:5: W0511: TODO: may change to take an a (fixme)
-FUNCLG/character/stats.py:84:28: W0511: TODO: Does this attribute need to be here (fixme)
-FUNCLG/character/stats.py:71:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:80:0: C0103: Class name "Character_Stats" doesn't conform to PascalCase naming style (invalid-name)
-FUNCLG/character/stats.py:80:0: C0115: Missing class docstring (missing-class-docstring)
-FUNCLG/character/stats.py:83:8: E1121: Too many positional arguments for method call (too-many-function-args)
-FUNCLG/character/stats.py:91:8: W0201: Attribute 'health' defined outside __init__ (attribute-defined-outside-init)
-FUNCLG/character/stats.py:92:8: W0201: Attribute 'energy' defined outside __init__ (attribute-defined-outside-init)
+FUNCLG/character/stats.py:70:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
+FUNCLG/character/stats.py:74:1: W0511: TODO: Create an equipment class (fixme)
+FUNCLG/character/stats.py:82:1: W0511: TODO: Create an abilities class (fixme)
+FUNCLG/character/stats.py:90:1: W0511: TODO: Create an armor stat (fixme)
+FUNCLG/character/stats.py:99:1: W0511: TODO: Create a role stat class (fixme)
+FUNCLG/character/stats.py:107:1: W0511: TODO: Build Character stats (fixme)
+FUNCLG/character/stats.py:59:8: W0107: Unnecessary pass statement (unnecessary-pass)
+FUNCLG/character/stats.py:75:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:83:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:91:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:100:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:108:0: W0105: String statement has no effect (pointless-string-statement)
 FUNCLG/character/stats.py:7:0: W0611: Unused Union imported from typing (unused-import)
 FUNCLG/character/stats.py:10:0: W0611: Unused Self imported from typing_extensions (unused-import)
 FUNCLG/character/stats.py:12:0: W0611: Unused STAT_TYPES imported from utils.types (unused-import)
 ************* Module FUNCLG.utils.types
 FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
-FUNCLG/utils/types.py:48:1: W0511: TODO: needs to be fixed (fixme)
+FUNCLG/utils/types.py:50:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.63/10 (previous run: 8.84/10, -0.21)
+Your code has been rated at 8.67/10 (previous run: 8.64/10, +0.03)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 7.445s
-Cannot find module 'worker_threads'
 Traceback (most recent call last):
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>
-    sys.exit(entrypoint())
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 46, in entrypoint
-    sys.exit(main(sys.argv[1:]))
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 20, in main
-    return run(*args, **kwargs).returncode
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 42, in run
-    return node.run('npx', *pre_args, f'pyright@{version}', *args, **kwargs)
-  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/node.py", line 112, in run
-    return subprocess.run(node_args, env=env, **kwargs)
-  File "/usr/lib/python3.8/subprocess.py", line 495, in run
-    stdout, stderr = process.communicate(input, timeout=timeout)
-  File "/usr/lib/python3.8/subprocess.py", line 1020, in communicate
-    self.wait()
-  File "/usr/lib/python3.8/subprocess.py", line 1083, in wait
-    return self._wait(timeout=timeout)
-  File "/usr/lib/python3.8/subprocess.py", line 1806, in _wait
-    (pid, sts) = self._try_wait(0)
-  File "/usr/lib/python3.8/subprocess.py", line 1764, in _try_wait
-    (pid, sts) = os.waitpid(self.pid, wait_flags)
+  File "/home/jevinle/.poetry/bin/poetry", line 17, in <module>
+    from poetry.console import main
+  File "/home/jevinle/.poetry/lib/poetry/console/__init__.py", line 1, in <module>
+    from .application import Application
+  File "/home/jevinle/.poetry/lib/poetry/console/application.py", line 7, in <module>
+    from .commands.about import AboutCommand
+  File "/home/jevinle/.poetry/lib/poetry/console/commands/__init__.py", line 4, in <module>
+    from .check import CheckCommand
+  File "/home/jevinle/.poetry/lib/poetry/console/commands/check.py", line 2, in <module>
+    from poetry.factory import Factory
+  File "/home/jevinle/.poetry/lib/poetry/factory.py", line 16, in <module>
+    from .packages.locker import Locker
+  File "/home/jevinle/.poetry/lib/poetry/packages/__init__.py", line 2, in <module>
+    from .locker import Locker
+  File "/home/jevinle/.poetry/lib/poetry/packages/locker.py", line 38, in <module>
+    from poetry.utils.extras import get_extra_package_names
+  File "/home/jevinle/.poetry/lib/poetry/utils/extras.py", line 7, in <module>
+    from poetry.utils.helpers import canonicalize_name
+  File "/home/jevinle/.poetry/lib/poetry/utils/helpers.py", line 11, in <module>
+    import requests
+  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/requests/__init__.py", line 44, in <module>
+    import chardet
+  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/chardet/__init__.py", line 19, in <module>
+    from .universaldetector import UniversalDetector
+  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/chardet/universaldetector.py", line 47, in <module>
+    from .mbcsgroupprober import MBCSGroupProber
+  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/chardet/mbcsgroupprober.py", line 35, in <module>
+    from .euckrprober import EUCKRProber
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 939, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1038, in get_data
 KeyboardInterrupt

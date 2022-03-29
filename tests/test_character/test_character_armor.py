@@ -4,8 +4,6 @@ Date: 7.15.2021
 Description: The is a unit test for the armor class and its interations with the equipment class.
 """
 
-
-import os
 import unittest
 from random import randint
 from typing import Dict, Tuple
@@ -174,48 +172,22 @@ class ArmorTest(unittest.TestCase):
         self.assertEqual(arm.weapon.name, equips["sword"].name)
 
     def test_armor_dequip(self):
-        # Test 1.a Basic dequip, dequiping with integer, with item equipped
-        arms, _ = self.setup(False)
-
-        # Will do a full dequip of all items
-        for position in range(5):
-            self.assertIsNotNone(arms.dequip(position))
-
-        self.assertEqual(arms.__str__(), f"Medium Armor: <H:0, C:0, B:0, P:0, W:0>")
-
-        # Test 1.b Basic dequip, dequiping with string, with item equipped
+        # Test 1.a Basic dequip, dequiping with string, with item equipped
         arms, _ = self.setup(False)
 
         for item in ITEM_TYPES:
-            self.assertIsNotNone(arms.dequip(item))
+            self.assertIsNone(arms.dequip(item))
+            # TODO: For pytest, us patch to check the status of the message
 
         self.assertEqual(arms.__str__(), f"Medium Armor: <H:0, C:0, B:0, P:0, W:0>")
 
-        # Test 2.a Testing dequip error for integer value
-        arms, _ = self.setup(False)
-
-        self.assertIsNone(arms.dequip(-1))
-        self.assertEqual(arms.__str__(), f"Medium Armor: <H:1, C:1, B:1, P:1, W:1>")
-
-        # Test 2.b Testing dequip error for string value
+        # Test 2.a Testing dequip error for string value
         arms, _ = self.setup(False)
 
         self.assertIsNone(arms.dequip("jagiejoijga"))
         self.assertEqual(arms.__str__(), f"Medium Armor: <H:1, C:1, B:1, P:1, W:1>")
 
-        # Test 2.c Testing dequip error for other value
-        arms, _ = self.setup(False)
-
-        self.assertIsNone(arms.dequip(["head", "chest"]))
-        self.assertIsNone(arms.dequip({}))
-        self.assertEqual(arms.__str__(), f"Medium Armor: <H:1, C:1, B:1, P:1, W:1>")
-
-        # Test 3.a Dequipping an empty slot with integer
-        arms, _ = self.setup()
-        for item in range(len(ITEM_TYPES)):
-            self.assertIsNone(arms.dequip(item))
-
-        # Test 3.b Dequipping an empty slot with string
+        # Test 3.a Dequipping an empty slot with string
         for item in ITEM_TYPES:
             self.assertIsNone(arms.dequip(item))
 

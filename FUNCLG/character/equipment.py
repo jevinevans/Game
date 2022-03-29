@@ -44,7 +44,7 @@ class Equipment:
         self.level = level
         self.damage = damage
         # self.stats = #STAT Object /may replace abiilty points with stats
-        logger.info(f"Created Equipment: {name}")
+        logger.debug(f"Created Equipment: {name}")
 
     def __str__(self) -> str:
         """
@@ -69,7 +69,7 @@ class Equipment:
     def export(self) -> Dict[str, Any]:
         # TODO: May have to change function when STATS object is integrated
         # Function will just need to call the export for each
-        logger.info(f"Exporting Role: {self.name}")
+        logger.info(f"Exporting Equipment: {self.name}")
         return self.__dict__
 
     def get_item_type(self) -> str:

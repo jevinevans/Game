@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Union
 
 from loguru import logger
 
-from ..utils.types import ARMOR_TYPES, ITEM_TYPES, get_armor_type
+from ..utils.types import ARMOR_TYPES, get_armor_type
 from .equipment import Equipment
 
 logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
@@ -72,48 +72,48 @@ class Armor:
 
     def equip(self, item: Equipment) -> Union[Equipment, None]:
         if new_item := self.validate_equipment(item):
-            if equip_func := getattr(self, "_equip_" + item.get_item_type().lower()):
+            if equip_func := getattr(self, "_equip_" + new_item.get_item_type().lower()):
                 equip_func(new_item)
+                logger.info(f"Equipped {new_item.name} to {new_item.get_item_type()}")
+                # TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one)
 
-    # TODO: Consider return a status and the item, for faster check
-    def dequip(self, item) -> Union[None, Equipment]:
+    def _dequip_head(self):
+        temp = self.head
+        self.head = None
+        return temp
+
+    def _dequip_chest(self):
+        temp = self.chest
+        self.chest = None
+        return temp
+
+    def _dequip_back(self):
+        temp = self.back
+        self.back = None
+        return temp
+
+    def _dequip_pants(self):
+        temp = self.pants
+        self.pants = None
+        return temp
+
+    def _dequip_weapon(self):
+        temp = self.weapon
+        self.weapon = None
+        return temp
+
+    def dequip(self, item_type: str) -> None:
         """
         Removes the currently equiped item in the current position and wil return an item if there is something already equiped.
         """
-        temp = None
-        item_type = ""
-        if isinstance(item, int):
-            # If the user sends the item type value
-            if item < 0 or item >= len(ITEM_TYPES):
-                print(f"Failed to Dequip: {item}")
-                return
-            item_type = ITEM_TYPES[item]
-        elif isinstance(item, str):
-            # If the user sends the name of the value
-            item_type = item.capitalize()
-            if item_type not in ITEM_TYPES:
-                print(f"Failed to Dequip: {item}")
-                return
-        # elif isinstance(item, Equipment):
-        #     # Future for if the user selects the item to unequip may send item may remove all together
-        #     item_type = item.getItem_type()
-        else:
-            print(f"Failed to Dequip: {item}")
-            return
 
-        if item_type == "Head":
-            temp, self.head = self.head, None
-        elif item_type == "Chest":
-            temp, self.chest = self.chest, None
-        elif item_type == "Back":
-            temp, self.back = self.back, None
-        elif item_type == "Pants":
-            temp, self.pants = self.pants, None
-        elif item_type == "Weapon":
-            temp, self.weapon = self.weapon, None
-
-        print(f"Dequipped: {temp}")
-        return temp
+        if getattr(self, item_type.lower(), False):
+            dequip_func = getattr(self, "_dequip_" + item_type.lower())
+            del_item = dequip_func()
+            logger.info(f"Equipped {del_item.name} to {del_item.get_item_type()}")
+            del del_item
+            # TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one)
+        logger.warning(f"{item_type} slot is empty.")
 
     # TODO: Add indention factor
     def details(self) -> str:
