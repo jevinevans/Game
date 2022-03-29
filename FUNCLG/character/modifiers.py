@@ -51,7 +51,7 @@ class Modifier:
         return string
 
     def details(self, indent: int = 0):
-        string = f"Modifier: {self.name}:\n"
+        string = f"{' '*indent}Modifier: {self.name}:\n"
         string += self._friendly_read(indent=indent + 2)
 
         return string

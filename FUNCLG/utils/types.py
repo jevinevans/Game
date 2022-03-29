@@ -25,6 +25,8 @@ DAMAGE_TYPES = {
     "None": ("None", 0),
 }
 
+
+# Contains all valid stat types that a modifier can affect
 STAT_TYPES = ["health", "energy", "attack", "defense"]
 
 
