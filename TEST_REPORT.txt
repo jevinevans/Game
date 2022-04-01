@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Mar 29 11:18:59 CDT 2022 
+Date: Fri Apr  1 01:47:50 CDT 2022 
 
 ---PYTEST---
 
@@ -8,13 +8,23 @@ Date: Tue Mar 29 11:18:59 CDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 41 items
+collected 40 items
 
-tests/test_character/test_character_abilities.py .......                 [ 17%]
-tests/test_character/test_character_armor.py .........                   [ 39%]
-tests/test_character/test_character_equipment.py .......                 [ 56%]
+tests/test_character/test_character_abilities.py .....E                  [ 15%]
+tests/test_character/test_character_armor.py .........                   [ 37%]
+tests/test_character/test_character_equipment.py .......                 [ 55%]
 tests/test_character/test_character_modifiers.py ........                [ 75%]
 tests/test_character/test_character_roles.py ..........                  [100%]
+
+==================================== ERRORS ====================================
+________________ ERROR at setup of test_abilities_print_to_file ________________
+file /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_abilities.py, line 56
+  def test_abilities_print_to_file(self):
+E       fixture 'self' not found
+>       available fixtures: abilities_all_types, abilities_detail_expectation, abilities_export_expectation, abilities_str_expectation, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, cov, doctest_namespace, monkeypatch, no_cover, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_abilities.py:56
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                               Stmts   Miss  Cover   Missing
@@ -22,10 +32,10 @@ Name                               Stmts   Miss  Cover   Missing
 FUNCLG/__init__.py                     0      0   100%
 FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           0      0   100%
-FUNCLG/character/abilities.py         31      0   100%
+FUNCLG/character/abilities.py         31      3    90%   54-56
 FUNCLG/character/armor.py             87      1    99%   131
 FUNCLG/character/equipment.py         42      2    95%   79, 82
-FUNCLG/character/modifiers.py         64      0   100%
+FUNCLG/character/modifiers.py         63      0   100%
 FUNCLG/character/roles.py             61      0   100%
 FUNCLG/character/stats.py             35     22    37%   27-34, 40, 43-44, 47-54, 59, 62-67
 FUNCLG/main.py                         0      0   100%
@@ -33,19 +43,15 @@ FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
 FUNCLG/utils/types.py                 24      1    96%   59
 ----------------------------------------------------------------
-TOTAL                                344     26    92%
+TOTAL                                343     29    92%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 92.44%
-
-============================== 41 passed in 1.24s ==============================
+FAIL Required test coverage of 100.0% not reached. Total coverage: 91.55%
+========================= 39 passed, 1 error in 1.39s ==========================
 
 ---Flake 8----
 
 ./FUNCLG/character/abilities.py:35:14: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:37:11: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:43:7: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:60:7: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:65:7: T101 fixme found (TODO)
+./FUNCLG/character/abilities.py:62:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:115:15: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:118:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:140:7: T101 fixme found (TODO)
@@ -57,7 +63,6 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 92.44%
 ./FUNCLG/character/equipment.py:70:11: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:87:7: T101 fixme found (TODO)
 ./FUNCLG/character/modifiers.py:120:3: T101 fixme found (TODO)
-./FUNCLG/character/modifiers.py:9:1: F401 'loguru.logger' imported but unused
 ./FUNCLG/character/roles.py:42:11: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:48:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:71:13: F841 local variable 'old_ability' is assigned to but never used
@@ -76,7 +81,7 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 92.44%
 ./FUNCLG/character/stats.py:99:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:50:3: T101 fixme found (TODO)
-35
+31
 
 ---Code Quality Report---
 
@@ -101,10 +106,7 @@ All done! ✨ 🍰 ✨
 FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_case naming style (invalid-name)
 ************* Module FUNCLG.character.abilities
 FUNCLG/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
-FUNCLG/character/abilities.py:37:9: W0511: TODO: Validation will be done during creation (fixme)
-FUNCLG/character/abilities.py:43:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/abilities.py:60:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
-FUNCLG/character/abilities.py:65:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
+FUNCLG/character/abilities.py:62:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
 ************* Module FUNCLG.character.armor
 FUNCLG/character/armor.py:32:9: W0511: self.stats = #TODO: Stat Object (fixme)
 FUNCLG/character/armor.py:78:17: W0511: TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one) (fixme)
@@ -122,7 +124,6 @@ FUNCLG/character/equipment.py:100:5: W0511: TODO: Defined method (fixme)
 FUNCLG/character/equipment.py:25:4: R0913: Too many arguments (8/5) (too-many-arguments)
 ************* Module FUNCLG.character.modifiers
 FUNCLG/character/modifiers.py:120:1: W0511: TODO: Possibly create a subclass tempMod. This would be the result of an attack and would expire after a number of turns and be removed after the combat, instance is over (fixme)
-FUNCLG/character/modifiers.py:9:0: W0611: Unused logger imported from loguru (unused-import)
 ************* Module FUNCLG.character.roles
 FUNCLG/character/roles.py:42:9: W0511: TODO: self.stats (fixme)
 FUNCLG/character/roles.py:48:5: W0511: TODO: add check/validation for duplicates (fixme)
@@ -153,44 +154,30 @@ FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
 FUNCLG/utils/types.py:50:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.67/10 (previous run: 8.64/10, +0.03)
+Your code has been rated at 8.78/10 (previous run: 8.78/10, +0.00)
 
 
 -----PYRIGHT-----
 
-Traceback (most recent call last):
-  File "/home/jevinle/.poetry/bin/poetry", line 17, in <module>
-    from poetry.console import main
-  File "/home/jevinle/.poetry/lib/poetry/console/__init__.py", line 1, in <module>
-    from .application import Application
-  File "/home/jevinle/.poetry/lib/poetry/console/application.py", line 7, in <module>
-    from .commands.about import AboutCommand
-  File "/home/jevinle/.poetry/lib/poetry/console/commands/__init__.py", line 4, in <module>
-    from .check import CheckCommand
-  File "/home/jevinle/.poetry/lib/poetry/console/commands/check.py", line 2, in <module>
-    from poetry.factory import Factory
-  File "/home/jevinle/.poetry/lib/poetry/factory.py", line 16, in <module>
-    from .packages.locker import Locker
-  File "/home/jevinle/.poetry/lib/poetry/packages/__init__.py", line 2, in <module>
-    from .locker import Locker
-  File "/home/jevinle/.poetry/lib/poetry/packages/locker.py", line 38, in <module>
-    from poetry.utils.extras import get_extra_package_names
-  File "/home/jevinle/.poetry/lib/poetry/utils/extras.py", line 7, in <module>
-    from poetry.utils.helpers import canonicalize_name
-  File "/home/jevinle/.poetry/lib/poetry/utils/helpers.py", line 11, in <module>
-    import requests
-  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/requests/__init__.py", line 44, in <module>
-    import chardet
-  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/chardet/__init__.py", line 19, in <module>
-    from .universaldetector import UniversalDetector
-  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/chardet/universaldetector.py", line 47, in <module>
-    from .mbcsgroupprober import MBCSGroupProber
-  File "/home/jevinle/.poetry/lib/poetry/_vendor/py3.8/chardet/mbcsgroupprober.py", line 35, in <module>
-    from .euckrprober import EUCKRProber
-  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
-  File "<frozen importlib._bootstrap_external>", line 939, in get_code
-  File "<frozen importlib._bootstrap_external>", line 1038, in get_data
-KeyboardInterrupt
+npx: installed 1 in 6.16s
+No configuration file found.
+pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
+Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
+Pyproject file "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml" is missing "[tool.pyright]" section.
+stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not a valid directory.
+Assuming Python platform Linux
+Searching for source files
+Found 13 source files
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:25:27 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
+    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:26:28 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
+    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:27:27 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
+    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:28:28 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
+    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:29:29 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
+    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
+5 errors, 0 warnings, 0 informations 
+Completed in 2.604sec

@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 29			|
-|	Files: 150				|
+|	Files: 149				|
 +==========================================+
 
 ./.coverage
@@ -95,7 +95,6 @@
 ./Includes/Stats.h
 ./README.md
 ./Scan_Directories.py
-./TEST_OUTPUT.txt
 ./TEST_REPORT.txt
 ./changelogs
 ./changelogs/2018

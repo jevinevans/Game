@@ -37,4 +37,5 @@ echo -e "\n-----PYLINT-----\n"
 poetry run pylint ./FUNCLG &>> $REPORT
 echo -e "\n-----PYRIGHT-----\n" >> $REPORT
 echo -e "\n-----PYRIGHT-----\n"
+export NODE\_OPTIONS=--experimental-worker
 poetry run pyright ./FUNCLG &>> $REPORT

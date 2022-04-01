@@ -5,8 +5,9 @@ Description: Testing the stats classes.
 Last Update: 3.23.2022
 """
 
-import pytest
 from random import randint, random
+
+import pytest
 
 from FUNCLG.character.modifiers import Modifier
 from FUNCLG.character.stats import Stats

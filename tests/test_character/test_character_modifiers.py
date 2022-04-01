@@ -19,22 +19,6 @@ from .character_fixtures import (
 )
 
 
-def adds_1():
-    return {"attack": 43, "defense": -20}
-
-
-def adds_2():
-    return {"attack": -34, "energy": 20, "error": -32}
-
-
-def mults_1():
-    return {"health": 0.33, "energy": -0.6}
-
-
-def mults_2():
-    return {"health": -0.10, "defense": 0.4, "error": 23}
-
-
 def test_modifier_init(add_mods, mult_mods):
     # Test Empty Modifier
     t1 = Modifier(name="Mod 1 Test")
@@ -85,24 +69,27 @@ def test_modifier_add_modifier(new_add_modifier, new_mult_modifier):
     assert t1.adds == new_add_modifier
     assert t1.mults == new_mult_modifier
 
+
 def test_modifier_remove_modifier(add_mods, mult_mods):
-    valid_adds = add_mods['valid'].copy()
-    valid_mults = mult_mods['valid'].copy()
-    del valid_adds['defense']
-    del valid_mults['energy']
-    t1 = Modifier("Test Remove Modifier", add_mods['valid'], mult_mods['valid'])
-    t1.remove_mod('adds', "defense")
+    valid_adds = add_mods["valid"].copy()
+    valid_mults = mult_mods["valid"].copy()
+    del valid_adds["defense"]
+    del valid_mults["energy"]
+    t1 = Modifier("Test Remove Modifier", add_mods["valid"], mult_mods["valid"])
+    t1.remove_mod("adds", "defense")
     # Test Invalid stat name
-    t1.remove_mod('mults', 'energyt')
-    t1.remove_mod('mults', 'energy')
+    t1.remove_mod("mults", "energyt")
+    t1.remove_mod("mults", "energy")
 
     assert t1.adds == valid_adds
     assert t1.mults == valid_mults
 
+
 def test_modifier_get_mods(add_mods, mult_mods, modifier_get_expectation):
-    t1 = Modifier("Test Get Mods", add_mods['valid'], mult_mods['valid'])
+    t1 = Modifier("Test Get Mods", add_mods["valid"], mult_mods["valid"])
     assert t1.get_mods() == modifier_get_expectation
 
+
 def test_modifier_export(add_mods, mult_mods, modifier_export_expectation):
-    t1 = Modifier("Test Export", add_mods['valid'], mult_mods['valid'])
+    t1 = Modifier("Test Export", add_mods["valid"], mult_mods["valid"])
     assert t1.export() == modifier_export_expectation

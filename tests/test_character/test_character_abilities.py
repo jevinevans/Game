@@ -10,111 +10,68 @@ from random import randint
 from typing import Dict
 
 from FUNCLG.character.abilities import Abilities
+from FUNCLG.utils.types import DAMAGE_TYPES
+
+from .character_fixtures import (
+    abilities_all_types,
+    abilities_detail_expectation,
+    abilities_export_expectation,
+    abilities_str_expectation,
+)
 
 
-class AbilityTest(unittest.TestCase):
-    def setup(self) -> Dict[str, Abilities]:
-        test_abilities = {}
-        test_abilities["Magic"] = Abilities(
-            name="Fireball",
-            damage_type="Magic",
-            effect=randint(1, 50),
-            description="A blazing ball of fire",
-        )
-        test_abilities["Physical"] = Abilities(
-            name="Slash",
-            damage_type="Physical",
-            effect=randint(1, 50),
-            description="A slashing strike with a sharp weapon",
-        )
-        test_abilities["Repair"] = Abilities(
-            name="Armor Fix",
-            damage_type="Repair",
-            effect=randint(1, 50),
-            description="Repairs the armor of the user",
-        )
-        test_abilities["Healing"] = Abilities(
-            name="Holy Light",
-            damage_type="Healing",
-            effect=randint(1, 50),
-            description="Heals the user",
-        )
-        test_abilities["Error"] = Abilities(
-            name="Error Test",
-            damage_type="error",
-            effect=randint(1, 50),
-            description="Testing if this will default to None",
-        )
+def test_abilities_init(abilities_all_types):
+    # Testing proper effect type
+    for ability in abilities_all_types:
+        if DAMAGE_TYPES.get(ability.damage_type, None)[1] > 0:
+            assert ability.effect > 0
+        elif DAMAGE_TYPES.get(ability.damage_type, None)[1] < 0:
+            assert ability.effect < 0
+        elif DAMAGE_TYPES.get(ability.damage_type, None)[1] == 0:
+            assert ability.effect == 0
 
-        return test_abilities
 
-    def test_abilities_init(self):
-        test_abilities = self.setup()
-        valid_neg, valid_pos, invalid = (
-            test_abilities["Magic"],
-            test_abilities["Healing"],
-            test_abilities["Error"],
-        )
-        # Test Valid Negative Effect
-        self.assertEqual(valid_neg.name, "Fireball")
-        self.assertEqual(valid_neg.damage_type, "Magic")
-        self.assertEqual(valid_neg.ability_group, "Damage")
-        self.assertIsInstance(valid_neg.effect, int)
-        self.assertLessEqual(valid_neg.effect, -1)
-        self.assertIsNotNone(valid_neg.description)
+def test_abilities_incorrect_damage_type():
+    t1 = Abilities("Error Type", "Error", -23, "Random string")
 
-        # Test Valid Positive Effect
-        self.assertGreaterEqual(valid_pos.effect, 1)
+    assert t1.damage_type == "None"
+    assert t1.effect == 0
 
-        # Test Invalid
-        self.assertEqual(invalid.damage_type, "None")
-        self.assertEqual(invalid.ability_group, "None")
-        self.assertEqual(invalid.effect, 0)
 
-    def test_abilities_str(self):
-        for _, ability in self.setup().items():
-            self.assertIsNotNone(ability.__str__())
-            self.assertIsInstance(ability.__str__(), str)
+def test_abilities_str(abilities_all_types, abilities_str_expectation):
+    for index, ability in enumerate(abilities_all_types):
+        assert ability.__str__() == abilities_str_expectation[index]
 
-    def test_abilities_details(self):
-        for _, ability in self.setup().items():
-            self.assertIsNotNone(ability.details())
-            self.assertIsInstance(ability.details(), str)
 
-    def test_abilities_export(self):
-        for _, ability in self.setup().items():
-            self.assertIsNotNone(ability.export())
-            self.assertIsInstance(ability.export(), dict)
+def test_abilities_details(abilities_all_types, abilities_detail_expectation):
+    for index, ability in enumerate(abilities_all_types):
+        assert ability.details(index) == abilities_detail_expectation[index]
 
-    def test_abilities_print_to_file(self):
-        test_ability = self.setup()["Magic"]
-        test_ability.print_to_file()
-        filename = f"{test_ability.name}.json"
-        self.assertTrue(os.path.exists(filename), "Abilities: print_to_file Failed")
-        if os.path.exists(filename):
-            os.remove(filename)
 
-    def test_abilities_output_examples(self):
-        damage_ability = self.setup()["Magic"]
-        print(f"\n{'Abilites Example Output'.center(80, '-')}")
-        print(f"\n__str__ Output:\n{damage_ability}")
-        print(f"\ndetails Output:{damage_ability.details()}")
-        print(f"\nexport Output:\n{damage_ability.export()}")
-        print(f"\n{'Done'.center(80, '-')}")
+def test_abilities_export(abilities_all_types, abilities_export_expectation):
+    for index, ability in enumerate(abilities_all_types):
+        assert ability.export() == abilities_export_expectation[index]
 
-    def test_abilities_copy(self):
-        abilities = self.setup()
 
-        repair_1 = abilities["Repair"]
-        repair_2 = repair_1.copy()
+def test_abilities_print_to_file(abilities_all_types):
+    test_ability = abilities_all_types[0]
+    test_ability.print_to_file()
+    filename = f"{test_ability.name}.json"
+    assert os.path.exists(filename)
+    if os.path.exists(filename):
+        os.remove(filename)
 
-        # Test object difference
-        self.assertNotEqual(repair_1, repair_2)
-        self.assertNotEqual(id(repair_1), id(repair_2))
+def test_abilities_copy(abilities_all_types):
+    repair_1 = abilities_all_types[0]
+    repair_2 = repair_1.copy()
 
-        # Test Information is the same
-        self.assertEqual(repair_1.name, repair_2.name)
-        self.assertEqual(repair_1.damage_type, repair_2.damage_type)
-        self.assertEqual(repair_1.ability_group, repair_2.ability_group)
-        self.assertEqual(repair_1.effect, repair_2.effect)
-        self.assertEqual(repair_1.description, repair_2.description)
+    # Test object difference
+    assert repair_1 != repair_2
+    assert id(repair_1) != id(repair_2)
+
+    # Test Information is the same
+    assert repair_1.name == repair_2.name
+    assert repair_1.damage_type == repair_2.damage_type
+    assert repair_1.ability_group == repair_2.ability_group
+    assert repair_1.effect == repair_2.effect
+    assert repair_1.description == repair_2.description

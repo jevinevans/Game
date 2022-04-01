@@ -34,18 +34,16 @@ class Abilities:
             effect * effect_type
         )  # TODO: Will become stats, and a specific sub class that will be more focused for armor
         self.description = description
-        # TODO: Validation will be done during creation
-        logger.info(f"Created Ability: {name}")
+        logger.debug(f"Created Ability: {name}")
 
     def __str__(self):
         return f"{self.name} ({self.damage_type}): {self.effect}"
 
-    # TODO: add indention factor
-    def details(self):
-        desc = f"\n{self.name}\n{''.join(['-' for x in range(len(self.name))])}"
-        desc += f"\nDescription: {self.description}"
-        desc += f"\nType: {self.damage_type} ({self.ability_group})"
-        desc += f"\nEffect: {self.effect}"
+    def details(self, indent: int = 0):
+        desc = f"\n{' '*indent}{self.name}\n{' '*indent}{''.join(['-' for x in range(len(self.name))])}"
+        desc += f"\n{' '*indent}Description: {self.description}"
+        desc += f"\n{' '*indent}Type: {self.damage_type} ({self.ability_group})"
+        desc += f"\n{' '*indent}Effect: {self.effect}"
         return desc
 
     def export(self) -> Dict[str, Any]:
@@ -57,10 +55,9 @@ class Abilities:
         with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
             json.dump(self.export(), out_file)
 
-    # TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **)
     def copy(self) -> Self:
         """Returns a copy of the object"""
-        return Abilities(self.name, self.damage_type, self.effect, self.description)
+        return Abilities(self.name, self.damage_type, abs(self.effect), self.description)
 
     # TODO: Define what happens when using a power. Damage and effect on which stat
     # def use()
