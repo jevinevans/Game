@@ -9,7 +9,7 @@ from typing import Dict, List, Optional, Union
 from loguru import logger
 
 from ..utils.types import ARMOR_TYPES, get_armor_type
-from .equipment import Equipment
+from .equipment import Equipment, WeaponEquipment
 
 logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 

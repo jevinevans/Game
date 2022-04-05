@@ -4,6 +4,7 @@ Date: 7.13.2021
 Description: This defines lists and functions for certain constands
 """
 from typing import Tuple
+# TODO: Turn constants into tuples that way the the str or int value can be used
 
 # Item Types: 0 - Head, 1 - Chest, 2 - Back, 3 - Pants, 4 - Weapon
 ITEM_TYPES = ["Head", "Chest", "Back", "Pants", "Weapon"]
@@ -14,7 +15,6 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
 # Weapon Types: 0 - Sword, 1 - Wand, 2 - Knife, -1 - (Not a Weapon)
 WEAPON_TYPES = ["Sword", "Wand", "Knife", ""]
 
-# TODO: Rework
 DAMAGE_TYPES = {
     "Magic": ("Damage", -1),
     "Physical": ("Damage", -1),
@@ -27,7 +27,7 @@ DAMAGE_TYPES = {
 
 
 # Contains all valid stat types that a modifier can affect
-STAT_TYPES = ["health", "energy", "attack", "defense"]
+MODIFIER_TYPES = ["health", "energy", "attack", "defense"]
 
 
 def get_ability_effect_type(a_type: str) -> Tuple[str, int]:

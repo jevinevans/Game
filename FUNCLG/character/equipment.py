@@ -7,16 +7,20 @@ Description: The Equipment class allows for creation of objects in the game to b
 """
 
 import json
-from typing import Any, Dict
+from typing import Any, Dict, Optional, Union
 
 from loguru import logger
+from numpy import isin
 from typing_extensions import Self
 
 from ..utils import types as uTypes
+from .modifiers import Modifier
 
 logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 
 
+# TODO: May split into body equipment and weapons, that way
+# TODO: Remove damage and level because they will be a part of the equipment stat
 class Equipment:
     """
     Defines the equipmet class for the game. Equipment can be weapons or armor pieces.
@@ -28,9 +32,6 @@ class Equipment:
         description: str = "",
         item_type: int = 0,
         armor_type: int = 0,
-        weapon_type: int = -1,
-        level: int = 0,
-        damage: int = 0,
     ) -> None:
         """
         Creates an equipment item
@@ -40,9 +41,6 @@ class Equipment:
         self.description = description
         self.item_type = item_type
         self.armor_type = armor_type
-        self.weapon_type = weapon_type
-        self.level = level
-        self.damage = damage
         # self.stats = #STAT Object /may replace abiilty points with stats
         logger.debug(f"Created Equipment: {name}")
 
@@ -50,15 +48,15 @@ class Equipment:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.level}]"
+        return f"{self.name} [{self.armor_type} {self.item_type}]"
 
     # TODO: add indention factor
-    def details(self) -> str:
-        desc = f"\n{self.name}\n{''.join(['-' for x in range(len(self.name))])}"
-        desc += f"\nLevel:{self.level:3d}\nAbility Pts: {self.damage} "
-        desc += "ATK" if self.get_item_type() == "Weapon" else "DEF"
-        desc += f"\nType: {self.get_item_description()}"
-        desc += f"\nDescription: {self.description}"
+    # TODO: add stats info for details
+    def details(self, indent: int = 0) -> str:
+        desc = f"\n{' '*indent}{self.name}"
+        desc += f"\n{' '*indent}{'-'*len(self.name)}"
+        desc += f"\n{' '*indent}Type: {self.get_item_description()}"
+        desc += f"\{' '*indent}nDescription: {self.description}"
         return desc
 
     def print_to_file(self) -> None:
@@ -78,11 +76,8 @@ class Equipment:
     def get_armor_type(self) -> str:
         return uTypes.get_armor_type(self.armor_type)
 
-    def get_weapon_type(self) -> str:
-        return uTypes.get_weapon_type(self.weapon_type)
-
     def get_item_description(self) -> str:
-        return uTypes.get_item_description(self.item_type, self.armor_type, self.weapon_type)
+        return uTypes.get_item_description(self.item_type, self.armor_type)
 
     # TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **)
     def copy(self) -> Self:
@@ -92,10 +87,83 @@ class Equipment:
             self.description,
             self.item_type,
             self.armor_type,
-            self.weapon_type,
-            self.level,
-            self.damage,
         )
 
-    # TODO: Defined method
+
+class WeaponEquipment(Equipment):
+    def __init__(self, name: str, weapon_type: int, description: str = "", armor_type: int = 0):
+        super().__init__(name=name, description=description, item_type=4, armor_type=armor_type)
+
+        self.weapon_type = weapon_type
+        # TODO: self.stats  =  Create and add weapon stats that way they can be buffed or debuffed during battle
+
+    def get_weapon_type(self) -> str:
+        return uTypes.get_weapon_type(self.weapon_type)
+
+    def get_item_description(self) -> str:
+        return uTypes.get_item_description(self.item_type, self.armor_type, self.weapon_type)
+
+    # def details(self) -> str:
+    #     desc = super().details()
+    #     desc += f"{' '*indent} ....
+    # Add stats info
+    #     self.stats.details()
+    #     return desc
+
+    def copy(self) -> Self:
+        """Copies the current object"""
+        return WeaponEquipment(
+            self.name,
+            self.weapon_type,
+            self.description,
+            self.armor_type,
+        )
+
     # def get_stats(self):
+
+
+# TODO: Create a BodyEquipment class that will have a place for modifiers
+class BodyEquipment(Equipment):
+    def __init__(
+        self,
+        name: str,
+        modifiers: Optional[Dict[str, Union[int, float]]],
+        description: str = "",
+        armor_type: int = 0,
+    ):
+        """
+        Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
+        """
+        super().__init__(name=name, description=description, item_type=4, armor_type=armor_type)
+
+        self.mods = Modifier(name=self.name)
+        self.mods.add_mods(m_type="adds", mods=modifiers.get("adds", {}))
+        self.mods.add_mods(m_type="mults", mods=modifiers.get("mults", {}))
+
+    def get_mods(self) -> str:
+        return self.mods.get_mods()
+
+    # def details(self) -> str:
+    #     desc = super().details()
+    #     desc += f"{' '*indent} ....
+    # Add mod info
+    #     self.stats.details()
+    #     return desc
+
+    def copy(self) -> Self:
+        """Copies the current object"""
+        return BodyEquipment(
+            self.name,
+            self.weapon_type,
+            self.description,
+            self.armor_type,
+        )
+
+    # def get_stats(self):
+
+    def export(self):
+        exporter = self.__dict__
+        for key, value in exporter.items():
+            if isinstance(value, Modifier):
+                exporter[key] = value.export()
+        return exporter

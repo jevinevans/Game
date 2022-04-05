@@ -32,6 +32,7 @@ def test_abilities_init(abilities_all_types):
 
 
 def test_abilities_incorrect_damage_type():
+    """Tests for incorrect ability types"""
     t1 = Abilities("Error Type", "Error", -23, "Random string")
 
     assert t1.damage_type == "None"

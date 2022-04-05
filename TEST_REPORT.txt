@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri Apr  1 01:47:50 CDT 2022 
+Date: Mon Apr  4 17:18:38 CDT 2022 
 
 ---PYTEST---
 
@@ -8,23 +8,65 @@ Date: Fri Apr  1 01:47:50 CDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 40 items
-
-tests/test_character/test_character_abilities.py .....E                  [ 15%]
-tests/test_character/test_character_armor.py .........                   [ 37%]
-tests/test_character/test_character_equipment.py .......                 [ 55%]
-tests/test_character/test_character_modifiers.py ........                [ 75%]
-tests/test_character/test_character_roles.py ..........                  [100%]
+collected 10 items / 4 errors
 
 ==================================== ERRORS ====================================
-________________ ERROR at setup of test_abilities_print_to_file ________________
-file /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_abilities.py, line 56
-  def test_abilities_print_to_file(self):
-E       fixture 'self' not found
->       available fixtures: abilities_all_types, abilities_detail_expectation, abilities_export_expectation, abilities_str_expectation, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, cov, doctest_namespace, monkeypatch, no_cover, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
->       use 'pytest --fixtures [testpath]' for help on them.
+___ ERROR collecting FUNCLG/tests/test_character/test_character_abilities.py ___
+ImportError while importing test module '/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_abilities.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_character/test_character_abilities.py:15: in <module>
+    from .character_fixtures import (
+tests/test_character/character_fixtures.py:10: in <module>
+    from FUNCLG.character.equipment import Equipment, WeaponEquipment, BodyEquipment
+FUNCLG/character/equipment.py:12: in <module>
+    from numpy import isin
+E   ModuleNotFoundError: No module named 'numpy'
+_____ ERROR collecting FUNCLG/tests/test_character/test_character_armor.py _____
+ImportError while importing test module '/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_armor.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_character/test_character_armor.py:11: in <module>
+    from FUNCLG.character.armor import Armor
+FUNCLG/character/armor.py:12: in <module>
+    from .equipment import Equipment, WeaponEquipment
+FUNCLG/character/equipment.py:12: in <module>
+    from numpy import isin
+E   ModuleNotFoundError: No module named 'numpy'
+___ ERROR collecting FUNCLG/tests/test_character/test_character_equipment.py ___
+ImportError while importing test module '/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_equipment.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_character/test_character_equipment.py:12: in <module>
+    from FUNCLG.character.equipment import Equipment, WeaponEquipment
+FUNCLG/character/equipment.py:12: in <module>
+    from numpy import isin
+E   ModuleNotFoundError: No module named 'numpy'
+___ ERROR collecting FUNCLG/tests/test_character/test_character_modifiers.py ___
+ImportError while importing test module '/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_modifiers.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_character/test_character_modifiers.py:11: in <module>
+    from .character_fixtures import (
+tests/test_character/character_fixtures.py:10: in <module>
+    from FUNCLG.character.equipment import Equipment, WeaponEquipment, BodyEquipment
+FUNCLG/character/equipment.py:12: in <module>
+    from numpy import isin
+E   ModuleNotFoundError: No module named 'numpy'
+=============================== warnings summary ===============================
+FUNCLG/character/equipment.py:60
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/equipment.py:60: DeprecationWarning: invalid escape sequence \{
+    desc += f"\{' '*indent}nDescription: {self.description}"
 
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character_abilities.py:56
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                               Stmts   Miss  Cover   Missing
@@ -32,21 +74,22 @@ Name                               Stmts   Miss  Cover   Missing
 FUNCLG/__init__.py                     0      0   100%
 FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           0      0   100%
-FUNCLG/character/abilities.py         31      3    90%   54-56
-FUNCLG/character/armor.py             87      1    99%   131
-FUNCLG/character/equipment.py         42      2    95%   79, 82
-FUNCLG/character/modifiers.py         63      0   100%
-FUNCLG/character/roles.py             61      0   100%
-FUNCLG/character/stats.py             35     22    37%   27-34, 40, 43-44, 47-54, 59, 62-67
+FUNCLG/character/abilities.py         31     18    42%   30-37, 40, 43-47, 50-51, 54-56, 60
+FUNCLG/character/armor.py             87     83     5%   14-138
+FUNCLG/character/equipment.py         64     61     5%   14-163
+FUNCLG/character/modifiers.py         63     45    29%   43-45, 48-51, 54-57, 61-67, 70-71, 74-76, 79-82, 85, 88, 92-95, 98-117
+FUNCLG/character/roles.py             61     44    28%   33-43, 46, 50-60, 64-66, 70-74, 78-86, 89-96, 99-101, 107
+FUNCLG/character/stats.py             34     22    35%   26-33, 39, 42-43, 46-53, 58, 61-66
 FUNCLG/main.py                         0      0   100%
 FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
-FUNCLG/utils/types.py                 24      1    96%   59
+FUNCLG/utils/types.py                 24     13    46%   35, 39, 43, 47, 52-64
 ----------------------------------------------------------------
-TOTAL                                343     29    92%
+TOTAL                                364    286    21%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 91.55%
-========================= 39 passed, 1 error in 1.39s ==========================
+FAIL Required test coverage of 100.0% not reached. Total coverage: 21.43%
+!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!
+========================= 1 warning, 4 errors in 0.69s =========================
 
 ---Flake 8----
 
@@ -58,41 +101,51 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 91.55%
 ./FUNCLG/character/armor.py:143:7: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:32:25: T101 fixme found (TODO)
 ./FUNCLG/character/armor.py:78:19: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:100:7: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:110:21: W291 trailing whitespace
+./FUNCLG/character/equipment.py:125:3: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:126:1: E302 expected 2 blank lines, found 1
+./FUNCLG/character/equipment.py:12:1: F401 'numpy.isin' imported but unused
+./FUNCLG/character/equipment.py:143:19: W291 trailing whitespace
+./FUNCLG/character/equipment.py:23:3: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:24:3: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:54:7: T101 fixme found (TODO)
 ./FUNCLG/character/equipment.py:55:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:70:11: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:87:7: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:60:19: W605 invalid escape sequence '\{'
+./FUNCLG/character/equipment.py:69:11: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:83:7: T101 fixme found (TODO)
+./FUNCLG/character/equipment.py:99:11: T101 fixme found (TODO)
 ./FUNCLG/character/modifiers.py:120:3: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:42:11: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:48:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:71:13: F841 local variable 'old_ability' is assigned to but never used
 ./FUNCLG/character/roles.py:76:7: T101 fixme found (TODO)
 ./FUNCLG/character/roles.py:85:38: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:107:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:106:3: T101 fixme found (TODO)
 ./FUNCLG/character/stats.py:10:1: F401 'typing_extensions.Self' imported but unused
-./FUNCLG/character/stats.py:12:1: F401 '..utils.types.STAT_TYPES' imported but unused
-./FUNCLG/character/stats.py:21:7: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:70:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:74:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:20:7: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:69:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:73:3: T101 fixme found (TODO)
 ./FUNCLG/character/stats.py:7:1: F401 'typing.Union' imported but unused
-./FUNCLG/character/stats.py:82:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:84:67: W291 trailing whitespace
-./FUNCLG/character/stats.py:90:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:99:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:81:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:83:67: W291 trailing whitespace
+./FUNCLG/character/stats.py:89:3: T101 fixme found (TODO)
+./FUNCLG/character/stats.py:98:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:17:3: T101 fixme found (TODO)
 ./FUNCLG/utils/types.py:50:3: T101 fixme found (TODO)
-31
+39
 
 ---Code Quality Report---
 
 
 -----ISORT-----
 
+Fixing /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/equipment.py
 
 -----BLACK-----
 
+reformatted FUNCLG/character/equipment.py
 All done! ✨ 🍰 ✨
-13 files left unchanged.
+1 file reformatted, 12 files left unchanged.
 
 -----BANDIT-----
 
@@ -117,11 +170,20 @@ FUNCLG/character/armor.py:143:5: W0511: TODO: Need to create a define stats for 
 FUNCLG/character/armor.py:22:4: R0913: Too many arguments (7/5) (too-many-arguments)
 FUNCLG/character/armor.py:31:40: R1716: Simplify chained comparison between the operands (chained-comparison)
 ************* Module FUNCLG.character.equipment
-FUNCLG/character/equipment.py:55:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/equipment.py:70:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
-FUNCLG/character/equipment.py:87:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
-FUNCLG/character/equipment.py:100:5: W0511: TODO: Defined method (fixme)
-FUNCLG/character/equipment.py:25:4: R0913: Too many arguments (8/5) (too-many-arguments)
+FUNCLG/character/equipment.py:22:1: W0511: TODO: May split into body equipment and weapons, that way (fixme)
+FUNCLG/character/equipment.py:23:1: W0511: TODO: Remove damage and level because they will be a part of the equipment stat (fixme)
+FUNCLG/character/equipment.py:53:5: W0511: TODO: add indention factor (fixme)
+FUNCLG/character/equipment.py:54:5: W0511: TODO: add stats info for details (fixme)
+FUNCLG/character/equipment.py:68:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
+FUNCLG/character/equipment.py:82:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
+FUNCLG/character/equipment.py:98:9: W0511: TODO: self.stats  =  Create and add weapon stats that way they can be buffed or debuffed during battle (fixme)
+FUNCLG/character/equipment.py:125:1: W0511: TODO: Create a BodyEquipment class that will have a place for modifiers (fixme)
+FUNCLG/character/equipment.py:59:18: W1401: Anomalous backslash in string: '\{'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+FUNCLG/character/equipment.py:13:0: E0401: Unable to import 'numpy' (import-error)
+FUNCLG/character/equipment.py:93:0: C0115: Missing class docstring (missing-class-docstring)
+FUNCLG/character/equipment.py:126:0: C0115: Missing class docstring (missing-class-docstring)
+FUNCLG/character/equipment.py:157:12: E1101: Instance of 'BodyEquipment' has no 'weapon_type' member (no-member)
+FUNCLG/character/equipment.py:13:0: W0611: Unused isin imported from numpy (unused-import)
 ************* Module FUNCLG.character.modifiers
 FUNCLG/character/modifiers.py:120:1: W0511: TODO: Possibly create a subclass tempMod. This would be the result of an attack and would expire after a number of turns and be removed after the combat, instance is over (fixme)
 ************* Module FUNCLG.character.roles
@@ -132,52 +194,57 @@ FUNCLG/character/roles.py:85:36: W0511: TODO: Add indention here too (fixme)
 FUNCLG/character/roles.py:64:31: R1716: Simplify chained comparison between the operands (chained-comparison)
 FUNCLG/character/roles.py:70:31: R1716: Simplify chained comparison between the operands (chained-comparison)
 ************* Module FUNCLG.character.stats
-FUNCLG/character/stats.py:84:66: C0303: Trailing whitespace (trailing-whitespace)
-FUNCLG/character/stats.py:21:5: W0511: TODO: Create a more abstract load based on STAT_TYPES (fixme)
-FUNCLG/character/stats.py:70:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
-FUNCLG/character/stats.py:74:1: W0511: TODO: Create an equipment class (fixme)
-FUNCLG/character/stats.py:82:1: W0511: TODO: Create an abilities class (fixme)
-FUNCLG/character/stats.py:90:1: W0511: TODO: Create an armor stat (fixme)
-FUNCLG/character/stats.py:99:1: W0511: TODO: Create a role stat class (fixme)
-FUNCLG/character/stats.py:107:1: W0511: TODO: Build Character stats (fixme)
-FUNCLG/character/stats.py:59:8: W0107: Unnecessary pass statement (unnecessary-pass)
-FUNCLG/character/stats.py:75:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:83:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:91:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:100:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:108:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:83:66: C0303: Trailing whitespace (trailing-whitespace)
+FUNCLG/character/stats.py:20:5: W0511: TODO: Create a more abstract load based on STAT_TYPES (fixme)
+FUNCLG/character/stats.py:69:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
+FUNCLG/character/stats.py:73:1: W0511: TODO: Create an equipment class (fixme)
+FUNCLG/character/stats.py:81:1: W0511: TODO: Create an abilities class (fixme)
+FUNCLG/character/stats.py:89:1: W0511: TODO: Create an armor stat (fixme)
+FUNCLG/character/stats.py:98:1: W0511: TODO: Create a role stat class (fixme)
+FUNCLG/character/stats.py:106:1: W0511: TODO: Build Character stats (fixme)
+FUNCLG/character/stats.py:58:8: W0107: Unnecessary pass statement (unnecessary-pass)
+FUNCLG/character/stats.py:74:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:82:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:90:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:99:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:107:0: W0105: String statement has no effect (pointless-string-statement)
 FUNCLG/character/stats.py:7:0: W0611: Unused Union imported from typing (unused-import)
 FUNCLG/character/stats.py:10:0: W0611: Unused Self imported from typing_extensions (unused-import)
-FUNCLG/character/stats.py:12:0: W0611: Unused STAT_TYPES imported from utils.types (unused-import)
 ************* Module FUNCLG.utils.types
-FUNCLG/utils/types.py:17:1: W0511: TODO: Rework (fixme)
+FUNCLG/utils/types.py:17:1: W0511: TODO: Rework -> Try turning into Enum (fixme)
 FUNCLG/utils/types.py:50:1: W0511: TODO: needs to be fixed (fixme)
+************* Module FUNCLG.utils.__init__
+FUNCLG/utils/__init__.py:1:0: R0801: Similar lines in 2 files
+==FUNCLG.character.equipment:[164:169]
+==FUNCLG.character.stats:[61:66]
+        exporter = self.__dict__
+        for key, value in exporter.items():
+            if isinstance(value, Modifier):
+                exporter[key] = value.export()
+        return exporter (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.78/10 (previous run: 8.78/10, +0.00)
+Your code has been rated at 8.39/10 (previous run: 8.69/10, -0.30)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 6.16s
-No configuration file found.
-pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
-Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
-Pyproject file "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml" is missing "[tool.pyright]" section.
-stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not a valid directory.
-Assuming Python platform Linux
-Searching for source files
-Found 13 source files
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:25:27 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
-    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:26:28 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
-    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:27:27 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
-    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:28:28 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
-    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:29:29 - error: Expression of type "None" cannot be assigned to parameter of type "Equipment"
-    Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-5 errors, 0 warnings, 0 informations 
-Completed in 2.604sec
+npm ERR! code EAI_AGAIN
+npm ERR! errno EAI_AGAIN
+npm ERR! request to https://registry.npmjs.org/pyright failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/jevinle/.npm/_logs/2022-04-04T22_19_25_621Z-debug.log
+
+Traceback (most recent call last):
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>
+    sys.exit(entrypoint())
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 46, in entrypoint
+    sys.exit(main(sys.argv[1:]))
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 20, in main
+    return run(*args, **kwargs).returncode
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/cli.py", line 28, in run
+    version = node.latest('pyright')
+  File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/lib/python3.8/site-packages/pyright/node.py", line 145, in latest
+    raise errors.VersionCheckFailed(
+pyright.errors.VersionCheckFailed: Version check for pyright failed, see output above.

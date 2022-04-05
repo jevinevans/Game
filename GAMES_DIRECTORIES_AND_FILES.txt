@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 29			|
-|	Files: 149				|
+|	Files: 152				|
 +==========================================+
 
 ./.coverage
@@ -156,15 +156,18 @@
 ./logs/character
 ./logs/character/abilities.2022-03-23_19-35-17_680813.log
 ./logs/character/abilities.2022-03-23_19-35-17_686395.log
+./logs/character/abilities.2022-03-29_10-44-39_981692.log
 ./logs/character/abilities.log
 ./logs/character/armor.2022-03-23_19-35-09_171694.log
 ./logs/character/armor.2022-03-23_19-35-09_182381.log
+./logs/character/armor.2022-03-28_17-17-30_594196.log
 ./logs/character/armor.log
 ./logs/character/equipment.2022-03-23_14-41-45_185551.log
 ./logs/character/equipment.2022-03-23_19-39-28_902349.log
 ./logs/character/equipment.log
 ./logs/character/roles.2022-03-23_19-35-09_218755.log
 ./logs/character/roles.2022-03-23_19-35-09_230377.log
+./logs/character/roles.2022-03-28_17-17-30_719303.log
 ./logs/character/roles.log
 ./poetry.lock
 ./pyproject.toml

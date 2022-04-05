@@ -9,7 +9,6 @@ from typing import Any, Dict, List, Optional, Union
 from loguru import logger
 from typing_extensions import Self
 
-from ..utils.types import STAT_TYPES
 from .modifiers import Modifier
 
 

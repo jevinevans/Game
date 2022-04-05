@@ -9,7 +9,7 @@ from random import randint
 from typing import Dict, Tuple
 
 from FUNCLG.character.armor import Armor
-from FUNCLG.character.equipment import Equipment
+from FUNCLG.character.equipment import Equipment, WeaponEquipment
 from FUNCLG.utils.types import ITEM_TYPES
 
 
@@ -23,63 +23,42 @@ class ArmorTest(unittest.TestCase):
             description="Head piece for Armor Test.",
             armor_type=armor_type,
             item_type=0,
-            weapon_type=-1,
-            level=randint(0, 100),
-            damage=randint(0, 500),
         )
         equips["chest"] = Equipment(
             name="Gold Chest",
             description="Chest piece for Armor Test.",
             armor_type=armor_type,
             item_type=1,
-            weapon_type=-1,
-            level=randint(0, 100),
-            damage=randint(0, 500),
         )
         equips["back"] = Equipment(
             name="Gold Cape",
             description="Back piece for Armor Test.",
             armor_type=armor_type,
             item_type=2,
-            weapon_type=-1,
-            level=randint(0, 100),
-            damage=randint(0, 500),
         )
         equips["pants"] = Equipment(
             name="Gold pants",
             description="Pants piece for Amror Test",
             armor_type=armor_type,
             item_type=3,
-            weapon_type=-1,
-            level=randint(0, 100),
-            damage=randint(0, 500),
         )
-        equips["sword"] = Equipment(
+        equips["sword"] = WeaponEquipment(
             name="Gold Sword",
             description="Sword weapon for Armor Test",
             armor_type=armor_type,
-            item_type=4,
             weapon_type=0,
-            level=randint(0, 100),
-            damage=randint(0, 500),
         )
-        equips["wand"] = Equipment(
+        equips["wand"] = WeaponEquipment(
             name="Gold Wand",
             description="Wand weapon for Armor Test",
             armor_type=armor_type + 1,
-            item_type=4,
             weapon_type=1,
-            level=randint(0, 100),
-            damage=randint(0, 500),
         )
-        equips["knife"] = Equipment(
+        equips["knife"] = WeaponEquipment(
             name="Gold Knife",
             description="Knife weapon for Armor Test",
             armor_type=armor_type,
-            item_type=4,
             weapon_type=2,
-            level=randint(0, 100),
-            damage=randint(0, 500),
         )
 
         if raw:

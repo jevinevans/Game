@@ -9,7 +9,7 @@ from typing import Any, Dict, Optional, Union
 # from loguru import logger
 from typing_extensions import Self
 
-from ..utils.types import STAT_TYPES
+from ..utils.types import MODIFIER_TYPES
 
 
 class Modifier:
@@ -61,7 +61,7 @@ class Modifier:
         verified = {}
         if mods:
             for stat in mods:
-                if stat not in STAT_TYPES:
+                if stat not in MODIFIER_TYPES:
                     continue
                 verified[stat] = mods[stat]
         return verified
