@@ -59,6 +59,7 @@ def test_abilities_print_to_file(abilities_all_types):
     if os.path.exists(filename):
         os.remove(filename)
 
+
 def test_abilities_copy(abilities_all_types):
     repair_1 = abilities_all_types[0]
     repair_2 = repair_1.copy()

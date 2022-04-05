@@ -3,6 +3,7 @@ import pytest
 from FUNCLG.character.abilities import Abilities
 from FUNCLG.utils.types import DAMAGE_TYPES
 
+
 @pytest.fixture
 def abilities_all_types():
     all_abilities = []

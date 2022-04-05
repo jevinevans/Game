@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 29			|
-|	Files: 152				|
+|	Total Directories: 30			|
+|	Files: 160				|
 +==========================================+
 
 ./.coverage
@@ -164,6 +164,7 @@
 ./logs/character/armor.log
 ./logs/character/equipment.2022-03-23_14-41-45_185551.log
 ./logs/character/equipment.2022-03-23_19-39-28_902349.log
+./logs/character/equipment.2022-03-29_11-19-02_646945.log
 ./logs/character/equipment.log
 ./logs/character/roles.2022-03-23_19-35-09_218755.log
 ./logs/character/roles.2022-03-23_19-35-09_230377.log
@@ -177,10 +178,18 @@
 ./tests/__init__.py
 ./tests/test_character
 ./tests/test_character/__init__.py
-./tests/test_character/character_fixtures.py
-./tests/test_character/test_character_abilities.py
-./tests/test_character/test_character_armor.py
-./tests/test_character/test_character_equipment.py
-./tests/test_character/test_character_modifiers.py
-./tests/test_character/test_character_roles.py
-./tests/test_character/test_character_stats.py
+./tests/test_character/fixtures
+./tests/test_character/fixtures/__init__.py
+./tests/test_character/fixtures/abilities_fixtures.py
+./tests/test_character/fixtures/armor_fixtures.py
+./tests/test_character/fixtures/character_fixtures.py
+./tests/test_character/fixtures/equipment_fixures.py
+./tests/test_character/fixtures/modifier_fixtures.py
+./tests/test_character/fixtures/role_fixtures.py
+./tests/test_character/fixtures/stat_fixtures.py
+./tests/test_character/test_abilities.py
+./tests/test_character/test_armor.py
+./tests/test_character/test_equipment.py
+./tests/test_character/test_modifiers.py
+./tests/test_character/test_roles.py
+./tests/test_character/test_stats.py

@@ -144,7 +144,9 @@ class BodyEquipment(Equipment):
         """
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
         """
-        super().__init__(name=name, description=description, item_type=item_type, armor_type=armor_type)
+        super().__init__(
+            name=name, description=description, item_type=item_type, armor_type=armor_type
+        )
 
         self.mods = Modifier(name=self.name)
         if modifiers:

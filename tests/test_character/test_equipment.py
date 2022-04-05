@@ -10,7 +10,9 @@ import unittest
 from random import randint
 
 from FUNCLG.character.equipment import BodyEquipment, WeaponEquipment
+
 from .fixtures.equipment_fixures import *
+
 BODY_ITEM_TYPE = randint(0, 3)
 BODY_ARMOR_TYPE = randint(0, 2)
 
@@ -94,7 +96,8 @@ class EquipmentTest(unittest.TestCase):
         self.assertNotEqual(e1, e2)
         self.assertNotEqual(id(e1), id(e2))
         print(e1.export())
-    
+
     # TODO: def test_equipment_getStats(self:)
-  
+
+
 # TODO: When testing weapon export, test to make sure all of the weapon pieces are included

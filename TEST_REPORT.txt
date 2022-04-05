@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Apr  5 09:03:25 CDT 2022 
+Date: Tue Apr  5 10:01:33 CDT 2022 
 
 ---PYTEST---
 
@@ -10,11 +10,11 @@ rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject
 plugins: cov-3.0.0
 collected 41 items
 
-tests/test_character/test_character_abilities.py .......                 [ 17%]
-tests/test_character/test_character_armor.py .........                   [ 39%]
-tests/test_character/test_character_equipment.py .......                 [ 56%]
-tests/test_character/test_character_modifiers.py ........                [ 75%]
-tests/test_character/test_character_roles.py ..........                  [100%]
+tests/test_character/test_abilities.py .......                           [ 17%]
+tests/test_character/test_armor.py .........                             [ 39%]
+tests/test_character/test_equipment.py .......                           [ 56%]
+tests/test_character/test_modifiers.py ........                          [ 75%]
+tests/test_character/test_roles.py ..........                            [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                               Stmts   Miss  Cover   Missing
@@ -24,7 +24,7 @@ FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           0      0   100%
 FUNCLG/character/abilities.py         31      0   100%
 FUNCLG/character/armor.py             87      1    99%   131
-FUNCLG/character/equipment.py         63     13    79%   76, 105, 146-150, 153, 164, 174-178
+FUNCLG/character/equipment.py         64      6    91%   76, 105, 151-152, 155, 166
 FUNCLG/character/modifiers.py         63      0   100%
 FUNCLG/character/roles.py             61      0   100%
 FUNCLG/character/stats.py             34     22    35%   26-33, 39, 42-43, 46-53, 58, 61-66
@@ -33,11 +33,11 @@ FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
 FUNCLG/utils/types.py                 24      1    96%   60
 ----------------------------------------------------------------
-TOTAL                                363     37    90%
+TOTAL                                364     30    92%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 89.81%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 91.76%
 
-============================== 41 passed in 1.27s ==============================
+============================== 41 passed in 1.26s ==============================
 
 ---Flake 8----
 
@@ -86,8 +86,9 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 89.81%
 
 -----BLACK-----
 
+reformatted FUNCLG/character/equipment.py
 All done! ✨ 🍰 ✨
-13 files left unchanged.
+1 file reformatted, 12 files left unchanged.
 
 -----BANDIT-----
 
@@ -120,6 +121,7 @@ FUNCLG/character/equipment.py:81:5: W0511: TODO: Look to see if this is the best
 FUNCLG/character/equipment.py:92:1: W0511: TODO: WeaponEquipment: Define functions [details, export, getstats] (fixme)
 FUNCLG/character/equipment.py:102:9: W0511: TODO: self.stats  =  Create and add weapon stats that way they can be buffed or debuffed during battle (fixme)
 FUNCLG/character/equipment.py:130:1: W0511: TODO: BodyEquipment: Define functions [details, export, get_mods] (fixme)
+FUNCLG/character/equipment.py:136:4: R0913: Too many arguments (6/5) (too-many-arguments)
 ************* Module FUNCLG.character.modifiers
 FUNCLG/character/modifiers.py:120:1: W0511: TODO: Possibly create a subclass tempMod. This would be the result of an attack and would expire after a number of turns and be removed after the combat, instance is over (fixme)
 ************* Module FUNCLG.character.roles
@@ -149,7 +151,7 @@ FUNCLG/utils/types.py:8:1: W0511: TODO: Turn constants into tuples that way the 
 FUNCLG/utils/types.py:51:1: W0511: TODO: needs to be fixed (fixme)
 ************* Module FUNCLG.utils.__init__
 FUNCLG/utils/__init__.py:1:0: R0801: Similar lines in 2 files
-==FUNCLG.character.equipment:[173:178]
+==FUNCLG.character.equipment:[178:183]
 ==FUNCLG.character.stats:[61:66]
         exporter = self.__dict__
         for key, value in exporter.items():
@@ -158,7 +160,7 @@ FUNCLG/utils/__init__.py:1:0: R0801: Similar lines in 2 files
         return exporter (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.39/10 (previous run: 8.69/10, -0.30)
+Your code has been rated at 8.80/10 (previous run: 8.82/10, -0.02)
 
 
 -----PYRIGHT-----
@@ -168,7 +170,7 @@ npm ERR! errno EAI_AGAIN
 npm ERR! request to https://registry.npmjs.org/pyright failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/jevinle/.npm/_logs/2022-04-05T14_03_47_288Z-debug.log
+npm ERR!     /home/jevinle/.npm/_logs/2022-04-05T15_01_50_494Z-debug.log
 
 Traceback (most recent call last):
   File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>
