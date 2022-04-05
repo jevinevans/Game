@@ -43,6 +43,7 @@ class Equipment:
         # self.stats = #STAT Object /may replace abiilty points with stats
         logger.debug(f"Created Equipment: {name}")
 
+    # TODO: Change so that it returns the name values and not numbers
     def __str__(self) -> str:
         """
         Returns the name and level of the item
@@ -55,7 +56,7 @@ class Equipment:
         desc = f"\n{' '*indent}{self.name}"
         desc += f"\n{' '*indent}{'-'*len(self.name)}"
         desc += f"\n{' '*indent}Type: {self.get_item_description()}"
-        desc += f"\n{' '*indent}nDescription: {self.description}"
+        desc += f"\n{' '*indent}Description: {self.description}"
         return desc
 
     def print_to_file(self) -> None:
@@ -127,7 +128,6 @@ class WeaponEquipment(Equipment):
     # def export(self):
 
 
-# TODO: BodyEquipment: Define functions [details, export, get_mods]
 class BodyEquipment(Equipment):
     """
     Equipment Subclass specifically for armor items that are not weapons.
@@ -136,7 +136,7 @@ class BodyEquipment(Equipment):
     def __init__(
         self,
         name: str,
-        modifiers: Optional[Dict[str, Union[int, float]]] = None,
+        modifiers: Optional[Dict[str, Dict]] = None,
         description: str = "",
         armor_type: int = 0,
         item_type: int = 0,
@@ -153,30 +153,28 @@ class BodyEquipment(Equipment):
             self.mods.add_mods(m_type="adds", mods=modifiers.get("adds", {}))
             self.mods.add_mods(m_type="mults", mods=modifiers.get("mults", {}))
 
-    def get_mods(self) -> str:
+    def get_mods(self):
+        print(type(self.mods))
         return self.mods.get_mods()
 
-    # def details(self) -> str:
-    #     desc = super().details()
-    #     desc += f"{' '*indent} ....
-    # Add mod info
-    #     self.stats.details()
-    #     return desc
+    def details(self, indent: int = 0) -> str:
+        desc = super().details(indent)
+        desc += f"\n\n{' '*indent}Modifier(s):"
+        desc += self.mods.details(indent+2)
+        return desc
 
     def copy(self) -> Self:
         """Copies the current object"""
         return BodyEquipment(
             self.name,
-            self.mods,
+            self.mods.get_mods(),
             self.description,
             self.armor_type,
             self.item_type,
         )
 
-    # def get_mods(self):
-
     def export(self):
-        exporter = self.__dict__
+        exporter = self.__dict__.copy()
         for key, value in exporter.items():
             if isinstance(value, Modifier):
                 exporter[key] = value.export()

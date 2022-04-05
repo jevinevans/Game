@@ -48,7 +48,7 @@ class Abilities:
 
     def export(self) -> Dict[str, Any]:
         logger.info(f"Exporting Ability: {self.name}")
-        return self.__dict__
+        return self.__dict__.copy()
 
     def print_to_file(self) -> None:
         logger.info(f"Saving Ability: {self.name}")
