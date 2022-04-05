@@ -8,7 +8,7 @@ import pytest
 
 from FUNCLG.character.modifiers import Modifier
 
-from .character_fixtures import (
+from .fixtures.modifier_fixtures import (
     add_mods,
     modifier_export_expectation,
     modifier_get_expectation,

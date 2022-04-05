@@ -14,7 +14,7 @@ ITEM_TYPES = ["Head", "Chest", "Back", "Pants", "Weapon"]
 ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
 
 # Weapon Types: 0 - Sword, 1 - Wand, 2 - Knife, -1 - (Not a Weapon)
-WEAPON_TYPES = ["Sword", "Wand", "Knife", ""]
+WEAPON_TYPES = ["Sword", "Wand", "Knife", "Spear", "Bow", ""]
 
 DAMAGE_TYPES = {
     "Magic": ("Damage", -1),

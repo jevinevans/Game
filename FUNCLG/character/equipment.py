@@ -136,18 +136,20 @@ class BodyEquipment(Equipment):
     def __init__(
         self,
         name: str,
-        modifiers: Optional[Dict[str, Union[int, float]]],
+        modifiers: Optional[Dict[str, Union[int, float]]] = None,
         description: str = "",
         armor_type: int = 0,
+        item_type: int = 0,
     ):
         """
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
         """
-        super().__init__(name=name, description=description, item_type=4, armor_type=armor_type)
+        super().__init__(name=name, description=description, item_type=item_type, armor_type=armor_type)
 
         self.mods = Modifier(name=self.name)
-        self.mods.add_mods(m_type="adds", mods=modifiers.get("adds", {}))
-        self.mods.add_mods(m_type="mults", mods=modifiers.get("mults", {}))
+        if modifiers:
+            self.mods.add_mods(m_type="adds", mods=modifiers.get("adds", {}))
+            self.mods.add_mods(m_type="mults", mods=modifiers.get("mults", {}))
 
     def get_mods(self) -> str:
         return self.mods.get_mods()
@@ -166,6 +168,7 @@ class BodyEquipment(Equipment):
             self.mods,
             self.description,
             self.armor_type,
+            self.item_type,
         )
 
     # def get_mods(self):

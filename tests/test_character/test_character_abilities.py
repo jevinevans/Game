@@ -5,14 +5,11 @@ Description: The is a unit test for the abilties class.
 """
 
 import os
-import unittest
-from random import randint
-from typing import Dict
 
 from FUNCLG.character.abilities import Abilities
 from FUNCLG.utils.types import DAMAGE_TYPES
 
-from .character_fixtures import (
+from .fixtures.abilities_fixtures import (
     abilities_all_types,
     abilities_detail_expectation,
     abilities_export_expectation,

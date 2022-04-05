@@ -9,35 +9,29 @@ import os
 import unittest
 from random import randint
 
-from FUNCLG.character.equipment import Equipment
-
+from FUNCLG.character.equipment import BodyEquipment, WeaponEquipment
+from .fixtures.equipment_fixures import *
 BODY_ITEM_TYPE = randint(0, 3)
 BODY_ARMOR_TYPE = randint(0, 2)
 
 
 class EquipmentTest(unittest.TestCase):
     @staticmethod
-    def get_body() -> Equipment:
-        return Equipment(
+    def get_body() -> BodyEquipment:
+        return BodyEquipment(
             name="Test_Equipment",
             description="This is a test for the equipment class",
             item_type=BODY_ITEM_TYPE,
             armor_type=BODY_ARMOR_TYPE,
-            weapon_type=-1,
-            level=2,
-            damage=50,
         )
 
     @staticmethod
-    def get_weapon() -> Equipment:
-        return Equipment(
+    def get_weapon() -> WeaponEquipment:
+        return WeaponEquipment(
             name="Test_Equipment",
             description="This is a test for the equipment class",
-            item_type=4,
             armor_type=-1,
             weapon_type=1,
-            level=2,
-            damage=50,
         )
 
     @staticmethod
@@ -51,9 +45,6 @@ class EquipmentTest(unittest.TestCase):
         self.assertEqual(head.description, "This is a test for the equipment class")
         self.assertEqual(head.item_type, BODY_ITEM_TYPE)
         self.assertEqual(head.armor_type, BODY_ARMOR_TYPE)
-        self.assertEqual(head.weapon_type, -1)
-        self.assertGreater(head.damage, 0)
-        self.assertGreater(head.level, 0)
 
         weapon = self.get_weapon()
         # Testing proper initialization
@@ -62,8 +53,6 @@ class EquipmentTest(unittest.TestCase):
         self.assertEqual(weapon.item_type, 4)
         self.assertEqual(weapon.armor_type, -1)
         self.assertEqual(weapon.weapon_type, 1)
-        self.assertGreater(weapon.damage, 0)
-        self.assertGreater(weapon.level, 0)
 
     def test_equipment_str(self):
         for equip in EquipmentTest.get_equipment():
@@ -104,5 +93,8 @@ class EquipmentTest(unittest.TestCase):
 
         self.assertNotEqual(e1, e2)
         self.assertNotEqual(id(e1), id(e2))
-
+        print(e1.export())
+    
     # TODO: def test_equipment_getStats(self:)
+  
+# TODO: When testing weapon export, test to make sure all of the weapon pieces are included
