@@ -61,13 +61,13 @@ class Roles:
 
     def get_power(self, index: int):
         """Returns the wanted power"""
-        if self.abilities and (index < len(self.abilities) and index >= -1):
+        if self.abilities and abs(index) < len(self.abilities):
             return self.abilities[index]
         return None
 
     def remove_power(self, index: int) -> bool:
         # Validation will be done at a higher level
-        if self.abilities and (index < len(self.abilities) and index >= -1):
+        if self.abilities and abs(index) < len(self.abilities):
             old_ability = self.abilities.pop(index)
             del old_ability
             return True

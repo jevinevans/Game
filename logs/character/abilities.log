@@ -490,3 +490,1217 @@
 2022-04-01 20:19:28.356 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
 2022-04-01 20:19:28.357 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
 2022-04-01 20:19:28.357 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:02:10.478 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:02:10.483 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:02:10.484 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:02:10.486 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:02:10.488 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:02:10.491 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:02:10.492 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:02:10.493 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:02:10.501 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Type
+2022-04-05 09:02:10.509 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:02:10.510 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:02:10.511 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:02:10.512 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:02:10.513 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:02:10.514 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:02:10.515 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:02:10.516 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:02:10.525 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:02:10.526 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:02:10.528 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:02:10.529 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:02:10.530 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:02:10.530 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:02:10.533 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:02:10.534 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:02:10.545 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:02:10.546 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:02:10.547 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:02:10.548 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:02:10.549 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:02:10.550 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:02:10.551 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:02:10.552 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:02:10.557 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_0
+2022-04-05 09:02:10.559 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_1
+2022-04-05 09:02:10.560 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_2
+2022-04-05 09:02:10.562 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_3
+2022-04-05 09:02:10.563 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_4
+2022-04-05 09:02:10.564 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_5
+2022-04-05 09:02:10.564 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_6
+2022-04-05 09:02:10.565 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_7
+2022-04-05 09:02:10.570 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:02:10.572 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:02:10.573 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:02:10.574 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:02:10.575 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:02:10.575 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:02:10.576 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:02:10.577 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:02:10.579 | INFO     | FUNCLG.character.abilities:print_to_file:54 - Saving Ability: Ability_0
+2022-04-05 09:02:10.581 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_0
+2022-04-05 09:02:10.587 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:02:10.589 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:02:10.590 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:02:10.590 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:02:10.591 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:02:10.592 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:02:10.592 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:02:10.593 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:02:10.595 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:02:10.599 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.600 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.600 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.601 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.601 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.602 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.604 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.605 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.605 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.606 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.607 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.607 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.608 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.608 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.609 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.610 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.610 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.611 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Head to Head
+2022-04-05 09:02:10.611 | WARNING  | FUNCLG.character.armor:dequip:116 - Head slot is empty.
+2022-04-05 09:02:10.612 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Chest to Chest
+2022-04-05 09:02:10.613 | WARNING  | FUNCLG.character.armor:dequip:116 - Chest slot is empty.
+2022-04-05 09:02:10.613 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Cape to Back
+2022-04-05 09:02:10.614 | WARNING  | FUNCLG.character.armor:dequip:116 - Back slot is empty.
+2022-04-05 09:02:10.614 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold pants to Pants
+2022-04-05 09:02:10.615 | WARNING  | FUNCLG.character.armor:dequip:116 - Pants slot is empty.
+2022-04-05 09:02:10.616 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Sword to Weapon
+2022-04-05 09:02:10.616 | WARNING  | FUNCLG.character.armor:dequip:116 - Weapon slot is empty.
+2022-04-05 09:02:10.617 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.617 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.618 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.619 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.620 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.621 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.622 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.623 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.623 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.624 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.625 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.625 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.626 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.626 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.627 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.628 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.628 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.629 | WARNING  | FUNCLG.character.armor:dequip:116 - jagiejoijga slot is empty.
+2022-04-05 09:02:10.630 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Head to Head
+2022-04-05 09:02:10.630 | WARNING  | FUNCLG.character.armor:dequip:116 - Head slot is empty.
+2022-04-05 09:02:10.631 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Chest to Chest
+2022-04-05 09:02:10.632 | WARNING  | FUNCLG.character.armor:dequip:116 - Chest slot is empty.
+2022-04-05 09:02:10.633 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Cape to Back
+2022-04-05 09:02:10.633 | WARNING  | FUNCLG.character.armor:dequip:116 - Back slot is empty.
+2022-04-05 09:02:10.634 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold pants to Pants
+2022-04-05 09:02:10.634 | WARNING  | FUNCLG.character.armor:dequip:116 - Pants slot is empty.
+2022-04-05 09:02:10.635 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Sword to Weapon
+2022-04-05 09:02:10.636 | WARNING  | FUNCLG.character.armor:dequip:116 - Weapon slot is empty.
+2022-04-05 09:02:10.641 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.641 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.642 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.643 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.643 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.644 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.644 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.645 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.646 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.646 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.647 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.647 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.648 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.648 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.649 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.650 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.650 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.651 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.651 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.653 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.654 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.655 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.655 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.656 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.656 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.657 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.657 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.658 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.658 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.662 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.663 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.663 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.664 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.665 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.665 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.666 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.666 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.667 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.668 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.668 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.669 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.670 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.671 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.672 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Head to Head
+2022-04-05 09:02:10.673 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.674 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.675 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Chest to Chest
+2022-04-05 09:02:10.675 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.676 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.676 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Cape to Back
+2022-04-05 09:02:10.677 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.678 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.678 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold pants to Pants
+2022-04-05 09:02:10.679 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.679 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.680 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Sword to Weapon
+2022-04-05 09:02:10.681 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.681 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.682 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.682 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.683 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.684 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.684 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.686 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.687 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.688 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.689 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.690 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.691 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.691 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.692 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.693 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.693 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.694 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Knife [1 4]
+2022-04-05 09:02:10.694 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.695 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Knife to Weapon
+2022-04-05 09:02:10.696 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.696 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.697 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.698 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.698 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.699 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.700 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.700 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.701 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.701 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.703 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.704 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.705 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.706 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.707 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.707 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.708 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.709 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - Gold Wand [2 4] is not compatable with this armor.
+2022-04-05 09:02:10.714 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.714 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.715 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.716 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.716 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.717 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.718 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.719 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.720 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.721 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.722 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.722 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.723 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.724 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.725 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.725 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.726 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.727 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Head
+2022-04-05 09:02:10.727 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Chest
+2022-04-05 09:02:10.728 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Cape
+2022-04-05 09:02:10.729 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold pants
+2022-04-05 09:02:10.729 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Sword
+2022-04-05 09:02:10.730 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.730 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.731 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.732 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.732 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.733 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.734 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.734 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.735 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.736 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.737 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.739 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.743 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.743 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.744 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.745 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.745 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.746 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.747 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.748 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.748 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.749 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.750 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.750 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.751 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.752 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.754 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.755 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.756 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.758 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.760 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.761 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.762 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.762 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.763 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.764 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.765 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.766 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.767 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.768 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.769 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.778 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.779 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.780 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.781 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.781 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.782 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.783 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.784 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.784 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.785 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.788 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.790 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.792 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.793 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.794 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.794 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.795 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.796 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.797 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.797 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.798 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.799 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.799 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.800 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.801 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.802 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.803 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.805 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.806 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.808 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.809 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.809 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.810 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.811 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.816 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.817 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.817 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.818 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.820 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.822 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.823 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.824 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.825 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.827 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:02:10.827 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.829 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:02:10.829 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.831 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:02:10.832 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.833 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:02:10.835 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.837 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Head
+2022-04-05 09:02:10.839 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Chest
+2022-04-05 09:02:10.840 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Cape
+2022-04-05 09:02:10.840 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold pants
+2022-04-05 09:02:10.841 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Sword
+2022-04-05 09:02:10.847 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.848 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.849 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.850 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.851 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.852 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.853 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.854 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.854 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.855 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.856 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.857 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.857 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.858 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.859 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.860 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.861 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.862 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.863 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.863 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.864 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.865 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.866 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.866 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.867 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.868 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.869 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Head to Head
+2022-04-05 09:02:10.870 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:02:10.872 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.873 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Head to Head
+2022-04-05 09:02:10.879 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.880 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.881 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.882 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.883 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.883 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.884 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.886 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.887 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.889 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.890 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.891 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.892 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:02:10.894 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:02:10.895 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:02:10.895 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:02:10.896 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:02:10.897 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:02:10.898 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:02:10.899 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.900 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.901 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.903 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.905 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:02:10.917 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:10.919 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:10.934 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:10.947 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:10.948 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:10.963 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:10.965 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:10.967 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:10.968 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:10.971 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:10.976 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:10.989 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:10.992 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:11.004 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:11.007 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:11.010 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:11.012 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:11.022 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:11.026 | INFO     | FUNCLG.character.equipment:print_to_file:62 - Saving Equipment: Test_Equipment
+2022-04-05 09:02:11.030 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:02:11.041 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:11.042 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:02:11.096 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.097 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.099 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.100 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.100 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.101 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.102 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.105 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.106 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.107 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.108 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.109 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.110 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.111 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.112 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.113 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.114 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.115 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.116 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Buff Test to Warrior
+2022-04-05 09:02:11.117 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.117 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Debuff Test to Warrior
+2022-04-05 09:02:11.118 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.120 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Armor Buff to Warrior
+2022-04-05 09:02:11.121 | WARNING  | FUNCLG.character.roles:add_power:57 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-04-05 09:02:11.122 | WARNING  | FUNCLG.character.roles:add_power:55 - Max abilities reached!
+2022-04-05 09:02:11.127 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.128 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.129 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.130 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.131 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.132 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.132 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.133 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.134 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.135 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.135 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.136 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.137 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.138 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.139 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.140 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.141 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.144 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.145 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:02:11.146 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:02:11.152 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.153 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:02:11.154 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.155 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.156 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.157 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.158 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.159 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.161 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.162 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.163 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Rouge
+2022-04-05 09:02:11.164 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.165 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Warrior
+2022-04-05 09:02:11.172 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.174 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.176 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.178 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.179 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.180 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.181 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.182 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.183 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.184 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.186 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.188 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.190 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.191 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.192 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.193 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.194 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.196 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.198 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:02:11.199 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:02:11.200 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:02:11.201 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-04-05 09:02:11.203 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-04-05 09:02:11.204 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:02:11.205 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:02:11.207 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-04-05 09:02:11.208 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:02:11.209 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:02:11.210 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:02:11.217 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.218 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.219 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.220 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.222 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.223 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.224 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.225 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.227 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.228 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.229 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:02:11.235 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.236 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.237 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.239 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.240 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.241 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.242 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.243 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.244 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.245 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.246 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.247 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.248 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.249 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.250 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.251 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.252 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.253 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.254 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:02:11.255 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:02:11.263 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.265 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.267 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.268 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.270 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.271 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.272 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.273 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.275 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.276 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.277 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.278 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.279 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.280 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.282 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.284 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.285 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.286 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.287 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:02:11.289 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:02:11.290 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:02:11.291 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-04-05 09:02:11.292 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-04-05 09:02:11.294 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:02:11.295 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-04-05 09:02:11.296 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:02:11.301 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.304 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.306 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.307 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.308 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.309 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.310 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.311 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.312 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.313 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.314 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.315 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.316 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.317 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.318 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.318 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.320 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.321 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.322 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:02:11.324 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:02:11.325 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Warrior
+2022-04-05 09:02:11.327 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:02:11.328 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-04-05 09:02:11.329 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-04-05 09:02:11.331 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Rouge
+2022-04-05 09:02:11.333 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:02:11.334 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-04-05 09:02:11.338 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Mage
+2022-04-05 09:02:11.341 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:02:11.349 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.350 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.351 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.352 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.354 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.356 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.357 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.358 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.359 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.360 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.365 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.367 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.368 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.369 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.370 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.371 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.372 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.373 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.374 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.375 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:02:11.376 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:02:11.377 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:02:11.377 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:02:11.378 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:02:11.379 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:02:11.380 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.382 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:02:11.384 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:02:11.385 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:02:11.386 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:03:27.767 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:03:27.768 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:03:27.769 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:03:27.769 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:03:27.770 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:03:27.799 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:03:27.800 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:03:27.801 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:03:27.808 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Error Type
+2022-04-05 09:03:27.813 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:03:27.814 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:03:27.816 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:03:27.816 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:03:27.817 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:03:27.818 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:03:27.819 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:03:27.820 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:03:27.826 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:03:27.827 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:03:27.828 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:03:27.829 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:03:27.830 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:03:27.830 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:03:27.831 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:03:27.832 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:03:27.838 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:03:27.839 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:03:27.840 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:03:27.840 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:03:27.841 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:03:27.842 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:03:27.843 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:03:27.844 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:03:27.846 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_0
+2022-04-05 09:03:27.847 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_1
+2022-04-05 09:03:27.848 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_2
+2022-04-05 09:03:27.849 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_3
+2022-04-05 09:03:27.850 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_4
+2022-04-05 09:03:27.851 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_5
+2022-04-05 09:03:27.852 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_6
+2022-04-05 09:03:27.853 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_7
+2022-04-05 09:03:27.857 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:03:27.858 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:03:27.859 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:03:27.859 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:03:27.860 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:03:27.861 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:03:27.862 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:03:27.863 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:03:27.865 | INFO     | FUNCLG.character.abilities:print_to_file:54 - Saving Ability: Ability_0
+2022-04-05 09:03:27.867 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Ability_0
+2022-04-05 09:03:27.872 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:03:27.873 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_1
+2022-04-05 09:03:27.874 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_2
+2022-04-05 09:03:27.874 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_3
+2022-04-05 09:03:27.875 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_4
+2022-04-05 09:03:27.875 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_5
+2022-04-05 09:03:27.876 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_6
+2022-04-05 09:03:27.877 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_7
+2022-04-05 09:03:27.878 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Ability_0
+2022-04-05 09:03:27.882 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.883 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.884 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.884 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.885 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.886 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:27.886 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:27.887 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:27.887 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.888 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:27.888 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.889 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:27.890 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.890 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:27.891 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.891 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:27.892 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.892 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Head to Head
+2022-04-05 09:03:27.893 | WARNING  | FUNCLG.character.armor:dequip:116 - Head slot is empty.
+2022-04-05 09:03:27.893 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Chest to Chest
+2022-04-05 09:03:27.894 | WARNING  | FUNCLG.character.armor:dequip:116 - Chest slot is empty.
+2022-04-05 09:03:27.894 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Cape to Back
+2022-04-05 09:03:27.895 | WARNING  | FUNCLG.character.armor:dequip:116 - Back slot is empty.
+2022-04-05 09:03:27.896 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold pants to Pants
+2022-04-05 09:03:27.896 | WARNING  | FUNCLG.character.armor:dequip:116 - Pants slot is empty.
+2022-04-05 09:03:27.897 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Sword to Weapon
+2022-04-05 09:03:27.897 | WARNING  | FUNCLG.character.armor:dequip:116 - Weapon slot is empty.
+2022-04-05 09:03:27.898 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.898 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.899 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.899 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.900 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.900 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:27.901 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:27.902 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:27.902 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.903 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:27.903 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.904 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:27.904 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.905 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:27.905 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.906 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:27.906 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.907 | WARNING  | FUNCLG.character.armor:dequip:116 - jagiejoijga slot is empty.
+2022-04-05 09:03:27.909 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Head to Head
+2022-04-05 09:03:27.910 | WARNING  | FUNCLG.character.armor:dequip:116 - Head slot is empty.
+2022-04-05 09:03:27.911 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Chest to Chest
+2022-04-05 09:03:27.911 | WARNING  | FUNCLG.character.armor:dequip:116 - Chest slot is empty.
+2022-04-05 09:03:27.912 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Cape to Back
+2022-04-05 09:03:27.913 | WARNING  | FUNCLG.character.armor:dequip:116 - Back slot is empty.
+2022-04-05 09:03:27.914 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold pants to Pants
+2022-04-05 09:03:27.914 | WARNING  | FUNCLG.character.armor:dequip:116 - Pants slot is empty.
+2022-04-05 09:03:27.915 | INFO     | FUNCLG.character.armor:dequip:113 - Equipped Gold Sword to Weapon
+2022-04-05 09:03:27.916 | WARNING  | FUNCLG.character.armor:dequip:116 - Weapon slot is empty.
+2022-04-05 09:03:27.920 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.921 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.922 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.923 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.923 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.924 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:27.925 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:27.926 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:27.926 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.927 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:27.928 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.928 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:27.929 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.930 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:27.931 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.932 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:27.932 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.933 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.934 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.935 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.936 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.936 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.937 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:27.938 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:27.939 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.940 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.940 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.941 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.942 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.947 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.947 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.948 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.949 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.950 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.950 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:27.951 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:27.952 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.953 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.953 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.954 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.955 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:27.956 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:27.961 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.963 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Head to Head
+2022-04-05 09:03:27.964 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:27.966 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.967 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Chest to Chest
+2022-04-05 09:03:27.969 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:27.971 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.972 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Cape to Back
+2022-04-05 09:03:27.974 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:27.974 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.975 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold pants to Pants
+2022-04-05 09:03:27.976 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:27.978 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.979 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Sword to Weapon
+2022-04-05 09:03:27.981 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.982 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.984 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.985 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:27.987 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:27.989 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:27.989 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:27.990 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:27.991 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:27.993 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:27.994 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:27.996 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:27.997 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:27.998 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:28.000 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.001 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:28.002 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.003 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Knife [1 4]
+2022-04-05 09:03:28.005 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.006 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Knife to Weapon
+2022-04-05 09:03:28.007 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.008 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.010 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.011 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.011 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.012 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.013 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.013 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.014 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.014 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:28.015 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.016 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:28.016 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.017 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:28.017 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.018 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:28.018 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.019 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - Gold Wand [2 4] is not compatable with this armor.
+2022-04-05 09:03:28.023 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.024 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.024 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.025 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.026 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.026 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.027 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.027 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.028 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.029 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:28.029 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.030 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:28.030 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.031 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:28.032 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.033 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:28.033 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.034 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Head
+2022-04-05 09:03:28.035 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Chest
+2022-04-05 09:03:28.035 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Cape
+2022-04-05 09:03:28.036 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold pants
+2022-04-05 09:03:28.037 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Sword
+2022-04-05 09:03:28.037 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.038 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.039 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.039 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.040 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.040 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.041 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.041 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.042 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.043 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.043 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.044 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.047 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.048 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.049 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.049 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.050 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.051 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.051 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.052 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.052 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.053 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.053 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.054 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.054 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.055 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.056 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.056 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.057 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.057 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.058 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.058 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.059 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.060 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:28.060 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.061 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:28.061 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.062 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:28.063 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.064 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:28.065 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.069 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.069 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.070 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.071 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.071 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.072 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.073 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.073 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.074 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.074 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:28.075 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.076 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:28.076 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.077 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:28.077 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.078 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:28.079 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.079 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.080 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.080 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.081 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.082 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.082 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.083 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.084 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.084 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.085 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:28.085 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.086 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:28.087 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.087 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:28.088 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.088 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:28.089 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.092 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.093 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.094 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.094 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.095 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.095 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.096 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.097 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.097 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.098 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Chest [1 1]
+2022-04-05 09:03:28.098 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.099 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Cape [1 2]
+2022-04-05 09:03:28.100 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.100 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold pants [1 3]
+2022-04-05 09:03:28.101 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.101 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Sword [1 4]
+2022-04-05 09:03:28.102 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.103 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Head
+2022-04-05 09:03:28.103 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Chest
+2022-04-05 09:03:28.104 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Cape
+2022-04-05 09:03:28.104 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold pants
+2022-04-05 09:03:28.105 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Gold Sword
+2022-04-05 09:03:28.109 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.110 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.111 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.111 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.112 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.112 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.113 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.114 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.114 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.115 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.116 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.116 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.117 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.117 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.118 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.119 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.119 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.120 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.121 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.122 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.122 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.123 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.124 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.124 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.125 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.126 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.126 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Head to Head
+2022-04-05 09:03:28.127 | SUCCESS  | FUNCLG.character.armor:validate_equipment:43 - Equipped: Gold Head [1 0]
+2022-04-05 09:03:28.128 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.129 | INFO     | FUNCLG.character.armor:equip:77 - Equipped Gold Head to Head
+2022-04-05 09:03:28.133 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.134 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.135 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.135 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.136 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.136 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.137 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.138 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.138 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.139 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.139 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.140 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.141 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Head
+2022-04-05 09:03:28.141 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Chest
+2022-04-05 09:03:28.142 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Cape
+2022-04-05 09:03:28.142 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold pants
+2022-04-05 09:03:28.143 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Sword
+2022-04-05 09:03:28.144 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Wand
+2022-04-05 09:03:28.144 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Gold Knife
+2022-04-05 09:03:28.145 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.146 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.147 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.148 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.148 | WARNING  | FUNCLG.character.armor:validate_equipment:45 - None is not compatable with this armor.
+2022-04-05 09:03:28.153 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.154 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.159 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.161 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.161 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.166 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.167 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.168 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.168 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.169 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.170 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.175 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.176 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.181 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.183 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.184 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.184 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.188 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.189 | INFO     | FUNCLG.character.equipment:print_to_file:62 - Saving Equipment: Test_Equipment
+2022-04-05 09:03:28.191 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:03:28.196 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.197 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:03:28.231 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.232 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.232 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.233 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.234 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.234 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.235 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.236 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.237 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.237 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.238 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.239 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.240 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.240 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.241 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.242 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.242 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.243 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.244 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Buff Test to Warrior
+2022-04-05 09:03:28.245 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.246 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Debuff Test to Warrior
+2022-04-05 09:03:28.247 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.248 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Armor Buff to Warrior
+2022-04-05 09:03:28.250 | WARNING  | FUNCLG.character.roles:add_power:57 - Fireball(Magic) is not compatible with Warrior(['Buff', 'Physical', 'Debuff', 'Healing'])
+2022-04-05 09:03:28.251 | WARNING  | FUNCLG.character.roles:add_power:55 - Max abilities reached!
+2022-04-05 09:03:28.256 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.257 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.258 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.259 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.260 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.261 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.262 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.263 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.264 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.265 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.266 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.266 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.268 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.269 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.270 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.271 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.272 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.273 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.274 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:03:28.275 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:03:28.280 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.281 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:03:28.282 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.283 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.284 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.284 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.285 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.286 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.287 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.288 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.289 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Rouge
+2022-04-05 09:03:28.290 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.290 | SUCCESS  | FUNCLG.character.roles:add_power:53 - Added Slash to Warrior
+2022-04-05 09:03:28.295 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.296 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.297 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.298 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.299 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.300 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.301 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.302 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.303 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.303 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.304 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.305 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.306 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.307 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.308 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.309 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.310 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.310 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.311 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:03:28.312 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:03:28.314 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:03:28.315 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-04-05 09:03:28.316 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-04-05 09:03:28.317 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:03:28.318 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:03:28.319 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-04-05 09:03:28.320 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:03:28.321 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:03:28.322 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:03:28.327 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.328 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.329 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.330 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.331 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.332 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.333 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.334 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.335 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.336 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.337 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:03:28.342 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.343 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.344 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.345 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.346 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.347 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.347 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.348 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.349 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.350 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.351 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.352 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.353 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.353 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.355 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.356 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.357 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.358 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.359 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:03:28.360 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:03:28.365 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.366 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.367 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.368 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.368 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.369 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.370 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.371 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.372 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.373 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.374 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.375 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.376 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.377 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.377 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.378 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.379 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.380 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.381 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:03:28.382 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:03:28.383 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:03:28.384 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-04-05 09:03:28.384 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-04-05 09:03:28.385 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:03:28.386 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-04-05 09:03:28.387 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:03:28.394 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.395 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.396 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.397 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.397 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.398 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.399 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.400 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.401 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.402 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.403 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.404 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.405 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.406 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.407 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.408 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.409 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.410 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.410 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:03:28.411 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:03:28.412 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Warrior
+2022-04-05 09:03:28.414 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Warrior
+2022-04-05 09:03:28.415 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Slash
+2022-04-05 09:03:28.417 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Holy Light
+2022-04-05 09:03:28.419 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Rouge
+2022-04-05 09:03:28.422 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Rouge
+2022-04-05 09:03:28.423 | INFO     | FUNCLG.character.abilities:export:50 - Exporting Ability: Debuff Test
+2022-04-05 09:03:28.427 | INFO     | FUNCLG.character.roles:print_to_file:99 - Saving Role: Mage
+2022-04-05 09:03:28.429 | INFO     | FUNCLG.character.roles:export:89 - Exporting Role: Mage
+2022-04-05 09:03:28.436 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.437 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.438 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.439 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.440 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.441 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.442 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.443 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.444 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.444 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.450 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.451 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.452 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.453 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.453 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.454 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.455 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.456 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.457 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.458 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Warrior
+2022-04-05 09:03:28.459 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Fireball
+2022-04-05 09:03:28.460 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Slash
+2022-04-05 09:03:28.461 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Holy Light
+2022-04-05 09:03:28.462 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Buff Test
+2022-04-05 09:03:28.462 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Armor Buff
+2022-04-05 09:03:28.463 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.464 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Drain
+2022-04-05 09:03:28.465 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
+2022-04-05 09:03:28.466 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
+2022-04-05 09:03:28.467 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage

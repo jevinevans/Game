@@ -10,7 +10,6 @@ import json
 from typing import Any, Dict, Optional, Union
 
 from loguru import logger
-from numpy import isin
 from typing_extensions import Self
 
 from ..utils import types as uTypes
@@ -56,7 +55,7 @@ class Equipment:
         desc = f"\n{' '*indent}{self.name}"
         desc += f"\n{' '*indent}{'-'*len(self.name)}"
         desc += f"\n{' '*indent}Type: {self.get_item_description()}"
-        desc += f"\{' '*indent}nDescription: {self.description}"
+        desc += f"\n{' '*indent}nDescription: {self.description}"
         return desc
 
     def print_to_file(self) -> None:
@@ -90,7 +89,12 @@ class Equipment:
         )
 
 
+# TODO: WeaponEquipment: Define functions [details, export, getstats]
 class WeaponEquipment(Equipment):
+    """
+    Equipment Subclass for Weapons. Has a specific stat item and determines the type of weapon
+    """
+
     def __init__(self, name: str, weapon_type: int, description: str = "", armor_type: int = 0):
         super().__init__(name=name, description=description, item_type=4, armor_type=armor_type)
 
@@ -120,10 +124,15 @@ class WeaponEquipment(Equipment):
         )
 
     # def get_stats(self):
+    # def export(self):
 
 
-# TODO: Create a BodyEquipment class that will have a place for modifiers
+# TODO: BodyEquipment: Define functions [details, export, get_mods]
 class BodyEquipment(Equipment):
+    """
+    Equipment Subclass specifically for armor items that are not weapons.
+    """
+
     def __init__(
         self,
         name: str,
@@ -154,12 +163,12 @@ class BodyEquipment(Equipment):
         """Copies the current object"""
         return BodyEquipment(
             self.name,
-            self.weapon_type,
+            self.mods,
             self.description,
             self.armor_type,
         )
 
-    # def get_stats(self):
+    # def get_mods(self):
 
     def export(self):
         exporter = self.__dict__

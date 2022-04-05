@@ -26,9 +26,9 @@ class Armor:
         chest: Equipment = None,
         back: Equipment = None,
         pants: Equipment = None,
-        weapon: Equipment = None,
-    ) -> None:
-        self.armor_type = armor_type if armor_type <= len(ARMOR_TYPES) and armor_type >= 0 else 0
+        weapon: WeaponEquipment = None,
+    ) -> None:  # pylint: disable=too-many-arguments
+        self.armor_type = armor_type if abs(armor_type) < len(ARMOR_TYPES) else 0
         # self.stats = #TODO: Stat Object
         self.head = self.validate_equipment(head)
         self.chest = self.validate_equipment(chest)
@@ -67,7 +67,7 @@ class Armor:
     def _equip_pants(self, item: Equipment):
         self.pants = item
 
-    def _equip_weapon(self, item: Equipment):
+    def _equip_weapon(self, item: WeaponEquipment):
         self.weapon = item
 
     def equip(self, item: Equipment) -> Union[Equipment, None]:
