@@ -1458,3 +1458,21 @@
 2022-04-05 09:56:20.325 | DEBUG    | FUNCLG.character.abilities:__init__:37 - Created Ability: Debuff Test
 2022-04-05 09:56:20.326 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Rouge
 2022-04-05 09:56:20.327 | INFO     | FUNCLG.character.roles:__init__:43 - Created Role: Mage
+2022-04-05 09:59:10.457 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.458 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.462 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.463 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.463 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:59:10.468 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.468 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.469 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:59:10.469 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:59:10.473 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.474 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.478 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.479 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.480 | INFO     | FUNCLG.character.equipment:export:69 - Exporting Equipment: Test_Equipment
+2022-04-05 09:59:10.485 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.486 | INFO     | FUNCLG.character.equipment:print_to_file:62 - Saving Equipment: Test_Equipment
+2022-04-05 09:59:10.493 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
+2022-04-05 09:59:10.494 | DEBUG    | FUNCLG.character.equipment:__init__:44 - Created Equipment: Test_Equipment
