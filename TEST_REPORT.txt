@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Apr  5 10:01:33 CDT 2022 
+Date: Tue Apr  5 12:24:08 CDT 2022 
 
 ---PYTEST---
 
@@ -8,12 +8,12 @@ Date: Tue Apr  5 10:01:33 CDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 41 items
+collected 39 items
 
 tests/test_character/test_abilities.py .......                           [ 17%]
-tests/test_character/test_armor.py .........                             [ 39%]
-tests/test_character/test_equipment.py .......                           [ 56%]
-tests/test_character/test_modifiers.py ........                          [ 75%]
+tests/test_character/test_armor.py .........                             [ 41%]
+tests/test_character/test_equipment.py .....                             [ 53%]
+tests/test_character/test_modifiers.py ........                          [ 74%]
 tests/test_character/test_roles.py ..........                            [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
@@ -24,59 +24,20 @@ FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           0      0   100%
 FUNCLG/character/abilities.py         31      0   100%
 FUNCLG/character/armor.py             87      1    99%   131
-FUNCLG/character/equipment.py         64      6    91%   76, 105, 151-152, 155, 166
+FUNCLG/character/equipment.py         64     16    75%   55-59, 62-64, 76, 79, 108, 179-183
 FUNCLG/character/modifiers.py         63      0   100%
 FUNCLG/character/roles.py             61      0   100%
 FUNCLG/character/stats.py             34     22    35%   26-33, 39, 42-43, 46-53, 58, 61-66
 FUNCLG/main.py                         0      0   100%
 FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
-FUNCLG/utils/types.py                 24      1    96%   60
+FUNCLG/utils/types.py                 24      9    62%   53-65
 ----------------------------------------------------------------
-TOTAL                                364     30    92%
+TOTAL                                364     48    87%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 91.76%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 86.81%
 
-============================== 41 passed in 1.26s ==============================
-
----Flake 8----
-
-./FUNCLG/character/abilities.py:35:14: T101 fixme found (TODO)
-./FUNCLG/character/abilities.py:62:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:115:15: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:118:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:140:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:143:7: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:32:25: T101 fixme found (TODO)
-./FUNCLG/character/armor.py:78:19: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:102:11: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:130:3: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:21:3: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:22:3: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:52:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:53:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:67:11: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:81:7: T101 fixme found (TODO)
-./FUNCLG/character/equipment.py:92:3: T101 fixme found (TODO)
-./FUNCLG/character/modifiers.py:120:3: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:42:11: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:48:7: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:71:13: F841 local variable 'old_ability' is assigned to but never used
-./FUNCLG/character/roles.py:76:7: T101 fixme found (TODO)
-./FUNCLG/character/roles.py:85:38: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:106:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:10:1: F401 'typing_extensions.Self' imported but unused
-./FUNCLG/character/stats.py:20:7: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:69:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:73:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:7:1: F401 'typing.Union' imported but unused
-./FUNCLG/character/stats.py:81:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:83:67: W291 trailing whitespace
-./FUNCLG/character/stats.py:89:3: T101 fixme found (TODO)
-./FUNCLG/character/stats.py:98:3: T101 fixme found (TODO)
-./FUNCLG/utils/types.py:51:3: T101 fixme found (TODO)
-./FUNCLG/utils/types.py:8:3: T101 fixme found (TODO)
-35
+============================== 39 passed in 1.32s ==============================
 
 ---Code Quality Report---
 
@@ -86,9 +47,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 91.76%
 
 -----BLACK-----
 
-reformatted FUNCLG/character/equipment.py
 All done! ✨ 🍰 ✨
-1 file reformatted, 12 files left unchanged.
+13 files left unchanged.
 
 -----BANDIT-----
 
@@ -160,7 +120,7 @@ FUNCLG/utils/__init__.py:1:0: R0801: Similar lines in 2 files
         return exporter (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.80/10 (previous run: 8.82/10, -0.02)
+Your code has been rated at 8.80/10 (previous run: 8.80/10, +0.00)
 
 
 -----PYRIGHT-----
@@ -170,7 +130,7 @@ npm ERR! errno EAI_AGAIN
 npm ERR! request to https://registry.npmjs.org/pyright failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/jevinle/.npm/_logs/2022-04-05T15_01_50_494Z-debug.log
+npm ERR!     /home/jevinle/.npm/_logs/2022-04-05T17_24_25_783Z-debug.log
 
 Traceback (most recent call last):
   File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>
