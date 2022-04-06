@@ -13,6 +13,7 @@ from .fixtures.modifier_fixtures import (
     modifier_export_expectation,
     modifier_get_expectation,
     modifier_str_expectation,
+    modifier_details_expectation,
     mult_mods,
     new_add_modifier,
     new_mult_modifier,
@@ -53,12 +54,12 @@ def test_modifier_str(add_mods, mult_mods, modifier_str_expectation):
     assert t1.__str__() == modifier_str_expectation[0]
 
 
-def test_modifier_details(add_mods, mult_mods, modifier_str_expectation):
+def test_modifier_details(add_mods, mult_mods, modifier_details_expectation):
     t1 = Modifier("Output Test", add_mods["valid"], mult_mods["valid"])
 
     # Test Indention from 0,2,4...10
     for index, indent in enumerate([x for x in range(0, 11, 2)]):
-        assert t1.details(indent=indent) == modifier_str_expectation[index]
+        assert t1.details(indent=indent) == modifier_details_expectation[index]
 
 
 def test_modifier_add_modifier(new_add_modifier, new_mult_modifier):

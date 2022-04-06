@@ -99,3 +99,11 @@ def bodyequipment_details_expectation(bodyequipment_all_items_mods):
 """
         expectations.append(base)
     return expectations
+
+@pytest.fixture
+def weaponequipment_description_expectations():
+    descriptions = []
+    for armor_type in ARMOR_TYPES:
+        for weapon_type in WEAPON_TYPES:
+            descriptions.append(f"[{armor_type} {weapon_type}]")
+    return descriptions

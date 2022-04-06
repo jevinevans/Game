@@ -160,7 +160,7 @@ class BodyEquipment(Equipment):
     def details(self, indent: int = 0) -> str:
         desc = super().details(indent)
         desc += f"\n\n{' '*indent}Modifier(s):"
-        desc += self.mods.details(indent+2)
+        desc += self.mods.details(indent + 2)
         return desc
 
     def copy(self) -> Self:

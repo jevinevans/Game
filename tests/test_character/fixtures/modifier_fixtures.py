@@ -66,3 +66,21 @@ def modifier_str_expectation():
 """
         expectations.append(base)
     return expectations
+
+@pytest.fixture
+def modifier_details_expectation():
+    expectations = []
+    for indent in range(0, 11, 2):
+        base = f"""
+{' '*indent}Output Test:
+{' '*(indent+2)}Attack
+  {' '*(indent+2)}+43\n
+{' '*(indent+2)}Defense
+  {' '*(indent+2)}-20\n
+{' '*(indent+2)}Health
+  {' '*(indent+2)}+33.0%\n
+{' '*(indent+2)}Energy
+  {' '*(indent+2)}-60.0%\n
+"""
+        expectations.append(base)
+    return expectations

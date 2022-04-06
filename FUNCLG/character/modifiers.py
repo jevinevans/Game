@@ -44,6 +44,7 @@ class Modifier:
         self.adds = self._verify_mods(adds)
         self.mults = self._verify_mods(mults)
 
+    # TODO: make simplier (needs to be different from detail and not just by one word)
     def __str__(self):
         string = f"Modifier: {self.name}:\n"
         string += self._friendly_read(indent=2)
