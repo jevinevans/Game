@@ -56,8 +56,6 @@ def get_item_description(item_type=0, armor_type=0, weapon_type=-1) -> str:
         item += get_weapon_type(weapon_type)
     elif item_type < 4:
         item += get_item_type(item_type)
-    else:
-        item = "Broken Item"
 
     if armor_type != -1:
         item = get_armor_type(armor_type) + " " + item

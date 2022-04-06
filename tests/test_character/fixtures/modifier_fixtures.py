@@ -67,6 +67,7 @@ def modifier_str_expectation():
         expectations.append(base)
     return expectations
 
+
 @pytest.fixture
 def modifier_details_expectation():
     expectations = []

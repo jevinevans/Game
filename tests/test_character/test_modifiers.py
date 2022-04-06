@@ -10,10 +10,10 @@ from FUNCLG.character.modifiers import Modifier
 
 from .fixtures.modifier_fixtures import (
     add_mods,
+    modifier_details_expectation,
     modifier_export_expectation,
     modifier_get_expectation,
     modifier_str_expectation,
-    modifier_details_expectation,
     mult_mods,
     new_add_modifier,
     new_mult_modifier,

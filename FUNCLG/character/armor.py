@@ -14,12 +14,17 @@ from .equipment import Equipment, WeaponEquipment
 logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
 
+# TODO: Create Armor Stat
+# - Create armor stat update function that will recal the whole thing instead of just removing one)
+# - Will be a sum of the equipment stats, may or may not display the name and stats
+
+
 class Armor:
     """
     Creates an armor object for a character
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=too-many-arguments
         self,
         armor_type: int = 0,
         head: Equipment = None,
@@ -27,9 +32,9 @@ class Armor:
         back: Equipment = None,
         pants: Equipment = None,
         weapon: WeaponEquipment = None,
-    ) -> None:  # pylint: disable=too-many-arguments
+    ) -> None:
         self.armor_type = armor_type if abs(armor_type) < len(ARMOR_TYPES) else 0
-        # self.stats = #TODO: Stat Object
+        # self.stats = # Armor Stat Object
         self.head = self.validate_equipment(head)
         self.chest = self.validate_equipment(chest)
         self.back = self.validate_equipment(back)
@@ -75,7 +80,7 @@ class Armor:
             if equip_func := getattr(self, "_equip_" + new_item.get_item_type().lower()):
                 equip_func(new_item)
                 logger.info(f"Equipped {new_item.name} to {new_item.get_item_type()}")
-                # TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one)
+        # Add stats update process here
 
     def _dequip_head(self):
         temp = self.head
@@ -112,18 +117,17 @@ class Armor:
             del_item = dequip_func()
             logger.info(f"Equipped {del_item.name} to {del_item.get_item_type()}")
             del del_item
-            # TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one)
+            # Add stats update process here
         logger.warning(f"{item_type} slot is empty.")
 
-    # TODO: Add indention factor
-    def details(self) -> str:
-        title = f"Armor ({get_armor_type(self.armor_type)})"
-        desc = f"\n {title} \n{''.join(['-' for x in range(len(title)+2)])}"
-        desc += f"\nHead: {self.head.__str__()}"
-        desc += f"\nChest: {self.chest.__str__()}"
-        desc += f"\nBack: {self.back.__str__()}"
-        desc += f"\nPants: {self.pants.__str__()}"
-        desc += f"\nWeapon: {self.weapon.__str__()}\n"
+    def details(self, indent: int = 0) -> str:
+        title = f"{' '*indent}Armor ({get_armor_type(self.armor_type)})"
+        desc = f"\n{' '*indent}{title} \n{' '*indent}{'-'*(len(title)+2)}"
+        desc += f"\n{' '*indent}Head: {self.head.__str__()}"
+        desc += f"\n{' '*indent}Chest: {self.chest.__str__()}"
+        desc += f"\n{' '*indent}Back: {self.back.__str__()}"
+        desc += f"\n{' '*indent}Pants: {self.pants.__str__()}"
+        desc += f"\n{' '*indent}Weapon: {self.weapon.__str__()}"
         return desc
 
     def get_equipment(self) -> List[Union[Equipment, None]]:
@@ -137,9 +141,4 @@ class Armor:
                 exporter[key] = value.export()
         return exporter
 
-    # TODO: Need to create an import function that is static to the method
-    #  @staticmethod
-    #  def import()
-    # TODO: Need to create a define stats for armor
     # def get_stats(self):
-    # Will be a sum of the equipment stats, may or may not display the name and stats

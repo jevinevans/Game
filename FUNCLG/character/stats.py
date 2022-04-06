@@ -4,12 +4,13 @@ Date: 3.23.2022
 Description: This defines the stats object that will be used for all character classes
 """
 
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional
 
 from loguru import logger
-from typing_extensions import Self
 
 from .modifiers import Modifier
+
+# from typing_extensions import Self
 
 
 class Stats:
@@ -22,7 +23,7 @@ class Stats:
         self,
         attributes: Dict[str, int],
         mods: Optional[List[Modifier]] = None,
-    ):  # pylint: disable=too-many-arguments
+    ):
         for key, value in attributes.items():
             setattr(self, key, value)
 

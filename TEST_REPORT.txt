@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Apr  5 23:21:01 CDT 2022 
+Date: Wed Apr  6 00:40:11 CDT 2022 
 
 ---PYTEST---
 
@@ -23,21 +23,21 @@ FUNCLG/__init__.py                     0      0   100%
 FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           0      0   100%
 FUNCLG/character/abilities.py         31      0   100%
-FUNCLG/character/armor.py             87      1    99%   131
+FUNCLG/character/armor.py             87      1    99%   135
 FUNCLG/character/equipment.py         70      0   100%
 FUNCLG/character/modifiers.py         63      0   100%
-FUNCLG/character/roles.py             61      0   100%
-FUNCLG/character/stats.py             34     22    35%   26-33, 39, 42-43, 46-53, 58, 61-66
+FUNCLG/character/roles.py             63      0   100%
+FUNCLG/character/stats.py             33     22    33%   27-34, 40, 43-44, 47-54, 59, 62-67
 FUNCLG/main.py                         0      0   100%
 FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
-FUNCLG/utils/types.py                 24      1    96%   60
+FUNCLG/utils/types.py                 23      0   100%
 ----------------------------------------------------------------
-TOTAL                                370     24    94%
+TOTAL                                370     23    94%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 93.51%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 93.78%
 
-============================== 47 passed in 1.30s ==============================
+============================== 47 passed in 1.39s ==============================
 
 ---Code Quality Report---
 
@@ -64,56 +64,39 @@ FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_cas
 FUNCLG/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 FUNCLG/character/abilities.py:62:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
 ************* Module FUNCLG.character.armor
-FUNCLG/character/armor.py:32:9: W0511: self.stats = #TODO: Stat Object (fixme)
-FUNCLG/character/armor.py:78:17: W0511: TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one) (fixme)
-FUNCLG/character/armor.py:115:13: W0511: TODO: add stats update (will probably be a function that will recal the whole thing instead of just removing one) (fixme)
-FUNCLG/character/armor.py:118:5: W0511: TODO: Add indention factor (fixme)
-FUNCLG/character/armor.py:140:5: W0511: TODO: Need to create an import function that is static to the method (fixme)
-FUNCLG/character/armor.py:143:5: W0511: TODO: Need to create a define stats for armor (fixme)
-FUNCLG/character/armor.py:22:4: R0913: Too many arguments (7/5) (too-many-arguments)
+FUNCLG/character/armor.py:17:1: W0511: TODO: Create Armor Stat (fixme)
 ************* Module FUNCLG.character.equipment
-FUNCLG/character/equipment.py:21:1: W0511: TODO: May split into body equipment and weapons, that way (fixme)
-FUNCLG/character/equipment.py:22:1: W0511: TODO: Remove damage and level because they will be a part of the equipment stat (fixme)
+FUNCLG/character/equipment.py:20:1: W0511: TODO: Create Equipment Stat (fixme)
 FUNCLG/character/equipment.py:46:5: W0511: TODO: Change so that it returns the name values and not numbers (fixme)
-FUNCLG/character/equipment.py:53:5: W0511: TODO: add indention factor (fixme)
-FUNCLG/character/equipment.py:54:5: W0511: TODO: add stats info for details (fixme)
-FUNCLG/character/equipment.py:68:9: W0511: TODO: May have to change function when STATS object is integrated (fixme)
-FUNCLG/character/equipment.py:82:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
-FUNCLG/character/equipment.py:93:1: W0511: TODO: WeaponEquipment: Define functions [details, export, getstats] (fixme)
-FUNCLG/character/equipment.py:103:9: W0511: TODO: self.stats  =  Create and add weapon stats that way they can be buffed or debuffed during battle (fixme)
-FUNCLG/character/equipment.py:136:4: R0913: Too many arguments (6/5) (too-many-arguments)
-FUNCLG/character/equipment.py:10:0: W0611: Unused Union imported from typing (unused-import)
+FUNCLG/character/equipment.py:78:5: W0511: TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **) (fixme)
+FUNCLG/character/equipment.py:89:1: W0511: TODO: WeaponEquipment: Define functions [details, export, getstats] (fixme)
 ************* Module FUNCLG.character.modifiers
 FUNCLG/character/modifiers.py:47:5: W0511: TODO: make simplier (needs to be different from detail and not just by one word) (fixme)
 FUNCLG/character/modifiers.py:121:1: W0511: TODO: Possibly create a subclass tempMod. This would be the result of an attack and would expire after a number of turns and be removed after the combat, instance is over (fixme)
 ************* Module FUNCLG.character.roles
 FUNCLG/character/roles.py:42:9: W0511: TODO: self.stats (fixme)
 FUNCLG/character/roles.py:48:5: W0511: TODO: add check/validation for duplicates (fixme)
-FUNCLG/character/roles.py:76:5: W0511: TODO add indention factor (fixme)
-FUNCLG/character/roles.py:85:36: W0511: TODO: Add indention here too (fixme)
 ************* Module FUNCLG.character.stats
-FUNCLG/character/stats.py:83:66: C0303: Trailing whitespace (trailing-whitespace)
-FUNCLG/character/stats.py:20:5: W0511: TODO: Create a more abstract load based on STAT_TYPES (fixme)
-FUNCLG/character/stats.py:69:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
-FUNCLG/character/stats.py:73:1: W0511: TODO: Create an equipment class (fixme)
-FUNCLG/character/stats.py:81:1: W0511: TODO: Create an abilities class (fixme)
-FUNCLG/character/stats.py:89:1: W0511: TODO: Create an armor stat (fixme)
-FUNCLG/character/stats.py:98:1: W0511: TODO: Create a role stat class (fixme)
-FUNCLG/character/stats.py:106:1: W0511: TODO: Build Character stats (fixme)
-FUNCLG/character/stats.py:58:8: W0107: Unnecessary pass statement (unnecessary-pass)
-FUNCLG/character/stats.py:74:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:82:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:90:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:99:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:107:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:7:0: W0611: Unused Union imported from typing (unused-import)
-FUNCLG/character/stats.py:10:0: W0611: Unused Self imported from typing_extensions (unused-import)
+FUNCLG/character/stats.py:84:66: C0303: Trailing whitespace (trailing-whitespace)
+FUNCLG/character/stats.py:21:5: W0511: TODO: Create a more abstract load based on STAT_TYPES (fixme)
+FUNCLG/character/stats.py:70:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
+FUNCLG/character/stats.py:74:1: W0511: TODO: Create an equipment class (fixme)
+FUNCLG/character/stats.py:82:1: W0511: TODO: Create an abilities class (fixme)
+FUNCLG/character/stats.py:90:1: W0511: TODO: Create an armor stat (fixme)
+FUNCLG/character/stats.py:99:1: W0511: TODO: Create a role stat class (fixme)
+FUNCLG/character/stats.py:107:1: W0511: TODO: Build Character stats (fixme)
+FUNCLG/character/stats.py:59:8: W0107: Unnecessary pass statement (unnecessary-pass)
+FUNCLG/character/stats.py:75:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:83:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:91:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:100:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:108:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module FUNCLG.utils.types
 FUNCLG/utils/types.py:8:1: W0511: TODO: Turn constants into tuples that way the the str or int value can be used (fixme)
 FUNCLG/utils/types.py:51:1: W0511: TODO: needs to be fixed (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.79/10 (previous run: 8.82/10, -0.03)
+Your code has been rated at 9.25/10 (previous run: 9.25/10, -0.00)
 
 
 -----PYRIGHT-----
@@ -123,7 +106,7 @@ npm ERR! errno EAI_AGAIN
 npm ERR! request to https://registry.npmjs.org/pyright failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org registry.npmjs.org:443
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/jevinle/.npm/_logs/2022-04-06T04_21_18_731Z-debug.log
+npm ERR!     /home/jevinle/.npm/_logs/2022-04-06T05_40_32_146Z-debug.log
 
 Traceback (most recent call last):
   File "/home/jevinle/.cache/pypoetry/virtualenvs/funclg-cOw5GY8x-py3.8/bin/pyright", line 8, in <module>

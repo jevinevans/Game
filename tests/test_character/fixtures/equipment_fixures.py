@@ -3,10 +3,12 @@ Equipment Fixtures for testing
 """
 
 from unittest import expectedFailure
+
 import pytest
 
 from FUNCLG.character.equipment import BodyEquipment, WeaponEquipment
 from FUNCLG.utils.types import ARMOR_TYPES, ITEM_TYPES, MODIFIER_TYPES, WEAPON_TYPES
+
 
 @pytest.fixture
 def bodyequipment_all_types():
@@ -72,10 +74,10 @@ def equipment_str_expectation(bodyequipment_all_types, weaponequipment_all_types
 
     for name, body in bodyequipment_all_types.items():
         expectations[name] = f"{body.name} [{body.armor_type} {body.item_type}]"
-    
+
     for name, weapone in weaponequipment_all_types.items():
         expectations[name] = f"{weapone.name} [{weapone.armor_type} {weapone.item_type}]"
-    
+
     return expectations
 
 
@@ -99,6 +101,7 @@ def bodyequipment_details_expectation(bodyequipment_all_items_mods):
 """
         expectations.append(base)
     return expectations
+
 
 @pytest.fixture
 def weaponequipment_description_expectations():

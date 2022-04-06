@@ -7,7 +7,7 @@ Description: The Equipment class allows for creation of objects in the game to b
 """
 
 import json
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional
 
 from loguru import logger
 from typing_extensions import Self
@@ -17,9 +17,9 @@ from .modifiers import Modifier
 
 logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 
-
-# TODO: May split into body equipment and weapons, that way
-# TODO: Remove damage and level because they will be a part of the equipment stat
+# TODO: Create Equipment Stat
+# - May need to create a Equipment/Body/Weapon stat
+# - Remove damage and level because they will be a part of the equipment stat
 class Equipment:
     """
     Defines the equipmet class for the game. Equipment can be weapons or armor pieces.
@@ -40,7 +40,7 @@ class Equipment:
         self.description = description
         self.item_type = item_type
         self.armor_type = armor_type
-        # self.stats = #STAT Object /may replace abiilty points with stats
+        # self.stats = #STAT Object
         logger.debug(f"Created Equipment: {name}")
 
     # TODO: Change so that it returns the name values and not numbers
@@ -50,8 +50,6 @@ class Equipment:
         """
         return f"{self.name} [{self.armor_type} {self.item_type}]"
 
-    # TODO: add indention factor
-    # TODO: add stats info for details
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name}"
         desc += f"\n{' '*indent}{'-'*len(self.name)}"
@@ -65,8 +63,6 @@ class Equipment:
             json.dump(self.export(), out_file)
 
     def export(self) -> Dict[str, Any]:
-        # TODO: May have to change function when STATS object is integrated
-        # Function will just need to call the export for each
         logger.info(f"Exporting Equipment: {self.name}")
         return self.__dict__
 
@@ -100,7 +96,7 @@ class WeaponEquipment(Equipment):
         super().__init__(name=name, description=description, item_type=4, armor_type=armor_type)
 
         self.weapon_type = weapon_type
-        # TODO: self.stats  =  Create and add weapon stats that way they can be buffed or debuffed during battle
+        # self.stats  =  Create and add weapon stats that way they can be buffed or debuffed during battle
 
     def get_weapon_type(self) -> str:
         return uTypes.get_weapon_type(self.weapon_type)
@@ -108,12 +104,11 @@ class WeaponEquipment(Equipment):
     def get_item_description(self) -> str:
         return uTypes.get_item_description(self.item_type, self.armor_type, self.weapon_type)
 
-    # def details(self) -> str:
-    #     desc = super().details()
-    #     desc += f"{' '*indent} ....
-    # Add stats info
-    #     self.stats.details()
+    # def details(self, indent: int = 0) -> str:
+    #     desc = super().details(indent)
+    #     desc += self.stats(indent + 2)
     #     return desc
+    # Add stats info
 
     def copy(self) -> Self:
         """Copies the current object"""
@@ -133,7 +128,7 @@ class BodyEquipment(Equipment):
     Equipment Subclass specifically for armor items that are not weapons.
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=too-many-arguments
         self,
         name: str,
         modifiers: Optional[Dict[str, Dict]] = None,
