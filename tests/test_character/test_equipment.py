@@ -76,8 +76,8 @@ def test_equipment_get_armor_type(bodyequipment_all_types, weaponequipment_all_t
         assert weapon.get_armor_type() == ARMOR_TYPES[weapon.armor_type]
 
 
-def test_bodyequipment_copy():
-    item = Equipment("Export Test", "Export Test Description", 0, 0)
+def test_equipment_copy():
+    item = Equipment("Copy Test", "Copy Test Description", 0, 0)
     new_item = item.copy()
 
     assert id(new_item) != id(item)
