@@ -48,7 +48,6 @@ def get_weapon_type(weapon_type: int) -> str:
     return WEAPON_TYPES[weapon_type]
 
 
-# TODO: needs to be fixed
 def get_item_description(item_type=0, armor_type=0, weapon_type=-1) -> str:
     item = ""
 

@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 30			|
-|	Files: 165				|
+|	Files: 168				|
 +==========================================+
 
 ./.coverage
@@ -158,22 +158,25 @@
 ./logs/character/abilities.2022-03-23_19-35-17_686395.log
 ./logs/character/abilities.2022-03-29_10-44-39_981692.log
 ./logs/character/abilities.2022-04-01_20-19-27_987155.log
+./logs/character/abilities.2022-04-05_23-18-21_398239.log
 ./logs/character/abilities.log
-./logs/character/armor.2022-03-23_19-35-09_171694.log
 ./logs/character/armor.2022-03-23_19-35-09_182381.log
 ./logs/character/armor.2022-03-28_17-17-30_594196.log
 ./logs/character/armor.2022-04-01_20-00-07_845906.log
+./logs/character/armor.2022-04-05_23-11-24_179602.log
+./logs/character/armor.2022-04-08_02-25-53_371292.log
 ./logs/character/armor.log
-./logs/character/equipment.2022-03-23_14-41-45_185551.log
-./logs/character/equipment.2022-03-23_19-39-28_902349.log
 ./logs/character/equipment.2022-03-29_11-19-02_646945.log
 ./logs/character/equipment.2022-04-05_09-54-45_201924.log
 ./logs/character/equipment.2022-04-05_13-48-58_598226.log
+./logs/character/equipment.2022-04-05_23-20-07_107093.log
+./logs/character/equipment.2022-04-10_21-45-59_353772.log
 ./logs/character/equipment.log
 ./logs/character/roles.2022-03-23_19-35-09_218755.log
 ./logs/character/roles.2022-03-23_19-35-09_230377.log
 ./logs/character/roles.2022-03-28_17-17-30_719303.log
 ./logs/character/roles.2022-04-01_20-19-28_205750.log
+./logs/character/roles.2022-04-05_23-19-44_020332.log
 ./logs/character/roles.log
 ./poetry.lock
 ./pyproject.toml

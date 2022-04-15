@@ -8,211 +8,122 @@ import unittest
 from random import randint
 from typing import Dict, Tuple
 
+import pytest
+
 from FUNCLG.character.armor import Armor
-from FUNCLG.character.equipment import Equipment, WeaponEquipment
+from FUNCLG.character.equipment import BodyEquipment
 from FUNCLG.utils.types import ITEM_TYPES
 
+from .fixtures.armor_fixtures import (
+    armor_details_expectations,
+    armor_export_expectations,
+    armor_str_expectations,
+    equipment_only,
+    heavy_armor_sword,
+    light_armor_knife,
+    medium_armor_wand,
+    medium_half_armor,
+)
 
-class ArmorTest(unittest.TestCase):
-    def setup(self, raw=True) -> Tuple[Armor, Dict[str, Equipment]]:
-        armor_type = 1
-        equips = {}
-        equips["armor_type"] = armor_type
-        equips["head"] = Equipment(
-            name="Gold Head",
-            description="Head piece for Armor Test.",
-            armor_type=armor_type,
-            item_type=0,
-        )
-        equips["chest"] = Equipment(
-            name="Gold Chest",
-            description="Chest piece for Armor Test.",
-            armor_type=armor_type,
-            item_type=1,
-        )
-        equips["back"] = Equipment(
-            name="Gold Cape",
-            description="Back piece for Armor Test.",
-            armor_type=armor_type,
-            item_type=2,
-        )
-        equips["pants"] = Equipment(
-            name="Gold pants",
-            description="Pants piece for Amror Test",
-            armor_type=armor_type,
-            item_type=3,
-        )
-        equips["sword"] = WeaponEquipment(
-            name="Gold Sword",
-            description="Sword weapon for Armor Test",
-            armor_type=armor_type,
-            weapon_type=0,
-        )
-        equips["wand"] = WeaponEquipment(
-            name="Gold Wand",
-            description="Wand weapon for Armor Test",
-            armor_type=armor_type + 1,
-            weapon_type=1,
-        )
-        equips["knife"] = WeaponEquipment(
-            name="Gold Knife",
-            description="Knife weapon for Armor Test",
-            armor_type=armor_type,
-            weapon_type=2,
-        )
 
-        if raw:
-            # Returns new Armor and dict of equipments
-            return Armor(armor_type), equips
-        # Returns full equiped Armor plus other weapon
-        return (
-            Armor(
-                armor_type=armor_type,
-                head=equips["head"],
-                chest=equips["chest"],
-                back=equips["back"],
-                pants=equips["pants"],
-                weapon=equips["sword"],
-            ),
-            equips,
-        )
+def test_armor_init(light_armor_knife, medium_armor_wand, heavy_armor_sword):
+    for item in ITEM_TYPES:
+        item = item.lower()
+        print(light_armor_knife)
+        assert getattr(light_armor_knife, item, False)
+        assert getattr(medium_armor_wand, item, False)
+        assert getattr(heavy_armor_sword, item, False)
 
-    def test_armor_init(self):
-        # 1 - Testing blank armor initialization
 
-        arm, equips = self.setup()
-        self.assertEqual(arm.armor_type, equips["armor_type"])
-        self.assertIsNone(arm.head, "Armor Equipment field is not none")
-        self.assertIsNone(arm.chest, "Armor Equipment field is not none")
-        self.assertIsNone(arm.back, "Armor Equipment field is not none")
-        self.assertIsNone(arm.pants, "Armor Equipment field is not none")
-        self.assertIsNone(arm.weapon, "Armor Equipment field is not none")
+def test_armor_validate_equipment_not_equipment():
+    armor = Armor(1, "FUN HEAD FAIL")
+    assert armor.head == None
 
-        # 2 - Testing creation of full armor initialization
 
-        arm, equips = self.setup(False)
-        self.assertEqual(arm.armor_type, equips["armor_type"])
-        self.assertNotEqual(arm.head, equips["head"])
-        self.assertNotEqual(arm.chest, equips["chest"])
-        self.assertNotEqual(arm.back, equips["back"])
-        self.assertNotEqual(arm.pants, equips["pants"])
-        self.assertNotEqual(arm.weapon, equips["sword"])
+def test_armor_validate_equipment_wrong_slot():
+    armor = Armor(
+        1,
+        weapon=BodyEquipment(
+            name="Head Piece", description="Item in wrong slot", armor_type=1, item_type=0
+        ),
+    )
+    assert armor.weapon == None
 
-        self.assertEqual(arm.head.name, equips["head"].name)
-        self.assertEqual(arm.chest.name, equips["chest"].name)
-        self.assertEqual(arm.back.name, equips["back"].name)
-        self.assertEqual(arm.pants.name, equips["pants"].name)
-        self.assertEqual(arm.weapon.name, equips["sword"].name)
 
-    def test_armor_str(self):
-        # Testing object print format
+def test_armor_str(medium_half_armor, heavy_armor_sword, armor_str_expectations):
+    empty_armor = Armor(0)
+    armors = [medium_half_armor, heavy_armor_sword, empty_armor]
+    for expectation, armor in zip(armor_str_expectations, armors):
+        assert expectation == armor.__str__()
 
-        # 1 - Testing Raw Armor
-        arm, equips = self.setup()
-        self.assertEqual(arm.__str__(), f"Medium Armor: <H:0, C:0, B:0, P:0, W:0>")
 
-        # 2 - Testing Partial Armor - Head Chest Pants
-        arm, equips = self.setup()
-        arm.head = equips["head"]
-        arm.chest = equips["chest"]
-        arm.pants = equips["pants"]
-        self.assertEqual(arm.__str__(), f"Medium Armor: <H:1, C:1, B:0, P:1, W:0>")
+def test_armor_equipping(equipment_only):
+    armor = Armor()
+    assert armor.armor_type == 0
+    assert armor.head == None
+    assert armor.chest == None
+    assert armor.back == None
+    assert armor.pants == None
+    assert armor.weapon == None
 
-    def test_armor_equip(self):
-        # 1 - Testing ability to equip items empty location
-        arm, equips = self.setup()
-        arm.equip(equips["head"])
-        arm.equip(equips["chest"])
-        arm.equip(equips["back"])
-        arm.equip(equips["pants"])
-        arm.equip(equips["sword"])
+    for item in equipment_only.values():
+        armor.equip(item)
 
-        self.assertIsNotNone(arm.head)
-        self.assertIsNotNone(arm.chest)
-        self.assertIsNotNone(arm.back)
-        self.assertIsNotNone(arm.pants)
-        self.assertIsNotNone(arm.weapon)
+    for item in ITEM_TYPES:
+        item = item.lower()
+        assert getattr(armor, item, False)
 
-        self.assertEqual(arm.head.name, equips["head"].name)
-        self.assertEqual(arm.chest.name, equips["chest"].name)
-        self.assertEqual(arm.back.name, equips["back"].name)
-        self.assertEqual(arm.pants.name, equips["pants"].name)
-        self.assertEqual(arm.weapon.name, equips["sword"].name)
 
-        # 2 - Testing ability to equip an item that is not empty and return it (change equips)
-        arm, equips = self.setup(False)
-        arm.equip(equips["knife"])
-        self.assertEqual(arm.weapon.name, equips["knife"].name)
+def test_armor_dequipping(light_armor_knife):
+    for item_type in ITEM_TYPES:
+        light_armor_knife.dequip(item_type)
 
-        # 3 - Testing ability to not equip uncompatible items
-        arm, equips = self.setup(False)
+    assert light_armor_knife.armor_type == 0
+    assert light_armor_knife.head == None
+    assert light_armor_knife.chest == None
+    assert light_armor_knife.back == None
+    assert light_armor_knife.pants == None
+    assert light_armor_knife.weapon == None
 
-        arm.equip(equips["wand"])
-        self.assertEqual(arm.weapon.name, equips["sword"].name)
 
-    def test_armor_dequip(self):
-        # Test 1.a Basic dequip, dequiping with string, with item equipped
-        arms, _ = self.setup(False)
+def test_armor_get_equipment(equipment_only):
+    armor = Armor()
+    assert armor.armor_type == 0
+    assert armor.head == None
+    assert armor.chest == None
+    assert armor.back == None
+    assert armor.pants == None
+    assert armor.weapon == None
 
-        for item in ITEM_TYPES:
-            self.assertIsNone(arms.dequip(item))
-            # TODO: For pytest, us patch to check the status of the message
+    for item in equipment_only.values():
+        armor.equip(item)
 
-        self.assertEqual(arms.__str__(), f"Medium Armor: <H:0, C:0, B:0, P:0, W:0>")
+    for items in zip(equipment_only.values(), armor.get_equipment()):
+        assert items[0].name == items[1].name
+        assert items[0].item_type == items[1].item_type
 
-        # Test 2.a Testing dequip error for string value
-        arms, _ = self.setup(False)
 
-        self.assertIsNone(arms.dequip("jagiejoijga"))
-        self.assertEqual(arms.__str__(), f"Medium Armor: <H:1, C:1, B:1, P:1, W:1>")
+def test_armor_expoert(equipment_only, armor_export_expectations):
+    armor = Armor(0)
+    for item in equipment_only.values():
+        armor.equip(item)
 
-        # Test 3.a Dequipping an empty slot with string
-        for item in ITEM_TYPES:
-            self.assertIsNone(arms.dequip(item))
+    assert armor.export() == armor_export_expectations
 
-    def test_armor_details(self):
-        # 1.a Test full armor details
-        arms, _ = self.setup(False)
-        self.assertIsNotNone(arms.details())
-        self.assertIsInstance(arms.details(), str)
 
-        arms, _ = self.setup()
-        self.assertIsNotNone(arms.details())
-        self.assertIsInstance(arms.details(), str)
+def test_armor_equip_wrong_slot(equipment_only):
+    armor = Armor()
+    armor._equip_chest(equipment_only["Back"])
 
-    def test_armor_export(self):
-        arm, _ = self.setup(False)
-        self.assertIsNotNone(arm.export())
-        self.assertIsInstance(arm.export(), dict)
+    assert armor.chest == None
+    assert armor.back == None
 
-        arm, _ = self.setup()
-        self.assertIsNotNone(arm.export())
-        self.assertIsInstance(arm.export(), dict)
+    # Right side
+    armor.equip(equipment_only["Back"])
+    assert armor.back != None
+    assert isinstance(armor.back, BodyEquipment)
 
-    def test_armor_item_copy(self):
-        arm1, _ = self.setup(False)
-        arm2, _ = self.setup(False)
-        self.assertNotEqual(id(arm1), id(arm2))
-        self.assertNotEqual(id(arm1.head), id(arm2.head))
-        self.assertNotEqual(id(arm1.chest), id(arm2.chest))
-        self.assertNotEqual(id(arm1.back), id(arm2.back))
-        self.assertNotEqual(id(arm1.pants), id(arm2.pants))
-        self.assertNotEqual(id(arm1.weapon), id(arm2.weapon))
 
-    def test_armor_output_examples(self):
-        arm, _ = self.setup(raw=False)
-        print(f"\n{'Armor Example Output'.center(80, '-')}")
-        print(f"\n__str__ Output:\n{arm}")
-        print(f"\ndetails Output:{arm.details()}")
-        print(f"\nexport Output:\n{arm.export()}")
-        print(f"\n{'Done'.center(80, '-')}")
-
-    def test_armor_same_item_different_armors(self):
-        arm1, equips = self.setup(raw=True)
-        arm2, _ = self.setup(raw=True)
-
-        arm1.equip(equips["head"])
-        arm2.equip(equips["head"])
-
-        self.assertNotEqual(arm1.head, arm2.head)
-        self.assertNotEqual(id(arm1.head), id(arm2.head))
+def test_armor_details_format(light_armor_knife, armor_details_expectations):
+    for indent, expectation in enumerate(armor_details_expectations):
+        assert light_armor_knife.details(indent) == expectation

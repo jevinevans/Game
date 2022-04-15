@@ -82,7 +82,7 @@ def equipment_str_expectation(bodyequipment_all_types, weaponequipment_all_types
 
 
 @pytest.fixture
-def bodyequipment_details_expectation(bodyequipment_all_items_mods):
+def bodyequipment_details_expectation():
     expectations = []
 
     for indent in range(0, 7):

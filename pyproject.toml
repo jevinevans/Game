@@ -9,7 +9,6 @@ python = "^3.8"
 loguru = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
-black = "^21.11b1"
 isort = "^5.10.1"
 xenon = "^0.8.0"
 pylint = "^2.12.2"
@@ -19,6 +18,7 @@ flake8 = "^4.0.1"
 flake8-fixme = "^1.1.1"
 pytest = "^7.1.1"
 pytest-cov = "^3.0.0"
+black = "^22.3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

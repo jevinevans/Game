@@ -4,12 +4,13 @@ Date: 7.15.2021
 Description: The Armor class is made to store equipment itmes for a character.
 """
 
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Union
+from xmlrpc.client import Boolean
 
 from loguru import logger
 
 from ..utils.types import ARMOR_TYPES, get_armor_type
-from .equipment import Equipment, WeaponEquipment
+from .equipment import BodyEquipment, Equipment, WeaponEquipment
 
 logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
@@ -31,23 +32,25 @@ class Armor:
         chest: Equipment = None,
         back: Equipment = None,
         pants: Equipment = None,
-        weapon: WeaponEquipment = None,
-    ) -> None:
+        weapon: Equipment = None,
+    ):
         self.armor_type = armor_type if abs(armor_type) < len(ARMOR_TYPES) else 0
         # self.stats = # Armor Stat Object
-        self.head = self.validate_equipment(head)
-        self.chest = self.validate_equipment(chest)
-        self.back = self.validate_equipment(back)
-        self.pants = self.validate_equipment(pants)
-        self.weapon = self.validate_equipment(weapon)
+        self.head = self.validate_equipment(head, 0)
+        self.chest = self.validate_equipment(chest, 1)
+        self.back = self.validate_equipment(back, 2)
+        self.pants = self.validate_equipment(pants, 3)
+        self.weapon = self.validate_equipment(weapon, 4)
 
-    def validate_equipment(self, item: Optional[Equipment]) -> Union[Equipment, None]:
+    def validate_equipment(self, item: Equipment, item_type: int) -> Union[Equipment, None]:
         """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
         if isinstance(item, Equipment):
             if item.armor_type == self.armor_type:
-                logger.success(f"Equipped: {item}")
-                return item.copy()
-        logger.warning(f"{item} is not compatable with this armor.")
+                if item.item_type == item_type:
+                    return item.copy()
+                logger.warning(f"{item} is not compatable for this slot.")
+                return None
+        logger.warning(f"{item} incompatable with this armor type.")
         return None
 
     def __str__(self) -> str:
@@ -60,26 +63,33 @@ class Armor:
         temp += "W:1>" if self.weapon else "W:0>"
         return temp
 
-    def _equip_head(self, item: Equipment):
-        self.head = item
+    def _equip_head(self, item: BodyEquipment):
+        if new_item := self.validate_equipment(item, 0):
+            self.head = new_item
+            logger.info(f"Equipped {new_item} to armor")
 
-    def _equip_chest(self, item: Equipment):
-        self.chest = item
+    def _equip_chest(self, item: BodyEquipment):
+        if new_item := self.validate_equipment(item, 1):
+            self.chest = new_item
 
-    def _equip_back(self, item: Equipment):
-        self.back = item
+    def _equip_back(self, item: BodyEquipment):
+        if new_item := self.validate_equipment(item, 2):
+            self.back = new_item
 
-    def _equip_pants(self, item: Equipment):
-        self.pants = item
+    def _equip_pants(self, item: BodyEquipment):
+        if new_item := self.validate_equipment(item, 3):
+            self.pants = new_item
 
     def _equip_weapon(self, item: WeaponEquipment):
-        self.weapon = item
+        if new_item := self.validate_equipment(item, 4):
+            self.weapon = new_item
 
-    def equip(self, item: Equipment) -> Union[Equipment, None]:
-        if new_item := self.validate_equipment(item):
-            if equip_func := getattr(self, "_equip_" + new_item.get_item_type().lower()):
-                equip_func(new_item)
-                logger.info(f"Equipped {new_item.name} to {new_item.get_item_type()}")
+    def equip(self, item: Equipment):
+        if item:
+            if equip_func := getattr(self, "_equip_" + item.get_item_type().lower()):
+                equip_func(item)
+                logger.info(f"Equipped {item.name} to {item.get_item_type()}")
+            print(self.__str__(), item)
         # Add stats update process here
 
     def _dequip_head(self):
@@ -121,13 +131,13 @@ class Armor:
         logger.warning(f"{item_type} slot is empty.")
 
     def details(self, indent: int = 0) -> str:
-        title = f"{' '*indent}Armor ({get_armor_type(self.armor_type)})"
-        desc = f"\n{' '*indent}{title} \n{' '*indent}{'-'*(len(title)+2)}"
-        desc += f"\n{' '*indent}Head: {self.head.__str__()}"
-        desc += f"\n{' '*indent}Chest: {self.chest.__str__()}"
-        desc += f"\n{' '*indent}Back: {self.back.__str__()}"
-        desc += f"\n{' '*indent}Pants: {self.pants.__str__()}"
-        desc += f"\n{' '*indent}Weapon: {self.weapon.__str__()}"
+        title = f" Armor ({get_armor_type(self.armor_type)}) "
+        desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*(len(title)+2)}"
+        desc += f"\n{' '*(indent+2)}Head: {self.head.__str__()}"
+        desc += f"\n{' '*(indent+2)}Chest: {self.chest.__str__()}"
+        desc += f"\n{' '*(indent+2)}Back: {self.back.__str__()}"
+        desc += f"\n{' '*(indent+2)}Pants: {self.pants.__str__()}"
+        desc += f"\n{' '*(indent+2)}Weapon: {self.weapon.__str__()}"
         return desc
 
     def get_equipment(self) -> List[Union[Equipment, None]]:
