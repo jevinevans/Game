@@ -4,10 +4,6 @@ Date: 7.15.2021
 Description: The is a unit test for the armor class and its interations with the equipment class.
 """
 
-import unittest
-from random import randint
-from typing import Dict, Tuple
-
 import pytest
 
 from FUNCLG.character.armor import Armor

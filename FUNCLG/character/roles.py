@@ -43,7 +43,7 @@ class Roles:
         logger.info(f"Created Role: {name}")
 
     def __str__(self):
-        return f"Class: {self.name} | Class Type: {self.damage_types} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
+        return f"Class: {self.name} | Class Type(s): {', '.join(self.damage_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
 
     # TODO: add check/validation for duplicates
     def add_power(self, ability: Abilities) -> int:
@@ -63,11 +63,12 @@ class Roles:
         """Returns the wanted power"""
         if self.abilities and abs(index) < len(self.abilities):
             return self.abilities[index]
+        logger.warning("There is no power in this slot.")
         return None
 
     def remove_power(self, index: int) -> bool:
         # Validation will be done at a higher level
-        if self.abilities and abs(index) < len(self.abilities):
+        if self.abilities and index < len(self.abilities):
             old_ability = self.abilities.pop(index)
             del old_ability
             return True
@@ -77,13 +78,14 @@ class Roles:
         desc = f"\n{' '*indent}Class: {self.name}"
         desc += f"\n{' '*indent}{'-'*(len(self.name)+9)}"
         desc += f"\n{' '*indent}Armor Type: {get_armor_type(self.armor_type)}"
-        desc += f"\n{' '*indent}Description: {self.description}\n\nRole Abilities:\n"
+        desc += f"\n{' '*indent}Description: {self.description}"
+        desc += f"\n{' '*indent}Role Abilities:\n"
         if self.abilities:
             for ability in self.abilities:
                 desc += ability.details(indent + 2)
                 desc += "\n"
         else:
-            desc += f"{' '*indent}No Abilites"
+            desc += f"{' '*(indent+2)}No Abilities"
         return desc
 
     def export(self) -> Dict[str, Any]:

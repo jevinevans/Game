@@ -4,7 +4,7 @@ Date: 1.8.2022
 Description: The is a unit test for the abilties class.
 """
 
-import os
+from unittest.mock import patch
 
 from FUNCLG.character.abilities import Abilities
 from FUNCLG.utils.types import DAMAGE_TYPES
@@ -51,13 +51,14 @@ def test_abilities_export(abilities_all_types, abilities_export_expectation):
         assert ability.export() == abilities_export_expectation[index]
 
 
-def test_abilities_print_to_file(abilities_all_types):
+@patch("builtins.open")
+@patch("json.dump")
+def test_abilities_print_to_file(m_dump, m_open, abilities_all_types):
     test_ability = abilities_all_types[0]
     test_ability.print_to_file()
-    filename = f"{test_ability.name}.json"
-    assert os.path.exists(filename)
-    if os.path.exists(filename):
-        os.remove(filename)
+
+    m_open.assert_called_once_with(test_ability.name + ".json", "w", encoding="utf-8")
+    m_dump.assert_called_with(test_ability.export(), m_open.return_value.__enter__())
 
 
 def test_abilities_copy(abilities_all_types):

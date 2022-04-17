@@ -5,7 +5,6 @@ Description: The Armor class is made to store equipment itmes for a character.
 """
 
 from typing import Dict, List, Union
-from xmlrpc.client import Boolean
 
 from loguru import logger
 
@@ -152,3 +151,4 @@ class Armor:
         return exporter
 
     # def get_stats(self):
+    # def print_to_file(self):

@@ -2,8 +2,6 @@
 Equipment Fixtures for testing
 """
 
-from unittest import expectedFailure
-
 import pytest
 
 from FUNCLG.character.equipment import BodyEquipment, WeaponEquipment

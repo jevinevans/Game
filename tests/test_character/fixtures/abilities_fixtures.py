@@ -6,6 +6,7 @@ from FUNCLG.utils.types import DAMAGE_TYPES
 
 @pytest.fixture
 def abilities_all_types():
+    """Returns a list of all ability types"""
     all_abilities = []
     for index, d_type in enumerate(DAMAGE_TYPES):
         all_abilities.append(

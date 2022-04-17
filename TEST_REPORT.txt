@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri Apr 15 00:09:26 CDT 2022 
+Date: Sat Apr 16 19:00:21 PDT 2022 
 
 ---PYTEST---
 
@@ -8,13 +8,13 @@ Date: Fri Apr 15 00:09:26 CDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 48 items
+collected 51 items
 
-tests/test_character/test_abilities.py .......                           [ 14%]
-tests/test_character/test_armor.py ..........                            [ 35%]
-tests/test_character/test_equipment.py .............                     [ 62%]
-tests/test_character/test_modifiers.py ........                          [ 79%]
-tests/test_character/test_roles.py ..........                            [100%]
+tests/test_character/test_abilities.py .......                           [ 13%]
+tests/test_character/test_armor.py ..........                            [ 33%]
+tests/test_character/test_equipment.py ..............                    [ 60%]
+tests/test_character/test_modifiers.py ........                          [ 76%]
+tests/test_character/test_roles.py ............                          [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                               Stmts   Miss  Cover   Missing
@@ -23,21 +23,21 @@ FUNCLG/__init__.py                     0      0   100%
 FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           0      0   100%
 FUNCLG/character/abilities.py         31      0   100%
-FUNCLG/character/armor.py             97      0   100%
-FUNCLG/character/equipment.py         70      1    99%   81
+FUNCLG/character/armor.py             96      0   100%
+FUNCLG/character/equipment.py         70      0   100%
 FUNCLG/character/modifiers.py         63      0   100%
-FUNCLG/character/roles.py             63      0   100%
+FUNCLG/character/roles.py             65      0   100%
 FUNCLG/character/stats.py             33     22    33%   27-34, 40, 43-44, 47-54, 59, 62-67
 FUNCLG/main.py                         0      0   100%
 FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
 FUNCLG/utils/types.py                 23      0   100%
 ----------------------------------------------------------------
-TOTAL                                380     23    94%
+TOTAL                                381     22    94%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 93.95%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 94.23%
 
-============================== 48 passed in 0.74s ==============================
+============================== 51 passed in 1.14s ==============================
 
 ---Code Quality Report---
 
@@ -64,8 +64,7 @@ FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_cas
 FUNCLG/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 FUNCLG/character/abilities.py:62:5: W0511: TODO: Define what happens when using a power. Damage and effect on which stat (fixme)
 ************* Module FUNCLG.character.armor
-FUNCLG/character/armor.py:18:1: W0511: TODO: Create Armor Stat (fixme)
-FUNCLG/character/armor.py:8:0: W0611: Unused Boolean imported from xmlrpc.client (unused-import)
+FUNCLG/character/armor.py:17:1: W0511: TODO: Create Armor Stat (fixme)
 ************* Module FUNCLG.character.equipment
 FUNCLG/character/equipment.py:20:1: W0511: TODO: Create Equipment Stat (fixme)
 FUNCLG/character/equipment.py:46:5: W0511: TODO: Change so that it returns the name values and not numbers (fixme)
@@ -96,12 +95,12 @@ FUNCLG/character/stats.py:108:0: W0105: String statement has no effect (pointles
 FUNCLG/utils/types.py:8:1: W0511: TODO: Turn constants into tuples that way the the str or int value can be used (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.27/10 (previous run: 9.29/10, -0.03)
+Your code has been rated at 9.30/10 (previous run: 9.27/10, +0.03)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 3.886s
+npx: installed 1 in 9.063s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -111,20 +110,20 @@ Assuming Python platform Linux
 Searching for source files
 Found 13 source files
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:39:45 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:38:45 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:40:46 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:39:46 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:41:45 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:40:45 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:42:46 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:41:46 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:43:47 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/armor.py:42:47 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
 5 errors, 0 warnings, 0 informations 
-Completed in 1.446sec
+Completed in 2.732sec

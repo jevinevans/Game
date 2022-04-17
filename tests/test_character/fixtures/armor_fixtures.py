@@ -1,6 +1,5 @@
 import pytest
 
-from FUNCLG.character import equipment
 from FUNCLG.character.armor import Armor
 from FUNCLG.character.equipment import BodyEquipment, WeaponEquipment
 from FUNCLG.utils.types import get_item_type, get_weapon_type

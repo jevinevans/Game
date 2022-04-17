@@ -4,7 +4,7 @@ Date: 7.15.2021
 Description: The is a unit test for the equipment class.
 """
 
-from unittest.mock import mock_open, patch
+from unittest.mock import patch
 
 import pytest
 
