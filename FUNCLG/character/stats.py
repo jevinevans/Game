@@ -110,7 +110,7 @@ This will probably take a armor and roles stat and aggregate the information for
 
 - may need an update function to get information from the other stats, this will either be on the stat or the character class, probably on the character class
 
-[Health (max), health (current), energy (max), energy (current), defense, attack, alive status]
+[Health (max), health (current), energy (max), energy (current), defense, attack, alive status,]
 
 - need to create a reset method to return the health and energy back to max
 """

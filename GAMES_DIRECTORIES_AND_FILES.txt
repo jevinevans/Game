@@ -1,75 +1,9 @@
 +==========================================+
-|	Total Directories: 30			|
-|	Files: 168				|
+|	Total Directories: 15			|
+|	Files: 113				|
 +==========================================+
 
 ./.coverage
-./CodeTests
-./CodeTests/Abilities
-./CodeTests/Abilities/Abilities_CodeTest_Log.md
-./CodeTests/Abilities/CodeTest_Abilities_1
-./CodeTests/Abilities/CodeTest_Abilities_1/CodeTest_Abilities.cpp
-./CodeTests/Abilities/CodeTest_Abilities_1/makefile
-./CodeTests/Abilities/CodeTest_Abilities_1/run.bat
-./CodeTests/Abilities/CodeTest_Abilities_2
-./CodeTests/Abilities/CodeTest_Abilities_2/CodeTest_Abilities.cpp
-./CodeTests/Abilities/CodeTest_Abilities_2/makefile
-./CodeTests/Abilities/CodeTest_Abilities_2/run.bat
-./CodeTests/Abilities/makefile
-./CodeTests/CodeTest_[Template]
-./CodeTests/CodeTest_[Template]/CodeTest_[Template].cpp
-./CodeTests/CodeTest_[Template]/Template_CodeTest_Log.md
-./CodeTests/CodeTest_[Template]/makefile
-./CodeTests/CodeTest_[Template]/run.bat
-./CodeTests/Functions
-./CodeTests/Functions/CodeTest_Functions.cpp
-./CodeTests/Functions/Equipment_Print_Results.txt
-./CodeTests/Functions/Functions_CodeTest_Log.md
-./CodeTests/Functions/Roles_Print_Results.txt
-./CodeTests/Functions/makefile
-./CodeTests/Functions/run.bat
-./CodeTests/Roles
-./CodeTests/Roles/CodeTest_Roles_1
-./CodeTests/Roles/CodeTest_Roles_1/Ability.txt
-./CodeTests/Roles/CodeTest_Roles_1/CodeTest_Roles.cpp
-./CodeTests/Roles/CodeTest_Roles_1/Fireblast.txt
-./CodeTests/Roles/CodeTest_Roles_1/Stab.txt
-./CodeTests/Roles/CodeTest_Roles_1/TestCase_Roles.txt
-./CodeTests/Roles/CodeTest_Roles_1/makefile
-./CodeTests/Roles/CodeTest_Roles_1/run.bat
-./CodeTests/Roles/CodeTest_Roles_2
-./CodeTests/Roles/CodeTest_Roles_2/CodeTest_Roles_2.cpp
-./CodeTests/Roles/CodeTest_Roles_2/makefile
-./CodeTests/Roles/CodeTest_Roles_2/run.bat
-./CodeTests/Roles/Roles_CodeTest_Log.md
-./CodeTests/Roles/makefile
-./CodeTests/Stats
-./CodeTests/Stats/CodeTest_Stats_1
-./CodeTests/Stats/CodeTest_Stats_1/CodeTest_Stats.cpp
-./CodeTests/Stats/CodeTest_Stats_1/makefile
-./CodeTests/Stats/CodeTest_Stats_1/run.bat
-./CodeTests/Stats/CodeTest_Stats_2
-./CodeTests/Stats/CodeTest_Stats_2/CodeTest_Stats_2.cpp
-./CodeTests/Stats/CodeTest_Stats_2/makefile
-./CodeTests/Stats/CodeTest_Stats_2/run.bat
-./CodeTests/Stats/Stats_CodeTest_Log.md
-./CodeTests/Stats/makefile
-./CodeTests/_Code_Results
-./CodeTests/_Code_Results/CodeTest_Abilities_1_Results.txt
-./CodeTests/_Code_Results/CodeTest_Abilities_2_FilePrint_Results.txt
-./CodeTests/_Code_Results/CodeTest_Abilities_2_Results.txt
-./CodeTests/_Code_Results/CodeTest_Armor_Results.txt
-./CodeTests/_Code_Results/CodeTest_Equipment_Results.txt
-./CodeTests/_Code_Results/CodeTest_Functions_Results.txt
-./CodeTests/_Code_Results/CodeTest_Roles_1_Results.txt
-./CodeTests/_Code_Results/CodeTest_Roles_2_Results.txt
-./CodeTests/_Code_Results/CodeTest_Stats_1_Results.txt
-./CodeTests/_Code_Results/CodeTest_Stats_2_FilePrint_Results.txt
-./CodeTests/_Code_Results/CodeTest_Stats_2_Results.txt
-./CodeTests/_TestFiles
-./CodeTests/_TestFiles/EquipmentTest.txt
-./CodeTests/_TestFiles/RolesTest.txt
-./CodeTests/makefile
 ./FUNCLG
 ./FUNCLG/__init__.py
 ./FUNCLG/__main__.py
@@ -77,6 +11,7 @@
 ./FUNCLG/character/__init__.py
 ./FUNCLG/character/abilities.py
 ./FUNCLG/character/armor.py
+./FUNCLG/character/character.py
 ./FUNCLG/character/equipment.py
 ./FUNCLG/character/modifiers.py
 ./FUNCLG/character/roles.py
@@ -87,12 +22,6 @@
 ./FUNCLG/utils/modifier_builder.py
 ./FUNCLG/utils/types.py
 ./GAMES_DIRECTORIES_AND_FILES.txt
-./Includes
-./Includes/Character.h
-./Includes/FUNCLG.cpp
-./Includes/Functions.cpp
-./Includes/Functions.h
-./Includes/Stats.h
 ./README.md
 ./Scan_Directories.py
 ./TEST_REPORT.txt
@@ -152,6 +81,7 @@
 ./codeQuality.sh
 ./docs
 ./docs/Basic Player Game Info.txt
+./docs/dev_configs.md
 ./logs
 ./logs/character
 ./logs/character/abilities.2022-03-23_19-35-17_686395.log
