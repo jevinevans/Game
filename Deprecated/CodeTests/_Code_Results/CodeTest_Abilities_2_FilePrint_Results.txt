@@ -1,4 +1,0 @@
-Strike,1,50;
-Cool Blast,0,75;
-Knifed,1,500;
-Dark Ligt,0,80;
