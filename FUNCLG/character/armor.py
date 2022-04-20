@@ -11,7 +11,7 @@ from loguru import logger
 from ..utils.types import ARMOR_TYPES, get_armor_type
 from .equipment import BodyEquipment, Equipment, WeaponEquipment
 
-logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
+# logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
 
 # TODO: Create Armor Stat

@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 from ..utils.types import DAMAGE_TYPES, get_ability_effect_type
 
-logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
+# logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
 
 
 class Abilities:

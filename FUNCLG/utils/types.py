@@ -5,8 +5,6 @@ Description: This defines lists and functions for certain constands
 """
 from typing import Tuple
 
-# TODO: Turn constants into tuples that way the the str or int value can be used
-
 # Item Types: 0 - Head, 1 - Chest, 2 - Back, 3 - Pants, 4 - Weapon
 ITEM_TYPES = ["Head", "Chest", "Back", "Pants", "Weapon"]
 
