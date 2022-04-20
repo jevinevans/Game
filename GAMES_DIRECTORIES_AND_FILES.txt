@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 15			|
-|	Files: 113				|
+|	Files: 114				|
 +==========================================+
 
 ./.coverage
@@ -84,6 +84,7 @@
 ./docs/dev_configs.md
 ./logs
 ./logs/character
+./logs/character.log
 ./logs/character/abilities.2022-03-23_19-35-17_686395.log
 ./logs/character/abilities.2022-03-29_10-44-39_981692.log
 ./logs/character/abilities.2022-04-01_20-19-27_987155.log

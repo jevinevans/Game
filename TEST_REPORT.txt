@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Apr 19 11:33:03 PDT 2022 
+Date: Wed Apr 20 11:38:11 PDT 2022 
 
 ---PYTEST---
 
@@ -21,37 +21,36 @@ Name                               Stmts   Miss  Cover   Missing
 ----------------------------------------------------------------
 FUNCLG/__init__.py                     0      0   100%
 FUNCLG/__main__.py                     0      0   100%
-FUNCLG/character/__init__.py           0      0   100%
-FUNCLG/character/abilities.py         31      0   100%
-FUNCLG/character/armor.py             96      0   100%
+FUNCLG/character/__init__.py           2      0   100%
+FUNCLG/character/abilities.py         30      0   100%
+FUNCLG/character/armor.py             95      0   100%
 FUNCLG/character/character.py          2      2     0%   7-9
-FUNCLG/character/equipment.py         70      0   100%
+FUNCLG/character/equipment.py         69      0   100%
 FUNCLG/character/modifiers.py         63      0   100%
-FUNCLG/character/roles.py             65      0   100%
+FUNCLG/character/roles.py             64      0   100%
 FUNCLG/character/stats.py             33     22    33%   27-34, 40, 43-44, 47-54, 59, 62-67
 FUNCLG/main.py                         0      0   100%
 FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
 FUNCLG/utils/types.py                 23      0   100%
 ----------------------------------------------------------------
-TOTAL                                383     24    94%
+TOTAL                                381     24    94%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 93.73%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 93.70%
 
-============================== 51 passed in 0.68s ==============================
+============================== 51 passed in 0.94s ==============================
 
 ---Code Quality Report---
 
 
 -----ISORT-----
 
+Fixing /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/FUNCLG/character/__init__.py
 
 -----BLACK-----
 
-reformatted FUNCLG/character/character.py
-
 All done! ✨ 🍰 ✨
-1 file reformatted, 13 files left unchanged.
+14 files left unchanged.
 
 -----BANDIT-----
 
@@ -62,6 +61,7 @@ All done! ✨ 🍰 ✨
 -----PYLINT-----
 
 ************* Module FUNCLG
+FUNCLG/__init__.py:1:1: W0511: TODO: set up all loggers https://github.com/Delgan/loguru/issues/25 (fixme)
 FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_case naming style (invalid-name)
 ************* Module FUNCLG.character.abilities
 FUNCLG/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
@@ -97,16 +97,16 @@ FUNCLG/character/stats.py:83:0: W0105: String statement has no effect (pointless
 FUNCLG/character/stats.py:91:0: W0105: String statement has no effect (pointless-string-statement)
 FUNCLG/character/stats.py:100:0: W0105: String statement has no effect (pointless-string-statement)
 FUNCLG/character/stats.py:108:0: W0105: String statement has no effect (pointless-string-statement)
-************* Module FUNCLG.utils.types
-FUNCLG/utils/types.py:8:1: W0511: TODO: Turn constants into tuples that way the the str or int value can be used (fixme)
+************* Module FUNCLG.character
+FUNCLG/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.25/10 (previous run: 9.30/10, -0.05)
+Your code has been rated at 9.22/10 (previous run: 9.25/10, -0.03)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 6.044s
+npx: installed 1 in 8.734s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -132,4 +132,4 @@ Found 14 source files
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
 5 errors, 0 warnings, 0 informations 
-Completed in 1.537sec
+Completed in 2.476sec
