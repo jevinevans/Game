@@ -14,11 +14,6 @@ from .equipment import BodyEquipment, Equipment, WeaponEquipment
 # logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
 
-# TODO: Create Armor Stat
-# - Create armor stat update function that will recal the whole thing instead of just removing one)
-# - Will be a sum of the equipment stats, may or may not display the name and stats
-
-
 class Armor:
     """
     Creates an armor object for a character

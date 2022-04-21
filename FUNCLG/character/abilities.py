@@ -59,5 +59,4 @@ class Abilities:
         """Returns a copy of the object"""
         return Abilities(self.name, self.damage_type, abs(self.effect), self.description)
 
-    # TODO: Define what happens when using a power. Damage and effect on which stat
     # def use()

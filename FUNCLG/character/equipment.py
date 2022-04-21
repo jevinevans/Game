@@ -17,9 +17,7 @@ from .modifiers import Modifier
 
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 
-# TODO: Create Equipment Stat
-# - May need to create a Equipment/Body/Weapon stat
-# - Remove damage and level because they will be a part of the equipment stat
+
 class Equipment:
     """
     Defines the equipmet class for the game. Equipment can be weapons or armor pieces.
@@ -43,7 +41,6 @@ class Equipment:
         # self.stats = #STAT Object
         logger.debug(f"Created Equipment: {name}")
 
-    # TODO: Change so that it returns the name values and not numbers
     def __str__(self) -> str:
         """
         Returns the name and level of the item
@@ -75,7 +72,6 @@ class Equipment:
     def get_item_description(self) -> str:
         return uTypes.get_item_description(self.item_type, self.armor_type)
 
-    # TODO: Look to see if this is the best way to copy an object and if there is a better way to send all of the attributes (it may be * or **)
     def copy(self) -> Self:
         """Copies the current object"""
         return Equipment(
@@ -86,7 +82,6 @@ class Equipment:
         )
 
 
-# TODO: WeaponEquipment: Define functions [details, export, getstats]
 class WeaponEquipment(Equipment):
     """
     Equipment Subclass for Weapons. Has a specific stat item and determines the type of weapon

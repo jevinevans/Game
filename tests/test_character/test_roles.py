@@ -102,15 +102,13 @@ def test_role_details_with_abilities(roles_detail_expectation_with_abilities, ma
     for indent in range(5):
         assert roles_detail_expectation_with_abilities[indent] == mage_test_role.details(indent)
 
-# def test_roles_duplicate_ability_assign(self):
-#     warrior = Roles(
-#         name="Warrior", armor_type=2, description="Warrior class", damage_types=["Physical"]
-#     )
+# def test_roles_duplicate_ability():
 #     rouge = Roles(
 #         name="Rouge", armor_type=0, description="Rouge class", damage_types=["Physical"]
 #     )
-#     abilities = self.create_abiities()
+#     ability = Abilities("T1", "Physical", 50, "T1 Strike")
 
-#     self.assertEqual(rouge.add_power(abilities["Physical"]), 0)
-#     self.assertEqual(warrior.add_power(abilities["Physical"]), 0)
-#     self.assertNotEqual(warrior.get_power(0), rouge.get_power(0))
+#     rouge.add_power(ability)
+#     rouge.add_power(ability)
+#     assert len(rouge.abilities) == 1
+    

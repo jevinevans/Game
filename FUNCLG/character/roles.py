@@ -39,13 +39,12 @@ class Roles:
             else "None"
         )
         self.abilities = self.validate_abilities(abilities) if abilities else []
-        # TODO: self.stats
+        # self.stats
         logger.info(f"Created Role: {name}")
 
     def __str__(self):
         return f"Class: {self.name} | Class Type(s): {', '.join(self.damage_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
 
-    # TODO: add check/validation for duplicates
     def add_power(self, ability: Abilities) -> int:
         if ability.damage_type in self.damage_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
