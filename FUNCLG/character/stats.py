@@ -10,61 +10,84 @@ from loguru import logger
 
 from .modifiers import Modifier
 
-# from typing_extensions import Self
-
 
 class Stats:
     """
     This class defines the basic stat class structure for all objects
     """
 
-    # TODO: Create a more abstract load based on STAT_TYPES
+    PRINT_IGNORES = ["mods"]
+
     def __init__(
         self,
-        attributes: Dict[str, int],
-        mods: Optional[List[Modifier]] = None,
+        attributes: Optional[Dict[str, int]] = None,
+        modifiers: Optional[List[Modifier]] = None,
     ):
-        for key, value in attributes.items():
-            setattr(self, key, value)
+        # Initializes level in case the call stat does not
+        self.level = 0
+
+        # Adds the individual stat
+        if attributes:
+            for key, value in attributes.items():
+                setattr(self, key, value)
 
         # Modifiers for changing stats
-        self.modifiers = {}
-        if mods:
-            for mod in mods:
-                self.modifiers[mod.name] = mod.get_mods()
+        self.mods = {}
+        if modifiers:
+            for mod in modifiers:
+                if self._validate_mod(mod):
+                    self.mods[mod.name] = mod.get_mods()
 
-    def add_modifier(self, name: str, mod: Modifier):
+    def _validate_mod(self, mod: Modifier):
+        """
+        Checks for duplicate mods being applied to stat
+        """
+        return not mod.name in self.mods
+
+    def add_mod(self, mod: Modifier):
         """
         This funciton modifies the base stats of a stat positively or negatively
         """
-        self.modifiers[name] = mod
+        if self._validate_mod(mod):
+            self.mods[mod.name] = mod.get_mods()
+        else:
+            logger.warning(f"Modifier: {mod.name} is not valid for this stat")
+            return
 
-    def remove_modifier(self, name: str):
-        if name in self.modifiers:
-            del self.modifiers[name]
+    def remove_mod(self, name: str):
+        if name in self.mods:
+            del self.mods[name]
+            return
+        logger.error(f"This stat does not have the '{name}' modifier.")
 
-    def get_stat(self, stat):
-        base = getattr(self, stat, 0)
+    # TODO: check for attribute in class first
+    def get_stat(self, stat: str):
+        base = getattr(self, stat, None)
+
+        if not base:
+            return base
+
         multiplier = 1
 
-        for _, mod in self.modifiers:
-            base += mod["adds"].get(stat, default=0)
-            multiplier += mod["mults"].get(stat, default=0)
+        for _, mod in self.mods.items():
+            base += mod["adds"].get(stat, 0)
+            multiplier += mod["mults"].get(stat, 0)
 
         return base * multiplier
 
     def get_stats(self):
         """Returns all user stats, process each stat the object has...?"""
-        # Override in sub class
-        pass
+        stats = {}
+        for attr in [attr for attr in self.__dict__ if attr not in Stats.PRINT_IGNORES]:
+            if attr == "level":
+                stats[attr] = self.level
+            else:
+                stats[attr] = self.get_stat(attr)
+        return stats
 
     def export(self) -> Dict[str, Any]:
         logger.info("Exporting Stats")
-        exporter = self.__dict__
-        for key, value in exporter.items():
-            if isinstance(value, Modifier):
-                exporter[key] = value.export()
-        return exporter
+        return self.__dict__
 
 
 # TODO: Consider if level/level up is a common function for all stats and can be added to base class
@@ -81,7 +104,7 @@ Stats [Health, Energy, Defense, Attack]
 
 # TODO: Create an abilities class
 """
-While mostly modifiers, this stat will have the cost of an ability 
+While mostly modifiers, this stat will have the cost of an ability
 Stats [Energy Cost]
 
 Need to add a function to get the modifiers that will take effect on usage

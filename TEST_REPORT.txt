@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Wed Apr 20 18:22:11 PDT 2022 
+Date: Wed Apr 27 22:23:25 PDT 2022 
 
 ---PYTEST---
 
@@ -8,13 +8,14 @@ Date: Wed Apr 20 18:22:11 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 51 items
+collected 62 items
 
-tests/test_character/test_abilities.py .......                           [ 13%]
-tests/test_character/test_armor.py ..........                            [ 33%]
-tests/test_character/test_equipment.py ..............                    [ 60%]
-tests/test_character/test_modifiers.py ........                          [ 76%]
-tests/test_character/test_roles.py ............                          [100%]
+tests/test_character/test_abilities.py .......                           [ 11%]
+tests/test_character/test_armor.py ..........                            [ 27%]
+tests/test_character/test_equipment.py ..............                    [ 50%]
+tests/test_character/test_modifiers.py ........                          [ 62%]
+tests/test_character/test_roles.py ............                          [ 82%]
+tests/test_character/test_stats.py ...........                           [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                               Stmts   Miss  Cover   Missing
@@ -24,21 +25,21 @@ FUNCLG/__main__.py                     0      0   100%
 FUNCLG/character/__init__.py           2      0   100%
 FUNCLG/character/abilities.py         30      0   100%
 FUNCLG/character/armor.py             95      0   100%
-FUNCLG/character/character.py          2      2     0%   7-9
+FUNCLG/character/character.py          0      0   100%
 FUNCLG/character/equipment.py         69      0   100%
 FUNCLG/character/modifiers.py         63      0   100%
 FUNCLG/character/roles.py             64      0   100%
-FUNCLG/character/stats.py             33     22    33%   27-34, 40, 43-44, 47-54, 59, 62-67
+FUNCLG/character/stats.py             47      0   100%
 FUNCLG/main.py                         0      0   100%
 FUNCLG/utils/__init__.py               0      0   100%
 FUNCLG/utils/modifier_builder.py       0      0   100%
 FUNCLG/utils/types.py                 23      0   100%
 ----------------------------------------------------------------
-TOTAL                                381     24    94%
+TOTAL                                393      0   100%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 93.70%
+Required test coverage of 100.0% reached. Total coverage: 100.00%
 
-============================== 51 passed in 0.99s ==============================
+============================== 62 passed in 1.27s ==============================
 
 ---Code Quality Report---
 
@@ -48,11 +49,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 93.70%
 
 -----BLACK-----
 
-reformatted FUNCLG/character/equipment.py
-reformatted FUNCLG/character/armor.py
-
 All done! ✨ 🍰 ✨
-2 files reformatted, 12 files left unchanged.
+14 files left unchanged.
 
 -----BANDIT-----
 
@@ -66,34 +64,29 @@ All done! ✨ 🍰 ✨
 FUNCLG/__init__.py:1:0: C0103: Module name "FUNCLG" doesn't conform to snake_case naming style (invalid-name)
 ************* Module FUNCLG.character.abilities
 FUNCLG/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
-************* Module FUNCLG.character.character
-FUNCLG/character/character.py:9:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/character.py:7:0: W0611: Unused logger imported from loguru (unused-import)
 ************* Module FUNCLG.character.stats
-FUNCLG/character/stats.py:84:66: C0303: Trailing whitespace (trailing-whitespace)
-FUNCLG/character/stats.py:21:5: W0511: TODO: Create a more abstract load based on STAT_TYPES (fixme)
-FUNCLG/character/stats.py:70:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
-FUNCLG/character/stats.py:74:1: W0511: TODO: Create an equipment class (fixme)
-FUNCLG/character/stats.py:82:1: W0511: TODO: Create an abilities class (fixme)
-FUNCLG/character/stats.py:90:1: W0511: TODO: Create an armor stat (fixme)
-FUNCLG/character/stats.py:99:1: W0511: TODO: Create a role stat class (fixme)
-FUNCLG/character/stats.py:107:1: W0511: TODO: Build Character stats (fixme)
-FUNCLG/character/stats.py:59:8: W0107: Unnecessary pass statement (unnecessary-pass)
-FUNCLG/character/stats.py:75:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:83:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:91:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:100:0: W0105: String statement has no effect (pointless-string-statement)
-FUNCLG/character/stats.py:108:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:63:5: W0511: TODO: check for attribute in class first (fixme)
+FUNCLG/character/stats.py:93:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
+FUNCLG/character/stats.py:97:1: W0511: TODO: Create an equipment class (fixme)
+FUNCLG/character/stats.py:105:1: W0511: TODO: Create an abilities class (fixme)
+FUNCLG/character/stats.py:113:1: W0511: TODO: Create an armor stat (fixme)
+FUNCLG/character/stats.py:122:1: W0511: TODO: Create a role stat class (fixme)
+FUNCLG/character/stats.py:130:1: W0511: TODO: Build Character stats (fixme)
+FUNCLG/character/stats.py:98:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:106:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:114:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
+FUNCLG/character/stats.py:131:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module FUNCLG.character
 FUNCLG/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.50/10 (previous run: 9.22/10, +0.29)
+Your code has been rated at 9.62/10 (previous run: 9.57/10, +0.05)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 19.82s
+npx: installed 1 in 6.357s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -119,4 +112,4 @@ Found 14 source files
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
 5 errors, 0 warnings, 0 informations 
-Completed in 2.393sec
+Completed in 1.978sec
