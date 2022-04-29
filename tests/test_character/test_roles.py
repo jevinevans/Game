@@ -4,8 +4,8 @@ from unittest.mock import patch
 
 import pytest
 
-from FUNCLG.character.abilities import Abilities
-from FUNCLG.character.roles import Roles
+from funclg.character.abilities import Abilities
+from funclg.character.roles import Roles
 
 from .fixtures.role_fixtures import (
     mage_export_expectation,

@@ -6,7 +6,7 @@ Last Update: 3.23.2022
 """
 import pytest
 
-from FUNCLG.character.modifiers import Modifier
+from funclg.character.modifiers import Modifier
 
 from .fixtures.modifier_fixtures import (
     add_mods,

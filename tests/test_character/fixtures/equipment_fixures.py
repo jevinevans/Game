@@ -4,8 +4,8 @@ Equipment Fixtures for testing
 
 import pytest
 
-from FUNCLG.character.equipment import BodyEquipment, WeaponEquipment
-from FUNCLG.utils.types import ARMOR_TYPES, ITEM_TYPES, MODIFIER_TYPES, WEAPON_TYPES
+from funclg.character.equipment import BodyEquipment, WeaponEquipment
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, MODIFIER_TYPES, WEAPON_TYPES
 
 
 @pytest.fixture

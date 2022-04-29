@@ -2,8 +2,8 @@ from ast import Mod
 from sre_parse import State
 import pytest
 
-from FUNCLG.character.stats import Stats
-from FUNCLG.character.modifiers import Modifier
+from funclg.character.stats import Stats
+from funclg.character.modifiers import Modifier
 
 @pytest.fixture
 def base_stat_no_mods():

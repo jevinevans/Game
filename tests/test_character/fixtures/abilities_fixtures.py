@@ -1,7 +1,7 @@
 import pytest
 
-from FUNCLG.character.abilities import Abilities
-from FUNCLG.utils.types import DAMAGE_TYPES
+from funclg.character.abilities import Abilities
+from funclg.utils.types import DAMAGE_TYPES
 
 
 @pytest.fixture

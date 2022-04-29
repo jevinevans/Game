@@ -6,9 +6,9 @@ Description: The is a unit test for the armor class and its interations with the
 
 import pytest
 
-from FUNCLG.character.armor import Armor
-from FUNCLG.character.equipment import BodyEquipment
-from FUNCLG.utils.types import ITEM_TYPES
+from funclg.character.armor import Armor
+from funclg.character.equipment import BodyEquipment
+from funclg.utils.types import ITEM_TYPES
 
 from .fixtures.armor_fixtures import (
     armor_details_expectations,

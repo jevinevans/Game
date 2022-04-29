@@ -1,7 +1,7 @@
 import pytest
 
-from FUNCLG.character.abilities import Abilities
-from FUNCLG.character.roles import Roles
+from funclg.character.abilities import Abilities
+from funclg.character.roles import Roles
 
 
 @pytest.fixture

@@ -8,9 +8,9 @@ from unittest.mock import patch
 
 import pytest
 
-from FUNCLG.character.equipment import BodyEquipment, Equipment, WeaponEquipment
-from FUNCLG.character.modifiers import Modifier
-from FUNCLG.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
+from funclg.character.equipment import BodyEquipment, Equipment, WeaponEquipment
+from funclg.character.modifiers import Modifier
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
 from .fixtures.equipment_fixures import (
     bodyequipment_all_items_mods,

@@ -6,8 +6,8 @@ Description: The is a unit test for the abilties class.
 
 from unittest.mock import patch
 
-from FUNCLG.character.abilities import Abilities
-from FUNCLG.utils.types import DAMAGE_TYPES
+from funclg.character.abilities import Abilities
+from funclg.utils.types import DAMAGE_TYPES
 
 from .fixtures.abilities_fixtures import (
     abilities_all_types,

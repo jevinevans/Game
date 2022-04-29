@@ -12,8 +12,8 @@ from unittest.mock import patch
 
 import pytest
 
-from FUNCLG.character.modifiers import Modifier
-from FUNCLG.character.stats import Stats
+from funclg.character.modifiers import Modifier
+from funclg.character.stats import Stats
 
 from .fixtures.stat_fixtures import (
     base_stat_no_mods,

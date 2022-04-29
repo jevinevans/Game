@@ -1,8 +1,8 @@
 import pytest
 
-from FUNCLG.character.armor import Armor
-from FUNCLG.character.equipment import BodyEquipment, WeaponEquipment
-from FUNCLG.utils.types import get_item_type, get_weapon_type
+from funclg.character.armor import Armor
+from funclg.character.equipment import BodyEquipment, WeaponEquipment
+from funclg.utils.types import get_item_type, get_weapon_type
 
 
 def gen_equipment(armor_type: int, weapon_type: int):

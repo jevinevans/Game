@@ -1,26 +1,9 @@
 +==========================================+
-|	Total Directories: 15			|
-|	Files: 91				|
+|	Total Directories: 14			|
+|	Files: 90				|
 +==========================================+
 
 ./.coverage
-./FUNCLG
-./FUNCLG/__init__.py
-./FUNCLG/__main__.py
-./FUNCLG/character
-./FUNCLG/character/__init__.py
-./FUNCLG/character/abilities.py
-./FUNCLG/character/armor.py
-./FUNCLG/character/character.py
-./FUNCLG/character/equipment.py
-./FUNCLG/character/modifiers.py
-./FUNCLG/character/roles.py
-./FUNCLG/character/stats.py
-./FUNCLG/main.py
-./FUNCLG/utils
-./FUNCLG/utils/__init__.py
-./FUNCLG/utils/modifier_builder.py
-./FUNCLG/utils/types.py
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./README.md
 ./Scan_Directories.py
@@ -82,10 +65,25 @@
 ./docs
 ./docs/Basic Player Game Info.txt
 ./docs/dev_configs.md
+./funclg
+./funclg/__init__.py
+./funclg/__main__.py
+./funclg/character
+./funclg/character/__init__.py
+./funclg/character/abilities.py
+./funclg/character/armor.py
+./funclg/character/character.py
+./funclg/character/equipment.py
+./funclg/character/modifiers.py
+./funclg/character/roles.py
+./funclg/character/stats.py
+./funclg/main.py
+./funclg/utils
+./funclg/utils/__init__.py
+./funclg/utils/modifier_builder.py
+./funclg/utils/types.py
 ./logs
-./logs/character
 ./logs/character.log
-./logs/character/character.log
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt
