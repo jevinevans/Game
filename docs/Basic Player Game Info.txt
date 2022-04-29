@@ -1,0 +1,30 @@
+Basic Player Game Info
+
+
+What 
+
+
+Classes:
+	Player	- Describes the basic information about the player
+				- include type of player (PC, NPC, Enemy,...)
+	Role(class) - defintion of character class (mage, warrior, rouge)
+			- may have to define each class as its own field or...
+			- include stats that will allow player attacts to be stronger or weaker than others
+			
+			
+			
+	Combat - is a queue of attacks that will keep track of player HP and MP and do the action t
+	
+	Weapons - list of weapons and types that are specific for each player class
+	Attacks - decide wheather to put in roles or individual class, defines the 	
+					moves that a class/character can make
+					
+	Map: will be the board that a player will play through that has battles and what not
+		Create a Map - Some spaces are safe and others have monster that may either need to be spawened based on roll type for moving or predefined in initial set up
+		Use a linked list  
+	Inventory - 
+		- Sorts 	- by item type
+					- by level
+					- by ability
+Main:
+
