@@ -1,0 +1,11 @@
+*.pyc
+.vscode
+bin/
+lib/
+lib64/
+pyvenv.cfg
+share/
+include/
+lib64
+.coverage
+logs/*

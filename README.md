@@ -8,7 +8,8 @@ This is a simple project to build a command line based game using c++ language t
 
 ## Recent Log File
 
-[Current Log](https://github.com/jevinevans/Game/blob/July2020/Logs/2021/Log_2021_04_19.md)
+[Current Log](https://github.com/jevinevans/Game/blob/PythonConversion/Logs/2021/Log_2021_11_28.md)
+
 
 ## File Descriptions
 
