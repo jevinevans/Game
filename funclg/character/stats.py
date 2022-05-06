@@ -17,18 +17,22 @@ class Stats:
     """
 
     PRINT_IGNORES = ["mods"]
+    BASE_ATTR = ["health", "energy", "attack", "defense"]
 
     def __init__(
         self,
-        attributes: Optional[Dict[str, int]] = None,
+        extra_attributes: Optional[Dict[str, int]] = None,
         modifiers: Optional[List[Modifier]] = None,
     ):
         # Initializes level in case the call stat does not
         self.level = 0
 
+        for attr in Stats.BASE_ATTR:
+            setattr(self, attr, 0)
+
         # Adds the individual stat
-        if attributes:
-            for key, value in attributes.items():
+        if extra_attributes:
+            for key, value in extra_attributes.items():
                 setattr(self, key, value)
 
         # Modifiers for changing stats
