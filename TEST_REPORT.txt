@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri Apr 29 11:07:19 PDT 2022 
+Date: Fri May  6 08:14:24 PDT 2022 
 
 ---PYTEST---
 
@@ -29,17 +29,17 @@ funclg/character/character.py          0      0   100%
 funclg/character/equipment.py         69      0   100%
 funclg/character/modifiers.py         63      0   100%
 funclg/character/roles.py             64      0   100%
-funclg/character/stats.py             47      0   100%
+funclg/character/stats.py             50      0   100%
 funclg/main.py                         0      0   100%
 funclg/utils/__init__.py               0      0   100%
 funclg/utils/modifier_builder.py       0      0   100%
 funclg/utils/types.py                 23      0   100%
 ----------------------------------------------------------------
-TOTAL                                393      0   100%
+TOTAL                                396      0   100%
 
 Required test coverage of 100.0% reached. Total coverage: 100.00%
 
-============================== 62 passed in 0.90s ==============================
+============================== 62 passed in 0.60s ==============================
 
 ---Code Quality Report---
 
@@ -63,18 +63,18 @@ All done! ✨ 🍰 ✨
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 ************* Module funclg.character.stats
-funclg/character/stats.py:63:5: W0511: TODO: check for attribute in class first (fixme)
-funclg/character/stats.py:93:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
-funclg/character/stats.py:97:1: W0511: TODO: Create an equipment class (fixme)
-funclg/character/stats.py:105:1: W0511: TODO: Create an abilities class (fixme)
-funclg/character/stats.py:113:1: W0511: TODO: Create an armor stat (fixme)
-funclg/character/stats.py:122:1: W0511: TODO: Create a role stat class (fixme)
-funclg/character/stats.py:130:1: W0511: TODO: Build Character stats (fixme)
-funclg/character/stats.py:98:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:106:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:114:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:131:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:67:5: W0511: TODO: check for attribute in class first (fixme)
+funclg/character/stats.py:97:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
+funclg/character/stats.py:101:1: W0511: TODO: Create an equipment class (fixme)
+funclg/character/stats.py:109:1: W0511: TODO: Create an abilities class (fixme)
+funclg/character/stats.py:117:1: W0511: TODO: Create an armor stat (fixme)
+funclg/character/stats.py:126:1: W0511: TODO: Create a role stat class (fixme)
+funclg/character/stats.py:134:1: W0511: TODO: Build Character stats (fixme)
+funclg/character/stats.py:102:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:110:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:118:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:127:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:135:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character
 funclg/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
@@ -84,7 +84,7 @@ Your code has been rated at 9.65/10 (previous run: 9.65/10, +0.00)
 
 -----PYRIGHT-----
 
-npx: installed 1 in 4.691s
+npx: installed 1 in 4.004s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -110,4 +110,4 @@ Found 14 source files
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
 5 errors, 0 warnings, 0 informations 
-Completed in 1.732sec
+Completed in 1.434sec
