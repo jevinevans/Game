@@ -95,7 +95,7 @@ def test_base_stat_get_stat_failure(base_stat_with_mods):
     assert base_stat_with_mods.get_stat("karma") == None
 
 def test_base_stat_get_stats(base_stat_with_mods):
-    assert base_stat_with_mods.get_stats() == {"level":30, "attack":5, "health":15, "energy":55}
+    assert base_stat_with_mods.get_stats() == {"level":30, "attack":5, "health":15, "energy":55, "defense":0}
 
 def test_base_stat_export(base_stat_with_mods, base_stat_export_expectation):
     assert base_stat_with_mods.export() == base_stat_export_expectation

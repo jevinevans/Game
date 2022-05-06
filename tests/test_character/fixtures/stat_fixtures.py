@@ -24,6 +24,7 @@ def base_stat_export_expectation():
         "attack":4,
         "health":10,
         "energy":5,
+        "defense":0,
         "mods":{
             "Mod_1":{
                 "adds":{"energy":50},
