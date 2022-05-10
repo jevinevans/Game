@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 14			|
-|	Files: 90				|
+|	Total Directories: 15			|
+|	Files: 91				|
 +==========================================+
 
 ./.coverage
@@ -83,7 +83,9 @@
 ./funclg/utils/modifier_builder.py
 ./funclg/utils/types.py
 ./logs
+./logs/character
 ./logs/character.log
+./logs/character/character.log
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt

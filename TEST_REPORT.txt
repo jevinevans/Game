@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri May  6 08:14:24 PDT 2022 
+Date: Mon May  9 21:24:23 PDT 2022 
 
 ---PYTEST---
 
@@ -8,14 +8,65 @@ Date: Fri May  6 08:14:24 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 62 items
+collected 63 items
 
 tests/test_character/test_abilities.py .......                           [ 11%]
-tests/test_character/test_armor.py ..........                            [ 27%]
-tests/test_character/test_equipment.py ..............                    [ 50%]
-tests/test_character/test_modifiers.py ........                          [ 62%]
+tests/test_character/test_armor.py .......F..                            [ 26%]
+tests/test_character/test_equipment.py ...............                   [ 50%]
+tests/test_character/test_modifiers.py ........                          [ 63%]
 tests/test_character/test_roles.py ............                          [ 82%]
 tests/test_character/test_stats.py ...........                           [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_armor_expoert ______________________________
+
+equipment_only = {'Back': <funclg.character.equipment.BodyEquipment object at 0x7f30b4097130>, 'Chest': <funclg.character.equipment.Bod...Equipment object at 0x7f30b4097250>, 'Pants': <funclg.character.equipment.BodyEquipment object at 0x7f30b3fd2970>, ...}
+armor_export_expectations = {'armor_type': 0, 'back': {'armor_type': 0, 'description': 'Test Back', 'item_type': 2, 'mods': {'adds': {'health': 50...n': 'Test Head', 'item_type': 0, 'mods': {'adds': {'health': 50}, 'mults': {'energy': 0.1}, 'name': 'Head'}, ...}, ...}
+
+    def test_armor_expoert(equipment_only, armor_export_expectations):
+        armor = Armor(0)
+        for item in equipment_only.values():
+            armor.equip(item)
+    
+>       assert armor.export() == armor_export_expectations
+E       AssertionError: assert {'armor_type'...'}, ...}, ...} == {'armor_type'...'}, ...}, ...}
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'weapon': {'armor_type': 0, 'description': 'Test Weapon', 'item_type': 4, 'mod': {'adds': {'attack': 1, 'energy': 1}, 'mults': {}, 'name': 'Weapon: Sword'}, ...}} != {'weapon': {'armor_type': 0, 'description': 'Test Weapon', 'item_type': 4, 'name': 'Weapon: Sword', ...}}
+E         {'back': {'armor_type': 0, 'description': 'Test Back', 'item_type': 2, 'mod': {'adds': {'health': 50}, 'mults': {'energy': 0.1}, 'name': 'Back'}, ...}} != {'back': {'armor_type': 0, 'description': 'Test Back', 'item_type': 2, 'mods': {'adds': {'...
+E         
+E         ...Full output truncated (5 lines hidden), use '-vv' to show
+
+tests/test_character/test_armor.py:107: AssertionError
+---------------------------- Captured stderr setup -----------------------------
+2022-05-09 21:24:24.958 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Head
+2022-05-09 21:24:24.959 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Chest
+2022-05-09 21:24:24.959 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Back
+2022-05-09 21:24:24.959 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Pants
+2022-05-09 21:24:24.959 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Weapon: Sword
+----------------------------- Captured stdout call -----------------------------
+Light Armor: <H:1, C:0, B:0, P:0, W:0> Head [0 0]
+Light Armor: <H:1, C:1, B:0, P:0, W:0> Chest [0 1]
+Light Armor: <H:1, C:1, B:1, P:0, W:0> Back [0 2]
+Light Armor: <H:1, C:1, B:1, P:1, W:0> Pants [0 3]
+Light Armor: <H:1, C:1, B:1, P:1, W:1> Weapon: Sword [0 4]
+----------------------------- Captured stderr call -----------------------------
+2022-05-09 21:24:24.961 | WARNING  | funclg.character.armor:validate_equipment:47 - None incompatable with this armor type.
+2022-05-09 21:24:24.961 | WARNING  | funclg.character.armor:validate_equipment:47 - None incompatable with this armor type.
+2022-05-09 21:24:24.961 | WARNING  | funclg.character.armor:validate_equipment:47 - None incompatable with this armor type.
+2022-05-09 21:24:24.961 | WARNING  | funclg.character.armor:validate_equipment:47 - None incompatable with this armor type.
+2022-05-09 21:24:24.961 | WARNING  | funclg.character.armor:validate_equipment:47 - None incompatable with this armor type.
+2022-05-09 21:24:24.962 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Head
+2022-05-09 21:24:24.962 | INFO     | funclg.character.armor:_equip_head:63 - Equipped Head [0 0] to armor
+2022-05-09 21:24:24.962 | INFO     | funclg.character.armor:equip:85 - Equipped Head to Head
+2022-05-09 21:24:24.962 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Chest
+2022-05-09 21:24:24.962 | INFO     | funclg.character.armor:equip:85 - Equipped Chest to Chest
+2022-05-09 21:24:24.963 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Back
+2022-05-09 21:24:24.963 | INFO     | funclg.character.armor:equip:85 - Equipped Back to Back
+2022-05-09 21:24:24.963 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Pants
+2022-05-09 21:24:24.963 | INFO     | funclg.character.armor:equip:85 - Equipped Pants to Pants
+2022-05-09 21:24:24.964 | DEBUG    | funclg.character.equipment:__init__:43 - Created Equipment: Weapon: Sword
+2022-05-09 21:24:24.964 | INFO     | funclg.character.armor:equip:85 - Equipped Weapon: Sword to Weapon
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                               Stmts   Miss  Cover   Missing
@@ -38,8 +89,7 @@ funclg/utils/types.py                 23      0   100%
 TOTAL                                396      0   100%
 
 Required test coverage of 100.0% reached. Total coverage: 100.00%
-
-============================== 62 passed in 0.60s ==============================
+========================= 1 failed, 62 passed in 0.69s =========================
 
 ---Code Quality Report---
 
@@ -62,29 +112,28 @@ All done! ✨ 🍰 ✨
 
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
+************* Module funclg.character.equipment
+funclg/character/equipment.py:123:9: W0511: TODO: validate weapon type (fixme)
 ************* Module funclg.character.stats
-funclg/character/stats.py:67:5: W0511: TODO: check for attribute in class first (fixme)
-funclg/character/stats.py:97:1: W0511: TODO: Consider if level/level up is a common function for all stats and can be added to base class (fixme)
-funclg/character/stats.py:101:1: W0511: TODO: Create an equipment class (fixme)
-funclg/character/stats.py:109:1: W0511: TODO: Create an abilities class (fixme)
-funclg/character/stats.py:117:1: W0511: TODO: Create an armor stat (fixme)
-funclg/character/stats.py:126:1: W0511: TODO: Create a role stat class (fixme)
-funclg/character/stats.py:134:1: W0511: TODO: Build Character stats (fixme)
-funclg/character/stats.py:102:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:110:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:118:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:127:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:135:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:70:5: W0511: TODO: check for attribute in class first (fixme)
+funclg/character/stats.py:102:1: W0511: TODO: Create an abilities class (fixme)
+funclg/character/stats.py:110:1: W0511: TODO: Create an armor stat (fixme)
+funclg/character/stats.py:119:1: W0511: TODO: Create a role stat class (fixme)
+funclg/character/stats.py:127:1: W0511: TODO: Build Character stats (fixme)
+funclg/character/stats.py:103:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:111:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:120:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:128:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character
 funclg/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.65/10 (previous run: 9.65/10, +0.00)
+Your code has been rated at 9.70/10 (previous run: 9.52/10, +0.18)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 4.004s
+npx: installed 1 in 4.672s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -109,5 +158,8 @@ Found 14 source files
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py:37:47 - error: Argument of type "Equipment | None" cannot be assigned to parameter "item" of type "Equipment" in function "validate_equipment"
     Type "Equipment | None" cannot be assigned to type "Equipment"
       Type "None" cannot be assigned to type "Equipment" (reportGeneralTypeIssues)
-5 errors, 0 warnings, 0 informations 
-Completed in 1.434sec
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py:113:53 - error: Argument of type "dict[str, int]" cannot be assigned to parameter "mods" of type "Dict[str, Modifier]" in function "add_mods" (reportGeneralTypeIssues)
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py:164:51 - error: Argument of type "dict[str, int]" cannot be assigned to parameter "mods" of type "Dict[str, Modifier]" in function "add_mods" (reportGeneralTypeIssues)
+7 errors, 0 warnings, 0 informations 
+Completed in 1.609sec

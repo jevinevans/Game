@@ -21,18 +21,21 @@ class Stats:
 
     def __init__(
         self,
-        extra_attributes: Optional[Dict[str, int]] = None,
+        attributes: Optional[Dict[str, int]] = None,
         modifiers: Optional[List[Modifier]] = None,
     ):
+        """
+        Creates a stat object, if no attributes provided then the BASE_ATTRs are set to 50
+        """
         # Initializes level in case the call stat does not
         self.level = 0
 
         for attr in Stats.BASE_ATTR:
-            setattr(self, attr, 0)
+            setattr(self, attr, 1)
 
         # Adds the individual stat
-        if extra_attributes:
-            for key, value in extra_attributes.items():
+        if attributes:
+            for key, value in attributes.items():
                 setattr(self, key, value)
 
         # Modifiers for changing stats
@@ -93,17 +96,7 @@ class Stats:
         logger.info("Exporting Stats")
         return self.__dict__
 
-
-# TODO: Consider if level/level up is a common function for all stats and can be added to base class
-
-# For each subclass define a set of stats and if no information is passed in just initiate to a base value
-
-# TODO: Create an equipment class
-"""
-This class will have the stats for piece of equipment
-
-Stats [Health, Energy, Defense, Attack]
-"""
+    # def level_up(self):
 
 
 # TODO: Create an abilities class
