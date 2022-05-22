@@ -120,8 +120,11 @@ class WeaponEquipment(Equipment):
             modifier=weapon_mod,
         )
 
-        # TODO: validate weapon type
-        self.weapon_type = weapon_type
+        self.weapon_type = self._validate_weapon_type(weapon_type)
+
+    @staticmethod
+    def _validate_weapon_type(weapon_type: int):
+        return weapon_type if abs(weapon_type) < len(uTypes.WEAPON_TYPES) else -1
 
     def get_weapon_type(self) -> str:
         return uTypes.get_weapon_type(self.weapon_type)
