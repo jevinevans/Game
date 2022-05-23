@@ -23,15 +23,17 @@ class Stats:
         self,
         attributes: Optional[Dict[str, int]] = None,
         modifiers: Optional[List[Modifier]] = None,
+        default: Optional[int] = 0
+        # TODO: Consider setting defualt value to None, and create filters to only show attributes with values to make this more adaptable for Roles Class, that way they onl
     ):
         """
-        Creates a stat object, if no attributes provided then the BASE_ATTRs are set to 50
+        Creates a stat object, if no attributes provided then the BASE_ATTRs are set to a default value
         """
         # Initializes level in case the call stat does not
         self.level = 0
 
         for attr in Stats.BASE_ATTR:
-            setattr(self, attr, 1)
+            setattr(self, attr, default)
 
         # Adds the individual stat
         if attributes:
@@ -44,6 +46,20 @@ class Stats:
             for mod in modifiers:
                 if self._validate_mod(mod):
                     self.mods[mod.name] = mod.get_mods()
+
+    def __str__(self):
+        return self.details()
+
+    def details(self, indent:int = 0):
+        stats = f"\n{' '*indent} Stats \n{' '*indent}"
+        stats += "-"*7
+        stats += f"\n{' '*indent}Level: {self.level}"
+        ignores = Stats.PRINT_IGNORES
+        ignores.append("level")
+        for attr in [attr for attr in self.__dict__ if attr not in ignores]:
+            if (value:= self.get_stat(attr)) is not None:
+                stats += f"\n{' '*indent}{attr.capitalize()}: {value}"
+        return stats
 
     def _validate_mod(self, mod: Modifier):
         """
@@ -80,16 +96,15 @@ class Stats:
             base += mod["adds"].get(stat, 0)
             multiplier += mod["mults"].get(stat, 0)
 
-        return base * multiplier
+        return round(base * multiplier, 2)
+        # TODO: Should this round down or round up???
 
     def get_stats(self):
         """Returns all user stats, process each stat the object has...?"""
         stats = {}
         for attr in [attr for attr in self.__dict__ if attr not in Stats.PRINT_IGNORES]:
-            if attr == "level":
-                stats[attr] = self.level
-            else:
-                stats[attr] = self.get_stat(attr)
+            stats[attr] = self.get_stat(attr)
+        stats["level"] = self.level
         return stats
 
     def export(self) -> Dict[str, Any]:
@@ -98,23 +113,6 @@ class Stats:
 
     # def level_up(self):
 
-
-# TODO: Create an abilities class
-"""
-While mostly modifiers, this stat will have the cost of an ability
-Stats [Energy Cost]
-
-Need to add a function to get the modifiers that will take effect on usage
-"""
-
-# TODO: Create an armor stat
-"""
-The armor stat subclass will have a slot for each individual weapon slot and aggregate those stats so that it is easier changed. In the armor class on equip and dequip the stats can be updated.
-
-[Health, Energy, Defense, Attack]
-
-The armor may get a base stat possibly???
-"""
 
 # TODO: Create a role stat class
 """
