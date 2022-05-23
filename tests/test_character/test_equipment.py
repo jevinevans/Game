@@ -53,13 +53,19 @@ def test_equipment_print_to_file(m_dump, m_open, bodyequipment_all_types):
 
 
 def test_equipment_export():
-    item = Equipment(name="Export Test", modifier={"adds":{"health":1}},description="Export Test Description", item_type=0, armor_type=0)
+    item = Equipment(
+        name="Export Test",
+        modifier={"adds": {"health": 1}},
+        description="Export Test Description",
+        item_type=0,
+        armor_type=0,
+    )
     assert item.export() == {
         "name": "Export Test",
         "description": "Export Test Description",
         "item_type": 0,
         "armor_type": 0,
-        "mod":{"adds":{"health":1}}
+        "mod": {"adds": {"health": 1}},
     }
 
 
@@ -97,7 +103,7 @@ def test_bodyequipment_init(bodyequipment_mods):
     # Test Body Equipment
     body = BodyEquipment("Init Test", None, "Testing Initialization", 0, 0)
     assert body.mod.name == "Init Test"
-    assert body.mod.adds == {"defense":1, "health":1}
+    assert body.mod.adds == {"defense": 1, "health": 1}
     assert body.mod.mults == {}
 
     # Test Modded Equipment
@@ -151,7 +157,13 @@ def test_weaponequipment_init(weaponequipment_all_types, weaponequipment_mods):
     for weapon in weaponequipment_all_types.values():
         assert weapon.get_weapon_type() in WEAPON_TYPES
 
-    mod_weapon = WeaponEquipment(name="Init Mod Test", modifiers=weaponequipment_mods["Sword_mods"], description="Testing Mod Weapon Init", weapon_type=0, armor_type=0)
+    mod_weapon = WeaponEquipment(
+        name="Init Mod Test",
+        modifiers=weaponequipment_mods["Sword_mods"],
+        description="Testing Mod Weapon Init",
+        weapon_type=0,
+        armor_type=0,
+    )
     assert mod_weapon.mod.name == "Init Mod Test"
     assert mod_weapon.mod.adds == weaponequipment_mods["Sword_mods"]["adds"]
     assert mod_weapon.mod.mults == weaponequipment_mods["Sword_mods"]["mults"]
@@ -160,6 +172,7 @@ def test_weaponequipment_init(weaponequipment_all_types, weaponequipment_mods):
 def test_weaponequipment_get_mods(weaponequipment_mods, weaponequipment_all_items_mods):
     for key, weapon in weaponequipment_all_items_mods.items():
         assert weaponequipment_mods[key] == weapon.get_mods()
+
 
 def test_weaponequipment_copy(weaponequipment_all_types):
     first_key = list(weaponequipment_all_types.keys())[0]

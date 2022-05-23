@@ -12,7 +12,7 @@ from .fixtures.role_fixtures import (
     mage_str_expectation,
     mage_test_role,
     roles_detail_expectation_with_abilities,
-    roles_detail_expectation_no_abilities
+    roles_detail_expectation_no_abilities,
 )
 
 
@@ -95,12 +95,19 @@ def test_role_remove_power_invalid(mage_test_role):
 
 
 def test_role_details_no_abilities(roles_detail_expectation_no_abilities):
-    mage = Roles("Mage Class", "Test Mage Class", 1, ["Magic", "Healing", "Buff", "Debuff"],)
+    mage = Roles(
+        "Mage Class",
+        "Test Mage Class",
+        1,
+        ["Magic", "Healing", "Buff", "Debuff"],
+    )
     assert roles_detail_expectation_no_abilities == mage.details()
+
 
 def test_role_details_with_abilities(roles_detail_expectation_with_abilities, mage_test_role):
     for indent in range(5):
         assert roles_detail_expectation_with_abilities[indent] == mage_test_role.details(indent)
+
 
 # def test_roles_duplicate_ability():
 #     rouge = Roles(
@@ -111,4 +118,3 @@ def test_role_details_with_abilities(roles_detail_expectation_with_abilities, ma
 #     rouge.add_power(ability)
 #     rouge.add_power(ability)
 #     assert len(rouge.abilities) == 1
-    

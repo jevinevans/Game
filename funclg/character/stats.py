@@ -21,10 +21,9 @@ class Stats:
 
     def __init__(
         self,
-        attributes: Optional[Dict[str, int]] = None,
+        attributes: Optional[Dict[str, Any]] = None,
         modifiers: Optional[List[Modifier]] = None,
-        default: Optional[int] = 0
-        # TODO: Consider setting defualt value to None, and create filters to only show attributes with values to make this more adaptable for Roles Class, that way they onl
+        default: Optional[int] = 0,
     ):
         """
         Creates a stat object, if no attributes provided then the BASE_ATTRs are set to a default value
@@ -50,14 +49,14 @@ class Stats:
     def __str__(self):
         return self.details()
 
-    def details(self, indent:int = 0):
+    def details(self, indent: int = 0):
         stats = f"\n{' '*indent} Stats \n{' '*indent}"
-        stats += "-"*7
+        stats += "-" * 7
         stats += f"\n{' '*indent}Level: {self.level}"
         ignores = Stats.PRINT_IGNORES
         ignores.append("level")
         for attr in [attr for attr in self.__dict__ if attr not in ignores]:
-            if (value:= self.get_stat(attr)) is not None:
+            if (value := self.get_stat(attr)) is not None:
                 stats += f"\n{' '*indent}{attr.capitalize()}: {value}"
         return stats
 
@@ -97,7 +96,6 @@ class Stats:
             multiplier += mod["mults"].get(stat, 0)
 
         return round(base * multiplier, 2)
-        # TODO: Should this round down or round up???
 
     def get_stats(self):
         """Returns all user stats, process each stat the object has...?"""

@@ -99,7 +99,15 @@ def armor_details_expectations():
 {' '*(indent+2)}Chest: Chest [0 1]
 {' '*(indent+2)}Back: Back [0 2]
 {' '*(indent+2)}Pants: Pants [0 3]
-{' '*(indent+2)}Weapon: Weapon: Knife [0 4]"""
+{' '*(indent+2)}Weapon: Weapon: Knife [0 4]
+
+{' '*(indent+2)} Stats 
+{' '*(indent+2)}-------
+{' '*(indent+2)}Level: None
+{' '*(indent+2)}Health: 210
+{' '*(indent+2)}Energy: 15.4
+{' '*(indent+2)}Attack: 11
+{' '*(indent+2)}Defense: 10"""
         expectations.append(base)
     return expectations
 
@@ -113,7 +121,7 @@ def armor_export_expectations():
             "description": "Test Head",
             "item_type": 0,
             "armor_type": 0,
-            "mods": {
+            "mod": {
                 "name": "Head",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -124,7 +132,7 @@ def armor_export_expectations():
             "description": "Test Chest",
             "item_type": 1,
             "armor_type": 0,
-            "mods": {
+            "mod": {
                 "name": "Chest",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -135,7 +143,7 @@ def armor_export_expectations():
             "description": "Test Back",
             "item_type": 2,
             "armor_type": 0,
-            "mods": {
+            "mod": {
                 "name": "Back",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -146,7 +154,7 @@ def armor_export_expectations():
             "description": "Test Pants",
             "item_type": 3,
             "armor_type": 0,
-            "mods": {
+            "mod": {
                 "name": "Pants",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -158,5 +166,24 @@ def armor_export_expectations():
             "item_type": 4,
             "weapon_type": 0,
             "armor_type": 0,
+            "mod": {
+                "name": "Weapon: Sword",
+                "adds": {"attack": 1, "energy": 1},
+                "mults": {},
+            },
+        },
+        "stat": {
+            "attack": 10,
+            "defense": 10,
+            "energy": 10,
+            "health": 10,
+            "level": None,
+            "mods": {
+                "Back": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Chest": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Head": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Pants": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Weapon: Sword": {"adds": {"attack": 1, "energy": 1}, "mults": {}},
+            },
         },
     }

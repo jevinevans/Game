@@ -69,6 +69,18 @@ def test_armor_equipping(equipment_only):
         item = item.lower()
         assert getattr(armor, item, False)
 
+def test_armor_equipping_error(equipment_only):
+    armor = Armor(1)
+
+    for item in equipment_only.values():
+        armor.equip(item)
+
+    assert armor.head == None
+    assert armor.chest == None
+    assert armor.back == None
+    assert armor.pants == None
+    assert armor.weapon == None
+
 
 def test_armor_dequipping(light_armor_knife):
     for item_type in ITEM_TYPES:
@@ -99,11 +111,10 @@ def test_armor_get_equipment(equipment_only):
         assert items[0].item_type == items[1].item_type
 
 
-def test_armor_expoert(equipment_only, armor_export_expectations):
+def test_armor_export(equipment_only, armor_export_expectations):
     armor = Armor(0)
     for item in equipment_only.values():
         armor.equip(item)
-
     assert armor.export() == armor_export_expectations
 
 

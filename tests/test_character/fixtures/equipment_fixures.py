@@ -36,6 +36,7 @@ def bodyequipment_mods():
         }
     return item_mods
 
+
 @pytest.fixture
 def bodyequipment_all_items_mods(bodyequipment_mods):
     equipment = {}
@@ -62,6 +63,7 @@ def weaponequipment_mods():
         }
     return item_mods
 
+
 @pytest.fixture
 def weaponequipment_all_items_mods(weaponequipment_mods):
     equipment = {}
@@ -74,6 +76,7 @@ def weaponequipment_all_items_mods(weaponequipment_mods):
             modifiers=weaponequipment_mods[weapon_type + "_mods"],
         )
     return equipment
+
 
 @pytest.fixture
 def weaponequipment_all_types():
