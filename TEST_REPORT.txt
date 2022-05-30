@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun May 22 21:05:29 PDT 2022 
+Date: Sun May 29 21:31:38 PDT 2022 
 
 ---PYTEST---
 
@@ -39,7 +39,7 @@ TOTAL                                429      0   100%
 
 Required test coverage of 100.0% reached. Total coverage: 100.00%
 
-============================== 65 passed in 0.96s ==============================
+============================== 65 passed in 0.74s ==============================
 
 ---Code Quality Report---
 
@@ -62,6 +62,8 @@ All done! ✨ 🍰 ✨
 
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
+************* Module funclg.character.modifiers
+funclg/character/modifiers.py:10:0: W0611: Unused Self imported from typing_extensions (unused-import)
 ************* Module funclg.character.stats
 funclg/character/stats.py:85:5: W0511: TODO: check for attribute in class first (fixme)
 funclg/character/stats.py:115:1: W0511: TODO: Create a role stat class (fixme)
@@ -72,12 +74,12 @@ funclg/character/stats.py:124:0: W0105: String statement has no effect (pointles
 funclg/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.84/10 (previous run: 9.84/10, +0.00)
+Your code has been rated at 9.81/10 (previous run: 9.84/10, -0.02)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 5.954s
+npx: installed 1 in 5.657s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -86,8 +88,5 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 14 source files
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py:113:53 - error: Argument of type "dict[str, int]" cannot be assigned to parameter "mods" of type "Dict[str, Modifier]" in function "add_mods" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py:167:51 - error: Argument of type "dict[str, int]" cannot be assigned to parameter "mods" of type "Dict[str, Modifier]" in function "add_mods" (reportGeneralTypeIssues)
-2 errors, 0 warnings, 0 informations 
-Completed in 2.106sec
+0 errors, 0 warnings, 0 informations 
+Completed in 1.743sec

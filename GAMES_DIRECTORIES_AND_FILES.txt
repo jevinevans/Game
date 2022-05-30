@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 15			|
-|	Files: 91				|
+|	Files: 92				|
 +==========================================+
 
 ./.coverage
@@ -61,6 +61,7 @@
 ./changelogs/2022/Log_2022_01_08.md
 ./changelogs/2022/Log_2022_02_06.md
 ./changelogs/2022/Log_2022_03_23.md
+./changelogs/2022/Log_2022_05_29.md
 ./codeQuality.sh
 ./docs
 ./docs/Basic Player Game Info.txt

@@ -7,8 +7,6 @@ Description: This defines the modifiers object that will be used for all stats
 from typing import Any, Dict, Optional, Union
 
 # from loguru import logger
-from typing_extensions import Self
-
 from ..utils.types import MODIFIER_TYPES
 
 
@@ -70,7 +68,7 @@ class Modifier:
         m_set = getattr(self, m_type)
         m_set[stat] = effect
 
-    def add_mods(self, m_type: str, mods: Dict[str, Self]):
+    def add_mods(self, m_type: str, mods: Dict[str, int]):
         if m_type in self.M_TYPES:
             for stat, effect in self._verify_mods(mods).items():
                 self._add_mod(m_type=m_type, stat=stat, effect=effect)
