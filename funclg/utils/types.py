@@ -26,7 +26,7 @@ DAMAGE_TYPES = {
 
 
 # Contains all valid stat types that a modifier can affect
-MODIFIER_TYPES = ["health", "energy", "attack", "defense", "cost"]
+MODIFIER_TYPES = ["health", "energy", "attack", "defense"]
 
 
 def get_ability_effect_type(a_type: str) -> Tuple[str, int]:

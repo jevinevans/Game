@@ -86,30 +86,28 @@ class Modifier:
         return self.__dict__.copy()
 
     @staticmethod
-    def _friendly_read_mod(effect: Union[int, float], percentage: bool = False, indent: int = 0):
+    def _friendly_read_mod(effect: Union[int, float], percentage: bool = False):
         friendly = f"{effect*100}%" if percentage else str(effect)
         if effect > 0:
             friendly = "+" + friendly
-        return " " * indent + friendly
+        return " " + friendly
 
     def _friendly_read(self, indent: int = 0):
         stats = {}
 
         if self.adds:
             for stat, effect in self.adds.items():
-                stats.setdefault(stat, []).append(
-                    self._friendly_read_mod(effect, indent=indent + 2)
-                )
+                stats.setdefault(stat, []).append(self._friendly_read_mod(effect))
         if self.mults:
             for stat, effect in self.mults.items():
-                stats.setdefault(stat, []).append(
-                    self._friendly_read_mod(effect, percentage=True, indent=indent + 2)
-                )
+                stats.setdefault(stat, []).append(self._friendly_read_mod(effect, percentage=True))
 
         string = ""
         for stat, vals in stats.items():
-            string += " " * indent + str(stat).capitalize() + "\n"
+            string += " " * indent + str(stat).capitalize() + ":"
             for val in vals:
-                string += val + "\n"
+                string += val + ","
+            if string.endswith(","):
+                string = string[:-1]
             string += "\n"
         return string

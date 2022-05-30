@@ -146,11 +146,13 @@ class Armor:
     def details(self, indent: int = 0) -> str:
         title = f" Armor ({get_armor_type(self.armor_type)}) "
         desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*(len(title)+2)}"
-        desc += f"\n{' '*(indent+2)}Head: {self.head.__str__()}"
-        desc += f"\n{' '*(indent+2)}Chest: {self.chest.__str__()}"
-        desc += f"\n{' '*(indent+2)}Back: {self.back.__str__()}"
-        desc += f"\n{' '*(indent+2)}Pants: {self.pants.__str__()}"
-        desc += f"\n{' '*(indent+2)}Weapon: {self.weapon.__str__()}"
+        desc += f"\n{' '*(indent+2)}Head: {self.head.details(indent+2) if self.head else None}"
+        desc += f"\n{' '*(indent+2)}Chest: {self.chest.details(indent+2) if self.chest else None}"
+        desc += f"\n{' '*(indent+2)}Back: {self.back.details(indent+2) if self.back else None}"
+        desc += f"\n{' '*(indent+2)}Pants: {self.pants.details(indent+2) if self.pants else None}"
+        desc += (
+            f"\n{' '*(indent+2)}Weapon: {self.weapon.details(indent+2) if self.weapon else None}"
+        )
         desc += "\n" + self.stat.details(indent=indent + 2)
         return desc
 
@@ -166,3 +168,7 @@ class Armor:
             if isinstance(value, Stats):
                 exporter[key] = value.export()
         return exporter
+
+    def get_stats(self):
+        """Armor Call method for the stats object"""
+        return self.stat.get_stats()

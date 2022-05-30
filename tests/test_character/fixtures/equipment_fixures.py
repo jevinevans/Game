@@ -119,10 +119,7 @@ def bodyequipment_details_expectation():
 
 {' '*indent}Modifier(s):
 {' '*(indent+2)}Head_mods:
-{' '*(indent+4)}Health
-{' '*(indent+6)}+50
-{' '*(indent+6)}+10.0%
-
+{' '*(indent+4)}Health: +50, +10.0%
 """
         expectations.append(base)
     return expectations

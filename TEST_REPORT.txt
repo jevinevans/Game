@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun May 29 21:31:38 PDT 2022 
+Date: Mon May 30 12:30:27 PDT 2022 
 
 ---PYTEST---
 
@@ -8,13 +8,13 @@ Date: Sun May 29 21:31:38 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 65 items
+collected 67 items
 
 tests/test_character/test_abilities.py .......                           [ 10%]
-tests/test_character/test_armor.py ...........                           [ 27%]
-tests/test_character/test_equipment.py ...............                   [ 50%]
-tests/test_character/test_modifiers.py ........                          [ 63%]
-tests/test_character/test_roles.py ............                          [ 81%]
+tests/test_character/test_armor.py .............                         [ 29%]
+tests/test_character/test_equipment.py ...............                   [ 52%]
+tests/test_character/test_modifiers.py ........                          [ 64%]
+tests/test_character/test_roles.py ............                          [ 82%]
 tests/test_character/test_stats.py ............                          [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
@@ -24,10 +24,10 @@ funclg/__init__.py                     0      0   100%
 funclg/__main__.py                     0      0   100%
 funclg/character/__init__.py           2      0   100%
 funclg/character/abilities.py         30      0   100%
-funclg/character/armor.py            114      0   100%
+funclg/character/armor.py            116      0   100%
 funclg/character/character.py          0      0   100%
 funclg/character/equipment.py         72      0   100%
-funclg/character/modifiers.py         63      0   100%
+funclg/character/modifiers.py         64      0   100%
 funclg/character/roles.py             64      0   100%
 funclg/character/stats.py             61      0   100%
 funclg/main.py                         0      0   100%
@@ -35,11 +35,11 @@ funclg/utils/__init__.py               0      0   100%
 funclg/utils/modifier_builder.py       0      0   100%
 funclg/utils/types.py                 23      0   100%
 ----------------------------------------------------------------
-TOTAL                                429      0   100%
+TOTAL                                432      0   100%
 
 Required test coverage of 100.0% reached. Total coverage: 100.00%
 
-============================== 65 passed in 0.74s ==============================
+============================== 67 passed in 0.76s ==============================
 
 ---Code Quality Report---
 
@@ -49,8 +49,10 @@ Required test coverage of 100.0% reached. Total coverage: 100.00%
 
 -----BLACK-----
 
+reformatted funclg/character/modifiers.py
+
 All done! ✨ 🍰 ✨
-14 files left unchanged.
+1 file reformatted, 13 files left unchanged.
 
 -----BANDIT-----
 
@@ -62,8 +64,6 @@ All done! ✨ 🍰 ✨
 
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
-************* Module funclg.character.modifiers
-funclg/character/modifiers.py:10:0: W0611: Unused Self imported from typing_extensions (unused-import)
 ************* Module funclg.character.stats
 funclg/character/stats.py:85:5: W0511: TODO: check for attribute in class first (fixme)
 funclg/character/stats.py:115:1: W0511: TODO: Create a role stat class (fixme)
@@ -74,12 +74,12 @@ funclg/character/stats.py:124:0: W0105: String statement has no effect (pointles
 funclg/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.81/10 (previous run: 9.84/10, -0.02)
+Your code has been rated at 9.84/10 (previous run: 9.60/10, +0.23)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 5.657s
+npx: installed 1 in 5.392s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -89,4 +89,4 @@ Assuming Python platform Linux
 Searching for source files
 Found 14 source files
 0 errors, 0 warnings, 0 informations 
-Completed in 1.743sec
+Completed in 1.698sec
