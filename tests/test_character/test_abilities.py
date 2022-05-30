@@ -50,6 +50,10 @@ def test_abilities_export(abilities_all_types, abilities_export_expectation):
     for index, ability in enumerate(abilities_all_types):
         assert ability.export() == abilities_export_expectation[index]
 
+    test_export = abilities_all_types[0].export()
+    test_export["effect"] += 10
+    assert abilities_all_types[0].effect != test_export["effect"]
+
 
 @patch("builtins.open")
 @patch("json.dump")

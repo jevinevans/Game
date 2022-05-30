@@ -89,7 +89,7 @@ class Roles:
 
     def export(self) -> Dict[str, Any]:
         logger.info(f"Exporting Role: {self.name}")
-        exporter = self.__dict__
+        exporter = self.__dict__.copy()
         for key, value in exporter.items():
             if key == "abilities" and len(value) > 0:
                 for index, ability in enumerate(value):

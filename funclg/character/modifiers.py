@@ -83,7 +83,7 @@ class Modifier:
         return {"adds": self.adds, "mults": self.mults}
 
     def export(self):
-        return self.__dict__
+        return self.__dict__.copy()
 
     @staticmethod
     def _friendly_read_mod(effect: Union[int, float], percentage: bool = False, indent: int = 0):

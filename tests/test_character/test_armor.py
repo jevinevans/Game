@@ -134,3 +134,6 @@ def test_armor_equip_wrong_slot(equipment_only):
 def test_armor_details_format(light_armor_knife, armor_details_expectations):
     for indent, expectation in enumerate(armor_details_expectations):
         assert light_armor_knife.details(indent) == expectation
+
+def test_armor_stat_info(light_armor_knife):
+    assert light_armor_knife.stat.level == None

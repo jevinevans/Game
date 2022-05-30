@@ -159,7 +159,7 @@ class Armor:
         return [self.head, self.chest, self.back, self.pants, self.weapon]
 
     def export(self) -> Dict:
-        exporter = self.__dict__
+        exporter = self.__dict__.copy()
         for key, value in exporter.items():
             if isinstance(value, Equipment):
                 exporter[key] = value.export()
