@@ -145,8 +145,7 @@ def test_armor_stat_info(light_armor_knife):
     current_stats = light_armor_knife.get_stats()
     light_armor_knife.dequip("weapon")
     light_armor_knife.dequip("chest")
-    print(light_armor_knife.get_stats())
-    print(current_stats)
+    
     for key, value in light_armor_knife.get_stats().items():
         if key == "level":
             assert value == None

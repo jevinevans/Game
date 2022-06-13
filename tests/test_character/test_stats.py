@@ -114,7 +114,7 @@ def test_base_stat_get_stats(base_stat_with_mods):
         "health": 15.0,
         "energy": 55,
         "defense": 0,
-        "level":30,
+        "level": 30,
     }
 
 

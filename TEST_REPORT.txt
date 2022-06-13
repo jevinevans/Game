@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon May 30 12:30:27 PDT 2022 
+Date: Sun Jun 12 16:53:47 PDT 2022 
 
 ---PYTEST---
 
@@ -18,28 +18,33 @@ tests/test_character/test_roles.py ............                          [ 82%]
 tests/test_character/test_stats.py ............                          [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
-Name                               Stmts   Miss  Cover   Missing
-----------------------------------------------------------------
-funclg/__init__.py                     0      0   100%
-funclg/__main__.py                     0      0   100%
-funclg/character/__init__.py           2      0   100%
-funclg/character/abilities.py         30      0   100%
-funclg/character/armor.py            116      0   100%
-funclg/character/character.py          0      0   100%
-funclg/character/equipment.py         72      0   100%
-funclg/character/modifiers.py         64      0   100%
-funclg/character/roles.py             64      0   100%
-funclg/character/stats.py             61      0   100%
-funclg/main.py                         0      0   100%
-funclg/utils/__init__.py               0      0   100%
-funclg/utils/modifier_builder.py       0      0   100%
-funclg/utils/types.py                 23      0   100%
-----------------------------------------------------------------
-TOTAL                                432      0   100%
+Name                                   Stmts   Miss  Cover   Missing
+--------------------------------------------------------------------
+funclg/__init__.py                         0      0   100%
+funclg/__main__.py                         4      4     0%   26-38
+funclg/character/__init__.py               2      0   100%
+funclg/character/abilities.py             30      0   100%
+funclg/character/armor.py                116      0   100%
+funclg/character/character.py             36     36     0%   7-89
+funclg/character/equipment.py             72      0   100%
+funclg/character/modifiers.py             64      0   100%
+funclg/character/roles.py                 64      0   100%
+funclg/character/stats.py                 61      0   100%
+funclg/managers/__init__.py               11     11     0%   5-19
+funclg/managers/abilities_manager.py       8      8     0%   1-16
+funclg/managers/character_manager.py       8      8     0%   1-16
+funclg/managers/equipment_manager.py      14     14     0%   1-28
+funclg/managers/modifier_manager.py       10     10     0%   7-25
+funclg/managers/roles_manager.py           8      8     0%   1-16
+funclg/utils/__init__.py                   0      0   100%
+funclg/utils/menu_funcs.py                16     16     0%   1-26
+funclg/utils/types.py                     23      0   100%
+--------------------------------------------------------------------
+TOTAL                                    547    115    79%
 
-Required test coverage of 100.0% reached. Total coverage: 100.00%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 78.98%
 
-============================== 67 passed in 0.76s ==============================
+============================== 67 passed in 0.71s ==============================
 
 ---Code Quality Report---
 
@@ -49,10 +54,8 @@ Required test coverage of 100.0% reached. Total coverage: 100.00%
 
 -----BLACK-----
 
-reformatted funclg/character/modifiers.py
-
 All done! ✨ 🍰 ✨
-1 file reformatted, 13 files left unchanged.
+19 files left unchanged.
 
 -----BANDIT-----
 
@@ -62,24 +65,48 @@ All done! ✨ 🍰 ✨
 
 -----PYLINT-----
 
+************* Module funclg.__main__
+funclg/__main__.py:29:1: W0511: TODO: Auto generate this (fixme)
+funclg/__main__.py:27:0: W0401: Wildcard import funclg.utils.menu_funcs (wildcard-import)
+funclg/__main__.py:27:0: W0614: Unused import(s) Any and Dict from wildcard import of funclg.utils.menu_funcs (unused-wildcard-import)
 ************* Module funclg.character.abilities
-funclg/character/abilities.py:35:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
+funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
+funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character.stats
-funclg/character/stats.py:85:5: W0511: TODO: check for attribute in class first (fixme)
-funclg/character/stats.py:115:1: W0511: TODO: Create a role stat class (fixme)
-funclg/character/stats.py:123:1: W0511: TODO: Build Character stats (fixme)
-funclg/character/stats.py:116:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:124:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
+funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
+funclg/character/stats.py:115:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character
 funclg/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module funclg.managers.abilities_manager
+funclg/managers/abilities_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+funclg/managers/abilities_manager.py:1:0: W0611: Unused Abilities imported from funclg.character.abilities (unused-import)
+************* Module funclg.managers.character_manager
+funclg/managers/character_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+funclg/managers/character_manager.py:1:0: W0611: Unused Character imported from funclg.character.character (unused-import)
+************* Module funclg.managers.equipment_manager
+funclg/managers/equipment_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+funclg/managers/equipment_manager.py:1:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
+funclg/managers/equipment_manager.py:1:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
+************* Module funclg.managers.modifier_manager
+funclg/managers/modifier_manager.py:7:0: W0611: Unused build imported from distutils.command.build (unused-import)
+funclg/managers/modifier_manager.py:9:0: W0611: Unused Modifier imported from funclg.character.modifiers (unused-import)
+funclg/managers/modifier_manager.py:10:0: W0611: Unused MODIFIER_TYPES imported from funclg.utils.types (unused-import)
+************* Module funclg.managers.roles_manager
+funclg/managers/roles_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+funclg/managers/roles_manager.py:1:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
+************* Module funclg.utils.menu_funcs
+funclg/utils/menu_funcs.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+funclg/utils/menu_funcs.py:7:4: R1722: Consider using sys.exit() (consider-using-sys-exit)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.84/10 (previous run: 9.60/10, +0.23)
+Your code has been rated at 9.56/10 (previous run: 9.56/10, +0.00)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 5.392s
+npx: installed 1 in 4.602s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -87,6 +114,6 @@ Pyproject file "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyprojec
 stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not a valid directory.
 Assuming Python platform Linux
 Searching for source files
-Found 14 source files
+Found 19 source files
 0 errors, 0 warnings, 0 informations 
-Completed in 1.698sec
+Completed in 1.553sec
