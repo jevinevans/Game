@@ -5,7 +5,7 @@ Description: The Roles class is to allow the characters to use abilities.
 """
 
 import json
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List, Optional
 
 from loguru import logger
 
@@ -27,8 +27,8 @@ class Roles:
         name: str,
         description: str,
         armor_type: int,
-        damage_types: Union[List, None],
-        abilities: Union[List, None] = None,
+        damage_types: Optional[List] = None,
+        abilities: Optional[List] = None,
     ):  # pylint: disable=too-many-arguments
         self.name = name
         self.description = description

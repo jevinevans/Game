@@ -4,7 +4,7 @@ Date: 3.23.2022
 Description: This defines the stats object that will be used for all character classes
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from loguru import logger
 
@@ -82,8 +82,7 @@ class Stats:
             return
         logger.error(f"This stat does not have the '{name}' modifier.")
 
-    # TODO: check for attribute in class first
-    def get_stat(self, stat: str):
+    def get_stat(self, stat: str) -> Union[int, float, None]:
         base = getattr(self, stat, None)
 
         if not base:
@@ -97,7 +96,7 @@ class Stats:
 
         return round(base * multiplier, 2)
 
-    def get_stats(self):
+    def get_stats(self) -> Dict[str, Any]:
         """Returns all user stats, process each stat the object has...?"""
         stats = {}
         for attr in [attr for attr in self.__dict__ if attr not in Stats.PRINT_IGNORES]:

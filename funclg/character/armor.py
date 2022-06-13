@@ -8,9 +8,9 @@ from typing import Dict, List, Union
 
 from loguru import logger
 
-from ..utils.types import ARMOR_TYPES, get_armor_type
-from .equipment import BodyEquipment, Equipment, WeaponEquipment
-from .stats import Stats
+from funclg.character.equipment import BodyEquipment, Equipment, WeaponEquipment
+from funclg.character.stats import Stats
+from funclg.utils.types import ARMOR_TYPES, get_armor_type
 
 # logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
