@@ -8,30 +8,6 @@ def save_exit() -> None:
     print("Saving and closing")
     sys.exit()
 
-
-# TODO: add a description value to menus and have them printed out when called
-# TODO: Need to add an ability to go back and not always start at the top menu
-def print_menu(menu: Dict[str, Any]):
-    print("MENU")
-    for key, value in menu.items():
-        print(f"{key}. --- {value['name']}")
-
-    choice = choice_validation(len(menu))
-
-    # Sub Menu
-    if menu[choice].get("sub-menu", False):
-        print_menu(menu[choice]["sub-menu"])
-
-    # Function Action
-    elif menu[choice].get("function", False):
-        menu[choice]["function"]()
-
-    # Return to previous menu
-    elif menu[choice].get("return", False):
-        return
-    print_menu(menu)
-
-
 class Menu():
     def __init__(self, name:str, description:str, has_return:bool=True):
         self.name = name
