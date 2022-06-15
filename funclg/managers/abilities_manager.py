@@ -19,5 +19,6 @@ ABILITY_MENU = {
         "1": {"name": "Add New Ability", "function": build_ability},
         "2": {"name": "Edit Ability", "function": edit_ability},
         "3": {"name": "Delete Ability", "function": delete_ability},
+        "4": {"name": "Go Back", "return": True},
     },
 }

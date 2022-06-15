@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 16			|
-|	Files: 97				|
+|	Files: 99				|
 +==========================================+
 
 ./.coverage
@@ -87,6 +87,8 @@
 ./funclg/managers/roles_manager.py
 ./funclg/utils
 ./funclg/utils/__init__.py
+./funclg/utils/data_mgmt.py
+./funclg/utils/input_validation.py
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
 ./logs

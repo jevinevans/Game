@@ -26,13 +26,17 @@ menu
 from funclg.managers import build_manager_menu
 from funclg.utils.menu_funcs import *
 
-# TODO: Auto generate this
 
-MENU = {
-    "1": {"name": "Play", "sub-menu": {}},
-    "2": {"name": "Manage Game", "sub-menu": build_manager_menu()},
-    "3": {"name": "Exit", "function": save_exit},
-}
+def build_main_menu():
+    """Contructs the main menu for the game"""
+    menu = Menu("Main Menu", "Please choice an option:", has_return=False)
+    menu.add_item("Play", None)
+    menu.add_item("Manage Game", build_manager_menu())
+    menu.add_item("Exit", save_exit)
+    return menu
+
+MAIN_MENU = build_main_menu()
 
 while True:
-    print_menu(MENU)
+    # print_menu(MENU)
+    MAIN_MENU.print_menu()
