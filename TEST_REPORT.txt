@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Jun 13 23:03:48 PDT 2022 
+Date: Tue Jun 14 23:14:49 PDT 2022 
 
 ---PYTEST---
 
@@ -21,7 +21,7 @@ tests/test_character/test_stats.py ............                          [100%]
 Name                                   Stmts   Miss  Cover   Missing
 --------------------------------------------------------------------
 funclg/__init__.py                         0      0   100%
-funclg/__main__.py                         4      4     0%   26-38
+funclg/__main__.py                        10     10     0%   26-42
 funclg/character/__init__.py               2      0   100%
 funclg/character/abilities.py             30      0   100%
 funclg/character/armor.py                116      0   100%
@@ -30,41 +30,40 @@ funclg/character/equipment.py             72      0   100%
 funclg/character/modifiers.py             64      0   100%
 funclg/character/roles.py                 64      0   100%
 funclg/character/stats.py                 61      0   100%
-funclg/managers/__init__.py               14     14     0%   5-21
+funclg/managers/__init__.py               14     14     0%   5-22
 funclg/managers/abilities_manager.py       8      8     0%   1-16
 funclg/managers/character_manager.py       8      8     0%   1-16
 funclg/managers/equipment_manager.py      33     33     0%   1-58
-funclg/managers/modifier_manager.py       16     16     0%   7-36
+funclg/managers/modifier_manager.py       16     16     0%   7-35
 funclg/managers/roles_manager.py           8      8     0%   1-16
 funclg/utils/__init__.py                   0      0   100%
-funclg/utils/data_mgmt.py                 14     14     0%   1-19
-funclg/utils/input_validation.py          13     13     0%   1-19
-funclg/utils/menu_funcs.py                17     17     0%   1-32
+funclg/utils/data_mgmt.py                 13     13     0%   1-18
+funclg/utils/input_validation.py          13     13     0%   1-20
+funclg/utils/menu_funcs.py                34     34     0%   1-49
 funclg/utils/types.py                     23      0   100%
 --------------------------------------------------------------------
-TOTAL                                    603    171    72%
+TOTAL                                    625    193    69%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 71.64%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 69.12%
 
-============================== 67 passed in 1.41s ==============================
+============================== 67 passed in 0.87s ==============================
 
 ---Code Quality Report---
 
 
 -----ISORT-----
 
-Fixing /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py
+Fixing /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py
 
 -----BLACK-----
 
+reformatted funclg/utils/data_mgmt.py
+reformatted funclg/__main__.py
 reformatted funclg/managers/__init__.py
-reformatted funclg/managers/abilities_manager.py
-reformatted funclg/managers/modifier_manager.py
-reformatted funclg/utils/input_validation.py
 reformatted funclg/utils/menu_funcs.py
 
 All done! ✨ 🍰 ✨
-5 files reformatted, 16 files left unchanged.
+4 files reformatted, 17 files left unchanged.
 
 -----BANDIT-----
 
@@ -75,9 +74,8 @@ All done! ✨ 🍰 ✨
 -----PYLINT-----
 
 ************* Module funclg.__main__
-funclg/__main__.py:29:1: W0511: TODO: Consider building a menu class to easily operate returning (fixme)
 funclg/__main__.py:27:0: W0401: Wildcard import funclg.utils.menu_funcs (wildcard-import)
-funclg/__main__.py:27:0: W0614: Unused import(s) Any, Dict and choice_validation from wildcard import of funclg.utils.menu_funcs (unused-wildcard-import)
+funclg/__main__.py:27:0: W0614: Unused import(s) sys, Any, Dict, Union and choice_validation from wildcard import of funclg.utils.menu_funcs (unused-wildcard-import)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
@@ -107,26 +105,28 @@ funclg/managers/modifier_manager.py:11:0: W0611: Unused MODIFIER_TYPES imported 
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 funclg/managers/roles_manager.py:1:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
+************* Module funclg.managers.__init__
+funclg/managers/__init__.py:13:1: W0511: TODO Build a menu object for all the managers to codify the process (fixme)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/utils/data_mgmt.py:15:11: W0703: Catching too general exception Exception (broad-except)
-funclg/utils/data_mgmt.py:11:27: E1135: Value 'filename_only' doesn't support membership test (unsupported-membership-test)
-funclg/utils/data_mgmt.py:15:4: C0103: Variable name "e" doesn't conform to snake_case naming style (invalid-name)
+funclg/utils/data_mgmt.py:14:11: W0703: Catching too general exception Exception (broad-except)
+funclg/utils/data_mgmt.py:14:4: C0103: Variable name "e" doesn't conform to snake_case naming style (invalid-name)
 ************* Module funclg.utils.input_validation
 funclg/utils/input_validation.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module funclg.utils.menu_funcs
-funclg/utils/menu_funcs.py:12:1: W0511: TODO: add a description value to menus and have them printed out when called (fixme)
-funclg/utils/menu_funcs.py:13:1: W0511: TODO: Need to add an ability to go back and not always start at the top menu (fixme)
 funclg/utils/menu_funcs.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/utils/menu_funcs.py:9:4: R1722: Consider using sys.exit() (consider-using-sys-exit)
+funclg/utils/menu_funcs.py:13:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/utils/menu_funcs.py:2:0: W0611: Unused Any imported from typing (unused-import)
+funclg/utils/menu_funcs.py:2:0: W0611: Unused Dict imported from typing (unused-import)
+funclg/utils/menu_funcs.py:2:0: W0611: Unused Union imported from typing (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.39/10 (previous run: 9.56/10, -0.17)
+Your code has been rated at 9.47/10 (previous run: 9.39/10, +0.09)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 7.045s
+npx: installed 1 in 14.753s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -135,11 +135,11 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:13:30 - error: Argument of type "str" cannot be assigned to parameter "fp" of type "SupportsRead[str | bytes]" in function "load"
-    "str" is incompatible with protocol "SupportsRead[str | bytes]"
-      "read" is not present (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:11:16 - error: Operator "in" not supported for types "Literal['/data/']" and "int"
-    Operator "in" not supported for types "Literal['/data/']" and "int" (reportGeneralTypeIssues)
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py:12:20 - error: Expression of type "int" cannot be assigned to return type "str"
+    "int" is incompatible with "str" (reportGeneralTypeIssues)
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py:44:34 - error: Operator "-" not supported for types "str" and "Literal[1]"
+    Operator "-" not supported for types "str" and "Literal[1]" (reportGeneralTypeIssues)
 2 errors, 0 warnings, 0 informations 
-Completed in 2.359sec
+Completed in 2.718sec

@@ -12,6 +12,7 @@ MENUS = [ABILITY_MENU, CHARACTER_MENU, EQUIPMENT_MENU, MODIFIER_MENU, ROLES_MENU
 
 # TODO Build a menu object for all the managers to codify the process
 
+
 def build_manager_menu():
     builder_menu = {}
     final_index = 1

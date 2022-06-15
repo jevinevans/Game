@@ -9,7 +9,7 @@ def load_data(filename: str):
         assert filename.endswith(".json")
         assert "/data/" in filename
         with open(filename, encoding="utf-8") as load_file:
-           data = json.load(load_file)
+            data = json.load(load_file)
 
     except Exception as e:
         logger.warning(e)

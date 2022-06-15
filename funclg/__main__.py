@@ -35,6 +35,7 @@ def build_main_menu():
     menu.add_item("Exit", save_exit)
     return menu
 
+
 MAIN_MENU = build_main_menu()
 
 while True:
