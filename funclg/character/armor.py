@@ -96,7 +96,7 @@ class Armor:
 
     def equip(self, item: Equipment):
         if item:
-            if equip_func := getattr(self, "_equip_" + item.get_item_type().lower()):
+            if equip_func := getattr(self, "_equip_" + item.get_item_type().lower(), False):
                 if equip_func(item):
                     self.stat.add_mod(item.mod)
                     logger.info(f"Equipped {item.name} to {item.get_item_type()}")
@@ -134,7 +134,7 @@ class Armor:
         """
         Removes the currently equiped item in the current position and wil return an item if there is something already equiped.
         """
-
+        # TODO: May need to add a try/except to this for if the wrong value is given
         if getattr(self, item_type.lower(), False):
             dequip_func = getattr(self, "_dequip_" + item_type.lower())
             del_item = dequip_func()

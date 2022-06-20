@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Jun 14 23:14:49 PDT 2022 
+Date: Sun Jun 19 23:09:53 PDT 2022 
 
 ---PYTEST---
 
@@ -8,62 +8,57 @@ Date: Tue Jun 14 23:14:49 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 67 items
+collected 70 items
 
 tests/test_character/test_abilities.py .......                           [ 10%]
-tests/test_character/test_armor.py .............                         [ 29%]
-tests/test_character/test_equipment.py ...............                   [ 52%]
-tests/test_character/test_modifiers.py ........                          [ 64%]
+tests/test_character/test_armor.py ...............                       [ 31%]
+tests/test_character/test_character.py .                                 [ 32%]
+tests/test_character/test_equipment.py ...............                   [ 54%]
+tests/test_character/test_modifiers.py ........                          [ 65%]
 tests/test_character/test_roles.py ............                          [ 82%]
 tests/test_character/test_stats.py ............                          [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
-Name                                   Stmts   Miss  Cover   Missing
---------------------------------------------------------------------
-funclg/__init__.py                         0      0   100%
-funclg/__main__.py                        10     10     0%   26-42
-funclg/character/__init__.py               2      0   100%
-funclg/character/abilities.py             30      0   100%
-funclg/character/armor.py                116      0   100%
-funclg/character/character.py             36     36     0%   7-89
-funclg/character/equipment.py             72      0   100%
-funclg/character/modifiers.py             64      0   100%
-funclg/character/roles.py                 64      0   100%
-funclg/character/stats.py                 61      0   100%
-funclg/managers/__init__.py               14     14     0%   5-22
-funclg/managers/abilities_manager.py       8      8     0%   1-16
-funclg/managers/character_manager.py       8      8     0%   1-16
-funclg/managers/equipment_manager.py      33     33     0%   1-58
-funclg/managers/modifier_manager.py       16     16     0%   7-35
-funclg/managers/roles_manager.py           8      8     0%   1-16
-funclg/utils/__init__.py                   0      0   100%
-funclg/utils/data_mgmt.py                 13     13     0%   1-18
-funclg/utils/input_validation.py          13     13     0%   1-20
-funclg/utils/menu_funcs.py                34     34     0%   1-49
-funclg/utils/types.py                     23      0   100%
---------------------------------------------------------------------
-TOTAL                                    625    193    69%
+Name                                   Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------------------------------
+funclg/__init__.py                         0      0      0      0   100%
+funclg/__main__.py                        10     10      0      0     0%   26-43
+funclg/character/__init__.py               2      0      0      0   100%
+funclg/character/abilities.py             30      0      4      0   100%
+funclg/character/armor.py                116      0     32      0   100%
+funclg/character/character.py             36     16     12      2    50%   53, 59, 64-69, 72-78, 85, 89
+funclg/character/equipment.py             72      0     14      0   100%
+funclg/character/modifiers.py             64      0     32      4    96%   72->exit, 77->exit, 98->101, 110->112
+funclg/character/roles.py                 64      0     26      0   100%
+funclg/character/stats.py                 61      0     30      2    98%   46->45, 59->58
+funclg/managers/__init__.py               14     14      2      0     0%   5-23
+funclg/managers/abilities_manager.py       8      8      0      0     0%   1-16
+funclg/managers/character_manager.py       8      8      0      0     0%   1-16
+funclg/managers/equipment_manager.py      33     33      4      0     0%   1-58
+funclg/managers/modifier_manager.py       16     16      2      0     0%   7-35
+funclg/managers/roles_manager.py           8      8      0      0     0%   1-16
+funclg/utils/__init__.py                   0      0      0      0   100%
+funclg/utils/data_mgmt.py                 13     13      0      0     0%   1-18
+funclg/utils/input_validation.py          13     13      4      0     0%   1-20
+funclg/utils/menu_funcs.py                34     34     14      0     0%   1-51
+funclg/utils/types.py                     23      0      6      2    93%   54->57, 57->60
+----------------------------------------------------------------------------------
+TOTAL                                    625    173    182     10    73%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 69.12%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 73.36%
 
-============================== 67 passed in 0.87s ==============================
+============================== 70 passed in 2.44s ==============================
 
 ---Code Quality Report---
 
 
 -----ISORT-----
 
-Fixing /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py
 
 -----BLACK-----
 
-reformatted funclg/utils/data_mgmt.py
-reformatted funclg/__main__.py
-reformatted funclg/managers/__init__.py
-reformatted funclg/utils/menu_funcs.py
-
 All done! ✨ 🍰 ✨
-4 files reformatted, 17 files left unchanged.
+21 files left unchanged.
 
 -----BANDIT-----
 
@@ -79,6 +74,8 @@ funclg/__main__.py:27:0: W0614: Unused import(s) sys, Any, Dict, Union and choic
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
+************* Module funclg.character.armor
+funclg/character/armor.py:137:9: W0511: TODO: May need to add a try/except to this for if the wrong value is given (fixme)
 ************* Module funclg.character.stats
 funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
@@ -121,12 +118,12 @@ funclg/utils/menu_funcs.py:2:0: W0611: Unused Dict imported from typing (unused-
 funclg/utils/menu_funcs.py:2:0: W0611: Unused Union imported from typing (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.47/10 (previous run: 9.39/10, +0.09)
+Your code has been rated at 9.46/10 (previous run: 9.47/10, -0.02)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 14.753s
+npx: installed 1 in 14.262s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -135,11 +132,13 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py:100:20 - error: Object of type "Literal[True]" is not callable (reportGeneralTypeIssues)
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py:12:20 - error: Expression of type "int" cannot be assigned to return type "str"
     "int" is incompatible with "str" (reportGeneralTypeIssues)
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py:44:34 - error: Operator "-" not supported for types "str" and "Literal[1]"
     Operator "-" not supported for types "str" and "Literal[1]" (reportGeneralTypeIssues)
-2 errors, 0 warnings, 0 informations 
-Completed in 2.718sec
+3 errors, 0 warnings, 0 informations 
+Completed in 5.049sec

@@ -8,7 +8,7 @@ TODAY=$(date)
 echo -e "######TESTING REPORT######\n\nDate: $TODAY \n\n---PYTEST---\n" > $REPORT
 
 printf "\n*****Running Tests*****\n"
-poetry run pytest --cov=funclg/ tests/ >> $REPORT
+poetry run pytest --cov=funclg/ --cov-branch tests/ >> $REPORT
 printf "*****DONE*****\n"
 
 # echo -e "\n---Flake 8----\n" >> $REPORT

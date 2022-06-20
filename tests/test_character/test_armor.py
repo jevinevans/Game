@@ -3,7 +3,7 @@ Programmer: Jevin Evans
 Date: 7.15.2021
 Description: The is a unit test for the armor class and its interations with the equipment class.
 """
-
+from unittest.mock import patch
 import pytest
 
 from funclg.character.armor import Armor
@@ -70,7 +70,7 @@ def test_armor_equipping(equipment_only):
         item = item.lower()
         assert getattr(armor, item, False)
 
-def test_armor_equipping_error(equipment_only):
+def test_armor_equipping_armor_type_incompatibility(equipment_only):
     armor = Armor(1)
 
     for item in equipment_only.values():
@@ -82,6 +82,20 @@ def test_armor_equipping_error(equipment_only):
     assert armor.pants == None
     assert armor.weapon == None
 
+@patch("funclg.utils.types.get_item_type")
+@patch("loguru.logger.error")
+def test_armor_equipping_flow_issues(m_log, m_item_type):
+    # No Item Flow
+    armor = Armor(1)
+    
+    armor.equip(None)
+    assert m_log.called_with("No item was provided to equip")
+    
+    # No Item Type Function
+    m_item_type.return_value = "Other Val"
+    armor.equip(BodyEquipment(name="Test Armor", armor_type=1))
+    
+    assert m_log.called_with("No item was provided to equip")
 
 def test_armor_dequipping(light_armor_knife):
     for item_type in ITEM_TYPES:
@@ -93,6 +107,15 @@ def test_armor_dequipping(light_armor_knife):
     assert light_armor_knife.back == None
     assert light_armor_knife.pants == None
     assert light_armor_knife.weapon == None
+
+#@patch("funclg.utils.types.get_item_type")
+@patch("loguru.logger.error")
+def test_armor_dequipping_flow_issues(m_log):
+    # Wrong Item Type
+    armor = Armor(1)
+    armor.dequip("Tail")
+    assert m_log.called_with("There is no item to remove.")
+    
 
 
 def test_armor_get_equipment(equipment_only):
