@@ -16,11 +16,11 @@ from funclg.character.modifiers import Modifier
 from funclg.character.stats import Stats
 
 from .fixtures.stat_fixtures import (
-    base_stat_no_mods,
-    base_stat_with_mods,
     base_mods,
     base_stat_export_expectation,
+    base_stat_no_mods,
     base_stat_str_expectation,
+    base_stat_with_mods,
 )
 
 
@@ -120,6 +120,7 @@ def test_base_stat_get_stats(base_stat_with_mods):
 
 def test_base_stat_export(base_stat_with_mods, base_stat_export_expectation):
     assert base_stat_with_mods.export() == base_stat_export_expectation
+
 
 def test_base_stat_str(base_stat_with_mods, base_stat_str_expectation):
     assert base_stat_with_mods.__str__() == base_stat_str_expectation

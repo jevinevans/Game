@@ -18,9 +18,9 @@ from .fixtures.equipment_fixures import (
     bodyequipment_details_expectation,
     bodyequipment_mods,
     equipment_str_expectation,
+    weaponequipment_all_items_mods,
     weaponequipment_all_types,
     weaponequipment_description_expectations,
-    weaponequipment_all_items_mods,
     weaponequipment_mods,
 )
 

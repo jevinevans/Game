@@ -1,9 +1,10 @@
 from ast import Mod
 from sre_parse import State
+
 import pytest
 
-from funclg.character.stats import Stats
 from funclg.character.modifiers import Modifier
+from funclg.character.stats import Stats
 
 
 @pytest.fixture
@@ -36,6 +37,7 @@ def base_stat_export_expectation():
             "Mod_2": {"adds": {}, "mults": {"attack": 0.25}},
         },
     }
+
 
 @pytest.fixture
 def base_stat_str_expectation():

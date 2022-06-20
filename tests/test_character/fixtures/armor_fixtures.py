@@ -161,6 +161,7 @@ def armor_details_expectations():
         expectations.append(base)
     return expectations
 
+
 @pytest.fixture
 def armor_details_missing_weapon():
     indent = 0

@@ -11,8 +11,8 @@ from .fixtures.role_fixtures import (
     mage_export_expectation,
     mage_str_expectation,
     mage_test_role,
-    roles_detail_expectation_with_abilities,
     roles_detail_expectation_no_abilities,
+    roles_detail_expectation_with_abilities,
 )
 
 
