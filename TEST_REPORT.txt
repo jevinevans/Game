@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Jun 19 23:09:53 PDT 2022 
+Date: Sun Jun 19 23:50:54 PDT 2022 
 
 ---PYTEST---
 
@@ -23,7 +23,7 @@ Name                                   Stmts   Miss Branch BrPart  Cover   Missi
 ----------------------------------------------------------------------------------
 funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        10     10      0      0     0%   26-43
-funclg/character/__init__.py               2      0      0      0   100%
+funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             30      0      4      0   100%
 funclg/character/armor.py                116      0     32      0   100%
 funclg/character/character.py             36     16     12      2    50%   53, 59, 64-69, 72-78, 85, 89
@@ -32,22 +32,22 @@ funclg/character/modifiers.py             64      0     32      4    96%   72->e
 funclg/character/roles.py                 64      0     26      0   100%
 funclg/character/stats.py                 61      0     30      2    98%   46->45, 59->58
 funclg/managers/__init__.py               14     14      2      0     0%   5-23
-funclg/managers/abilities_manager.py       8      8      0      0     0%   1-16
-funclg/managers/character_manager.py       8      8      0      0     0%   1-16
-funclg/managers/equipment_manager.py      33     33      4      0     0%   1-58
-funclg/managers/modifier_manager.py       16     16      2      0     0%   7-35
-funclg/managers/roles_manager.py           8      8      0      0     0%   1-16
+funclg/managers/abilities_manager.py       8      8      0      0     0%   7-22
+funclg/managers/character_manager.py       8      8      0      0     0%   7-22
+funclg/managers/equipment_manager.py      33     33      4      0     0%   7-63
+funclg/managers/modifier_manager.py       16     16      2      0     0%   12-40
+funclg/managers/roles_manager.py           8      8      0      0     0%   7-22
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 13     13      0      0     0%   1-18
-funclg/utils/input_validation.py          13     13      4      0     0%   1-20
-funclg/utils/menu_funcs.py                34     34     14      0     0%   1-51
+funclg/utils/data_mgmt.py                 13     13      0      0     0%   7-24
+funclg/utils/input_validation.py          13     13      4      0     0%   8-27
+funclg/utils/menu_funcs.py                33     33     14      0     0%   7-58
 funclg/utils/types.py                     23      0      6      2    93%   54->57, 57->60
 ----------------------------------------------------------------------------------
-TOTAL                                    625    173    182     10    73%
+TOTAL                                    622    172    182     10    73%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 73.36%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 73.38%
 
-============================== 70 passed in 2.44s ==============================
+============================== 70 passed in 0.64s ==============================
 
 ---Code Quality Report---
 
@@ -69,8 +69,7 @@ All done! ✨ 🍰 ✨
 -----PYLINT-----
 
 ************* Module funclg.__main__
-funclg/__main__.py:27:0: W0401: Wildcard import funclg.utils.menu_funcs (wildcard-import)
-funclg/__main__.py:27:0: W0614: Unused import(s) sys, Any, Dict, Union and choice_validation from wildcard import of funclg.utils.menu_funcs (unused-wildcard-import)
+funclg/__main__.py:33:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
@@ -81,49 +80,32 @@ funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
 funclg/character/stats.py:115:0: W0105: String statement has no effect (pointless-string-statement)
 funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
-************* Module funclg.character
-funclg/character/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module funclg.managers.abilities_manager
-funclg/managers/abilities_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/managers/abilities_manager.py:1:0: W0611: Unused Abilities imported from funclg.character.abilities (unused-import)
+funclg/managers/abilities_manager.py:7:0: W0611: Unused Abilities imported from funclg.character.abilities (unused-import)
 ************* Module funclg.managers.character_manager
-funclg/managers/character_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/managers/character_manager.py:1:0: W0611: Unused Character imported from funclg.character.character (unused-import)
+funclg/managers/character_manager.py:7:0: W0611: Unused Character imported from funclg.character.character (unused-import)
 ************* Module funclg.managers.equipment_manager
-funclg/managers/equipment_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/managers/equipment_manager.py:11:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-funclg/managers/equipment_manager.py:9:4: W0612: Unused variable 'equipment_data' (unused-variable)
-funclg/managers/equipment_manager.py:1:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
-funclg/managers/equipment_manager.py:1:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
+funclg/managers/equipment_manager.py:15:4: W0612: Unused variable 'equipment_data' (unused-variable)
+funclg/managers/equipment_manager.py:7:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
+funclg/managers/equipment_manager.py:7:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
 ************* Module funclg.managers.modifier_manager
-funclg/managers/modifier_manager.py:17:5: W0511: TODO: REMOVE TODO Print (fixme)
-funclg/managers/modifier_manager.py:9:0: W0611: Unused Modifier imported from funclg.character.modifiers (unused-import)
-funclg/managers/modifier_manager.py:11:0: W0611: Unused MODIFIER_TYPES imported from funclg.utils.types (unused-import)
+funclg/managers/modifier_manager.py:22:5: W0511: TODO: REMOVE TODO Print (fixme)
+funclg/managers/modifier_manager.py:14:0: W0611: Unused Modifier imported from funclg.character.modifiers (unused-import)
+funclg/managers/modifier_manager.py:16:0: W0611: Unused MODIFIER_TYPES imported from funclg.utils.types (unused-import)
 ************* Module funclg.managers.roles_manager
-funclg/managers/roles_manager.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/managers/roles_manager.py:1:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
+funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
 ************* Module funclg.managers.__init__
 funclg/managers/__init__.py:13:1: W0511: TODO Build a menu object for all the managers to codify the process (fixme)
 ************* Module funclg.utils.data_mgmt
-funclg/utils/data_mgmt.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/utils/data_mgmt.py:14:11: W0703: Catching too general exception Exception (broad-except)
-funclg/utils/data_mgmt.py:14:4: C0103: Variable name "e" doesn't conform to snake_case naming style (invalid-name)
-************* Module funclg.utils.input_validation
-funclg/utils/input_validation.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-************* Module funclg.utils.menu_funcs
-funclg/utils/menu_funcs.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-funclg/utils/menu_funcs.py:13:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/utils/menu_funcs.py:2:0: W0611: Unused Any imported from typing (unused-import)
-funclg/utils/menu_funcs.py:2:0: W0611: Unused Dict imported from typing (unused-import)
-funclg/utils/menu_funcs.py:2:0: W0611: Unused Union imported from typing (unused-import)
+funclg/utils/data_mgmt.py:20:11: W0703: Catching too general exception Exception (broad-except)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.46/10 (previous run: 9.47/10, -0.02)
+Your code has been rated at 9.70/10 (previous run: 9.66/10, +0.03)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 14.262s
+npx: installed 1 in 3.67s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -135,10 +117,10 @@ Found 21 source files
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py:100:20 - error: Object of type "Literal[True]" is not callable (reportGeneralTypeIssues)
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py:12:20 - error: Expression of type "int" cannot be assigned to return type "str"
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py:19:20 - error: Expression of type "int" cannot be assigned to return type "str"
     "int" is incompatible with "str" (reportGeneralTypeIssues)
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py:44:34 - error: Operator "-" not supported for types "str" and "Literal[1]"
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py:51:34 - error: Operator "-" not supported for types "str" and "Literal[1]"
     Operator "-" not supported for types "str" and "Literal[1]" (reportGeneralTypeIssues)
 3 errors, 0 warnings, 0 informations 
-Completed in 5.049sec
+Completed in 1.481sec

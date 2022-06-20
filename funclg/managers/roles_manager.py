@@ -1,3 +1,9 @@
+"""
+Programmer: Jevin Evans
+Date: 6.19.2022
+Description: A manager class for creating, updating, and removing roles.
+"""
+
 from funclg.character.roles import Roles
 
 

@@ -1,5 +1,10 @@
+"""
+Programmer: Jevin Evans
+Date: 6.19.2022
+Description: Utility class used for data/database actions loading, saving, updating.
+"""
+
 import sys
-from typing import Any, Dict, Union
 
 from funclg.utils.input_validation import choice_validation
 
@@ -11,6 +16,8 @@ def save_exit() -> None:
 
 
 class Menu:
+    """Creates an interactive menu that can be used to create multiple connected menus"""
+
     def __init__(self, name: str, description: str, has_return: bool = True):
         self.name = name
         self.description = description

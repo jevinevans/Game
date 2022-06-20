@@ -1,3 +1,10 @@
+"""
+Programmer: Jevin Evans
+Date: 6.19.2022
+Description: Centralized utility module to manage input validation (user choice, data cleaning, etc.)
+"""
+
+
 def choice_validation(max_choice: int) -> str:
     while True:
         try:

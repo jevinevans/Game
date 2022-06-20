@@ -24,13 +24,13 @@ menu
 
 """
 from funclg.managers import build_manager_menu
-from funclg.utils.menu_funcs import *
+from funclg.utils.menu_funcs import Menu, save_exit
 
 
 def build_main_menu():
     """Contructs the main menu for the game"""
     menu = Menu("Main Menu", "Please choice an option:", has_return=False)
-    menu.add_item("Play", None)
+    menu.add_item("Play", None)  # TODO: add play instance
     menu.add_item("Manage Game", build_manager_menu())
     menu.add_item("Exit", save_exit)
     return menu

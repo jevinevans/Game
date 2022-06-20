@@ -1,8 +1,13 @@
 """
-May use the builder class
-- This needs to be able to read all of the available and accepted stats
-- allow the user/app to build out modifiers that can be used on abilities and equipment.
+Programmer: Jevin Evans
+Date: 6.19.2022
+Description: A manager class for creating, updating, and removing modifiers.
 """
+###
+# May use the builder class
+# - This needs to be able to read all of the available and accepted stats
+# - allow the user/app to build out modifiers that can be used on abilities and equipment.
+###
 
 from typing import Optional
 

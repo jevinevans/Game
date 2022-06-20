@@ -1,3 +1,9 @@
+"""
+Programmer: Jevin Evans
+Date: 6.19.2022
+Description: A manager class for creating, updating, and removing equipment.
+"""
+
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.data_mgmt import load_data
 from funclg.utils.input_validation import choice_validation
@@ -10,8 +16,7 @@ def _equipment_set_up(action: str):
     print(f"What type of equipment do you want to {action}?\n1. Body Equipment\n2. Weapons")
     if choice_validation(2) == 1:
         return "body_armor"
-    else:
-        return "weapon"
+    return "weapon"
 
 
 def _new_weapon():
