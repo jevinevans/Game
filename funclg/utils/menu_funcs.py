@@ -7,7 +7,7 @@ Description: Utility class used for data/database actions loading, saving, updat
 import sys
 
 from funclg.utils.input_validation import choice_validation
-
+from typing import Any, Dict, List
 
 def save_exit() -> None:
     "Fill in stuff"
@@ -56,3 +56,10 @@ class Menu:
             action()
 
         self.print_menu()
+    
+    @staticmethod
+    def build_menu(menu_name:str, description:str, sub_items:List[Dict[str, Any]], has_return:bool = True):
+        new_menu = Menu(menu_name, description, has_return)
+        for item in sub_items:
+            new_menu.add_item(**item)
+        return new_menu

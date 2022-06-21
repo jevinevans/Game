@@ -25,6 +25,10 @@ menu
 """
 from funclg.managers import build_manager_menu
 from funclg.utils.menu_funcs import Menu, save_exit
+from funclg.utils.data_mgmt import setup_data_path
+import os
+
+MAIN_MENU = ''
 
 
 def build_main_menu():
@@ -35,9 +39,24 @@ def build_main_menu():
     menu.add_item("Exit", save_exit)
     return menu
 
+def game_set_up():
+    global MAIN_MENU
 
-MAIN_MENU = build_main_menu()
+    # Set up data folder
+    setup_data_path(os.path.dirname(__file__))
+    MAIN_MENU = build_main_menu()
+    
 
-while True:
-    # print_menu(MENU)
-    MAIN_MENU.print_menu()
+
+def main():
+    game_set_up()
+    try:
+        while True:
+            # print_menu(MENU)
+            MAIN_MENU.print_menu()
+    except KeyboardInterrupt:
+        print()
+        save_exit()
+
+if __name__ == "__main__":
+    main()
