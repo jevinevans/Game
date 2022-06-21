@@ -78,6 +78,7 @@ class Character:
         return exporter
 
     # def details(self, indent:int = 0) -> str:
+    # TODO: Define details,
     # Add armor details and roles details
 
     def equip(self, item: Equipment) -> None:

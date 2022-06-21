@@ -7,7 +7,7 @@ Description: This defines the modifiers object that will be used for all stats
 from typing import Any, Dict, Optional, Union
 
 # from loguru import logger
-from ..utils.types import MODIFIER_TYPES
+from ..utils.types import MODIFIER_TYPES, MOD_ADD_RANGE, MOD_MULT_RANGE
 
 
 class Modifier:
@@ -56,6 +56,7 @@ class Modifier:
 
     @staticmethod
     def _verify_mods(mods):
+        # TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE
         verified = {}
         if mods:
             for stat in mods:

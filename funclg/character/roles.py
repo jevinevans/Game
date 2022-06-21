@@ -107,3 +107,5 @@ class Roles:
         Validates that abilities added are compatable
         """
         return [ability.copy() for ability in abilities if ability.damage_type in self.damage_types]
+
+    # def show_powers(): #TODO Define me

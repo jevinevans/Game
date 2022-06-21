@@ -5,8 +5,8 @@ Description: A manager class for creating, updating, and removing equipment.
 """
 
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.data_mgmt import load_data
 from funclg.utils.input_validation import choice_validation
+from funclg.utils.data_mgmt import load_data
 
 EQUIPMENT_DATABASE = "./data/equipment.json"
 
