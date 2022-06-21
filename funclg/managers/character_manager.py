@@ -21,9 +21,10 @@ def delete_character():
 
 CHARACTER_MENU = {
     "name": "Manage Characters",
-    "sub-menu": {
-        "1": {"name": "New Character", "function": build_new_character},
-        "2": {"name": "Edit Character", "function": edit_character},
-        "3": {"name": "Delete Character", "function": delete_character},
-    },
+    "description": "This is the menu to create characters to use in game.",
+    "menu_items": [
+        {"name": "New Character", "action": build_new_character},
+        {"name": "Edit Character", "action": edit_character},
+        {"name": "Delete Character", "action": delete_character},
+    ],
 }

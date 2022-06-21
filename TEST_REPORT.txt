@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Jun 19 23:50:54 PDT 2022 
+Date: Mon Jun 20 21:41:38 PDT 2022 
 
 ---PYTEST---
 
@@ -8,46 +8,47 @@ Date: Sun Jun 19 23:50:54 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 70 items
+collected 71 items
 
-tests/test_character/test_abilities.py .......                           [ 10%]
-tests/test_character/test_armor.py ...............                       [ 31%]
+tests/test_character/test_abilities.py .......                           [  9%]
+tests/test_character/test_armor.py ...............                       [ 30%]
 tests/test_character/test_character.py .                                 [ 32%]
-tests/test_character/test_equipment.py ...............                   [ 54%]
-tests/test_character/test_modifiers.py ........                          [ 65%]
-tests/test_character/test_roles.py ............                          [ 82%]
-tests/test_character/test_stats.py ............                          [100%]
+tests/test_character/test_equipment.py ...............                   [ 53%]
+tests/test_character/test_modifiers.py ........                          [ 64%]
+tests/test_character/test_roles.py ............                          [ 81%]
+tests/test_character/test_stats.py ............                          [ 98%]
+tests/test_main/test_main.py .                                           [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------------------------------
 funclg/__init__.py                         0      0      0      0   100%
-funclg/__main__.py                        10     10      0      0     0%   26-43
+funclg/__main__.py                        22      9      2      1    58%   44-45, 49-56, 60
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             30      0      4      0   100%
 funclg/character/armor.py                116      0     32      0   100%
-funclg/character/character.py             36     16     12      2    50%   53, 59, 64-69, 72-78, 85, 89
+funclg/character/character.py             36     16     12      2    50%   53, 59, 64-69, 72-78, 86, 90
 funclg/character/equipment.py             72      0     14      0   100%
-funclg/character/modifiers.py             64      0     32      4    96%   72->exit, 77->exit, 98->101, 110->112
+funclg/character/modifiers.py             64      0     32      4    96%   73->exit, 78->exit, 99->102, 111->113
 funclg/character/roles.py                 64      0     26      0   100%
 funclg/character/stats.py                 61      0     30      2    98%   46->45, 59->58
-funclg/managers/__init__.py               14     14      2      0     0%   5-23
-funclg/managers/abilities_manager.py       8      8      0      0     0%   7-22
-funclg/managers/character_manager.py       8      8      0      0     0%   7-22
-funclg/managers/equipment_manager.py      33     33      4      0     0%   7-63
-funclg/managers/modifier_manager.py       16     16      2      0     0%   12-40
-funclg/managers/roles_manager.py           8      8      0      0     0%   7-22
+funclg/managers/__init__.py               13      0      2      0   100%
+funclg/managers/abilities_manager.py       8      3      0      0    62%   11, 15, 19
+funclg/managers/character_manager.py       8      3      0      0    62%   11, 15, 19
+funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19, 23, 27, 31, 35, 39, 43, 47-52, 56, 60
+funclg/managers/modifier_manager.py       43     32     14      0    19%   30-72, 76, 80
+funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 13     13      0      0     0%   7-24
-funclg/utils/input_validation.py          13     13      4      0     0%   8-27
-funclg/utils/menu_funcs.py                33     33     14      0     0%   7-58
-funclg/utils/types.py                     23      0      6      2    93%   54->57, 57->60
+funclg/utils/data_mgmt.py                 18     11      0      0    39%   17, 22-33
+funclg/utils/input_validation.py          34     27     12      0    15%   12-21, 25, 29, 33-35, 39-45, 50-59
+funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
+funclg/utils/types.py                     25      0      6      2    94%   56->59, 59->62
 ----------------------------------------------------------------------------------
-TOTAL                                    622    172    182     10    73%
+TOTAL                                    695    140    206     11    78%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 73.38%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 78.14%
 
-============================== 70 passed in 0.64s ==============================
+============================== 71 passed in 1.62s ==============================
 
 ---Code Quality Report---
 
@@ -69,12 +70,20 @@ All done! ✨ 🍰 ✨
 -----PYLINT-----
 
 ************* Module funclg.__main__
-funclg/__main__.py:33:34: W0511: TODO: add play instance (fixme)
+funclg/__main__.py:36:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character.armor
 funclg/character/armor.py:137:9: W0511: TODO: May need to add a try/except to this for if the wrong value is given (fixme)
+************* Module funclg.character.character
+funclg/character/character.py:81:5: W0511: TODO: Define details, (fixme)
+************* Module funclg.character.modifiers
+funclg/character/modifiers.py:59:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
+funclg/character/modifiers.py:10:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
+funclg/character/modifiers.py:10:0: W0611: Unused MOD_MULT_RANGE imported from utils.types (unused-import)
+************* Module funclg.character.roles
+funclg/character/roles.py:111:5: W0511: def show_powers(): #TODO Define me (fixme)
 ************* Module funclg.character.stats
 funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
@@ -89,23 +98,25 @@ funclg/managers/equipment_manager.py:15:4: W0612: Unused variable 'equipment_dat
 funclg/managers/equipment_manager.py:7:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
 funclg/managers/equipment_manager.py:7:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
 ************* Module funclg.managers.modifier_manager
-funclg/managers/modifier_manager.py:22:5: W0511: TODO: REMOVE TODO Print (fixme)
-funclg/managers/modifier_manager.py:14:0: W0611: Unused Modifier imported from funclg.character.modifiers (unused-import)
-funclg/managers/modifier_manager.py:16:0: W0611: Unused MODIFIER_TYPES imported from funclg.utils.types (unused-import)
+funclg/managers/modifier_manager.py:24:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/modifier_manager.py:71:5: W0511: TODO: Replace with proper info (fixme)
+funclg/managers/modifier_manager.py:29:0: R0912: Too many branches (13/12) (too-many-branches)
+funclg/managers/modifier_manager.py:21:0: W0611: Unused Menu imported from funclg.utils.menu_funcs (unused-import)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
-************* Module funclg.managers.__init__
-funclg/managers/__init__.py:13:1: W0511: TODO Build a menu object for all the managers to codify the process (fixme)
 ************* Module funclg.utils.data_mgmt
-funclg/utils/data_mgmt.py:20:11: W0703: Catching too general exception Exception (broad-except)
+funclg/utils/data_mgmt.py:20:1: W0511: TODO: add process to check to see if file in data path, either needs to provide full path or file name in the data folder (fixme)
+funclg/utils/data_mgmt.py:36:1: W0511: TODO: Define update process (fixme)
+funclg/utils/data_mgmt.py:37:16: W0613: Unused argument 'filename' (unused-argument)
+funclg/utils/data_mgmt.py:37:31: W0613: Unused argument 'data' (unused-argument)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.70/10 (previous run: 9.66/10, +0.03)
+Your code has been rated at 9.61/10 (previous run: 9.60/10, +0.01)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 3.67s
+npx: installed 1 in 14.649s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -116,11 +127,5 @@ Searching for source files
 Found 21 source files
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py:100:20 - error: Object of type "Literal[True]" is not callable (reportGeneralTypeIssues)
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/input_validation.py:19:20 - error: Expression of type "int" cannot be assigned to return type "str"
-    "int" is incompatible with "str" (reportGeneralTypeIssues)
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/menu_funcs.py:51:34 - error: Operator "-" not supported for types "str" and "Literal[1]"
-    Operator "-" not supported for types "str" and "Literal[1]" (reportGeneralTypeIssues)
-3 errors, 0 warnings, 0 informations 
-Completed in 1.481sec
+1 error, 0 warnings, 0 informations 
+Completed in 3.944sec

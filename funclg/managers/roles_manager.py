@@ -21,9 +21,10 @@ def delete_role():
 
 ROLES_MENU = {
     "name": "Manage Roles",
-    "sub-menu": {
-        "1": {"name": "New Role", "function": build_role},
-        "2": {"name": "Edit Role", "function": edit_role},
-        "3": {"name": "Delete Role", "function": delete_role},
-    },
+    "description": "This is the menu to manage character roles/classes. Build a class and the attributes to go with it.",
+    "menu_items": [
+        {"name": "New Role", "action": build_role},
+        {"name": "Edit Role", "action": edit_role},
+        {"name": "Delete Role", "action": delete_role},
+    ],
 }

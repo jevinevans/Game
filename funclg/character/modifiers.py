@@ -7,7 +7,7 @@ Description: This defines the modifiers object that will be used for all stats
 from typing import Any, Dict, Optional, Union
 
 # from loguru import logger
-from ..utils.types import MODIFIER_TYPES, MOD_ADD_RANGE, MOD_MULT_RANGE
+from ..utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
 
 
 class Modifier:

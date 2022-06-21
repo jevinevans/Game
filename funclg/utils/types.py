@@ -30,6 +30,7 @@ MODIFIER_TYPES = ["health", "energy", "attack", "defense"]
 MOD_ADD_RANGE = 500
 MOD_MULT_RANGE = 100
 
+
 def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
     "Returns the effect type of the provided ability"
     return DAMAGE_TYPES[a_type]

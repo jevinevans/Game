@@ -21,10 +21,10 @@ def delete_ability():
 
 ABILITY_MENU = {
     "name": "Manage Abilities",
-    "sub-menu": {
-        "1": {"name": "Add New Ability", "function": build_ability},
-        "2": {"name": "Edit Ability", "function": edit_ability},
-        "3": {"name": "Delete Ability", "function": delete_ability},
-        "4": {"name": "Go Back", "return": True},
-    },
+    "description": "This is the menu to create abilities to add to Roles for characters to use.",
+    "menu_items": [
+        {"name": "Add New Ability", "action": build_ability},
+        {"name": "Edit Ability", "action": edit_ability},
+        {"name": "Delete Ability", "action": delete_ability},
+    ],
 }

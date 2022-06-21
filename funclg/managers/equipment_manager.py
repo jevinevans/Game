@@ -5,10 +5,10 @@ Description: A manager class for creating, updating, and removing equipment.
 """
 
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.input_validation import choice_validation
 from funclg.utils.data_mgmt import load_data
+from funclg.utils.input_validation import choice_validation
 
-EQUIPMENT_DATABASE = "./data/equipment.json"
+EQUIPMENT_DATABASE = "equipment.json"
 
 
 def _equipment_set_up(action: str):
@@ -62,9 +62,10 @@ def delete_equipment():
 
 EQUIPMENT_MENU = {
     "name": "Manage Equipment",
-    "sub-menu": {
-        "1": {"name": "New Equipment", "function": build_equipment},
-        "2": {"name": "Edit Equipment", "function": edit_equipment},
-        "3": {"name": "Delete Equipment", "function": delete_equipment},
-    },
+    "description": "This the menu to create armor and weapons for characters to use.",
+    "menu_items": [
+        {"name": "New Equipment", "action": build_equipment},
+        {"name": "Edit Equipment", "action": edit_equipment},
+        {"name": "Delete Equipment", "action": delete_equipment},
+    ],
 }

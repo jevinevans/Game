@@ -29,29 +29,31 @@ def string_validation(value: str):
     return remove_special_chars(input(f"Enter {value}: "))
 
 
-def list_choice_selection(items:List[Any]):
+def list_choice_selection(items: List[Any]):
     for index, item in enumerate(items):
         print(f"{index} --- {item}")
     return items[choice_validation(len(items))]
 
-def yes_no_validation(prompt:str):
-    choice = ''
-    while choice not in ['y', 'Y', 'N', 'n']:
-        choice = input(prompt+"[y/N]")
-    
-    if choice in ['y', 'Y']:
+
+def yes_no_validation(prompt: str):
+    choice = ""
+    while choice not in ["y", "Y", "N", "n"]:
+        choice = input(prompt + " [y/N]:")
+
+    if choice in ["y", "Y"]:
         return True
     return False
 
-def number_range_validation(min_val:int, max_val:int):
-     while True:
+
+def number_range_validation(min_val: int, max_val: int):
+    while True:
         try:
-            user_resp = int(input(f"Choice number in range ({min_val}-{max_val}):"))
+            user_resp = int(input(f"Choice number in range [{min_val} - {max_val}]: "))
 
             if user_resp < min_val or user_resp > max_val:
                 raise ValueError("Out of Range")
         except ValueError:
-            print(f"Invalid Answer: Please enter a number between 1 and {max_choice}")
+            print(f"Invalid Answer: Please enter a number between {min_val} and {max_val}")
             continue
         else:
             return user_resp
