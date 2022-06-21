@@ -4,8 +4,10 @@ Date: 6.19.2022
 Description: Centralized utility module to manage input validation (user choice, data cleaning, etc.)
 """
 
+from typing import Any, List
 
-def choice_validation(max_choice: int) -> str:
+
+def choice_validation(max_choice: int) -> int:
     while True:
         try:
             user_resp = int(input("CHOICE: "))
@@ -27,4 +29,29 @@ def string_validation(value: str):
     return remove_special_chars(input(f"Enter {value}: "))
 
 
-# def number_validation(min_val:int, max_val:int):
+def list_choice_selection(items:List[Any]):
+    for index, item in enumerate(items):
+        print(f"{index} --- {item}")
+    return items[choice_validation(len(items))]
+
+def yes_no_validation(prompt:str):
+    choice = ''
+    while choice not in ['y', 'Y', 'N', 'n']:
+        choice = input(prompt+"[y/N]")
+    
+    if choice in ['y', 'Y']:
+        return True
+    return False
+
+def number_range_validation(min_val:int, max_val:int):
+     while True:
+        try:
+            user_resp = int(input(f"Choice number in range ({min_val}-{max_val}):"))
+
+            if user_resp < min_val or user_resp > max_val:
+                raise ValueError("Out of Range")
+        except ValueError:
+            print(f"Invalid Answer: Please enter a number between 1 and {max_choice}")
+            continue
+        else:
+            return user_resp
