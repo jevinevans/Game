@@ -9,20 +9,18 @@ import os
 
 from loguru import logger
 
-DATA_PATH = ""
 
-
-def setup_data_path(main_path: str):
-    global DATA_PATH  # pylint: disable=global-statement
-    DATA_PATH = os.path.join(main_path, "data")
+def get_data_path():
+    return globals.get("DATA_PATH", "")
 
 
 # TODO: add process to check to see if file in data path, either needs to provide full path or file name in the data folder
 def load_data(filename: str):
+    data_path = get_data_path()
     data = {}
     try:
         assert filename.endswith(".json")
-        assert filename.startswith(DATA_PATH)  # Change to look for if not just add
+        filename = os.path.join(data_path, filename)
         with open(filename, encoding="utf-8") as load_file:
             data = json.load(load_file)
 

@@ -25,9 +25,12 @@ menu
 """
 import os
 
+from loguru import logger
+
 from funclg.managers import build_manager_menu
-from funclg.utils.data_mgmt import setup_data_path
 from funclg.utils.menu_funcs import Menu, save_exit
+
+GAME_NAME = "FUNCLG"
 
 
 def build_main_menu():
@@ -40,8 +43,17 @@ def build_main_menu():
 
 
 def game_set_up():
+    logger.info(f"Setting up {GAME_NAME}")
     # Set up data folder
-    setup_data_path(os.path.dirname(__file__))
+    data_path = os.path.join(os.path.dirname(__file__), "data")
+    if not os.path.exists(data_path):
+        os.mkdir(data_path)
+        logger.debug(f"Creating data path: {data_path}")
+
+    globals()["DATA_PATH"] = data_path
+
+    # Builds Menus
+    logger.info("Menuas Loadas...")
     return build_main_menu()
 
 

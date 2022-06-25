@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 20			|
-|	Files: 101				|
+|	Total Directories: 24			|
+|	Files: 106				|
 +==========================================+
 
 ./.coverage
@@ -96,6 +96,14 @@
 ./logs/character
 ./logs/character.log
 ./logs/character/character.log
+./ov=funclg
+./ov=funclg/.pytest_cache
+./ov=funclg/.pytest_cache/CACHEDIR.TAG
+./ov=funclg/.pytest_cache/README.md
+./ov=funclg/.pytest_cache/v
+./ov=funclg/.pytest_cache/v/cache
+./ov=funclg/.pytest_cache/v/cache/nodeids
+./ov=funclg/.pytest_cache/v/cache/stepwise
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt
@@ -124,3 +132,4 @@
 ./tests/test_main/test_main.py
 ./tests/test_managers
 ./tests/test_utils
+./tests/test_utils/test_types.py

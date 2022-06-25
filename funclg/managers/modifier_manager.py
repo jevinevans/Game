@@ -18,7 +18,6 @@ from funclg.utils.input_validation import (
     string_validation,
     yes_no_validation,
 )
-from funclg.utils.menu_funcs import Menu
 from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
 
 # TODO: Create/modify the build to allow for random creation
