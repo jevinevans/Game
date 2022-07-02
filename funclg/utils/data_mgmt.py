@@ -6,6 +6,7 @@ Description: Utility class used for data/database actions loading, saving, updat
 
 import json
 import os
+from typing import Any, Dict
 
 from loguru import logger
 
@@ -14,26 +15,38 @@ def get_data_path():
     return globals.get("DATA_PATH", "")
 
 
-# TODO: add process to check to see if file in data path, either needs to provide full path or file name in the data folder
 def load_data(filename: str):
-    data_path = get_data_path()
     data = {}
     try:
         assert filename.endswith(".json")
-        filename = os.path.join(data_path, filename)
-        with open(filename, encoding="utf-8") as load_file:
+        filename = os.path.join(get_data_path(), filename)
+        with open(filename, "r", encoding="utf-8") as load_file:
             data = json.load(load_file)
 
-    except (FileNotFoundError, AssertionError) as error:
-        logger.warning(error)
-        print(f"{error}\n - No data could be loaded for {filename}")
+    except AssertionError as error:
+        logger.error(error)
+        print(f"{filename} is not the correct format file.")
+    except FileNotFoundError as error:
+        logger.error(error)
+        print(f"Could not find file: {filename}")
 
     return data
 
 
-# TODO: Define update process
-def update_data(filename: str, data):
+def update_data(filename: str, data: Dict[str, Any]):
     "Define me"
-    # Needs to load file, call load function,
-    # Needs to add the new object
-    # Write the file back
+    db_table = load_data(filename)
+    db_table.update(data)
+    try:
+        filename = os.path.join(get_data_path(), filename)
+        with open(filename, "w", encoding="utf-8") as write_file:
+            json.dump(db_table, write_file)
+        return True
+    except FileNotFoundError as error:
+        logger.error(error)
+        print(f"Error updating database: file not found {filename}")
+        return False
+
+
+## Reference
+## https://www.freecodecamp.org/news/how-to-write-a-simple-toy-database-in-python-within-minutes-51ff49f47f1/
