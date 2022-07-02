@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sat Jun 25 09:36:01 PDT 2022 
+Date: Sat Jul  2 14:37:08 PDT 2022 
 
 ---PYTEST---
 
@@ -24,11 +24,11 @@ tests/test_utils/test_types.py ....                                      [100%]
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------------------------------
 funclg/__init__.py                         0      0      0      0   100%
-funclg/__main__.py                        29     15      4      1    45%   43-54, 58-65, 69
+funclg/__main__.py                        29     15      4      1    45%   46-57, 61-68, 72
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             30      0      4      0   100%
-funclg/character/armor.py                116      0     32      0   100%
-funclg/character/character.py             36     16     12      2    50%   53, 59, 64-69, 72-78, 86, 90
+funclg/character/armor.py                117      0     32      0   100%
+funclg/character/character.py             45     21     18      3    46%   51, 60, 66, 71-76, 79-85, 93, 97-98, 101-103
 funclg/character/equipment.py             72      0     14      0   100%
 funclg/character/modifiers.py             64      0     32      4    96%   73->exit, 78->exit, 99->102, 111->113
 funclg/character/roles.py                 64      0     26      0   100%
@@ -40,31 +40,30 @@ funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19
 funclg/managers/modifier_manager.py       42     32     14      0    18%   29-71, 75, 79
 funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 18     12      0      0    33%   13, 18-30
+funclg/utils/data_mgmt.py                 32     25      2      0    21%   15, 19-33, 38-48
 funclg/utils/input_validation.py          34     27     12      0    15%   12-21, 25, 29, 33-35, 39-45, 50-59
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      2    94%   56->59, 59->62
 ----------------------------------------------------------------------------------
-TOTAL                                    701    147    208     11    77%
+TOTAL                                    725    165    216     12    75%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 77.34%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 75.45%
 
-============================== 75 passed in 1.69s ==============================
+============================== 75 passed in 0.89s ==============================
 
 ---Code Quality Report---
 
 
 -----ISORT-----
 
-Fixing /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/__main__.py
-Fixing /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py
 
 -----BLACK-----
 
-reformatted funclg/__main__.py
+reformatted funclg/character/character.py
+reformatted funclg/character/armor.py
 
 All done! ✨ 🍰 ✨
-1 file reformatted, 20 files left unchanged.
+2 files reformatted, 19 files left unchanged.
 
 -----BANDIT-----
 
@@ -79,10 +78,9 @@ funclg/__main__.py:39:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
-************* Module funclg.character.armor
-funclg/character/armor.py:137:9: W0511: TODO: May need to add a try/except to this for if the wrong value is given (fixme)
 ************* Module funclg.character.character
-funclg/character/character.py:81:5: W0511: TODO: Define details, (fixme)
+funclg/character/character.py:88:5: W0511: TODO: Define details, (fixme)
+funclg/character/character.py:102:12: C0103: Variable name "x" doesn't conform to snake_case naming style (invalid-name)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:59:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 funclg/character/modifiers.py:10:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
@@ -108,19 +106,14 @@ funclg/managers/modifier_manager.py:70:5: W0511: TODO: Replace with proper info 
 funclg/managers/modifier_manager.py:28:0: R0912: Too many branches (13/12) (too-many-branches)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
-************* Module funclg.utils.data_mgmt
-funclg/utils/data_mgmt.py:17:1: W0511: TODO: add process to check to see if file in data path, either needs to provide full path or file name in the data folder (fixme)
-funclg/utils/data_mgmt.py:34:1: W0511: TODO: Define update process (fixme)
-funclg/utils/data_mgmt.py:35:16: W0613: Unused argument 'filename' (unused-argument)
-funclg/utils/data_mgmt.py:35:31: W0613: Unused argument 'data' (unused-argument)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.63/10 (previous run: 9.61/10, +0.02)
+Your code has been rated at 9.70/10 (previous run: 9.68/10, +0.01)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 6.956s
+npx: installed 1 in 3.687s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -131,5 +124,8 @@ Searching for source files
 Found 21 source files
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/armor.py:100:20 - error: Object of type "Literal[True]" is not callable (reportGeneralTypeIssues)
-1 error, 0 warnings, 0 informations 
-Completed in 2.462sec
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py:71:35 - error: Argument of type "Modifier" cannot be assigned to parameter "data" of type "Dict[str, Any]" in function "update_data"
+    "Modifier" is incompatible with "Dict[str, Any]" (reportGeneralTypeIssues)
+2 errors, 0 warnings, 0 informations 
+Completed in 1.513sec

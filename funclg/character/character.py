@@ -32,18 +32,25 @@ class Character:
     The playable character for the game
     """
 
+    INVENTORY_SIZE = 20
+
     def __init__(
         self,
         name: str,
         armor_type: int,
         armor_instance: Optional[Armor] = None,
         role_instance: Optional[Roles] = None,
+        **kwargs,
     ):
         """
         Creates a new character with an armor set and role
         """
         self.name = name
         self.armor_type = armor_type if armor_type else 0
+        if "inventory" in kwargs:
+            self.inventory = kwargs["inventory"]
+        else:
+            self.inventory = []
 
         self._set_up_armor(armor_instance)
         self._set_up_role(role_instance)
@@ -87,7 +94,13 @@ class Character:
 
     def dequip(self, item_type: str) -> None:
         """Calls the armor dequip function"""
-        self.armor.dequip(item_type)
+        if item := self.armor.dequip(item_type) is not None:
+            self.inventory.append(item)
+
+    def show_inventory(self):
+        print("\nInventory")
+        for item in self.inventory:
+            print(item)
 
     # def use_power(self):
     # def add_power????

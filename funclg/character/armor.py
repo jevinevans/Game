@@ -134,14 +134,14 @@ class Armor:
         """
         Removes the currently equiped item in the current position and wil return an item if there is something already equiped.
         """
-        # TODO: May need to add a try/except to this for if the wrong value is given
         if getattr(self, item_type.lower(), False):
             dequip_func = getattr(self, "_dequip_" + item_type.lower())
-            del_item = dequip_func()
-            self.stat.remove_mod(del_item.mod.name)
-            logger.info(f"Dequipped {del_item.name} from {del_item.get_item_type()}")
-            del del_item
+            ret_item = dequip_func()
+            self.stat.remove_mod(ret_item.mod.name)
+            logger.info(f"Dequipped {ret_item.name} from {ret_item.get_item_type()}")
+            return ret_item
         logger.warning("There is no item to remove.")
+        return None
 
     def details(self, indent: int = 0) -> str:
         title = f" Armor ({get_armor_type(self.armor_type)}) "
