@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sat Jul  2 14:37:08 PDT 2022 
+Date: Sat Jul  2 14:45:43 PDT 2022 
 
 ---PYTEST---
 
@@ -49,7 +49,7 @@ TOTAL                                    725    165    216     12    75%
 
 FAIL Required test coverage of 100.0% not reached. Total coverage: 75.45%
 
-============================== 75 passed in 0.89s ==============================
+============================== 75 passed in 0.82s ==============================
 
 ---Code Quality Report---
 
@@ -59,11 +59,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 75.45%
 
 -----BLACK-----
 
-reformatted funclg/character/character.py
-reformatted funclg/character/armor.py
-
 All done! ✨ 🍰 ✨
-2 files reformatted, 19 files left unchanged.
+21 files left unchanged.
 
 -----BANDIT-----
 
@@ -80,7 +77,6 @@ funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a speci
 funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character.character
 funclg/character/character.py:88:5: W0511: TODO: Define details, (fixme)
-funclg/character/character.py:102:12: C0103: Variable name "x" doesn't conform to snake_case naming style (invalid-name)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:59:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 funclg/character/modifiers.py:10:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
@@ -108,12 +104,12 @@ funclg/managers/modifier_manager.py:28:0: R0912: Too many branches (13/12) (too-
 funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.70/10 (previous run: 9.68/10, +0.01)
+Your code has been rated at 9.71/10 (previous run: 9.71/10, +0.00)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 3.687s
+npx: installed 1 in 3.985s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -128,4 +124,4 @@ Found 21 source files
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py:71:35 - error: Argument of type "Modifier" cannot be assigned to parameter "data" of type "Dict[str, Any]" in function "update_data"
     "Modifier" is incompatible with "Dict[str, Any]" (reportGeneralTypeIssues)
 2 errors, 0 warnings, 0 informations 
-Completed in 1.513sec
+Completed in 1.532sec
