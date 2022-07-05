@@ -67,7 +67,6 @@ def build_modifier(name: Optional[str] = "", from_method: Optional[bool] = False
 
     if from_method:
         return new_mod
-    # TODO: Replace with proper info
     db.update_data(MODIFIER_DATA, new_mod)
 
 
