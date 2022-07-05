@@ -102,7 +102,7 @@ def test_equipment_copy():
 def test_bodyequipment_init(bodyequipment_mods):
     # Test Body Equipment
     body = BodyEquipment("Init Test", None, "Testing Initialization", 0, 0)
-    assert body.mod.name == "Init Test"
+    assert body.mod.name == "Init Test_mod"
     assert body.mod.adds == {"defense": 1, "health": 1}
     assert body.mod.mults == {}
 
@@ -110,7 +110,7 @@ def test_bodyequipment_init(bodyequipment_mods):
     mod_body = BodyEquipment(
         "Init Mod Test", bodyequipment_mods["Back_mods"], "Testing modded  init", 2, 2
     )
-    assert mod_body.mod.name == "Init Mod Test"
+    assert mod_body.mod.name == "Init Mod Test_mod"
     assert mod_body.mod.adds == bodyequipment_mods["Back_mods"]["adds"]
     assert mod_body.mod.mults == bodyequipment_mods["Back_mods"]["mults"]
 
@@ -164,7 +164,7 @@ def test_weaponequipment_init(weaponequipment_all_types, weaponequipment_mods):
         weapon_type=0,
         armor_type=0,
     )
-    assert mod_weapon.mod.name == "Init Mod Test"
+    assert mod_weapon.mod.name == "Init Mod Test_mod"
     assert mod_weapon.mod.adds == weaponequipment_mods["Sword_mods"]["adds"]
     assert mod_weapon.mod.mults == weaponequipment_mods["Sword_mods"]["mults"]
 

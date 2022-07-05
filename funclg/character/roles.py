@@ -45,18 +45,18 @@ class Roles:
     def __str__(self):
         return f"Class: {self.name} | Class Type(s): {', '.join(self.damage_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
 
-    def add_power(self, ability: Abilities) -> int:
+    def add_power(self, ability: Abilities) -> bool:
         if ability.damage_type in self.damage_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
                 self.abilities.append(ability.copy())
                 logger.success(f"Added {ability.name} to {self.name}")
-                return 0
+                return True
             logger.warning("Max abilities reached!")
-            return 3
+            return False
         logger.warning(
             f"{ability.name}({ability.damage_type}) is not compatible with {self.name}({self.damage_types})"
         )
-        return 1
+        return False
 
     def get_power(self, index: int):
         """Returns the wanted power"""
@@ -75,7 +75,7 @@ class Roles:
 
     def details(self, indent: int = 0):
         desc = f"\n{' '*indent}Class: {self.name}"
-        desc += f"\n{' '*indent}{'-'*(len(self.name)+9)}"
+        desc += f"\n{' '*indent}{'-'*(len(self.name)+7)}"
         desc += f"\n{' '*indent}Armor Type: {get_armor_type(self.armor_type)}"
         desc += f"\n{' '*indent}Description: {self.description}"
         desc += f"\n{' '*indent}Role Abilities:\n"

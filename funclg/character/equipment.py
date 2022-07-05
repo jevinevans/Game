@@ -105,12 +105,12 @@ class WeaponEquipment(Equipment):
         armor_type: int = 0,
         modifiers: Optional[Dict[str, Dict]] = None,
     ):
-        weapon_mod = Modifier(name=name)
+        weapon_mod = Modifier(name=name + "_mod")
         if modifiers:
-            weapon_mod.add_mods(m_type="adds", mods=modifiers.get("adds", {}))
-            weapon_mod.add_mods(m_type="mults", mods=modifiers.get("mults", {}))
+            weapon_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
+            weapon_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))
         else:
-            weapon_mod.add_mods(m_type="adds", mods={"attack": 1, "energy": 1})
+            weapon_mod.add_mod(m_type="adds", mods={"attack": 1, "energy": 1})
 
         super().__init__(
             name=name,
@@ -159,12 +159,12 @@ class BodyEquipment(Equipment):
         """
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
         """
-        body_mod = Modifier(name=name)
+        body_mod = Modifier(name=name + "_mod")
         if modifiers:
-            body_mod.add_mods(m_type="adds", mods=modifiers.get("adds", {}))
-            body_mod.add_mods(m_type="mults", mods=modifiers.get("mults", {}))
+            body_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
+            body_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))
         else:
-            body_mod.add_mods(m_type="adds", mods={"health": 1, "defense": 1})
+            body_mod.add_mod(m_type="adds", mods={"health": 1, "defense": 1})
 
         super().__init__(
             name=name,

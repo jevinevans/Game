@@ -50,14 +50,14 @@ class Stats:
         return self.details()
 
     def details(self, indent: int = 0):
-        stats = f"\n{' '*indent} Stats \n{' '*indent}"
-        stats += "-" * 7
-        stats += f"\n{' '*indent}Level: {self.level}"
+        stats = f"\n{' '*indent}Stats\n{' '*indent}"
+        stats += "-" * 5
+        if self.level:
+            stats += f"\n{' '*indent}Level: {self.level}"
         ignores = Stats.PRINT_IGNORES
         ignores.append("level")
         for attr in [attr for attr in self.__dict__ if attr not in ignores]:
-            if (value := self.get_stat(attr)) is not None:
-                stats += f"\n{' '*indent}{attr.capitalize()}: {value}"
+            stats += f"\n{' '*indent}{attr.capitalize()}: {self.get_stat(attr)}"
         return stats
 
     def _validate_mod(self, mod: Modifier):

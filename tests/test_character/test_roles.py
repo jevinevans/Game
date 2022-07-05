@@ -37,7 +37,7 @@ def test_roles_add_power_valid_power(mage_test_role):
     healing_2 = Abilities("Healing 2", "Healing", 50, "New healing ability")
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) == 0
+    assert mage_test_role.add_power(healing_2) == True
     assert len(mage_test_role.abilities) == 5
 
     char_power = mage_test_role.abilities[-1]
@@ -52,10 +52,10 @@ def test_roles_add_power_valid_power_max_reached(mage_test_role):
     healing_2 = Abilities("Healing 2", "Healing", 50, "New healing ability")
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) == 0
+    assert mage_test_role.add_power(healing_2) == True
     assert len(mage_test_role.abilities) == 5
 
-    assert mage_test_role.add_power(buff) == 3
+    assert mage_test_role.add_power(buff) == False
     assert len(mage_test_role.abilities) == 5
     assert mage_test_role.abilities[-1].name == healing_2.name
 
@@ -64,7 +64,7 @@ def test_roles_add_power_invalid_power(mage_test_role):
     repair = Abilities("Repair 2", "Repair", 50, "New Repair ability")
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(repair) == 1
+    assert mage_test_role.add_power(repair) == False
     assert len(mage_test_role.abilities) == 4
 
 

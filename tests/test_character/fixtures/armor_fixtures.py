@@ -93,8 +93,8 @@ def armor_details_expectations():
     expectations = []
     for indent in range(0, 7):
         base = f"""
-{' '*indent} Armor (Light) 
-{' '*indent}-----------------
+{' '*indent}Light Armor
+{' '*indent}-----------
 {' '*(indent+2)}Head: 
 {' '*(indent+2)}Head
 {' '*(indent+2)}----
@@ -102,7 +102,7 @@ def armor_details_expectations():
 {' '*(indent+2)}Description: Test Head
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Head:
+{' '*(indent+4)}Head_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
@@ -113,7 +113,7 @@ def armor_details_expectations():
 {' '*(indent+2)}Description: Test Chest
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Chest:
+{' '*(indent+4)}Chest_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
@@ -124,7 +124,7 @@ def armor_details_expectations():
 {' '*(indent+2)}Description: Test Back
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Back:
+{' '*(indent+4)}Back_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
@@ -135,7 +135,7 @@ def armor_details_expectations():
 {' '*(indent+2)}Description: Test Pants
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Pants:
+{' '*(indent+4)}Pants_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
@@ -146,14 +146,13 @@ def armor_details_expectations():
 {' '*(indent+2)}Description: Test Weapon
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Weapon: Knife:
+{' '*(indent+4)}Weapon: Knife_mod:
 {' '*(indent+6)}Attack: +1
 {' '*(indent+6)}Energy: +1
 
 
-{' '*(indent+2)} Stats 
-{' '*(indent+2)}-------
-{' '*(indent+2)}Level: None
+{' '*(indent+2)}Stats
+{' '*(indent+2)}-----
 {' '*(indent+2)}Health: 210
 {' '*(indent+2)}Energy: 15.4
 {' '*(indent+2)}Attack: 11
@@ -166,8 +165,8 @@ def armor_details_expectations():
 def armor_details_missing_weapon():
     indent = 0
     return f"""
-{' '*indent} Armor (Light) 
-{' '*indent}-----------------
+{' '*indent}Light Armor
+{' '*indent}-----------
 {' '*(indent+2)}Head: 
 {' '*(indent+2)}Head
 {' '*(indent+2)}----
@@ -175,7 +174,7 @@ def armor_details_missing_weapon():
 {' '*(indent+2)}Description: Test Head
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Head:
+{' '*(indent+4)}Head_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
@@ -186,7 +185,7 @@ def armor_details_missing_weapon():
 {' '*(indent+2)}Description: Test Chest
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Chest:
+{' '*(indent+4)}Chest_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
@@ -197,7 +196,7 @@ def armor_details_missing_weapon():
 {' '*(indent+2)}Description: Test Back
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Back:
+{' '*(indent+4)}Back_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
@@ -208,15 +207,14 @@ def armor_details_missing_weapon():
 {' '*(indent+2)}Description: Test Pants
 
 {' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Pants:
+{' '*(indent+4)}Pants_mod:
 {' '*(indent+6)}Health: +50
 {' '*(indent+6)}Energy: +10.0%
 
 {' '*(indent+2)}Weapon: None
 
-{' '*(indent+2)} Stats 
-{' '*(indent+2)}-------
-{' '*(indent+2)}Level: None
+{' '*(indent+2)}Stats
+{' '*(indent+2)}-----
 {' '*(indent+2)}Health: 210
 {' '*(indent+2)}Energy: 14.0
 {' '*(indent+2)}Attack: 10
@@ -233,7 +231,7 @@ def armor_export_expectations():
             "item_type": 0,
             "armor_type": 0,
             "mod": {
-                "name": "Head",
+                "name": "Head_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -244,7 +242,7 @@ def armor_export_expectations():
             "item_type": 1,
             "armor_type": 0,
             "mod": {
-                "name": "Chest",
+                "name": "Chest_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -255,7 +253,7 @@ def armor_export_expectations():
             "item_type": 2,
             "armor_type": 0,
             "mod": {
-                "name": "Back",
+                "name": "Back_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -266,7 +264,7 @@ def armor_export_expectations():
             "item_type": 3,
             "armor_type": 0,
             "mod": {
-                "name": "Pants",
+                "name": "Pants_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -278,7 +276,7 @@ def armor_export_expectations():
             "weapon_type": 0,
             "armor_type": 0,
             "mod": {
-                "name": "Weapon: Sword",
+                "name": "Weapon: Sword_mod",
                 "adds": {"attack": 1, "energy": 1},
                 "mults": {},
             },
@@ -290,11 +288,11 @@ def armor_export_expectations():
             "health": 10,
             "level": None,
             "mods": {
-                "Back": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Chest": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Head": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Pants": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Weapon: Sword": {"adds": {"attack": 1, "energy": 1}, "mults": {}},
+                "Back_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Chest_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Head_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Pants_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Weapon: Sword_mod": {"adds": {"attack": 1, "energy": 1}, "mults": {}},
             },
         },
     }

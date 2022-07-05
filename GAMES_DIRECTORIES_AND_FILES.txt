@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 20			|
-|	Files: 102				|
+|	Files: 101				|
 +==========================================+
 
 ./.coverage
@@ -108,7 +108,6 @@
 ./tests/test_character/fixtures/__init__.py
 ./tests/test_character/fixtures/abilities_fixtures.py
 ./tests/test_character/fixtures/armor_fixtures.py
-./tests/test_character/fixtures/character_fixtures.py
 ./tests/test_character/fixtures/equipment_fixures.py
 ./tests/test_character/fixtures/modifier_fixtures.py
 ./tests/test_character/fixtures/role_fixtures.py

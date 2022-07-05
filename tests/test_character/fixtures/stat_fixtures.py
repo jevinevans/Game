@@ -42,8 +42,8 @@ def base_stat_export_expectation():
 @pytest.fixture
 def base_stat_str_expectation():
     return """
- Stats 
--------
+Stats
+-----
 Level: 30
 Health: 15.0
 Energy: 55

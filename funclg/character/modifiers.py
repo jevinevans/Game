@@ -69,8 +69,8 @@ class Modifier:
         m_set = getattr(self, m_type)
         m_set[stat] = effect
 
-    def add_mods(self, m_type: str, mods: Dict[str, int]):
-        if m_type in self.M_TYPES:
+    def add_mod(self, m_type: str, mods: Dict[str, int]):
+        if m_type in self.M_TYPES and len(mods) >= 1:
             for stat, effect in self._verify_mods(mods).items():
                 self._add_mod(m_type=m_type, stat=stat, effect=effect)
 
@@ -106,9 +106,6 @@ class Modifier:
         string = ""
         for stat, vals in stats.items():
             string += " " * indent + str(stat).capitalize() + ":"
-            for val in vals:
-                string += val + ","
-            if string.endswith(","):
-                string = string[:-1]
+            string += ",".join(val for val in vals)
             string += "\n"
         return string

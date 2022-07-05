@@ -96,13 +96,14 @@ class Armor:
 
     def equip(self, item: Equipment):
         if item:
-            if equip_func := getattr(self, "_equip_" + item.get_item_type().lower(), False):
+            equip_func = getattr(self, "_equip_" + item.get_item_type().lower(), None)
+            if equip_func:
                 if equip_func(item):
                     self.stat.add_mod(item.mod)
                     logger.info(f"Equipped {item.name} to {item.get_item_type()}")
-                else:
-                    logger.warning(f"{item} is not compatible with this armor")
-                    return
+            else:
+                logger.warning(f"{item} is not compatible with this armor")
+                return
         logger.error("No item was provided to equip")
 
     def _dequip_head(self):
@@ -144,8 +145,8 @@ class Armor:
         return None
 
     def details(self, indent: int = 0) -> str:
-        title = f" Armor ({get_armor_type(self.armor_type)}) "
-        desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*(len(title)+2)}"
+        title = f"{get_armor_type(self.armor_type)} Armor"
+        desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*len(title)}"
         desc += f"\n{' '*(indent+2)}Head: {self.head.details(indent+2) if self.head else None}"
         desc += f"\n{' '*(indent+2)}Chest: {self.chest.details(indent+2) if self.chest else None}"
         desc += f"\n{' '*(indent+2)}Back: {self.back.details(indent+2) if self.back else None}"

@@ -6,6 +6,7 @@ Description: The character that will be used. The character will have a role, ab
 
 from typing import Any, Dict, Optional
 
+from .abilities import Abilities
 from .armor import Armor
 from .equipment import Equipment
 from .roles import Roles
@@ -32,8 +33,6 @@ class Character:
     The playable character for the game
     """
 
-    INVENTORY_SIZE = 20
-
     def __init__(
         self,
         name: str,
@@ -47,10 +46,7 @@ class Character:
         """
         self.name = name
         self.armor_type = armor_type if armor_type else 0
-        if "inventory" in kwargs:
-            self.inventory = kwargs["inventory"]
-        else:
-            self.inventory = []
+        self.inventory = kwargs.get("inventory", [])
 
         self._set_up_armor(armor_instance)
         self._set_up_role(role_instance)
@@ -84,9 +80,12 @@ class Character:
                 exporter[key] = value.export()
         return exporter
 
-    # def details(self, indent:int = 0) -> str:
-    # TODO: Define details,
-    # Add armor details and roles details
+    def details(self, indent: int = 0) -> str:
+        desc = f"{self.name}\n"
+        desc += "-" * (len(self.name))
+        desc += "\n" + self.role.details(indent + 2)
+        desc += "\n" + self.armor.details(indent + 2)
+        return desc
 
     def equip(self, item: Equipment) -> None:
         """Calls the armor equip function"""
@@ -98,10 +97,12 @@ class Character:
             self.inventory.append(item)
 
     def show_inventory(self):
-        print("\nInventory")
-        for item in self.inventory:
-            print(item)
+        print("\nInventory:")
+        print("\n  - ".join(self.inventory))
 
-    # def use_power(self):
-    # def add_power????
-    # def get_stats(self):
+    def add_power(self, ability: Abilities) -> bool:
+        return self.role.add_power(ability)
+
+    # def use_power(self): TODO
+
+    # def get_stats(self): TODO
