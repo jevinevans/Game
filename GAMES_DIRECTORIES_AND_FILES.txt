@@ -1,6 +1,6 @@
 +==========================================+
-|	Total Directories: 14			|
-|	Files: 90				|
+|	Total Directories: 20			|
+|	Files: 101				|
 +==========================================+
 
 ./.coverage
@@ -61,6 +61,7 @@
 ./changelogs/2022/Log_2022_01_08.md
 ./changelogs/2022/Log_2022_02_06.md
 ./changelogs/2022/Log_2022_03_23.md
+./changelogs/2022/Log_2022_05_29.md
 ./codeQuality.sh
 ./docs
 ./docs/Basic Player Game Info.txt
@@ -77,13 +78,24 @@
 ./funclg/character/modifiers.py
 ./funclg/character/roles.py
 ./funclg/character/stats.py
-./funclg/main.py
+./funclg/data
+./funclg/managers
+./funclg/managers/__init__.py
+./funclg/managers/abilities_manager.py
+./funclg/managers/character_manager.py
+./funclg/managers/equipment_manager.py
+./funclg/managers/modifier_manager.py
+./funclg/managers/roles_manager.py
 ./funclg/utils
 ./funclg/utils/__init__.py
-./funclg/utils/modifier_builder.py
+./funclg/utils/data_mgmt.py
+./funclg/utils/input_validation.py
+./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
 ./logs
+./logs/character
 ./logs/character.log
+./logs/character/character.log
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt
@@ -96,14 +108,19 @@
 ./tests/test_character/fixtures/__init__.py
 ./tests/test_character/fixtures/abilities_fixtures.py
 ./tests/test_character/fixtures/armor_fixtures.py
-./tests/test_character/fixtures/character_fixtures.py
 ./tests/test_character/fixtures/equipment_fixures.py
 ./tests/test_character/fixtures/modifier_fixtures.py
 ./tests/test_character/fixtures/role_fixtures.py
 ./tests/test_character/fixtures/stat_fixtures.py
 ./tests/test_character/test_abilities.py
 ./tests/test_character/test_armor.py
+./tests/test_character/test_character.py
 ./tests/test_character/test_equipment.py
 ./tests/test_character/test_modifiers.py
 ./tests/test_character/test_roles.py
 ./tests/test_character/test_stats.py
+./tests/test_main
+./tests/test_main/test_main.py
+./tests/test_managers
+./tests/test_utils
+./tests/test_utils/test_types.py

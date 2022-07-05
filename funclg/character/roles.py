@@ -5,7 +5,7 @@ Description: The Roles class is to allow the characters to use abilities.
 """
 
 import json
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List, Optional
 
 from loguru import logger
 
@@ -27,8 +27,8 @@ class Roles:
         name: str,
         description: str,
         armor_type: int,
-        damage_types: Union[List, None],
-        abilities: Union[List, None] = None,
+        damage_types: Optional[List] = None,
+        abilities: Optional[List] = None,
     ):  # pylint: disable=too-many-arguments
         self.name = name
         self.description = description
@@ -45,18 +45,18 @@ class Roles:
     def __str__(self):
         return f"Class: {self.name} | Class Type(s): {', '.join(self.damage_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
 
-    def add_power(self, ability: Abilities) -> int:
+    def add_power(self, ability: Abilities) -> bool:
         if ability.damage_type in self.damage_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
                 self.abilities.append(ability.copy())
                 logger.success(f"Added {ability.name} to {self.name}")
-                return 0
+                return True
             logger.warning("Max abilities reached!")
-            return 3
+            return False
         logger.warning(
             f"{ability.name}({ability.damage_type}) is not compatible with {self.name}({self.damage_types})"
         )
-        return 1
+        return False
 
     def get_power(self, index: int):
         """Returns the wanted power"""
@@ -75,7 +75,7 @@ class Roles:
 
     def details(self, indent: int = 0):
         desc = f"\n{' '*indent}Class: {self.name}"
-        desc += f"\n{' '*indent}{'-'*(len(self.name)+9)}"
+        desc += f"\n{' '*indent}{'-'*(len(self.name)+7)}"
         desc += f"\n{' '*indent}Armor Type: {get_armor_type(self.armor_type)}"
         desc += f"\n{' '*indent}Description: {self.description}"
         desc += f"\n{' '*indent}Role Abilities:\n"
@@ -89,7 +89,7 @@ class Roles:
 
     def export(self) -> Dict[str, Any]:
         logger.info(f"Exporting Role: {self.name}")
-        exporter = self.__dict__
+        exporter = self.__dict__.copy()
         for key, value in exporter.items():
             if key == "abilities" and len(value) > 0:
                 for index, ability in enumerate(value):
@@ -107,3 +107,5 @@ class Roles:
         Validates that abilities added are compatable
         """
         return [ability.copy() for ability in abilities if ability.damage_type in self.damage_types]
+
+    # def show_powers(): #TODO Define me

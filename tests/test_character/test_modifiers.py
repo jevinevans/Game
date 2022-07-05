@@ -64,11 +64,20 @@ def test_modifier_details(add_mods, mult_mods, modifier_details_expectation):
 
 def test_modifier_add_modifier(new_add_modifier, new_mult_modifier):
     t1 = Modifier(name="Test Add Modifier")
-    t1.add_mods("adds", new_add_modifier)
-    t1.add_mods("mults", new_mult_modifier)
+    t1.add_mod("adds", new_add_modifier)
+    t1.add_mod("mults", new_mult_modifier)
 
     assert t1.adds == new_add_modifier
     assert t1.mults == new_mult_modifier
+    assert len(t1.get_mods()) == 2
+    assert len(t1.adds) == 2
+    assert len(t1.mults) == 2
+
+    # Test invalid mod type
+    t1.add_mod("error_type", {})
+    assert len(t1.get_mods()) == 2
+    t1.add_mod("adds", {})
+    assert len(t1.get_mods()) == 2
 
 
 def test_modifier_remove_modifier(add_mods, mult_mods):
@@ -78,9 +87,11 @@ def test_modifier_remove_modifier(add_mods, mult_mods):
     del valid_mults["energy"]
     t1 = Modifier("Test Remove Modifier", add_mods["valid"], mult_mods["valid"])
     t1.remove_mod("adds", "defense")
+
     # Test Invalid stat name
     t1.remove_mod("mults", "energyt")
     t1.remove_mod("mults", "energy")
+    t1.remove_mod("error_test", "")
 
     assert t1.adds == valid_adds
     assert t1.mults == valid_mults
@@ -94,3 +105,8 @@ def test_modifier_get_mods(add_mods, mult_mods, modifier_get_expectation):
 def test_modifier_export(add_mods, mult_mods, modifier_export_expectation):
     t1 = Modifier("Test Export", add_mods["valid"], mult_mods["valid"])
     assert t1.export() == modifier_export_expectation
+
+
+def test_friendly_read_branching():
+    t1 = Modifier("Friendly Test")
+    assert t1._friendly_read() == ""

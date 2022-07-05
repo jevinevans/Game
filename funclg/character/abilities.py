@@ -15,6 +15,17 @@ from ..utils.types import DAMAGE_TYPES, get_ability_effect_type
 # logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
 
 
+"""
+stats integration update,
+- replace ability group and effect with a modifier
+- Define a modifier validation method that will check to see if the damage type matches the mods defined.
+- add energy cost attribute
+- add target attribute (either self or other, could just be a boolean?)
+- define use function to return the modifiers
+
+"""
+
+
 class Abilities:
     """
     Defines character/monster abilities

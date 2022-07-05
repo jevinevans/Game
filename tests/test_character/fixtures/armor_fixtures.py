@@ -93,15 +93,132 @@ def armor_details_expectations():
     expectations = []
     for indent in range(0, 7):
         base = f"""
-{' '*indent} Armor (Light) 
-{' '*indent}-----------------
-{' '*(indent+2)}Head: Head [0 0]
-{' '*(indent+2)}Chest: Chest [0 1]
-{' '*(indent+2)}Back: Back [0 2]
-{' '*(indent+2)}Pants: Pants [0 3]
-{' '*(indent+2)}Weapon: Weapon: Knife [0 4]"""
+{' '*indent}Light Armor
+{' '*indent}-----------
+{' '*(indent+2)}Head: 
+{' '*(indent+2)}Head
+{' '*(indent+2)}----
+{' '*(indent+2)}Type: [Light Head]
+{' '*(indent+2)}Description: Test Head
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Head_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Chest: 
+{' '*(indent+2)}Chest
+{' '*(indent+2)}-----
+{' '*(indent+2)}Type: [Light Chest]
+{' '*(indent+2)}Description: Test Chest
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Chest_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Back: 
+{' '*(indent+2)}Back
+{' '*(indent+2)}----
+{' '*(indent+2)}Type: [Light Back]
+{' '*(indent+2)}Description: Test Back
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Back_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Pants: 
+{' '*(indent+2)}Pants
+{' '*(indent+2)}-----
+{' '*(indent+2)}Type: [Light Pants]
+{' '*(indent+2)}Description: Test Pants
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Pants_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Weapon: 
+{' '*(indent+2)}Weapon: Knife
+{' '*(indent+2)}-------------
+{' '*(indent+2)}Type: [Light Knife]
+{' '*(indent+2)}Description: Test Weapon
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Weapon: Knife_mod:
+{' '*(indent+6)}Attack: +1
+{' '*(indent+6)}Energy: +1
+
+
+{' '*(indent+2)}Stats
+{' '*(indent+2)}-----
+{' '*(indent+2)}Health: 210
+{' '*(indent+2)}Energy: 15.4
+{' '*(indent+2)}Attack: 11
+{' '*(indent+2)}Defense: 10"""
         expectations.append(base)
     return expectations
+
+
+@pytest.fixture
+def armor_details_missing_weapon():
+    indent = 0
+    return f"""
+{' '*indent}Light Armor
+{' '*indent}-----------
+{' '*(indent+2)}Head: 
+{' '*(indent+2)}Head
+{' '*(indent+2)}----
+{' '*(indent+2)}Type: [Light Head]
+{' '*(indent+2)}Description: Test Head
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Head_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Chest: 
+{' '*(indent+2)}Chest
+{' '*(indent+2)}-----
+{' '*(indent+2)}Type: [Light Chest]
+{' '*(indent+2)}Description: Test Chest
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Chest_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Back: 
+{' '*(indent+2)}Back
+{' '*(indent+2)}----
+{' '*(indent+2)}Type: [Light Back]
+{' '*(indent+2)}Description: Test Back
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Back_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Pants: 
+{' '*(indent+2)}Pants
+{' '*(indent+2)}-----
+{' '*(indent+2)}Type: [Light Pants]
+{' '*(indent+2)}Description: Test Pants
+
+{' '*(indent+2)}Modifier(s):
+{' '*(indent+4)}Pants_mod:
+{' '*(indent+6)}Health: +50
+{' '*(indent+6)}Energy: +10.0%
+
+{' '*(indent+2)}Weapon: None
+
+{' '*(indent+2)}Stats
+{' '*(indent+2)}-----
+{' '*(indent+2)}Health: 210
+{' '*(indent+2)}Energy: 14.0
+{' '*(indent+2)}Attack: 10
+{' '*(indent+2)}Defense: 10"""
 
 
 @pytest.fixture
@@ -113,8 +230,8 @@ def armor_export_expectations():
             "description": "Test Head",
             "item_type": 0,
             "armor_type": 0,
-            "mods": {
-                "name": "Head",
+            "mod": {
+                "name": "Head_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -124,8 +241,8 @@ def armor_export_expectations():
             "description": "Test Chest",
             "item_type": 1,
             "armor_type": 0,
-            "mods": {
-                "name": "Chest",
+            "mod": {
+                "name": "Chest_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -135,8 +252,8 @@ def armor_export_expectations():
             "description": "Test Back",
             "item_type": 2,
             "armor_type": 0,
-            "mods": {
-                "name": "Back",
+            "mod": {
+                "name": "Back_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -146,8 +263,8 @@ def armor_export_expectations():
             "description": "Test Pants",
             "item_type": 3,
             "armor_type": 0,
-            "mods": {
-                "name": "Pants",
+            "mod": {
+                "name": "Pants_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -158,5 +275,24 @@ def armor_export_expectations():
             "item_type": 4,
             "weapon_type": 0,
             "armor_type": 0,
+            "mod": {
+                "name": "Weapon: Sword_mod",
+                "adds": {"attack": 1, "energy": 1},
+                "mults": {},
+            },
+        },
+        "stat": {
+            "attack": 10,
+            "defense": 10,
+            "energy": 10,
+            "health": 10,
+            "level": None,
+            "mods": {
+                "Back_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Chest_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Head_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Pants_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Weapon: Sword_mod": {"adds": {"attack": 1, "energy": 1}, "mults": {}},
+            },
         },
     }

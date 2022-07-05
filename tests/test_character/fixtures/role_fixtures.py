@@ -78,7 +78,7 @@ def roles_detail_expectation_with_abilities(mage_test_role):
     for indent in range(5):
         base = f"""
 {' '*indent}Class: {mage_test_role.name}
-{' '*indent}-------------------
+{' '*indent}-----------------
 {' '*indent}Armor Type: Medium
 {' '*indent}Description: {mage_test_role.description}
 {' '*indent}Role Abilities:
@@ -96,7 +96,7 @@ def roles_detail_expectation_no_abilities(mage_test_role):
     indent = 0
     return f"""
 {' '*indent}Class: {mage_test_role.name}
-{' '*indent}-------------------
+{' '*indent}-----------------
 {' '*indent}Armor Type: Medium
 {' '*indent}Description: {mage_test_role.description}
 {' '*indent}Role Abilities:

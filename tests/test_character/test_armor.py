@@ -3,6 +3,7 @@ Programmer: Jevin Evans
 Date: 7.15.2021
 Description: The is a unit test for the armor class and its interations with the equipment class.
 """
+from unittest.mock import patch
 
 import pytest
 
@@ -12,6 +13,7 @@ from funclg.utils.types import ITEM_TYPES
 
 from .fixtures.armor_fixtures import (
     armor_details_expectations,
+    armor_details_missing_weapon,
     armor_export_expectations,
     armor_str_expectations,
     equipment_only,
@@ -70,6 +72,35 @@ def test_armor_equipping(equipment_only):
         assert getattr(armor, item, False)
 
 
+def test_armor_equipping_armor_type_incompatibility(equipment_only):
+    armor = Armor(1)
+
+    for item in equipment_only.values():
+        armor.equip(item)
+
+    assert armor.head == None
+    assert armor.chest == None
+    assert armor.back == None
+    assert armor.pants == None
+    assert armor.weapon == None
+
+
+@patch("funclg.utils.types.get_item_type")
+@patch("loguru.logger.error")
+def test_armor_equipping_flow_issues(m_log, m_item_type):
+    # No Item Flow
+    armor = Armor(1)
+
+    armor.equip(None)
+    assert m_log.called_with("No item was provided to equip")
+
+    # No Item Type Function
+    m_item_type.return_value = "Other Val"
+    armor.equip(BodyEquipment(name="Test Armor", armor_type=1))
+
+    assert m_log.called_with("No item was provided to equip")
+
+
 def test_armor_dequipping(light_armor_knife):
     for item_type in ITEM_TYPES:
         light_armor_knife.dequip(item_type)
@@ -80,6 +111,15 @@ def test_armor_dequipping(light_armor_knife):
     assert light_armor_knife.back == None
     assert light_armor_knife.pants == None
     assert light_armor_knife.weapon == None
+
+
+# @patch("funclg.utils.types.get_item_type")
+@patch("loguru.logger.error")
+def test_armor_dequipping_flow_issues(m_log):
+    # Wrong Item Type
+    armor = Armor(1)
+    armor.dequip("Tail")
+    assert m_log.called_with("There is no item to remove.")
 
 
 def test_armor_get_equipment(equipment_only):
@@ -99,11 +139,10 @@ def test_armor_get_equipment(equipment_only):
         assert items[0].item_type == items[1].item_type
 
 
-def test_armor_expoert(equipment_only, armor_export_expectations):
+def test_armor_export(equipment_only, armor_export_expectations):
     armor = Armor(0)
     for item in equipment_only.values():
         armor.equip(item)
-
     assert armor.export() == armor_export_expectations
 
 
@@ -123,3 +162,21 @@ def test_armor_equip_wrong_slot(equipment_only):
 def test_armor_details_format(light_armor_knife, armor_details_expectations):
     for indent, expectation in enumerate(armor_details_expectations):
         assert light_armor_knife.details(indent) == expectation
+
+
+def test_armor_details_missing_item(light_armor_knife, armor_details_missing_weapon):
+    light_armor_knife.dequip("weapon")
+    assert light_armor_knife.details() == armor_details_missing_weapon
+
+
+def test_armor_stat_info(light_armor_knife):
+    assert light_armor_knife.stat.level == None
+    current_stats = light_armor_knife.get_stats()
+    light_armor_knife.dequip("weapon")
+    light_armor_knife.dequip("chest")
+
+    for key, value in light_armor_knife.get_stats().items():
+        if key == "level":
+            assert value == None
+        else:
+            assert value <= current_stats[key]

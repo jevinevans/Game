@@ -11,8 +11,8 @@ from .fixtures.role_fixtures import (
     mage_export_expectation,
     mage_str_expectation,
     mage_test_role,
+    roles_detail_expectation_no_abilities,
     roles_detail_expectation_with_abilities,
-    roles_detail_expectation_no_abilities
 )
 
 
@@ -37,7 +37,7 @@ def test_roles_add_power_valid_power(mage_test_role):
     healing_2 = Abilities("Healing 2", "Healing", 50, "New healing ability")
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) == 0
+    assert mage_test_role.add_power(healing_2) == True
     assert len(mage_test_role.abilities) == 5
 
     char_power = mage_test_role.abilities[-1]
@@ -52,10 +52,10 @@ def test_roles_add_power_valid_power_max_reached(mage_test_role):
     healing_2 = Abilities("Healing 2", "Healing", 50, "New healing ability")
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) == 0
+    assert mage_test_role.add_power(healing_2) == True
     assert len(mage_test_role.abilities) == 5
 
-    assert mage_test_role.add_power(buff) == 3
+    assert mage_test_role.add_power(buff) == False
     assert len(mage_test_role.abilities) == 5
     assert mage_test_role.abilities[-1].name == healing_2.name
 
@@ -64,7 +64,7 @@ def test_roles_add_power_invalid_power(mage_test_role):
     repair = Abilities("Repair 2", "Repair", 50, "New Repair ability")
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(repair) == 1
+    assert mage_test_role.add_power(repair) == False
     assert len(mage_test_role.abilities) == 4
 
 
@@ -95,12 +95,19 @@ def test_role_remove_power_invalid(mage_test_role):
 
 
 def test_role_details_no_abilities(roles_detail_expectation_no_abilities):
-    mage = Roles("Mage Class", "Test Mage Class", 1, ["Magic", "Healing", "Buff", "Debuff"],)
+    mage = Roles(
+        "Mage Class",
+        "Test Mage Class",
+        1,
+        ["Magic", "Healing", "Buff", "Debuff"],
+    )
     assert roles_detail_expectation_no_abilities == mage.details()
+
 
 def test_role_details_with_abilities(roles_detail_expectation_with_abilities, mage_test_role):
     for indent in range(5):
         assert roles_detail_expectation_with_abilities[indent] == mage_test_role.details(indent)
+
 
 # def test_roles_duplicate_ability():
 #     rouge = Roles(
@@ -111,4 +118,3 @@ def test_role_details_with_abilities(roles_detail_expectation_with_abilities, ma
 #     rouge.add_power(ability)
 #     rouge.add_power(ability)
 #     assert len(rouge.abilities) == 1
-    

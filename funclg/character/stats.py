@@ -4,7 +4,7 @@ Date: 3.23.2022
 Description: This defines the stats object that will be used for all character classes
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from loguru import logger
 
@@ -21,18 +21,22 @@ class Stats:
 
     def __init__(
         self,
-        extra_attributes: Optional[Dict[str, int]] = None,
+        attributes: Optional[Dict[str, Any]] = None,
         modifiers: Optional[List[Modifier]] = None,
+        default: Optional[int] = 0,
     ):
+        """
+        Creates a stat object, if no attributes provided then the BASE_ATTRs are set to a default value
+        """
         # Initializes level in case the call stat does not
         self.level = 0
 
         for attr in Stats.BASE_ATTR:
-            setattr(self, attr, 0)
+            setattr(self, attr, default)
 
         # Adds the individual stat
-        if extra_attributes:
-            for key, value in extra_attributes.items():
+        if attributes:
+            for key, value in attributes.items():
                 setattr(self, key, value)
 
         # Modifiers for changing stats
@@ -41,6 +45,20 @@ class Stats:
             for mod in modifiers:
                 if self._validate_mod(mod):
                     self.mods[mod.name] = mod.get_mods()
+
+    def __str__(self):
+        return self.details()
+
+    def details(self, indent: int = 0):
+        stats = f"\n{' '*indent}Stats\n{' '*indent}"
+        stats += "-" * 5
+        if self.level:
+            stats += f"\n{' '*indent}Level: {self.level}"
+        ignores = Stats.PRINT_IGNORES
+        ignores.append("level")
+        for attr in [attr for attr in self.__dict__ if attr not in ignores]:
+            stats += f"\n{' '*indent}{attr.capitalize()}: {self.get_stat(attr)}"
+        return stats
 
     def _validate_mod(self, mod: Modifier):
         """
@@ -64,8 +82,7 @@ class Stats:
             return
         logger.error(f"This stat does not have the '{name}' modifier.")
 
-    # TODO: check for attribute in class first
-    def get_stat(self, stat: str):
+    def get_stat(self, stat: str) -> Union[int, float, None]:
         base = getattr(self, stat, None)
 
         if not base:
@@ -77,51 +94,22 @@ class Stats:
             base += mod["adds"].get(stat, 0)
             multiplier += mod["mults"].get(stat, 0)
 
-        return base * multiplier
+        return round(base * multiplier, 2)
 
-    def get_stats(self):
+    def get_stats(self) -> Dict[str, Any]:
         """Returns all user stats, process each stat the object has...?"""
         stats = {}
         for attr in [attr for attr in self.__dict__ if attr not in Stats.PRINT_IGNORES]:
-            if attr == "level":
-                stats[attr] = self.level
-            else:
-                stats[attr] = self.get_stat(attr)
+            stats[attr] = self.get_stat(attr)
+        stats["level"] = self.level
         return stats
 
     def export(self) -> Dict[str, Any]:
         logger.info("Exporting Stats")
-        return self.__dict__
+        return self.__dict__.copy()
 
+    # def level_up(self):
 
-# TODO: Consider if level/level up is a common function for all stats and can be added to base class
-
-# For each subclass define a set of stats and if no information is passed in just initiate to a base value
-
-# TODO: Create an equipment class
-"""
-This class will have the stats for piece of equipment
-
-Stats [Health, Energy, Defense, Attack]
-"""
-
-
-# TODO: Create an abilities class
-"""
-While mostly modifiers, this stat will have the cost of an ability
-Stats [Energy Cost]
-
-Need to add a function to get the modifiers that will take effect on usage
-"""
-
-# TODO: Create an armor stat
-"""
-The armor stat subclass will have a slot for each individual weapon slot and aggregate those stats so that it is easier changed. In the armor class on equip and dequip the stats can be updated.
-
-[Health, Energy, Defense, Attack]
-
-The armor may get a base stat possibly???
-"""
 
 # TODO: Create a role stat class
 """
