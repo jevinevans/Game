@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Jul  5 21:49:44 PDT 2022 
+Date: Wed Jul  6 21:55:58 PDT 2022 
 
 ---PYTEST---
 
@@ -8,17 +8,17 @@ Date: Tue Jul  5 21:49:44 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 86 items
+collected 87 items
 
 tests/test_character/test_abilities.py .......                           [  8%]
 tests/test_character/test_armor.py ...............                       [ 25%]
 tests/test_character/test_character.py ........                          [ 34%]
-tests/test_character/test_equipment.py ...............                   [ 52%]
+tests/test_character/test_equipment.py ...............                   [ 51%]
 tests/test_character/test_modifiers.py .........                         [ 62%]
-tests/test_character/test_roles.py ............                          [ 76%]
-tests/test_character/test_stats.py ............                          [ 90%]
-tests/test_main/test_main.py .                                           [ 91%]
-tests/test_managers/test_modifier_manager.py ..                          [ 94%]
+tests/test_character/test_roles.py ............                          [ 75%]
+tests/test_character/test_stats.py ............                          [ 89%]
+tests/test_main/test_main.py .                                           [ 90%]
+tests/test_managers/test_modifier_manager.py ...                         [ 94%]
 tests/test_utils/test_types.py .....                                     [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
@@ -38,19 +38,19 @@ funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/character_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19, 23, 27, 31, 35, 39, 43, 47-52, 56, 60
-funclg/managers/modifier_manager.py       42      8     14      6    75%   33, 49, 60, 63-65, 69, 74, 78
+funclg/managers/modifier_manager.py       42      2     14      0    96%   75, 79
 funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 35     26      2      0    24%   17-19, 22-35, 40-50
+funclg/utils/data_mgmt.py                 35     26      2      0    24%   18-20, 24-37, 42-52
 funclg/utils/input_validation.py          34     27     12      0    15%   12-21, 25, 29, 33-35, 39-45, 50-59
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    731    121    210      7    83%
+TOTAL                                    731    115    210      1    84%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 83.21%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 84.48%
 
-============================== 86 passed in 1.20s ==============================
+============================== 87 passed in 0.88s ==============================
 
 ---Code Quality Report---
 
@@ -60,11 +60,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 83.21%
 
 -----BLACK-----
 
-reformatted funclg/utils/data_mgmt.py
-reformatted funclg/utils/input_validation.py
-
 All done! ✨ 🍰 ✨
-2 files reformatted, 19 files left unchanged.
+21 files left unchanged.
 
 -----BANDIT-----
 
@@ -100,17 +97,16 @@ funclg/managers/equipment_manager.py:7:0: W0611: Unused BodyEquipment imported f
 funclg/managers/equipment_manager.py:7:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:23:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
-funclg/managers/modifier_manager.py:28:0: R0912: Too many branches (13/12) (too-many-branches)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.74/10 (previous run: 9.73/10, +0.01)
+Your code has been rated at 9.75/10 (previous run: 9.73/10, +0.03)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 3.866s
+npx: installed 1 in 4.719s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -120,4 +116,4 @@ Assuming Python platform Linux
 Searching for source files
 Found 21 source files
 0 errors, 0 warnings, 0 informations 
-Completed in 1.568sec
+Completed in 1.875sec

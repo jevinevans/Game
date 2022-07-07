@@ -1,12 +1,12 @@
 """Unittest for Character Class"""
 
 from unittest.mock import patch
-from funclg.character.equipment import BodyEquipment, Equipment
 
 import pytest
 
 from funclg.character import abilities, armor, roles
 from funclg.character.character import Character
+from funclg.character.equipment import BodyEquipment, Equipment
 
 
 @pytest.fixture
@@ -15,36 +15,40 @@ def basic_char():
     t_role = roles.Roles("Test_Role", "Test role", 0)
     return Character("Test_Char", 0, t_armor, t_role)
 
+
 @pytest.fixture
 def character_str_expectation():
     return """  Test_Char  \n-------------\n Class: Test_Role\n Armor: Light Armor: <H:0, C:0, B:0, P:0, W:0>"""
 
+
 @pytest.fixture
 def character_export_expectation():
     return {
-        "name":"Test_Char",
-        "armor_type":0,
-        "inventory":[],
-        "armor":{
-            "armor_type":0,
-            'back': None,
-            'chest': None,
-            'head': None,
-            'pants': None,
-            'stat': {'attack': 10,
-                     'defense': 10,
-                     'energy': 10,
-                     'health': 10,
-                     'level': None,
-                     'mods': {}
-                     },
-            'weapon': None},  
+        "name": "Test_Char",
+        "armor_type": 0,
+        "inventory": [],
+        "armor": {
+            "armor_type": 0,
+            "back": None,
+            "chest": None,
+            "head": None,
+            "pants": None,
+            "stat": {
+                "attack": 10,
+                "defense": 10,
+                "energy": 10,
+                "health": 10,
+                "level": None,
+                "mods": {},
+            },
+            "weapon": None,
+        },
         "role": {
             "abilities": [],
-            "armor_type":0,
-            "damage_types": 'None',
+            "armor_type": 0,
+            "damage_types": "None",
             "description": "Test role",
-            "name":"Test_Role"
+            "name": "Test_Role",
         },
     }
 
@@ -76,6 +80,7 @@ def character_details_expectation():
     Attack: 10
     Defense: 10"""
 
+
 @pytest.fixture
 def character_inventory_show_expectation():
     inventory = ["item_1", "item_2", "item_3"]
@@ -100,19 +105,24 @@ def test_character_init_no_armor_no_role():
     t_char = Character("Test_Char", 0, inventory=test_inventory)
     assert t_char.inventory == test_inventory
 
+
 def test_character_str(basic_char, character_str_expectation):
     assert basic_char.__str__() == character_str_expectation
+
 
 def test_character_export(basic_char, character_export_expectation):
     assert basic_char.export() == character_export_expectation
 
+
 def test_character_details(basic_char, character_details_expectation):
     assert basic_char.details() == character_details_expectation
+
 
 def test_character_equip(basic_char):
     t_head = BodyEquipment("Test_Head", basic_char.armor_type, 0)
     basic_char.equip(t_head)
     assert basic_char.armor.head.name == t_head.name
+
 
 def test_character_dequip(basic_char):
     # Valid Dequip
@@ -128,6 +138,7 @@ def test_character_dequip(basic_char):
     basic_char.dequip("")
     assert len(basic_char.inventory) == 1
 
+
 @patch("builtins.print")
 def test_character_show_inventory(m_print, basic_char, character_inventory_show_expectation):
     expectation, test_inventory = character_inventory_show_expectation
@@ -135,6 +146,7 @@ def test_character_show_inventory(m_print, basic_char, character_inventory_show_
 
     basic_char.show_inventory()
     assert m_print.called_with(expectation)
+
 
 def test_character_add_power(basic_char):
     t_ability = abilities.Abilities("Test_Ability", "None", 31, "Test ability")

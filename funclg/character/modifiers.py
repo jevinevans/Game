@@ -35,8 +35,8 @@ class Modifier:
     def __init__(
         self,
         name: str,
-        adds: Optional[Dict[str, Any]] = {},
-        mults: Optional[Dict[str, Any]] = {},
+        adds: Optional[Dict[str, Any]] = None,
+        mults: Optional[Dict[str, Any]] = None,
     ):
         self.name = name
         self.adds = self._verify_mods(adds)

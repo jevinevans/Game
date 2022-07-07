@@ -48,13 +48,13 @@ def build_modifier(name: Optional[str] = ""):
             print(f"You created modifier: {mod_type} {mod_val}")
             if yes_no_validation("Confirm creation?"):
                 adds[mod_type] = mod_val
-    
+
         else:
             mod_val = number_range_validation(-MOD_MULT_RANGE, MOD_MULT_RANGE)
             while mod_val > 1:
                 mod_val /= 10
             mod_val = round(mod_val, 2)
-            
+
             print(f"You created modifier: {mod_type} {mod_val}%")
             if yes_no_validation("Confirm creation?"):
                 mults[mod_type] = mod_val
@@ -63,7 +63,7 @@ def build_modifier(name: Optional[str] = ""):
             available_mods.remove(mod_type)
         else:
             break
-        
+
     new_mod = Modifier(name=name, adds=adds, mults=mults)
 
     if from_method:
