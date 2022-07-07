@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 20			|
-|	Files: 101				|
+|	Files: 103				|
 +==========================================+
 
 ./.coverage
@@ -79,6 +79,7 @@
 ./funclg/character/roles.py
 ./funclg/character/stats.py
 ./funclg/data
+./funclg/data/modifiers.json
 ./funclg/managers
 ./funclg/managers/__init__.py
 ./funclg/managers/abilities_manager.py
@@ -122,5 +123,6 @@
 ./tests/test_main
 ./tests/test_main/test_main.py
 ./tests/test_managers
+./tests/test_managers/test_modifier_manager.py
 ./tests/test_utils
 ./tests/test_utils/test_types.py

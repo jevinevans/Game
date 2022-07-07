@@ -25,49 +25,50 @@ from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
 MODIFIER_DATA = "modifiers.json"
 
 
-def build_modifier(name: Optional[str] = "", from_method: Optional[bool] = False):
+def build_modifier(name: Optional[str] = ""):
     available_mods = MODIFIER_TYPES.copy()
-    adds = mults = {}
+    adds, mults = {}, {}
+    from_method = False
+
     print("Lets create a new Modifier:")
     if name:
+        from_method = True
         print(f"Name: {name}")
     else:
         print("Please name the modifier?")
         name = string_validation("Name")
 
-    print("Now select which stats you want to modify.")
     while True:
+        print("Select which stats you want to modify.")
         mod_type = list_choice_selection(available_mods)
 
         if list_choice_selection(["Base Change", "Percentage Change"]) == "Base Change":
             mod_val = number_range_validation(-MOD_ADD_RANGE, MOD_ADD_RANGE)
 
-            print(f"You created modifier {mod_type}:{mod_val}")
+            print(f"You created modifier: {mod_type} {mod_val}")
             if yes_no_validation("Confirm creation?"):
                 adds[mod_type] = mod_val
-            else:
-                continue
-
+    
         else:
             mod_val = number_range_validation(-MOD_MULT_RANGE, MOD_MULT_RANGE)
             while mod_val > 1:
                 mod_val /= 10
             mod_val = round(mod_val, 2)
-            print(f"You created modifier {mod_type}:{mod_val}%")
+            
+            print(f"You created modifier: {mod_type} {mod_val}%")
             if yes_no_validation("Confirm creation?"):
                 mults[mod_type] = mod_val
-            else:
-                continue
 
         if yes_no_validation("Would you like to add another?"):
             available_mods.remove(mod_type)
         else:
             break
+        
     new_mod = Modifier(name=name, adds=adds, mults=mults)
 
     if from_method:
         return new_mod
-    db.update_data(MODIFIER_DATA, new_mod)
+    db.update_data(MODIFIER_DATA, new_mod.export())
 
 
 def edit_modifier():
