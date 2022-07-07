@@ -6,20 +6,24 @@ Description: Utility class used for data/database actions loading, saving, updat
 
 import json
 import os
+import re
 from typing import Any, Dict
 
 from loguru import logger
 
+DATA_DIR = "funclg/data/"
 
-def get_data_path():
-    return globals.get("DATA_PATH", "")
+
+def validate_filename(filename: str) -> str:
+    assert filename.endswith(".json")
+    data_path = re.sub(r"funclg\/.*", DATA_DIR, os.path.dirname(__file__))
+    return os.path.join(data_path, filename)
 
 
 def load_data(filename: str):
     data = {}
     try:
-        assert filename.endswith(".json")
-        filename = os.path.join(get_data_path(), filename)
+        filename = validate_filename(filename)
         with open(filename, "r", encoding="utf-8") as load_file:
             data = json.load(load_file)
 
@@ -38,7 +42,7 @@ def update_data(filename: str, data: Dict[str, Any]):
     db_table = load_data(filename)
     db_table.update(data)
     try:
-        filename = os.path.join(get_data_path(), filename)
+        filename = validate_filename(filename)
         with open(filename, "w", encoding="utf-8") as write_file:
             json.dump(db_table, write_file)
         return True
