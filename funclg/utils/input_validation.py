@@ -30,9 +30,9 @@ def string_validation(value: str):
 
 
 def list_choice_selection(items: List[Any]):
-    for index, item in enumerate(items):
+    for index, item in enumerate(items, start=1):
         print(f"{index} --- {item}")
-    return items[choice_validation(len(items))]
+    return items[choice_validation(len(items)) - 1]
 
 
 def yes_no_validation(prompt: str):
