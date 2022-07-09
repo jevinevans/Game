@@ -34,6 +34,7 @@ def build_modifier(name: Optional[str] = ""):
     adds, mults = {}, {}
     from_method = False
 
+    # TODO: Add name validation check, this needs to be a function so that it can be called in other managers
     print("Create a new Modifier:")
     if name:
         from_method = True
@@ -41,6 +42,7 @@ def build_modifier(name: Optional[str] = ""):
     else:
         print("Please name the modifier?")
         name = string_validation("Name")
+
 
     while True:
         print("Select which stats you want to modify.")
@@ -70,8 +72,10 @@ def build_modifier(name: Optional[str] = ""):
 
     new_mod = Modifier(name=name, adds=adds, mults=mults)
 
+    
     if from_method:
         return new_mod
+    # TODO update MOD_DATA data dict before sending to update
     db.update_data(MODIFIER_DATA, new_mod.export())
 
 
