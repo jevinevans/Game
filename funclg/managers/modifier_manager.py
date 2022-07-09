@@ -19,10 +19,14 @@ from funclg.utils.input_validation import (
     yes_no_validation,
 )
 from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
+from loguru import logger
 
 # TODO: Create/modify the build to allow for random creation
 
-MODIFIER_DATA = "modifiers.json"
+MODIFIER_DATA = {"filename":"modifiers.json", "data":{}}
+
+
+# def mod_name_duplicate_check():
 
 
 def build_modifier(name: Optional[str] = ""):
@@ -30,7 +34,7 @@ def build_modifier(name: Optional[str] = ""):
     adds, mults = {}, {}
     from_method = False
 
-    print("Lets create a new Modifier:")
+    print("Create a new Modifier:")
     if name:
         from_method = True
         print(f"Name: {name}")
@@ -76,8 +80,11 @@ def edit_modifier():
 
 
 def delete_modifier():
-    print("TODO: Build Delete Modifier Section")
-
+    print("TODO: Build Delete Modifier Section") # TODO: REMOVE ME
+    if MODIFIER_DATA["data"]:
+        del_mod = list_choice_selection(mods)
+        print(f"Delete {del_mod}")
+    logger.warning("There are currently no Modifiers to delete.")
 
 MODIFIER_MENU = {
     "name": "Manage Mods",
@@ -88,3 +95,8 @@ MODIFIER_MENU = {
         {"name": "Delete Modifier", "action": delete_modifier},
     ],
 }
+
+MODIFIER_DATA = db.load_data(MODIFIER_DATA)
+
+if __name__ == "__main__":
+    delete_modifier()

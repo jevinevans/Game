@@ -20,12 +20,11 @@ def validate_filename(filename: str) -> str:
     return os.path.join(data_path, filename)
 
 
-def load_data(filename: str):
-    data = {}
+def load_data(db: Dict[str, Any]):
     try:
-        filename = validate_filename(filename)
+        filename = validate_filename(db['filename'])
         with open(filename, "r", encoding="utf-8") as load_file:
-            data = json.load(load_file)
+            db['data'] = json.load(load_file)
 
     except AssertionError as error:
         logger.error(error)
@@ -34,17 +33,20 @@ def load_data(filename: str):
         logger.error(error)
         print(f"Could not find file: {filename}")
 
-    return data
+    return db
 
 
-def update_data(filename: str, data: Dict[str, Any]):
-    "Define me"
-    db_table = load_data(filename)
+def update_data(db: str, data: Dict[str, Any]):
+    if os.path.exists(validate_filename(filename)):
+        db_table = load_data(filename)
+    else:
+        db_table = {}
     db_table.update(data)
     try:
         filename = validate_filename(filename)
         with open(filename, "w", encoding="utf-8") as write_file:
             json.dump(db_table, write_file)
+        logger.info(f"Updated {filename.split(os.sep)[-1]}")
         return True
     except FileNotFoundError as error:
         logger.error(error)
