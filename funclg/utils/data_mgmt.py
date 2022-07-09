@@ -36,16 +36,11 @@ def load_data(db: Dict[str, Any]):
     return db
 
 
-def update_data(db: str, data: Dict[str, Any]):
-    if os.path.exists(validate_filename(filename)):
-        db_table = load_data(filename)
-    else:
-        db_table = {}
-    db_table.update(data)
+def update_data(db: str):
     try:
-        filename = validate_filename(filename)
+        filename = validate_filename(db["filename"])
         with open(filename, "w", encoding="utf-8") as write_file:
-            json.dump(db_table, write_file)
+            json.dump(db["data"], write_file)
         logger.info(f"Updated {filename.split(os.sep)[-1]}")
         return True
     except FileNotFoundError as error:
