@@ -6,6 +6,8 @@ Description: This defines the modifiers object that will be used for all stats
 
 from typing import Any, Dict, Optional, Union
 
+import funclg.utils.data_mgmt as db
+
 # from loguru import logger
 from ..utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
 
@@ -31,16 +33,20 @@ class Modifier:
     """
 
     M_TYPES = ["adds", "mults"]
+    DB_PREFIX = "MODS"
 
     def __init__(
         self,
         name: str,
         adds: Optional[Dict[str, Any]] = None,
         mults: Optional[Dict[str, Any]] = None,
+        **kwargs,
     ):
         self.name = name
         self.adds = self._verify_mods(adds)
         self.mults = self._verify_mods(mults)
+
+        self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
 
     def __str__(self):
         string = f"Modifier: {self.name}:\n"

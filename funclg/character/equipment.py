@@ -12,6 +12,8 @@ from typing import Dict, Optional
 from loguru import logger
 from typing_extensions import Self
 
+import funclg.utils.data_mgmt as db
+
 from ..utils import types as uTypes
 from .modifiers import Modifier
 
@@ -23,6 +25,8 @@ class Equipment:
     Defines the equipmet class for the game. Equipment can be weapons or armor pieces.
     """
 
+    DB_PREFIX = "EQUIP"
+
     def __init__(
         self,
         name: str,
@@ -30,7 +34,8 @@ class Equipment:
         description: str = "",
         item_type: int = 0,
         armor_type: int = 0,
-    ) -> None:
+        **kwargs,
+    ):
         """
         Creates an equipment item
         """
@@ -40,6 +45,9 @@ class Equipment:
         self.item_type = item_type
         self.armor_type = armor_type
         self.mod = modifier
+
+        self._id = db.id_gen(kwargs.get("prefix", self.DB_PREFIX), kwargs.get("_id"))
+
         logger.debug(f"Created Equipment: {name}")
 
     def __str__(self) -> str:
@@ -89,6 +97,7 @@ class Equipment:
             item_type=self.item_type,
             armor_type=self.armor_type,
             modifier=self.mod,
+            _id=self._id,
         )
 
 
@@ -97,6 +106,8 @@ class WeaponEquipment(Equipment):
     Equipment Subclass for Weapons. Has a specific stat item and determines the type of weapon
     """
 
+    DB_PREFIX = "WEAPON"
+
     def __init__(
         self,
         name: str,
@@ -104,6 +115,7 @@ class WeaponEquipment(Equipment):
         description: str = "",
         armor_type: int = 0,
         modifiers: Optional[Dict[str, Dict]] = None,
+        **kwargs,
     ):
         weapon_mod = Modifier(name=name + "_mod")
         if modifiers:
@@ -118,6 +130,8 @@ class WeaponEquipment(Equipment):
             item_type=4,
             armor_type=armor_type,
             modifier=weapon_mod,
+            _id=kwargs.get("_id"),
+            prefix=self.DB_PREFIX,
         )
 
         self.weapon_type = self._validate_weapon_type(weapon_type)
@@ -140,6 +154,7 @@ class WeaponEquipment(Equipment):
             description=self.description,
             armor_type=self.armor_type,
             modifiers=self.mod.get_mods(),
+            _id=self._id,
         )
 
 
@@ -148,6 +163,8 @@ class BodyEquipment(Equipment):
     Equipment Subclass specifically for armor items that are not weapons.
     """
 
+    DB_PREFIX = "ARMOR"
+
     def __init__(
         self,
         name: str,
@@ -155,6 +172,7 @@ class BodyEquipment(Equipment):
         description: str = "",
         armor_type: int = 0,
         item_type: int = 0,
+        **kwargs,
     ):
         """
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
@@ -172,6 +190,8 @@ class BodyEquipment(Equipment):
             item_type=item_type,
             armor_type=armor_type,
             modifier=body_mod,
+            _id=kwargs.get("_id"),
+            prefix=self.DB_PREFIX,
         )
 
     def copy(self) -> Self:
@@ -182,4 +202,5 @@ class BodyEquipment(Equipment):
             description=self.description,
             armor_type=self.armor_type,
             item_type=self.item_type,
+            _id=self._id,
         )
