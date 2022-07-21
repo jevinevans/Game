@@ -10,6 +10,8 @@ from typing import Any, Dict
 from loguru import logger
 from typing_extensions import Self
 
+import funclg.utils.data_mgmt as db
+
 from ..utils.types import DAMAGE_TYPES, get_ability_effect_type
 
 # logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
@@ -31,13 +33,9 @@ class Abilities:
     Defines character/monster abilities
     """
 
-    def __init__(
-        self,
-        name: str,
-        damage_type: str,
-        effect: int,
-        description: str,
-    ) -> None:
+    DB_PREFIX = "ABILITY"
+
+    def __init__(self, name: str, damage_type: str, effect: int, description: str, **kwargs):
         self.name = name
         self.damage_type = damage_type if damage_type in DAMAGE_TYPES else "None"
         self.ability_group, effect_type = get_ability_effect_type(self.damage_type)
@@ -45,6 +43,9 @@ class Abilities:
             effect * effect_type
         )  # TODO: Will become stats, and a specific sub class that will be more focused for armor
         self.description = description
+
+        self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
+
         logger.debug(f"Created Ability: {name}")
 
     def __str__(self):
@@ -68,6 +69,8 @@ class Abilities:
 
     def copy(self) -> Self:
         """Returns a copy of the object"""
-        return Abilities(self.name, self.damage_type, abs(self.effect), self.description)
+        return Abilities(
+            self.name, self.damage_type, abs(self.effect), self.description, _id=self._id
+        )
 
     # def use()

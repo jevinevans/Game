@@ -4,6 +4,7 @@ Date: 1.8.2022
 Description: The is a unit test for the abilties class.
 """
 
+from multiprocessing.managers import DictProxy
 from unittest.mock import patch
 
 from funclg.character.abilities import Abilities
@@ -14,6 +15,7 @@ from .fixtures.abilities_fixtures import (
     abilities_detail_expectation,
     abilities_export_expectation,
     abilities_str_expectation,
+    ability_ids,
 )
 
 
@@ -47,7 +49,9 @@ def test_abilities_details(abilities_all_types, abilities_detail_expectation):
 
 
 def test_abilities_export(abilities_all_types, abilities_export_expectation):
+    test_ids = ability_ids()
     for index, ability in enumerate(abilities_all_types):
+        abilities_export_expectation[index]["_id"] = test_ids[index]
         assert ability.export() == abilities_export_expectation[index]
 
     test_export = abilities_all_types[0].export()

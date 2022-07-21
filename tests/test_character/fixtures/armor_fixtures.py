@@ -231,7 +231,7 @@ def armor_export_expectations():
             "item_type": 0,
             "armor_type": 0,
             "mod": {
-                "_id":"MODS-12345-AFJDEIG-67890",
+                "_id": "MODS-12345-AFJDEIG-67890",
                 "name": "Head_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -244,7 +244,7 @@ def armor_export_expectations():
             "item_type": 1,
             "armor_type": 0,
             "mod": {
-                "_id":"MODS-12345-FEISFJW-67891",
+                "_id": "MODS-12345-FEISFJW-67891",
                 "name": "Chest_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -257,7 +257,7 @@ def armor_export_expectations():
             "item_type": 2,
             "armor_type": 0,
             "mod": {
-                "_id":"MODS-12345-GIEJSEB-67892",
+                "_id": "MODS-12345-GIEJSEB-67892",
                 "name": "Back_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -270,7 +270,7 @@ def armor_export_expectations():
             "item_type": 3,
             "armor_type": 0,
             "mod": {
-                "_id":"MODS-12345-GEIJGEW-67893",
+                "_id": "MODS-12345-GEIJGEW-67893",
                 "name": "Pants_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -284,7 +284,7 @@ def armor_export_expectations():
             "weapon_type": 0,
             "armor_type": 0,
             "mod": {
-                "_id":"MODS-12345-FEGIFFR-67894",
+                "_id": "MODS-12345-FEGIFFR-67894",
                 "name": "Weapon: Sword_mod",
                 "adds": {"attack": 1, "energy": 1},
                 "mults": {},

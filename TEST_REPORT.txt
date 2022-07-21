@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Jul 17 23:44:58 PDT 2022 
+Date: Wed Jul 20 20:33:48 PDT 2022 
 
 ---PYTEST---
 
@@ -10,7 +10,7 @@ rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject
 plugins: cov-3.0.0
 collected 87 items
 
-tests/test_character/test_abilities.py ....F..                           [  8%]
+tests/test_character/test_abilities.py .......                           [  8%]
 tests/test_character/test_armor.py ...............                       [ 25%]
 tests/test_character/test_character.py ........                          [ 34%]
 tests/test_character/test_equipment.py ...............                   [ 51%]
@@ -18,39 +18,13 @@ tests/test_character/test_modifiers.py .........                         [ 62%]
 tests/test_character/test_roles.py .F..........                          [ 75%]
 tests/test_character/test_stats.py ............                          [ 89%]
 tests/test_main/test_main.py .                                           [ 90%]
-tests/test_managers/test_modifier_manager.py FF.                         [ 94%]
+tests/test_managers/test_modifier_manager.py ...                         [ 94%]
 tests/test_utils/test_types.py .....                                     [100%]
 
 =================================== FAILURES ===================================
-____________________________ test_abilities_export _____________________________
-
-abilities_all_types = [<funclg.character.abilities.Abilities object at 0x7fb2a9f3c820>, <funclg.character.abilities.Abilities object at 0x7f...er.abilities.Abilities object at 0x7fb2a9f3c790>, <funclg.character.abilities.Abilities object at 0x7fb2a9f3c9d0>, ...]
-abilities_export_expectation = [{'ability_group': 'Damage', 'damage_type': 'Magic', 'description': 'Magic ability', 'effect': -50, ...}, {'ability_gr..., ...}, {'ability_group': 'Damage', 'damage_type': 'Debuff', 'description': 'Debuff ability', 'effect': -50, ...}, ...]
-
-    def test_abilities_export(abilities_all_types, abilities_export_expectation):
-        for index, ability in enumerate(abilities_all_types):
->           assert ability.export() == abilities_export_expectation[index]
-E           AssertionError: assert {'_id': 'ABIL...ability', ...} == {'ability_gro...ct': -50, ...}
-E             Omitting 5 identical items, use -vv to show
-E             Left contains 1 more item:
-E             {'_id': 'ABILITY-16581-ARWR-26699'}
-E             Use -v to get more diff
-
-tests/test_character/test_abilities.py:51: AssertionError
----------------------------- Captured stderr setup -----------------------------
-2022-07-17 23:44:59.860 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_0
-2022-07-17 23:44:59.860 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_1
-2022-07-17 23:44:59.861 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_2
-2022-07-17 23:44:59.861 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_3
-2022-07-17 23:44:59.861 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_4
-2022-07-17 23:44:59.861 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_5
-2022-07-17 23:44:59.861 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_6
-2022-07-17 23:44:59.861 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Ability_7
------------------------------ Captured stderr call -----------------------------
-2022-07-17 23:44:59.862 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Ability_0
 ______________________________ test_roles_export _______________________________
 
-mage_test_role = <funclg.character.roles.Roles object at 0x7fb2a9daacd0>
+mage_test_role = <funclg.character.roles.Roles object at 0x7f212a527820>
 mage_export_expectation = {'abilities': [{'ability_group': 'Damage', 'damage_type': 'Magic', 'description': 'Testing Magic ability.', 'effect': ... ...}], 'armor_type': 1, 'damage_types': ['Magic', 'Healing', 'Buff', 'Debuff'], 'description': 'Test Mage Class', ...}
 
     def test_roles_export(mage_test_role, mage_export_expectation):
@@ -58,160 +32,26 @@ mage_export_expectation = {'abilities': [{'ability_group': 'Damage', 'damage_typ
 E       AssertionError: assert {'abilities':...e Class', ...} == {'abilities':...e Class', ...}
 E         Omitting 4 identical items, use -vv to show
 E         Differing items:
-E         {'abilities': [{'ability_group': 'Damage', 'damage_type': 'Magic', 'description': 'Testing Magic ability.', 'effect': ...}, {'ability_group': 'Damage', 'damage_type': 'Debuff', 'description': 'Testing Debuff ability.', 'effect': -15, ...}]} != {'abilities': [{'_id': 'ABILITY-16581-AXJS-26700', 'ability_group': 'Damage', 'damage_type': 'Magic', 'description': '...16581-HKEY-26700', 'ability_group': 'Damage', 'damage_type': 'Debuff', 'description': 'Testing Debuff ability.', ...}]}
+E         {'abilities': [{'ability_group': 'Damage', 'damage_type': 'Magic', 'description': 'Testing Magic ability.', 'effect': ...}, {'ability_group': 'Damage', 'damage_type': 'Debuff', 'description': 'Testing Debuff ability.', 'effect': -15, ...}]} != {'abilities': [{'_id': 'ABILITY-16583-KFTV-74430', 'ability_group': 'Damage', 'damage_type': 'Magic', 'description': '...16583-DIOD-74430', 'ability_group': 'Damage', 'damage_type': 'Debuff', 'description': 'Testing Debuff ability.', ...}]}
 E         Use -v to get more diff
 
 tests/test_character/test_roles.py:29: AssertionError
 ---------------------------- Captured stderr setup -----------------------------
-2022-07-17 23:45:00.109 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
-2022-07-17 23:45:00.109 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Healing Test Ability
-2022-07-17 23:45:00.109 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
-2022-07-17 23:45:00.109 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
-2022-07-17 23:45:00.109 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
-2022-07-17 23:45:00.109 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Healing Test Ability
-2022-07-17 23:45:00.110 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
-2022-07-17 23:45:00.110 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
-2022-07-17 23:45:00.110 | INFO     | funclg.character.roles:__init__:43 - Created Role: Mage Class
+2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
+2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Healing Test Ability
+2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
+2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
+2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
+2022-07-20 20:33:50.537 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Healing Test Ability
+2022-07-20 20:33:50.537 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
+2022-07-20 20:33:50.537 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
+2022-07-20 20:33:50.537 | INFO     | funclg.character.roles:__init__:43 - Created Role: Mage Class
 ----------------------------- Captured stderr call -----------------------------
-2022-07-17 23:45:00.110 | INFO     | funclg.character.roles:export:91 - Exporting Role: Mage Class
-2022-07-17 23:45:00.110 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Magic Test Ability
-2022-07-17 23:45:00.110 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Healing Test Ability
-2022-07-17 23:45:00.111 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Buff Test Ability
-2022-07-17 23:45:00.111 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Debuff Test Ability
-_________________ test_modifier_manager_build_modifier_add_mod _________________
-
-m_list_select = <MagicMock name='list_choice_selection' id='140405330448144'>
-m_str_val = <MagicMock name='string_validation' id='140405348206384'>
-m_num_range = <MagicMock name='number_range_validation' id='140405348185664'>
-m_yn_val = <MagicMock name='yes_no_validation' id='140405348144656'>
-m_db_update = <MagicMock name='update_data' id='140405348442608'>
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    @patch("funclg.managers.modifier_manager.yes_no_validation")
-    @patch("funclg.managers.modifier_manager.number_range_validation")
-    @patch("funclg.managers.modifier_manager.string_validation")
-    @patch("funclg.managers.modifier_manager.list_choice_selection")
-    def test_modifier_manager_build_modifier_add_mod(
-        m_list_select, m_str_val, m_num_range, m_yn_val, m_db_update
-    ):
-        # Test new build method (no name, no from method)
-        m_str_val.side_effect = ["Test_mod"]
-        m_list_select.side_effect = ["energy", "Base Change"]
-        m_num_range.side_effect = [50]
-        m_yn_val.side_effect = [True, False]
-    
-        mod_man.build_modifier()
-        test_mod = mod_man.Modifier("Test_mod", adds={"energy": 50})
->       m_db_update.assert_called_with(mod_man.MODIFIER_DATA, test_mod.export())
-
-tests/test_managers/test_modifier_manager.py:24: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='140405348442608'>
-args = ({'data': {'MODS-16573-OSVXHTD-88463': {'_id': 'MODS-16573-OSVXHTD-88463', 'adds': {'health': 23}, 'mults': {}, 'name'...name': 'modifiers.json'}, {'_id': 'MODS-16581-BYXYFPC-26700', 'adds': {'energy': 50}, 'mults': {}, 'name': 'Test_mod'})
-kwargs = {}
-expected = (({'data': {'MODS-16573-OSVXHTD-88463': {'_id': 'MODS-16573-OSVXHTD-88463', 'adds': {'health': 23}, 'mults': {}, 'name...: 'modifiers.json'}, {'_id': 'MODS-16581-BYXYFPC-26700', 'adds': {'energy': 50}, 'mults': {}, 'name': 'Test_mod'}), {})
-actual = call({'filename': 'modifiers.json', 'data': {'MODS-16573-OSVXHTD-88463': {'name': 'Testmod', 'adds': {'health': 23}, '...S-16581-CJXCQKO-26700': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CJXCQKO-26700'}}})
-_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0x7fb2aae83160>
-cause = None
-
-    def assert_called_with(self, /, *args, **kwargs):
-        """assert that the last call was made with the specified arguments.
-    
-        Raises an AssertionError if the args and keyword args passed in are
-        different to the last call to the mock."""
-        if self.call_args is None:
-            expected = self._format_mock_call_signature(args, kwargs)
-            actual = 'not called.'
-            error_message = ('expected call not found.\nExpected: %s\nActual: %s'
-                    % (expected, actual))
-            raise AssertionError(error_message)
-    
-        def _error_message():
-            msg = self._format_mock_failure_message(args, kwargs)
-            return msg
-        expected = self._call_matcher((args, kwargs))
-        actual = self._call_matcher(self.call_args)
-        if expected != actual:
-            cause = expected if isinstance(expected, Exception) else None
->           raise AssertionError(_error_message()) from cause
-E           AssertionError: expected call not found.
-E           Expected: update_data({'filename': 'modifiers.json', 'data': {'MODS-16573-OSVXHTD-88463': {'name': 'Testmod', 'adds': {'health': 23}, 'mults': {}, '_id': 'MODS-16573-OSVXHTD-88463'}, 'MODS-16581-ZNQSDBT-24937': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-ZNQSDBT-24937'}, 'MODS-16581-YGNUGAV-24937': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-YGNUGAV-24937'}, 'MODS-16581-CPJNKOH-24938': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-CPJNKOH-24938'}, 'MODS-16581-YTVQJLB-25347': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-YTVQJLB-25347'}, 'MODS-16581-IMHDMUC-25347': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-IMHDMUC-25347'}, 'MODS-16581-HWWDAEF-25347': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-HWWDAEF-25347'}, 'MODS-16581-OSZREFP-25394': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-OSZREFP-25394'}, 'MODS-16581-RKVKDSU-25394': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-RKVKDSU-25394'}, 'MODS-16581-ELYFYZG-25394': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-ELYFYZG-25394'}, 'MODS-16581-JTGYEUJ-25429': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-JTGYEUJ-25429'}, 'MODS-16581-ASXPTVH-25429': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-ASXPTVH-25429'}, 'MODS-16581-JDZFBHD-25429': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JDZFBHD-25429'}, 'MODS-16581-FNPQBAU-25777': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-FNPQBAU-25777'}, 'MODS-16581-VATKFYO-25777': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-VATKFYO-25777'}, 'MODS-16581-PJAJRGQ-25777': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-PJAJRGQ-25777'}, 'MODS-16581-CYDSLYK-26340': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CYDSLYK-26340'}, 'MODS-16581-PBYMRLF-26340': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-PBYMRLF-26340'}, 'MODS-16581-RZNFTTP-26340': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-RZNFTTP-26340'}, 'MODS-16581-LTRIGML-26636': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-LTRIGML-26636'}, 'MODS-16581-QPUOJDD-26636': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-QPUOJDD-26636'}, 'MODS-16581-JQABTCP-26636': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JQABTCP-26636'}, 'MODS-16581-CJXCQKO-26700': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CJXCQKO-26700'}}}, {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-BYXYFPC-26700'})
-E           Actual: update_data({'filename': 'modifiers.json', 'data': {'MODS-16573-OSVXHTD-88463': {'name': 'Testmod', 'adds': {'health': 23}, 'mults': {}, '_id': 'MODS-16573-OSVXHTD-88463'}, 'MODS-16581-ZNQSDBT-24937': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-ZNQSDBT-24937'}, 'MODS-16581-YGNUGAV-24937': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-YGNUGAV-24937'}, 'MODS-16581-CPJNKOH-24938': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-CPJNKOH-24938'}, 'MODS-16581-YTVQJLB-25347': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-YTVQJLB-25347'}, 'MODS-16581-IMHDMUC-25347': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-IMHDMUC-25347'}, 'MODS-16581-HWWDAEF-25347': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-HWWDAEF-25347'}, 'MODS-16581-OSZREFP-25394': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-OSZREFP-25394'}, 'MODS-16581-RKVKDSU-25394': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-RKVKDSU-25394'}, 'MODS-16581-ELYFYZG-25394': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-ELYFYZG-25394'}, 'MODS-16581-JTGYEUJ-25429': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-JTGYEUJ-25429'}, 'MODS-16581-ASXPTVH-25429': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-ASXPTVH-25429'}, 'MODS-16581-JDZFBHD-25429': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JDZFBHD-25429'}, 'MODS-16581-FNPQBAU-25777': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-FNPQBAU-25777'}, 'MODS-16581-VATKFYO-25777': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-VATKFYO-25777'}, 'MODS-16581-PJAJRGQ-25777': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-PJAJRGQ-25777'}, 'MODS-16581-CYDSLYK-26340': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CYDSLYK-26340'}, 'MODS-16581-PBYMRLF-26340': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-PBYMRLF-26340'}, 'MODS-16581-RZNFTTP-26340': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-RZNFTTP-26340'}, 'MODS-16581-LTRIGML-26636': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-LTRIGML-26636'}, 'MODS-16581-QPUOJDD-26636': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-QPUOJDD-26636'}, 'MODS-16581-JQABTCP-26636': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JQABTCP-26636'}, 'MODS-16581-CJXCQKO-26700': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CJXCQKO-26700'}}})
-
-/usr/lib/python3.8/unittest/mock.py:913: AssertionError
------------------------------ Captured stdout call -----------------------------
-Create a new Modifier:
-Please name the modifier?
-Select which stats you want to modify.
-You created modifier: energy 50
-________________ test_modifier_manager_build_modifier_mult_mod _________________
-
-m_list_select = <MagicMock name='list_choice_selection' id='140405348163792'>
-m_str_val = <MagicMock name='string_validation' id='140405328478160'>
-m_num_range = <MagicMock name='number_range_validation' id='140405348277744'>
-m_yn_val = <MagicMock name='yes_no_validation' id='140405330398512'>
-m_db_update = <MagicMock name='update_data' id='140405330390176'>
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    @patch("funclg.managers.modifier_manager.yes_no_validation")
-    @patch("funclg.managers.modifier_manager.number_range_validation")
-    @patch("funclg.managers.modifier_manager.string_validation")
-    @patch("funclg.managers.modifier_manager.list_choice_selection")
-    def test_modifier_manager_build_modifier_mult_mod(
-        m_list_select, m_str_val, m_num_range, m_yn_val, m_db_update
-    ):
-        # Test new build method (no name, no from method)
-        m_str_val.side_effect = ["Test_mod"]
-        m_list_select.side_effect = ["energy", "Percentage Change"]
-        m_num_range.side_effect = [50]
-        m_yn_val.side_effect = [True, False]
-    
-        mod_man.build_modifier()
-        test_mod = mod_man.Modifier("Test_mod", mults={"energy": 0.5})
->       m_db_update.assert_called_with(mod_man.MODIFIER_DATA, test_mod.export())
-
-tests/test_managers/test_modifier_manager.py:53: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='140405330390176'>
-args = ({'data': {'MODS-16573-OSVXHTD-88463': {'_id': 'MODS-16573-OSVXHTD-88463', 'adds': {'health': 23}, 'mults': {}, 'name'...ame': 'modifiers.json'}, {'_id': 'MODS-16581-JIEFVFI-26700', 'adds': {}, 'mults': {'energy': 0.5}, 'name': 'Test_mod'})
-kwargs = {}
-expected = (({'data': {'MODS-16573-OSVXHTD-88463': {'_id': 'MODS-16573-OSVXHTD-88463', 'adds': {'health': 23}, 'mults': {}, 'name... 'modifiers.json'}, {'_id': 'MODS-16581-JIEFVFI-26700', 'adds': {}, 'mults': {'energy': 0.5}, 'name': 'Test_mod'}), {})
-actual = call({'filename': 'modifiers.json', 'data': {'MODS-16573-OSVXHTD-88463': {'name': 'Testmod', 'adds': {'health': 23}, '...-16581-VDPVPMI-26700': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-VDPVPMI-26700'}}})
-_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0x7fb2aae83550>
-cause = None
-
-    def assert_called_with(self, /, *args, **kwargs):
-        """assert that the last call was made with the specified arguments.
-    
-        Raises an AssertionError if the args and keyword args passed in are
-        different to the last call to the mock."""
-        if self.call_args is None:
-            expected = self._format_mock_call_signature(args, kwargs)
-            actual = 'not called.'
-            error_message = ('expected call not found.\nExpected: %s\nActual: %s'
-                    % (expected, actual))
-            raise AssertionError(error_message)
-    
-        def _error_message():
-            msg = self._format_mock_failure_message(args, kwargs)
-            return msg
-        expected = self._call_matcher((args, kwargs))
-        actual = self._call_matcher(self.call_args)
-        if expected != actual:
-            cause = expected if isinstance(expected, Exception) else None
->           raise AssertionError(_error_message()) from cause
-E           AssertionError: expected call not found.
-E           Expected: update_data({'filename': 'modifiers.json', 'data': {'MODS-16573-OSVXHTD-88463': {'name': 'Testmod', 'adds': {'health': 23}, 'mults': {}, '_id': 'MODS-16573-OSVXHTD-88463'}, 'MODS-16581-ZNQSDBT-24937': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-ZNQSDBT-24937'}, 'MODS-16581-YGNUGAV-24937': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-YGNUGAV-24937'}, 'MODS-16581-CPJNKOH-24938': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-CPJNKOH-24938'}, 'MODS-16581-YTVQJLB-25347': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-YTVQJLB-25347'}, 'MODS-16581-IMHDMUC-25347': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-IMHDMUC-25347'}, 'MODS-16581-HWWDAEF-25347': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-HWWDAEF-25347'}, 'MODS-16581-OSZREFP-25394': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-OSZREFP-25394'}, 'MODS-16581-RKVKDSU-25394': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-RKVKDSU-25394'}, 'MODS-16581-ELYFYZG-25394': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-ELYFYZG-25394'}, 'MODS-16581-JTGYEUJ-25429': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-JTGYEUJ-25429'}, 'MODS-16581-ASXPTVH-25429': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-ASXPTVH-25429'}, 'MODS-16581-JDZFBHD-25429': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JDZFBHD-25429'}, 'MODS-16581-FNPQBAU-25777': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-FNPQBAU-25777'}, 'MODS-16581-VATKFYO-25777': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-VATKFYO-25777'}, 'MODS-16581-PJAJRGQ-25777': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-PJAJRGQ-25777'}, 'MODS-16581-CYDSLYK-26340': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CYDSLYK-26340'}, 'MODS-16581-PBYMRLF-26340': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-PBYMRLF-26340'}, 'MODS-16581-RZNFTTP-26340': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-RZNFTTP-26340'}, 'MODS-16581-LTRIGML-26636': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-LTRIGML-26636'}, 'MODS-16581-QPUOJDD-26636': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-QPUOJDD-26636'}, 'MODS-16581-JQABTCP-26636': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JQABTCP-26636'}, 'MODS-16581-CJXCQKO-26700': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CJXCQKO-26700'}, 'MODS-16581-VDPVPMI-26700': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-VDPVPMI-26700'}}}, {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-JIEFVFI-26700'})
-E           Actual: update_data({'filename': 'modifiers.json', 'data': {'MODS-16573-OSVXHTD-88463': {'name': 'Testmod', 'adds': {'health': 23}, 'mults': {}, '_id': 'MODS-16573-OSVXHTD-88463'}, 'MODS-16581-ZNQSDBT-24937': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-ZNQSDBT-24937'}, 'MODS-16581-YGNUGAV-24937': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-YGNUGAV-24937'}, 'MODS-16581-CPJNKOH-24938': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-CPJNKOH-24938'}, 'MODS-16581-YTVQJLB-25347': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-YTVQJLB-25347'}, 'MODS-16581-IMHDMUC-25347': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-IMHDMUC-25347'}, 'MODS-16581-HWWDAEF-25347': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-HWWDAEF-25347'}, 'MODS-16581-OSZREFP-25394': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-OSZREFP-25394'}, 'MODS-16581-RKVKDSU-25394': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-RKVKDSU-25394'}, 'MODS-16581-ELYFYZG-25394': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-ELYFYZG-25394'}, 'MODS-16581-JTGYEUJ-25429': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-JTGYEUJ-25429'}, 'MODS-16581-ASXPTVH-25429': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-ASXPTVH-25429'}, 'MODS-16581-JDZFBHD-25429': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JDZFBHD-25429'}, 'MODS-16581-FNPQBAU-25777': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-FNPQBAU-25777'}, 'MODS-16581-VATKFYO-25777': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-VATKFYO-25777'}, 'MODS-16581-PJAJRGQ-25777': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-PJAJRGQ-25777'}, 'MODS-16581-CYDSLYK-26340': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CYDSLYK-26340'}, 'MODS-16581-PBYMRLF-26340': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-PBYMRLF-26340'}, 'MODS-16581-RZNFTTP-26340': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-RZNFTTP-26340'}, 'MODS-16581-LTRIGML-26636': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-LTRIGML-26636'}, 'MODS-16581-QPUOJDD-26636': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-QPUOJDD-26636'}, 'MODS-16581-JQABTCP-26636': {'name': 'Test_mod', 'adds': {'energy': 50, 'attack': 250}, 'mults': {'health': 0.6, 'defense': 0.75}, '_id': 'MODS-16581-JQABTCP-26636'}, 'MODS-16581-CJXCQKO-26700': {'name': 'Test_mod', 'adds': {'energy': 50}, 'mults': {}, '_id': 'MODS-16581-CJXCQKO-26700'}, 'MODS-16581-VDPVPMI-26700': {'name': 'Test_mod', 'adds': {}, 'mults': {'energy': 0.5}, '_id': 'MODS-16581-VDPVPMI-26700'}}})
-
-/usr/lib/python3.8/unittest/mock.py:913: AssertionError
------------------------------ Captured stdout call -----------------------------
-Create a new Modifier:
-Please name the modifier?
-Select which stats you want to modify.
-You created modifier: energy 0.5%
+2022-07-20 20:33:50.537 | INFO     | funclg.character.roles:export:91 - Exporting Role: Mage Class
+2022-07-20 20:33:50.537 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Magic Test Ability
+2022-07-20 20:33:50.537 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Healing Test Ability
+2022-07-20 20:33:50.538 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Buff Test Ability
+2022-07-20 20:33:50.538 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Debuff Test Ability
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
@@ -230,18 +70,18 @@ funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/character_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19, 23, 27, 31, 35, 39, 43, 47-52, 56, 60
-funclg/managers/modifier_manager.py       51      7     18      3    83%   60->73, 70->73, 87, 91-95, 112
+funclg/managers/modifier_manager.py       51      7     18      1    86%   87, 91-95, 112
 funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 47     13      8      0    69%   43-51, 63-66
+funclg/utils/data_mgmt.py                 47     19      8      0    58%   43-51, 57-66
 funclg/utils/input_validation.py          36     28     12      0    17%   13-22, 26-27, 31, 35-37, 41-47, 52-61
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    765    108    220      4    85%
+TOTAL                                    765    114    220      2    85%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 85.18%
-========================= 4 failed, 83 passed in 1.07s =========================
+FAIL Required test coverage of 100.0% not reached. Total coverage: 84.77%
+========================= 1 failed, 86 passed in 0.89s =========================
 
 ---Code Quality Report---
 
@@ -305,7 +145,7 @@ Your code has been rated at 9.67/10 (previous run: 9.67/10, +0.00)
 
 -----PYRIGHT-----
 
-npx: installed 1 in 3.831s
+npx: installed 1 in 4.148s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -349,4 +189,4 @@ Found 21 source files
       "Literal['data']" is incompatible with "slice" (reportGeneralTypeIssues)
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:65:58 - error: "filename" is possibly unbound (reportUnboundVariable)
 10 errors, 0 warnings, 0 informations 
-Completed in 1.709sec
+Completed in 1.815sec
