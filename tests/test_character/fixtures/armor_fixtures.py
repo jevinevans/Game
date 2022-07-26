@@ -231,10 +231,12 @@ def armor_export_expectations():
             "item_type": 0,
             "armor_type": 0,
             "mod": {
+                "_id": "MODS-12345-AFJDEIG-67890",
                 "name": "Head_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
+            "_id": "ARMOR-12345-AFJDEI-67890",
         },
         "chest": {
             "name": "Chest",
@@ -242,10 +244,12 @@ def armor_export_expectations():
             "item_type": 1,
             "armor_type": 0,
             "mod": {
+                "_id": "MODS-12345-FEISFJW-67891",
                 "name": "Chest_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
+            "_id": "ARMOR-12345-FEISFJ-67891",
         },
         "back": {
             "name": "Back",
@@ -253,10 +257,12 @@ def armor_export_expectations():
             "item_type": 2,
             "armor_type": 0,
             "mod": {
+                "_id": "MODS-12345-GIEJSEB-67892",
                 "name": "Back_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
+            "_id": "ARMOR-12345-GIEJSE-67892",
         },
         "pants": {
             "name": "Pants",
@@ -264,10 +270,12 @@ def armor_export_expectations():
             "item_type": 3,
             "armor_type": 0,
             "mod": {
+                "_id": "MODS-12345-GEIJGEW-67893",
                 "name": "Pants_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
+            "_id": "ARMOR-12345-GEIJGE-67893",
         },
         "weapon": {
             "name": "Weapon: Sword",
@@ -276,10 +284,12 @@ def armor_export_expectations():
             "weapon_type": 0,
             "armor_type": 0,
             "mod": {
+                "_id": "MODS-12345-FEGIFFR-67894",
                 "name": "Weapon: Sword_mod",
                 "adds": {"attack": 1, "energy": 1},
                 "mults": {},
             },
+            "_id": "WEAPON-12345-FEGIF-67894",
         },
         "stat": {
             "attack": 10,

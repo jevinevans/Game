@@ -11,9 +11,13 @@ from funclg.character.equipment import BodyEquipment, Equipment
 
 @pytest.fixture
 def basic_char():
-    t_armor = armor.Armor(0)
-    t_role = roles.Roles("Test_Role", "Test role", 0)
-    return Character("Test_Char", 0, t_armor, t_role)
+    with patch(
+        "funclg.utils.data_mgmt.id_gen",
+        side_effect=["ROLES-12345-FEJSIG-67890", "CHARS-12345-GEJFSI-67890"],
+    ):
+        t_armor = armor.Armor(0)
+        t_role = roles.Roles("Test_Role", "Test role", 0)
+        return Character("Test_Char", 0, t_armor, t_role)
 
 
 @pytest.fixture
@@ -24,6 +28,7 @@ def character_str_expectation():
 @pytest.fixture
 def character_export_expectation():
     return {
+        "_id": "CHARS-12345-GEJFSI-67890",
         "name": "Test_Char",
         "armor_type": 0,
         "inventory": [],
@@ -44,6 +49,7 @@ def character_export_expectation():
             "weapon": None,
         },
         "role": {
+            "_id": "ROLES-12345-FEJSIG-67890",
             "abilities": [],
             "armor_type": 0,
             "damage_types": "None",

@@ -8,8 +8,8 @@ from unittest.mock import patch
 import pytest
 
 from funclg.character.armor import Armor
-from funclg.character.equipment import BodyEquipment
-from funclg.utils.types import ITEM_TYPES
+from funclg.character.equipment import BodyEquipment, WeaponEquipment
+from funclg.utils.types import ITEM_TYPES, get_item_type, get_weapon_type
 
 from .fixtures.armor_fixtures import (
     armor_details_expectations,
@@ -139,10 +139,52 @@ def test_armor_get_equipment(equipment_only):
         assert items[0].item_type == items[1].item_type
 
 
-def test_armor_export(equipment_only, armor_export_expectations):
+@patch("funclg.utils.data_mgmt.id_gen")
+def test_armor_export(m_id, armor_export_expectations):
+    # Doubled because of copy call
+    m_id.side_effect = [
+        "MODS-12345-AFJDEIG-67890",
+        "ARMOR-12345-AFJDEI-67890",
+        "MODS-12345-FEISFJW-67891",
+        "ARMOR-12345-FEISFJ-67891",
+        "MODS-12345-GIEJSEB-67892",
+        "ARMOR-12345-GIEJSE-67892",
+        "MODS-12345-GEIJGEW-67893",
+        "ARMOR-12345-GEIJGE-67893",
+        "MODS-12345-FEGIFFR-67894",
+        "WEAPON-12345-FEGIF-67894",
+        "MODS-12345-AFJDEIG-67890",
+        "ARMOR-12345-AFJDEI-67890",
+        "MODS-12345-FEISFJW-67891",
+        "ARMOR-12345-FEISFJ-67891",
+        "MODS-12345-GIEJSEB-67892",
+        "ARMOR-12345-GIEJSE-67892",
+        "MODS-12345-GEIJGEW-67893",
+        "ARMOR-12345-GEIJGE-67893",
+        "MODS-12345-FEGIFFR-67894",
+        "WEAPON-12345-FEGIF-67894",
+    ]
+    equipment = {}
+    mods = {"adds": {"health": 50}, "mults": {"energy": 0.1}}
+
+    for item_type in range(4):
+        equipment[get_item_type(item_type)] = BodyEquipment(
+            name=get_item_type(item_type),
+            modifiers=mods,
+            description=f"Test {get_item_type(item_type)}",
+            armor_type=0,
+            item_type=item_type,
+        )
+    equipment["Weapon"] = WeaponEquipment(
+        name=f"Weapon: {get_weapon_type(0)}",
+        weapon_type=0,
+        description="Test Weapon",
+        armor_type=0,
+    )
     armor = Armor(0)
-    for item in equipment_only.values():
+    for item in equipment.values():
         armor.equip(item)
+        print(item._id, item.mod._id)
     assert armor.export() == armor_export_expectations
 
 

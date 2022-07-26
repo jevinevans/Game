@@ -6,6 +6,8 @@ Description: The character that will be used. The character will have a role, ab
 
 from typing import Any, Dict, Optional
 
+import funclg.utils.data_mgmt as db
+
 from .abilities import Abilities
 from .armor import Armor
 from .equipment import Equipment
@@ -33,6 +35,8 @@ class Character:
     The playable character for the game
     """
 
+    DB_PREFIX = "CHARS"
+
     def __init__(
         self,
         name: str,
@@ -50,6 +54,7 @@ class Character:
 
         self._set_up_armor(armor_instance)
         self._set_up_role(role_instance)
+        self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
 
     def _set_up_armor(self, armor_instance: Optional[Armor] = None) -> None:
         if armor_instance and armor_instance.armor_type == self.armor_type:

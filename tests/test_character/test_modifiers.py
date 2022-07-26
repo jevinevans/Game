@@ -4,6 +4,8 @@ Date: 3.23.2022
 Description: Testing the modifier classes.
 Last Update: 3.23.2022
 """
+from unittest.mock import patch
+
 import pytest
 
 from funclg.character.modifiers import Modifier
@@ -102,8 +104,12 @@ def test_modifier_get_mods(add_mods, mult_mods, modifier_get_expectation):
     assert t1.get_mods() == modifier_get_expectation
 
 
-def test_modifier_export(add_mods, mult_mods, modifier_export_expectation):
+@patch("funclg.utils.data_mgmt.id_gen")
+def test_modifier_export(m_id, add_mods, mult_mods, modifier_export_expectation):
+    test_id = "MODS-16573-OFZLIUD-40779"
+    m_id.return_value = test_id
     t1 = Modifier("Test Export", add_mods["valid"], mult_mods["valid"])
+    modifier_export_expectation.update({"_id": test_id})
     assert t1.export() == modifier_export_expectation
 
 

@@ -52,7 +52,11 @@ def test_equipment_print_to_file(m_dump, m_open, bodyequipment_all_types):
     m_dump.assert_called_with(item.export(), m_open.return_value.__enter__())
 
 
-def test_equipment_export():
+@patch("funclg.utils.data_mgmt.id_gen")
+def test_equipment_export(m_id):
+    test_id = "EQUIP-12345-HJFJEF-67890"
+    m_id.return_value = test_id
+
     item = Equipment(
         name="Export Test",
         modifier={"adds": {"health": 1}},
@@ -66,6 +70,7 @@ def test_equipment_export():
         "item_type": 0,
         "armor_type": 0,
         "mod": {"adds": {"health": 1}},
+        "_id": test_id,
     }
 
 
@@ -179,6 +184,7 @@ def test_weaponequipment_copy(weaponequipment_all_types):
     weapon = weaponequipment_all_types[first_key].copy()
     new_item = weapon.copy()
 
+    assert isinstance(new_item, WeaponEquipment)
     assert id(new_item) != id(weapon)
     assert new_item.name == weapon.name
     assert new_item.weapon_type == weapon.weapon_type

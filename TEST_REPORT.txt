@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Wed Jul  6 21:55:58 PDT 2022 
+Date: Mon Jul 25 21:00:26 PDT 2022 
 
 ---PYTEST---
 
@@ -27,30 +27,30 @@ Name                                   Stmts   Miss Branch BrPart  Cover   Missi
 funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        29     15      4      1    45%   46-57, 61-68, 72
 funclg/character/__init__.py               0      0      0      0   100%
-funclg/character/abilities.py             30      0      4      0   100%
+funclg/character/abilities.py             33      0      4      0   100%
 funclg/character/armor.py                118      0     32      0   100%
-funclg/character/character.py             50      0     14      0   100%
-funclg/character/equipment.py             72      0     14      0   100%
-funclg/character/modifiers.py             61      0     30      0   100%
-funclg/character/roles.py                 64      0     26      0   100%
+funclg/character/character.py             53      0     14      0   100%
+funclg/character/equipment.py             77      0     14      0   100%
+funclg/character/modifiers.py             64      0     30      0   100%
+funclg/character/roles.py                 67      0     26      0   100%
 funclg/character/stats.py                 61      0     30      0   100%
 funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/character_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19, 23, 27, 31, 35, 39, 43, 47-52, 56, 60
-funclg/managers/modifier_manager.py       42      2     14      0    96%   75, 79
+funclg/managers/modifier_manager.py       51      7     18      1    86%   87, 91-95, 112
 funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 35     26      2      0    24%   18-20, 24-37, 42-52
-funclg/utils/input_validation.py          34     27     12      0    15%   12-21, 25, 29, 33-35, 39-45, 50-59
+funclg/utils/data_mgmt.py                 46     18      8      0    59%   43-50, 56-65
+funclg/utils/input_validation.py          36     28     12      0    17%   13-22, 26-27, 31, 35-37, 41-47, 52-61
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    731    115    210      1    84%
+TOTAL                                    770    113    220      2    85%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 84.48%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 84.95%
 
-============================== 87 passed in 0.88s ==============================
+============================== 87 passed in 1.08s ==============================
 
 ---Code Quality Report---
 
@@ -74,14 +74,15 @@ All done! ✨ 🍰 ✨
 ************* Module funclg.__main__
 funclg/__main__.py:39:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
-funclg/character/abilities.py:46:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
-funclg/character/abilities.py:18:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/abilities.py:44:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
+funclg/character/abilities.py:20:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character.modifiers
-funclg/character/modifiers.py:59:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
-funclg/character/modifiers.py:10:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
-funclg/character/modifiers.py:10:0: W0611: Unused MOD_MULT_RANGE imported from utils.types (unused-import)
+funclg/character/modifiers.py:65:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
+funclg/character/modifiers.py:12:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
+funclg/character/modifiers.py:12:0: W0611: Unused MOD_MULT_RANGE imported from utils.types (unused-import)
 ************* Module funclg.character.roles
-funclg/character/roles.py:111:5: W0511: def show_powers(): #TODO Define me (fixme)
+funclg/character/roles.py:116:5: W0511: def show_powers(): #TODO Define me (fixme)
+funclg/character/roles.py:117:5: W0511: def copy(): # TODO: Roles copy method: unsure if needed (fixme)
 ************* Module funclg.character.stats
 funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
@@ -96,17 +97,23 @@ funclg/managers/equipment_manager.py:15:4: W0612: Unused variable 'equipment_dat
 funclg/managers/equipment_manager.py:7:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
 funclg/managers/equipment_manager.py:7:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
 ************* Module funclg.managers.modifier_manager
-funclg/managers/modifier_manager.py:23:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/modifier_manager.py:25:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/modifier_manager.py:32:1: W0511: def export_db() # TODO Create me (fixme)
+funclg/managers/modifier_manager.py:34:1: W0511: def load_db() # TODO Create me (fixme)
+funclg/managers/modifier_manager.py:43:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
+funclg/managers/modifier_manager.py:91:51: W0511: TODO: COMPLETE & REMOVE ME (fixme)
+funclg/managers/modifier_manager.py:110:1: W0511: TODO Remove me (fixme)
+funclg/managers/modifier_manager.py:80:26: W0212: Access to a protected member _id of a client class (protected-access)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.75/10 (previous run: 9.73/10, +0.03)
+Your code has been rated at 9.68/10 (previous run: 9.66/10, +0.01)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 4.719s
+npx: installed 1 in 4.605s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -115,5 +122,8 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
-0 errors, 0 warnings, 0 informations 
-Completed in 1.875sec
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py:15:32 - error: Argument of type "Literal['equipment.json']" cannot be assigned to parameter "game_data" of type "Dict[str, Any]" in function "load_data"
+    "Literal['equipment.json']" is incompatible with "Dict[str, Any]" (reportGeneralTypeIssues)
+1 error, 0 warnings, 0 informations 
+Completed in 1.878sec

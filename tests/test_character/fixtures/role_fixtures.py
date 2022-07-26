@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 import pytest
 
 from funclg.character.abilities import Abilities
@@ -6,30 +8,44 @@ from funclg.character.roles import Roles
 
 @pytest.fixture
 def mage_test_role():
-    test_damage_types = ["Magic", "Healing", "Buff", "Debuff"]
-    example_abilities = []
-    for d_type in test_damage_types:
-        example_abilities.append(
-            Abilities(
-                name=d_type + " Test Ability",
-                damage_type=d_type,
-                effect=15,
-                description=f"Testing {d_type} ability.",
-            )
-        )
 
-    return Roles(
-        name="Mage Class",
-        description="Test Mage Class",
-        armor_type=1,
-        damage_types=test_damage_types,
-        abilities=example_abilities,
-    )
+    obj_ids = [
+        "ABILITY-12345-FADJ-67890",
+        "ABILITY-12345-FADD-67891",
+        "ABILITY-12345-FEFS-67892",
+        "ABILITY-12345-EODS-67893",
+        "ABILITY-12345-FADJ-67890",
+        "ABILITY-12345-FADD-67891",
+        "ABILITY-12345-FEFS-67892",
+        "ABILITY-12345-EODS-67893",
+        "ROLES-12345-JFEIOJ-67890",
+    ]
+    with patch("funclg.utils.data_mgmt.id_gen", side_effect=obj_ids):
+        test_damage_types = ["Magic", "Healing", "Buff", "Debuff"]
+        example_abilities = []
+        for d_type in test_damage_types:
+            example_abilities.append(
+                Abilities(
+                    name=d_type + " Test Ability",
+                    damage_type=d_type,
+                    effect=15,
+                    description=f"Testing {d_type} ability.",
+                )
+            )
+
+        return Roles(
+            name="Mage Class",
+            description="Test Mage Class",
+            armor_type=1,
+            damage_types=test_damage_types,
+            abilities=example_abilities,
+        )
 
 
 @pytest.fixture
 def mage_export_expectation():
     return {
+        "_id": "ROLES-12345-JFEIOJ-67890",
         "name": "Mage Class",
         "description": "Test Mage Class",
         "armor_type": 1,
@@ -41,6 +57,7 @@ def mage_export_expectation():
                 "ability_group": "Damage",
                 "effect": -15,
                 "description": "Testing Magic ability.",
+                "_id": "ABILITY-12345-FADJ-67890",
             },
             {
                 "name": "Healing Test Ability",
@@ -48,6 +65,7 @@ def mage_export_expectation():
                 "ability_group": "Boost",
                 "effect": 15,
                 "description": "Testing Healing ability.",
+                "_id": "ABILITY-12345-FADD-67891",
             },
             {
                 "name": "Buff Test Ability",
@@ -55,6 +73,7 @@ def mage_export_expectation():
                 "ability_group": "Boost",
                 "effect": 15,
                 "description": "Testing Buff ability.",
+                "_id": "ABILITY-12345-FEFS-67892",
             },
             {
                 "name": "Debuff Test Ability",
@@ -62,6 +81,7 @@ def mage_export_expectation():
                 "ability_group": "Damage",
                 "effect": -15,
                 "description": "Testing Debuff ability.",
+                "_id": "ABILITY-12345-EODS-67893",
             },
         ],
     }

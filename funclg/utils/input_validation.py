@@ -4,6 +4,7 @@ Date: 6.19.2022
 Description: Centralized utility module to manage input validation (user choice, data cleaning, etc.)
 """
 
+from string import ascii_letters, digits
 from typing import Any, List
 
 
@@ -22,7 +23,8 @@ def choice_validation(max_choice: int) -> int:
 
 
 def remove_special_chars(value: str) -> str:
-    return "".join(i for i in value if i.isalnum() or i.isspace())
+    safe_vals = ascii_letters + digits + "_"
+    return "".join(i for i in value if i in safe_vals)
 
 
 def string_validation(value: str):

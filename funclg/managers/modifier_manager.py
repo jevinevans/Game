@@ -10,6 +10,8 @@ Description: A manager class for creating, updating, and removing modifiers.
 ###
 from typing import Optional
 
+from loguru import logger
+
 import funclg.utils.data_mgmt as db
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
@@ -19,14 +21,18 @@ from funclg.utils.input_validation import (
     yes_no_validation,
 )
 from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
-from loguru import logger
 
 # TODO: Create/modify the build to allow for random creation
 
-MODIFIER_DATA = {"filename":"modifiers.json", "data":{}}
+MODIFIER_DATA = {"filename": "modifiers.json", "data": {}}
 
 
 # def mod_name_duplicate_check():
+
+# def export_db() # TODO Create me
+# Needs to change all Modifiers to a json like form to be written out
+# def load_db() # TODO Create me
+# Needs to load all data from json and convert items into modifiers to be used in game
 
 
 def build_modifier(name: Optional[str] = ""):
@@ -42,7 +48,6 @@ def build_modifier(name: Optional[str] = ""):
     else:
         print("Please name the modifier?")
         name = string_validation("Name")
-
 
     while True:
         print("Select which stats you want to modify.")
@@ -72,11 +77,10 @@ def build_modifier(name: Optional[str] = ""):
 
     new_mod = Modifier(name=name, adds=adds, mults=mults)
 
-    
+    MODIFIER_DATA["data"][new_mod._id] = new_mod.export()
+    db.update_data(MODIFIER_DATA)
     if from_method:
         return new_mod
-    # TODO update MOD_DATA data dict before sending to update
-    db.update_data(MODIFIER_DATA, new_mod.export())
 
 
 def edit_modifier():
@@ -84,11 +88,12 @@ def edit_modifier():
 
 
 def delete_modifier():
-    print("TODO: Build Delete Modifier Section") # TODO: REMOVE ME
+    print("TODO: Build Delete Modifier Section")  # TODO: COMPLETE & REMOVE ME
     if MODIFIER_DATA["data"]:
-        del_mod = list_choice_selection(mods)
-        print(f"Delete {del_mod}")
+        del_mod_id = list_choice_selection(list(MODIFIER_DATA["data"].keys()))
+        print(f"Deleting {del_mod_id} {MODIFIER_DATA['data'][del_mod_id]}")
     logger.warning("There are currently no Modifiers to delete.")
+
 
 MODIFIER_MENU = {
     "name": "Manage Mods",
@@ -102,5 +107,6 @@ MODIFIER_MENU = {
 
 MODIFIER_DATA = db.load_data(MODIFIER_DATA)
 
+# TODO Remove me
 if __name__ == "__main__":
     delete_modifier()
