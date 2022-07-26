@@ -10,7 +10,7 @@ import random
 import re
 from datetime import datetime, timezone
 from string import ascii_uppercase
-from typing import Any, Dict
+from typing import Any, Dict, Union
 
 from loguru import logger
 
@@ -18,7 +18,7 @@ DATA_DIR = "funclg/data/"
 ID_LENGTH = 24
 
 
-def id_gen(prefix: str = "FUNCLG", existing: str = ""):
+def id_gen(prefix: str = "FUNCLG", existing: Union[str, None] = ""):
     if existing and len(existing) == ID_LENGTH:
         return existing
 
@@ -42,18 +42,17 @@ def load_data(game_data: Dict[str, Any]):
 
     except json.JSONDecodeError as error:
         logger.error(error)
-        pass
     except AssertionError as error:
         logger.error(error)
-        print(f"{filename} is not the correct format file.")
+        logger.error("Incorrect format file.")
     except FileNotFoundError as error:
         logger.error(error)
-        print(f"Could not find file: {filename}")
+        logger.error("Could not find needed file.")
 
     return game_data
 
 
-def update_data(game_data: str):
+def update_data(game_data: Dict[str, Any]):
     try:
         filename = validate_filename(game_data["filename"])
         with open(filename, "w", encoding="utf-8") as write_file:
@@ -62,7 +61,7 @@ def update_data(game_data: str):
         return True
     except FileNotFoundError as error:
         logger.error(error)
-        print(f"Error updating database: file not found {filename}")
+        print("Error updating database: could not write file.")
         return False
 
 

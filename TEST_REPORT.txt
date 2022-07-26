@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Wed Jul 20 20:33:48 PDT 2022 
+Date: Mon Jul 25 21:00:26 PDT 2022 
 
 ---PYTEST---
 
@@ -15,43 +15,11 @@ tests/test_character/test_armor.py ...............                       [ 25%]
 tests/test_character/test_character.py ........                          [ 34%]
 tests/test_character/test_equipment.py ...............                   [ 51%]
 tests/test_character/test_modifiers.py .........                         [ 62%]
-tests/test_character/test_roles.py .F..........                          [ 75%]
+tests/test_character/test_roles.py ............                          [ 75%]
 tests/test_character/test_stats.py ............                          [ 89%]
 tests/test_main/test_main.py .                                           [ 90%]
 tests/test_managers/test_modifier_manager.py ...                         [ 94%]
 tests/test_utils/test_types.py .....                                     [100%]
-
-=================================== FAILURES ===================================
-______________________________ test_roles_export _______________________________
-
-mage_test_role = <funclg.character.roles.Roles object at 0x7f212a527820>
-mage_export_expectation = {'abilities': [{'ability_group': 'Damage', 'damage_type': 'Magic', 'description': 'Testing Magic ability.', 'effect': ... ...}], 'armor_type': 1, 'damage_types': ['Magic', 'Healing', 'Buff', 'Debuff'], 'description': 'Test Mage Class', ...}
-
-    def test_roles_export(mage_test_role, mage_export_expectation):
->       assert mage_export_expectation == mage_test_role.export()
-E       AssertionError: assert {'abilities':...e Class', ...} == {'abilities':...e Class', ...}
-E         Omitting 4 identical items, use -vv to show
-E         Differing items:
-E         {'abilities': [{'ability_group': 'Damage', 'damage_type': 'Magic', 'description': 'Testing Magic ability.', 'effect': ...}, {'ability_group': 'Damage', 'damage_type': 'Debuff', 'description': 'Testing Debuff ability.', 'effect': -15, ...}]} != {'abilities': [{'_id': 'ABILITY-16583-KFTV-74430', 'ability_group': 'Damage', 'damage_type': 'Magic', 'description': '...16583-DIOD-74430', 'ability_group': 'Damage', 'damage_type': 'Debuff', 'description': 'Testing Debuff ability.', ...}]}
-E         Use -v to get more diff
-
-tests/test_character/test_roles.py:29: AssertionError
----------------------------- Captured stderr setup -----------------------------
-2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
-2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Healing Test Ability
-2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
-2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
-2022-07-20 20:33:50.536 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
-2022-07-20 20:33:50.537 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Healing Test Ability
-2022-07-20 20:33:50.537 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
-2022-07-20 20:33:50.537 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
-2022-07-20 20:33:50.537 | INFO     | funclg.character.roles:__init__:43 - Created Role: Mage Class
------------------------------ Captured stderr call -----------------------------
-2022-07-20 20:33:50.537 | INFO     | funclg.character.roles:export:91 - Exporting Role: Mage Class
-2022-07-20 20:33:50.537 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Magic Test Ability
-2022-07-20 20:33:50.537 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Healing Test Ability
-2022-07-20 20:33:50.538 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Buff Test Ability
-2022-07-20 20:33:50.538 | INFO     | funclg.character.abilities:export:62 - Exporting Ability: Debuff Test Ability
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
@@ -61,10 +29,10 @@ funclg/__main__.py                        29     15      4      1    45%   46-57
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             33      0      4      0   100%
 funclg/character/armor.py                118      0     32      0   100%
-funclg/character/character.py             50      0     14      0   100%
+funclg/character/character.py             53      0     14      0   100%
 funclg/character/equipment.py             77      0     14      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
-funclg/character/roles.py                 64      0     26      0   100%
+funclg/character/roles.py                 67      0     26      0   100%
 funclg/character/stats.py                 61      0     30      0   100%
 funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py       8      3      0      0    62%   11, 15, 19
@@ -73,15 +41,16 @@ funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19
 funclg/managers/modifier_manager.py       51      7     18      1    86%   87, 91-95, 112
 funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 47     19      8      0    58%   43-51, 57-66
+funclg/utils/data_mgmt.py                 46     18      8      0    59%   43-50, 56-65
 funclg/utils/input_validation.py          36     28     12      0    17%   13-22, 26-27, 31, 35-37, 41-47, 52-61
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    765    114    220      2    85%
+TOTAL                                    770    113    220      2    85%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 84.77%
-========================= 1 failed, 86 passed in 0.89s =========================
+FAIL Required test coverage of 100.0% not reached. Total coverage: 84.95%
+
+============================== 87 passed in 1.08s ==============================
 
 ---Code Quality Report---
 
@@ -112,7 +81,8 @@ funclg/character/modifiers.py:65:9: W0511: TODO: Add check for percentage and ad
 funclg/character/modifiers.py:12:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
 funclg/character/modifiers.py:12:0: W0611: Unused MOD_MULT_RANGE imported from utils.types (unused-import)
 ************* Module funclg.character.roles
-funclg/character/roles.py:111:5: W0511: def show_powers(): #TODO Define me (fixme)
+funclg/character/roles.py:116:5: W0511: def show_powers(): #TODO Define me (fixme)
+funclg/character/roles.py:117:5: W0511: def copy(): # TODO: Roles copy method: unsure if needed (fixme)
 ************* Module funclg.character.stats
 funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
@@ -136,16 +106,14 @@ funclg/managers/modifier_manager.py:110:1: W0511: TODO Remove me (fixme)
 funclg/managers/modifier_manager.py:80:26: W0212: Access to a protected member _id of a client class (protected-access)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
-************* Module funclg.utils.data_mgmt
-funclg/utils/data_mgmt.py:45:8: W0107: Unnecessary pass statement (unnecessary-pass)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.67/10 (previous run: 9.67/10, +0.00)
+Your code has been rated at 9.68/10 (previous run: 9.66/10, +0.01)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 4.148s
+npx: installed 1 in 4.605s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -154,39 +122,8 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/abilities.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/abilities.py:47:46 - error: Argument of type "Unknown | None" cannot be assigned to parameter "existing" of type "str" in function "id_gen"
-    Type "Unknown | None" cannot be assigned to type "str"
-      Type "None" cannot be assigned to type "str" (reportGeneralTypeIssues)
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/equipment.py:49:68 - error: Argument of type "Unknown | None" cannot be assigned to parameter "existing" of type "str" in function "id_gen"
-    Type "Unknown | None" cannot be assigned to type "str"
-      Type "None" cannot be assigned to type "str" (reportGeneralTypeIssues)
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/modifiers.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/modifiers.py:49:46 - error: Argument of type "Unknown | None" cannot be assigned to parameter "existing" of type "str" in function "id_gen"
-    Type "Unknown | None" cannot be assigned to type "str"
-      Type "None" cannot be assigned to type "str" (reportGeneralTypeIssues)
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py:15:32 - error: Argument of type "Literal['equipment.json']" cannot be assigned to parameter "game_data" of type "Dict[str, Any]" in function "load_data"
     "Literal['equipment.json']" is incompatible with "Dict[str, Any]" (reportGeneralTypeIssues)
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py:81:20 - error: Argument of type "dict[str, Unknown] | Dict[str, Any]" cannot be assigned to parameter "game_data" of type "str" in function "update_data"
-    Type "dict[str, Unknown] | Dict[str, Any]" cannot be assigned to type "str"
-      "dict[str, Unknown]" is incompatible with "str"
-      "Dict[str, Any]" is incompatible with "str" (reportGeneralTypeIssues)
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:48:18 - error: "filename" is possibly unbound (reportUnboundVariable)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:51:39 - error: "filename" is possibly unbound (reportUnboundVariable)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:58:38 - error: Argument of type "Literal['filename']" cannot be assigned to parameter "__i" of type "SupportsIndex | slice" in function "__getitem__"
-    Type "Literal['filename']" cannot be assigned to type "SupportsIndex | slice"
-      "Literal['filename']" is incompatible with protocol "SupportsIndex"
-        "__index__" is not present
-      "Literal['filename']" is incompatible with "slice" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:60:23 - error: Argument of type "Literal['data']" cannot be assigned to parameter "__i" of type "SupportsIndex | slice" in function "__getitem__"
-    Type "Literal['data']" cannot be assigned to type "SupportsIndex | slice"
-      "Literal['data']" is incompatible with protocol "SupportsIndex"
-        "__index__" is not present
-      "Literal['data']" is incompatible with "slice" (reportGeneralTypeIssues)
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:65:58 - error: "filename" is possibly unbound (reportUnboundVariable)
-10 errors, 0 warnings, 0 informations 
-Completed in 1.815sec
+1 error, 0 warnings, 0 informations 
+Completed in 1.878sec

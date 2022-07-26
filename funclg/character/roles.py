@@ -9,6 +9,8 @@ from typing import Any, Dict, List, Optional
 
 from loguru import logger
 
+import funclg.utils.data_mgmt as db
+
 from ..utils.types import DAMAGE_TYPES, get_armor_type
 from .abilities import Abilities
 
@@ -21,6 +23,7 @@ class Roles:
     """
 
     MAX_ABILITIES = 5
+    DB_PREFIX = "ROLES"
 
     def __init__(
         self,
@@ -29,6 +32,7 @@ class Roles:
         armor_type: int,
         damage_types: Optional[List] = None,
         abilities: Optional[List] = None,
+        **kwargs,
     ):  # pylint: disable=too-many-arguments
         self.name = name
         self.description = description
@@ -39,6 +43,7 @@ class Roles:
             else "None"
         )
         self.abilities = self.validate_abilities(abilities) if abilities else []
+        self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
         # self.stats
         logger.info(f"Created Role: {name}")
 
@@ -109,3 +114,4 @@ class Roles:
         return [ability.copy() for ability in abilities if ability.damage_type in self.damage_types]
 
     # def show_powers(): #TODO Define me
+    # def copy(): # TODO: Roles copy method: unsure if needed
