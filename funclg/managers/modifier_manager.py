@@ -15,6 +15,7 @@ from loguru import logger
 import funclg.utils.data_mgmt as db
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
+    char_manager_choice_selection,
     list_choice_selection,
     number_range_validation,
     string_validation,
@@ -27,8 +28,7 @@ from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
 MODIFIER_DATA = {"filename": "modifiers.json", "data": {}}
 
 
-# def mod_name_duplicate_check():
-
+# def mod_name_duplicate_check(): # TODO Create Me
 # def export_db() # TODO Create me
 # Needs to change all Modifiers to a json like form to be written out
 # def load_db() # TODO Create me
@@ -83,16 +83,27 @@ def build_modifier(name: Optional[str] = ""):
         return new_mod
 
 
+def select_modifier():
+    if MODIFIER_DATA["data"]:
+        mod_id = char_manager_choice_selection(MODIFIER_DATA["data"], "name", "_id")
+        return MODIFIER_DATA["data"][mod_id]
+    logger.warning("There are no modifiers available.")
+    return None
+
+
 def edit_modifier():
     print("TODO: Build Edit Modifier Section")
 
 
 def delete_modifier():
-    print("TODO: Build Delete Modifier Section")  # TODO: COMPLETE & REMOVE ME
-    if MODIFIER_DATA["data"]:
-        del_mod_id = list_choice_selection(list(MODIFIER_DATA["data"].keys()))
-        print(f"Deleting {del_mod_id} {MODIFIER_DATA['data'][del_mod_id]}")
-    logger.warning("There are currently no Modifiers to delete.")
+    del_mod = select_modifier()
+    if del_mod:
+        if yes_no_validation(f"Do you want to delete \"{del_mod['name']}\"?"):
+            print(f"Deleting {del_mod}")
+            del MODIFIER_DATA["data"][del_mod["_id"]]
+            db.update_data(MODIFIER_DATA)
+            return
+    logger.warning("There are currently no modifiers to delete.")
 
 
 MODIFIER_MENU = {
@@ -106,7 +117,3 @@ MODIFIER_MENU = {
 }
 
 MODIFIER_DATA = db.load_data(MODIFIER_DATA)
-
-# TODO Remove me
-if __name__ == "__main__":
-    delete_modifier()
