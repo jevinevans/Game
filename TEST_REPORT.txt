@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Jul 25 21:00:26 PDT 2022 
+Date: Sun Aug 21 20:46:40 PDT 2022 
 
 ---PYTEST---
 
@@ -38,19 +38,19 @@ funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/character_manager.py       8      3      0      0    62%   11, 15, 19
 funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19, 23, 27, 31, 35, 39, 43, 47-52, 56, 60
-funclg/managers/modifier_manager.py       51      7     18      1    86%   87, 91-95, 112
+funclg/managers/modifier_manager.py       58     14     20      0    74%   88-92, 96, 100-107
 funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 46     18      8      0    59%   43-50, 56-65
-funclg/utils/input_validation.py          36     28     12      0    17%   13-22, 26-27, 31, 35-37, 41-47, 52-61
+funclg/utils/input_validation.py          42     33     18      0    15%   13-22, 26-27, 31, 35-37, 41-45, 49-55, 60-69
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    770    113    220      2    85%
+TOTAL                                    783    125    228      1    83%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 84.95%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 83.18%
 
-============================== 87 passed in 1.08s ==============================
+============================== 87 passed in 0.89s ==============================
 
 ---Code Quality Report---
 
@@ -97,23 +97,23 @@ funclg/managers/equipment_manager.py:15:4: W0612: Unused variable 'equipment_dat
 funclg/managers/equipment_manager.py:7:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
 funclg/managers/equipment_manager.py:7:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
 ************* Module funclg.managers.modifier_manager
-funclg/managers/modifier_manager.py:25:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
-funclg/managers/modifier_manager.py:32:1: W0511: def export_db() # TODO Create me (fixme)
-funclg/managers/modifier_manager.py:34:1: W0511: def load_db() # TODO Create me (fixme)
-funclg/managers/modifier_manager.py:43:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
-funclg/managers/modifier_manager.py:91:51: W0511: TODO: COMPLETE & REMOVE ME (fixme)
-funclg/managers/modifier_manager.py:110:1: W0511: TODO Remove me (fixme)
-funclg/managers/modifier_manager.py:80:26: W0212: Access to a protected member _id of a client class (protected-access)
+funclg/managers/modifier_manager.py:26:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/modifier_manager.py:33:1: W0511: def export_db() # TODO Create me (fixme)
+funclg/managers/modifier_manager.py:35:1: W0511: def load_db() # TODO Create me (fixme)
+funclg/managers/modifier_manager.py:44:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
+funclg/managers/modifier_manager.py:81:26: W0212: Access to a protected member _id of a client class (protected-access)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
+************* Module funclg.utils.input_validation
+funclg/utils/input_validation.py:41:10: R1721: Unnecessary use of a comprehension, use list(data) instead. (unnecessary-comprehension)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.68/10 (previous run: 9.66/10, +0.01)
+Your code has been rated at 9.69/10 (previous run: 9.67/10, +0.02)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 4.605s
+npx: installed 1 in 4.158s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -126,4 +126,4 @@ Found 21 source files
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py:15:32 - error: Argument of type "Literal['equipment.json']" cannot be assigned to parameter "game_data" of type "Dict[str, Any]" in function "load_data"
     "Literal['equipment.json']" is incompatible with "Dict[str, Any]" (reportGeneralTypeIssues)
 1 error, 0 warnings, 0 informations 
-Completed in 1.878sec
+Completed in 1.841sec
