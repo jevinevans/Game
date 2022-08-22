@@ -15,6 +15,7 @@ from loguru import logger
 
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
+    char_manager_choice_selection,
     list_choice_selection,
     number_range_validation,
     yes_no_validation,
