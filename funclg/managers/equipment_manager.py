@@ -43,7 +43,7 @@ def export_data():
 
     db.update_data(EQUIPMENT_DATA)
 
-EQUIPMENT_DATA = {"filename":"equipment.json","data":{}}
+EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}}
 
 # TODO design these to be just the creation function
 def _new_weapon():
@@ -74,6 +74,7 @@ def _new_weapon():
         description=weapon_desc,
         mod=weapon_mod,
     )
+
 
 
 def _new_body_armor():
@@ -123,6 +124,7 @@ def build_equipment():
     print(f"No new {equip_type.lower()}, oh well...")
     del new_equipment
 
+
 def select_equipment():
     raise NotImplementedError
 
@@ -166,6 +168,7 @@ def show_equipment():
         print(show_equip.details())
         return
     logger.warning("There are no equipment items to show.")
+
 
 
 def delete_equipment():
