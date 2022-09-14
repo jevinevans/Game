@@ -63,6 +63,10 @@ class Equipment:
     def id(self):  # pylint: disable=C0103
         return self._id
 
+    @property
+    def id(self):
+        return self._id
+
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name}"
         desc += f"\n{' '*indent}{'-'*len(self.name)}"
