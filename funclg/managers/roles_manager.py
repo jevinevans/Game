@@ -58,4 +58,5 @@ ROLES_MENU = {
     ],
 }
 
-ROLES_DATA = db.load_data(ROLES_DATA)
+# TODO Remove me
+# ROLES_DATA = db.load_data(ROLES_DATA)

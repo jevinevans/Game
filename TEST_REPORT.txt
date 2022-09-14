@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Aug 21 20:46:40 PDT 2022 
+Date: Wed Sep 14 16:08:14 PDT 2022 
 
 ---PYTEST---
 
@@ -35,22 +35,22 @@ funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 67      0     26      0   100%
 funclg/character/stats.py                 61      0     30      0   100%
 funclg/managers/__init__.py               13      0      2      0   100%
-funclg/managers/abilities_manager.py       8      3      0      0    62%   11, 15, 19
-funclg/managers/character_manager.py       8      3      0      0    62%   11, 15, 19
-funclg/managers/equipment_manager.py      33     18      4      0    41%   15-19, 23, 27, 31, 35, 39, 43, 47-52, 56, 60
-funclg/managers/modifier_manager.py       58     14     20      0    74%   88-92, 96, 100-107
-funclg/managers/roles_manager.py           8      3      0      0    62%   11, 15, 19
+funclg/managers/abilities_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
+funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
+funclg/managers/equipment_manager.py      35     19      0      0    46%   20-21, 25-26, 30-31, 35-36, 40-41, 45-46, 50-51, 55, 59-60, 64-65
+funclg/managers/modifier_manager.py       59     15     20      0    73%   87-91, 95-96, 100-107
+funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 46     18      8      0    59%   43-50, 56-65
 funclg/utils/input_validation.py          42     33     18      0    15%   13-22, 26-27, 31, 35-37, 41-45, 49-55, 60-69
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    783    125    228      1    83%
+TOTAL                                    820    146    230      1    82%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 83.18%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 81.62%
 
-============================== 87 passed in 0.89s ==============================
+============================== 87 passed in 0.97s ==============================
 
 ---Code Quality Report---
 
@@ -60,8 +60,10 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 83.18%
 
 -----BLACK-----
 
+reformatted funclg/managers/abilities_manager.py
+
 All done! ✨ 🍰 ✨
-21 files left unchanged.
+1 file reformatted, 20 files left unchanged.
 
 -----BANDIT-----
 
@@ -89,31 +91,51 @@ funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
 funclg/character/stats.py:115:0: W0105: String statement has no effect (pointless-string-statement)
 funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.managers.abilities_manager
-funclg/managers/abilities_manager.py:7:0: W0611: Unused Abilities imported from funclg.character.abilities (unused-import)
+funclg/managers/abilities_manager.py:48:1: W0511: TODO: Remove Comment (fixme)
+funclg/managers/abilities_manager.py:7:0: W0611: Unused logger imported from loguru (unused-import)
+funclg/managers/abilities_manager.py:9:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
+funclg/managers/abilities_manager.py:10:0: W0611: Unused Abilities imported from funclg.character.abilities (unused-import)
+funclg/managers/abilities_manager.py:11:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
+funclg/managers/abilities_manager.py:11:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
 ************* Module funclg.managers.character_manager
-funclg/managers/character_manager.py:7:0: W0611: Unused Character imported from funclg.character.character (unused-import)
+funclg/managers/character_manager.py:47:1: W0511: TODO: Remove me (fixme)
+funclg/managers/character_manager.py:6:0: W0611: Unused logger imported from loguru (unused-import)
+funclg/managers/character_manager.py:8:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
+funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from funclg.character.character (unused-import)
+funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
+funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
 ************* Module funclg.managers.equipment_manager
-funclg/managers/equipment_manager.py:15:4: W0612: Unused variable 'equipment_data' (unused-variable)
-funclg/managers/equipment_manager.py:7:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
-funclg/managers/equipment_manager.py:7:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
+funclg/managers/equipment_manager.py:18:1: W0511: TODO design these to be just the creation function (fixme)
+funclg/managers/equipment_manager.py:78:1: W0511: TODO: Remove me (fixme)
+funclg/managers/equipment_manager.py:7:0: W0611: Unused logger imported from loguru (unused-import)
+funclg/managers/equipment_manager.py:9:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
+funclg/managers/equipment_manager.py:10:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
+funclg/managers/equipment_manager.py:10:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
+funclg/managers/equipment_manager.py:11:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
+funclg/managers/equipment_manager.py:11:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:26:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
-funclg/managers/modifier_manager.py:33:1: W0511: def export_db() # TODO Create me (fixme)
-funclg/managers/modifier_manager.py:35:1: W0511: def load_db() # TODO Create me (fixme)
-funclg/managers/modifier_manager.py:44:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
-funclg/managers/modifier_manager.py:81:26: W0212: Access to a protected member _id of a client class (protected-access)
+funclg/managers/modifier_manager.py:31:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
+funclg/managers/modifier_manager.py:32:1: W0511: def export_db() # TODO Create me (fixme)
+funclg/managers/modifier_manager.py:34:1: W0511: def load_db() # TODO Create me (fixme)
+funclg/managers/modifier_manager.py:43:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
+funclg/managers/modifier_manager.py:80:26: W0212: Access to a protected member _id of a client class (protected-access)
 ************* Module funclg.managers.roles_manager
-funclg/managers/roles_manager.py:7:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
+funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
+funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
+funclg/managers/roles_manager.py:21:1: W0511: def load_db() # TODO Create me (fixme)
+funclg/managers/roles_manager.py:61:1: W0511: TODO Remove me (fixme)
+funclg/managers/roles_manager.py:10:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
 ************* Module funclg.utils.input_validation
 funclg/utils/input_validation.py:41:10: R1721: Unnecessary use of a comprehension, use list(data) instead. (unnecessary-comprehension)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.69/10 (previous run: 9.67/10, +0.02)
+Your code has been rated at 9.46/10 (previous run: 9.49/10, -0.03)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 4.158s
+npx: installed 1 in 5.498s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -122,8 +144,5 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py:15:32 - error: Argument of type "Literal['equipment.json']" cannot be assigned to parameter "game_data" of type "Dict[str, Any]" in function "load_data"
-    "Literal['equipment.json']" is incompatible with "Dict[str, Any]" (reportGeneralTypeIssues)
-1 error, 0 warnings, 0 informations 
-Completed in 1.841sec
+0 errors, 0 warnings, 0 informations 
+Completed in 1.844sec
