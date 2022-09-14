@@ -4,8 +4,7 @@ Developer: Jevin Evans
 Date: 6.19.2022
 """
 
-from typing import List
-
+from funclg.character.roles import Roles
 from loguru import logger
 
 import funclg.managers.abilities_manager as ab_man
@@ -168,9 +167,9 @@ def build_role():
     del new_role
 
 def select_role():
-    if ROLES_DATA['data']:
-        role_id = char_manager_choice_selection(ROLES_DATA['data'], "name", "_id")
-        return ROLES_DATA['data'][role_id]
+    if ROLES_DATA["data"]:
+        role_id = char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
+        return ROLES_DATA["data"][role_id]
     logger.warning("There are no roles available.")
     return None
 
