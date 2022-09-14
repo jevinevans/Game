@@ -227,6 +227,7 @@ def show_equipment():
     logger.warning("There are no equipment items to show.")
 
 
+
 def delete_equipment():
     del_equip_id = select_equipment()
     if del_equip_id:
