@@ -4,17 +4,16 @@ Date: 6.19.2022
 Description: A manager class for creating, updating, and removing roles.
 """
 
-from funclg.character.roles import Roles
 from loguru import logger
+
 import funclg.utils.data_mgmt as db
+from funclg.character.roles import Roles
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
-    yes_no_validation
+    yes_no_validation,
 )
 
-ROLES_DATA = {
-    "filename": "roles.json", "data":{}
-}
+ROLES_DATA = {"filename": "roles.json", "data": {}}
 
 # def mod_name_duplicate_check(): # TODO Create Me
 # def export_db() # TODO Create me
@@ -24,19 +23,19 @@ ROLES_DATA = {
 
 
 def build_role():
-    print("TODO: Build New Role Section")
-    #TODO
+    raise NotImplementedError
+
 
 def select_role():
-    if ROLES_DATA['data']:
-        role_id = char_manager_choice_selection(ROLES_DATA['data'], "name", "_id")
-        return ROLES_DATA['data'][role_id]
+    if ROLES_DATA["data"]:
+        role_id = char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
+        return ROLES_DATA["data"][role_id]
     logger.warning("There are no roles available.")
     return None
 
+
 def edit_role():
-    print("TODO: Build Edit Role Section") 
-    #TODO
+    raise NotImplementedError
 
 
 def delete_role():
@@ -44,9 +43,10 @@ def delete_role():
     if del_role:
         if yes_no_validation(f"Do you want to delete \"{del_role['name']}\"?"):
             print(f"Deleteing {del_role}")
-            del ROLES_DATA['data'][del_role['_id']]
+            del ROLES_DATA["data"][del_role["_id"]]
             db.update_data(ROLES_DATA)
     logger.warning("There are no roles available.")
+
 
 ROLES_MENU = {
     "name": "Manage Roles",
