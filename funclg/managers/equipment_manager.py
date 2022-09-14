@@ -43,7 +43,9 @@ def export_data():
 
     db.update_data(EQUIPMENT_DATA)
 
+EQUIPMENT_DATA = {"filename":"equipment.json","data":{}}
 
+# TODO design these to be just the creation function
 def _new_weapon():
     print()
     weapon_type = selection_validation(
@@ -121,6 +123,8 @@ def build_equipment():
     print(f"No new {equip_type.lower()}, oh well...")
     del new_equipment
 
+def select_equipment():
+    raise NotImplementedError
 
 def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
