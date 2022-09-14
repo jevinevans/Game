@@ -67,6 +67,7 @@ def build_ability():
     del new_ability
 
 
+
 def select_ability():
     if ABILITIES_DATA["data"]:
         return selection_validation(
@@ -94,6 +95,7 @@ def show_ability():
         print(_show_ability.details())
         return
     logger.warning("There are no abilities to show.")
+
 
 
 def delete_ability():

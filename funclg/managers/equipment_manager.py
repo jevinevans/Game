@@ -62,6 +62,7 @@ def _new_weapon():
     )
 
 
+
 def _new_body_armor():
     item_type = selection_validation(
         "What type of Armor would you like to create?", ITEM_TYPES[:-1]
@@ -84,6 +85,7 @@ def _new_body_armor():
         armor_type=ARMOR_TYPES.index(armor_type),
         item_type=ITEM_TYPES.index(item_type),
     )
+
 
 
 def build_equipment():
@@ -122,6 +124,7 @@ def filter_equipment_by_armor_type(armor_type: int):
     return filtered_equipment
 
 
+
 def select_equipment():
     if EQUIPMENT_DATA["data"]:
         equip_list = {}
@@ -148,6 +151,7 @@ def show_equipment():
         print(show_equip.details())
         return
     logger.warning("There are no equipment items to show.")
+
 
 
 def delete_equipment():
