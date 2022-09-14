@@ -75,6 +75,10 @@ class Character:
         string += f"\n Armor: {self.armor}"
 
         return string
+    
+    @property
+    def id(self):
+        return self._id
 
     def export(self) -> Dict[str, Any]:
         exporter = self.__dict__.copy()

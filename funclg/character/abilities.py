@@ -51,6 +51,10 @@ class Abilities:
     def __str__(self):
         return f"{self.name} ({self.damage_type}): {self.effect}"
 
+    @property
+    def id(self):
+        return self._id
+
     def details(self, indent: int = 0):
         desc = f"\n{' '*indent}{self.name}\n{' '*indent}{''.join(['-' for x in range(len(self.name))])}"
         desc += f"\n{' '*indent}Description: {self.description}"
