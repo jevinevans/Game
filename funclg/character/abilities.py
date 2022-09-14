@@ -81,6 +81,10 @@ class Abilities:
     def id(self):  # pylint: disable=C0103
         return self._id
 
+    @property
+    def id(self):
+        return self._id
+
     def details(self, indent: int = 0):
         desc = f"\n{' '*indent}{self.name} [lvl {self.level}]\n{' '*indent}"
         desc += "-" * (len(self.name) + 7 + len(str(self.level)))

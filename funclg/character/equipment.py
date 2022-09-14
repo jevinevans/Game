@@ -66,6 +66,10 @@ class Equipment:
     def power(self):
         return self.stats.power
 
+    @property
+    def id(self):
+        return self._id
+
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
         desc += f"\n{' '*indent}{'-'*(len(self.name) + 7 + len(str(self.level)))}"
