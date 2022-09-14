@@ -13,22 +13,27 @@ from funclg.utils.input_validation import (
     yes_no_validation,
 )
 
-ABILITIES_DATA = {"filename":"abilities.json", "data":{}}
+ABILITIES_DATA = {"filename": "abilities.json", "data": {}}
+
 
 def build_ability():
     print("TODO: Build New Ability Section")
     raise NotImplementedError
 
+
 def select_ability():
     raise NotImplementedError
+
 
 def edit_ability():
     print("TODO: Build Edit Ability Section")
     raise NotImplementedError
 
+
 def delete_ability():
     print("TODO: Build Delete Ability Section")
     raise NotImplementedError
+
 
 ABILITY_MENU = {
     "name": "Manage Abilities",
@@ -40,4 +45,5 @@ ABILITY_MENU = {
     ],
 }
 
-ABILITIES_DATA = db.load_data(ABILITIES_DATA)
+# TODO: Remove Comment
+# ABILITIES_DATA = db.load_data(ABILITIES_DATA)

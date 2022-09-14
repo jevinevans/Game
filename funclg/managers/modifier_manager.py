@@ -93,6 +93,7 @@ def select_modifier():
 
 def edit_modifier():
     print("TODO: Build Edit Modifier Section")
+    raise NotImplementedError
 
 
 def delete_modifier():
