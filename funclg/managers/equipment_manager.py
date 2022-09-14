@@ -4,61 +4,56 @@ Date: 6.19.2022
 Description: A manager class for creating, updating, and removing equipment.
 """
 
+from loguru import logger
+
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.data_mgmt import load_data
-from funclg.utils.input_validation import choice_validation
+import funclg.utils.data_mgmt as db
+from funclg.utils.input_validation import (
+    char_manager_choice_selection,
+    yes_no_validation,
+)
 
-EQUIPMENT_DATABASE = "equipment.json"
+EQUIPMENT_DATA = {"filename":"equipment.json","data":{}}
 
-
-def _equipment_set_up(action: str):
-    equipment_data = load_data(EQUIPMENT_DATABASE)
-    print(f"What type of equipment do you want to {action}?\n1. Body Equipment\n2. Weapons")
-    if choice_validation(2) == 1:
-        return "body_armor"
-    return "weapon"
-
-
+# TODO design these to be just the creation function
 def _new_weapon():
     print("TODO: Build New Weapon Section")
-
+    raise NotImplementedError
 
 def _new_body_armor():
     print("TODO: Build New Body Armor Section")
-
+    raise NotImplementedError
 
 def _edit_weapon():
     print("TODO: Build Edit Weapon Section")
-
+    raise NotImplementedError
 
 def _edit_body_armor():
     print("TODO: Build Edit Body Armor Section")
-
+    raise NotImplementedError
 
 def _delete_weapon():
     print("TODO: Build Delete Weapon Section")
-
+    raise NotImplementedError
 
 def _delete_body_armor():
     print("TODO: Build Delete Body Armor Section")
-
+    raise NotImplementedError
 
 def build_equipment():
     print("TODO: Build New Equipment")
-    choice = _equipment_set_up("New")
-    if choice == "weapon":
-        _new_weapon()
-    else:
-        _new_body_armor()
+    raise NotImplementedError
 
+def select_equipment():
+    raise NotImplementedError
 
 def edit_equipment():
     print("TODO: Build Edit Equipment Section")
-
+    raise NotImplementedError
 
 def delete_equipment():
     print("TODO: Build Delete Equipment Section")
-
+    raise NotImplementedError
 
 EQUIPMENT_MENU = {
     "name": "Manage Equipment",
@@ -69,3 +64,5 @@ EQUIPMENT_MENU = {
         {"name": "Delete Equipment", "action": delete_equipment},
     ],
 }
+
+EQUIPMENT_DATA = db.load_data(EQUIPMENT_DATA)
