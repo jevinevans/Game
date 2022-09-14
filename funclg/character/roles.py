@@ -50,6 +50,10 @@ class Roles:
     def __str__(self):
         return f"Class: {self.name} | Class Type(s): {', '.join(self.damage_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
 
+    @property
+    def id(self):
+        return self._id
+
     def add_power(self, ability: Abilities) -> bool:
         if ability.damage_type in self.damage_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:

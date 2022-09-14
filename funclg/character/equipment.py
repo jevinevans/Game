@@ -56,6 +56,10 @@ class Equipment:
         """
         return f"{self.name} [{self.armor_type} {self.item_type}]"
 
+    @property
+    def id(self):
+        return self._id
+
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name}"
         desc += f"\n{' '*indent}{'-'*len(self.name)}"
