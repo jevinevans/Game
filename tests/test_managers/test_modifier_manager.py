@@ -18,7 +18,7 @@ def test_modifier_manager_build_modifier_add_mod(
     m_str_val.side_effect = ["Test_mod"]
     m_list_select.side_effect = ["energy", "Base Change"]
     m_num_range.side_effect = [50]
-    m_yn_val.side_effect = [True, False]
+    m_yn_val.side_effect = [True, False, True]
     m_id_gen.return_value = "MODS-12345-EKFIFSO-67890"
 
     mod_man.build_modifier()
@@ -30,7 +30,7 @@ def test_modifier_manager_build_modifier_add_mod(
     m_str_val.side_effect = ["Test_mod"]
     m_list_select.side_effect = ["energy", "Base Change", "health", "Base Change"]
     m_num_range.side_effect = [50, 60]
-    m_yn_val.side_effect = [False, True, True, False]
+    m_yn_val.side_effect = [False, True, True, False, True]
     m_id_gen.return_value = "MODS-12345-EKFIFSO-67890"
 
     mod_man.build_modifier()
@@ -54,7 +54,7 @@ def test_modifier_manager_build_modifier_mult_mod(
     m_str_val.side_effect = ["Test_mod"]
     m_list_select.side_effect = ["energy", "Percentage Change"]
     m_num_range.side_effect = [50]
-    m_yn_val.side_effect = [True, False]
+    m_yn_val.side_effect = [True, False, True]
 
     mod_man.build_modifier()
     test_mod = mod_man.Modifier("Test_mod", mults={"energy": 0.5})
@@ -65,7 +65,7 @@ def test_modifier_manager_build_modifier_mult_mod(
     m_str_val.side_effect = ["Test_mod"]
     m_list_select.side_effect = ["energy", "Percentage Change", "health", "Percentage Change"]
     m_num_range.side_effect = [50, 60]
-    m_yn_val.side_effect = [False, True, True, False]
+    m_yn_val.side_effect = [False, True, True, False, True]
 
     mod_man.build_modifier()
     test_mod = mod_man.Modifier("Test_mod", mults={"health": 0.6})
@@ -92,7 +92,7 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
         "Percentage Change",
     ]
     m_num_range.side_effect = [50, 250, 60, 75]
-    m_yn_val.side_effect = [True, True, True, True, True, True, True, False]
+    m_yn_val.side_effect = [True, True, True, True, True, True, True, False, True]
 
     return_val = mod_man.build_modifier("Test_mod")
     test_mod = mod_man.Modifier(
@@ -100,4 +100,12 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
     )
     assert return_val.name == test_mod.name
     assert return_val.get_mods() == test_mod.get_mods()
+    assert m_db.called_once
+
+
+@patch("funclg.utils.data_mgmt.update_data")
+def test_modifier_manager_export_data(m_db):
+
+    mod_man.export_data()
+    assert len(mod_man.MODIFIER_DATA['data']) == len(mod_man.MODIFIER_DATA['objects'])
     assert m_db.called_once
