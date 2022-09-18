@@ -37,17 +37,19 @@ def validate_filename(filename: str) -> str:
 def load_data(game_data: Dict[str, Any]):
     try:
         filename = validate_filename(game_data["filename"])
-        with open(filename, "r", encoding="utf-8") as load_file:
-            game_data["data"] = json.load(load_file)
+        if os.path.getsize(filename):
+            with open(filename, "r", encoding="utf-8") as load_file:
+                game_data["data"] = json.load(load_file)
 
     except json.JSONDecodeError as error:
-        logger.error(error)
+        logger.error(f"{filename}: malformed and can not be parsed") #TODO Fix error issues
     except AssertionError as error:
-        logger.error(error)
-        logger.error("Incorrect format file.")
+        logger.error(error) #TODO Remove error call
+        logger.error(f"{filename}: Incorrect format file.")
     except FileNotFoundError as error:
-        logger.error(error)
-        logger.error("Could not find needed file.")
+        logger.error(f"{game_data['filename']}: Creating new database entry.")
+        with open(filename, "a"):
+            os.utime(filename)
 
     return game_data
 
