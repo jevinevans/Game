@@ -47,7 +47,7 @@ class Modifier:
         self.mults = self._verify_mods(mults)
 
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
-    
+
     @property
     def id(self):
         return self._id
@@ -57,7 +57,7 @@ class Modifier:
         string += self._friendly_read(indent=2)
 
         return string
-    
+
     def details(self, indent: int = 0):
         string = f"\n{' '*indent}{self.name}:\n"
         string += self._friendly_read(indent=indent + 2)

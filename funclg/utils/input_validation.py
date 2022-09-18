@@ -33,12 +33,11 @@ def string_validation(value: str):
 
 def list_choice_selection(items: List[Any]):
     for index, item in enumerate(items, start=1):
-        print(f"{index} --- {item}")
+        print(f"{index} --- {item.capitalize()}")
     return items[choice_validation(len(items)) - 1]
 
 
 def char_manager_choice_selection(data: Dict[str, Any], show_param: str, return_param: str):
-    print([_data for _data in data])
     items = [(_data[show_param], _data[return_param]) for _, _data in data.items()]
     for index, item in enumerate(items, start=1):
         print(f"{index} --- {item[0]}")

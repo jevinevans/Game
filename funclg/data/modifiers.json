@@ -1,234 +1,32 @@
 {
-    "MODS-16573-OSVXHTD-88463": {
-        "name": "Fire_mod",
+    "MODS-16635-MYAKTLD-33975": {
+        "name": "Test01",
         "adds": {
-            "health": 23
-        },
-        "mults": {},
-        "_id": "MODS-16573-OSVXHTD-88463"
-    },
-    "MODS-16581-ZNQSDBT-24937": {
-        "name": "Water_mod",
-        "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-ZNQSDBT-24937"
-    },
-    "MODS-16581-YGNUGAV-24937": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-YGNUGAV-24937"
-    },
-    "MODS-16581-CPJNKOH-24938": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
+            "health": 125
         },
         "mults": {
-            "health": 0.6,
-            "defense": 0.75
+            "energy": 0.32
         },
-        "_id": "MODS-16581-CPJNKOH-24938"
+        "_id": "MODS-16635-MYAKTLD-33975"
     },
-    "MODS-16581-YTVQJLB-25347": {
-        "name": "Test_mod",
+    "MODS-16635-SVRVYXR-35950": {
+        "name": "Test02",
         "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-YTVQJLB-25347"
-    },
-    "MODS-16581-IMHDMUC-25347": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-IMHDMUC-25347"
-    },
-    "MODS-16581-HWWDAEF-25347": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
+            "health": 300
         },
         "mults": {
-            "health": 0.6,
-            "defense": 0.75
+            "defense": 0.15
         },
-        "_id": "MODS-16581-HWWDAEF-25347"
+        "_id": "MODS-16635-SVRVYXR-35950"
     },
-    "MODS-16581-OSZREFP-25394": {
-        "name": "Test_mod",
+    "MODS-16635-MJBZFBI-36821": {
+        "name": "EnergyDefense",
         "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-OSZREFP-25394"
-    },
-    "MODS-16581-RKVKDSU-25394": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-RKVKDSU-25394"
-    },
-    "MODS-16581-ELYFYZG-25394": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
+            "energy": 47
         },
         "mults": {
-            "health": 0.6,
-            "defense": 0.75
+            "defense": 0.57
         },
-        "_id": "MODS-16581-ELYFYZG-25394"
-    },
-    "MODS-16581-JTGYEUJ-25429": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-JTGYEUJ-25429"
-    },
-    "MODS-16581-ASXPTVH-25429": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-ASXPTVH-25429"
-    },
-    "MODS-16581-JDZFBHD-25429": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
-        },
-        "mults": {
-            "health": 0.6,
-            "defense": 0.75
-        },
-        "_id": "MODS-16581-JDZFBHD-25429"
-    },
-    "MODS-16581-FNPQBAU-25777": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-FNPQBAU-25777"
-    },
-    "MODS-16581-VATKFYO-25777": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-VATKFYO-25777"
-    },
-    "MODS-16581-PJAJRGQ-25777": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
-        },
-        "mults": {
-            "health": 0.6,
-            "defense": 0.75
-        },
-        "_id": "MODS-16581-PJAJRGQ-25777"
-    },
-    "MODS-16581-CYDSLYK-26340": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-CYDSLYK-26340"
-    },
-    "MODS-16581-PBYMRLF-26340": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-PBYMRLF-26340"
-    },
-    "MODS-16581-RZNFTTP-26340": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
-        },
-        "mults": {
-            "health": 0.6,
-            "defense": 0.75
-        },
-        "_id": "MODS-16581-RZNFTTP-26340"
-    },
-    "MODS-16581-LTRIGML-26636": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-LTRIGML-26636"
-    },
-    "MODS-16581-QPUOJDD-26636": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-QPUOJDD-26636"
-    },
-    "MODS-16581-JQABTCP-26636": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
-        },
-        "mults": {
-            "health": 0.6,
-            "defense": 0.75
-        },
-        "_id": "MODS-16581-JQABTCP-26636"
-    },
-    "MODS-16581-CJXCQKO-26700": {
-        "name": "Test_mod",
-        "adds": {
-            "energy": 50
-        },
-        "mults": {},
-        "_id": "MODS-16581-CJXCQKO-26700"
-    },
-    "MODS-16581-VDPVPMI-26700": {
-        "name": "Test_mod",
-        "adds": {},
-        "mults": {
-            "energy": 0.5
-        },
-        "_id": "MODS-16581-VDPVPMI-26700"
-    },
-    "MODS-16581-CBHWFLH-26700": {
-        "name": "del_mod",
-        "adds": {
-            "energy": 50,
-            "attack": 250
-        },
-        "mults": {
-            "health": 0.6,
-            "defense": 0.75
-        },
-        "_id": "MODS-16581-CBHWFLH-26700"
+        "_id": "MODS-16635-MJBZFBI-36821"
     }
 }
