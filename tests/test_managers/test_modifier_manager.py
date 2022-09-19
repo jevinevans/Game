@@ -1,4 +1,4 @@
-from unittest.mock import call, patch
+from unittest.mock import patch
 
 import pytest
 
@@ -106,6 +106,71 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
 @patch("funclg.utils.data_mgmt.update_data")
 def test_modifier_manager_export_data(m_db):
 
-    mod_man.export_data()
-    assert len(mod_man.MODIFIER_DATA['data']) == len(mod_man.MODIFIER_DATA['objects'])
+    mod_man.update_data()
+    assert len(mod_man.MODIFIER_DATA["data"]) == len(mod_man.MODIFIER_DATA["objects"])
     assert m_db.called_once
+
+
+@patch("funclg.utils.data_mgmt.update_data")
+def test_modifier_manager_export_data(m_db):
+
+    mod_man.export_data()
+    assert len(mod_man.MODIFIER_DATA["data"]) == len(mod_man.MODIFIER_DATA["objects"])
+    assert m_db.called_once
+
+
+@patch("funclg.managers.modifier_manager.char_manager_choice_selection")
+def test_modifier_manager_select_modifier(m_char_choice):
+    # Test Success
+    mod_man.MODIFIER_DATA["data"]["MODS-12345-EKFIFSO-67890"] = {
+        "name": "Test_Mod",
+        "adds": {"energy": 50, "attack": 250},
+        "mults": {"health": 0.6, "defense": 0.75},
+        "_id": "MODS-12345-EKFIFSO-67890",
+    }
+    m_char_choice.side_effect = ["MODS-12345-EKFIFSO-67890"]
+
+    assert mod_man.select_modifier() == "MODS-12345-EKFIFSO-67890"
+
+    # Test No Data
+    mod_man.MODIFIER_DATA["data"] = {}
+    assert mod_man.select_modifier() == None
+
+
+@patch("builtins.print")
+@patch("funclg.managers.modifier_manager.select_modifier")
+def test_modifier_manager_show_modifer(m_select_mod, m_print):
+    test_mod = mod_man.Modifier(
+        "Test_mod", adds={"energy": 50, "attack": 250}, mults={"health": 0.6, "defense": 0.75}
+    )
+    mod_man.MODIFIER_DATA["objects"][test_mod.id] = test_mod
+    m_select_mod.return_value = test_mod.id
+    mod_man.show_modifier()
+    assert m_print.called_with(test_mod.details())
+
+
+@patch("funclg.managers.modifier_manager.logger")
+@patch("funclg.managers.modifier_manager.select_modifier")
+@patch("funclg.managers.modifier_manager.yes_no_validation")
+@patch("funclg.managers.modifier_manager.update_data")
+def test_modifier_manager_delete_modifier(m_mod_update, m_yn_val, m_mod_select, m_log):
+    # Success Test
+    test_mod = mod_man.Modifier(
+        "Test_mod", adds={"energy": 50, "attack": 250}, mults={"health": 0.6, "defense": 0.75}
+    )
+    mod_man.MODIFIER_DATA["objects"][test_mod.id] = test_mod
+    mod_man.MODIFIER_DATA["data"][test_mod.id] = test_mod.export()
+
+    m_mod_select.return_value = test_mod.id
+    m_yn_val.side_effect = [True]
+
+    mod_man.delete_modifier()
+
+    assert test_mod.id not in mod_man.MODIFIER_DATA["objects"]
+    assert test_mod.id not in mod_man.MODIFIER_DATA["data"]
+    assert m_mod_update.called_once
+
+    # Test No ID
+    m_mod_select.return_value = None
+    mod_man.delete_modifier()
+    assert m_log.called_with("These are currently no modifiers to delete.")

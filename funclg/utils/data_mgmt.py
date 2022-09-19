@@ -42,9 +42,9 @@ def load_data(game_data: Dict[str, Any]):
                 game_data["data"] = json.load(load_file)
 
     except json.JSONDecodeError as error:
-        logger.error(f"{filename}: malformed and can not be parsed") #TODO Fix error issues
+        logger.error(f"{filename}: malformed and can not be parsed")  # TODO Fix error issues
     except AssertionError as error:
-        logger.error(error) #TODO Remove error call
+        logger.error(error)  # TODO Remove error call
         logger.error(f"{filename}: Incorrect format file.")
     except FileNotFoundError as error:
         logger.error(f"{game_data['filename']}: Creating new database entry.")

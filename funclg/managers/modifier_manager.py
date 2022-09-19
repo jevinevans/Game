@@ -30,6 +30,7 @@ MODIFIER_DATA = {"filename": "modifiers.json", "data": {}, "objects": {}}
 
 # def mod_name_duplicate_check(): # TODO Create Me
 
+
 def update_data():
     db.update_data(MODIFIER_DATA)
 
@@ -42,7 +43,7 @@ def update_data():
 
 
 def export_data():
-    for id, data in MODIFIER_DATA['objects'].items():
+    for id, data in MODIFIER_DATA["objects"].items():
         MODIFIER_DATA["data"][id] = data.export()
 
     db.update_data(MODIFIER_DATA)
@@ -86,6 +87,7 @@ def build_modifier(name: Optional[str] = ""):
         if yes_no_validation("Would you like to add another modifier?"):
             available_mods.remove(mod_type)
         else:
+            logger.debug("Constructing modifier...")
             break
 
     if yes_no_validation(f"Validate Modifier: {name}\n\tAdds: {adds}\n\tMults: {mults}\n\r"):
@@ -108,7 +110,7 @@ def select_modifier():
 def show_modifier():
     show_mod_id = select_modifier()
     if show_mod_id:
-        show_mod = MODIFIER_DATA['objects'][show_mod_id]
+        show_mod = MODIFIER_DATA["objects"][show_mod_id]
         print(show_mod.details())
 
 
@@ -129,10 +131,11 @@ def delete_modifier():
         if yes_no_validation(f"Do you want to delete \"{del_mod['name']}\"?"):
             print(f"Deleting {del_mod['name']}")
             del MODIFIER_DATA["data"][del_mod_id]
-            del MODIFIER_DATA["object"][del_mod_id]
+            del MODIFIER_DATA["objects"][del_mod_id]
             update_data()
             return
     logger.warning("There are currently no modifiers to delete.")
+
 
 MODIFIER_MENU = {
     "name": "Manage Mods",

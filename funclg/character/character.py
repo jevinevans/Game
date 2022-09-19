@@ -75,7 +75,7 @@ class Character:
         string += f"\n Armor: {self.armor}"
 
         return string
-    
+
     @property
     def id(self):
         return self._id
