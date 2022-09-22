@@ -57,7 +57,7 @@ class Roles:
         return self._id
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=C0103
         return self._id
 
     def add_power(self, ability: Abilities) -> bool:
