@@ -13,7 +13,7 @@ from funclg.utils.input_validation import (
     yes_no_validation,
 )
 
-ABILITIES_DATA = {"filename": "abilities.json", "data": {}}
+ABILITIES_DATA = {"filename": "abilities.json", "data": {}, "objects": {}}
 
 
 def build_ability():
