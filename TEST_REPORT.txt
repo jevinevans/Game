@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Wed Sep 14 16:08:14 PDT 2022 
+Date: Wed Sep 21 17:09:36 PDT 2022 
 
 ---PYTEST---
 
@@ -8,17 +8,17 @@ Date: Wed Sep 14 16:08:14 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 87 items
+collected 91 items
 
-tests/test_character/test_abilities.py .......                           [  8%]
-tests/test_character/test_armor.py ...............                       [ 25%]
-tests/test_character/test_character.py ........                          [ 34%]
-tests/test_character/test_equipment.py ...............                   [ 51%]
-tests/test_character/test_modifiers.py .........                         [ 62%]
-tests/test_character/test_roles.py ............                          [ 75%]
-tests/test_character/test_stats.py ............                          [ 89%]
-tests/test_main/test_main.py .                                           [ 90%]
-tests/test_managers/test_modifier_manager.py ...                         [ 94%]
+tests/test_character/test_abilities.py .......                           [  7%]
+tests/test_character/test_armor.py ...............                       [ 24%]
+tests/test_character/test_character.py ........                          [ 32%]
+tests/test_character/test_equipment.py ...............                   [ 49%]
+tests/test_character/test_modifiers.py .........                         [ 59%]
+tests/test_character/test_roles.py ............                          [ 72%]
+tests/test_character/test_stats.py ............                          [ 85%]
+tests/test_main/test_main.py .                                           [ 86%]
+tests/test_managers/test_modifier_manager.py .......                     [ 94%]
 tests/test_utils/test_types.py .....                                     [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
@@ -27,30 +27,30 @@ Name                                   Stmts   Miss Branch BrPart  Cover   Missi
 funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        29     15      4      1    45%   46-57, 61-68, 72
 funclg/character/__init__.py               0      0      0      0   100%
-funclg/character/abilities.py             33      0      4      0   100%
+funclg/character/abilities.py             36      1      4      0    98%   56
 funclg/character/armor.py                118      0     32      0   100%
-funclg/character/character.py             53      0     14      0   100%
-funclg/character/equipment.py             77      0     14      0   100%
-funclg/character/modifiers.py             64      0     30      0   100%
-funclg/character/roles.py                 67      0     26      0   100%
+funclg/character/character.py             56      1     14      0    99%   81
+funclg/character/equipment.py             80      1     14      0    99%   61
+funclg/character/modifiers.py             67      0     30      0   100%
+funclg/character/roles.py                 70      1     26      0    99%   55
 funclg/character/stats.py                 61      0     30      0   100%
 funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
 funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
-funclg/managers/equipment_manager.py      35     19      0      0    46%   20-21, 25-26, 30-31, 35-36, 40-41, 45-46, 50-51, 55, 59-60, 64-65
-funclg/managers/modifier_manager.py       59     15     20      0    73%   87-91, 95-96, 100-107
+funclg/managers/equipment_manager.py      57     41     26      1    20%   21-29, 33-36, 41-42, 46-47, 51-52, 56-69, 73-76, 85-94, 111-114
+funclg/managers/modifier_manager.py       75      0     32      2    98%   93->exit, 131->exit
 funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 46     18      8      0    59%   43-50, 56-65
-funclg/utils/input_validation.py          42     33     18      0    15%   13-22, 26-27, 31, 35-37, 41-45, 49-55, 60-69
+funclg/utils/data_mgmt.py                 47     18     10      0    61%   45-53, 58-67
+funclg/utils/input_validation.py          41     32     16      0    16%   16-25, 32-33, 40, 47-49, 56-59, 64-70, 76-85
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    820    146    230      1    82%
+TOTAL                                    873    156    268      4    81%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 81.62%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 80.54%
 
-============================== 87 passed in 0.97s ==============================
+============================== 91 passed in 1.09s ==============================
 
 ---Code Quality Report---
 
@@ -60,10 +60,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 81.62%
 
 -----BLACK-----
 
-reformatted funclg/managers/abilities_manager.py
-
 All done! ✨ 🍰 ✨
-1 file reformatted, 20 files left unchanged.
+21 files left unchanged.
 
 -----BANDIT-----
 
@@ -78,13 +76,15 @@ funclg/__main__.py:39:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:44:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
 funclg/character/abilities.py:20:0: W0105: String statement has no effect (pointless-string-statement)
+************* Module funclg.character.equipment
+funclg/character/equipment.py:164:5: W0511: TODO: Override details to include the weapon type (fixme)
 ************* Module funclg.character.modifiers
-funclg/character/modifiers.py:65:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
+funclg/character/modifiers.py:69:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 funclg/character/modifiers.py:12:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
 funclg/character/modifiers.py:12:0: W0611: Unused MOD_MULT_RANGE imported from utils.types (unused-import)
 ************* Module funclg.character.roles
-funclg/character/roles.py:116:5: W0511: def show_powers(): #TODO Define me (fixme)
-funclg/character/roles.py:117:5: W0511: def copy(): # TODO: Roles copy method: unsure if needed (fixme)
+funclg/character/roles.py:120:5: W0511: def show_powers(): #TODO Define me (fixme)
+funclg/character/roles.py:121:5: W0511: def copy(): # TODO: Roles copy method: unsure if needed (fixme)
 ************* Module funclg.character.stats
 funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
@@ -105,37 +105,28 @@ funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from 
 funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
 ************* Module funclg.managers.equipment_manager
-funclg/managers/equipment_manager.py:18:1: W0511: TODO design these to be just the creation function (fixme)
-funclg/managers/equipment_manager.py:78:1: W0511: TODO: Remove me (fixme)
-funclg/managers/equipment_manager.py:7:0: W0611: Unused logger imported from loguru (unused-import)
-funclg/managers/equipment_manager.py:9:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
-funclg/managers/equipment_manager.py:10:0: W0611: Unused BodyEquipment imported from funclg.character.equipment (unused-import)
-funclg/managers/equipment_manager.py:10:0: W0611: Unused WeaponEquipment imported from funclg.character.equipment (unused-import)
-funclg/managers/equipment_manager.py:11:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
-funclg/managers/equipment_manager.py:11:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
+funclg/managers/equipment_manager.py:39:1: W0511: TODO design these to be just the creation function (fixme)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:26:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
 funclg/managers/modifier_manager.py:31:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
-funclg/managers/modifier_manager.py:32:1: W0511: def export_db() # TODO Create me (fixme)
-funclg/managers/modifier_manager.py:34:1: W0511: def load_db() # TODO Create me (fixme)
-funclg/managers/modifier_manager.py:43:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
-funclg/managers/modifier_manager.py:80:26: W0212: Access to a protected member _id of a client class (protected-access)
+funclg/managers/modifier_manager.py:57:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
 funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
 funclg/managers/roles_manager.py:21:1: W0511: def load_db() # TODO Create me (fixme)
 funclg/managers/roles_manager.py:61:1: W0511: TODO Remove me (fixme)
 funclg/managers/roles_manager.py:10:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
-************* Module funclg.utils.input_validation
-funclg/utils/input_validation.py:41:10: R1721: Unnecessary use of a comprehension, use list(data) instead. (unnecessary-comprehension)
+************* Module funclg.utils.data_mgmt
+funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
+funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.46/10 (previous run: 9.49/10, -0.03)
+Your code has been rated at 9.59/10 (previous run: 9.53/10, +0.06)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 5.498s
+npx: installed 1 in 4.338s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -144,5 +135,8 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
-0 errors, 0 warnings, 0 informations 
-Completed in 1.844sec
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:52:19 - error: "filename" is possibly unbound (reportUnboundVariable)
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:53:22 - error: "filename" is possibly unbound (reportUnboundVariable)
+2 errors, 0 warnings, 0 informations 
+Completed in 1.852sec

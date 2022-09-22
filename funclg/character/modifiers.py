@@ -49,7 +49,7 @@ class Modifier:
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=C0103
         return self._id
 
     def __str__(self):

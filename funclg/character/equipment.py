@@ -57,7 +57,7 @@ class Equipment:
         return f"{self.name} [{self.armor_type} {self.item_type}]"
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=C0103
         return self._id
 
     def details(self, indent: int = 0) -> str:
@@ -158,8 +158,10 @@ class WeaponEquipment(Equipment):
             description=self.description,
             armor_type=self.armor_type,
             modifiers=self.mod.get_mods(),
-            _id=self._id,
+            _id=self.id,
         )
+
+    # TODO: Override details to include the weapon type
 
 
 class BodyEquipment(Equipment):
@@ -206,5 +208,5 @@ class BodyEquipment(Equipment):
             description=self.description,
             armor_type=self.armor_type,
             item_type=self.item_type,
-            _id=self._id,
+            _id=self.id,
         )
