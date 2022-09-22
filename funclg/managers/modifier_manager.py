@@ -8,7 +8,7 @@ Description: A manager class for creating, updating, and removing modifiers.
 # - This needs to be able to read all of the available and accepted stats
 # - allow the user/app to build out modifiers that can be used on abilities and equipment.
 ###
-from typing import Optional, ValuesView
+from typing import Optional
 
 from loguru import logger
 
@@ -24,6 +24,10 @@ from funclg.utils.input_validation import (
 from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
 
 # TODO: Create/modify the build to allow for random creation
+"""
+    Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
+
+"""
 
 MODIFIER_DATA = {"filename": "modifiers.json", "data": {}, "objects": {}}
 
@@ -31,31 +35,31 @@ MODIFIER_DATA = {"filename": "modifiers.json", "data": {}, "objects": {}}
 # def mod_name_duplicate_check(): # TODO Create Me
 
 
-def update_data():
+def update_data(): # TODO Delete Function
     db.update_data(MODIFIER_DATA)
 
     # Compare objects, add missing and update existing
-    for id, data in MODIFIER_DATA["data"].items():
+    for _id, data in MODIFIER_DATA["data"].items():
 
         # Add any new objects
-        if id not in MODIFIER_DATA["objects"]:
-            MODIFIER_DATA["objects"][id] = Modifier(**data)
+        if _id not in MODIFIER_DATA["objects"]:
+            MODIFIER_DATA["objects"][_id] = Modifier(**data)
 
 
-def export_data():
-    for id, data in MODIFIER_DATA["objects"].items():
-        MODIFIER_DATA["data"][id] = data.export()
+def export_data(): # TODO Delete Function
+    for _id, data in MODIFIER_DATA["objects"].items():
+        MODIFIER_DATA["data"][_id] = data.export()
 
     db.update_data(MODIFIER_DATA)
 
 
+# TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
 def build_modifier(name: Optional[str] = ""):
     available_mods = MODIFIER_TYPES.copy()
     adds, mults = {}, {}
     from_method = False
 
-    # TODO: Add name validation check, this needs to be a function so that it can be called in other managers
-    print("Create a new Modifier:")
+    print("\nStarting Modifier Creation...\n")
     if name:
         from_method = True
         print(f"Name: {name}")
@@ -100,31 +104,20 @@ def build_modifier(name: Optional[str] = ""):
             return new_mod
 
 
-def select_modifier():
+def select_modifier(): # TODO Delete Function
     if MODIFIER_DATA["data"]:
         return char_manager_choice_selection(MODIFIER_DATA["data"], "name", "_id")
     logger.warning("There are no modifiers available.")
     return None
 
 
-def show_modifier():
+def show_modifier(): # TODO Delete Function
     show_mod_id = select_modifier()
     if show_mod_id:
         show_mod = MODIFIER_DATA["objects"][show_mod_id]
         print(show_mod.details())
 
-
-# def edit_modifier(mod_id=None):
-#     # Because these can be edited with other methods, need to make sure its call
-#     edit_mod = select_modifier()
-
-#     if edit_mod:
-#         # print out mod information
-#         # Print out editable
-#     raise NotImplementedError
-
-
-def delete_modifier():
+def delete_modifier(): # TODO Delete Function
     del_mod_id = select_modifier()
     if del_mod_id:
         del_mod = MODIFIER_DATA["data"][del_mod_id]
@@ -134,9 +127,11 @@ def delete_modifier():
             del MODIFIER_DATA["objects"][del_mod_id]
             update_data()
             return
-    logger.warning("There are currently no modifiers to delete.")
+    else:
+        logger.warning("There are currently no modifiers to delete.")
 
 
+# TODO Delete Function
 MODIFIER_MENU = {
     "name": "Manage Mods",
     "description": "This is the menu to manage Modifiers which can be used for weapons an applied to stats.",
@@ -149,7 +144,9 @@ MODIFIER_MENU = {
 }
 
 
+# TODO Delete Function
 MODIFIER_DATA = db.load_data(MODIFIER_DATA)
 
-for id, data in MODIFIER_DATA["data"].items():
-    MODIFIER_DATA["objects"][id] = Modifier(**data)
+# TODO Delete Function
+for _id, _data in MODIFIER_DATA["data"].items():
+    MODIFIER_DATA["objects"][_id] = Modifier(**_data)
