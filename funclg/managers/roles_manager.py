@@ -13,7 +13,7 @@ from funclg.utils.input_validation import (
     yes_no_validation,
 )
 
-ROLES_DATA = {"filename": "roles.json", "data": {}}
+ROLES_DATA = {"filename": "roles.json", "data": {}, "objects": {}}
 
 # def mod_name_duplicate_check(): # TODO Create Me
 # def export_db() # TODO Create me

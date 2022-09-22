@@ -12,7 +12,7 @@ from funclg.utils.input_validation import (
     yes_no_validation,
 )
 
-CHARACTER_DATA = {"filename": "characters.json", "data": {}}
+CHARACTER_DATA = {"filename": "characters.json", "data": {}, "objects": {}}
 
 
 def build_character():
