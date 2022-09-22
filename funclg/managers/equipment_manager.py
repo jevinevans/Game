@@ -9,6 +9,7 @@ from loguru import logger
 import funclg.managers.modifier_manager as mod_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
+from funclg.utils.types import ITEM_TYPES, ARMOR_TYPES, WEAPON_TYPES
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
     list_choice_selection,
@@ -56,6 +57,8 @@ def _new_weapon():
         mod=weapon_mod,
     )
 
+def update_data():
+    db.update_data(EQUIPMENT_DATA)
 
 def _new_body_armor():
     print("What type of Armor would you like to create?")
@@ -78,6 +81,11 @@ def _new_body_armor():
         item_type=ITEM_TYPES.index(item_type),
     )
 
+def export_data():
+    for _id, data in EQUIPMENT_DATA["objects"].items():
+        EQUIPMENT_DATA["data"][_id] = data.export()
+
+    db.update_data(EQUIPMENT_DATA)
 
 
 def build_equipment():
@@ -142,6 +150,9 @@ def show_equipment():
         return
     logger.warning("There are no equipment items to show.")
 
+    if yes_no_validation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
+        EQUIPMENT_DATA["data"][new_equipment.id] = new_equipment.export()
+        update_data()
 
 
 def delete_equipment():
