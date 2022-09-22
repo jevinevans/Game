@@ -9,6 +9,7 @@ from loguru import logger
 import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
+from funclg.utils.types import ITEM_TYPES, ARMOR_TYPES, WEAPON_TYPES
 from funclg.utils.input_validation import (
     confirmation,
     selection_validation,
@@ -43,7 +44,28 @@ def export_data():
 
     db.update_data(EQUIPMENT_DATA)
 
-EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}}
+EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
+
+
+def update_data():
+    db.update_data(EQUIPMENT_DATA)
+
+    for _id, data in EQUIPMENT_DATA["data"].items():
+
+        if _id not in EQUIPMENT_DATA["objects"]:
+            if data["item_type"] == 4:
+                EQUIPMENT_DATA["objects"][_id] = WeaponEquipment(**data)
+            else:
+                EQUIPMENT_DATA["objects"][_id] = BodyEquipment(**data)
+
+
+def export_data():
+    for _id, data in EQUIPMENT_DATA["objects"].items():
+        EQUIPMENT_DATA["data"][_id] = data.export()
+
+    db.update_data(EQUIPMENT_DATA)
+
+
 
 # TODO design these to be just the creation function
 def _new_weapon():
@@ -126,7 +148,20 @@ def build_equipment():
 
 
 def select_equipment():
-    raise NotImplementedError
+    if EQUIPMENT_DATA["data"]:
+        equip_list = {}
+        print("Which type of equipment would you like to select:")
+        if list_choice_selection(["Weapons", "Armor"]) == "Weapons":
+            equip_list = {
+                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
+            }
+        else:
+            equip_list = {
+                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] != 4
+            }
+        return char_manager_choice_selection(equip_list, "name", "_id")
+    logger.warning("There are is no equipment available.")
+    return None
 
 def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
