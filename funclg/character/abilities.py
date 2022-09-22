@@ -41,7 +41,7 @@ class Abilities:
         self.ability_group, effect_type = get_ability_effect_type(self.damage_type)
         self.effect = (
             effect * effect_type
-        )  # TODO: Will become stats, and a specific sub class that will be more focused for armor
+        )  # TODO: Will likely become a modifier and need to create whether it is direct to self or other
         self.description = description
 
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
@@ -52,7 +52,7 @@ class Abilities:
         return f"{self.name} ({self.damage_type}): {self.effect}"
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=C0103
         return self._id
 
     def details(self, indent: int = 0):

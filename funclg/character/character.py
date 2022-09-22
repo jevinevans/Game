@@ -77,7 +77,7 @@ class Character:
         return string
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=C0103
         return self._id
 
     def export(self) -> Dict[str, Any]:
