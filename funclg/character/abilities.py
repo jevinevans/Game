@@ -85,7 +85,7 @@ class Abilities:
         return self._id
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=C0103
         return self._id
 
     def details(self, indent: int = 0):
