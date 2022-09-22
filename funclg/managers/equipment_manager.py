@@ -9,7 +9,6 @@ from loguru import logger
 import funclg.managers.modifier_manager as mod_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import ITEM_TYPES, ARMOR_TYPES, WEAPON_TYPES
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
     list_choice_selection,
