@@ -37,6 +37,7 @@ def validate_filename(filename: str) -> str:
         raise error
 
 
+# TODO may need to move assertion error to validate method
 def load_data(game_data: Dict[str, Any]):
     try:
         filename = validate_filename(game_data["filename"])
