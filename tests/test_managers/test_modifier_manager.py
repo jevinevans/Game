@@ -148,6 +148,10 @@ def test_modifier_manager_show_modifer(m_select_mod, m_print):
     mod_man.show_modifier()
     assert m_print.called_with(test_mod.details())
 
+    #Test Exit Branch
+    m_select_mod.return_value = None
+    mod_man.show_modifier()
+
 
 @patch("funclg.managers.modifier_manager.logger")
 @patch("funclg.managers.modifier_manager.select_modifier")
