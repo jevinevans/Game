@@ -67,7 +67,7 @@ class Equipment:
         return self.stats.power
 
     @property
-    def id(self):
+    def id(self):  # pylint: disable=C0103
         return self._id
 
     def details(self, indent: int = 0) -> str:
