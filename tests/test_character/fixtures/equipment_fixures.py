@@ -37,7 +37,6 @@ def weapon_equipment():
         )
     return equipment
 
-
 @pytest.fixture
 def equipment_str_expectation(body_equipment, weapon_equipment):
     expectations = {}

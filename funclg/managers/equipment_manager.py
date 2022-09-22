@@ -9,7 +9,6 @@ from loguru import logger
 import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import ITEM_TYPES, ARMOR_TYPES, WEAPON_TYPES
 from funclg.utils.input_validation import (
     confirmation,
     selection_validation,
@@ -64,7 +63,6 @@ def export_data():
         EQUIPMENT_DATA["data"][_id] = data.export()
 
     db.update_data(EQUIPMENT_DATA)
-
 
 
 # TODO design these to be just the creation function
