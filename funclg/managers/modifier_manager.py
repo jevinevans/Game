@@ -35,7 +35,7 @@ MODIFIER_DATA = {"filename": "modifiers.json", "data": {}, "objects": {}}
 # def mod_name_duplicate_check(): # TODO Create Me
 
 
-def update_data(): # TODO Delete Function
+def update_data():  # TODO Delete Function
     db.update_data(MODIFIER_DATA)
 
     # Compare objects, add missing and update existing
@@ -46,7 +46,7 @@ def update_data(): # TODO Delete Function
             MODIFIER_DATA["objects"][_id] = Modifier(**data)
 
 
-def export_data(): # TODO Delete Function
+def export_data():  # TODO Delete Function
     for _id, data in MODIFIER_DATA["objects"].items():
         MODIFIER_DATA["data"][_id] = data.export()
 
@@ -104,20 +104,21 @@ def build_modifier(name: Optional[str] = ""):
             return new_mod
 
 
-def select_modifier(): # TODO Delete Function
+def select_modifier():  # TODO Delete Function
     if MODIFIER_DATA["data"]:
         return char_manager_choice_selection(MODIFIER_DATA["data"], "name", "_id")
     logger.warning("There are no modifiers available.")
     return None
 
 
-def show_modifier(): # TODO Delete Function
+def show_modifier():  # TODO Delete Function
     show_mod_id = select_modifier()
     if show_mod_id:
         show_mod = MODIFIER_DATA["objects"][show_mod_id]
         print(show_mod.details())
 
-def delete_modifier(): # TODO Delete Function
+
+def delete_modifier():  # TODO Delete Function
     del_mod_id = select_modifier()
     if del_mod_id:
         del_mod = MODIFIER_DATA["data"][del_mod_id]

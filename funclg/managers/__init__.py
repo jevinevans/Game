@@ -30,4 +30,5 @@ def build_manager_menu():
         builder_menu.add_item(sub_menu.name, sub_menu)
     return builder_menu
 
+
 # def save_data():

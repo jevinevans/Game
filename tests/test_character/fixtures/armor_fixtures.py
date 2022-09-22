@@ -20,7 +20,6 @@ def gen_equipment(armor_type: int, weapon_type: int):
         name=f"Weapon: {get_weapon_type(weapon_type)}",
         weapon_type=weapon_type,
         description="Test Weapon",
-        armor_type=armor_type,
     )
     return equipment
 
@@ -142,7 +141,7 @@ def armor_details_expectations():
 {' '*(indent+2)}Weapon: 
 {' '*(indent+2)}Weapon: Knife
 {' '*(indent+2)}-------------
-{' '*(indent+2)}Type: [Light Knife]
+{' '*(indent+2)}Type: [Knife]
 {' '*(indent+2)}Description: Test Weapon
 
 {' '*(indent+2)}Modifier(s):
@@ -282,7 +281,7 @@ def armor_export_expectations():
             "description": "Test Weapon",
             "item_type": 4,
             "weapon_type": 0,
-            "armor_type": 0,
+            "armor_type": -1,
             "mod": {
                 "_id": "MODS-12345-FEGIFFR-67894",
                 "name": "Weapon: Sword_mod",

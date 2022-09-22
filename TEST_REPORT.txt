@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Wed Sep 21 17:09:36 PDT 2022 
+Date: Thu Sep 22 09:05:32 PDT 2022 
 
 ---PYTEST---
 
@@ -28,17 +28,17 @@ funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        29     15      4      1    45%   46-57, 61-68, 72
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             36      1      4      0    98%   56
-funclg/character/armor.py                118      0     32      0   100%
+funclg/character/armor.py                127      1     34      1    99%   108
 funclg/character/character.py             56      1     14      0    99%   81
-funclg/character/equipment.py             80      1     14      0    99%   61
+funclg/character/equipment.py             84      1     14      0    99%   57
 funclg/character/modifiers.py             67      0     30      0   100%
 funclg/character/roles.py                 70      1     26      0    99%   55
 funclg/character/stats.py                 61      0     30      0   100%
 funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
 funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
-funclg/managers/equipment_manager.py      57     41     26      1    20%   21-29, 33-36, 41-42, 46-47, 51-52, 56-69, 73-76, 85-94, 111-114
-funclg/managers/modifier_manager.py       75      0     32      2    98%   93->exit, 131->exit
+funclg/managers/equipment_manager.py      66     49     30      1    19%   22-30, 34-37, 42-44, 48-49, 55-66, 70-83, 87-90, 99-108, 125-128
+funclg/managers/modifier_manager.py       75      0     32      2    98%   97->exit, 125->exit
 funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 47     18     10      0    61%   45-53, 58-67
@@ -46,11 +46,11 @@ funclg/utils/input_validation.py          41     32     16      0    16%   16-25
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
 funclg/utils/types.py                     25      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    873    156    268      4    81%
+TOTAL                                    895    165    274      5    80%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 80.54%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 79.81%
 
-============================== 91 passed in 1.09s ==============================
+============================== 91 passed in 1.74s ==============================
 
 ---Code Quality Report---
 
@@ -74,10 +74,10 @@ All done! ✨ 🍰 ✨
 ************* Module funclg.__main__
 funclg/__main__.py:39:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
-funclg/character/abilities.py:44:12: W0511: TODO: Will become stats, and a specific sub class that will be more focused for armor (fixme)
+funclg/character/abilities.py:44:12: W0511: TODO: Will likely become a modifier and need to create whether it is direct to self or other (fixme)
 funclg/character/abilities.py:20:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character.equipment
-funclg/character/equipment.py:164:5: W0511: TODO: Override details to include the weapon type (fixme)
+funclg/character/equipment.py:169:5: W0511: TODO: Override details to include the weapon type (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:69:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 funclg/character/modifiers.py:12:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
@@ -105,11 +105,25 @@ funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from 
 funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
 ************* Module funclg.managers.equipment_manager
-funclg/managers/equipment_manager.py:39:1: W0511: TODO design these to be just the creation function (fixme)
+funclg/managers/equipment_manager.py:40:1: W0511: TODO design these to be just the creation function (fixme)
+funclg/managers/equipment_manager.py:60:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+funclg/managers/equipment_manager.py:62:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+funclg/managers/equipment_manager.py:16:0: W0611: Unused ARMOR_TYPES imported from funclg.utils.types (unused-import)
+funclg/managers/equipment_manager.py:16:0: W0611: Unused ITEM_TYPES imported from funclg.utils.types (unused-import)
+funclg/managers/equipment_manager.py:16:0: W0611: Unused WEAPON_TYPES imported from funclg.utils.types (unused-import)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:26:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
-funclg/managers/modifier_manager.py:31:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
-funclg/managers/modifier_manager.py:57:5: W0511: TODO: Add name validation check, this needs to be a function so that it can be called in other managers (fixme)
+funclg/managers/modifier_manager.py:35:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
+funclg/managers/modifier_manager.py:38:21: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:49:21: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:56:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
+funclg/managers/modifier_manager.py:107:25: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:114:23: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:121:25: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:135:1: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:148:1: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:151:1: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:27:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
 funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
@@ -121,12 +135,12 @@ funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to 
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.59/10 (previous run: 9.53/10, +0.06)
+Your code has been rated at 9.35/10 (previous run: 9.35/10, +0.00)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 4.338s
+npx: installed 1 in 7.252s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -135,8 +149,11 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py:43:27 - error: Argument of type "Literal['']" cannot be assigned to parameter "items" of type "List[Any]" in function "list_choice_selection"
+    "Literal['']" is incompatible with "List[Any]" (reportGeneralTypeIssues)
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:52:19 - error: "filename" is possibly unbound (reportUnboundVariable)
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:53:22 - error: "filename" is possibly unbound (reportUnboundVariable)
-2 errors, 0 warnings, 0 informations 
-Completed in 1.852sec
+3 errors, 0 warnings, 0 informations 
+Completed in 2.847sec

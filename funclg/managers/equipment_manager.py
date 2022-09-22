@@ -8,12 +8,12 @@ from loguru import logger
 
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import ITEM_TYPES, ARMOR_TYPES, WEAPON_TYPES
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
     list_choice_selection,
     yes_no_validation,
 )
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
@@ -37,7 +37,6 @@ def export_data():
     db.update_data(EQUIPMENT_DATA)
 
 
-
 # TODO design these to be just the creation function
 def _new_weapon():
     print("What kind of Weapon would you like to create?")
@@ -51,7 +50,7 @@ def _new_body_armor():
 
 
 def build_equipment():
-    """ Dialog for building new equipment"""
+    """Dialog for building new equipment"""
 
     print("\nStarting Equipmet Creation:\n\nWhat type of equipment would you like to create:")
     equip_type = list_choice_selection(["Body Armor", "Weapon"])

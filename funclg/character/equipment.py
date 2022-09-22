@@ -54,7 +54,7 @@ class Equipment:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.armor_type} {self.item_type}]"
+        return f"{self.name} [{self.item_type}]"
 
     @property
     def id(self):  # pylint: disable=C0103
@@ -117,7 +117,6 @@ class WeaponEquipment(Equipment):
         name: str,
         weapon_type: int,
         description: str = "",
-        armor_type: int = 0,
         modifiers: Optional[Dict[str, Dict]] = None,
         **kwargs,
     ):
@@ -132,13 +131,19 @@ class WeaponEquipment(Equipment):
             name=name,
             description=description,
             item_type=4,
-            armor_type=armor_type,
+            armor_type=-1,
             modifier=weapon_mod,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
         )
 
         self.weapon_type = self._validate_weapon_type(weapon_type)
+
+    def __str__(self) -> str:
+        """
+        Returns the name and level of the item
+        """
+        return f"{self.name} [{self.weapon_type} {self.item_type}]"
 
     @staticmethod
     def _validate_weapon_type(weapon_type: int):
@@ -199,6 +204,12 @@ class BodyEquipment(Equipment):
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
         )
+
+    def __str__(self) -> str:
+        """
+        Returns the name and level of the item
+        """
+        return f"{self.name} [{self.armor_type} {self.item_type}]"
 
     def copy(self) -> Self:
         """Copies the current object"""
