@@ -78,6 +78,37 @@ def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, rand
     return {"adds": adds, "mults": mults}
 
 
+def generate_modifier(item_type:str = ""):
+    adds, mults = {}, {}
+
+    mod_types = ["attack", "energy","health","defense"]
+
+    if item_type == "armor":
+        mod_types = ["health", "defense"]
+        
+    elif item_type == "weapon":
+        mod_types = ["energy", "attack"]
+
+    add_mod = mod_types.pop(randint(0, len(mod_types)))
+    add_value = randint(1, MOD_ADD_RANGE)
+    try:
+        mult_mod = mod_types.pop(randint(0, len(mod_types)))
+    except IndexError:
+        mult_mod = mod_types.pop()
+
+    mult_value = randint(1, MOD_MULT_RANGE)
+
+    while mult_value > 1:
+        mult_value /= 100
+    mult_value = round(mult_value, 2)
+
+    adds.setdefault(add_mod,add_value)
+    mults.setdefault(mult_mod, mult_value)
+
+    return {"adds":adds, "mults":mults}
+    
+
+
 # TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
 def build_modifier(name: str):
     available_mods = Modifier.MODIFIER_TYPES.copy()
