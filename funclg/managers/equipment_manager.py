@@ -15,6 +15,7 @@ from funclg.utils.input_validation import (
     string_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
+from .modifier_manager import generate_modifier
 
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
@@ -62,6 +63,15 @@ def _new_weapon():
     )
 
 
+    print("Generating mods for this weapon...")
+    weapon_mod = generate_modifier("weapon")    
+
+    return WeaponEquipment(
+        name=weapon_name, 
+        weapon_type=WEAPON_TYPES.index(weapon_type), 
+        description=weapon_desc,
+        modifiers=weapon_mod
+        )
 
 def _new_body_armor():
     item_type = selection_validation(
