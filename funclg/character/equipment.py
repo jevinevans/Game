@@ -120,7 +120,7 @@ class WeaponEquipment(Equipment):
         modifiers: Optional[Dict[str, Dict]] = None,
         **kwargs,
     ):
-        weapon_mod = Modifier(name=name + "_mod")
+        weapon_mod = Modifier(name=name)
         if modifiers:
             weapon_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
             weapon_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))
@@ -188,7 +188,7 @@ class BodyEquipment(Equipment):
         """
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
         """
-        body_mod = Modifier(name=name + "_mod")
+        body_mod = Modifier(name=name)
         if modifiers:
             body_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
             body_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))

@@ -101,8 +101,7 @@ def body_details_expectation():
 {' '*indent}Description: Medium Head with mods
 
 {' '*indent}Modifier(s):
-{' '*(indent+2)}Head_mods_mod:
-{' '*(indent+4)}Health: +50, +10.0%
+{' '*(indent+2)}Health: +50, +10.0%
 """
         expectations.append(base)
     return expectations

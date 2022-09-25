@@ -24,15 +24,14 @@ from .fixtures.modifier_fixtures import (
 
 def test_modifier_init(add_mods, mult_mods):
     # Test Empty Modifier
-    t1 = Modifier(name="Mod 1 Test")
+    t1 = Modifier("T1")
 
+    assert t1.name == "T1"
     assert t1.adds == {}
     assert t1.mults == {}
-    assert t1.name == "Mod 1 Test"
 
     # Test Full Modifier (Valid)
-    t2 = Modifier(name="Mod Test 2", adds=add_mods["valid"], mults=mult_mods["valid"])
-    assert t2.name == "Mod Test 2"
+    t2 = Modifier("T2", adds=add_mods["valid"], mults=mult_mods["valid"])
     assert t2.adds == add_mods["valid"]
     assert t2.mults == mult_mods["valid"]
 
@@ -45,19 +44,18 @@ def test_modifier_verify_stat(add_mods, mult_mods):
     del valid_add_mods["error"]
     del valid_mult_mods["error"]
 
-    t1 = Modifier(name="Invalid Test", adds=add_mods["invalid"], mults=mult_mods["invalid"])
-    assert t1.name == "Invalid Test"
+    t1 = Modifier("T1", adds=add_mods["invalid"], mults=mult_mods["invalid"])
     assert t1.adds == valid_add_mods
     assert t1.mults == valid_mult_mods
 
 
 def test_modifier_str(add_mods, mult_mods, modifier_str_expectation):
-    t1 = Modifier("Output Test", add_mods["valid"], mult_mods["valid"])
+    t1 = Modifier("T1", add_mods["valid"], mult_mods["valid"])
     assert t1.__str__() == modifier_str_expectation[0]
 
 
 def test_modifier_details(add_mods, mult_mods, modifier_details_expectation):
-    t1 = Modifier("Output Test", add_mods["valid"], mult_mods["valid"])
+    t1 = Modifier("T1", add_mods["valid"], mult_mods["valid"])
 
     # Test Indention from 0,2,4...10
     for index, indent in enumerate([x for x in range(0, 11, 2)]):
@@ -65,7 +63,7 @@ def test_modifier_details(add_mods, mult_mods, modifier_details_expectation):
 
 
 def test_modifier_add_modifier(new_add_modifier, new_mult_modifier):
-    t1 = Modifier(name="Test Add Modifier")
+    t1 = Modifier("T1")
     t1.add_mod("adds", new_add_modifier)
     t1.add_mod("mults", new_mult_modifier)
 
@@ -87,7 +85,7 @@ def test_modifier_remove_modifier(add_mods, mult_mods):
     valid_mults = mult_mods["valid"].copy()
     del valid_adds["defense"]
     del valid_mults["energy"]
-    t1 = Modifier("Test Remove Modifier", add_mods["valid"], mult_mods["valid"])
+    t1 = Modifier("T1", add_mods["valid"], mult_mods["valid"])
     t1.remove_mod("adds", "defense")
 
     # Test Invalid stat name
@@ -100,17 +98,8 @@ def test_modifier_remove_modifier(add_mods, mult_mods):
 
 
 def test_modifier_get_mods(add_mods, mult_mods, modifier_get_expectation):
-    t1 = Modifier("Test Get Mods", add_mods["valid"], mult_mods["valid"])
+    t1 = Modifier("T1", add_mods["valid"], mult_mods["valid"])
     assert t1.get_mods() == modifier_get_expectation
-
-
-@patch("funclg.utils.data_mgmt.id_gen")
-def test_modifier_export(m_id, add_mods, mult_mods, modifier_export_expectation):
-    test_id = "MODS-16573-OFZLIUD-40779"
-    m_id.return_value = test_id
-    t1 = Modifier("Test Export", add_mods["valid"], mult_mods["valid"])
-    modifier_export_expectation.update({"_id": test_id})
-    assert t1.export() == modifier_export_expectation
 
 
 def test_friendly_read_branching():

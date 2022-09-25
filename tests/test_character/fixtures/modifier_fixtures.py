@@ -44,7 +44,6 @@ def modifier_get_expectation(add_mods, mult_mods):
 @pytest.fixture
 def modifier_export_expectation(add_mods, mult_mods):
     return {
-        "name": "Test Export",
         "adds": add_mods["valid"],
         "mults": mult_mods["valid"],
     }
@@ -54,7 +53,7 @@ def modifier_export_expectation(add_mods, mult_mods):
 def modifier_str_expectation():
     expectations = []
     for indent in range(0, 11, 2):
-        base = f"""{' '*indent}Modifier: Output Test:
+        base = f"""{' '*indent}Modifier:
 {' '*(indent+2)}Attack: +43
 {' '*(indent+2)}Defense: -20
 {' '*(indent+2)}Health: +33.0%
@@ -69,11 +68,10 @@ def modifier_details_expectation():
     expectations = []
     for indent in range(0, 11, 2):
         base = f"""
-{' '*indent}Output Test:
-{' '*(indent+2)}Attack: +43
-{' '*(indent+2)}Defense: -20
-{' '*(indent+2)}Health: +33.0%
-{' '*(indent+2)}Energy: -60.0%
+{' '*(indent)}Attack: +43
+{' '*(indent)}Defense: -20
+{' '*(indent)}Health: +33.0%
+{' '*(indent)}Energy: -60.0%
 """
         expectations.append(base)
     return expectations
