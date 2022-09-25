@@ -8,7 +8,6 @@ from typing import Any, Dict, Optional, Union
 
 # from loguru import logger
 
-
 class Modifier:
     """
     These are used for to change stats along with being added to abilities to change stats
