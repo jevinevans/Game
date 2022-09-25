@@ -29,15 +29,15 @@ def remove_special_chars(value: str) -> str:
     """
     Removes special characters from a string.
     """
-    safe_vals = ascii_letters + digits + "_"
+    safe_vals = ascii_letters + digits + "_" + " "
     return "".join(i for i in value if i in safe_vals)
 
 
-def string_validation(value: str):
+def string_validation(prompt:str, value: str):
     """
     Filters string input to only specified safe characters
     """
-    return remove_special_chars(input(f"Enter {value}: "))
+    return remove_special_chars(input(f"{prompt}\nEnter {value}: "))
 
 
 def list_choice_selection(items: List[Any]):
