@@ -178,3 +178,20 @@ def test_modifier_manager_delete_modifier(m_mod_update, m_yn_val, m_mod_select, 
     m_mod_select.return_value = None
     mod_man.delete_modifier()
     assert m_log.called_with("These are currently no modifiers to delete.")
+
+@patch("funclg.managers.modifier_manager.randint")
+def test_modifier_manager_generate_modifer(m_rand):
+    # Test no item_type
+    m_rand.side_effect = [3,60,1, 30]
+    mod = mod_man.generate_modifier()
+    
+    assert mod == {"adds":{"defense":60}, "mults":{"energy":.3}}
+
+    # Test Armor Type
+    m_rand.side_effect = [0,32, 0, 45]
+    mod = mod_man.generate_modifier("armor")
+    assert mod == {"adds":{"health":32}, "mults":{"defense":.45}}
+    # Test Weapon Type
+    m_rand.side_effect = [1,474, 0, 90]
+    mod = mod_man.generate_modifier("weapon")
+    assert mod == {"adds":{"attack":474}, "mults":{"energy":.9}}
