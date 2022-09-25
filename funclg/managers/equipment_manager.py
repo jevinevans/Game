@@ -15,6 +15,7 @@ from funclg.utils.input_validation import (
     string_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
+from .modifier_manager import generate_modifier
 
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
