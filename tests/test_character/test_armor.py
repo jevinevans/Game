@@ -27,7 +27,6 @@ from .fixtures.armor_fixtures import (
 def test_armor_init(light_armor_knife, medium_armor_wand, heavy_armor_sword):
     for item in ITEM_TYPES:
         item = item.lower()
-        print(light_armor_knife)
         assert getattr(light_armor_knife, item, False)
         assert getattr(medium_armor_wand, item, False)
         assert getattr(heavy_armor_sword, item, False)
@@ -142,25 +141,15 @@ def test_armor_get_equipment(equipment_only):
 def test_armor_export(m_id, armor_export_expectations):
     # Doubled because of copy call
     m_id.side_effect = [
-        "MODS-12345-AFJDEIG-67890",
         "ARMOR-12345-AFJDEI-67890",
-        "MODS-12345-FEISFJW-67891",
         "ARMOR-12345-FEISFJ-67891",
-        "MODS-12345-GIEJSEB-67892",
         "ARMOR-12345-GIEJSE-67892",
-        "MODS-12345-GEIJGEW-67893",
         "ARMOR-12345-GEIJGE-67893",
-        "MODS-12345-FEGIFFR-67894",
         "WEAPON-12345-FEGIF-67894",
-        "MODS-12345-AFJDEIG-67890",
         "ARMOR-12345-AFJDEI-67890",
-        "MODS-12345-FEISFJW-67891",
         "ARMOR-12345-FEISFJ-67891",
-        "MODS-12345-GIEJSEB-67892",
         "ARMOR-12345-GIEJSE-67892",
-        "MODS-12345-GEIJGEW-67893",
         "ARMOR-12345-GEIJGE-67893",
-        "MODS-12345-FEGIFFR-67894",
         "WEAPON-12345-FEGIF-67894",
     ]
     equipment = {}
@@ -183,7 +172,6 @@ def test_armor_export(m_id, armor_export_expectations):
     armor = Armor(0)
     for item in equipment.values():
         armor.equip(item)
-        print(item._id, item.mod._id)
     assert armor.export() == armor_export_expectations
 
 

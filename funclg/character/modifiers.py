@@ -6,11 +6,9 @@ Description: This defines the modifiers object that will be used for all stats
 
 from typing import Any, Dict, Optional, Union
 
-import funclg.utils.data_mgmt as db
-
 # from loguru import logger
 from ..utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
-
+import funclg.utils.data_mgmt as db
 
 class Modifier:
     """
@@ -18,18 +16,15 @@ class Modifier:
 
     Mod Example
         {
-            id: {
-                "add":{
-                    "attack":-15,
-                    "energy": 30,
-                },
-                "mult":{
-                    "defense": 0.2,
-                    "health": -0.1
-                }
+            "add":{
+                "attack":-15,
+                "energy": 30,
+            },
+            "mult":{
+                "defense": 0.2,
+                "health": -0.1
             }
         }
-
     """
 
     M_TYPES = ["adds", "mults"]
@@ -40,29 +35,24 @@ class Modifier:
         name: str,
         adds: Optional[Dict[str, Any]] = None,
         mults: Optional[Dict[str, Any]] = None,
-        **kwargs,
     ):
-        self.name = name
         self.adds = self._verify_mods(adds)
         self.mults = self._verify_mods(mults)
+        self._name = name
 
-        self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
 
     @property
-    def id(self):  # pylint: disable=C0103
-        return self._id
+    def name(self):  # pylint: disable=C0103
+        return self._name
 
     def __str__(self):
-        string = f"Modifier: {self.name}:\n"
+        string = "Modifier:\n"
         string += self._friendly_read(indent=2)
 
         return string
 
     def details(self, indent: int = 0):
-        string = f"\n{' '*indent}{self.name}:\n"
-        string += self._friendly_read(indent=indent + 2)
-
-        return string
+        return "\n"+self._friendly_read(indent=indent)
 
     @staticmethod
     def _verify_mods(mods):
@@ -94,7 +84,9 @@ class Modifier:
         return {"adds": self.adds, "mults": self.mults}
 
     def export(self):
-        return self.__dict__.copy()
+        data = self.__dict__.copy()
+        del data["_name"]
+        return data
 
     @staticmethod
     def _friendly_read_mod(effect: Union[int, float], percentage: bool = False):

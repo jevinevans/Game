@@ -107,7 +107,6 @@ def test_equipment_copy():
 def test_bodyequipment_init(body_mods):
     # Test Body Equipment
     body = BodyEquipment("Init Test", None, "Testing Initialization", 0, 0)
-    assert body.mod.name == "Init Test_mod"
     assert body.mod.adds == {"defense": 1, "health": 1}
     assert body.mod.mults == {}
 
@@ -115,7 +114,6 @@ def test_bodyequipment_init(body_mods):
     mod_body = BodyEquipment(
         "Init Mod Test", body_mods["Back_mods"], "Testing modded  init", 2, 2
     )
-    assert mod_body.mod.name == "Init Mod Test_mod"
     assert mod_body.mod.adds == body_mods["Back_mods"]["adds"]
     assert mod_body.mod.mults == body_mods["Back_mods"]["mults"]
 
@@ -150,7 +148,6 @@ def test_bodyequipment_export(body_equipment_with_mods):
 def test_bodyequipment_details(body_equipment_with_mods, body_details_expectation):
     """Mostly test format and indention"""
     test_item = list(body_equipment_with_mods.values())[0]
-    print(test_item.details())
     for index, expectations in enumerate(body_details_expectation):
         assert test_item.details(index) == expectations
 
@@ -169,7 +166,6 @@ def test_weaponequipment_init(weapon_equipment_with_mods, weapon_mods):
         weapon_type=0,
         armor_type=0,
     )
-    assert mod_weapon.mod.name == "Init Mod Test_mod"
     assert mod_weapon.mod.adds == weapon_mods["Sword_mods"]["adds"]
     assert mod_weapon.mod.mults == weapon_mods["Sword_mods"]["mults"]
 
