@@ -8,6 +8,7 @@ Description: A manager class for creating, updating, and removing modifiers.
 # - This needs to be able to read all of the available and accepted stats
 # - allow the user/app to build out modifiers that can be used on abilities and equipment.
 ###
+from random import randint
 from typing import Optional
 
 from loguru import logger
@@ -53,6 +54,37 @@ def export_data():  # TODO Delete Function
     db.update_data(MODIFIER_DATA)
 
 
+def generate_modifier(item_type:str = ""):
+    adds, mults = {}, {}
+
+    mod_types = ["attack", "energy","health","defense"]
+
+    if item_type == "armor":
+        mod_types = ["health", "defense"]
+        
+    elif item_type == "weapon":
+        mod_types = ["energy", "attack"]
+
+    add_mod = mod_types.pop(randint(0, len(mod_types)))
+    add_value = randint(1, MOD_ADD_RANGE)
+    try:
+        mult_mod = mod_types.pop(randint(0, len(mod_types)))
+    except IndexError:
+        mult_mod = mod_types.pop()
+
+    mult_value = randint(1, MOD_MULT_RANGE)
+
+    while mult_value > 1:
+        mult_value /= 100
+    mult_value = round(mult_value, 2)
+
+    adds.setdefault(add_mod,add_value)
+    mults.setdefault(mult_mod, mult_value)
+
+    return {"adds":adds, "mults":mults}
+    
+
+
 # TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
 def build_modifier(name: Optional[str] = ""):
     available_mods = MODIFIER_TYPES.copy()
@@ -64,8 +96,7 @@ def build_modifier(name: Optional[str] = ""):
         from_method = True
         print(f"Name: {name}")
     else:
-        print("Please name the modifier?")
-        name = string_validation("Name")
+        name = string_validation("Please name the modifier?", "Name")
 
     while True:
         print("Select which stats you want to modify.")
