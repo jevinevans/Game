@@ -5,7 +5,8 @@ Equipment Fixtures for testing
 import pytest
 
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, MODIFIER_TYPES, WEAPON_TYPES
+from funclg.character.modifiers import Modifier
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
 
 @pytest.fixture
@@ -28,11 +29,11 @@ def body_equipment():
 def body_mods():
     item_mods = {}
     for index, item_type in enumerate(ITEM_TYPES[:4]):
-        start = index % len(MODIFIER_TYPES)
-        end = -1 * (index % len(MODIFIER_TYPES))
+        start = index % len(Modifier.MODIFIER_TYPES)
+        end = -1 * (index % len(Modifier.MODIFIER_TYPES))
         item_mods[item_type + "_mods"] = {
-            "adds": {MODIFIER_TYPES[start]: 50},
-            "mults": {MODIFIER_TYPES[end]: 0.10},
+            "adds": {Modifier.MODIFIER_TYPES[start]: 50},
+            "mults": {Modifier.MODIFIER_TYPES[end]: 0.10},
         }
     return item_mods
 
@@ -55,11 +56,11 @@ def body_equipment_with_mods(body_mods):
 def weapon_mods():
     item_mods = {}
     for index, weapon_type in enumerate(WEAPON_TYPES[:4]):
-        start = index % len(MODIFIER_TYPES)
-        end = -1 * (index % len(MODIFIER_TYPES))
+        start = index % len(Modifier.MODIFIER_TYPES)
+        end = -1 * (index % len(Modifier.MODIFIER_TYPES))
         item_mods[weapon_type + "_mods"] = {
-            "adds": {MODIFIER_TYPES[start]: 50},
-            "mults": {MODIFIER_TYPES[end]: 0.10},
+            "adds": {Modifier.MODIFIER_TYPES[start]: 50},
+            "mults": {Modifier.MODIFIER_TYPES[end]: 0.10},
         }
     return item_mods
 
@@ -75,6 +76,7 @@ def weapon_equipment_with_mods(weapon_mods):
             modifiers=weapon_mods[weapon_type + "_mods"],
         )
     return equipment
+
 
 @pytest.fixture
 def equipment_str_expectation(body_equipment, weapon_equipment_with_mods):

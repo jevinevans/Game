@@ -13,13 +13,13 @@ from funclg.character.modifiers import Modifier
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
 from .fixtures.equipment_fixures import (
-    body_equipment_with_mods,
-    body_equipment,
     body_details_expectation,
+    body_equipment,
+    body_equipment_with_mods,
     body_mods,
     equipment_str_expectation,
-    weapon_equipment_with_mods,
     weapon_description_expectations,
+    weapon_equipment_with_mods,
     weapon_mods,
 )
 
@@ -27,9 +27,7 @@ from .fixtures.equipment_fixures import (
 # =========================== #
 # Testing Equipment Functions #
 # =========================== #
-def test_equipment_str(
-    weapon_equipment_with_mods, body_equipment, equipment_str_expectation
-):
+def test_equipment_str(weapon_equipment_with_mods, body_equipment, equipment_str_expectation):
     # Test Body Equipment
     for name, body in body_equipment.items():
         assert body.__str__() == equipment_str_expectation[name]
@@ -38,6 +36,9 @@ def test_equipment_str(
     for name, weapon in weapon_equipment_with_mods.items():
         assert weapon.__str__() == equipment_str_expectation[name]
 
+    # Test Equipement
+    test_equipment = Equipment("Test Equip", Modifier("Test Equip"), "Test equip description", 0, 0)
+    assert test_equipment.__str__() == "Test Equip [0]"
 
 @patch("builtins.open")
 @patch("json.dump")
@@ -111,9 +112,7 @@ def test_bodyequipment_init(body_mods):
     assert body.mod.mults == {}
 
     # Test Modded Equipment
-    mod_body = BodyEquipment(
-        "Init Mod Test", body_mods["Back_mods"], "Testing modded  init", 2, 2
-    )
+    mod_body = BodyEquipment("Init Mod Test", body_mods["Back_mods"], "Testing modded  init", 2, 2)
     assert mod_body.mod.adds == body_mods["Back_mods"]["adds"]
     assert mod_body.mod.mults == body_mods["Back_mods"]["mults"]
 

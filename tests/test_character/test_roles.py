@@ -34,7 +34,7 @@ def test_roles_str(mage_test_role, mage_str_expectation):
 
 
 def test_roles_add_power_valid_power(mage_test_role):
-    healing_2 = Abilities("Healing 2", "Healing", 50, "New healing ability")
+    healing_2 = Abilities(name="Healing 2", ability_type="Restore", modifier={'adds':{'health':50}}, description="New healing ability")
 
     assert len(mage_test_role.abilities) == 4
     assert mage_test_role.add_power(healing_2) == True
@@ -42,14 +42,14 @@ def test_roles_add_power_valid_power(mage_test_role):
 
     char_power = mage_test_role.abilities[-1]
     assert char_power.name == healing_2.name
-    assert char_power.damage_type == healing_2.damage_type
-    assert char_power.effect == healing_2.effect
+    assert char_power.ability_type == healing_2.ability_type
+    assert char_power.mod.export() == healing_2.mod.export()
     assert char_power.description == healing_2.description
 
 
 def test_roles_add_power_valid_power_max_reached(mage_test_role):
-    buff = Abilities("Buff 2", "Buff", 50, "New Buff ability")
-    healing_2 = Abilities("Healing 2", "Healing", 50, "New healing ability")
+    buff = Abilities(name="Buff 2", ability_type="Buff", modifier={'mults':{'defense':.5}}, description="New Buff ability")
+    healing_2 = Abilities(name="Healing 2", ability_type="Restore", modifier={'adds':{'health':50}}, description="New healing ability")
 
     assert len(mage_test_role.abilities) == 4
     assert mage_test_role.add_power(healing_2) == True
@@ -61,17 +61,17 @@ def test_roles_add_power_valid_power_max_reached(mage_test_role):
 
 
 def test_roles_add_power_invalid_power(mage_test_role):
-    repair = Abilities("Repair 2", "Repair", 50, "New Repair ability")
+    stomp = Abilities(name="Stomp", ability_type="Physical", modifier={"adds":{"attack":50}}, description="stomp ability")
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(repair) == False
+    assert mage_test_role.add_power(stomp) == False
     assert len(mage_test_role.abilities) == 4
 
 
 def test_roles_get_power(mage_test_role):
-    test_damage_types = ["Magic", "Healing", "Buff", "Debuff"]
+    test_damage_types = ["Magic", "Restore", "Buff", "Debuff"]
     for ability in range(len(mage_test_role.abilities)):
-        assert mage_test_role.get_power(ability).damage_type == test_damage_types[ability]
+        assert mage_test_role.get_power(ability).ability_type == test_damage_types[ability]
 
 
 @patch("loguru.logger.warning")
@@ -91,7 +91,7 @@ def test_role_remove_power_valid(mage_test_role):
 def test_role_remove_power_invalid(mage_test_role):
     "testing removing the healing ability slot 1"
     assert mage_test_role.remove_power(5) == False
-    assert mage_test_role.get_power(1).name == "Healing Test Ability"
+    assert mage_test_role.get_power(1).name == "Restore Test Ability"
 
 
 def test_role_details_no_abilities(roles_detail_expectation_no_abilities):
@@ -99,12 +99,14 @@ def test_role_details_no_abilities(roles_detail_expectation_no_abilities):
         "Mage Class",
         "Test Mage Class",
         1,
-        ["Magic", "Healing", "Buff", "Debuff"],
+        ["Magic", "Restore", "Buff", "Debuff"],
     )
     assert roles_detail_expectation_no_abilities == mage.details()
 
 
 def test_role_details_with_abilities(roles_detail_expectation_with_abilities, mage_test_role):
+    print(mage_test_role)
+    print(len(mage_test_role.abilities))
     for indent in range(5):
         assert roles_detail_expectation_with_abilities[indent] == mage_test_role.details(indent)
 

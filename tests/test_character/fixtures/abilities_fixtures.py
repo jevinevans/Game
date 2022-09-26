@@ -3,7 +3,7 @@ from unittest.mock import patch
 import pytest
 
 from funclg.character.abilities import Abilities
-from funclg.utils.types import DAMAGE_TYPES
+from funclg.utils.types import ABILITY_TYPES
 
 
 def ability_ids():
@@ -19,27 +19,40 @@ def ability_ids():
     ]
 
 
+def abilities_gen_mods():
+    mods = {}
+    for a_type in ABILITY_TYPES:
+        if a_type == "None":
+            mods[a_type] = {}
+        else:
+            mods[a_type] = {ABILITY_TYPES[a_type]["m_type"]: {ABILITY_TYPES[a_type]["mods"][0]: 50}}
+    return mods
+
+
 @pytest.fixture
 def abilities_all_types():
     """Returns a list of all ability types"""
+
+    ability_mods = abilities_gen_mods()
+
     with patch("funclg.utils.data_mgmt.id_gen", side_effect=ability_ids()):
         all_abilities = []
-        for index, d_type in enumerate(DAMAGE_TYPES):
+        for index, a_type in enumerate(ABILITY_TYPES):
+
             all_abilities.append(
                 Abilities(
                     name=f"Ability_{index}",
-                    damage_type=d_type,
-                    effect=50,
-                    description=f"{d_type} ability",
+                    ability_type=a_type,
+                    description=f"{a_type} ability",
+                    modifier=ability_mods[a_type],
                 )
             )
 
         all_abilities.append(
             Abilities(
-                name=f"Ability_{len(all_abilities)}",
-                damage_type="Error",
-                effect=50,
-                description=f"{d_type} ability",
+                name=f"Ability_Error_NoMod",
+                ability_type="Error",
+                description=f"Error ability",
             )
         )
         return all_abilities
@@ -49,7 +62,10 @@ def abilities_all_types():
 def abilities_str_expectation(abilities_all_types):
     ability_strings = []
     for ability in abilities_all_types:
-        ability_strings.append(f"{ability.name} ({ability.damage_type}): {ability.effect}")
+        if ability.mod.adds or ability.mod.mults:
+            ability_strings.append(f"{ability.name} ({ability.ability_type})\n{ability.mod}")
+        else:
+            ability_strings.append(f"{ability.name} ({ability.ability_type})")
     return ability_strings
 
 
@@ -60,9 +76,9 @@ def abilities_export_expectation(abilities_all_types):
         ability_exports.append(
             {
                 "name": ability.name,
-                "damage_type": ability.damage_type,
-                "ability_group": ability.ability_group,
-                "effect": ability.effect,
+                "ability_type": ability.ability_type,
+                "_target": ability._target,
+                "mod": ability.mod.export(),
                 "description": ability.description,
             }
         )
@@ -77,7 +93,9 @@ def abilities_detail_expectation(abilities_all_types):
 {' '*indent}{ability.name}
 {' '*indent}{'-'*len(ability.name)}
 {' '*indent}Description: {ability.description}
-{' '*indent}Type: {ability.damage_type} ({ability.ability_group})
-{' '*indent}Effect: {ability.effect}"""
+{' '*indent}Ability Type: {ability.ability_type}
+{' '*indent}Target: {ability._target}{ability.mod.details(2)}"""
         ability_details.append(base)
     return ability_details
+
+

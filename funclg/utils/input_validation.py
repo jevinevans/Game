@@ -33,7 +33,7 @@ def remove_special_chars(value: str) -> str:
     return "".join(i for i in value if i in safe_vals)
 
 
-def string_validation(prompt:str, value: str):
+def string_validation(prompt: str, value: str):
     """
     Filters string input to only specified safe characters
     """

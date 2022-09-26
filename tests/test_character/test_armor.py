@@ -80,7 +80,7 @@ def test_armor_equipping_armor_type_incompatibility(equipment_only):
     assert armor.head == None
     assert armor.chest == None
     assert armor.back == None
-    assert armor.pants == None 
+    assert armor.pants == None
 
 
 @patch("funclg.utils.types.get_item_type")

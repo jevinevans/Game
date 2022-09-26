@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Thu Sep 22 09:05:32 PDT 2022 
+Date: Sun Sep 25 19:56:17 PDT 2022 
 
 ---PYTEST---
 
@@ -8,18 +8,170 @@ Date: Thu Sep 22 09:05:32 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 91 items
+collected 89 items
 
-tests/test_character/test_abilities.py .......                           [  7%]
-tests/test_character/test_armor.py ...............                       [ 24%]
+tests/test_character/test_abilities.py ......                            [  6%]
+tests/test_character/test_armor.py ...............                       [ 23%]
 tests/test_character/test_character.py ........                          [ 32%]
 tests/test_character/test_equipment.py ...............                   [ 49%]
-tests/test_character/test_modifiers.py .........                         [ 59%]
-tests/test_character/test_roles.py ............                          [ 72%]
+tests/test_character/test_modifiers.py ........                          [ 58%]
+tests/test_character/test_roles.py ............                          [ 71%]
 tests/test_character/test_stats.py ............                          [ 85%]
 tests/test_main/test_main.py .                                           [ 86%]
-tests/test_managers/test_modifier_manager.py .......                     [ 94%]
-tests/test_utils/test_types.py .....                                     [100%]
+tests/test_managers/test_modifier_manager.py FFF..FF.                    [ 95%]
+tests/test_utils/test_types.py ....                                      [100%]
+
+=================================== FAILURES ===================================
+_________________ test_modifier_manager_build_modifier_add_mod _________________
+
+m_list_select = <MagicMock name='list_choice_selection' id='139879553996208'>
+m_str_val = <MagicMock name='string_validation' id='139879553932064'>
+m_num_range = <MagicMock name='number_range_validation' id='139879554002128'>
+m_yn_val = <MagicMock name='yes_no_validation' id='139879554014560'>
+m_db_update = <MagicMock name='update_data' id='139879554137536'>
+m_id_gen = <MagicMock name='id_gen' id='139879554121488'>
+
+    @patch("funclg.utils.data_mgmt.id_gen")
+    @patch("funclg.utils.data_mgmt.update_data")
+    @patch("funclg.managers.modifier_manager.yes_no_validation")
+    @patch("funclg.managers.modifier_manager.number_range_validation")
+    @patch("funclg.managers.modifier_manager.string_validation")
+    @patch("funclg.managers.modifier_manager.list_choice_selection")
+    def test_modifier_manager_build_modifier_add_mod(
+        m_list_select, m_str_val, m_num_range, m_yn_val, m_db_update, m_id_gen
+    ):
+        # Test new build method (no name, no from method)
+        m_str_val.side_effect = ["Test_mod"]
+        m_list_select.side_effect = ["energy", "Base Change"]
+        m_num_range.side_effect = [50]
+        m_yn_val.side_effect = [True, False, True]
+        m_id_gen.return_value = "MODS-12345-EKFIFSO-67890"
+    
+>       mod_man.build_modifier()
+
+tests/test_managers/test_modifier_manager.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = ''
+
+    def build_modifier(name: Optional[str] = ""):
+>       available_mods = Modifer.MODIFIER_TYPES.copy()
+E       NameError: name 'Modifer' is not defined
+
+funclg/managers/modifier_manager.py:88: NameError
+________________ test_modifier_manager_build_modifier_mult_mod _________________
+
+m_list_select = <MagicMock name='list_choice_selection' id='139879554090896'>
+m_str_val = <MagicMock name='string_validation' id='139879535773296'>
+m_num_range = <MagicMock name='number_range_validation' id='139879536486480'>
+m_yn_val = <MagicMock name='yes_no_validation' id='139879536459680'>
+m_db_update = <MagicMock name='update_data' id='139879536342208'>
+m_id_gen = <MagicMock name='id_gen' id='139879536337920'>
+
+    @patch("funclg.utils.data_mgmt.id_gen")
+    @patch("funclg.utils.data_mgmt.update_data")
+    @patch("funclg.managers.modifier_manager.yes_no_validation")
+    @patch("funclg.managers.modifier_manager.number_range_validation")
+    @patch("funclg.managers.modifier_manager.string_validation")
+    @patch("funclg.managers.modifier_manager.list_choice_selection")
+    def test_modifier_manager_build_modifier_mult_mod(
+        m_list_select, m_str_val, m_num_range, m_yn_val, m_db_update, m_id_gen
+    ):
+        m_id_gen.return_value = "MODS-12345-EKFIFSO-67890"
+    
+        # Test new build method (no name, no from method)
+        m_str_val.side_effect = ["Test_mod"]
+        m_list_select.side_effect = ["energy", "Percentage Change"]
+        m_num_range.side_effect = [50]
+        m_yn_val.side_effect = [True, False, True]
+    
+>       mod_man.build_modifier()
+
+tests/test_managers/test_modifier_manager.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = ''
+
+    def build_modifier(name: Optional[str] = ""):
+>       available_mods = Modifer.MODIFIER_TYPES.copy()
+E       NameError: name 'Modifer' is not defined
+
+funclg/managers/modifier_manager.py:88: NameError
+_______________ test_modifier_manager_build_modifier_return_mod ________________
+
+m_list_select = <MagicMock name='list_choice_selection' id='139879554270832'>
+m_num_range = <MagicMock name='number_range_validation' id='139879554215696'>
+m_yn_val = <MagicMock name='yes_no_validation' id='139879554206544'>
+m_db = <MagicMock name='update_data' id='139879554399104'>
+
+    @patch("funclg.utils.data_mgmt.update_data")
+    @patch("funclg.managers.modifier_manager.yes_no_validation")
+    @patch("funclg.managers.modifier_manager.number_range_validation")
+    @patch("funclg.managers.modifier_manager.list_choice_selection")
+    def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, m_yn_val, m_db):
+        # Add and Mult Mod
+        # Multi Adds and Mults
+        # Tests return value
+        m_list_select.side_effect = [
+            "energy",
+            "Base Change",
+            "attack",
+            "Base Change",
+            "health",
+            "Percentage Change",
+            "defense",
+            "Percentage Change",
+        ]
+        m_num_range.side_effect = [50, 250, 60, 75]
+        m_yn_val.side_effect = [True, True, True, True, True, True, True, False, True]
+    
+>       return_val = mod_man.build_modifier("Test_mod")
+
+tests/test_managers/test_modifier_manager.py:97: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'Test_mod'
+
+    def build_modifier(name: Optional[str] = ""):
+>       available_mods = Modifer.MODIFIER_TYPES.copy()
+E       NameError: name 'Modifer' is not defined
+
+funclg/managers/modifier_manager.py:88: NameError
+______________________ test_modifier_manager_show_modifer ______________________
+
+m_select_mod = <MagicMock name='select_modifier' id='139879554012256'>
+m_print = <MagicMock name='print' id='139879554353568'>
+
+    @patch("builtins.print")
+    @patch("funclg.managers.modifier_manager.select_modifier")
+    def test_modifier_manager_show_modifer(m_select_mod, m_print):
+        test_mod = mod_man.Modifier(
+            "Test_mod", adds={"energy": 50, "attack": 250}, mults={"health": 0.6, "defense": 0.75}
+        )
+>       mod_man.MODIFIER_DATA["objects"][test_mod.id] = test_mod
+E       AttributeError: 'Modifier' object has no attribute 'id'
+
+tests/test_managers/test_modifier_manager.py:146: AttributeError
+____________________ test_modifier_manager_delete_modifier _____________________
+
+m_mod_update = <MagicMock name='update_data' id='139879554012304'>
+m_yn_val = <MagicMock name='yes_no_validation' id='139879554136384'>
+m_mod_select = <MagicMock name='select_modifier' id='139879554118320'>
+m_log = <MagicMock name='logger' id='139879554122512'>
+
+    @patch("funclg.managers.modifier_manager.logger")
+    @patch("funclg.managers.modifier_manager.select_modifier")
+    @patch("funclg.managers.modifier_manager.yes_no_validation")
+    @patch("funclg.managers.modifier_manager.update_data")
+    def test_modifier_manager_delete_modifier(m_mod_update, m_yn_val, m_mod_select, m_log):
+        # Success Test
+        test_mod = mod_man.Modifier(
+            "Test_mod", adds={"energy": 50, "attack": 250}, mults={"health": 0.6, "defense": 0.75}
+        )
+>       mod_man.MODIFIER_DATA["objects"][test_mod.id] = test_mod
+E       AttributeError: 'Modifier' object has no attribute 'id'
+
+tests/test_managers/test_modifier_manager.py:165: AttributeError
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
@@ -27,30 +179,29 @@ Name                                   Stmts   Miss Branch BrPart  Cover   Missi
 funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        29     15      4      1    45%   46-57, 61-68, 72
 funclg/character/__init__.py               0      0      0      0   100%
-funclg/character/abilities.py             36      1      4      0    98%   56
+funclg/character/abilities.py             63      0     18      0   100%
 funclg/character/armor.py                127      1     34      1    99%   108
 funclg/character/character.py             56      1     14      0    99%   81
-funclg/character/equipment.py             84      1     14      0    99%   57
-funclg/character/modifiers.py             67      0     30      0   100%
-funclg/character/roles.py                 70      1     26      0    99%   55
+funclg/character/equipment.py             84      0     14      0   100%
+funclg/character/modifiers.py             66      0     30      0   100%
+funclg/character/roles.py                 70      1     26      0    99%   56
 funclg/character/stats.py                 61      0     30      0   100%
 funclg/managers/__init__.py               13      0      2      0   100%
 funclg/managers/abilities_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
 funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
-funclg/managers/equipment_manager.py      66     49     30      1    19%   22-30, 34-37, 42-44, 48-49, 55-66, 70-83, 87-90, 99-108, 125-128
-funclg/managers/modifier_manager.py       75      0     32      2    98%   97->exit, 125->exit
+funclg/managers/equipment_manager.py      78     57     30      0    23%   25-33, 37-40, 44-52, 61-73, 85-96, 100-113, 117-120, 129-138
+funclg/managers/modifier_manager.py       94     53     38      2    39%   39-46, 51, 71-72, 89-133, 144-147, 151-161, 182
 funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 47     18     10      0    61%   45-53, 58-67
 funclg/utils/input_validation.py          41     32     16      0    16%   16-25, 32-33, 40, 47-49, 56-59, 64-70, 76-85
 funclg/utils/menu_funcs.py                40     18     16      0    50%   15-16, 36-59
-funclg/utils/types.py                     25      0      6      0   100%
+funclg/utils/types.py                     20      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    895    165    274      5    80%
+TOTAL                                    947    224    294      4    74%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 79.81%
-
-============================== 91 passed in 1.74s ==============================
+FAIL Required test coverage of 100.0% not reached. Total coverage: 74.38%
+========================= 5 failed, 84 passed in 1.60s =========================
 
 ---Code Quality Report---
 
@@ -74,17 +225,14 @@ All done! ✨ 🍰 ✨
 ************* Module funclg.__main__
 funclg/__main__.py:39:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
-funclg/character/abilities.py:44:12: W0511: TODO: Will likely become a modifier and need to create whether it is direct to self or other (fixme)
-funclg/character/abilities.py:20:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/abilities.py:21:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character.equipment
 funclg/character/equipment.py:169:5: W0511: TODO: Override details to include the weapon type (fixme)
 ************* Module funclg.character.modifiers
-funclg/character/modifiers.py:69:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
-funclg/character/modifiers.py:12:0: W0611: Unused MOD_ADD_RANGE imported from utils.types (unused-import)
-funclg/character/modifiers.py:12:0: W0611: Unused MOD_MULT_RANGE imported from utils.types (unused-import)
+funclg/character/modifiers.py:60:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.roles
-funclg/character/roles.py:120:5: W0511: def show_powers(): #TODO Define me (fixme)
-funclg/character/roles.py:121:5: W0511: def copy(): # TODO: Roles copy method: unsure if needed (fixme)
+funclg/character/roles.py:124:5: W0511: def show_powers(): #TODO Define me (fixme)
+funclg/character/roles.py:125:5: W0511: def copy(): # TODO: Roles copy method: unsure if needed (fixme)
 ************* Module funclg.character.stats
 funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
@@ -104,26 +252,21 @@ funclg/managers/character_manager.py:8:0: W0611: Unused funclg.utils.data_mgmt i
 funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from funclg.character.character (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
-************* Module funclg.managers.equipment_manager
-funclg/managers/equipment_manager.py:40:1: W0511: TODO design these to be just the creation function (fixme)
-funclg/managers/equipment_manager.py:60:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
-funclg/managers/equipment_manager.py:62:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
-funclg/managers/equipment_manager.py:16:0: W0611: Unused ARMOR_TYPES imported from funclg.utils.types (unused-import)
-funclg/managers/equipment_manager.py:16:0: W0611: Unused ITEM_TYPES imported from funclg.utils.types (unused-import)
-funclg/managers/equipment_manager.py:16:0: W0611: Unused WEAPON_TYPES imported from funclg.utils.types (unused-import)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:26:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
 funclg/managers/modifier_manager.py:35:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
 funclg/managers/modifier_manager.py:38:21: W0511: TODO Delete Function (fixme)
 funclg/managers/modifier_manager.py:49:21: W0511: TODO Delete Function (fixme)
-funclg/managers/modifier_manager.py:56:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
-funclg/managers/modifier_manager.py:107:25: W0511: TODO Delete Function (fixme)
-funclg/managers/modifier_manager.py:114:23: W0511: TODO Delete Function (fixme)
-funclg/managers/modifier_manager.py:121:25: W0511: TODO Delete Function (fixme)
-funclg/managers/modifier_manager.py:135:1: W0511: TODO Delete Function (fixme)
-funclg/managers/modifier_manager.py:148:1: W0511: TODO Delete Function (fixme)
-funclg/managers/modifier_manager.py:151:1: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:86:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
+funclg/managers/modifier_manager.py:136:25: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:143:23: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:150:25: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:164:1: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:177:1: W0511: TODO Delete Function (fixme)
+funclg/managers/modifier_manager.py:180:1: W0511: TODO Delete Function (fixme)
 funclg/managers/modifier_manager.py:27:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/managers/modifier_manager.py:88:21: E0602: Undefined variable 'Modifer' (undefined-variable)
+funclg/managers/modifier_manager.py:130:30: E1101: Instance of 'Modifier' has no 'id' member (no-member)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
 funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
@@ -133,14 +276,26 @@ funclg/managers/roles_manager.py:10:0: W0611: Unused Roles imported from funclg.
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
+************* Module funclg.utils.types
+funclg/utils/types.py:6:0: W0611: Unused Tuple imported from typing (unused-import)
+************* Module funclg.utils.__init__
+funclg/utils/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.character.abilities:[100:106]
+==funclg.character.equipment:[77:83]
+        exporter = self.__dict__.copy()
+        for key, value in exporter.items():
+            if isinstance(value, Modifier):
+                exporter[key] = value.export()
+        return exporter
+ (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.35/10 (previous run: 9.35/10, +0.00)
+Your code has been rated at 9.44/10 (previous run: 9.44/10, +0.00)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 7.252s
+npx: installed 1 in 4.599s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -149,11 +304,18 @@ stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not 
 Assuming Python platform Linux
 Searching for source files
 Found 21 source files
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py
-  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/equipment_manager.py:43:27 - error: Argument of type "Literal['']" cannot be assigned to parameter "items" of type "List[Any]" in function "list_choice_selection"
-    "Literal['']" is incompatible with "List[Any]" (reportGeneralTypeIssues)
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/abilities.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/character/abilities.py:56:70 - error: Argument of type "Dict[Unknown, Unknown] | dict[str, float | int]" cannot be assigned to parameter "mods" of type "Dict[str, int]" in function "add_mod"
+    Type "Dict[Unknown, Unknown] | dict[str, float | int]" cannot be assigned to type "Dict[str, int]"
+      TypeVar "_VT@dict" is invariant
+        Type "float | int" cannot be assigned to type "int"
+          "float" is incompatible with "int" (reportGeneralTypeIssues)
+/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py:88:22 - error: "Modifer" is not defined (reportUndefinedVariable)
+  /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/managers/modifier_manager.py:130:39 - error: Cannot access member "id" for type "Modifier"
+    Member "id" is unknown (reportGeneralTypeIssues)
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:52:19 - error: "filename" is possibly unbound (reportUnboundVariable)
   /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/funclg/utils/data_mgmt.py:53:22 - error: "filename" is possibly unbound (reportUnboundVariable)
-3 errors, 0 warnings, 0 informations 
-Completed in 2.847sec
+5 errors, 0 warnings, 0 informations 
+Completed in 1.896sec

@@ -11,10 +11,11 @@ from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
     list_choice_selection,
+    string_validation,
     yes_no_validation,
-    string_validation
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
+
 from .modifier_manager import generate_modifier
 
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
@@ -46,32 +47,35 @@ def _new_weapon():
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
     print("Generating mods for this weapon...")
-    weapon_mod = generate_modifier("weapon")    
+    weapon_mod = generate_modifier("weapon")
 
     return WeaponEquipment(
-        name=weapon_name, 
-        weapon_type=WEAPON_TYPES.index(weapon_type), 
+        name=weapon_name,
+        weapon_type=WEAPON_TYPES.index(weapon_type),
         description=weapon_desc,
-        modifiers=weapon_mod
-        )
+        modifiers=weapon_mod,
+    )
+
 
 def _new_body_armor():
     print("What type of Armor would you like to create?")
     item_type = list_choice_selection(ITEM_TYPES[:-1])
     print(f"What type of armor would you like to make the {item_type}?")
     armor_type = list_choice_selection(ARMOR_TYPES[:-1])
-    item_name = string_validation(f"What would you like to name this new {armor_type} {item_type}?", "Name")
+    item_name = string_validation(
+        f"What would you like to name this new {armor_type} {item_type}?", "Name"
+    )
     item_desc = string_validation(f"How would you describe {item_name}?", "Description")
 
     print(f"Generating mods for this {item_type}...")
     item_mod = generate_modifier("armor")
 
     return BodyEquipment(
-        name = item_name,
-        modifiers= item_mod,
-        description= item_desc,
-        armor_type= ARMOR_TYPES.index(armor_type),
-        item_type= ITEM_TYPES.index(item_type)
+        name=item_name,
+        modifiers=item_mod,
+        description=item_desc,
+        armor_type=ARMOR_TYPES.index(armor_type),
+        item_type=ITEM_TYPES.index(item_type),
     )
 
 
