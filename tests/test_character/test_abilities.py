@@ -59,6 +59,10 @@ def test_abilities_init(abilities_all_types):
     print(test_ability.mod)
     assert test_ability.mod.export() == {"adds": {"health": 1}, "mults": {}}
 
+    # Test incompatable
+    test_ability = Abilities(name="Test", ability_type="Magic", description="Test incompatable mod", modifier={"mults":{"defense":.22}})
+    print(test_ability.mod)
+    assert test_ability.mod.export() == {"adds":{"health":1}, "mults":{}}
 
 def test_abilities_str(abilities_all_types, abilities_str_expectation):
     for index, ability in enumerate(abilities_all_types):
@@ -80,6 +84,9 @@ def test_abilities_export(abilities_all_types, abilities_export_expectation):
 def test_abilities_copy(abilities_all_types):
     repair_1 = abilities_all_types[0]
     repair_2 = repair_1.copy()
+
+    print(abilities_gen_mods())
+    print(abilities_all_types[0])
 
     # Test object difference
     assert repair_1 != repair_2
