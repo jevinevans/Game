@@ -7,8 +7,7 @@ Description: This defines the modifiers object that will be used for all stats
 from typing import Any, Dict, Optional, Union
 
 # from loguru import logger
-from ..utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
-import funclg.utils.data_mgmt as db
+
 
 class Modifier:
     """
@@ -30,6 +29,10 @@ class Modifier:
     M_TYPES = ["adds", "mults"]
     DB_PREFIX = "MODS"
 
+    MODIFIER_TYPES = ["health", "energy", "attack", "defense"]
+    MOD_ADD_RANGE = 500
+    MOD_MULT_RANGE = 100
+
     def __init__(
         self,
         name: str,
@@ -39,7 +42,6 @@ class Modifier:
         self.adds = self._verify_mods(adds)
         self.mults = self._verify_mods(mults)
         self._name = name
-
 
     @property
     def name(self):  # pylint: disable=C0103
@@ -52,15 +54,14 @@ class Modifier:
         return string
 
     def details(self, indent: int = 0):
-        return "\n"+self._friendly_read(indent=indent)
+        return "\n" + self._friendly_read(indent=indent)
 
-    @staticmethod
-    def _verify_mods(mods):
+    def _verify_mods(self, mods):
         # TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE
         verified = {}
         if mods:
             for stat in mods:
-                if stat not in MODIFIER_TYPES:
+                if stat not in self.MODIFIER_TYPES:
                     continue
                 verified[stat] = mods[stat]
         return verified

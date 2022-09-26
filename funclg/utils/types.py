@@ -14,26 +14,29 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
 # Weapon Types: 0 - Sword, 1 - Wand, 2 - Knife, -1 - (Not a Weapon)
 WEAPON_TYPES = ["Sword", "Wand", "Knife", "Spear", "Bow", ""]
 
-DAMAGE_TYPES = {
-    "Magic": ("Damage", -1),
-    "Physical": ("Damage", -1),
-    "Healing": ("Boost", 1),
-    "Repair": ("Boost", 1),
-    "Buff": ("Boost", 1),
-    "Debuff": ("Damage", -1),
-    "None": ("None", 0),
+
+# This defines the type of abilites, their effect target (Damage = enemies, Boost = Self), List of available attributes
+ABILITY_TYPES = {
+    "Magic": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},
+    "Physical": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},
+    "Restore": {"target": "self", "m_type": "mults", "mods": ["health", "defense", "energy"]},
+    "Buff": {
+        "target": "self",
+        "m_type": "mults",
+        "mods": ["health", "energy", "attack", "defense"],
+    },
+    "Debuff": {
+        "target": "enemy",
+        "m_type": "mults",
+        "mods": ["health", "energy", "attack", "defense"],
+    },
+    "None": {"target": "None", "m_type": "adds", "mods": []},
 }
 
 
-# Contains all valid stat types that a modifier can affect
-MODIFIER_TYPES = ["health", "energy", "attack", "defense"]
-MOD_ADD_RANGE = 500
-MOD_MULT_RANGE = 100
-
-
-def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
-    "Returns the effect type of the provided ability"
-    return DAMAGE_TYPES[a_type]
+# def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
+#     "Returns the effect type of the provided ability"
+#     return ABILITY_TYPES[a_type]
 
 
 def get_item_type(item_type: int) -> str:

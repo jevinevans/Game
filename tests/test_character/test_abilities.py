@@ -4,39 +4,38 @@ Date: 1.8.2022
 Description: The is a unit test for the abilties class.
 """
 
-from multiprocessing.managers import DictProxy
 from unittest.mock import patch
 
 from funclg.character.abilities import Abilities
-from funclg.utils.types import DAMAGE_TYPES
+from funclg.utils.types import ABILITY_TYPES
 
 from .fixtures.abilities_fixtures import (
     abilities_all_types,
     abilities_detail_expectation,
     abilities_export_expectation,
+    abilities_gen_mods,
     abilities_str_expectation,
     ability_ids,
 )
 
 
 def test_abilities_init(abilities_all_types):
-    # Testing proper effect type
+
+    # Test None has no mod
     for ability in abilities_all_types:
-        if DAMAGE_TYPES.get(ability.damage_type, None)[1] > 0:
-            assert ability.effect > 0
-        elif DAMAGE_TYPES.get(ability.damage_type, None)[1] < 0:
-            assert ability.effect < 0
-        elif DAMAGE_TYPES.get(ability.damage_type, None)[1] == 0:
-            assert ability.effect == 0
+        if ability.ability_type == "None":
+            assert ability.mod.adds == {}
+            assert ability.mod.mults == {}
+        else:
+            ability.mod.adds != {"adds":{}, "mults":{}}
+            ability.mod.mults != {"adds":{}, "mults":{}}
+        
+        assert ability.id.startswith("ABILITY")
 
-
-def test_abilities_incorrect_damage_type():
-    """Tests for incorrect ability types"""
-    t1 = Abilities("Error Type", "Error", -23, "Random string")
-
-    assert t1.damage_type == "None"
-    assert t1.effect == 0
-
+    # Test incompatable
+    test_ability = Abilities(name="Test", ability_type="Magic", description="Test incompatable mod", modifier={"mults":{"defense":.22}})
+    print(test_ability.mod)
+    assert test_ability.mod.export() == {"adds":{"health":1}, "mults":{}}
 
 def test_abilities_str(abilities_all_types, abilities_str_expectation):
     for index, ability in enumerate(abilities_all_types):
@@ -54,10 +53,6 @@ def test_abilities_export(abilities_all_types, abilities_export_expectation):
         abilities_export_expectation[index]["_id"] = test_ids[index]
         assert ability.export() == abilities_export_expectation[index]
 
-    test_export = abilities_all_types[0].export()
-    test_export["effect"] += 10
-    assert abilities_all_types[0].effect != test_export["effect"]
-
 
 @patch("builtins.open")
 @patch("json.dump")
@@ -73,13 +68,15 @@ def test_abilities_copy(abilities_all_types):
     repair_1 = abilities_all_types[0]
     repair_2 = repair_1.copy()
 
+    print(abilities_gen_mods())
+    print(abilities_all_types[0])
+
     # Test object difference
     assert repair_1 != repair_2
     assert id(repair_1) != id(repair_2)
 
     # Test Information is the same
     assert repair_1.name == repair_2.name
-    assert repair_1.damage_type == repair_2.damage_type
-    assert repair_1.ability_group == repair_2.ability_group
-    assert repair_1.effect == repair_2.effect
+    assert repair_1.ability_type == repair_2.ability_type
     assert repair_1.description == repair_2.description
+    assert repair_1.mod.export() == repair_2.mod.export()

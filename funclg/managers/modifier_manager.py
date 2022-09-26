@@ -22,7 +22,6 @@ from funclg.utils.input_validation import (
     string_validation,
     yes_no_validation,
 )
-from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
 
 # TODO: Create/modify the build to allow for random creation
 """
@@ -54,40 +53,39 @@ def export_data():  # TODO Delete Function
     db.update_data(MODIFIER_DATA)
 
 
-def generate_modifier(item_type:str = ""):
+def generate_modifier(item_type: str = ""):
     adds, mults = {}, {}
 
-    mod_types = ["attack", "energy","health","defense"]
+    mod_types = ["attack", "energy", "health", "defense"]
 
     if item_type == "armor":
         mod_types = ["health", "defense"]
-        
+
     elif item_type == "weapon":
         mod_types = ["energy", "attack"]
 
     add_mod = mod_types.pop(randint(0, len(mod_types)))
-    add_value = randint(1, MOD_ADD_RANGE)
+    add_value = randint(1, Modifier.MOD_ADD_RANGE)
     try:
         mult_mod = mod_types.pop(randint(0, len(mod_types)))
     except IndexError:
         mult_mod = mod_types.pop()
 
-    mult_value = randint(1, MOD_MULT_RANGE)
+    mult_value = randint(1, Modifier.MOD_MULT_RANGE)
 
     while mult_value > 1:
         mult_value /= 100
     mult_value = round(mult_value, 2)
 
-    adds.setdefault(add_mod,add_value)
+    adds.setdefault(add_mod, add_value)
     mults.setdefault(mult_mod, mult_value)
 
-    return {"adds":adds, "mults":mults}
-    
+    return {"adds": adds, "mults": mults}
 
 
 # TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
 def build_modifier(name: Optional[str] = ""):
-    available_mods = MODIFIER_TYPES.copy()
+    available_mods = Modifer.MODIFIER_TYPES.copy()
     adds, mults = {}, {}
     from_method = False
 
@@ -103,14 +101,14 @@ def build_modifier(name: Optional[str] = ""):
         mod_type = list_choice_selection(available_mods)
 
         if list_choice_selection(["Base Change", "Percentage Change"]) == "Base Change":
-            mod_val = number_range_validation(-MOD_ADD_RANGE, MOD_ADD_RANGE)
+            mod_val = number_range_validation(-Modifier.MOD_ADD_RANGE, Modifier.MOD_ADD_RANGE)
 
             print(f"You created modifier: {mod_type} {mod_val}")
             if yes_no_validation("Confirm creation?"):
                 adds[mod_type] = mod_val
 
         else:
-            mod_val = number_range_validation(-MOD_MULT_RANGE, MOD_MULT_RANGE)
+            mod_val = number_range_validation(-Modifier.MOD_MULT_RANGE, Modifier.MOD_MULT_RANGE)
             while mod_val > 1:
                 mod_val /= 100
             mod_val = round(mod_val, 2)

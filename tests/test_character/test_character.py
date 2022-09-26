@@ -52,7 +52,7 @@ def character_export_expectation():
             "_id": "ROLES-12345-FEJSIG-67890",
             "abilities": [],
             "armor_type": 0,
-            "damage_types": "None",
+            "ability_types": "None",
             "description": "Test role",
             "name": "Test_Role",
         },
@@ -155,7 +155,7 @@ def test_character_show_inventory(m_print, basic_char, character_inventory_show_
 
 
 def test_character_add_power(basic_char):
-    t_ability = abilities.Abilities("Test_Ability", "None", 31, "Test ability")
+    t_ability = abilities.Abilities("Test_Ability", "None", "Test ability", {})
     basic_char.add_power(t_ability)
     assert len(basic_char.role.abilities) == 1
     assert basic_char.role.abilities[0].name == t_ability.name
