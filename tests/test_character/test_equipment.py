@@ -39,7 +39,6 @@ def test_equipment_str(weapon_equipment_with_mods, body_equipment, equipment_str
     test_equipment = Equipment("Test Equip", Modifier("Test Equip"), "Test equip description", 0, 0)
     assert test_equipment.__str__() == "Test Equip [0]"
 
-
 @patch("builtins.open")
 @patch("json.dump")
 def test_equipment_print_to_file(m_dump, m_open, body_equipment):
