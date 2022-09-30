@@ -62,7 +62,8 @@ def test_abilities_init(abilities_all_types):
     # Test incompatable
     test_ability = Abilities(name="Test", ability_type="Magic", description="Test incompatable mod", modifier={"mults":{"defense":.22}})
     print(test_ability.mod)
-    assert test_ability.mod.export() == {"adds":{"health":1}, "mults":{}}
+    assert test_ability.mod.export() == {"adds": {"health": 1}, "mults": {}}
+
 
 def test_abilities_str(abilities_all_types, abilities_str_expectation):
     for index, ability in enumerate(abilities_all_types):

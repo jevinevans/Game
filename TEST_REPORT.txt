@@ -159,8 +159,10 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 81.83%
 
 -----BLACK-----
 
+reformatted funclg/managers/__init__.py
+
 All done! ✨ 🍰 ✨
-21 files left unchanged.
+1 file reformatted, 20 files left unchanged.
 
 >>>>>>> 83c69e3 (db file io fixe and module clean up)
 -----BANDIT-----

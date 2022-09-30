@@ -104,7 +104,7 @@ def _new_weapon():
         name=weapon_name,
         weapon_type=WEAPON_TYPES.index(weapon_type),
         description=weapon_desc,
-        modifiers=weapon_mod,
+        mod=weapon_mod,
     )
 
 
@@ -160,14 +160,16 @@ def select_equipment():
     if EQUIPMENT_DATA["data"]:
         equip_list = {}
         print("Which type of equipment would you like to select:")
-        if list_choice_selection(["Weapons", "Armor"]) == "Weapons":
-            equip_list = {
-                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
-            }
-        else:
+        choice = list_choice_selection(["Weapons", "Armor"])
+        if choice == "Armor":
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] != 4
             }
+        else:
+            equip_list = {
+                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
+            }
+            print(equip_list)
         return char_manager_choice_selection(equip_list, "name", "_id")
     logger.warning("There are is no equipment available.")
     return None
