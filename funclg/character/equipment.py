@@ -30,7 +30,7 @@ class Equipment:
     def __init__(
         self,
         name: str,
-        modifier: Modifier,
+        mod: Modifier,
         description: str = "",
         item_type: int = 0,
         armor_type: int = 0,
@@ -44,7 +44,7 @@ class Equipment:
         self.description = description
         self.item_type = item_type
         self.armor_type = armor_type
-        self.mod = modifier
+        self.mod = mod
 
         self._id = db.id_gen(kwargs.get("prefix", self.DB_PREFIX), kwargs.get("_id"))
 
@@ -100,7 +100,7 @@ class Equipment:
             description=self.description,
             item_type=self.item_type,
             armor_type=self.armor_type,
-            modifier=self.mod,
+            mod=self.mod,
             _id=self._id,
         )
 
@@ -117,13 +117,13 @@ class WeaponEquipment(Equipment):
         name: str,
         weapon_type: int,
         description: str = "",
-        modifiers: Optional[Dict[str, Dict]] = None,
+        mod: Optional[Dict[str, Dict]] = None,
         **kwargs,
     ):
         weapon_mod = Modifier(name=name)
-        if modifiers:
-            weapon_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
-            weapon_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))
+        if mod:
+            weapon_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
+            weapon_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
         else:
             weapon_mod.add_mod(m_type="adds", mods={"attack": 1, "energy": 1})
 
@@ -132,7 +132,7 @@ class WeaponEquipment(Equipment):
             description=description,
             item_type=4,
             armor_type=-1,
-            modifier=weapon_mod,
+            mod=weapon_mod,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
         )
@@ -162,7 +162,7 @@ class WeaponEquipment(Equipment):
             weapon_type=self.weapon_type,
             description=self.description,
             armor_type=self.armor_type,
-            modifiers=self.mod.get_mods(),
+            mod=self.mod.get_mods(),
             _id=self.id,
         )
 
@@ -179,7 +179,7 @@ class BodyEquipment(Equipment):
     def __init__(
         self,
         name: str,
-        modifiers: Optional[Dict[str, Dict]] = None,
+        mod: Optional[Dict[str, Dict]] = None,
         description: str = "",
         armor_type: int = 0,
         item_type: int = 0,
@@ -189,9 +189,9 @@ class BodyEquipment(Equipment):
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
         """
         body_mod = Modifier(name=name)
-        if modifiers:
-            body_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
-            body_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))
+        if mod:
+            body_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
+            body_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
         else:
             body_mod.add_mod(m_type="adds", mods={"health": 1, "defense": 1})
 
@@ -200,7 +200,7 @@ class BodyEquipment(Equipment):
             description=description,
             item_type=item_type,
             armor_type=armor_type,
-            modifier=body_mod,
+            mod=body_mod,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
         )
@@ -215,7 +215,7 @@ class BodyEquipment(Equipment):
         """Copies the current object"""
         return BodyEquipment(
             name=self.name,
-            modifiers=self.mod.get_mods(),
+            mod=self.mod.get_mods(),
             description=self.description,
             armor_type=self.armor_type,
             item_type=self.item_type,

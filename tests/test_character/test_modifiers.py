@@ -102,6 +102,11 @@ def test_modifier_get_mods(add_mods, mult_mods, modifier_get_expectation):
     assert t1.get_mods() == modifier_get_expectation
 
 
-def test_friendly_read_branching():
+def test_modifier_friendly_read_branching():
     t1 = Modifier("Friendly Test")
     assert t1._friendly_read() == ""
+
+
+def test_modifier_export(add_mods, mult_mods):
+    t1 = Modifier("T1", add_mods["valid"], mult_mods["valid"])
+    assert t1.export() == {"adds": add_mods["valid"], "mults": mult_mods["valid"]}

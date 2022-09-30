@@ -47,7 +47,7 @@ def body_equipment_with_mods(body_mods):
             description=f"Medium {item_type} with mods",
             armor_type=1,
             item_type=i_index,
-            modifiers=body_mods[item_type + "_mods"],
+            mod=body_mods[item_type + "_mods"],
         )
     return equipment
 
@@ -73,7 +73,7 @@ def weapon_equipment_with_mods(weapon_mods):
             name=weapon_type + "_mods",
             description=f"{weapon_type} with mods",
             weapon_type=i_index,
-            modifiers=weapon_mods[weapon_type + "_mods"],
+            mod=weapon_mods[weapon_type + "_mods"],
         )
     return equipment
 

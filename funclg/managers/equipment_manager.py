@@ -53,7 +53,7 @@ def _new_weapon():
         name=weapon_name,
         weapon_type=WEAPON_TYPES.index(weapon_type),
         description=weapon_desc,
-        modifiers=weapon_mod,
+        mod=weapon_mod,
     )
 
 
@@ -72,7 +72,7 @@ def _new_body_armor():
 
     return BodyEquipment(
         name=item_name,
-        modifiers=item_mod,
+        mod=item_mod,
         description=item_desc,
         armor_type=ARMOR_TYPES.index(armor_type),
         item_type=ITEM_TYPES.index(item_type),
@@ -86,7 +86,7 @@ def build_equipment():
     equip_type = list_choice_selection(["Body Armor", "Weapon"])
     new_equipment = None
 
-    if equip_type == "Body Armor":
+    if equip_type == "Armor":
         new_equipment = _new_body_armor()
     else:
         new_equipment = _new_weapon()
@@ -94,20 +94,27 @@ def build_equipment():
     if yes_no_validation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
         EQUIPMENT_DATA["data"][new_equipment.id] = new_equipment.export()
         update_data()
+        print(f"{new_equipment.name} has been saved!!!")
+        return
+
+    print(f"No new {equip_type.lower()}, oh well...")
+    del new_equipment
 
 
 def select_equipment():
     if EQUIPMENT_DATA["data"]:
         equip_list = {}
         print("Which type of equipment would you like to select:")
-        if list_choice_selection(["Weapons", "Armor"]) == "Weapons":
-            equip_list = {
-                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
-            }
-        else:
+        choice = list_choice_selection(["Weapons", "Armor"])
+        if choice == "Armor":
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] != 4
             }
+        else:
+            equip_list = {
+                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
+            }
+            print(equip_list)
         return char_manager_choice_selection(equip_list, "name", "_id")
     logger.warning("There are is no equipment available.")
     return None
@@ -118,6 +125,8 @@ def show_equipment():
     if show_equip_id:
         show_equip = EQUIPMENT_DATA["objects"][show_equip_id]
         print(show_equip.details())
+        return
+    logger.info("There are no equipment items to show.")
 
 
 # def edit_equipment():
@@ -135,6 +144,8 @@ def delete_equipment():
             del EQUIPMENT_DATA["objects"][del_equip_id]
             update_data()
             return
+        print("Keeing all equipment in the vault...")
+        return
     logger.warning("There are currently no equipment to delete.")
 
 

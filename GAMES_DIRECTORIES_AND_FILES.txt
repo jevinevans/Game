@@ -1,9 +1,15 @@
 +==========================================+
-|	Total Directories: 20			|
-|	Files: 104				|
+|	Total Directories: 23			|
+|	Files: 109				|
 +==========================================+
 
 ./.coverage
+./.pytest_cache
+./.pytest_cache/CACHEDIR.TAG
+./.pytest_cache/README.md
+./.pytest_cache/v
+./.pytest_cache/v/cache
+./.pytest_cache/v/cache/stepwise
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./README.md
 ./Scan_Directories.py
@@ -91,6 +97,7 @@
 ./funclg/utils
 ./funclg/utils/__init__.py
 ./funclg/utils/data_mgmt.py
+./funclg/utils/equipment.json
 ./funclg/utils/input_validation.py
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
@@ -124,6 +131,7 @@
 ./tests/test_main
 ./tests/test_main/test_main.py
 ./tests/test_managers
+./tests/test_managers/test_equipment_manager.py
 ./tests/test_managers/test_modifier_manager.py
 ./tests/test_utils
 ./tests/test_utils/test_types.py

@@ -11,7 +11,7 @@ def gen_equipment(armor_type: int, weapon_type: int):
     for item_type in range(4):
         equipment[get_item_type(item_type)] = BodyEquipment(
             name=get_item_type(item_type),
-            modifiers=mods,
+            mod=mods,
             description=f"Test {get_item_type(item_type)}",
             armor_type=armor_type,
             item_type=item_type,

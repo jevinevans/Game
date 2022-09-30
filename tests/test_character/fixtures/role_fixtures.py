@@ -4,7 +4,9 @@ import pytest
 
 from funclg.character.abilities import Abilities
 from funclg.character.roles import Roles
+
 from .abilities_fixtures import abilities_gen_mods
+
 
 @pytest.fixture
 def mage_test_role():
@@ -60,7 +62,7 @@ def mage_export_expectation():
                 "_target": "enemy",
                 "description": "Testing Magic ability.",
                 "_id": "ABILITY-12345-FADJ-67890",
-                'mod': {'adds': {'health': 50}, 'mults': {}},
+                "mod": {"adds": {"health": 50}, "mults": {}},
             },
             {
                 "name": "Restore Test Ability",
@@ -68,7 +70,7 @@ def mage_export_expectation():
                 "_target": "self",
                 "description": "Testing Restore ability.",
                 "_id": "ABILITY-12345-FADD-67891",
-                'mod': {'adds': {}, 'mults': {'health': 50}},
+                "mod": {"adds": {}, "mults": {"health": 50}},
             },
             {
                 "name": "Buff Test Ability",
@@ -76,7 +78,7 @@ def mage_export_expectation():
                 "_target": "self",
                 "description": "Testing Buff ability.",
                 "_id": "ABILITY-12345-FEFS-67892",
-                'mod': {'adds': {}, 'mults': {'health': 50}},
+                "mod": {"adds": {}, "mults": {"health": 50}},
             },
             {
                 "name": "Debuff Test Ability",
@@ -84,7 +86,7 @@ def mage_export_expectation():
                 "_target": "enemy",
                 "description": "Testing Debuff ability.",
                 "_id": "ABILITY-12345-EODS-67893",
-                'mod': {'adds': {}, 'mults': {'health': 50}},
+                "mod": {"adds": {}, "mults": {"health": 50}},
             },
         ],
     }
@@ -97,9 +99,9 @@ def mage_str_expectation():
 
 @pytest.fixture
 def roles_detail_expectation_with_abilities(mage_test_role):
-    
+
     print(len(mage_test_role.abilities))
-    
+
     role_details = []
     for indent in range(5):
         base = f"""

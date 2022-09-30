@@ -27,15 +27,21 @@ def test_abilities_init(abilities_all_types):
             assert ability.mod.adds == {}
             assert ability.mod.mults == {}
         else:
-            ability.mod.adds != {"adds":{}, "mults":{}}
-            ability.mod.mults != {"adds":{}, "mults":{}}
-        
+            ability.mod.adds != {"adds": {}, "mults": {}}
+            ability.mod.mults != {"adds": {}, "mults": {}}
+
         assert ability.id.startswith("ABILITY")
 
     # Test incompatable
-    test_ability = Abilities(name="Test", ability_type="Magic", description="Test incompatable mod", modifier={"mults":{"defense":.22}})
+    test_ability = Abilities(
+        name="Test",
+        ability_type="Magic",
+        description="Test incompatable mod",
+        modifier={"mults": {"defense": 0.22}},
+    )
     print(test_ability.mod)
-    assert test_ability.mod.export() == {"adds":{"health":1}, "mults":{}}
+    assert test_ability.mod.export() == {"adds": {"health": 1}, "mults": {}}
+
 
 def test_abilities_str(abilities_all_types, abilities_str_expectation):
     for index, ability in enumerate(abilities_all_types):

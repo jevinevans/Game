@@ -97,5 +97,3 @@ def abilities_detail_expectation(abilities_all_types):
 {' '*indent}Target: {ability._target}{ability.mod.details(2)}"""
         ability_details.append(base)
     return ability_details
-
-

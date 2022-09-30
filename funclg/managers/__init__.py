@@ -7,7 +7,6 @@ from funclg.utils.menu_funcs import Menu
 from . import abilities_manager as ability_man
 from . import character_manager as char_man
 from . import equipment_manager as equip_man
-from . import modifier_manager as mod_man
 from . import roles_manager as role_man
 
 MENUS = [
@@ -15,7 +14,6 @@ MENUS = [
     role_man.ROLES_MENU,
     ability_man.ABILITY_MENU,
     equip_man.EQUIPMENT_MENU,
-    mod_man.MODIFIER_MENU,
 ]
 
 # UPDATERS = [

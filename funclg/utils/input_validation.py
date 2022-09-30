@@ -63,7 +63,7 @@ def yes_no_validation(prompt: str):
     """Provides a yes/no validation. Provide the prompt, the function will add [y|N] for you."""
     choice = ""
     while choice not in ["y", "Y", "N", "n"]:
-        choice = input(prompt + " [y/N]:")
+        choice = remove_special_chars(input(prompt + " [y/N]:"))
 
     if choice in ["y", "Y"]:
         return True
