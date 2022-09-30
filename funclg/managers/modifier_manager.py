@@ -78,6 +78,8 @@ def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, rand
     return {"adds": adds, "mults": mults}
 
 
+# TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
+# Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
 def generate_modifier(item_type: str = ""):
     adds, mults = {}, {}
 

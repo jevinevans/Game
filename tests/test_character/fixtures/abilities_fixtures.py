@@ -103,5 +103,3 @@ def abilities_detail_expectation(abilities_all_types):
 {' '*indent}Target: {ability._target.capitalize()}{ability.mod.details(indent+2)}"""
         ability_details.append(base)
     return ability_details
-
-
