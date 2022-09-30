@@ -86,7 +86,7 @@ def build_equipment():
     equip_type = list_choice_selection(["Body Armor", "Weapon"])
     new_equipment = None
 
-    if equip_type == "Body Armor":
+    if equip_type == "Armor":
         new_equipment = _new_body_armor()
     else:
         new_equipment = _new_weapon()
@@ -127,6 +127,7 @@ def select_equipment():
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
             }
+            print(equip_list)
         return char_manager_choice_selection(equip_list, "name", "_id")
     logger.warning("There are is no equipment available.")
     return None

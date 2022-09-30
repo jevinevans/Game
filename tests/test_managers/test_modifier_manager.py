@@ -11,7 +11,6 @@ from funclg.utils.types import ABILITY_TYPES
 
 # import pytest
 
-
 @patch("funclg.managers.modifier_manager.yes_no_validation")
 @patch("funclg.managers.modifier_manager.number_range_validation")
 @patch("funclg.managers.modifier_manager.list_choice_selection")
