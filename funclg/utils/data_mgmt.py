@@ -50,6 +50,7 @@ def load_data(game_data: Dict[str, Any]):
         # TODO may want to re-validate name before creating
         logger.error(f"{game_data['filename']}: Creating new database entry.")
         with open(filename, "a", encoding="utf-8"):
+            logger.debug(f"Creating {filename}")
             os.utime(filename)
     return game_data
 

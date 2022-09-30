@@ -40,6 +40,7 @@ def test_equipment_str(weapon_equipment_with_mods, body_equipment, equipment_str
     test_equipment = Equipment("Test Equip", Modifier("Test Equip"), "Test equip description", 0, 0)
     assert test_equipment.__str__() == "Test Equip [0]"
 
+
 @patch("builtins.open")
 @patch("json.dump")
 def test_equipment_print_to_file(m_dump, m_open, body_equipment):
@@ -59,7 +60,7 @@ def test_equipment_export(m_id):
 
     item = Equipment(
         name="Export Test",
-        modifier={"adds": {"health": 1}},
+        mod={"adds": {"health": 1}},
         description="Export Test Description",
         item_type=0,
         armor_type=0,
@@ -112,7 +113,13 @@ def test_bodyequipment_init(body_mods):
     assert body.mod.mults == {}
 
     # Test Modded Equipment
-    mod_body = BodyEquipment("Init Mod Test", body_mods["Back_mods"], "Testing modded  init", 2, 2)
+    mod_body = BodyEquipment(
+        name="Init Mod Test",
+        mod=body_mods["Back_mods"],
+        description="Testing modded  init",
+        armor_type=2,
+        item_type=2,
+    )
     assert mod_body.mod.adds == body_mods["Back_mods"]["adds"]
     assert mod_body.mod.mults == body_mods["Back_mods"]["mults"]
 
@@ -160,7 +167,7 @@ def test_weaponequipment_init(weapon_equipment_with_mods, weapon_mods):
 
     mod_weapon = WeaponEquipment(
         name="Init Mod Test",
-        modifiers=weapon_mods["Sword_mods"],
+        mod=weapon_mods["Sword_mods"],
         description="Testing Mod Weapon Init",
         weapon_type=0,
         armor_type=0,

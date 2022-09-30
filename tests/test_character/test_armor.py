@@ -158,7 +158,7 @@ def test_armor_export(m_id, armor_export_expectations):
     for item_type in range(4):
         equipment[get_item_type(item_type)] = BodyEquipment(
             name=get_item_type(item_type),
-            modifiers=mods,
+            mod=mods,
             description=f"Test {get_item_type(item_type)}",
             armor_type=0,
             item_type=item_type,
