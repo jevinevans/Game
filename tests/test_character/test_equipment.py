@@ -37,6 +37,7 @@ def test_equipment_str(weapon_equipment, body_equipment, equipment_str_expectati
     assert test_equipment.__str__() == "Test Equip [lvl 1] [Head]"
 
 
+
 @patch("builtins.open")
 @patch("json.dump")
 def test_equipment_print_to_file(m_dump, m_open, body_equipment):

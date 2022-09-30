@@ -71,7 +71,7 @@ def _new_weapon():
         name=weapon_name,
         weapon_type=WEAPON_TYPES.index(weapon_type),
         description=weapon_desc,
-        modifiers=weapon_mod,
+        mod=weapon_mod,
     )
 
 
@@ -108,7 +108,7 @@ def build_equipment():
     )
     new_equipment = None
 
-    if equip_type == "Body Armor":
+    if equip_type == "Armor":
         new_equipment = _new_body_armor()
     else:
         new_equipment = _new_weapon()
