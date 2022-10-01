@@ -15,7 +15,6 @@ from loguru import logger
 
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
     list_choice_selection,
     number_range_validation,
     yes_no_validation,
@@ -78,6 +77,8 @@ def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, rand
     return {"adds": adds, "mults": mults}
 
 
+# TODO: Create/modify the build to allow for random creation
+# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
 # TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
 # Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
 def generate_modifier(item_type: str = ""):

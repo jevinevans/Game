@@ -100,7 +100,6 @@
 ./funclg/utils
 ./funclg/utils/__init__.py
 ./funclg/utils/data_mgmt.py
-./funclg/utils/equipment.json
 ./funclg/utils/input_validation.py
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
@@ -109,6 +108,7 @@
 ./pyproject.toml
 ./requirements.txt
 ./runTest.sh
+./test.log
 ./tests
 ./tests/__init__.py
 ./tests/test_character
