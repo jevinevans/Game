@@ -1,6 +1,10 @@
 ######TESTING REPORT######
 
+<<<<<<< HEAD
 Date: Sun Nov 26 14:44:04 PST 2023 
+=======
+Date: Sat Oct  1 11:34:44 PDT 2022 
+>>>>>>> 83c69e3 (db file io fixe and module clean up)
 
 ---PYTEST---
 
@@ -32,6 +36,7 @@ Name                                   Stmts   Miss Branch BrPart  Cover   Missi
 funclg/__init__.py                         1      0      0      0   100%
 funclg/__main__.py                        41     24      6      1    38%   39-43, 56-68, 72-79, 83-85
 funclg/character/__init__.py               0      0      0      0   100%
+<<<<<<< HEAD
 funclg/character/abilities.py             65      0     18      0   100%
 funclg/character/armor.py                143      0     46      5    97%   193->195, 195->197, 197->199, 199->201, 201->exit
 funclg/character/character.py             86      4     14      0    94%   148-149, 164-167
@@ -64,16 +69,54 @@ TOTAL                                   1526    147    508     24    89%
 FAIL Required test coverage of 95.0% not reached. Total coverage: 88.74%
 
 ======================= 136 passed, 2 warnings in 1.73s ========================
+=======
+funclg/character/abilities.py             63      0     16      0   100%
+funclg/character/armor.py                127      1     32      1    99%   108
+funclg/character/character.py             56      1     12      0    99%   81
+funclg/character/equipment.py             84      0      8      0   100%
+funclg/character/modifiers.py             64      0     28      0   100%
+funclg/character/roles.py                 70      1     24      0    99%   56
+funclg/character/stats.py                 61      0     28      0   100%
+funclg/managers/__init__.py               12      0      2      0   100%
+funclg/managers/abilities_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
+funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
+funclg/managers/equipment_manager.py      88      0     30      0   100%
+funclg/managers/modifier_manager.py       49      0     18      3    96%   72->85, 82->85, 91->exit
+funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
+funclg/utils/__init__.py                   0      0      0      0   100%
+funclg/utils/data_mgmt.py                 48     19     10      1    59%   41->55, 45-54, 59-68
+funclg/utils/input_validation.py          41     28     16      0    30%   16-25, 32-33, 40, 47-49, 64-70, 76-85
+funclg/utils/menu_funcs.py                40     18     14      0    48%   15-16, 36-59
+funclg/utils/types.py                     19      0      6      0   100%
+----------------------------------------------------------------------------------
+TOTAL                                    909    111    254      6    87%
+
+FAIL Required test coverage of 100.0% not reached. Total coverage: 87.02%
+
+============================== 92 passed in 1.45s ==============================
+>>>>>>> 83c69e3 (db file io fixe and module clean up)
 
 ---Code Quality Report---
 
 
+<<<<<<< HEAD
+=======
+-----ISORT-----
+
+
+-----BLACK-----
+
+All done! ✨ 🍰 ✨
+21 files left unchanged.
+
+>>>>>>> 83c69e3 (db file io fixe and module clean up)
 -----BANDIT-----
 
 
 -----PYLINT-----
 
 ************* Module funclg.character.stats
+<<<<<<< HEAD
 funclg/character/stats.py:147:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
 
 ------------------------------------------------------------------
@@ -127,6 +170,53 @@ sign up at https://pyup.io or email sales@pyup.io[0m
 [1m   CVE-2023-5752[0m
 [1m   For more information, please visit
    [0mhttps://data.safetycli.com/v/62044/f17[0m
+=======
+funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
+funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
+funclg/character/stats.py:115:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
+************* Module funclg.managers.abilities_manager
+funclg/managers/abilities_manager.py:48:1: W0511: TODO: Remove Comment (fixme)
+funclg/managers/abilities_manager.py:7:0: W0611: Unused logger imported from loguru (unused-import)
+funclg/managers/abilities_manager.py:9:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
+funclg/managers/abilities_manager.py:10:0: W0611: Unused Abilities imported from funclg.character.abilities (unused-import)
+funclg/managers/abilities_manager.py:11:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
+funclg/managers/abilities_manager.py:11:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
+************* Module funclg.managers.character_manager
+funclg/managers/character_manager.py:47:1: W0511: TODO: Remove me (fixme)
+funclg/managers/character_manager.py:6:0: W0611: Unused logger imported from loguru (unused-import)
+funclg/managers/character_manager.py:8:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
+funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from funclg.character.character (unused-import)
+funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
+funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
+************* Module funclg.managers.modifier_manager
+funclg/managers/modifier_manager.py:23:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/modifier_manager.py:25:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
+funclg/managers/modifier_manager.py:57:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
+************* Module funclg.managers.roles_manager
+funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
+funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
+funclg/managers/roles_manager.py:21:1: W0511: def load_db() # TODO Create me (fixme)
+funclg/managers/roles_manager.py:61:1: W0511: TODO Remove me (fixme)
+funclg/managers/roles_manager.py:10:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
+************* Module funclg.utils.data_mgmt
+funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
+funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
+************* Module funclg.utils.__init__
+funclg/utils/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.character.abilities:[100:107]
+==funclg.character.equipment:[77:84]
+        exporter = self.__dict__.copy()
+        for key, value in exporter.items():
+            if isinstance(value, Modifier):
+                exporter[key] = value.export()
+        return exporter
+
+    def get_item_type(self) -> str: (duplicate-code)
+
+------------------------------------------------------------------
+Your code has been rated at 9.64/10 (previous run: 9.63/10, +0.01)
+>>>>>>> 83c69e3 (db file io fixe and module clean up)
 
 
 [31m-> Vulnerability found in urllib3 version 2.0.6
@@ -138,6 +228,7 @@ sign up at https://pyup.io or email sales@pyup.io[0m
 [1m   For more information, please visit
    [0mhttps://data.safetycli.com/v/61893/f17[0m
 
+<<<<<<< HEAD
  Scan was completed. 2 vulnerabilities were found. 
 
 +==============================================================================+
@@ -155,3 +246,17 @@ reporting, cybersecurity support, team and project policy management and more
 sign up at https://pyup.io or email sales@pyup.io[0m
 
 +==============================================================================+[0m
+=======
+npm ERR! code ENOENT
+npm ERR! syscall rename
+npm ERR! path /home/jevinle/.npm/_npx/762/lib/node_modules/pyright
+npm ERR! dest /home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE
+npm ERR! errno -2
+npm ERR! enoent ENOENT: no such file or directory, rename '/home/jevinle/.npm/_npx/762/lib/node_modules/pyright' -> '/home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE'
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent 
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/jevinle/.npm/_logs/2022-10-01T18_35_22_379Z-debug.log
+Install for pyright@1.1.223 failed with code 254
+>>>>>>> 83c69e3 (db file io fixe and module clean up)
