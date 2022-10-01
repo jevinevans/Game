@@ -9,27 +9,19 @@ Description: A manager class for creating, updating, and removing modifiers.
 # - allow the user/app to build out modifiers that can be used on abilities and equipment.
 ###
 from random import randint
-from typing import Optional
 
 from loguru import logger
 
-import funclg.utils.data_mgmt as db
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
     list_choice_selection,
     number_range_validation,
-    string_validation,
     yes_no_validation,
 )
 
+
 # TODO: Create/modify the build to allow for random creation
-"""
-    Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
-
-"""
-
-
+# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
 # TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
 # Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
 def generate_modifier(item_type: str = ""):
