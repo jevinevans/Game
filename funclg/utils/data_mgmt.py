@@ -14,7 +14,7 @@ from typing import Any, Dict, Union
 
 from loguru import logger
 
-DATA_DIR = "funclg/data/"
+DATA_DIR = ["funclg", "data"]
 ID_LENGTH = 24
 
 
@@ -30,7 +30,7 @@ def id_gen(prefix: str = "FUNCLG", existing: Union[str, None] = ""):
 
 def validate_filename(filename: str) -> str:
     assert filename.endswith(".json")
-    data_path = re.sub(r"funclg\/.*", DATA_DIR, os.path.dirname(__file__))
+    data_path = re.sub(r"funclg/.*", f"{os.sep}".join(DATA_DIR), os.path.dirname(__file__))
     return os.path.join(data_path, filename)
 
 

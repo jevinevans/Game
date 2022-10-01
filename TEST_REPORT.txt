@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Thu Sep 29 22:19:52 PDT 2022 
+Date: Sat Oct  1 11:34:44 PDT 2022 
 
 ---PYTEST---
 
@@ -39,19 +39,19 @@ funclg/managers/__init__.py               12      0      2      0   100%
 funclg/managers/abilities_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
 funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
 funclg/managers/equipment_manager.py      88      0     30      0   100%
-funclg/managers/modifier_manager.py       51      0     18      3    96%   80->93, 90->93, 99->exit
+funclg/managers/modifier_manager.py       49      0     18      3    96%   72->85, 82->85, 91->exit
 funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 47     18     10      1    60%   41->54, 45-53, 58-67
+funclg/utils/data_mgmt.py                 48     19     10      1    59%   41->55, 45-54, 59-68
 funclg/utils/input_validation.py          41     28     16      0    30%   16-25, 32-33, 40, 47-49, 64-70, 76-85
 funclg/utils/menu_funcs.py                40     18     14      0    48%   15-16, 36-59
-funclg/utils/types.py                     20      0      6      0   100%
+funclg/utils/types.py                     19      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    911    110    254      6    87%
+TOTAL                                    909    111    254      6    87%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 87.12%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 87.02%
 
-============================== 92 passed in 2.23s ==============================
+============================== 92 passed in 1.45s ==============================
 
 ---Code Quality Report---
 
@@ -61,10 +61,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 87.12%
 
 -----BLACK-----
 
-reformatted funclg/managers/__init__.py
-
 All done! ✨ 🍰 ✨
-1 file reformatted, 20 files left unchanged.
+21 files left unchanged.
 
 -----BANDIT-----
 
@@ -105,14 +103,9 @@ funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from 
 funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
 ************* Module funclg.managers.modifier_manager
-funclg/managers/modifier_manager.py:26:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
-funclg/managers/modifier_manager.py:33:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
-funclg/managers/modifier_manager.py:65:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
-funclg/managers/modifier_manager.py:27:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/managers/modifier_manager.py:12:0: W0611: Unused Optional imported from typing (unused-import)
-funclg/managers/modifier_manager.py:16:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
-funclg/managers/modifier_manager.py:18:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
-funclg/managers/modifier_manager.py:18:0: W0611: Unused string_validation imported from funclg.utils.input_validation (unused-import)
+funclg/managers/modifier_manager.py:23:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/modifier_manager.py:25:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
+funclg/managers/modifier_manager.py:57:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
 funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
@@ -122,8 +115,6 @@ funclg/managers/roles_manager.py:10:0: W0611: Unused Roles imported from funclg.
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
-************* Module funclg.utils.types
-funclg/utils/types.py:6:0: W0611: Unused Tuple imported from typing (unused-import)
 ************* Module funclg.utils.__init__
 funclg/utils/__init__.py:1:0: R0801: Similar lines in 2 files
 ==funclg.character.abilities:[100:107]
@@ -137,20 +128,20 @@ funclg/utils/__init__.py:1:0: R0801: Similar lines in 2 files
     def get_item_type(self) -> str: (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.57/10 (previous run: 9.57/10, +0.00)
+Your code has been rated at 9.64/10 (previous run: 9.63/10, +0.01)
 
 
 -----PYRIGHT-----
 
 npm ERR! code ENOENT
 npm ERR! syscall rename
-npm ERR! path /home/jevinle/.npm/_npx/975/lib/node_modules/pyright
-npm ERR! dest /home/jevinle/.npm/_npx/975/lib/node_modules/.pyright.DELETE
+npm ERR! path /home/jevinle/.npm/_npx/762/lib/node_modules/pyright
+npm ERR! dest /home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE
 npm ERR! errno -2
-npm ERR! enoent ENOENT: no such file or directory, rename '/home/jevinle/.npm/_npx/975/lib/node_modules/pyright' -> '/home/jevinle/.npm/_npx/975/lib/node_modules/.pyright.DELETE'
+npm ERR! enoent ENOENT: no such file or directory, rename '/home/jevinle/.npm/_npx/762/lib/node_modules/pyright' -> '/home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE'
 npm ERR! enoent This is related to npm not being able to find a file.
 npm ERR! enoent 
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/jevinle/.npm/_logs/2022-09-30T05_20_44_546Z-debug.log
+npm ERR!     /home/jevinle/.npm/_logs/2022-10-01T18_35_22_379Z-debug.log
 Install for pyright@1.1.223 failed with code 254
