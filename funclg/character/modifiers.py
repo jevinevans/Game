@@ -66,11 +66,11 @@ class Modifier:
                 verified[stat] = mods[stat]
         return verified
 
-    def _add_mod(self, m_type: str, stat: str, effect: int):
+    def _add_mod(self, m_type: str, stat: str, effect: Union[int, float]):
         m_set = getattr(self, m_type)
         m_set[stat] = effect
 
-    def add_mod(self, m_type: str, mods: Dict[str, int]):
+    def add_mod(self, m_type: str, mods: Dict[str, Union[int, float]]):
         if m_type in self.M_TYPES and len(mods) >= 1:
             for stat, effect in self._verify_mods(mods).items():
                 self._add_mod(m_type=m_type, stat=stat, effect=effect)

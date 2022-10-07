@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sat Oct  1 11:34:44 PDT 2022 
+Date: Fri Oct  7 16:37:11 PDT 2022 
 
 ---PYTEST---
 
@@ -8,18 +8,19 @@ Date: Sat Oct  1 11:34:44 PDT 2022
 platform linux -- Python 3.8.10, pytest-7.1.3, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 92 items
+collected 99 items
 
 tests/test_character/test_abilities.py ......                            [  6%]
-tests/test_character/test_armor.py ...............                       [ 22%]
-tests/test_character/test_character.py ........                          [ 31%]
-tests/test_character/test_equipment.py ...............                   [ 47%]
-tests/test_character/test_modifiers.py .........                         [ 57%]
-tests/test_character/test_roles.py ............                          [ 70%]
-tests/test_character/test_stats.py ............                          [ 83%]
-tests/test_main/test_main.py .                                           [ 84%]
-tests/test_managers/test_equipment_manager.py ........                   [ 93%]
-tests/test_managers/test_modifier_manager.py ..                          [ 95%]
+tests/test_character/test_armor.py ...............                       [ 21%]
+tests/test_character/test_character.py ........                          [ 29%]
+tests/test_character/test_equipment.py ...............                   [ 44%]
+tests/test_character/test_modifiers.py .........                         [ 53%]
+tests/test_character/test_roles.py ............                          [ 65%]
+tests/test_character/test_stats.py ............                          [ 77%]
+tests/test_main/test_main.py .                                           [ 78%]
+tests/test_managers/test_abilities_manager.py ......                     [ 84%]
+tests/test_managers/test_equipment_manager.py ........                   [ 92%]
+tests/test_managers/test_modifier_manager.py ...                         [ 95%]
 tests/test_utils/test_types.py ....                                      [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
@@ -28,7 +29,7 @@ Name                                   Stmts   Miss Branch BrPart  Cover   Missi
 funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        29     15      4      1    45%   46-57, 61-68, 72
 funclg/character/__init__.py               0      0      0      0   100%
-funclg/character/abilities.py             63      0     16      0   100%
+funclg/character/abilities.py             64      0     16      0   100%
 funclg/character/armor.py                127      1     32      1    99%   108
 funclg/character/character.py             56      1     12      0    99%   81
 funclg/character/equipment.py             84      0      8      0   100%
@@ -36,10 +37,10 @@ funclg/character/modifiers.py             64      0     28      0   100%
 funclg/character/roles.py                 70      1     24      0    99%   56
 funclg/character/stats.py                 61      0     28      0   100%
 funclg/managers/__init__.py               12      0      2      0   100%
-funclg/managers/abilities_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
+funclg/managers/abilities_manager.py      63      0     20      0   100%
 funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
 funclg/managers/equipment_manager.py      88      0     30      0   100%
-funclg/managers/modifier_manager.py       49      0     18      3    96%   72->85, 82->85, 91->exit
+funclg/managers/modifier_manager.py       65      0     26      3    97%   95->108, 105->108, 114->exit
 funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     19     10      1    59%   41->55, 45-54, 59-68
@@ -47,11 +48,11 @@ funclg/utils/input_validation.py          41     28     16      0    30%   16-25
 funclg/utils/menu_funcs.py                40     18     14      0    48%   15-16, 36-59
 funclg/utils/types.py                     19      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    909    111    254      6    87%
+TOTAL                                    972    104    282      6    89%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 87.02%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 88.52%
 
-============================== 92 passed in 1.45s ==============================
+============================== 99 passed in 1.56s ==============================
 
 ---Code Quality Report---
 
@@ -61,8 +62,10 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 87.02%
 
 -----BLACK-----
 
+reformatted funclg/character/equipment.py
+
 All done! ✨ 🍰 ✨
-21 files left unchanged.
+1 file reformatted, 20 files left unchanged.
 
 -----BANDIT-----
 
@@ -77,7 +80,7 @@ funclg/__main__.py:39:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:21:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.character.equipment
-funclg/character/equipment.py:169:5: W0511: TODO: Override details to include the weapon type (fixme)
+funclg/character/equipment.py:170:5: W0511: TODO: Override details to include the weapon type (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:60:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.roles
@@ -89,12 +92,7 @@ funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
 funclg/character/stats.py:115:0: W0105: String statement has no effect (pointless-string-statement)
 funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.managers.abilities_manager
-funclg/managers/abilities_manager.py:48:1: W0511: TODO: Remove Comment (fixme)
-funclg/managers/abilities_manager.py:7:0: W0611: Unused logger imported from loguru (unused-import)
-funclg/managers/abilities_manager.py:9:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
-funclg/managers/abilities_manager.py:10:0: W0611: Unused Abilities imported from funclg.character.abilities (unused-import)
-funclg/managers/abilities_manager.py:11:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
-funclg/managers/abilities_manager.py:11:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
+funclg/managers/abilities_manager.py:50:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
 ************* Module funclg.managers.character_manager
 funclg/managers/character_manager.py:47:1: W0511: TODO: Remove me (fixme)
 funclg/managers/character_manager.py:6:0: W0611: Unused logger imported from loguru (unused-import)
@@ -103,9 +101,9 @@ funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from 
 funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
 ************* Module funclg.managers.modifier_manager
-funclg/managers/modifier_manager.py:23:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
-funclg/managers/modifier_manager.py:25:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
-funclg/managers/modifier_manager.py:57:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
+funclg/managers/modifier_manager.py:49:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
+funclg/managers/modifier_manager.py:80:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
 funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
@@ -115,33 +113,21 @@ funclg/managers/roles_manager.py:10:0: W0611: Unused Roles imported from funclg.
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
-************* Module funclg.utils.__init__
-funclg/utils/__init__.py:1:0: R0801: Similar lines in 2 files
-==funclg.character.abilities:[100:107]
-==funclg.character.equipment:[77:84]
-        exporter = self.__dict__.copy()
-        for key, value in exporter.items():
-            if isinstance(value, Modifier):
-                exporter[key] = value.export()
-        return exporter
-
-    def get_item_type(self) -> str: (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.64/10 (previous run: 9.63/10, +0.01)
+Your code has been rated at 9.72/10 (previous run: 9.71/10, +0.01)
 
 
 -----PYRIGHT-----
 
-npm ERR! code ENOENT
-npm ERR! syscall rename
-npm ERR! path /home/jevinle/.npm/_npx/762/lib/node_modules/pyright
-npm ERR! dest /home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE
-npm ERR! errno -2
-npm ERR! enoent ENOENT: no such file or directory, rename '/home/jevinle/.npm/_npx/762/lib/node_modules/pyright' -> '/home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE'
-npm ERR! enoent This is related to npm not being able to find a file.
-npm ERR! enoent 
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/jevinle/.npm/_logs/2022-10-01T18_35_22_379Z-debug.log
-Install for pyright@1.1.223 failed with code 254
+npx: installed 1 in 7.586s
+No configuration file found.
+pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
+Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
+Pyproject file "/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml" is missing "[tool.pyright]" section.
+stubPath /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/typings is not a valid directory.
+Assuming Python platform Linux
+Searching for source files
+Found 21 source files
+0 errors, 0 warnings, 0 informations 
+Completed in 2.832sec

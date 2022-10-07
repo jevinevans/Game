@@ -1,0 +1,41 @@
+{
+    "ABILITY-16650-OKNG-98180": {
+        "name": "Fireball",
+        "description": "Throws a fireball at target",
+        "ability_type": "Magic",
+        "_target": "enemy",
+        "mod": {
+            "adds": {
+                "defense": 446
+            },
+            "mults": {}
+        },
+        "_id": "ABILITY-16650-OKNG-98180"
+    },
+    "ABILITY-16650-DXUF-98274": {
+        "name": "Empower",
+        "description": "Strengthens player",
+        "ability_type": "Buff",
+        "_target": "self",
+        "mod": {
+            "adds": {},
+            "mults": {
+                "defense": 0.98
+            }
+        },
+        "_id": "ABILITY-16650-DXUF-98274"
+    },
+    "ABILITY-16650-DOTD-98286": {
+        "name": "Heal",
+        "description": "Heals the users mod",
+        "ability_type": "Restore",
+        "_target": "self",
+        "mod": {
+            "adds": {},
+            "mults": {
+                "energy": 0.45
+            }
+        },
+        "_id": "ABILITY-16650-DOTD-98286"
+    }
+}

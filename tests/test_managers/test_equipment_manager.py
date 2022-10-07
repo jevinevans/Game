@@ -45,8 +45,6 @@ def test_equipment_manager_update_data(m_db, test_equipment, test_weapon):
     eq_man.EQUIPMENT_DATA["data"][test_weapon["_id"]] = test_weapon
 
     # Make sure data was loaded into objects but that there are new data items that need objects created
-    print(len(eq_man.EQUIPMENT_DATA["objects"]))
-
     assert len(eq_man.EQUIPMENT_DATA["objects"]) != 0
     assert len(eq_man.EQUIPMENT_DATA["data"]) != len(eq_man.EQUIPMENT_DATA["objects"])
 
@@ -56,13 +54,13 @@ def test_equipment_manager_update_data(m_db, test_equipment, test_weapon):
     assert m_db.called_once
 
 
-# TODO: Might be able to create more accurate test
 @patch("funclg.utils.data_mgmt.update_data")
-def test_equipment_manager_export_data(m_db):
-    assert len(eq_man.EQUIPMENT_DATA["objects"]) != 0
+def test_equipment_manager_export_data(m_db, test_weapon):
+    eq_man.EQUIPMENT_DATA["objects"][test_weapon["_id"]] = eq_man.WeaponEquipment(**test_weapon)
 
     eq_man.export_data()
     assert len(eq_man.EQUIPMENT_DATA["data"]) == len(eq_man.EQUIPMENT_DATA["objects"])
+    assert test_weapon["_id"] in eq_man.EQUIPMENT_DATA["data"]
     assert m_db.called_once
 
 
@@ -118,7 +116,7 @@ def test_equipment_manager_show_equipment(m_eq_select, m_log, m_print, test_equi
     m_eq_select.return_value = None
     eq_man.show_equipment()
     assert m_log.called_with("There are no equipment items to show.")
-    assert m_log.info.called
+    assert m_log.warning.called
 
 
 @patch("builtins.print")
@@ -159,7 +157,7 @@ def test_equipment_manager_delete_equipment(
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.equipment_manager.generate_modifier")
+@patch("funclg.managers.modifier_manager.generate_modifier")
 @patch("funclg.managers.equipment_manager.list_choice_selection")
 @patch("funclg.managers.equipment_manager.string_validation")
 def test_equipment_manager_new_weapon(m_str_val, m_list_sel, m_mod_gen, m_id, test_weapon):
@@ -182,7 +180,7 @@ def test_equipment_manager_new_weapon(m_str_val, m_list_sel, m_mod_gen, m_id, te
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.equipment_manager.generate_modifier")
+@patch("funclg.managers.modifier_manager.generate_modifier")
 @patch("funclg.managers.equipment_manager.list_choice_selection")
 @patch("funclg.managers.equipment_manager.string_validation")
 def test_equipment_manager_new_body_armor(m_str_val, m_list_sel, m_mod_gen, m_id, test_equipment):

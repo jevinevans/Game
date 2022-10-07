@@ -9,6 +9,7 @@ Description: A manager class for creating, updating, and removing modifiers.
 # - allow the user/app to build out modifiers that can be used on abilities and equipment.
 ###
 from random import randint
+from typing import Any, Dict
 
 from loguru import logger
 
@@ -20,37 +21,59 @@ from funclg.utils.input_validation import (
 )
 
 
-# TODO: Create/modify the build to allow for random creation
-# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
-# TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
-# Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
-def generate_modifier(item_type: str = ""):
-    adds, mults = {}, {}
-
-    mod_types = ["attack", "energy", "health", "defense"]
-
-    if item_type == "armor":
-        mod_types = ["health", "defense"]
-
-    elif item_type == "weapon":
-        mod_types = ["energy", "attack"]
-
-    add_mod = mod_types.pop(randint(0, len(mod_types)))
+def _gen_add_mod(mod_list: list, adds: Dict[str, Any], random: bool = False):
+    if random:
+        add_mod = mod_list.pop(randint(0, len(mod_list) - 1))
+    else:
+        add_mod = mod_list[0]
     add_value = randint(1, Modifier.MOD_ADD_RANGE)
-    try:
-        mult_mod = mod_types.pop(randint(0, len(mod_types)))
-    except IndexError:
-        mult_mod = mod_types.pop()
+    adds.setdefault(add_mod, add_value)
+    return adds
 
+
+def _gen_mult_mod(mod_list: list, mults: Dict[str, Any], random: bool = False):
+    if random:
+        mult_mod = mod_list.pop(randint(0, len(mod_list) - 1))
+    else:
+        mult_mod = mod_list[0]
     mult_value = randint(1, Modifier.MOD_MULT_RANGE)
-
+    logger.debug(f"Mult Value: {mult_value}")
     while mult_value > 1:
         mult_value /= 100
     mult_value = round(mult_value, 2)
 
-    adds.setdefault(add_mod, add_value)
     mults.setdefault(mult_mod, mult_value)
+    return mults
 
+
+# TODO: Create/modify the build to allow for random creation
+# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
+# TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
+# Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
+def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, random: bool = False):
+    adds, mults = {}, {}
+    pre_mods = pre_mods if pre_mods else {}
+
+    mod_types = Modifier.MODIFIER_TYPES
+
+    if item_type == "ability":
+        mod_types = pre_mods["mods"].copy()
+        if pre_mods["m_type"] == "adds":
+            adds = _gen_add_mod(mod_types, adds, random)
+        else:
+            mults = _gen_mult_mod(mod_types, mults, random)
+
+    else:
+        if item_type == "armor":
+            mod_types = ["health", "defense"]
+
+        elif item_type == "weapon":
+            mod_types = ["energy", "attack"]
+
+        adds = _gen_add_mod(mod_types, adds)
+        mults = _gen_mult_mod(mod_types, mults)
+
+    logger.debug(f"MOD: adds: {adds}, mults: {mults}")
     return {"adds": adds, "mults": mults}
 
 

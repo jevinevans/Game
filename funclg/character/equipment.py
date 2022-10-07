@@ -18,6 +18,7 @@ from ..utils import types as uTypes
 from .modifiers import Modifier
 
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
+# pylint: disable=duplicate-code
 
 
 class Equipment:

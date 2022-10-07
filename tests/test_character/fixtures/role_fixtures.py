@@ -33,7 +33,7 @@ def mage_test_role():
                 Abilities(
                     name=a_type + " Test Ability",
                     ability_type=a_type,
-                    modifier=mods[a_type],
+                    mod=mods[a_type],
                     description=f"Testing {a_type} ability.",
                 )
             )

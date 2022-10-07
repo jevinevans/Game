@@ -16,7 +16,7 @@ from ..utils.types import ABILITY_TYPES
 from .modifiers import Modifier
 
 # logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
-
+# pylint: disable=duplicate-code
 
 """
 stats integration update,
@@ -41,7 +41,7 @@ class Abilities:
         name: str,
         ability_type: str,
         description: str,
-        modifier: Optional[Dict[str, Dict]] = None,
+        mod: Optional[Dict[str, Dict]] = None,
         **kwargs,
     ):
 
@@ -52,7 +52,7 @@ class Abilities:
 
         # Set Ability Modifier effects
         self.mod = Modifier(name=name)
-        val_mod = self._validate_mods(modifier)
+        val_mod = self._validate_mods(mod)
         self.mod.add_mod(ABILITY_TYPES[self.ability_type]["m_type"], val_mod)
 
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
@@ -67,6 +67,9 @@ class Abilities:
                 pass_check = True
                 for key in mod.keys():
                     pass_check &= key in ABILITY_TYPES[self.ability_type]["mods"]
+                    logger.debug(
+                        f"Mod Checks: {key} in {ABILITY_TYPES[self.ability_type]['mods']} {key in ABILITY_TYPES[self.ability_type]['mods']}"
+                    )
                 if pass_check:
                     return mod
 
@@ -114,7 +117,7 @@ class Abilities:
         return Abilities(
             name=self.name,
             ability_type=self.ability_type,
-            modifier=self.mod.export(),
+            mod=self.mod.export(),
             description=self.description,
             _id=self._id,
         )

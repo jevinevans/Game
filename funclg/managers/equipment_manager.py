@@ -6,6 +6,7 @@ Description: A manager class for creating, updating, and removing equipment.
 
 from loguru import logger
 
+import funclg.managers.modifier_manager as mod_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.input_validation import (
@@ -15,8 +16,6 @@ from funclg.utils.input_validation import (
     yes_no_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
-
-from .modifier_manager import generate_modifier
 
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
@@ -47,7 +46,7 @@ def _new_weapon():
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
     print("Generating mods for this weapon...")
-    weapon_mod = generate_modifier("weapon")
+    weapon_mod = mod_man.generate_modifier("weapon")
 
     return WeaponEquipment(
         name=weapon_name,
@@ -68,7 +67,7 @@ def _new_body_armor():
     item_desc = string_validation(f"How would you describe {item_name}?", "Description")
 
     print(f"Generating mods for this {item_type}...")
-    item_mod = generate_modifier("armor")
+    item_mod = mod_man.generate_modifier("armor")
 
     return BodyEquipment(
         name=item_name,
@@ -126,12 +125,7 @@ def show_equipment():
         show_equip = EQUIPMENT_DATA["objects"][show_equip_id]
         print(show_equip.details())
         return
-    logger.info("There are no equipment items to show.")
-
-
-# def edit_equipment():
-#     print("TODO: Build Edit Equipment Section")
-#     raise NotImplementedError
+    logger.warning("There are no equipment items to show.")
 
 
 def delete_equipment():
