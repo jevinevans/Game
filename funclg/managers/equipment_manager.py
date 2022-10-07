@@ -16,8 +16,6 @@ from funclg.utils.input_validation import (
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
-from .modifier_manager import generate_modifier
-
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
 
@@ -163,7 +161,6 @@ def show_equipment():
         print(show_equip.details())
         return
     logger.warning("There are no equipment items to show.")
-
 
 
 def delete_equipment():

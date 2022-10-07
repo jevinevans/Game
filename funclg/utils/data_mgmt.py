@@ -39,8 +39,8 @@ def validate_filename(filename: str) -> str:
 
 # TODO may need to move assertion error to validate method
 def load_data(game_data: Dict[str, Any]):
+    filename = validate_filename(game_data["filename"])
     try:
-        filename = validate_filename(game_data["filename"])
         if os.path.getsize(filename):
             with open(filename, "r", encoding="utf-8") as load_file:
                 game_data["data"] = json.load(load_file)

@@ -54,7 +54,7 @@ def test_abilities_init(abilities_all_types):
         name="Test",
         ability_type="Magic",
         description="Test incompatable mod",
-        modifier={"mults": {"defense": 0.22}},
+        mod={"mults": {"defense": 0.22}},
     )
     print(test_ability.mod)
     assert test_ability.mod.export() == {"adds": {"health": 1}, "mults": {}}
