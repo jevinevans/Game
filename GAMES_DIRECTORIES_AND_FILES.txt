@@ -108,7 +108,6 @@
 ./pyproject.toml
 ./requirements.txt
 ./runTest.sh
-./test.log
 ./tests
 ./tests/__init__.py
 ./tests/test_character
