@@ -3,6 +3,7 @@ from unittest.mock import patch
 import pytest
 
 import funclg.managers.modifier_manager as mod_man
+from funclg.utils.types import ABILITY_TYPES
 
 
 @patch("funclg.managers.modifier_manager.yes_no_validation")
@@ -33,27 +34,61 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
     assert return_val.get_mods() == test_mod.get_mods()
 
 
-@patch("funclg.managers.modifier_manager.randint")
-def test_modifier_manager_generate_modifer(m_rand):
+@patch("funclg.managers.modifier_manager._gen_mult_mod")
+@patch("funclg.managers.modifier_manager._gen_add_mod")
+def test_modifier_manager_generate_modifer_flow(m_add, m_mult):
     # Test no item_type
-    m_rand.side_effect = [3, 60, 1, 30]
+    # m_rand.side_effect = [3, 60, 1, 30]
+    m_add.return_value = {"health": 60}
+    m_mult.return_value = {"energy": 0.4}
     mod = mod_man.generate_modifier()
 
-    assert mod == {"adds": {"defense": 60}, "mults": {"energy": 0.3}}
+    assert mod == {"adds": {"health": 60}, "mults": {"energy": 0.4}}
 
     # Test Armor Type
-    m_rand.side_effect = [0, 32, 0, 45]
+    m_add.return_value = {"health": 32}
+    m_mult.return_value = {"defense": 0.45}
     mod = mod_man.generate_modifier("armor")
     assert mod == {"adds": {"health": 32}, "mults": {"defense": 0.45}}
 
     # Test Weapon Type
-    m_rand.side_effect = [1, 474, 0, 90]
+    m_add.return_value = {"attack": 474}
+    m_mult.return_value = {"energy": 0.9}
     mod = mod_man.generate_modifier("weapon")
     assert mod == {"adds": {"attack": 474}, "mults": {"energy": 0.9}}
 
     # Test Index Error
 
     # Test Weapon Type
-    m_rand.side_effect = [1, 474, 10, 90]
+    m_add.return_value = {"energy": 474}
+    m_mult.return_value = {"defense": 0.9}
     mod = mod_man.generate_modifier()
     assert mod == {"adds": {"energy": 474}, "mults": {"defense": 0.9}}
+
+
+@patch("funclg.managers.modifier_manager.randint")
+def test_modifier_manager_generate_modifer_ability(m_rand):
+
+    # Test Ability Add
+    m_rand.side_effect = [30]
+
+    mod = mod_man.generate_modifier("ability", ABILITY_TYPES["Physical"])
+    assert mod == {"adds": {"health": 30}, "mults": {}}
+
+    # Test Ability Mult
+    m_rand.side_effect = [60]
+
+    mod = mod_man.generate_modifier("ability", ABILITY_TYPES["Restore"])
+    assert mod == {"adds": {}, "mults": {"health": 0.6}}
+
+    # Test Ability Add Random
+    m_rand.side_effect = [1, 30]
+
+    mod = mod_man.generate_modifier("ability", ABILITY_TYPES["Physical"], True)
+    assert mod == {"adds": {"defense": 30}, "mults": {}}
+
+    # Test Ability Mult Random
+    m_rand.side_effect = [2, 60]
+
+    mod = mod_man.generate_modifier("ability", ABILITY_TYPES["Restore"], True)
+    assert mod == {"adds": {}, "mults": {"energy": 0.6}}

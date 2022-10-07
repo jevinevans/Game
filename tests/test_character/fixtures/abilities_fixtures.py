@@ -44,7 +44,7 @@ def abilities_all_types():
                     name=f"Ability_{index}",
                     ability_type=a_type,
                     description=f"{a_type} ability",
-                    modifier=ability_mods[a_type],
+                    mod=ability_mods[a_type],
                 )
             )
 

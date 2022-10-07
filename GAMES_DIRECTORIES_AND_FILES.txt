@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 23			|
-|	Files: 109				|
+|	Files: 110				|
 +==========================================+
 
 ./.coverage
@@ -86,6 +86,7 @@
 ./funclg/character/roles.py
 ./funclg/character/stats.py
 ./funclg/data
+./funclg/data/abilities.json
 ./funclg/data/equipment.json
 ./funclg/managers
 ./funclg/managers/__init__.py
@@ -108,7 +109,6 @@
 ./pyproject.toml
 ./requirements.txt
 ./runTest.sh
-./test.log
 ./tests
 ./tests/__init__.py
 ./tests/test_character
@@ -131,6 +131,7 @@
 ./tests/test_main
 ./tests/test_main/test_main.py
 ./tests/test_managers
+./tests/test_managers/test_abilities_manager.py
 ./tests/test_managers/test_equipment_manager.py
 ./tests/test_managers/test_modifier_manager.py
 ./tests/test_utils

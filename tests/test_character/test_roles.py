@@ -37,7 +37,7 @@ def test_roles_add_power_valid_power(mage_test_role):
     healing_2 = Abilities(
         name="Healing 2",
         ability_type="Restore",
-        modifier={"adds": {"health": 50}},
+        mod={"adds": {"health": 50}},
         description="New healing ability",
     )
 
@@ -56,13 +56,13 @@ def test_roles_add_power_valid_power_max_reached(mage_test_role):
     buff = Abilities(
         name="Buff 2",
         ability_type="Buff",
-        modifier={"mults": {"defense": 0.5}},
+        mod={"mults": {"defense": 0.5}},
         description="New Buff ability",
     )
     healing_2 = Abilities(
         name="Healing 2",
         ability_type="Restore",
-        modifier={"adds": {"health": 50}},
+        mod={"adds": {"health": 50}},
         description="New healing ability",
     )
 
@@ -79,7 +79,7 @@ def test_roles_add_power_invalid_power(mage_test_role):
     stomp = Abilities(
         name="Stomp",
         ability_type="Physical",
-        modifier={"adds": {"attack": 50}},
+        mod={"adds": {"attack": 50}},
         description="stomp ability",
     )
 
