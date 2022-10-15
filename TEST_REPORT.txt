@@ -65,10 +65,8 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 92.16%
 
 -----BLACK-----
 
-reformatted funclg/character/equipment.py
-
 All done! ✨ 🍰 ✨
-1 file reformatted, 20 files left unchanged.
+21 files left unchanged.
 
 -----BANDIT-----
 
