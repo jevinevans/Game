@@ -48,13 +48,17 @@ class Modifier:
         return self._name
 
     def __str__(self):
-        string = "Modifier:\n"
-        string += self._friendly_read(indent=2)
-
-        return string
+        stats =  self._friendly_read()
+        return ', '.join([f'{x[0].capitalize()}{x[1][0]}' for x in zip(stats.keys(), stats.values())])
 
     def details(self, indent: int = 0):
-        return "\n" + self._friendly_read(indent=indent)
+        stats = self._friendly_read()
+        string = "\n"
+        for stat, vals in stats.items():
+            string += " " * indent + str(stat).capitalize() + ":"
+            string += ",".join(val for val in vals)
+            string += "\n"
+        return string
 
     def _verify_mods(self, mods):
         # TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE
@@ -94,7 +98,7 @@ class Modifier:
             friendly = "+" + friendly
         return " " + friendly
 
-    def _friendly_read(self, indent: int = 0):
+    def _friendly_read(self):
         stats = {}
 
         if self.adds:
@@ -104,9 +108,4 @@ class Modifier:
             for stat, effect in self.mults.items():
                 stats.setdefault(stat, []).append(self._friendly_read_mod(effect, percentage=True))
 
-        string = ""
-        for stat, vals in stats.items():
-            string += " " * indent + str(stat).capitalize() + ":"
-            string += ",".join(val for val in vals)
-            string += "\n"
-        return string
+        return stats

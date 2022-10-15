@@ -51,16 +51,7 @@ def modifier_export_expectation(add_mods, mult_mods):
 
 @pytest.fixture
 def modifier_str_expectation():
-    expectations = []
-    for indent in range(0, 11, 2):
-        base = f"""{' '*indent}Modifier:
-{' '*(indent+2)}Attack: +43
-{' '*(indent+2)}Defense: -20
-{' '*(indent+2)}Health: +33.0%
-{' '*(indent+2)}Energy: -60.0%
-"""
-        expectations.append(base)
-    return expectations
+        return "Attack +43, Defense -20, Health +33.0%, Energy -60.0%"
 
 
 @pytest.fixture
