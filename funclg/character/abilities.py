@@ -83,7 +83,7 @@ class Abilities:
     def __str__(self):
         string = f"{self.name} ({self.ability_type})"
         if self.mod.adds or self.mod.mults:
-            string += f"\n{self.mod}"
+            string += f" - {self.mod}"
         return string
 
     @property

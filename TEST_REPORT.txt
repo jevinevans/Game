@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri Oct  7 16:37:11 PDT 2022 
+Date: Mon Oct 10 02:53:06 PDT 2022 
 
 ---PYTEST---
 
@@ -40,19 +40,19 @@ funclg/managers/__init__.py               12      0      2      0   100%
 funclg/managers/abilities_manager.py      63      0     20      0   100%
 funclg/managers/character_manager.py      17      7      0      0    59%   19-20, 24, 28-29, 33-34
 funclg/managers/equipment_manager.py      88      0     30      0   100%
-funclg/managers/modifier_manager.py       65      0     26      3    97%   95->108, 105->108, 114->exit
-funclg/managers/roles_manager.py          24     14      6      0    33%   26, 30-34, 38, 42-48
+funclg/managers/modifier_manager.py       65      0     26      0   100%
+funclg/managers/roles_manager.py          27     15      6      0    36%   27, 31-35, 40, 44, 48-54
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     19     10      1    59%   41->55, 45-54, 59-68
 funclg/utils/input_validation.py          41     28     16      0    30%   16-25, 32-33, 40, 47-49, 64-70, 76-85
 funclg/utils/menu_funcs.py                40     18     14      0    48%   15-16, 36-59
 funclg/utils/types.py                     19      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                    972    104    282      6    89%
+TOTAL                                    975    105    282      3    89%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 88.52%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 88.70%
 
-============================== 99 passed in 1.56s ==============================
+============================== 99 passed in 0.95s ==============================
 
 ---Code Quality Report---
 
@@ -62,10 +62,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 88.52%
 
 -----BLACK-----
 
-reformatted funclg/character/equipment.py
-
 All done! ✨ 🍰 ✨
-1 file reformatted, 20 files left unchanged.
+21 files left unchanged.
 
 -----BANDIT-----
 
@@ -92,7 +90,8 @@ funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
 funclg/character/stats.py:115:0: W0105: String statement has no effect (pointless-string-statement)
 funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.managers.abilities_manager
-funclg/managers/abilities_manager.py:50:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
+funclg/managers/abilities_manager.py:24:5: W0511: TODO: On edit, needs to update all values (fixme)
+funclg/managers/abilities_manager.py:51:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
 ************* Module funclg.managers.character_manager
 funclg/managers/character_manager.py:47:1: W0511: TODO: Remove me (fixme)
 funclg/managers/character_manager.py:6:0: W0611: Unused logger imported from loguru (unused-import)
@@ -100,27 +99,31 @@ funclg/managers/character_manager.py:8:0: W0611: Unused funclg.utils.data_mgmt i
 funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from funclg.character.character (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
 funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
+************* Module funclg.managers.equipment_manager
+funclg/managers/equipment_manager.py:24:5: W0511: TODO: On edit, needs to update all values (fixme)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:49:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
 funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
 funclg/managers/modifier_manager.py:80:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
 ************* Module funclg.managers.roles_manager
-funclg/managers/roles_manager.py:18:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
-funclg/managers/roles_manager.py:19:1: W0511: def export_db() # TODO Create me (fixme)
-funclg/managers/roles_manager.py:21:1: W0511: def load_db() # TODO Create me (fixme)
-funclg/managers/roles_manager.py:61:1: W0511: TODO Remove me (fixme)
-funclg/managers/roles_manager.py:10:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
+funclg/managers/roles_manager.py:19:1: W0511: def mod_name_duplicate_check(): # TODO Create Me (fixme)
+funclg/managers/roles_manager.py:20:1: W0511: def export_db() # TODO Create me (fixme)
+funclg/managers/roles_manager.py:22:1: W0511: def load_db() # TODO Create me (fixme)
+funclg/managers/roles_manager.py:39:5: W0511: TODO: allow the user to add or remove existing abilities from the role (fixme)
+funclg/managers/roles_manager.py:68:1: W0511: TODO Remove me (fixme)
+funclg/managers/roles_manager.py:9:0: W0611: Unused funclg.managers.abilities_manager imported as ab_man (unused-import)
+funclg/managers/roles_manager.py:11:0: W0611: Unused Roles imported from funclg.character.roles (unused-import)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.72/10 (previous run: 9.71/10, +0.01)
+Your code has been rated at 9.68/10 (previous run: 9.68/10, +0.00)
 
 
 -----PYRIGHT-----
 
-npx: installed 1 in 7.586s
+npx: installed 1 in 4.043s
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -130,4 +133,4 @@ Assuming Python platform Linux
 Searching for source files
 Found 21 source files
 0 errors, 0 warnings, 0 informations 
-Completed in 2.832sec
+Completed in 1.546sec

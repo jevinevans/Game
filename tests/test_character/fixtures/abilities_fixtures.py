@@ -63,7 +63,7 @@ def abilities_str_expectation(abilities_all_types):
     ability_strings = []
     for ability in abilities_all_types:
         if ability.mod.adds or ability.mod.mults:
-            ability_strings.append(f"{ability.name} ({ability.ability_type})\n{ability.mod}")
+            ability_strings.append(f"{ability.name} ({ability.ability_type}) - {ability.mod}")
         else:
             ability_strings.append(f"{ability.name} ({ability.ability_type})")
     return ability_strings
