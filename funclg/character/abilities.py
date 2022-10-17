@@ -18,15 +18,7 @@ from .modifiers import Modifier
 # logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
 
-"""
-stats integration update,
-- replace ability group and effect with a modifier
-- Define a modifier validation method that will check to see if the damage type matches the mods defined.
-- add energy cost attribute
-- add target attribute (either self or other, could just be a boolean?)
-- define use function to return the modifiers
-
-"""
+# TODO: add energy cost attribute
 
 
 class Abilities:
@@ -70,6 +62,8 @@ class Abilities:
                     logger.debug(
                         f"Mod Checks: {key} in {ABILITY_TYPES[self.ability_type]['mods']} {key in ABILITY_TYPES[self.ability_type]['mods']}"
                     )
+                    if self._target == "enemy":
+                        mod[key] *= -1
                 if pass_check:
                     return mod
 
@@ -95,7 +89,7 @@ class Abilities:
         desc += "-" * len(self.name)
         desc += f"\n{' '*indent}Description: {self.description}"
         desc += f"\n{' '*indent}Ability Type: {self.ability_type}"
-        desc += f"\n{' '*indent}Target: {self._target}"
+        desc += f"\n{' '*indent}Target: {self._target.capitalize()}"
         desc += self.mod.details(2)
         return desc
 

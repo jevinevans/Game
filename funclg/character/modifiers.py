@@ -48,8 +48,10 @@ class Modifier:
         return self._name
 
     def __str__(self):
-        stats =  self._friendly_read()
-        return ', '.join([f'{x[0].capitalize()}{x[1][0]}' for x in zip(stats.keys(), stats.values())])
+        stats = self._friendly_read()
+        return ", ".join(
+            [f"{x[0].capitalize()}{x[1][0]}" for x in zip(stats.keys(), stats.values())]
+        )
 
     def details(self, indent: int = 0):
         stats = self._friendly_read()
