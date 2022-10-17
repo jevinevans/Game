@@ -88,6 +88,22 @@ def filter_abilities_by_types(a_types: list):
     return filtered_abilities
 
 
+def filter_abilities_by_types(a_types: list):
+
+    _abilities = [
+        ability.copy()
+        for _, ability in ABILITIES_DATA["objects"].items()
+        if ability.ability_type in a_types
+    ]
+
+    filtered_abilities = {a: [] for a in a_types}
+
+    for ability in _abilities:
+        filtered_abilities[ability.ability_type].append(ability)
+
+    return filtered_abilities
+
+
 def show_ability():
     show_ability_id = select_ability()
     if show_ability_id:
