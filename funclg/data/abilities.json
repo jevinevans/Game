@@ -37,5 +37,44 @@
             }
         },
         "_id": "ABILITY-16650-DOTD-98286"
+    },
+    "ABILITY-16659-LDHB-46504": {
+        "name": "Freeze",
+        "description": "Sends a cooling chill to the enemy and freezes them on the spot",
+        "ability_type": "Magic",
+        "_target": "enemy",
+        "mod": {
+            "adds": {
+                "health": 322
+            },
+            "mults": {}
+        },
+        "_id": "ABILITY-16659-LDHB-46504"
+    },
+    "ABILITY-16659-NYWC-46543": {
+        "name": "Strike",
+        "description": "Strikes an enemy with the users weapon",
+        "ability_type": "Physical",
+        "_target": "enemy",
+        "mod": {
+            "adds": {
+                "health": 225
+            },
+            "mults": {}
+        },
+        "_id": "ABILITY-16659-NYWC-46543"
+    },
+    "ABILITY-16660-TXKX-31305": {
+        "name": "Weaken",
+        "description": "Weakens an enemy",
+        "ability_type": "Debuff",
+        "_target": "enemy",
+        "mod": {
+            "adds": {},
+            "mults": {
+                "defense": 0.83
+            }
+        },
+        "_id": "ABILITY-16660-TXKX-31305"
     }
 }

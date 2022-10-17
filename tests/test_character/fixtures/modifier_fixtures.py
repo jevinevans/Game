@@ -51,7 +51,7 @@ def modifier_export_expectation(add_mods, mult_mods):
 
 @pytest.fixture
 def modifier_str_expectation():
-        return "Attack +43, Defense -20, Health +33.0%, Energy -60.0%"
+    return "Attack +43, Defense -20, Health +33.0%, Energy -60.0%"
 
 
 @pytest.fixture

@@ -94,6 +94,6 @@ def abilities_detail_expectation(abilities_all_types):
 {' '*indent}{'-'*len(ability.name)}
 {' '*indent}Description: {ability.description}
 {' '*indent}Ability Type: {ability.ability_type}
-{' '*indent}Target: {ability._target}{ability.mod.details(2)}"""
+{' '*indent}Target: {ability._target.capitalize()}{ability.mod.details(2)}"""
         ability_details.append(base)
     return ability_details

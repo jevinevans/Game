@@ -35,9 +35,12 @@ def export_data():
     db.update_data(ABILITIES_DATA)
 
 
+# TODO: need to add a condition to not return so that there is not lose data
+# TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used
 def build_ability():
     print("\nStarting Ability Creationg...\n\nWhat type of ability would you like to create")
 
+    # TODO: Add description print out
     for _a_type, data in ABILITY_TYPES.items():
         print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
@@ -72,6 +75,22 @@ def select_ability():
     return None
 
 
+def filter_abilities_by_types(a_types: list):
+
+    _abilities = [
+        ability.copy()
+        for _, ability in ABILITIES_DATA["objects"].items()
+        if ability.ability_type in a_types
+    ]
+
+    filtered_abilities = {a: [] for a in a_types}
+
+    for ability in _abilities:
+        filtered_abilities[ability.ability_type].append(ability)
+
+    return filtered_abilities
+
+
 def show_ability():
     show_ability_id = select_ability()
     if show_ability_id:
@@ -102,7 +121,7 @@ ABILITY_MENU = {
     "menu_items": [
         {"name": "Add New Ability", "action": build_ability},
         # {"name": "Edit Ability", "action": edit_ability},
-        {"name": "View Ability Details", "action": show_ability()},
+        {"name": "View Ability Details", "action": show_ability},
         {"name": "Delete Ability", "action": delete_ability},
     ],
 }
