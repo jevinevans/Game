@@ -82,9 +82,6 @@ def test_abilities_copy(abilities_all_types):
     repair_1 = abilities_all_types[0]
     repair_2 = repair_1.copy()
 
-    print(abilities_gen_mods())
-    print(abilities_all_types[0])
-
     # Test object difference
     assert repair_1 != repair_2
     assert id(repair_1) != id(repair_2)
