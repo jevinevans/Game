@@ -38,7 +38,7 @@ def export_data():
 # TODO: need to add a condition to not return so that there is not lose data
 # TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used
 def build_ability():
-    print("\nStarting Ability Creationg...\n\nWhat type of ability would you like to create")
+    print("\nStarting Ability Creation...\n\nWhat type of ability would you like to create")
 
     # TODO: Add description print out
     for _a_type, data in ABILITY_TYPES.items():
@@ -62,10 +62,9 @@ def build_ability():
         ABILITIES_DATA["data"][new_ability.id] = new_ability.export()
         update_data()
         print(f"{new_ability.name} has been saved!!!")
-        return new_ability
+        return
     print("Guess no new ability for you to use, oh well...")
     del new_ability
-    return None
 
 
 def select_ability():

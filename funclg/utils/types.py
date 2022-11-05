@@ -13,6 +13,7 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
 WEAPON_TYPES = ["Sword", "Wand", "Knife", "Spear", "Bow", ""]
 
 
+# TODO Add descriptions
 # This defines the type of abilites, their effect target (Damage = enemies, Boost = Self), List of available attributes
 ABILITY_TYPES = {
     "Magic": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},
@@ -28,7 +29,11 @@ ABILITY_TYPES = {
         "m_type": "mults",
         "mods": ["health", "energy", "attack", "defense"],
     },
-    "None": {"target": "None", "m_type": "adds", "mods": []},
+    "None": {
+        "target": "None",
+        "m_type": "adds",
+        "mods": [],
+    },  # TODO: Change to 'Basic' types or something that is not none
 }
 
 

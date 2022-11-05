@@ -1,3 +1,9 @@
+"""
+Description: Pytest fixtures for the character.roles module
+Developer: Jevin Evans
+Date: 11/5/2022
+"""
+
 from unittest.mock import patch
 
 import pytest

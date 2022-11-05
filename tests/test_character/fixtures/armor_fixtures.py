@@ -1,3 +1,9 @@
+"""
+Description: Pytest fixtures for the character.armor module
+Developer: Jevin Evans
+Date: 11/5/2022
+"""
+
 import pytest
 
 from funclg.character.armor import Armor

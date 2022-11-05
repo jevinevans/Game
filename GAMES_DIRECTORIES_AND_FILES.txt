@@ -120,7 +120,7 @@
 ./tests/test_character/fixtures/armor_fixtures.py
 ./tests/test_character/fixtures/equipment_fixures.py
 ./tests/test_character/fixtures/modifier_fixtures.py
-./tests/test_character/fixtures/role_fixtures.py
+./tests/test_character/fixtures/roles_fixtures.py
 ./tests/test_character/fixtures/stat_fixtures.py
 ./tests/test_character/test_abilities.py
 ./tests/test_character/test_armor.py

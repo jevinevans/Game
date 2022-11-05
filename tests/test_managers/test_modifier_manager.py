@@ -30,8 +30,24 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
     test_mod = mod_man.Modifier(
         "Test_mod", adds={"energy": 50, "attack": 250}, mults={"health": 0.6, "defense": 0.75}
     )
-    assert return_val.name == test_mod.name
     assert return_val.get_mods() == test_mod.get_mods()
+
+    m_list_select.side_effect = [
+        "energy",
+        "Base Change",
+    ]
+    m_num_range.side_effect = [50]
+    m_yn_val.side_effect = [False, False, False]
+
+    return_val = mod_man.build_modifier("Test_mod")
+    assert return_val == None
+
+    m_list_select.side_effect = ["attack", "Percentage Change"]
+    m_num_range.side_effect = [50]
+    m_yn_val.side_effect = [False, False, False]
+
+    return_val = mod_man.build_modifier("Test_mod")
+    assert return_val == None
 
 
 @patch("funclg.managers.modifier_manager._gen_mult_mod")

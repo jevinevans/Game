@@ -21,6 +21,7 @@ EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
 
 def update_data():
+    # TODO: On edit, needs to update all values
     db.update_data(EQUIPMENT_DATA)
 
     for _id, data in EQUIPMENT_DATA["data"].items():

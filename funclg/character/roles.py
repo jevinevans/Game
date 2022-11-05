@@ -8,6 +8,7 @@ import json
 from typing import Any, Dict, List, Optional
 
 from loguru import logger
+from typing_extensions import Self
 
 import funclg.utils.data_mgmt as db
 
@@ -31,7 +32,7 @@ class Roles:
         description: str,
         armor_type: int,
         ability_types: Optional[List] = None,
-        abilities: Optional[List] = None,
+        abilities: Optional[List[Abilities]] = None,
         **kwargs,
     ):  # pylint: disable=too-many-arguments
         self.name = name
@@ -41,7 +42,7 @@ class Roles:
         self.ability_types = (
             [a_type for a_type in ability_types if a_type in ABILITY_TYPES]
             if ability_types
-            else "None"
+            else ["None"]
         )
         self.abilities = self._validate_abilities(abilities) if abilities else []
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
@@ -112,7 +113,7 @@ class Roles:
         with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
             json.dump(self.export(), out_file)
 
-    def _validate_abilities(self, abilities: list):
+    def _validate_abilities(self, abilities: list) -> List[Abilities]:
         """
         Validates that abilities added are compatable
         """
@@ -121,5 +122,15 @@ class Roles:
             ability.copy() for ability in abilities if ability.ability_type in self.ability_types
         ]
 
+    def copy(self) -> Self:
+        """Returns a copy of the object"""
+        return Roles(
+            name=self.name,
+            description=self.description,
+            armor_type=self.armor_type,
+            ability_types=self.ability_types,
+            abilities=self.abilities,
+            _id=self._id,
+        )
+
     # def show_powers(): #TODO Define me
-    # def copy(): # TODO: Roles copy method: unsure if needed

@@ -52,7 +52,7 @@ def character_export_expectation():
             "_id": "ROLES-12345-FEJSIG-67890",
             "abilities": [],
             "armor_type": 0,
-            "ability_types": "None",
+            "ability_types": ["None"],
             "description": "Test role",
             "name": "Test_Role",
         },

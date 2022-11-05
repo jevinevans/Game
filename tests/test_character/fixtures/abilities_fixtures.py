@@ -1,3 +1,9 @@
+"""
+Description: Pytest fixtures for the character.abilities module
+Developer: Jevin Evans
+Date: 11/5/2022
+"""
+
 from unittest.mock import patch
 
 import pytest
@@ -50,9 +56,9 @@ def abilities_all_types():
 
         all_abilities.append(
             Abilities(
-                name=f"Ability_Error_NoMod",
+                name="Ability_Error_NoMod",
                 ability_type="Error",
-                description=f"Error ability",
+                description="Error ability",
             )
         )
         return all_abilities
