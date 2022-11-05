@@ -16,6 +16,7 @@ CHARACTER_DATA = {"filename": "characters.json", "data": {}, "objects": {}}
 
 
 def build_character():
+    # TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role
     print("TODO: Build New Character Section")
     raise NotImplementedError
 

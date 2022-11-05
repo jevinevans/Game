@@ -1,5 +1,7 @@
 """
-Equipment Fixtures for testing
+Description: Pytest fixtures for the character.equipment module
+Developer: Jevin Evans
+Date: 11/5/2022
 """
 
 import pytest

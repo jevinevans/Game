@@ -129,16 +129,15 @@ def test_abilities_manager_build_ability(
 
     _mag = ab_man.Abilities(**test_magic)
 
-    result = ab_man.build_ability()
+    ab_man.build_ability()
 
-    assert result.id == _mag.id
-    assert result.name == _mag.name
-    assert result.description == _mag.description
-    assert result.ability_type == _mag.ability_type
-    assert result._target == _mag._target
-    assert result.mod.name == _mag.mod.name
-    assert result.mod.adds == _mag.mod.adds
-    assert result.mod.mults == _mag.mod.mults
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["_id"] == _mag.id
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["name"] == _mag.name
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["description"] == _mag.description
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["ability_type"] == _mag.ability_type
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["_target"] == _mag._target
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["adds"] == _mag.mod.adds
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["mults"] == _mag.mod.mults
     assert m_update.called
 
     # Test Not Saved
@@ -149,3 +148,28 @@ def test_abilities_manager_build_ability(
     m_yn_val.return_value = False
 
     ab_man.build_ability()
+
+
+def test_abilities_manager_filter_abilities_by_types():
+
+    assert ab_man.ABILITIES_DATA["objects"]
+
+    # Single Type Test
+    results = ab_man.filter_abilities_by_types(["Magic"])
+
+    assert "Magic" in results
+    assert all([ab.ability_type == "Magic" for ab in results["Magic"]])
+
+    # # Multiple Types Test
+    results = ab_man.filter_abilities_by_types(["Buff", "Physical"])
+    for x in ["Buff", "Physical"]:
+        assert x in results
+        assert all([ab.ability_type == x for ab in results[x]])
+
+    # Test None Types
+    results = ab_man.filter_abilities_by_types(["None"])
+    assert "None" in results
+    assert all([ab.ability_type == "None" for ab in results["None"]])
+
+    results = ab_man.filter_abilities_by_types([])
+    assert not results

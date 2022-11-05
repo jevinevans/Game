@@ -35,6 +35,8 @@ class Character:
     The playable character for the game
     """
 
+    # TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role
+
     DB_PREFIX = "CHARS"
 
     def __init__(

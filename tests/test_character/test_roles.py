@@ -7,7 +7,7 @@ import pytest
 from funclg.character.abilities import Abilities
 from funclg.character.roles import Roles
 
-from .fixtures.role_fixtures import (
+from .fixtures.roles_fixtures import (
     mage_export_expectation,
     mage_str_expectation,
     mage_test_role,
@@ -140,3 +140,13 @@ def test_role_details_with_abilities(roles_detail_expectation_with_abilities, ma
 #     rouge.add_power(ability)
 #     rouge.add_power(ability)
 #     assert len(rouge.abilities) == 1
+
+
+def test_roles_copy(mage_test_role):
+    copy_test = mage_test_role.copy()
+
+    assert copy_test.name == mage_test_role.name
+    assert copy_test.id == mage_test_role.id
+
+    assert copy_test != mage_test_role
+    assert id(copy_test) != id(mage_test_role)
