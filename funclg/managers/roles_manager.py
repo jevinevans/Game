@@ -24,6 +24,7 @@ ROLES_DATA = {"filename": "roles.json", "data": {}, "objects": {}}
 
 def update_data():
     # TODO: On edit, needs to update all values
+    logger.debug(ROLES_DATA)
     db.update_data(ROLES_DATA)
     for _id, data in ROLES_DATA["data"].items():
         if _id not in ROLES_DATA["objects"]:
@@ -186,6 +187,7 @@ def select_role():
 def show_role():
     show_role_id = select_role()
     if show_role_id:
+        logger.debug(show_role_id)
         _show_role = ROLES_DATA["objects"][show_role_id]
         print(_show_role.details())
         return
