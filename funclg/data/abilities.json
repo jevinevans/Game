@@ -6,7 +6,7 @@
         "_target": "enemy",
         "mod": {
             "adds": {
-                "defense": 446
+                "defense": -446
             },
             "mults": {}
         },
@@ -45,7 +45,7 @@
         "_target": "enemy",
         "mod": {
             "adds": {
-                "health": 322
+                "health": -322
             },
             "mults": {}
         },
@@ -58,7 +58,7 @@
         "_target": "enemy",
         "mod": {
             "adds": {
-                "health": 225
+                "health": -225
             },
             "mults": {}
         },
@@ -72,9 +72,22 @@
         "mod": {
             "adds": {},
             "mults": {
-                "defense": 0.83
+                "defense": -0.83
             }
         },
         "_id": "ABILITY-16660-TXKX-31305"
+    },
+    "ABILITY-16694-ZGOD-96259": {
+        "name": "Speed Boost",
+        "description": "Boost the speed of the caster",
+        "ability_type": "Buff",
+        "_target": "self",
+        "mod": {
+            "adds": {},
+            "mults": {
+                "health": 0.5
+            }
+        },
+        "_id": "ABILITY-16694-ZGOD-96259"
     }
 }
