@@ -1,22 +1,6 @@
 ######TESTING REPORT######
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-Date: Sun Nov 26 14:44:04 PST 2023 
-=======
-Date: Sat Oct  1 11:34:44 PDT 2022 
->>>>>>> 83c69e3 (db file io fixe and module clean up)
-=======
-Date: Fri Oct  7 16:37:11 PDT 2022 
->>>>>>> b993bb6 (Completed abilities manager and related necessary changes)
-=======
-Date: Mon Oct 10 02:53:06 PDT 2022 
->>>>>>> d49f382 (updated modifer display format)
-=======
-Date: Sat Nov  5 15:39:00 PDT 2022 
->>>>>>> d9d7959 (completed roles manager build role)
+Date: Sat Nov 26 20:07:10 PST 2022 
 
 ---PYTEST---
 
@@ -119,35 +103,22 @@ funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 73      0     24      0   100%
 funclg/character/stats.py                 61      0     28      0   100%
 funclg/managers/__init__.py               12      0      2      0   100%
-funclg/managers/abilities_manager.py      68      0     26      0   100%
+funclg/managers/abilities_manager.py      67      0     24      0   100%
 funclg/managers/character_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
-funclg/managers/equipment_manager.py      88      0     30      0   100%
+funclg/managers/equipment_manager.py      85      0     26      0   100%
 funclg/managers/modifier_manager.py       65      0     26      0   100%
-funclg/managers/roles_manager.py         110     92     44      1    12%   25-28, 32-35, 40-62, 68-118, 124-147, 157-161, 165-170, 174-185, 201
+funclg/managers/roles_manager.py         116     88     44      1    21%   28->27, 38-41, 46-68, 75-125, 131-156, 166-169, 173-179, 183-194
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 48     19     10      0    60%   45-54, 59-68
+funclg/utils/data_mgmt.py                 48     13     10      1    69%   41->55, 45-54, 65-68
 funclg/utils/input_validation.py          41     28     16      0    30%   16-25, 32-33, 40, 47-49, 64-70, 76-85
 funclg/utils/menu_funcs.py                40     18     14      0    48%   15-16, 36-59
 funclg/utils/types.py                     19      0      6      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                   1068    181    330      3    82%
+TOTAL                                   1070    171    324      4    83%
 
-FAIL Required test coverage of 100.0% not reached. Total coverage: 81.83%
+FAIL Required test coverage of 100.0% not reached. Total coverage: 82.71%
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-============================== 92 passed in 1.45s ==============================
->>>>>>> 83c69e3 (db file io fixe and module clean up)
-=======
-============================== 99 passed in 1.56s ==============================
->>>>>>> b993bb6 (Completed abilities manager and related necessary changes)
-=======
-============================== 99 passed in 0.95s ==============================
->>>>>>> d49f382 (updated modifer display format)
-=======
-============================= 101 passed in 1.36s ==============================
->>>>>>> d9d7959 (completed roles manager build role)
+======================= 101 passed, 2 warnings in 1.60s ========================
 
 ---Code Quality Report---
 
@@ -269,8 +240,9 @@ funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able 
 funclg/managers/modifier_manager.py:80:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:24:5: W0511: TODO: On edit, needs to update all values (fixme)
-funclg/managers/roles_manager.py:47:9: W0511: TODO: Add description print out (fixme)
-funclg/managers/roles_manager.py:117:5: W0511: TODO: Future: consider option to create a new one (fixme)
+funclg/managers/roles_manager.py:53:9: W0511: TODO: Add description print out (fixme)
+funclg/managers/roles_manager.py:71:1: W0511: TODO add an option for adding no roles (fixme)
+funclg/managers/roles_manager.py:124:5: W0511: TODO: Future: consider option to create a new one (fixme)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
@@ -279,74 +251,12 @@ funclg/utils/types.py:16:1: W0511: TODO Add descriptions (fixme)
 funclg/utils/types.py:36:9: W0511: TODO: Change to 'Basic' types or something that is not none (fixme)
 
 ------------------------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-Your code has been rated at 9.64/10 (previous run: 9.63/10, +0.01)
->>>>>>> 83c69e3 (db file io fixe and module clean up)
-=======
-Your code has been rated at 9.72/10 (previous run: 9.71/10, +0.01)
->>>>>>> b993bb6 (Completed abilities manager and related necessary changes)
-=======
-Your code has been rated at 9.68/10 (previous run: 9.68/10, +0.00)
->>>>>>> d49f382 (updated modifer display format)
-=======
 Your code has been rated at 9.70/10 (previous run: 9.70/10, +0.00)
->>>>>>> d9d7959 (completed roles manager build role)
 
 
-[31m-> Vulnerability found in urllib3 version 2.0.6
-[0m[1m   Vulnerability ID: [0m61893
-[1m   Affected spec: [0m>=2.0.0a1,<2.0.7
-[1m   ADVISORY: [0mUrllib3 1.26.18 and 2.0.7 include a fix for CVE-2023-45803:
-   Request body not stripped after redirect from 303 status changes request...
-[1m   CVE-2023-45803[0m
-[1m   For more information, please visit
-   [0mhttps://data.safetycli.com/v/61893/f17[0m
+-----PYRIGHT-----
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- Scan was completed. 2 vulnerabilities were found. 
-
-+==============================================================================+
-[32m[1m   REMEDIATIONS[0m
-
-  2 vulnerabilities were found in 2 packages. For detailed remediation & fix 
-  recommendations, upgrade to a commercial license. 
-
-+==============================================================================+
-
-[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
-data is 30 days old and limited. [0m
-[31m  For real-time enhanced vulnerability data, fix recommendations, severity
-reporting, cybersecurity support, team and project policy management and more
-sign up at https://pyup.io or email sales@pyup.io[0m
-
-+==============================================================================+[0m
-=======
-npm ERR! code ENOENT
-npm ERR! syscall rename
-npm ERR! path /home/jevinle/.npm/_npx/762/lib/node_modules/pyright
-npm ERR! dest /home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE
-npm ERR! errno -2
-npm ERR! enoent ENOENT: no such file or directory, rename '/home/jevinle/.npm/_npx/762/lib/node_modules/pyright' -> '/home/jevinle/.npm/_npx/762/lib/node_modules/.pyright.DELETE'
-npm ERR! enoent This is related to npm not being able to find a file.
-npm ERR! enoent 
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/jevinle/.npm/_logs/2022-10-01T18_35_22_379Z-debug.log
-Install for pyright@1.1.223 failed with code 254
->>>>>>> 83c69e3 (db file io fixe and module clean up)
-=======
-npx: installed 1 in 7.586s
-=======
-npx: installed 1 in 4.043s
->>>>>>> d49f382 (updated modifer display format)
-=======
 npx: installed 1 in 4.094s
->>>>>>> d9d7959 (completed roles manager build role)
 No configuration file found.
 pyproject.toml file found at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG.
 Loading pyproject.toml file at /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/pyproject.toml
@@ -356,13 +266,4 @@ Assuming Python platform Linux
 Searching for source files
 Found 21 source files
 0 errors, 0 warnings, 0 informations 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Completed in 2.832sec
->>>>>>> b993bb6 (Completed abilities manager and related necessary changes)
-=======
-Completed in 1.546sec
->>>>>>> d49f382 (updated modifer display format)
-=======
 Completed in 1.74sec
->>>>>>> d9d7959 (completed roles manager build role)
