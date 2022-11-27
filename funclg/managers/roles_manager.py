@@ -1,7 +1,7 @@
 """
-Programmer: Jevin Evans
-Date: 6.19.2022
 Description: A manager class for creating, updating, and removing roles.
+Developer: Jevin Evans
+Date: 6.19.2022
 """
 
 from loguru import logger
@@ -22,10 +22,16 @@ ROLES_DATA = {"filename": "roles.json", "data": {}, "objects": {}}
 
 def update_data():
     # TODO: On edit, needs to update all values
+    logger.debug(ROLES_DATA)
     db.update_data(ROLES_DATA)
     for _id, data in ROLES_DATA["data"].items():
         if _id not in ROLES_DATA["objects"]:
-            ROLES_DATA["objects"][_id] = Roles(**data)
+            obj_abilities = []
+            for _ability in data["abilities"]:
+                obj_abilities.append(ab_man.Abilities(**_ability))
+            new_data = data.copy()
+            new_data["abilities"] = obj_abilities
+            ROLES_DATA["objects"][_id] = Roles(**new_data)
 
 
 def export_data():
@@ -62,6 +68,7 @@ def _select_ability_types():
     return a_types
 
 
+# TODO add an option for adding no roles
 def _select_role_abilities(a_types: list):
     """"""
 
@@ -134,7 +141,7 @@ def build_role():
     new_role = Roles(
         name=role_name,
         description=role_desc,
-        armor_type=armor_type,
+        armor_type=ARMOR_TYPES.index(armor_type),
         ability_types=a_types,
         abilities=r_abilities,
     )
@@ -143,6 +150,8 @@ def build_role():
         ROLES_DATA["data"][new_role.id] = new_role.export()
         update_data()
         print(f"{new_role.name} has been saved!!!")
+        return
+
     print("Oh well..., no roles to add to this awesome adventure!!!")
     del new_role
 
@@ -155,8 +164,7 @@ def build_role():
 
 def select_role():
     if ROLES_DATA["data"]:
-        role_id = char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
-        return ROLES_DATA["data"][role_id]
+        return char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
     logger.warning("There are no roles available.")
     return None
 
@@ -164,6 +172,7 @@ def select_role():
 def show_role():
     show_role_id = select_role()
     if show_role_id:
+        logger.debug(show_role_id)
         _show_role = ROLES_DATA["objects"][show_role_id]
         print(_show_role.details())
         return
@@ -197,5 +206,4 @@ ROLES_MENU = {
 }
 
 db.load_data(ROLES_DATA)
-for _id, _data in ROLES_DATA["data"].items():
-    ROLES_DATA["objects"][_id] = Roles(**_data)
+update_data()

@@ -46,4 +46,5 @@ CHARACTER_MENU = {
 }
 
 # TODO: Remove me
-# CHARACTER_DATA = db.load_data(CHARACTER_DATA)
+# db.load_data(CHARACTER_DATA)
+# update_data()

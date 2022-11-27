@@ -156,9 +156,4 @@ EQUIPMENT_MENU = {
 }
 
 db.load_data(EQUIPMENT_DATA)
-
-for _id, _data in EQUIPMENT_DATA["data"].items():
-    if _data["item_type"] == 4:
-        EQUIPMENT_DATA["objects"][_id] = WeaponEquipment(**_data)
-    else:
-        EQUIPMENT_DATA["objects"][_id] = BodyEquipment(**_data)
+update_data()

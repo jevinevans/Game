@@ -126,5 +126,4 @@ ABILITY_MENU = {
 }
 
 db.load_data(ABILITIES_DATA)
-for _id, _data in ABILITIES_DATA["data"].items():
-    ABILITIES_DATA["objects"][_id] = Abilities(**_data)
+update_data()

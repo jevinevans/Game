@@ -47,7 +47,7 @@ class Roles:
         self.abilities = self._validate_abilities(abilities) if abilities else []
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
         # self.stats
-        logger.info(f"Created Role: {name}")
+        logger.debug(f"Created Role: {name}")
 
     def __str__(self):
         return f"Class: {self.name} | Class Type(s): {', '.join(self.ability_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"

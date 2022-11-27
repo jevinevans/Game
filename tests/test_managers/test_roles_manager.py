@@ -76,6 +76,7 @@ def test_mage():
         "_id": "ROLES-16683-UAJMFU-16064"
     }
 
+@pytest.fixture
 def test_no_abilities():
     return {
         "name": "Mage",
