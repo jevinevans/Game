@@ -689,6 +689,11 @@ files = [
 name = "platformdirs"
 version = "3.11.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+=======
+version = "2.5.4"
+description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+category = "dev"
+>>>>>>> 528f207... fixed roles manager load/update bug
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -846,10 +851,20 @@ version = "1.1.330.post0"
 description = "Command line wrapper for pyright"
 optional = false
 python-versions = ">=3.7"
+=======
+version = "1.1.281"
+description = "Command line wrapper for pyright"
+optional = false
+<<<<<<< HEAD
+python-versions = ">=3"
+>>>>>>> 478664a... fixed roles manager load/update bug
 files = [
     {file = "pyright-1.1.330.post0-py3-none-any.whl", hash = "sha256:2e9e0878298685b66485b340a0aaa16342129eb03ff9ed0e3c1ab66b8bfbe914"},
     {file = "pyright-1.1.330.post0.tar.gz", hash = "sha256:8e5b09cc5d1cfa0bcbf8824b0316d21c43fe229da7cef0a09cd12fcf6cb3eedd"},
 ]
+=======
+python-versions = ">=3.7"
+>>>>>>> 528f207... fixed roles manager load/update bug
 
 [package.dependencies]
 nodeenv = ">=1.6.0"
@@ -1142,7 +1157,11 @@ files = [
 
 [[package]]
 name = "stevedore"
+<<<<<<< HEAD
 version = "5.1.0"
+=======
+version = "4.1.1"
+>>>>>>> 528f207... fixed roles manager load/update bug
 description = "Manage dynamic plugins for Python applications"
 optional = false
 python-versions = ">=3.8"
@@ -1178,11 +1197,11 @@ files = [
 
 [[package]]
 name = "tomlkit"
-version = "0.11.5"
+version = "0.11.6"
 description = "Style preserving TOML library"
 category = "dev"
 optional = false
-python-versions = ">=3.6,<4.0"
+python-versions = ">=3.6"
 
 [[package]]
 name = "typing-extensions"
@@ -1200,11 +1219,15 @@ name = "urllib3"
 version = "2.0.6"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
+<<<<<<< HEAD
 python-versions = ">=3.7"
 files = [
     {file = "urllib3-2.0.6-py3-none-any.whl", hash = "sha256:7a7c7003b000adf9e7ca2a377c9688bbc54ed41b985789ed576570342a375cd2"},
     {file = "urllib3-2.0.6.tar.gz", hash = "sha256:b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"},
 ]
+=======
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+>>>>>>> 528f207... fixed roles manager load/update bug
 
 [package.extras]
 brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)"]
