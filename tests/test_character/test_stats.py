@@ -5,9 +5,6 @@ Description: Testing the stats classes.
 Last Update: 3.23.2022
 """
 
-from audioop import mul
-from email.mime import base
-from random import randint, random
 from unittest.mock import patch
 
 import pytest

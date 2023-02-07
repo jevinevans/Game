@@ -39,8 +39,18 @@ def test_abilities_init(abilities_all_types):
         description="Test incompatable mod",
         mod={"mults": {"defense": 0.22}},
     )
-    print(test_ability.mod)
+
     assert test_ability.mod.export() == {"adds": {"health": 1}, "mults": {}}
+
+    # Test negativce start
+    test_ability = Abilities(
+        name="Test",
+        ability_type="Magic",
+        description="Test incompatable mod",
+        mod={"adds": {"defense": -0.22}},
+    )
+
+    assert test_ability.mod.export() == {"adds": {"defense": -0.22}, "mults": {}}
 
 
 def test_abilities_str(abilities_all_types, abilities_str_expectation):

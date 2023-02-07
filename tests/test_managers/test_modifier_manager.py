@@ -40,14 +40,14 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
     m_yn_val.side_effect = [False, False, False]
 
     return_val = mod_man.build_modifier("Test_mod")
-    assert return_val == None
+    assert return_val is None
 
     m_list_select.side_effect = ["attack", "Percentage Change"]
     m_num_range.side_effect = [50]
     m_yn_val.side_effect = [False, False, False]
 
     return_val = mod_man.build_modifier("Test_mod")
-    assert return_val == None
+    assert return_val is None
 
 
 @patch("funclg.managers.modifier_manager._gen_mult_mod")

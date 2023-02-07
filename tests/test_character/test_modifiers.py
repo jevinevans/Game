@@ -4,9 +4,7 @@ Date: 3.23.2022
 Description: Testing the modifier classes.
 Last Update: 3.23.2022
 """
-from unittest.mock import patch
-
-import pytest
+# import pytest
 
 from funclg.character.modifiers import Modifier
 
@@ -27,8 +25,8 @@ def test_modifier_init(add_mods, mult_mods):
     t1 = Modifier("T1")
 
     assert t1.name == "T1"
-    assert t1.adds == {}
-    assert t1.mults == {}
+    assert not t1.adds
+    assert not t1.mults
 
     # Test Full Modifier (Valid)
     t2 = Modifier("T2", adds=add_mods["valid"], mults=mult_mods["valid"])
@@ -104,7 +102,7 @@ def test_modifier_get_mods(add_mods, mult_mods, modifier_get_expectation):
 
 def test_modifier_friendly_read_branching():
     t1 = Modifier("Friendly Test")
-    assert t1._friendly_read() == {}
+    assert not t1._friendly_read()
 
 
 def test_modifier_export(add_mods, mult_mods):

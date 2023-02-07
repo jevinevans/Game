@@ -68,7 +68,7 @@ def mage_export_expectation():
                 "_target": "enemy",
                 "description": "Testing Magic ability.",
                 "_id": "ABILITY-12345-FADJ-67890",
-                "mod": {"adds": {"health": 50}, "mults": {}},
+                "mod": {"adds": {"health": -50}, "mults": {}},
             },
             {
                 "name": "Restore Test Ability",
@@ -92,7 +92,7 @@ def mage_export_expectation():
                 "_target": "enemy",
                 "description": "Testing Debuff ability.",
                 "_id": "ABILITY-12345-EODS-67893",
-                "mod": {"adds": {}, "mults": {"health": 50}},
+                "mod": {"adds": {}, "mults": {"health": -50}},
             },
         ],
     }

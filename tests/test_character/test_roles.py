@@ -42,7 +42,7 @@ def test_roles_add_power_valid_power(mage_test_role):
     )
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) == True
+    assert mage_test_role.add_power(healing_2) is True
     assert len(mage_test_role.abilities) == 5
 
     char_power = mage_test_role.abilities[-1]
@@ -67,10 +67,10 @@ def test_roles_add_power_valid_power_max_reached(mage_test_role):
     )
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) == True
+    assert mage_test_role.add_power(healing_2) is True
     assert len(mage_test_role.abilities) == 5
 
-    assert mage_test_role.add_power(buff) == False
+    assert mage_test_role.add_power(buff) is False
     assert len(mage_test_role.abilities) == 5
     assert mage_test_role.abilities[-1].name == healing_2.name
 
@@ -97,20 +97,20 @@ def test_roles_get_power(mage_test_role):
 @patch("loguru.logger.warning")
 def test_role_get_power_out_of_range(m_log, mage_test_role):
     for index in range(4, 10):
-        assert mage_test_role.get_power(index) == None
+        assert mage_test_role.get_power(index) is None
         assert m_log.called
         assert m_log.called_with("There is no power in this slot.")
 
 
 def test_role_remove_power_valid(mage_test_role):
     "testing removing the healing ability slot 1"
-    assert mage_test_role.remove_power(1) == True
+    assert mage_test_role.remove_power(1) is True
     assert mage_test_role.get_power(1).name == "Buff Test Ability"
 
 
 def test_role_remove_power_invalid(mage_test_role):
     "testing removing the healing ability slot 1"
-    assert mage_test_role.remove_power(5) == False
+    assert mage_test_role.remove_power(5) is False
     assert mage_test_role.get_power(1).name == "Restore Test Ability"
 
 
@@ -129,17 +129,6 @@ def test_role_details_with_abilities(roles_detail_expectation_with_abilities, ma
     print(len(mage_test_role.abilities))
     for indent in range(5):
         assert roles_detail_expectation_with_abilities[indent] == mage_test_role.details(indent)
-
-
-# def test_roles_duplicate_ability():
-#     rouge = Roles(
-#         name="Rouge", armor_type=0, description="Rouge class", damage_types=["Physical"]
-#     )
-#     ability = Abilities("T1", "Physical", 50, "T1 Strike")
-
-#     rouge.add_power(ability)
-#     rouge.add_power(ability)
-#     assert len(rouge.abilities) == 1
 
 
 def test_roles_copy(mage_test_role):
