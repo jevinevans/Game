@@ -139,8 +139,9 @@ def test_abilities_manager_build_ability(
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["adds"] == _mag.mod.adds
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["mults"] == _mag.mod.mults
     assert m_update.called
+    print(m_update.called, m_update.call_count)
 
-    # Test Not Saved
+    # Test Not Saved - Coverage
     m_list_val.return_value = test_magic["ability_type"]
     m_str_val.side_effect = [test_magic["name"], test_magic["description"]]
     m_mod_gen.return_value = test_magic["mod"]
@@ -148,6 +149,8 @@ def test_abilities_manager_build_ability(
     m_yn_val.return_value = False
 
     ab_man.build_ability()
+
+    assert m_update.call_count == 1
 
 
 def test_abilities_manager_filter_abilities_by_types():

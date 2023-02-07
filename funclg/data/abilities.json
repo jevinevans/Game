@@ -89,5 +89,18 @@
             }
         },
         "_id": "ABILITY-16694-ZGOD-96259"
+    },
+    "ABILITY-16694-TRKE-96324": {
+        "name": "Lightning",
+        "description": "Sends a bolt of lightning towards the enemy",
+        "ability_type": "Magic",
+        "_target": "enemy",
+        "mod": {
+            "adds": {
+                "health": -240
+            },
+            "mults": {}
+        },
+        "_id": "ABILITY-16694-TRKE-96324"
     }
 }
