@@ -4,6 +4,8 @@ Developer: Jevin Evans
 Date: 6.19.2022
 """
 
+from typing import List
+
 from loguru import logger
 
 import funclg.managers.abilities_manager as ab_man
@@ -63,13 +65,11 @@ def _select_ability_types():
             continue
         break
 
-    if not a_types:
-        a_types = ["None"]
     return a_types
 
 
 # TODO add an option for adding no roles
-def _select_role_abilities(a_types: list):
+def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
     """"""
 
     def display_abilities():
