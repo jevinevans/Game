@@ -13,7 +13,19 @@ files = [
 
 [package.dependencies]
 lazy-object-proxy = ">=1.4.0"
+<<<<<<< HEAD
 typing-extensions = {version = ">=4.0.0", markers = "python_version < \"3.11\""}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+typing-extensions = {version = ">=4.0.0", markers = "python_version < \"3.11\""}
+=======
+typing-extensions = {version = ">=3.10", markers = "python_version < \"3.10\""}
+>>>>>>> 528f207... fixed roles manager load/update bug
+=======
+typing-extensions = {version = ">=4.0.0", markers = "python_version < \"3.11\""}
+>>>>>>> 37e9eba... code quality
+>>>>>>> 1859ced... code quality
 wrapt = [
     {version = ">=1.11,<2", markers = "python_version < \"3.11\""},
     {version = ">=1.14,<2", markers = "python_version >= \"3.11\""},
@@ -103,6 +115,7 @@ name = "charset-normalizer"
 version = "3.3.0"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 optional = false
+<<<<<<< HEAD
 python-versions = ">=3.7.0"
 files = [
     {file = "charset-normalizer-3.3.0.tar.gz", hash = "sha256:63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"},
@@ -196,6 +209,9 @@ files = [
     {file = "charset_normalizer-3.3.0-cp39-cp39-win_amd64.whl", hash = "sha256:d97d85fa63f315a8bdaba2af9a6a686e0eceab77b3089af45133252618e70884"},
     {file = "charset_normalizer-3.3.0-py3-none-any.whl", hash = "sha256:e46cd37076971c1040fc8c41273a8b3e2c624ce4f2be3f5dfcb7a430c1d3acc2"},
 ]
+=======
+python-versions = "*"
+>>>>>>> 37e9eba... code quality
 
 [[package]]
 name = "click"
@@ -418,6 +434,11 @@ smmap = ">=3.0.1,<6"
 name = "gitpython"
 version = "3.1.37"
 description = "GitPython is a Python library used to interact with Git repositories"
+=======
+version = "3.1.30"
+description = "GitPython is a python library used to interact with Git repositories"
+category = "dev"
+>>>>>>> 37e9eba... code quality
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -460,12 +481,18 @@ files = [
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
+<<<<<<< HEAD
 optional = false
 python-versions = ">=3.7"
 files = [
     {file = "iniconfig-2.0.0-py3-none-any.whl", hash = "sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374"},
     {file = "iniconfig-2.0.0.tar.gz", hash = "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"},
 ]
+=======
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+>>>>>>> 37e9eba... code quality
 
 [[package]]
 name = "isort"
@@ -473,6 +500,7 @@ version = "5.12.0"
 description = "A Python utility / library to sort Python imports."
 optional = false
 python-versions = ">=3.8.0"
+<<<<<<< HEAD
 files = [
     {file = "isort-5.12.0-py3-none-any.whl", hash = "sha256:f84c2818376e66cf843d497486ea8fed8700b340f308f076c6fb1229dff318b6"},
     {file = "isort-5.12.0.tar.gz", hash = "sha256:8bef7dde241278824a6d83f44a544709b065191b95b6e50894bdc722fcba0504"},
@@ -482,6 +510,11 @@ files = [
 colors = ["colorama (>=0.4.3)"]
 pipfile-deprecated-finder = ["pip-shims (>=0.5.2)", "pipreqs", "requirementslib"]
 plugins = ["setuptools"]
+=======
+
+[package.extras]
+colors = ["colorama (>=0.4.3)"]
+>>>>>>> 37e9eba... code quality
 requirements-deprecated-finder = ["pip-api", "pipreqs"]
 pipfile-deprecated-finder = ["pip-shims (>=0.5.2)", "pipreqs", "requirementslib"]
 plugins = ["setuptools"]
@@ -489,7 +522,19 @@ requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "lazy-object-proxy"
+<<<<<<< HEAD
 version = "1.9.0"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+version = "1.9.0"
+=======
+version = "1.8.0"
+>>>>>>> 528f207... fixed roles manager load/update bug
+=======
+version = "1.9.0"
+>>>>>>> 37e9eba... code quality
+>>>>>>> 1859ced... code quality
 description = "A fast and thorough lazy object proxy."
 optional = false
 python-versions = ">=3.7"
@@ -628,12 +673,18 @@ files = [
 name = "mypy-extensions"
 version = "1.0.0"
 description = "Type system extensions for programs checked with the mypy type checker."
+<<<<<<< HEAD
 optional = false
 python-versions = ">=3.5"
 files = [
     {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
     {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
 ]
+=======
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+>>>>>>> 37e9eba... code quality
 
 [[package]]
 name = "nodeenv"
@@ -651,7 +702,11 @@ setuptools = "*"
 
 [[package]]
 name = "packaging"
+<<<<<<< HEAD
 version = "23.1"
+=======
+version = "23.0"
+>>>>>>> 37e9eba... code quality
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.6"
@@ -676,7 +731,19 @@ files = [
 
 [[package]]
 name = "pbr"
+<<<<<<< HEAD
 version = "5.11.1"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+version = "5.11.1"
+=======
+version = "5.11.0"
+>>>>>>> 528f207... fixed roles manager load/update bug
+=======
+version = "5.11.1"
+>>>>>>> 37e9eba... code quality
+>>>>>>> 1859ced... code quality
 description = "Python Build Reasonableness"
 optional = false
 python-versions = ">=2.6"
@@ -691,6 +758,9 @@ version = "3.11.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 =======
 version = "2.5.4"
+=======
+version = "3.0.0"
+>>>>>>> 37e9eba... code quality
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 category = "dev"
 >>>>>>> 528f207... fixed roles manager load/update bug
@@ -853,6 +923,9 @@ optional = false
 python-versions = ">=3.7"
 =======
 version = "1.1.281"
+=======
+version = "1.1.292"
+>>>>>>> 1859ced... code quality
 description = "Command line wrapper for pyright"
 optional = false
 <<<<<<< HEAD
@@ -1157,11 +1230,7 @@ files = [
 
 [[package]]
 name = "stevedore"
-<<<<<<< HEAD
 version = "5.1.0"
-=======
-version = "4.1.1"
->>>>>>> 528f207... fixed roles manager load/update bug
 description = "Manage dynamic plugins for Python applications"
 optional = false
 python-versions = ">=3.8"
@@ -1219,15 +1288,12 @@ name = "urllib3"
 version = "2.0.6"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
-<<<<<<< HEAD
 python-versions = ">=3.7"
 files = [
     {file = "urllib3-2.0.6-py3-none-any.whl", hash = "sha256:7a7c7003b000adf9e7ca2a377c9688bbc54ed41b985789ed576570342a375cd2"},
     {file = "urllib3-2.0.6.tar.gz", hash = "sha256:b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"},
 ]
-=======
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
->>>>>>> 528f207... fixed roles manager load/update bug
+
 
 [package.extras]
 brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)"]
