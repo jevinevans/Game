@@ -90,9 +90,7 @@ def character_details_expectation():
 @pytest.fixture
 def character_inventory_show_expectation():
     inventory = ["item_1", "item_2", "item_3"]
-    expectation = "\nInventory:"
-    for item in inventory:
-        expectation += f"  - {item}"
+    expectation = "\nInventory:" + "  - ".join(inventory)
     return [expectation, inventory]
 
 
@@ -100,9 +98,9 @@ def test_character_init_no_armor_no_role():
     # Init No Role/Armor
     t_char = Character("Test_Char", 0)
     assert t_char.name == "Test_Char"
-    assert t_char.armor != None
+    assert t_char.armor is not None
     assert t_char.armor.armor_type == t_char.armor_type
-    assert t_char.role != None
+    assert t_char.role is not None
     assert t_char.role.name == "Basic"
     assert t_char.inventory == []
 
@@ -137,7 +135,7 @@ def test_character_dequip(basic_char):
     assert basic_char.armor.head.name == t_head.name
 
     basic_char.dequip("head")
-    assert basic_char.armor.head == None
+    assert basic_char.armor.head is None
     assert len(basic_char.inventory) == 1
 
     # Invalid Dequip

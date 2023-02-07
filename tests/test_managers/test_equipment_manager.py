@@ -1,3 +1,9 @@
+"""
+Description: The is a unit test for the equipmet manager class.
+Developer: Jevin Evans
+Date: 11.12.2022
+"""
+
 from unittest.mock import patch
 
 import pytest

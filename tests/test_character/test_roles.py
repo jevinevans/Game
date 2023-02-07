@@ -84,7 +84,7 @@ def test_roles_add_power_invalid_power(mage_test_role):
     )
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(stomp) == False
+    assert mage_test_role.add_power(stomp) is False
     assert len(mage_test_role.abilities) == 4
 
 

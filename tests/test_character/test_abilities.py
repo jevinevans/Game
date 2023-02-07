@@ -21,14 +21,14 @@ from .fixtures.abilities_fixtures import (
 
 def test_abilities_init(abilities_all_types):
 
-    # Test None has no mod
+    # TODO: Review this test - Test None has no mod
     for ability in abilities_all_types:
         if ability.ability_type == "None":
             assert ability.mod.adds == {}
             assert ability.mod.mults == {}
         else:
-            ability.mod.adds != {"adds": {}, "mults": {}}
-            ability.mod.mults != {"adds": {}, "mults": {}}
+            assert ability.mod.adds != {"adds": {}, "mults": {}}
+            assert ability.mod.mults != {"adds": {}, "mults": {}}
 
         assert ability.id.startswith("ABILITY")
 

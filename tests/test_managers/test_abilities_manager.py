@@ -1,3 +1,9 @@
+"""
+Description: The is a unit test for the abilties manager class.
+Developer: Jevin Evans
+Date: 11.12.2022
+"""
+
 from unittest.mock import patch
 
 import pytest
@@ -51,7 +57,7 @@ def test_abilities_manager_select_ability(m_chr_sel, m_log, test_magic):
 
     # Data Not Exists - Return Nothing
     ab_man.ABILITIES_DATA["data"] = {}
-    assert ab_man.select_ability() == None
+    assert ab_man.select_ability() is None
     assert m_log.warning.called_with("There are no abilities available.")
 
 
@@ -161,18 +167,22 @@ def test_abilities_manager_filter_abilities_by_types():
     results = ab_man.filter_abilities_by_types(["Magic"])
 
     assert "Magic" in results
-    assert all([ab.ability_type == "Magic" for ab in results["Magic"]])
+    for t_ability in results["Magic"]:
+        assert t_ability.ability_type == "Magic"
 
     # # Multiple Types Test
     results = ab_man.filter_abilities_by_types(["Buff", "Physical"])
-    for x in ["Buff", "Physical"]:
-        assert x in results
-        assert all([ab.ability_type == x for ab in results[x]])
+    for a_type in ["Buff", "Physical"]:
+        assert a_type in results
+        for t_ability in results[a_type]:
+            assert t_ability.ability_type == a_type
 
     # Test None Types
     results = ab_man.filter_abilities_by_types(["None"])
     assert "None" in results
-    assert all([ab.ability_type == "None" for ab in results["None"]])
+
+    for t_ability in results["None"]:
+        assert t_ability.ability_type == "None"
 
     results = ab_man.filter_abilities_by_types([])
     assert not results

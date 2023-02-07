@@ -1,9 +1,15 @@
-from unittest.mock import patch
+"""
+Description: The is a unit test for the modifier manager class.
+Developer: Jevin Evans
+Date: 11.12.2022
+"""
 
-import pytest
+from unittest.mock import patch
 
 import funclg.managers.modifier_manager as mod_man
 from funclg.utils.types import ABILITY_TYPES
+
+# import pytest
 
 
 @patch("funclg.managers.modifier_manager.yes_no_validation")

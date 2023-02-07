@@ -1,7 +1,7 @@
 """
 Description: This module is to unit test the funclg.managers.roles_manager module
 Developer: Jevin Evans
-Date: 11/12/2022
+Date: 2.6.2022
 """
 
 from unittest.mock import patch
@@ -10,7 +10,7 @@ import pytest
 
 import funclg.managers.roles_manager as role_man
 from funclg.character.abilities import Abilities
-from datetime import datetime
+
 
 @pytest.fixture
 def test_mage():
@@ -213,7 +213,7 @@ def test_roles_manager_delete_role(m_sel, m_update, m_yn, m_log, m_print, test_m
 @patch("funclg.managers.roles_manager.list_choice_selection")
 def test_roles_manager_select_ability_types(m_lsel, m_yn, test_mage):
     # Test Success
-    ability_results = list(set([ability["ability_type"] for ability in test_mage["abilities"]]))
+    ability_results = list({ability["ability_type"] for ability in test_mage["abilities"]})
     yn_side_effects = [True for _ in range(len(ability_results) - 1)]
     yn_side_effects.append(False)
 
@@ -283,7 +283,7 @@ def test_roles_manager_build_role_with_save(
 ):
     # Success Create Test Mage
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
-    ability_types = list(set([ability["ability_type"] for ability in test_mage["abilities"]]))
+    ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
     m_lsel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
 
     m_sel_ab_type.return_value = ability_types
@@ -297,8 +297,8 @@ def test_roles_manager_build_role_with_save(
 
     role_man.build_role()
 
-    test_mage['ability_types'].sort()
-    role_man.ROLES_DATA["data"][test_mage['_id']]["ability_types"].sort()
+    test_mage["ability_types"].sort()
+    role_man.ROLES_DATA["data"][test_mage["_id"]]["ability_types"].sort()
 
     assert test_mage["_id"] in role_man.ROLES_DATA["data"]
     assert test_mage == role_man.ROLES_DATA["data"][test_mage["_id"]]
@@ -306,7 +306,11 @@ def test_roles_manager_build_role_with_save(
     assert m_yn.called
     assert m_update.called
 
-@patch("funclg.managers.roles_manager.ROLES_DATA", {"filename": "roles.json", "data": {}, "objects": {}})
+
+@patch(
+    "funclg.managers.roles_manager.ROLES_DATA",
+    {"filename": "roles.json", "data": {}, "objects": {}},
+)
 @patch("funclg.utils.data_mgmt.id_gen")
 @patch("funclg.managers.roles_manager._select_role_abilities")
 @patch("funclg.managers.roles_manager._select_ability_types")
@@ -319,7 +323,7 @@ def test_roles_manager_build_role_no_save(
 ):
     # No Save
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
-    ability_types = list(set([ability["ability_type"] for ability in test_mage["abilities"]]))
+    ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
     m_lsel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
 
     m_sel_ab_type.return_value = ability_types
@@ -333,6 +337,5 @@ def test_roles_manager_build_role_no_save(
 
     role_man.build_role()
 
-
     assert not m_update.called
-    assert not role_man.ROLES_DATA['data'].get(test_mage['_id'], False)
+    assert not role_man.ROLES_DATA["data"].get(test_mage["_id"], False)

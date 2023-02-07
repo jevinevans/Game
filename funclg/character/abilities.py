@@ -63,7 +63,7 @@ class Abilities:
                         f"Mod Checks: {key} in {ABILITY_TYPES[self.ability_type]['mods']} {key in ABILITY_TYPES[self.ability_type]['mods']}"
                     )
                     if self._target == "enemy":
-                        mod[key] = mod[key] if mod[key] < 0 else mod[key]*-1
+                        mod[key] = mod[key] if mod[key] < 0 else mod[key] * -1
                 if pass_check:
                     return mod
 

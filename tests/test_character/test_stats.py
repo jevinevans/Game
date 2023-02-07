@@ -110,7 +110,7 @@ def test_base_stat_get_stat_success(base_stat_with_mods):
 
 
 def test_base_stat_get_stat_failure(base_stat_with_mods):
-    assert base_stat_with_mods.get_stat("karma") == None
+    assert base_stat_with_mods.get_stat("karma") is None
 
 
 def test_base_stat_get_stats(base_stat_with_mods):

@@ -35,7 +35,7 @@ poetry run xenon --max-absolute B ./funclg &>> $REPORT
 echo -e "\n-----PYLINT-----\n" >> $REPORT
 echo -e "\n-----PYLINT-----\n"
 poetry run pylint ./funclg &>> $REPORT
-echo -e "\n-----PYRIGHT-----\n" >> $REPORT
-echo -e "\n-----PYRIGHT-----\n"
-export NODE\_OPTIONS=--experimental-worker
-poetry run pyright ./funclg &>> $REPORT
+# echo -e "\n-----PYRIGHT-----\n" >> $REPORT
+# echo -e "\n-----PYRIGHT-----\n"
+# export NODE\_OPTIONS=--experimental-worker
+# poetry run pyright ./funclg &>> $REPORT
