@@ -145,6 +145,7 @@ def test_abilities_manager_build_ability(
         ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["percentage"] == _mag.mod.percentage
     )
     assert m_update.called
+    print(m_update.called, m_update.call_count)
 
     # Test Not Saved - Coverage
     m_sel.return_value = test_magic["ability_type"]
