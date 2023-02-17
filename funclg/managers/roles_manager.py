@@ -209,7 +209,6 @@ def select_role():
 def show_role():
     show_role_id = select_role()
     if show_role_id:
-        logger.debug(show_role_id)
         _show_role = ROLES_DATA["objects"][show_role_id]
         print(_show_role.details())
         return
