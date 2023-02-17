@@ -7,6 +7,7 @@ version = "2.15.5"
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "2.15.5"
 =======
 version = "2.12.13"
@@ -14,7 +15,13 @@ version = "2.12.13"
 =======
 version = "2.14.1"
 >>>>>>> 37e9eba... code quality
+<<<<<<< HEAD
 >>>>>>> 1859ced... code quality
+=======
+=======
+version = "2.14.2"
+>>>>>>> b0c997e... working on character manager
+>>>>>>> 8bf062c... working on character manager
 description = "An abstract syntax tree for Python with inference support."
 optional = false
 python-versions = ">=3.7.2"
@@ -832,6 +839,7 @@ plugins = ["importlib-metadata"]
 name = "pylint"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "2.17.4"
 =======
 version = "2.15.6"
@@ -839,6 +847,9 @@ version = "2.15.6"
 =======
 version = "2.16.1"
 >>>>>>> 37e9eba... code quality
+=======
+version = "2.16.2"
+>>>>>>> b0c997e... working on character manager
 description = "python code static checker"
 optional = false
 python-versions = ">=3.7.2"
@@ -850,6 +861,7 @@ files = [
 [package.dependencies]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 astroid = ">=2.15.4,<=2.17.0-dev0"
 =======
 astroid = ">=2.12.12,<=2.14.0-dev0"
@@ -857,6 +869,9 @@ astroid = ">=2.12.12,<=2.14.0-dev0"
 =======
 astroid = ">=2.14.1,<=2.16.0-dev0"
 >>>>>>> 37e9eba... code quality
+=======
+astroid = ">=2.14.2,<=2.16.0-dev0"
+>>>>>>> b0c997e... working on character manager
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 dill = [
     {version = ">=0.2", markers = "python_version < \"3.11\""},
@@ -877,6 +892,7 @@ testutils = ["gitpython (>3)"]
 name = "pyright"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "1.1.316"
 description = "Command line wrapper for pyright"
 optional = false
@@ -886,6 +902,9 @@ version = "1.1.281"
 =======
 version = "1.1.292"
 >>>>>>> 1859ced... code quality
+=======
+version = "1.1.294"
+>>>>>>> 8bf062c... working on character manager
 description = "Command line wrapper for pyright"
 optional = false
 <<<<<<< HEAD
@@ -1097,10 +1116,14 @@ files = [
 [[package]]
 name = "stevedore"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "5.1.0"
 =======
 version = "4.1.1"
 >>>>>>> 528f207... fixed roles manager load/update bug
+=======
+version = "5.0.0"
+>>>>>>> b0c997e... working on character manager
 description = "Manage dynamic plugins for Python applications"
 optional = false
 python-versions = ">=3.8"
@@ -1144,7 +1167,15 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "typing-extensions"
+<<<<<<< HEAD
 version = "4.7.0"
+=======
+<<<<<<< HEAD
+version = "4.6.3"
+=======
+version = "4.5.0"
+>>>>>>> b0c997e... working on character manager
+>>>>>>> 8bf062c... working on character manager
 description = "Backported and Experimental Type Hints for Python 3.7+"
 optional = false
 python-versions = ">=3.7"

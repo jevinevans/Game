@@ -177,6 +177,11 @@ def build_character():
     del new_character
 
 
+# def edit_character():
+#     print("TODO: Build Edit Character Section")
+#     raise NotImplementedError
+
+
 def select_character():
     if CHARACTER_DATA["data"]:
         return char_manager_choice_selection(CHARACTER_DATA["data"], "name", "_id")
