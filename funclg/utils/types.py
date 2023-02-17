@@ -14,7 +14,7 @@ WEAPON_TYPES = ["Sword", "Wand", "Knife", "Spear", "Bow", ""]
 
 
 # TODO Add descriptions
-# This defines the type of abilites, their effect target (Damage = enemies, Boost = Self), List of available attributes
+# This defines the type of abilities, their effect target (Damage = enemies, Boost = Self), List of available attributes
 ABILITY_TYPES = {
     "Magic": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},
     "Physical": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},

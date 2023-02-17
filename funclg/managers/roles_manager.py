@@ -24,7 +24,6 @@ ROLES_DATA = {"filename": "roles.json", "data": {}, "objects": {}}
 
 def update_data():
     # TODO: On edit, needs to update all values
-    logger.debug(ROLES_DATA)
     db.update_data(ROLES_DATA)
     for _id, data in ROLES_DATA["data"].items():
         if _id not in ROLES_DATA["objects"]:
@@ -162,6 +161,14 @@ def build_role():
 #     """
 
 
+def sort_roles_by_armor_type():
+    sorted_roles = {}
+
+    for index, armor_type in enumerate(ARMOR_TYPES):
+        sorted_roles[armor_type] = [role.copy() for role in ROLES_DATA['objects'] if role.armor_type == index]
+    
+    return sorted_roles
+
 def select_role():
     if ROLES_DATA["data"]:
         return char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
@@ -172,7 +179,6 @@ def select_role():
 def show_role():
     show_role_id = select_role()
     if show_role_id:
-        logger.debug(show_role_id)
         _show_role = ROLES_DATA["objects"][show_role_id]
         print(_show_role.details())
         return

@@ -6,7 +6,7 @@ import pytest
 
 from funclg.character import abilities, armor, roles
 from funclg.character.character import Character
-from funclg.character.equipment import BodyEquipment, Equipment
+from funclg.character.equipment import BodyEquipment
 
 
 @pytest.fixture
@@ -101,7 +101,7 @@ def test_character_init_no_armor_no_role():
     assert t_char.armor is not None
     assert t_char.armor.armor_type == t_char.armor_type
     assert t_char.role is not None
-    assert t_char.role.name == "Basic"
+    assert t_char.role.name == "NPC"
     assert t_char.inventory == []
 
     # Test with inventory

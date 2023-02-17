@@ -66,6 +66,88 @@ def test_mage():
 
 
 @pytest.fixture
+def test_warrior():
+ return {
+        "name": "Warrior",
+        "description": "Guardian, Protector",
+        "armor_type": 2,
+        "ability_types": [
+            "Physical",
+            "Buff",
+            "Debuff",
+            "None"
+        ],
+        "abilities": [{
+                "name": "Strike",
+                "description": "Strikes an enemy with the users weapon",
+                "ability_type": "Physical",
+                "_target": "enemy",
+                "mod": {
+                    "adds": {
+                        "health": 225
+                    },
+                    "mults": {}
+                },
+                "_id": "ABILITY-16659-NYWC-46543"
+            },
+            {
+                "name": "Weaken",
+                "description": "Weakens an enemy",
+                "ability_type": "Debuff",
+                "_target": "enemy",
+                "mod": {
+                    "adds": {},
+                    "mults": {
+                        "defense": 0.83
+                    }
+                },
+                "_id": "ABILITY-16660-TXKX-31305"
+            }
+        ],
+        "_id": "ROLES-16694-QPYDLP-95720"
+    },
+
+
+@pytest.fixture
+def test_rouge():
+    return {
+        "name": "Rouge",
+        "description": "Quick knife wielders",
+        "armor_type":0,
+        "ability_types":["Physical", "Buff", "Debuff", "None"],
+        "abilities":[
+            {
+                "name": "Strike",
+                "description": "Strikes an enemy with the users weapon",
+                "ability_type": "Physical",
+                "_target": "enemy",
+                "mod": {
+                    "adds": {
+                        "health": 225
+                    },
+                    "mults": {}
+                },
+                "_id": "ABILITY-16659-NYWC-46543"
+            },
+            {
+                "name": "Weaken",
+                "description": "Weakens an enemy",
+                "ability_type": "Debuff",
+                "_target": "enemy",
+                "mod": {
+                    "adds": {},
+                    "mults": {
+                        "defense": 0.83
+                    }
+                },
+                "_id": "ABILITY-16660-TXKX-31305"
+            }
+        ],
+        "_id": "ROLES-12345-GHIJKL-67890"
+    }
+
+
+@pytest.fixture
 def test_no_abilities():
     return {
         "name": "Mage",
