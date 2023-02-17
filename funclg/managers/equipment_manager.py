@@ -154,6 +154,14 @@ def build_equipment():
     del new_equipment
 
 
+def filter_equipment_by_armor_type(armor_type:int):
+    filtered_equipment = {}
+
+    for index, item_type in enumerate(ITEM_TYPES):
+        filtered_equipment[item_type] = [equipment.copy() for equipment in EQUIPMENT_DATA['objects'].values() if equipment.armor_type == armor_type and equipment.item_type == index]
+
+    return filtered_equipment
+
 def select_equipment():
     if EQUIPMENT_DATA["data"]:
         equip_list = {}
