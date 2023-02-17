@@ -4,10 +4,10 @@ These are a group of managers classes to allow users to manage the game and crea
 
 from funclg.utils.menu_funcs import Menu
 
-from . import abilities_manager as ability_man
-from . import character_manager as char_man
 from . import equipment_manager as equip_man
+from . import abilities_manager as ability_man
 from . import roles_manager as role_man
+from . import character_manager as char_man
 
 MANAGERS = [
     char_man,
