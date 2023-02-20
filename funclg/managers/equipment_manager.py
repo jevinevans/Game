@@ -174,6 +174,7 @@ def filter_equipment_by_armor_type(armor_type: int):
     return filtered_equipment
 
 
+
 def select_equipment():
     if EQUIPMENT_DATA["data"]:
         equip_list = {}
