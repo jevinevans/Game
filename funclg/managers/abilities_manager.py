@@ -91,7 +91,11 @@ def filter_abilities_by_types(a_types: list):
 def filter_abilities_by_types(a_types: list):
     filtered_abilities = {}
     for a_type in a_types:
-        filtered_abilities[a_type] = [ability.copy() for ability in ABILITIES_DATA['objects'].values() if ability.ability_type == a_type]
+        filtered_abilities[a_type] = [
+            ability.copy()
+            for ability in ABILITIES_DATA["objects"].values()
+            if ability.ability_type == a_type
+        ]
     return filtered_abilities
 
 

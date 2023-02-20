@@ -190,9 +190,12 @@ def sort_roles_by_armor_type():
     sorted_roles = {}
 
     for index, armor_type in enumerate(ARMOR_TYPES):
-        sorted_roles[armor_type] = [role.copy() for role in ROLES_DATA['objects'] if role.armor_type == index]
-    
+        sorted_roles[armor_type] = [
+            role.copy() for role in ROLES_DATA["objects"] if role.armor_type == index
+        ]
+
     return sorted_roles
+
 
 def select_role():
     if ROLES_DATA["data"]:

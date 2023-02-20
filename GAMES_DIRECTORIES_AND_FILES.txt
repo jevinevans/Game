@@ -82,6 +82,7 @@ FUNCLG Directories and Files
 ./funclg/data/characters.json
 ./funclg/data/game_settings.json
 ./funclg/data/abilities.json
+./funclg/data/characters.json
 ./funclg/data/equipment.json
 ./funclg/data/roles.json
 ./funclg/managers/roles_manager.py

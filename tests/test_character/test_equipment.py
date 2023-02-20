@@ -103,7 +103,6 @@ def test_equipment_copy():
     new_item = item.copy()
 
     assert id(new_item) != id(item)
-    # assert new_item.id != item.id TODO
     assert new_item.name == item.name
     assert new_item.description == item.description
     assert new_item.armor_type == item.armor_type

@@ -156,6 +156,13 @@ class WeaponEquipment(Equipment):
             else uTypes.WEAPON_TYPES[self.weapon_type]
         )
 
+        self.weapon_type = self._validate_weapon_type(weapon_type)
+        armor_type = (
+            armor_type
+            if armor_type == uTypes.WEAPON_TYPES[self.weapon_type]
+            else uTypes.WEAPON_TYPES[self.weapon_type]
+        )
+
         super().__init__(
             name=name,
             description=description,
