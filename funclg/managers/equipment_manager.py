@@ -42,7 +42,7 @@ def export_data():
 
 def _new_weapon():
     print("What kind of Weapon would you like to create?")
-    weapon_type = list_choice_selection(WEAPON_TYPES[:-1])
+    weapon_type = list_choice_selection(list(WEAPON_TYPES)[:-1])
     weapon_name = string_validation(f"What would you like to name this new {weapon_type}?", "Name")
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
@@ -51,7 +51,7 @@ def _new_weapon():
 
     return WeaponEquipment(
         name=weapon_name,
-        weapon_type=WEAPON_TYPES.index(weapon_type),
+        weapon_type=weapon_type,
         description=weapon_desc,
         mod=weapon_mod,
     )
@@ -101,13 +101,18 @@ def build_equipment():
     del new_equipment
 
 
-def filter_equipment_by_armor_type(armor_type:int):
+def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
 
     for index, item_type in enumerate(ITEM_TYPES):
-        filtered_equipment[item_type] = [equipment.copy() for equipment in EQUIPMENT_DATA['objects'].values() if equipment.armor_type == armor_type and equipment.item_type == index]
+        filtered_equipment[item_type] = [
+            equipment.copy()
+            for equipment in EQUIPMENT_DATA["objects"].values()
+            if equipment.armor_type == armor_type and equipment.item_type == index
+        ]
 
     return filtered_equipment
+
 
 def select_equipment():
     if EQUIPMENT_DATA["data"]:

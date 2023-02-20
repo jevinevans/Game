@@ -116,9 +116,10 @@ class WeaponEquipment(Equipment):
     def __init__(
         self,
         name: str,
-        weapon_type: int,
+        weapon_type: str,
         description: str = "",
         mod: Optional[Dict[str, Dict]] = None,
+        armor_type: int = 1,
         **kwargs,
     ):
         weapon_mod = Modifier(name=name)
@@ -128,17 +129,22 @@ class WeaponEquipment(Equipment):
         else:
             weapon_mod.add_mod(m_type="adds", mods={"attack": 1, "energy": 1})
 
+        self.weapon_type = self._validate_weapon_type(weapon_type)
+        armor_type = (
+            armor_type
+            if armor_type == uTypes.WEAPON_TYPES[self.weapon_type]
+            else uTypes.WEAPON_TYPES[self.weapon_type]
+        )
+
         super().__init__(
             name=name,
             description=description,
             item_type=4,
-            armor_type=-1,
+            armor_type=armor_type,
             mod=weapon_mod,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
         )
-
-        self.weapon_type = self._validate_weapon_type(weapon_type)
 
     def __str__(self) -> str:
         """
@@ -147,11 +153,8 @@ class WeaponEquipment(Equipment):
         return f"{self.name} [{self.weapon_type} {self.item_type}]"
 
     @staticmethod
-    def _validate_weapon_type(weapon_type: int):
-        return weapon_type if abs(weapon_type) < len(uTypes.WEAPON_TYPES) else -1
-
-    def get_weapon_type(self) -> str:
-        return uTypes.get_weapon_type(self.weapon_type)
+    def _validate_weapon_type(weapon_type: str):
+        return weapon_type if weapon_type in uTypes.WEAPON_TYPES else "Unknown"
 
     def get_item_description(self) -> str:
         return uTypes.get_item_description(self.item_type, self.armor_type, self.weapon_type)

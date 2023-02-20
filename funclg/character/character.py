@@ -51,7 +51,7 @@ class Character:
         Creates a new character with an armor set and role
         """
         self.name = name
-        self.armor_type = armor_type if armor_type else 0 # TODO: Consider changing to -1, but requires many changes to the ARMOR class for allowing None
+        self.armor_type = armor_type if armor_type else 0
         self.inventory = kwargs.get("inventory", [])
 
         self._set_up_armor(armor_instance)

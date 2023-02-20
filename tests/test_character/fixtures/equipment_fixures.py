@@ -57,7 +57,7 @@ def body_equipment_with_mods(body_mods):
 @pytest.fixture
 def weapon_mods():
     item_mods = {}
-    for index, weapon_type in enumerate(WEAPON_TYPES[:4]):
+    for index, weapon_type in enumerate(WEAPON_TYPES):
         start = index % len(Modifier.MODIFIER_TYPES)
         end = -1 * (index % len(Modifier.MODIFIER_TYPES))
         item_mods[weapon_type + "_mods"] = {
@@ -70,11 +70,11 @@ def weapon_mods():
 @pytest.fixture
 def weapon_equipment_with_mods(weapon_mods):
     equipment = {}
-    for i_index, weapon_type in enumerate(WEAPON_TYPES[:4]):
+    for weapon_type in WEAPON_TYPES:
         equipment[weapon_type + "_mods"] = WeaponEquipment(
             name=weapon_type + "_mods",
             description=f"{weapon_type} with mods",
-            weapon_type=i_index,
+            weapon_type=weapon_type,
             mod=weapon_mods[weapon_type + "_mods"],
         )
     return equipment
@@ -109,11 +109,3 @@ def body_details_expectation():
 """
         expectations.append(base)
     return expectations
-
-
-@pytest.fixture
-def weapon_description_expectations():
-    descriptions = []
-    for weapon_type in WEAPON_TYPES:
-        descriptions.append(f"[{weapon_type}]")
-    return descriptions

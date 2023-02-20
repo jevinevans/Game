@@ -18,7 +18,6 @@ from .fixtures.equipment_fixures import (
     body_equipment_with_mods,
     body_mods,
     equipment_str_expectation,
-    weapon_description_expectations,
     weapon_equipment_with_mods,
     weapon_mods,
 )
@@ -96,7 +95,6 @@ def test_equipment_copy():
     new_item = item.copy()
 
     assert id(new_item) != id(item)
-    # assert new_item.id != item.id TODO
     assert new_item.name == item.name
     assert new_item.description == item.description
     assert new_item.armor_type == item.armor_type
@@ -163,13 +161,13 @@ def test_bodyequipment_details(body_equipment_with_mods, body_details_expectatio
 # ================================== #
 def test_weaponequipment_init(weapon_equipment_with_mods, weapon_mods):
     for weapon in weapon_equipment_with_mods.values():
-        assert weapon.get_weapon_type() in WEAPON_TYPES
+        assert weapon.weapon_type in WEAPON_TYPES
 
     mod_weapon = WeaponEquipment(
         name="Init Mod Test",
         mod=weapon_mods["Sword_mods"],
         description="Testing Mod Weapon Init",
-        weapon_type=0,
+        weapon_type="Sword",
         armor_type=0,
     )
     assert mod_weapon.mod.adds == weapon_mods["Sword_mods"]["adds"]
@@ -193,10 +191,3 @@ def test_weaponequipment_copy(weapon_equipment_with_mods):
     assert new_item.description == weapon.description
     assert new_item.armor_type == weapon.armor_type
     assert new_item.item_type == weapon.item_type
-
-
-def test_weaponequipment_get_item_description(
-    weapon_equipment_with_mods, weapon_description_expectations
-):
-    for weapon in weapon_equipment_with_mods.values():
-        assert weapon.get_item_description() in weapon_description_expectations

@@ -19,12 +19,6 @@ def test_get_armor_type():
         assert armor_type == f_types.get_armor_type(index)
 
 
-def test_get_weapon_type():
-    """Test get weapon type for all weapon types"""
-    for index, weapon_type in enumerate(f_types.WEAPON_TYPES):
-        assert weapon_type == f_types.get_weapon_type(index)
-
-
 def test_get_item_description():
     "Test get item description for weapons, and armors of different types"
     # Test get item path for no armor
@@ -34,4 +28,4 @@ def test_get_item_description():
     assert f_types.get_item_description(item_type=4)
 
     # Test get item description path with weapon
-    assert f_types.get_item_description(item_type=4, weapon_type=2)
+    assert f_types.get_item_description(item_type=4, weapon_type="Knief")

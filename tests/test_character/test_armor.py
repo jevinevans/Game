@@ -9,7 +9,7 @@ import pytest
 
 from funclg.character.armor import Armor
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import ITEM_TYPES, get_item_type, get_weapon_type
+from funclg.utils.types import ITEM_TYPES, get_item_type
 
 from .fixtures.armor_fixtures import (
     armor_details_expectations,
@@ -25,6 +25,7 @@ from .fixtures.armor_fixtures import (
 
 
 def test_armor_init(light_armor_knife, medium_armor_wand, heavy_armor_sword):
+    print(light_armor_knife)
     for item in ITEM_TYPES:
         item = item.lower()
         assert getattr(light_armor_knife, item, False)
@@ -164,8 +165,8 @@ def test_armor_export(m_id, armor_export_expectations):
             item_type=item_type,
         )
     equipment["Weapon"] = WeaponEquipment(
-        name=f"Weapon: {get_weapon_type(0)}",
-        weapon_type=0,
+        name=f"Weapon: Bow",
+        weapon_type="Bow",
         description="Test Weapon",
         armor_type=0,
     )

@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 23			|
-|	Files: 111				|
+|	Files: 112				|
 +==========================================+
 
 ./.coverage
@@ -87,6 +87,7 @@
 ./funclg/character/stats.py
 ./funclg/data
 ./funclg/data/abilities.json
+./funclg/data/characters.json
 ./funclg/data/equipment.json
 ./funclg/data/roles.json
 ./funclg/managers

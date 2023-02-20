@@ -167,7 +167,7 @@ def test_equipment_manager_delete_equipment(
 @patch("funclg.managers.equipment_manager.list_choice_selection")
 @patch("funclg.managers.equipment_manager.string_validation")
 def test_equipment_manager_new_weapon(m_str_val, m_list_sel, m_mod_gen, m_id, test_weapon):
-    m_list_sel.return_value = WEAPON_TYPES[test_weapon["weapon_type"]]
+    m_list_sel.return_value = test_weapon["weapon_type"]
     m_str_val.side_effect = [test_weapon["name"], test_weapon["description"]]
     m_mod_gen.return_value = test_weapon["mod"]
     m_id.return_value = test_weapon["_id"]

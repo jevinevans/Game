@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Feb  6 20:42:47 PST 2023 
+Date: Sun Feb 19 15:39:28 PST 2023 
 
 ---PYTEST---
 
@@ -8,21 +8,21 @@ Date: Mon Feb  6 20:42:47 PST 2023
 platform linux -- Python 3.8.10, pytest-7.2.1, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev, configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 110 items
+collected 108 items
 
 tests/test_character/test_abilities.py ......                            [  5%]
 tests/test_character/test_armor.py ...............                       [ 19%]
 tests/test_character/test_character.py ........                          [ 26%]
-tests/test_character/test_equipment.py ...............                   [ 40%]
+tests/test_character/test_equipment.py ..............                    [ 39%]
 tests/test_character/test_modifiers.py .........                         [ 48%]
 tests/test_character/test_roles.py .............                         [ 60%]
-tests/test_character/test_stats.py ............                          [ 70%]
-tests/test_main/test_main.py .                                           [ 71%]
+tests/test_character/test_stats.py ............                          [ 71%]
+tests/test_main/test_main.py .                                           [ 72%]
 tests/test_managers/test_abilities_manager.py .......                    [ 78%]
-tests/test_managers/test_equipment_manager.py ........                   [ 85%]
+tests/test_managers/test_equipment_manager.py ........                   [ 86%]
 tests/test_managers/test_modifier_manager.py ...                         [ 88%]
-tests/test_managers/test_roles_manager.py .........                      [ 96%]
-tests/test_utils/test_types.py ....                                      [100%]
+tests/test_managers/test_roles_manager.py .........                      [ 97%]
+tests/test_utils/test_types.py ...                                       [100%]
 
 ---------- coverage: platform linux, python 3.8.10-final-0 -----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
@@ -31,29 +31,29 @@ funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        29     15      4      1    45%   46-57, 61-68, 72
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             66      0     18      0   100%
-funclg/character/armor.py                127      1     32      1    99%   108
-funclg/character/character.py             56      1     12      0    99%   83
+funclg/character/armor.py                122      0     30      0   100%
+funclg/character/character.py             56      1     12      0    99%   85
 funclg/character/equipment.py             84      0      8      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 73      0     24      0   100%
 funclg/character/stats.py                 61      0     28      0   100%
 funclg/managers/__init__.py               12      0      2      0   100%
-funclg/managers/abilities_manager.py      67      0     24      0   100%
-funclg/managers/character_manager.py      17      7      0      0    59%   20-21, 25, 29-30, 34-35
-funclg/managers/equipment_manager.py      85      0     26      0   100%
+funclg/managers/abilities_manager.py      66      0     22      0   100%
+funclg/managers/character_manager.py      84     60     32      1    22%   26-31, 35-46, 52-61, 65-68, 72-74, 81-107, 116-119, 123-128, 132-143
+funclg/managers/equipment_manager.py      90      4     30      0    93%   105-114
 funclg/managers/modifier_manager.py       65      0     26      0   100%
-funclg/managers/roles_manager.py         115      1     42      2    98%   66, 111->125
+funclg/managers/roles_manager.py         118      5     46      2    93%   65, 110->124, 165-172
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     13     10      1    69%   41->55, 45-54, 65-68
 funclg/utils/input_validation.py          41     28     16      0    30%   16-25, 32-33, 40, 47-49, 64-70, 76-85
 funclg/utils/menu_funcs.py                40     18     14      0    48%   15-16, 36-59
-funclg/utils/types.py                     19      0      6      0   100%
+funclg/utils/types.py                     17      0      6      1    96%   60->63
 ----------------------------------------------------------------------------------
-TOTAL                                   1069     84    322      5    92%
+TOTAL                                   1136    144    358      6    86%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 91.59%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 85.54%
 
-======================= 110 passed, 2 warnings in 4.59s ========================
+======================= 108 passed, 2 warnings in 1.84s ========================
 
 ---Code Quality Report---
 
@@ -63,8 +63,10 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 91.59%
 
 -----BLACK-----
 
+reformatted funclg/character/character.py
+
 All done! ✨ 🍰 ✨
-21 files left unchanged.
+1 file reformatted, 20 files left unchanged.
 
 -----BANDIT-----
 
@@ -81,7 +83,8 @@ funclg/character/abilities.py:21:1: W0511: TODO: add energy cost attribute (fixm
 ************* Module funclg.character.character
 funclg/character/character.py:38:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
 ************* Module funclg.character.equipment
-funclg/character/equipment.py:170:5: W0511: TODO: Override details to include the weapon type (fixme)
+funclg/character/equipment.py:139:9: W0511: TODO Remove debug statement (fixme)
+funclg/character/equipment.py:178:5: W0511: TODO: Override details to include the weapon type (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:66:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.roles
@@ -97,13 +100,9 @@ funclg/managers/abilities_manager.py:39:1: W0511: TODO: Need to update so that i
 funclg/managers/abilities_manager.py:43:5: W0511: TODO: Add description print out (fixme)
 funclg/managers/abilities_manager.py:53:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
 ************* Module funclg.managers.character_manager
-funclg/managers/character_manager.py:19:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
-funclg/managers/character_manager.py:48:1: W0511: TODO: Remove me (fixme)
-funclg/managers/character_manager.py:6:0: W0611: Unused logger imported from loguru (unused-import)
-funclg/managers/character_manager.py:8:0: W0611: Unused funclg.utils.data_mgmt imported as db (unused-import)
-funclg/managers/character_manager.py:9:0: W0611: Unused Character imported from funclg.character.character (unused-import)
-funclg/managers/character_manager.py:10:0: W0611: Unused char_manager_choice_selection imported from funclg.utils.input_validation (unused-import)
-funclg/managers/character_manager.py:10:0: W0611: Unused yes_no_validation imported from funclg.utils.input_validation (unused-import)
+funclg/managers/character_manager.py:100:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+funclg/managers/character_manager.py:96:4: W0612: Unused variable 'char_role' (unused-variable)
+funclg/managers/character_manager.py:100:8: W0612: Unused variable 'char_equipment' (unused-variable)
 ************* Module funclg.managers.equipment_manager
 funclg/managers/equipment_manager.py:24:5: W0511: TODO: On edit, needs to update all values (fixme)
 ************* Module funclg.managers.modifier_manager
@@ -112,16 +111,18 @@ funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able 
 funclg/managers/modifier_manager.py:80:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:26:5: W0511: TODO: On edit, needs to update all values (fixme)
-funclg/managers/roles_manager.py:55:9: W0511: TODO: Add description print out (fixme)
-funclg/managers/roles_manager.py:71:1: W0511: TODO add an option for adding no roles (fixme)
-funclg/managers/roles_manager.py:124:5: W0511: TODO: Future: consider option to create a new one (fixme)
+funclg/managers/roles_manager.py:54:9: W0511: TODO: Add description print out (fixme)
+funclg/managers/roles_manager.py:70:1: W0511: TODO add an option for adding no roles (fixme)
+funclg/managers/roles_manager.py:123:5: W0511: TODO: Future: consider option to create a new one (fixme)
+funclg/managers/roles_manager.py:77:8: C0206: Consider iterating with .items() (consider-using-dict-items)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
 ************* Module funclg.utils.types
-funclg/utils/types.py:16:1: W0511: TODO Add descriptions (fixme)
-funclg/utils/types.py:36:9: W0511: TODO: Change to 'Basic' types or something that is not none (fixme)
+funclg/utils/types.py:7:1: W0511: TODO: Consider changing IT, AT and WT to enums (fixme)
+funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
+funclg/utils/types.py:38:9: W0511: TODO: Change to 'Basic' types or something that is not none (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.69/10 (previous run: 9.69/10, +0.00)
+Your code has been rated at 9.68/10 (previous run: 9.63/10, +0.05)
 

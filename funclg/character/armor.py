@@ -34,21 +34,21 @@ class Armor:
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
         self.stat = Stats(attributes={"level": None}, default=(armor_type + 1) * 10)
 
-        self.head = self._validate_body(head, 0)
-        self.chest = self._validate_body(chest, 1)
-        self.back = self._validate_body(back, 2)
-        self.pants = self._validate_body(pants, 3)
-        self.weapon = self._validate_weapon(weapon)
+        self.head = self._validate_equipment(head, 0)
+        self.chest = self._validate_equipment(chest, 1)
+        self.back = self._validate_equipment(back, 2)
+        self.pants = self._validate_equipment(pants, 3)
+        self.weapon = self._validate_equipment(weapon, 4)
 
     def _update_armor_mods(self, item):
         """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
         self.stat.add_mod(item.mod)
         return item.copy()
 
-    def _validate_body(
+    def _validate_equipment(
         self, item: Union[BodyEquipment, None], item_type: int
     ) -> Union[BodyEquipment, None]:
-        if isinstance(item, BodyEquipment):
+        if isinstance(item, (BodyEquipment, WeaponEquipment)):
             if item.armor_type == self.armor_type:
                 if item.item_type == item_type:
                     return self._update_armor_mods(item)
@@ -56,15 +56,7 @@ class Armor:
                 return None
             logger.warning(f"{item} incompatable with this armor.")
             return None
-        logger.error(f"{item} is not body armor and can not be equiped.")
-        return None
-
-    def _validate_weapon(
-        self, weapon: Union[WeaponEquipment, None]
-    ) -> Union[WeaponEquipment, None]:
-        if isinstance(weapon, WeaponEquipment):
-            return self._update_armor_mods(weapon)
-        logger.error(f"{weapon} is not a weapon and can not be equiped.")
+        logger.error(f"{item} is not body armor or a weapon and can not be equiped.")
         return None
 
     def __str__(self) -> str:
@@ -78,31 +70,31 @@ class Armor:
         return temp
 
     def _equip_head(self, item: BodyEquipment):
-        if new_item := self._validate_body(item, 0):
+        if new_item := self._validate_equipment(item, 0):
             self.head = new_item
             return True
         return False
 
     def _equip_chest(self, item: BodyEquipment):
-        if new_item := self._validate_body(item, 1):
+        if new_item := self._validate_equipment(item, 1):
             self.chest = new_item
             return True
         return False
 
     def _equip_back(self, item: BodyEquipment):
-        if new_item := self._validate_body(item, 2):
+        if new_item := self._validate_equipment(item, 2):
             self.back = new_item
             return True
         return False
 
     def _equip_pants(self, item: BodyEquipment):
-        if new_item := self._validate_body(item, 3):
+        if new_item := self._validate_equipment(item, 3):
             self.pants = new_item
             return True
         return False
 
     def _equip_weapon(self, item: WeaponEquipment):
-        if new_item := self._validate_weapon(item):
+        if new_item := self._validate_equipment(item, 4):
             self.weapon = new_item
             return True
         return False
