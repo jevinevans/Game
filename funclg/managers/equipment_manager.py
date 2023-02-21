@@ -109,6 +109,14 @@ def build_equipment():
     del new_equipment
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    print("\nStarting Equipmet Creation:\n\nWhat type of equipment would you like to create:")
+    equip_type = list_choice_selection(["Body Armor", "Weapon"])
+    new_equipment = None
+=======
+>>>>>>> ccd0204... completed character manager
 def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
 
@@ -120,7 +128,11 @@ def filter_equipment_by_armor_type(armor_type: int):
         }
 
     return filtered_equipment
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d0e567... completed character manager
+>>>>>>> ccd0204... completed character manager
 
 
 def select_equipment():
@@ -136,7 +148,6 @@ def select_equipment():
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
             }
-            print(equip_list)
         return char_manager_choice_selection(equip_list, "name", "_id")
     logger.warning("There are is no equipment available.")
     return None
@@ -170,7 +181,16 @@ def delete_equipment():
     logger.warning("There are currently no equipment to delete.")
 
 
+<<<<<<< HEAD
 MENU = {
+=======
+<<<<<<< HEAD
+
+EQUIPMENT_MENU = {
+=======
+MENU = {
+>>>>>>> 2d0e567... completed character manager
+>>>>>>> ccd0204... completed character manager
     "name": "Manage Equipment",
     "description": "This the menu to create armor and weapons for characters to use.",
     "menu_items": [
