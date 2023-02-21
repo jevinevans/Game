@@ -8,9 +8,10 @@ Date: Sat Nov 26 20:07:10 PST 2022
 platform linux -- Python 3.10.12, pytest-7.4.2, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 108 items
+collected 110 items
 
 tests/test_character/test_abilities.py ......                            [  5%]
+<<<<<<< HEAD
 tests/test_character/test_armor.py ...............                       [ 20%]
 tests/test_character/test_character.py ........                          [ 28%]
 tests/test_character/test_equipment.py ...............                   [ 43%]
@@ -23,6 +24,20 @@ tests/test_managers/test_equipment_manager.py ........                   [ 93%]
 tests/test_managers/test_modifier_manager.py ...                         [ 96%]
 tests/test_utils/test_types.py ....                                      [100%]
 >>>>>>> b993bb6 (Completed abilities manager and related necessary changes)
+=======
+tests/test_character/test_armor.py ...............                       [ 19%]
+tests/test_character/test_character.py ........                          [ 26%]
+tests/test_character/test_equipment.py ..............                    [ 39%]
+tests/test_character/test_modifiers.py .........                         [ 47%]
+tests/test_character/test_roles.py .............                         [ 59%]
+tests/test_character/test_stats.py ............                          [ 70%]
+tests/test_main/test_main.py .                                           [ 70%]
+tests/test_managers/test_abilities_manager.py .......                    [ 77%]
+tests/test_managers/test_equipment_manager.py .........                  [ 85%]
+tests/test_managers/test_modifier_manager.py ...                         [ 88%]
+tests/test_managers/test_roles_manager.py ..........                     [ 97%]
+tests/test_utils/test_types.py ...                                       [100%]
+>>>>>>> b004044 (completed character manager)
 
 ---------- coverage: platform linux, python 3.10.12-final-0 ----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
@@ -72,29 +87,41 @@ funclg/character/abilities.py             64      0     16      0   100%
 >>>>>>> b993bb6 (Completed abilities manager and related necessary changes)
 =======
 funclg/character/abilities.py             66      0     18      0   100%
-funclg/character/armor.py                122      0     30      0   100%
-funclg/character/character.py             56      1     12      0    99%   85
-funclg/character/equipment.py             84      0      8      0   100%
+funclg/character/armor.py                120      0     30      0   100%
+funclg/character/character.py             56      0     12      0   100%
+funclg/character/equipment.py             83      0      8      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 73      0     24      0   100%
 funclg/character/stats.py                 61      0     28      0   100%
-funclg/managers/__init__.py               12      0      2      0   100%
+funclg/managers/__init__.py               15      2      4      0    79%   29-30
 funclg/managers/abilities_manager.py      66      0     22      0   100%
-funclg/managers/character_manager.py      84     60     32      1    22%   26-31, 35-46, 52-61, 65-68, 72-74, 81-107, 116-119, 123-128, 132-143
-funclg/managers/equipment_manager.py      90      4     30      0    93%   105-114
+funclg/managers/character_manager.py     113     88     50      1    16%   28-34, 38-50, 56-65, 69-72, 82-105, 112-164, 173-176, 180-185, 189-200
+funclg/managers/equipment_manager.py      89      0     30      0   100%
 funclg/managers/modifier_manager.py       65      0     26      0   100%
+<<<<<<< HEAD
 funclg/managers/roles_manager.py         116     88     44      1    21%   28->27, 38-41, 46-68, 75-125, 131-156, 166-169, 173-179, 183-194
+=======
+funclg/managers/roles_manager.py         121      0     50      1    99%   112->126
+>>>>>>> b004044 (completed character manager)
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     13     10      1    69%   41->55, 45-54, 65-68
 funclg/utils/input_validation.py          41     28     16      0    30%   16-25, 32-33, 40, 47-49, 64-70, 76-85
-funclg/utils/menu_funcs.py                40     18     14      0    48%   15-16, 36-59
+funclg/utils/menu_funcs.py                36     16     14      0    48%   29-52
 funclg/utils/types.py                     17      0      6      1    96%   60->63
 ----------------------------------------------------------------------------------
+<<<<<<< HEAD
 TOTAL                                   1070    171    324      4    83%
 
 FAIL Required test coverage of 100.0% not reached. Total coverage: 82.71%
 
 ======================= 101 passed, 2 warnings in 1.60s ========================
+=======
+TOTAL                                   1168    165    382      5    84%
+
+FAIL Required test coverage of 95.0% not reached. Total coverage: 84.00%
+
+======================= 110 passed, 2 warnings in 1.55s ========================
+>>>>>>> b004044 (completed character manager)
 
 ---Code Quality Report---
 
@@ -106,10 +133,8 @@ FAIL Required test coverage of 100.0% not reached. Total coverage: 82.71%
 
 -----BLACK-----
 
-reformatted funclg/character/character.py
-
 All done! ✨ 🍰 ✨
-1 file reformatted, 20 files left unchanged.
+21 files left unchanged.
 
 >>>>>>> 83c69e3 (db file io fixe and module clean up)
 -----BANDIT-----
@@ -120,14 +145,16 @@ All done! ✨ 🍰 ✨
 <<<<<<< HEAD
 =======
 ************* Module funclg.__main__
-funclg/__main__.py:39:34: W0511: TODO: add play instance (fixme)
+funclg/__main__.py:46:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:21:1: W0511: TODO: add energy cost attribute (fixme)
 ************* Module funclg.character.character
 funclg/character/character.py:38:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
 ************* Module funclg.character.equipment
-funclg/character/equipment.py:139:9: W0511: TODO Remove debug statement (fixme)
-funclg/character/equipment.py:178:5: W0511: TODO: Override details to include the weapon type (fixme)
+funclg/character/equipment.py:23:1: W0511: TODO: Change equipment display methods (fixme)
+funclg/character/equipment.py:151:5: W0511: TODO: Change equipment display methods (fixme)
+funclg/character/equipment.py:176:5: W0511: TODO: Override details to include the weapon type (fixme)
+funclg/character/equipment.py:215:5: W0511: TODO: Change equipment display methods (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:66:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.roles
@@ -203,10 +230,6 @@ funclg/managers/abilities_manager.py:38:1: W0511: TODO: need to add a condition 
 funclg/managers/abilities_manager.py:39:1: W0511: TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used (fixme)
 funclg/managers/abilities_manager.py:43:5: W0511: TODO: Add description print out (fixme)
 funclg/managers/abilities_manager.py:53:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
-************* Module funclg.managers.character_manager
-funclg/managers/character_manager.py:100:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
-funclg/managers/character_manager.py:96:4: W0612: Unused variable 'char_role' (unused-variable)
-funclg/managers/character_manager.py:100:8: W0612: Unused variable 'char_equipment' (unused-variable)
 ************* Module funclg.managers.equipment_manager
 funclg/managers/equipment_manager.py:24:5: W0511: TODO: On edit, needs to update all values (fixme)
 ************* Module funclg.managers.modifier_manager
@@ -214,10 +237,17 @@ funclg/managers/modifier_manager.py:49:1: W0511: TODO: Create/modify the build t
 funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
 funclg/managers/modifier_manager.py:80:1: W0511: TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
 ************* Module funclg.managers.roles_manager
+<<<<<<< HEAD
 funclg/managers/roles_manager.py:24:5: W0511: TODO: On edit, needs to update all values (fixme)
 funclg/managers/roles_manager.py:53:9: W0511: TODO: Add description print out (fixme)
 funclg/managers/roles_manager.py:71:1: W0511: TODO add an option for adding no roles (fixme)
 funclg/managers/roles_manager.py:124:5: W0511: TODO: Future: consider option to create a new one (fixme)
+=======
+funclg/managers/roles_manager.py:26:5: W0511: TODO: On edit, needs to update all values (fixme)
+funclg/managers/roles_manager.py:56:9: W0511: TODO: Add description print out (fixme)
+funclg/managers/roles_manager.py:72:1: W0511: TODO add an option for adding no roles (fixme)
+funclg/managers/roles_manager.py:125:5: W0511: TODO: Future: consider option to create a new one (fixme)
+>>>>>>> b004044 (completed character manager)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
@@ -227,7 +257,11 @@ funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
 funclg/utils/types.py:38:9: W0511: TODO: Change to 'Basic' types or something that is not none (fixme)
 
 ------------------------------------------------------------------
+<<<<<<< HEAD
 Your code has been rated at 9.70/10 (previous run: 9.70/10, +0.00)
+=======
+Your code has been rated at 9.74/10 (previous run: 9.74/10, +0.00)
+>>>>>>> b004044 (completed character manager)
 
 
 -----PYRIGHT-----

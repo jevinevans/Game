@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 FUNCLG Directories and Files
+=======
++==========================================+
+|	Total Directories: 23			|
+|	Files: 113				|
++==========================================+
+>>>>>>> b004044 (completed character manager)
 
 +============================+
 |    Total Directories: 21   |
@@ -86,6 +93,7 @@ FUNCLG Directories and Files
 ./funclg/data/equipment.json
 ./funclg/data/roles.json
 ./funclg/managers/roles_manager.py
+<<<<<<< HEAD
 ./funclg/managers/stats_manager.py
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
@@ -149,3 +157,47 @@ FUNCLG Directories and Files
 ./changelogs/2020/Log_2020_July_24.md
 ./changelogs/2020/Log_2020_May_30.md
 ./changelogs/2020/Log_2020_February_17.txt
+=======
+./funclg/utils
+./funclg/utils/__init__.py
+./funclg/utils/data_mgmt.py
+./funclg/utils/input_validation.py
+./funclg/utils/menu_funcs.py
+./funclg/utils/types.py
+./logs
+./logs/character
+./logs/character.log
+./logs/character/character.log
+./poetry.lock
+./pyproject.toml
+./requirements.txt
+./runTest.sh
+./tests
+./tests/__init__.py
+./tests/test_character
+./tests/test_character/__init__.py
+./tests/test_character/fixtures
+./tests/test_character/fixtures/__init__.py
+./tests/test_character/fixtures/abilities_fixtures.py
+./tests/test_character/fixtures/armor_fixtures.py
+./tests/test_character/fixtures/equipment_fixures.py
+./tests/test_character/fixtures/roles_fixtures.py
+./tests/test_character/fixtures/stat_fixtures.py
+./tests/test_character/test_abilities.py
+./tests/test_character/test_armor.py
+./tests/test_character/test_character.py
+./tests/test_character/test_equipment.py
+./tests/test_character/test_modifiers.py
+./tests/test_character/test_roles.py
+./tests/test_character/test_stats.py
+./tests/test_main
+./tests/test_main/test_main.py
+./tests/test_managers
+./tests/test_managers/test_abilities_manager.py
+./tests/test_managers/test_character_manager.py
+./tests/test_managers/test_equipment_manager.py
+./tests/test_managers/test_modifier_manager.py
+./tests/test_managers/test_roles_manager.py
+./tests/test_utils
+./tests/test_utils/test_types.py
+>>>>>>> b004044 (completed character manager)

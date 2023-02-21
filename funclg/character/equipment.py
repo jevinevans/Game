@@ -20,6 +20,8 @@ from .stats import Stats
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
 
+# TODO: Change equipment display methods
+
 
 class Equipment:
     """
@@ -174,6 +176,7 @@ class WeaponEquipment(Equipment):
             level=kwargs.get("level", 1),
         )
 
+    # TODO: Change equipment display methods
     def __str__(self) -> str:
         """
         Returns the name and level of the item
@@ -247,6 +250,7 @@ class BodyEquipment(Equipment):
             level=kwargs.get("level", 1),
         )
 
+    # TODO: Change equipment display methods
     def __str__(self) -> str:
         """
         Returns the name and level of the item
