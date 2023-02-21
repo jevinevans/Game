@@ -10,6 +10,7 @@ from funclg.character.armor import Armor
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.types import get_item_type
 
+
 def gen_equipment(armor_type: int, weapon_type: str):
     equipment = {}
     mods = {"attributes": {"health": 50, "energy": 10, "defense": 10, "attack": 10}}

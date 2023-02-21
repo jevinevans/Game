@@ -43,27 +43,6 @@ def export_data():
 
     db.update_data(EQUIPMENT_DATA)
 
-EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
-
-
-def update_data():
-    db.update_data(EQUIPMENT_DATA)
-
-    for _id, data in EQUIPMENT_DATA["data"].items():
-
-        if _id not in EQUIPMENT_DATA["objects"]:
-            if data["item_type"] == 4:
-                EQUIPMENT_DATA["objects"][_id] = WeaponEquipment(**data)
-            else:
-                EQUIPMENT_DATA["objects"][_id] = BodyEquipment(**data)
-
-
-def export_data():
-    for _id, data in EQUIPMENT_DATA["objects"].items():
-        EQUIPMENT_DATA["data"][_id] = data.export()
-
-    db.update_data(EQUIPMENT_DATA)
-
 
 def _new_weapon():
     print()
@@ -94,19 +73,6 @@ def _new_weapon():
         mod=weapon_mod,
     )
 
-def update_data():
-    db.update_data(EQUIPMENT_DATA)
-
-    print("Generating mods for this weapon...")
-    weapon_mod = generate_modifier("weapon")    
-
-    return WeaponEquipment(
-        name=weapon_name,
-        weapon_type=WEAPON_TYPES.index(weapon_type),
-        description=weapon_desc,
-        mod=weapon_mod,
-    )
-
 
 def _new_body_armor():
     item_type = selection_validation(
@@ -131,13 +97,6 @@ def _new_body_armor():
         item_type=ITEM_TYPES.index(item_type),
     )
 
-def export_data():
-    for _id, data in EQUIPMENT_DATA["objects"].items():
-        EQUIPMENT_DATA["data"][_id] = data.export()
-
-    db.update_data(EQUIPMENT_DATA)
-
-
 def build_equipment():
     """Dialog for building new equipment"""
     equip_type = selection_validation(
@@ -160,7 +119,6 @@ def build_equipment():
     print(f"No new {equip_type.lower()}, oh well...")
     del new_equipment
 
-
 def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
 
@@ -172,26 +130,6 @@ def filter_equipment_by_armor_type(armor_type: int):
         }
 
     return filtered_equipment
-
-
-
-def select_equipment():
-    if EQUIPMENT_DATA["data"]:
-        equip_list = {}
-        print("Which type of equipment would you like to select:")
-        choice = list_choice_selection(["Weapons", "Armor"])
-        if choice == "Armor":
-            equip_list = {
-                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] != 4
-            }
-        else:
-            equip_list = {
-                _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
-            }
-            print(equip_list)
-        return char_manager_choice_selection(equip_list, "name", "_id")
-    logger.warning("There are is no equipment available.")
-    return None
 
 def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
@@ -234,9 +172,6 @@ def show_equipment():
         return
     logger.warning("There are no equipment items to show.")
 
-    if yes_no_validation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
-        EQUIPMENT_DATA["data"][new_equipment.id] = new_equipment.export()
-        update_data()
 
 
 def delete_equipment():
