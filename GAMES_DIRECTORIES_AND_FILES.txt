@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 23			|
-|	Files: 112				|
+|	Files: 113				|
 +==========================================+
 
 ./.coverage
@@ -133,6 +133,7 @@
 ./tests/test_main/test_main.py
 ./tests/test_managers
 ./tests/test_managers/test_abilities_manager.py
+./tests/test_managers/test_character_manager.py
 ./tests/test_managers/test_equipment_manager.py
 ./tests/test_managers/test_modifier_manager.py
 ./tests/test_managers/test_roles_manager.py

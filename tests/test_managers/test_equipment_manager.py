@@ -9,7 +9,7 @@ from unittest.mock import patch
 import pytest
 
 import funclg.managers.equipment_manager as eq_man
-from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 
 
 @pytest.fixture
@@ -28,18 +28,33 @@ def test_equipment():
 
 
 @pytest.fixture
+def test_equipment_2():
+    return {
+        "name": "Test Head",
+        "description": "Test Chest Head",
+        "item_type": 0,
+        "armor_type": 2,
+        "mod": {
+            "adds": {"defense": 220},
+            "mults": {"health": 0.4},
+        },
+        "_id": "ARMOR-16342-QLPBCA-36276",
+    }
+
+
+@pytest.fixture
 def test_weapon():
     return {
         "name": "Test Spear",
         "description": "Test Spear",
         "item_type": 4,
-        "armor_type": -1,
+        "armor_type": 2,
         "mod": {
             "adds": {"attack": 275},
             "mults": {"energy": 0.2},
         },
         "_id": "WEAPON-16151-OEGEFS-36126",
-        "weapon_type": 3,
+        "weapon_type": "Spear",
     }
 
 
@@ -240,3 +255,39 @@ def test_equipment_manager_build_equipment(
 
     assert m_print.called_with(f"{test_weapon['name']} has been saved!!")
     assert m_print.called_with("No new weapon, oh well...")
+
+
+def test_equipment_manager_filter_equipment_by_armor_type(
+    test_equipment, test_equipment_2, test_weapon
+):
+
+    armor_type_0 = eq_man.BodyEquipment(**test_equipment)
+    weapon_type_2 = eq_man.WeaponEquipment(**test_weapon)
+    armor_type_2 = eq_man.BodyEquipment(**test_equipment_2)
+    del eq_man.EQUIPMENT_DATA["objects"]
+    eq_man.EQUIPMENT_DATA.update(
+        {
+            "objects": {
+                armor_type_0.id: armor_type_0,
+                weapon_type_2.id: weapon_type_2,
+                armor_type_2.id: armor_type_2,
+            }
+        }
+    )
+    armor_type_0_results = {
+        "Head": {},
+        "Chest": {armor_type_0.id:armor_type_0},
+        "Back": {},
+        "Pants": {},
+        "Weapon": {},
+    }
+    armor_type_2_results = {
+        "Head": {armor_type_2.id:armor_type_2},
+        "Chest": {},
+        "Back": {},
+        "Pants": {},
+        "Weapon": {weapon_type_2.id:weapon_type_2},
+    }
+
+    assert armor_type_0_results == eq_man.filter_equipment_by_armor_type(0)
+    assert armor_type_2_results == eq_man.filter_equipment_by_armor_type(2)

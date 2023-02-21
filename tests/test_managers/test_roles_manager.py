@@ -67,8 +67,7 @@ def test_mage():
 
 @pytest.fixture
 def test_warrior():
-    return (
-        {
+    return {
             "name": "Warrior",
             "description": "Guardian, Protector",
             "armor_type": 2,
@@ -92,8 +91,7 @@ def test_warrior():
                 },
             ],
             "_id": "ROLES-16694-QPYDLP-95720",
-        },
-    )
+        }
 
 
 @pytest.fixture
@@ -128,44 +126,11 @@ def test_rouge():
 @pytest.fixture
 def test_no_abilities():
     return {
-        "name": "Mage",
-        "description": "Wielders of magic",
+        "name": "Cleric",
+        "description": "Magic Healer",
         "armor_type": 1,
-        "ability_types": ["Magic", "Restore", "Buff", "Debuff"],
-        "abilities": [
-            {
-                "name": "Fireball",
-                "description": "Throws a fireball at target",
-                "ability_type": "Magic",
-                "_target": "enemy",
-                "mod": {"adds": {"defense": -446}, "mults": {}},
-                "_id": "ABILITY-16650-OKNG-98180",
-            },
-            {
-                "name": "Heal",
-                "description": "Heals the users mod",
-                "ability_type": "Restore",
-                "_target": "self",
-                "mod": {"adds": {}, "mults": {"energy": 0.45}},
-                "_id": "ABILITY-16650-DOTD-98286",
-            },
-            {
-                "name": "Empower",
-                "description": "Strengthens player",
-                "ability_type": "Buff",
-                "_target": "self",
-                "mod": {"adds": {}, "mults": {"defense": 0.98}},
-                "_id": "ABILITY-16650-DXUF-98274",
-            },
-            {
-                "name": "Weaken",
-                "description": "Weakens an enemy",
-                "ability_type": "Debuff",
-                "_target": "enemy",
-                "mod": {"adds": {}, "mults": {"defense": -0.83}},
-                "_id": "ABILITY-16660-TXKX-31305",
-            },
-        ],
+        "ability_types": ["Magic", "Restore", "Buff"],
+        "abilities": [ ],
         "_id": "ROLES-16683-UAJMFU-16064",
     }
 
@@ -399,3 +364,27 @@ def test_roles_manager_build_role_no_save(
 
     assert not m_update.called
     assert not role_man.ROLES_DATA["data"].get(test_mage["_id"], False)
+
+def test_roles_manager_sort_roles_by_armor_type(test_mage, test_warrior, test_rouge, test_no_abilities):
+    
+    def _gen_class(role_dict:dict):
+        role_abilities = [Abilities(**_ability) for _ability in role_dict['abilities']]
+        role_dict["abilities"] = role_abilities
+        return role_man.Roles(**role_dict)
+
+    role_objs = {"mage":_gen_class(test_mage),
+        "warrior":_gen_class(test_warrior),
+        "rouge": _gen_class(test_rouge),
+        "cleric":_gen_class(test_no_abilities)}
+
+    del role_man.ROLES_DATA['objects']
+
+    role_man.ROLES_DATA.update({"objects":role_objs})
+
+    sort_results = {
+        "Light":[role_objs["rouge"]],
+        "Medium":[role_objs["mage"], role_objs['cleric']],
+        "Heavy":[role_objs['warrior']]
+    }
+
+    assert sort_results == role_man.sort_roles_by_armor_type()

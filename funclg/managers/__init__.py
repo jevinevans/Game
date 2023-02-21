@@ -9,24 +9,22 @@ from . import character_manager as char_man
 from . import equipment_manager as equip_man
 from . import roles_manager as role_man
 
-MENUS = [
-    char_man.CHARACTER_MENU,
-    role_man.ROLES_MENU,
-    ability_man.ABILITY_MENU,
-    equip_man.EQUIPMENT_MENU,
+MANAGERS = [
+    char_man,
+    role_man,
+    ability_man,
+    equip_man,
 ]
-
-# UPDATERS = [
-
-# ]
 
 
 def build_manager_menu():
     builder_menu = Menu("Manage Game", "This is the menu to manage all character items.")
-    for menu in MENUS:
-        sub_menu = Menu.build_menu(**menu)
+    for manager in MANAGERS:
+        sub_menu = Menu.build_menu(**manager.MENU)
         builder_menu.add_item(sub_menu.name, sub_menu)
     return builder_menu
 
 
-# def save_data():
+def save_data():
+    for manager in MANAGERS:
+        manager.export_data()

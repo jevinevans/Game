@@ -103,6 +103,7 @@ def test_character_init_no_armor_no_role():
     assert t_char.role is not None
     assert t_char.role.name == "NPC"
     assert t_char.inventory == []
+    assert t_char.id
 
     # Test with inventory
     test_inventory = [1, 2, 3]

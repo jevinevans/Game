@@ -3,6 +3,8 @@ Programmer: Jevin Evans
 Date: 6.19.2022
 Description: A manager class for creating, updating, and removing characters.
 """
+from typing import List, Union
+
 from loguru import logger
 
 import funclg.managers.abilities_manager as ab_man
@@ -29,6 +31,7 @@ def _update_char_role(data: dict, new_data: dict):
     new_data["role"]["abilities"] = char_role_abilities
     new_data["role_instance"] = role_man.Roles(**new_data["role"])
     del new_data["role"]
+    return new_data
 
 
 def _update_char_armor(data: dict, new_data: dict):
@@ -44,6 +47,7 @@ def _update_char_armor(data: dict, new_data: dict):
                 )
     new_data["armor_instance"] = Armor(**new_data["armor"])
     del new_data["armor"]
+    return new_data
 
 
 def update_data():
@@ -53,10 +57,10 @@ def update_data():
             new_data = data.copy()
 
             if data.get("role"):
-                _update_char_role(data, new_data)
+                new_data = _update_char_role(data, new_data)
 
             if data.get("armor"):
-                _update_char_armor(data, new_data)
+                new_data = _update_char_armor(data, new_data)
 
             CHARACTER_DATA["objects"][_id] = Character(**new_data)
 
@@ -68,10 +72,37 @@ def export_data():
     db.update_data(CHARACTER_DATA)
 
 
-def _pick_char_armor_equipment(armor_type: str) -> list:
-    armor_type = ARMOR_TYPES.index(armor_type)
+def _pick_char_armor_equipment(
+    armor_type: str, armor_type_int: int
+) -> List[Union[eq_man.BodyEquipment, eq_man.WeaponEquipment, None]]:
+    # Show all availabile equipment
+    # go through each item type and select or skip
+    # Confirm at the end, can ask to restart or move forward
 
-    raise NotImplementedError
+    available_equipment = eq_man.filter_equipment_by_armor_type(armor_type_int)
+    selected_equipment = {}
+
+    print(available_equipment)
+
+    for item_type in ITEM_TYPES:
+        print(f"Please choose a {item_type} to equip:")
+        if available_equipment[item_type]:
+            sel_item_name = list_choice_selection(
+                [item.name for item in available_equipment[item_type].values()]
+            )
+            sel_item = [
+                item
+                for item in available_equipment[item_type].values()
+                if item.name == sel_item_name
+            ][0]
+            if yes_no_validation(f"Do you want equip {sel_item}?"):
+                selected_equipment[item_type.lower()] = sel_item.copy()
+            else:
+                selected_equipment[item_type.lower()] = None
+        else:
+            print(f"There are no {armor_type} {item_type} equipment, continuing...\n")
+
+    return selected_equipment
 
 
 def build_character():
@@ -83,28 +114,54 @@ def build_character():
 
     # Choose Armor Type and Role
     print(
-        f"Choose an armor type for {char_name}. The armor type determines what role your character can have."
+        f"Choose an available armor type for {char_name}. The armor type determines what role your character can have."
     )
     sorted_roles = role_man.sort_roles_by_armor_type()
+
+    if not sorted_roles:
+        logger.warning(
+            "There are no roles to assign to your character. Please create a role before creating a character"
+        )
+        return
+
     for armor_type, a_roles in sorted_roles.items():
         print(f"{armor_type}:")
-        print("\n\t- ".join(a_roles))
+        for _a_role in a_roles:
+            print(f"\n\t- {_a_role}")
 
-    char_armor_type = list_choice_selection(ARMOR_TYPES[:-1])
+    char_armor_type = list_choice_selection(list(sorted_roles.keys()))
+    char_armor_type_int = ARMOR_TYPES.index(char_armor_type)
 
     print(f"Which role would you like for {char_name}:")
-    char_role = list_choice_selection([role.name for role in sorted_roles[char_armor_type]])
+    char_role_name = list_choice_selection([role.name for role in sorted_roles[char_armor_type]])
+    char_role = [role for role in sorted_roles[char_armor_type] if role.name == char_role_name][
+        0
+    ].copy()
 
-    if yes_no_validation(f"Do you want to add equipment to {char_name}?"):
+    char_armor = None
+    if yes_no_validation(
+        f"Do you want to add equipment to your character: '{char_name.capitalize()}'?"
+    ):
 
-        char_equipment = _pick_char_armor_equipment(char_armor_type)
+        char_equipment = _pick_char_armor_equipment(char_armor_type, char_armor_type_int)
+        char_armor = Armor(armor_type=char_armor_type_int, **char_equipment)
+    else:
+        char_armor = Armor(armor_type=char_armor_type_int)
 
-    # Ask if they want to build an armor
-    # Yes, build armor method - select equipment that is compatible with the armor type
+    new_character = Character(
+        name=char_name,
+        armor_type=char_armor_type_int,
+        armor_instance=char_armor,
+        role_instance=char_role,
+    )
 
-    # Confirm and build, update
+    if yes_no_validation(f"You created:\n{new_character.details()}\nSave new character?"):
+        CHARACTER_DATA["data"][new_character.id] = new_character.export()
+        update_data()
+        print(f"{new_character.name} has been saved!!!")
 
-    raise NotImplementedError
+    print(f"Oh well..., I guess we'll just kill {new_character.name}")
+    del new_character
 
 
 # def edit_character():
@@ -143,7 +200,7 @@ def delete_character():
     logger.warning("There are currently no character to delete.")
 
 
-CHARACTER_MENU = {
+MENU = {
     "name": "Manage Characters",
     "description": "This is the menu to create characters to use in game.",
     "menu_items": [

@@ -47,7 +47,9 @@ def _select_ability_types():
     a_types = []
     available_types = ABILITY_TYPES.copy()
 
-    while True:
+    continue_selection = True
+
+    while continue_selection:
         print(
             "Lets add some ability types to your role!\n\nWhat ability type(s) would you like this class to have?"
         )
@@ -62,7 +64,7 @@ def _select_ability_types():
         if yes_no_validation("Would you like to add another type?"):
             del available_types[a_type]
             continue
-        break
+        continue_selection = False
 
     return a_types
 
@@ -71,12 +73,12 @@ def _select_ability_types():
 def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
     """"""
 
-    def display_abilities():
+    def _display_abilities():
         print(f"You can choose abilities from the following types: {', '.join(a_types)}")
 
-        for _atype in available_abilities:
+        for _atype, _abilities in available_abilities.items():
             print(f"{_atype}:")
-            for _ability in available_abilities[_atype]:
+            for _ability in _abilities:
                 print(f"\t{_ability}")
 
         print("Select ability type:")
@@ -108,7 +110,7 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
 
     # Show available abilities created, filtered by the ability types selcted
     while len(role_abilities) < 5:
-        new_ability = display_abilities()
+        new_ability = _display_abilities()
         if new_ability:
             role_abilities.append(new_ability)
 
@@ -166,8 +168,10 @@ def sort_roles_by_armor_type():
 
     for index, armor_type in enumerate(ARMOR_TYPES):
         sorted_roles[armor_type] = [
-            role.copy() for role in ROLES_DATA["objects"] if role.armor_type == index
+            role for role in ROLES_DATA["objects"].values() if role.armor_type == index
         ]
+
+    sorted_roles = {armor_type: data for armor_type, data in sorted_roles.items() if data}
 
     return sorted_roles
 
@@ -203,7 +207,7 @@ def delete_role():
     logger.warning("There are no roles to delete.")
 
 
-ROLES_MENU = {
+MENU = {
     "name": "Manage Roles",
     "description": "This is the menu to manage character roles/classes. Build a class and the attributes to go with it.",
     "menu_items": [

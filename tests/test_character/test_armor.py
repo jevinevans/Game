@@ -165,7 +165,7 @@ def test_armor_export(m_id, armor_export_expectations):
             item_type=item_type,
         )
     equipment["Weapon"] = WeaponEquipment(
-        name=f"Weapon: Bow",
+        name="Weapon: Bow",
         weapon_type="Bow",
         description="Test Weapon",
         armor_type=0,

@@ -8,8 +8,8 @@ Description: This defines lists and functions for certain constands
 # Item Types: 0 - Head, 1 - Chest, 2 - Back, 3 - Pants, 4 - Weapon
 ITEM_TYPES = ["Head", "Chest", "Back", "Pants", "Weapon"]
 
-# Armor Types: 0 - Light,  1 - Medium,  2 - Heavy, -1 - (Weapons don't have armor types)
-ARMOR_TYPES = ["Light", "Medium", "Heavy", ""]
+# Armor Types: 0 - Light,  1 - Medium,  2 - Heavy,
+ARMOR_TYPES = ["Light", "Medium", "Heavy"]
 
 # Weapon Types: Weapon Name, Armor Type Restriction
 WEAPON_TYPES = {"Sword": 2, "Spear": 2, "Wand": 1, "Staff": 1, "Knife": 0, "Bow": 0, "Unknown": 0}

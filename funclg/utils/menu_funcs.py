@@ -4,16 +4,9 @@ Date: 6.19.2022
 Description: Utility class used for data/database actions loading, saving, updating.
 """
 
-import sys
 from typing import Any, Dict, List
 
 from funclg.utils.input_validation import choice_validation
-
-
-def save_exit() -> None:
-    "Fill in stuff"
-    print("Saving and closing")
-    sys.exit()
 
 
 class Menu:

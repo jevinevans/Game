@@ -20,6 +20,8 @@ from .modifiers import Modifier
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
 
+# TODO: Change equipment display methods
+
 
 class Equipment:
     """
@@ -146,6 +148,7 @@ class WeaponEquipment(Equipment):
             prefix=self.DB_PREFIX,
         )
 
+    # TODO: Change equipment display methods
     def __str__(self) -> str:
         """
         Returns the name and level of the item
@@ -209,6 +212,7 @@ class BodyEquipment(Equipment):
             prefix=self.DB_PREFIX,
         )
 
+    # TODO: Change equipment display methods
     def __str__(self) -> str:
         """
         Returns the name and level of the item

@@ -55,8 +55,6 @@ class Armor:
                 logger.warning(f"{item} can not be assigned to this slot.")
                 return None
             logger.warning(f"{item} incompatable with this armor.")
-            return None
-        logger.error(f"{item} is not body armor or a weapon and can not be equiped.")
         return None
 
     def __str__(self) -> str:

@@ -105,11 +105,11 @@ def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
 
     for index, item_type in enumerate(ITEM_TYPES):
-        filtered_equipment[item_type] = [
-            equipment.copy()
+        filtered_equipment[item_type] = {
+            equipment.id: equipment
             for equipment in EQUIPMENT_DATA["objects"].values()
             if equipment.armor_type == armor_type and equipment.item_type == index
-        ]
+        }
 
     return filtered_equipment
 
@@ -127,7 +127,6 @@ def select_equipment():
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
             }
-            print(equip_list)
         return char_manager_choice_selection(equip_list, "name", "_id")
     logger.warning("There are is no equipment available.")
     return None
@@ -157,12 +156,12 @@ def delete_equipment():
     logger.warning("There are currently no equipment to delete.")
 
 
-EQUIPMENT_MENU = {
+MENU = {
     "name": "Manage Equipment",
     "description": "This the menu to create armor and weapons for characters to use.",
     "menu_items": [
         {"name": "New Equipment", "action": build_equipment},
-        {"name": "View Modifier Details", "action": show_equipment},
+        {"name": "View Equipment Details", "action": show_equipment},
         # {"name": "Edit Equipment", "action": edit_equipment},
         {"name": "Delete Equipment", "action": delete_equipment},
     ],

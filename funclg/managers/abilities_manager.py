@@ -109,7 +109,7 @@ def delete_ability():
     logger.warning("There are no abilities to delete.")
 
 
-ABILITY_MENU = {
+MENU = {
     "name": "Manage Abilities",
     "description": "This is the menu to create abilities to add to Roles for characters to use.",
     "menu_items": [
