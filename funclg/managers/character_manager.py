@@ -181,11 +181,6 @@ def build_character():
     del new_character
 
 
-# def edit_character():
-#     print("TODO: Build Edit Character Section")
-#     raise NotImplementedError
-
-
 def select_character():
     if CHARACTER_DATA["data"]:
         return selection_validation(

@@ -105,7 +105,7 @@ def build_equipment():
     )
     new_equipment = None
 
-    if equip_type == "Armor":
+    if equip_type == "Body Armor":
         new_equipment = _new_body_armor()
     else:
         new_equipment = _new_weapon()
