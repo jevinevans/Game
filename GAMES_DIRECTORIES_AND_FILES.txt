@@ -2,8 +2,8 @@
 FUNCLG Directories and Files
 =======
 +==========================================+
-|	Total Directories: 23			|
-|	Files: 113				|
+|	Total Directories: 22			|
+|	Files: 111				|
 +==========================================+
 >>>>>>> b004044 (completed character manager)
 
@@ -165,9 +165,6 @@ FUNCLG Directories and Files
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
 ./logs
-./logs/character
-./logs/character.log
-./logs/character/character.log
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt
