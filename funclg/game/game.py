@@ -14,18 +14,19 @@ Date: 2.20.2023
 
 # Need to create an NPC generation process
 # Need to create a level/stage generation process and define the parts of it. Should take a calculation of the characters stats and create a challenge.
-
+# Consider building different play modes: main will be short 5-10 levs with a few enemies and a boss at the final level
 
 class Game():
     
     START_MESSAGE = ""
 
     def __init__():
-        # Player Character
-        # Number of levels
-            # Build the levels 
-            # Could spawn a boss every 5-10 level give or take 
-        
+        # User selects or it is passed in an available player to play with 
+            #  If no character, initiate the building of a character
+        # Select the number of levels (minimum 5, maximum 20)
+            # Randomly build the levels 
+            # Could spawn a boss every 5-10 level
+            # Levels will generate 
         raise NotImplementedError
 
     
