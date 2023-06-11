@@ -94,7 +94,7 @@ def build_equipment():
     equip_type = list_choice_selection(["Body Armor", "Weapon"])
     new_equipment = None
 
-    if equip_type == "Armor":
+    if equip_type == "Body Armor":
         new_equipment = _new_body_armor()
     else:
         new_equipment = _new_weapon()

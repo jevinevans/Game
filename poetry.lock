@@ -8,6 +8,7 @@ version = "2.15.5"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "2.15.5"
 =======
 version = "2.12.13"
@@ -21,7 +22,13 @@ version = "2.14.1"
 =======
 version = "2.14.2"
 >>>>>>> b0c997e... working on character manager
+<<<<<<< HEAD
 >>>>>>> 8bf062c... working on character manager
+=======
+=======
+version = "2.15.5"
+>>>>>>> 560829a... updating character manager display and tests
+>>>>>>> abaea7e... updating character manager display and tests
 description = "An abstract syntax tree for Python with inference support."
 optional = false
 python-versions = ">=3.7.2"
@@ -55,6 +62,7 @@ wrapt = [
 =======
 
 [[package]]
+<<<<<<< HEAD
 name = "attrs"
 version = "22.2.0"
 description = "Classes Without Boilerplate"
@@ -80,6 +88,8 @@ tests_no_zope = ["hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist", "c
 >>>>>>> 1859ced... code quality
 
 [[package]]
+=======
+>>>>>>> 560829a... updating character manager display and tests
 name = "bandit"
 version = "1.7.5"
 description = "Security oriented static analyser for python code."
@@ -98,9 +108,15 @@ rich = "*"
 stevedore = ">=1.20.0"
 
 [package.extras]
+<<<<<<< HEAD
 test = ["beautifulsoup4 (>=4.8.0)", "coverage (>=4.5.4)", "fixtures (>=3.0.0)", "flake8 (>=4.0.0)", "pylint (==1.9.4)", "stestr (>=2.5.0)", "testscenarios (>=0.5.0)", "testtools (>=2.3.0)", "tomli (>=1.1.0)"]
 toml = ["tomli (>=1.1.0)"]
 yaml = ["PyYAML"]
+=======
+test = ["coverage (>=4.5.4)", "fixtures (>=3.0.0)", "flake8 (>=4.0.0)", "stestr (>=2.5.0)", "testscenarios (>=0.5.0)", "testtools (>=2.3.0)", "beautifulsoup4 (>=4.8.0)", "pylint (==1.9.4)", "tomli (>=1.1.0)"]
+toml = ["tomli (>=1.1.0)"]
+yaml = ["pyyaml"]
+>>>>>>> 560829a... updating character manager display and tests
 
 [[package]]
 name = "black"
@@ -140,10 +156,14 @@ uvloop = ["uvloop (>=0.15.2)"]
 [[package]]
 name = "certifi"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "2023.5.7"
 =======
 version = "2022.12.7"
 >>>>>>> 37e9eba... code quality
+=======
+version = "2023.5.7"
+>>>>>>> 560829a... updating character manager display and tests
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.6"
@@ -155,12 +175,17 @@ files = [
 [[package]]
 name = "charset-normalizer"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "3.1.0"
 =======
 version = "3.0.1"
 >>>>>>> 37e9eba... code quality
+=======
+version = "3.1.0"
+>>>>>>> 560829a... updating character manager display and tests
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 optional = false
+<<<<<<< HEAD
 <<<<<<< HEAD
 python-versions = ">=3.7.0"
 files = [
@@ -243,6 +268,9 @@ files = [
 =======
 python-versions = "*"
 >>>>>>> 37e9eba... code quality
+=======
+python-versions = ">=3.7.0"
+>>>>>>> 560829a... updating character manager display and tests
 
 [[package]]
 name = "click"
@@ -272,10 +300,14 @@ files = [
 [[package]]
 name = "coverage"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "7.2.7"
 =======
 version = "7.1.0"
 >>>>>>> 37e9eba... code quality
+=======
+version = "7.2.5"
+>>>>>>> 560829a... updating character manager display and tests
 description = "Code coverage measurement for Python"
 optional = false
 python-versions = ">=3.7"
@@ -369,6 +401,7 @@ version = "1.1.1"
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "1.1.1"
 =======
 version = "1.0.4"
@@ -376,7 +409,13 @@ version = "1.0.4"
 =======
 version = "1.1.0"
 >>>>>>> 37e9eba... code quality
+<<<<<<< HEAD
 >>>>>>> 1859ced... code quality
+=======
+=======
+version = "1.1.1"
+>>>>>>> 560829a... updating character manager display and tests
+>>>>>>> abaea7e... updating character manager display and tests
 description = "Backport of PEP 654 (exception groups)"
 optional = false
 python-versions = ">=3.7"
@@ -442,11 +481,16 @@ smmap = ">=3.0.1,<6"
 [[package]]
 name = "gitpython"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "3.1.31"
 description = "GitPython is a Python library used to interact with Git repositories"
 =======
 version = "3.1.30"
 description = "GitPython is a python library used to interact with Git repositories"
+=======
+version = "3.1.31"
+description = "GitPython is a Python library used to interact with Git repositories"
+>>>>>>> 560829a... updating character manager display and tests
 category = "dev"
 >>>>>>> 37e9eba... code quality
 optional = false
@@ -606,6 +650,7 @@ restructuredText = ["rst2ansi"]
 
 [[package]]
 name = "markdown-it-py"
+<<<<<<< HEAD
 version = "3.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
 optional = false
@@ -614,18 +659,33 @@ files = [
     {file = "markdown-it-py-3.0.0.tar.gz", hash = "sha256:e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"},
     {file = "markdown_it_py-3.0.0-py3-none-any.whl", hash = "sha256:355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1"},
 ]
+=======
+version = "2.2.0"
+description = "Python port of markdown-it. Markdown parsing, done right!"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+>>>>>>> 560829a... updating character manager display and tests
 
 [package.dependencies]
 mdurl = ">=0.1,<1.0"
 
 [package.extras]
 benchmarking = ["psutil", "pytest", "pytest-benchmark"]
+<<<<<<< HEAD
 code-style = ["pre-commit (>=3.0,<4.0)"]
+=======
+code_style = ["pre-commit (>=3.0,<4.0)"]
+>>>>>>> 560829a... updating character manager display and tests
 compare = ["commonmark (>=0.9,<1.0)", "markdown (>=3.4,<4.0)", "mistletoe (>=1.0,<2.0)", "mistune (>=2.0,<3.0)", "panflute (>=2.3,<3.0)"]
 linkify = ["linkify-it-py (>=1,<3)"]
 plugins = ["mdit-py-plugins"]
 profiling = ["gprof2dot"]
+<<<<<<< HEAD
 rtd = ["jupyter_sphinx", "mdit-py-plugins", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx_book_theme"]
+=======
+rtd = ["attrs", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx-book-theme"]
+>>>>>>> 560829a... updating character manager display and tests
 testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
 
 [[package]]
@@ -649,6 +709,14 @@ files = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
     {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
 ]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+description = "Markdown URL utilities"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "mypy-extensions"
@@ -684,10 +752,14 @@ setuptools = "*"
 [[package]]
 name = "packaging"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "23.1"
 =======
 version = "23.0"
 >>>>>>> 37e9eba... code quality
+=======
+version = "23.1"
+>>>>>>> 560829a... updating character manager display and tests
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.7"
@@ -709,9 +781,16 @@ version = "0.10.2"
 
 [[package]]
 name = "pathspec"
+<<<<<<< HEAD
 version = "0.11.0"
 >>>>>>> 37e9eba... code quality
+<<<<<<< HEAD
 >>>>>>> 1859ced... code quality
+=======
+=======
+version = "0.11.1"
+>>>>>>> 560829a... updating character manager display and tests
+>>>>>>> abaea7e... updating character manager display and tests
 description = "Utility library for gitignore style pattern matching of file paths."
 optional = false
 python-versions = ">=3.7"
@@ -747,10 +826,13 @@ files = [
 name = "platformdirs"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "3.8.0"
 =======
 =======
 >>>>>>> 1859ced... code quality
+=======
+>>>>>>> abaea7e... updating character manager display and tests
 <<<<<<< HEAD
 version = "3.5.3"
 >>>>>>> 478664a... fixed roles manager load/update bug
@@ -760,6 +842,9 @@ version = "2.5.4"
 =======
 version = "3.0.0"
 >>>>>>> 37e9eba... code quality
+=======
+version = "3.5.1"
+>>>>>>> 560829a... updating character manager display and tests
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 category = "dev"
 >>>>>>> 528f207... fixed roles manager load/update bug
@@ -773,6 +858,7 @@ files = [
 [package.extras]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 docs = ["furo (>=2023.5.20)", "proselint (>=0.13)", "sphinx (>=7.0.1)", "sphinx-autodoc-typehints (>=1.23,!=1.23.4)"]
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.3.1)", "pytest-cov (>=4.1)", "pytest-mock (>=3.10)"]
 =======
@@ -783,6 +869,10 @@ test = ["appdirs (==1.4.4)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest
 docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.22,!=1.23.4)", "sphinx (>=6.1.3)"]
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2.1)"]
 >>>>>>> 37e9eba... code quality
+=======
+docs = ["furo (>=2023.3.27)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.23,!=1.23.4)", "sphinx (>=6.2.1)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.3.1)"]
+>>>>>>> 560829a... updating character manager display and tests
 
 [[package]]
 name = "pluggy"
@@ -836,7 +926,19 @@ files = [
 plugins = ["importlib-metadata"]
 
 [[package]]
+name = "pygments"
+version = "2.15.1"
+description = "Pygments is a syntax highlighting package written in Python."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+plugins = ["importlib-metadata"]
+
+[[package]]
 name = "pylint"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -850,6 +952,9 @@ version = "2.16.1"
 =======
 version = "2.16.2"
 >>>>>>> b0c997e... working on character manager
+=======
+version = "2.17.4"
+>>>>>>> 560829a... updating character manager display and tests
 description = "python code static checker"
 optional = false
 python-versions = ">=3.7.2"
@@ -859,6 +964,7 @@ files = [
 ]
 
 [package.dependencies]
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -872,6 +978,9 @@ astroid = ">=2.14.1,<=2.16.0-dev0"
 =======
 astroid = ">=2.14.2,<=2.16.0-dev0"
 >>>>>>> b0c997e... working on character manager
+=======
+astroid = ">=2.15.4,<=2.17.0-dev0"
+>>>>>>> 560829a... updating character manager display and tests
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 dill = [
     {version = ">=0.2", markers = "python_version < \"3.11\""},
@@ -893,6 +1002,7 @@ name = "pyright"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "1.1.316"
 description = "Command line wrapper for pyright"
 optional = false
@@ -905,6 +1015,9 @@ version = "1.1.292"
 =======
 version = "1.1.294"
 >>>>>>> 8bf062c... working on character manager
+=======
+version = "1.1.309"
+>>>>>>> abaea7e... updating character manager display and tests
 description = "Command line wrapper for pyright"
 optional = false
 <<<<<<< HEAD
@@ -928,14 +1041,23 @@ dev = ["twine (>=3.4.1)"]
 [[package]]
 name = "pytest"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "7.4.0"
 =======
+=======
+>>>>>>> abaea7e... updating character manager display and tests
 <<<<<<< HEAD
 version = "7.3.2"
 =======
 version = "7.2.1"
 >>>>>>> 37e9eba... code quality
+<<<<<<< HEAD
 >>>>>>> 1859ced... code quality
+=======
+=======
+version = "7.3.1"
+>>>>>>> 560829a... updating character manager display and tests
+>>>>>>> abaea7e... updating character manager display and tests
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.7"
@@ -953,7 +1075,11 @@ pluggy = ">=0.12,<2.0"
 tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
+<<<<<<< HEAD
 testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
+=======
+testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
+>>>>>>> 560829a... updating character manager display and tests
 
 [[package]]
 name = "pytest-cov"
@@ -1030,17 +1156,24 @@ mando = ">=0.6,<0.7"
 [[package]]
 name = "requests"
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "2.31.0"
 =======
 version = "2.28.2"
 >>>>>>> 37e9eba... code quality
+=======
+version = "2.30.0"
+>>>>>>> 560829a... updating character manager display and tests
 description = "Python HTTP for Humans."
 optional = false
 python-versions = ">=3.7"
+<<<<<<< HEAD
 files = [
     {file = "requests-2.31.0-py3-none-any.whl", hash = "sha256:58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f"},
     {file = "requests-2.31.0.tar.gz", hash = "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"},
 ]
+=======
+>>>>>>> 560829a... updating character manager display and tests
 
 [package.dependencies]
 certifi = ">=2017.4.17"
@@ -1092,6 +1225,22 @@ use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 >>>>>>> 37e9eba... code quality
 
 [[package]]
+name = "rich"
+version = "13.3.5"
+description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
+category = "dev"
+optional = false
+python-versions = ">=3.7.0"
+
+[package.dependencies]
+markdown-it-py = ">=2.2.0,<3.0.0"
+pygments = ">=2.13.0,<3.0.0"
+typing-extensions = {version = ">=4.0.0,<5.0", markers = "python_version < \"3.9\""}
+
+[package.extras]
+jupyter = ["ipywidgets (>=7.5.1,<9)"]
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -1117,6 +1266,7 @@ files = [
 name = "stevedore"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "5.1.0"
 =======
 version = "4.1.1"
@@ -1124,6 +1274,9 @@ version = "4.1.1"
 =======
 version = "5.0.0"
 >>>>>>> b0c997e... working on character manager
+=======
+version = "5.1.0"
+>>>>>>> 560829a... updating character manager display and tests
 description = "Manage dynamic plugins for Python applications"
 optional = false
 python-versions = ">=3.8"
@@ -1159,11 +1312,11 @@ files = [
 
 [[package]]
 name = "tomlkit"
-version = "0.11.6"
+version = "0.11.8"
 description = "Style preserving TOML library"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [[package]]
 name = "typing-extensions"
@@ -1188,6 +1341,7 @@ files = [
 name = "urllib3"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "2.0.3"
 =======
 version = "1.26.13"
@@ -1195,8 +1349,12 @@ version = "1.26.13"
 =======
 version = "1.26.14"
 >>>>>>> 37e9eba... code quality
+=======
+version = "2.0.2"
+>>>>>>> 560829a... updating character manager display and tests
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
+<<<<<<< HEAD
 <<<<<<< HEAD
 python-versions = ">=3.7"
 files = [
@@ -1206,6 +1364,9 @@ files = [
 =======
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 >>>>>>> 528f207... fixed roles manager load/update bug
+=======
+python-versions = ">=3.7"
+>>>>>>> 560829a... updating character manager display and tests
 
 [package.extras]
 brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)"]
@@ -1346,11 +1507,7 @@ content-hash = "2418af07e30abe8f0f3bc29f1e659be93bfe4ca968ef0e155482d89b3abca691
 
 [metadata.files]
 astroid = []
-attrs = []
-bandit = [
-    {file = "bandit-1.7.4-py3-none-any.whl", hash = "sha256:412d3f259dab4077d0e7f0c11f50f650cc7d10db905d98f6520a95a18049658a"},
-    {file = "bandit-1.7.4.tar.gz", hash = "sha256:2d63a8c573417bae338962d4b9b06fbc6080f74ecd955a092849e1e65c717bd2"},
-]
+bandit = []
 black = []
 certifi = []
 charset-normalizer = []
@@ -1382,10 +1539,12 @@ mando = [
     {file = "mando-0.6.4-py2.py3-none-any.whl", hash = "sha256:4ce09faec7e5192ffc3c57830e26acba0fd6cd11e1ee81af0d4df0657463bd1c"},
     {file = "mando-0.6.4.tar.gz", hash = "sha256:79feb19dc0f097daa64a1243db578e7674909b75f88ac2220f1c065c10a0d960"},
 ]
+markdown-it-py = []
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
 ]
+mdurl = []
 mypy-extensions = []
 nodeenv = []
 packaging = []
@@ -1404,6 +1563,7 @@ pyflakes = [
     {file = "pyflakes-2.4.0-py2.py3-none-any.whl", hash = "sha256:3bb3a3f256f4b7968c9c788781e4ff07dce46bdf12339dcda61053375426ee2e"},
     {file = "pyflakes-2.4.0.tar.gz", hash = "sha256:05a85c2872edf37a4ed30b0cce2f6093e1d0581f8c19d7393122da7e25b2b24c"},
 ]
+pygments = []
 pylint = []
 pyright = []
 pytest = []
@@ -1447,6 +1607,7 @@ radon = [
     {file = "radon-5.1.0.tar.gz", hash = "sha256:cb1d8752e5f862fb9e20d82b5f758cbc4fb1237c92c9a66450ea0ea7bf29aeee"},
 ]
 requests = []
+rich = []
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
