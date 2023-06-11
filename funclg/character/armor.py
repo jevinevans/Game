@@ -150,10 +150,10 @@ class Armor:
     def details(self, indent: int = 0) -> str:
         title = f"{get_armor_type(self.armor_type)} Armor"
         desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*len(title)}"
-        desc += f"\n{' '*(indent+2)}Head: {self.head.details(indent+2) if self.head else None}"
-        desc += f"\n{' '*(indent+2)}Chest: {self.chest.details(indent+2) if self.chest else None}"
-        desc += f"\n{' '*(indent+2)}Back: {self.back.details(indent+2) if self.back else None}"
-        desc += f"\n{' '*(indent+2)}Pants: {self.pants.details(indent+2) if self.pants else None}"
+        desc += f"\n{' '*(indent+2)}Head: {self.head.details(indent+4) if self.head else None}"
+        desc += f"\n{' '*(indent+2)}Chest: {self.chest.details(indent+4) if self.chest else None}"
+        desc += f"\n{' '*(indent+2)}Back: {self.back.details(indent+4) if self.back else None}"
+        desc += f"\n{' '*(indent+2)}Pants: {self.pants.details(indent+4) if self.pants else None}"
         desc += (
             f"\n{' '*(indent+2)}Weapon: {self.weapon.details(indent+2) if self.weapon else None}"
         )

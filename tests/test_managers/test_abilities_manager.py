@@ -26,9 +26,7 @@ def test_magic():
 @patch("funclg.utils.data_mgmt.update_data")
 def test_abilities_manager_update_data(m_db, test_magic):
     ab_man.ABILITIES_DATA["data"][test_magic["_id"]] = test_magic
-
-    assert len(ab_man.ABILITIES_DATA["objects"]) != 0
-    assert len(ab_man.ABILITIES_DATA["data"]) != len(ab_man.ABILITIES_DATA["objects"])
+    ab_man.ABILITIES_DATA["objects"] = {}
 
     ab_man.update_data()
 
