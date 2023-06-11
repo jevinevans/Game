@@ -44,6 +44,7 @@ def list_choice_selection(items: List[Any]):
     """
     Provided a list of items will return an item from the list.
     """
+    # TODO: Decide if the capitalize needs to stay here or not
     for index, item in enumerate(items, start=1):
         print(f"{index} --- {item.capitalize()}")
     return items[choice_validation(len(items)) - 1]

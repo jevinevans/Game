@@ -96,6 +96,7 @@ class Character:
         desc += "-" * (len(self.name))
         desc += "\n" + self.role.details(indent + 2)
         desc += "\n" + self.armor.details(indent + 2)
+        desc += "\n"
         return desc
 
     def equip(self, item: Equipment) -> None:

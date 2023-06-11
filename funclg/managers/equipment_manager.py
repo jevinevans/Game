@@ -61,7 +61,7 @@ def _new_body_armor():
     print("What type of Armor would you like to create?")
     item_type = list_choice_selection(ITEM_TYPES[:-1])
     print(f"What type of armor would you like to make the {item_type}?")
-    armor_type = list_choice_selection(ARMOR_TYPES[:-1])
+    armor_type = list_choice_selection(ARMOR_TYPES)
     item_name = string_validation(
         f"What would you like to name this new {armor_type} {item_type}?", "Name"
     )
@@ -86,7 +86,7 @@ def build_equipment():
     equip_type = list_choice_selection(["Body Armor", "Weapon"])
     new_equipment = None
 
-    if equip_type == "Armor":
+    if equip_type == "Body Armor":
         new_equipment = _new_body_armor()
     else:
         new_equipment = _new_weapon()

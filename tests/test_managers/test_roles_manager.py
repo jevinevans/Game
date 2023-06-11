@@ -138,9 +138,7 @@ def test_no_abilities():
 @patch("funclg.utils.data_mgmt.update_data")
 def test_roles_manager_update_data(m_db, test_mage):
     role_man.ROLES_DATA["data"][test_mage["_id"]] = test_mage
-
-    assert len(role_man.ROLES_DATA["objects"]) != 0
-    assert len(role_man.ROLES_DATA["data"]) != len(role_man.ROLES_DATA["objects"])
+    role_man.ROLES_DATA["objects"] = {}
 
     role_man.update_data()
 

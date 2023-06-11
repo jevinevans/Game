@@ -64,10 +64,9 @@ def test_equipment_manager_update_data(m_db, test_equipment, test_weapon):
     # Add Test Items to data
     eq_man.EQUIPMENT_DATA["data"][test_equipment["_id"]] = test_equipment
     eq_man.EQUIPMENT_DATA["data"][test_weapon["_id"]] = test_weapon
+    eq_man.EQUIPMENT_DATA["objects"] = {}
 
     # Make sure data was loaded into objects but that there are new data items that need objects created
-    assert len(eq_man.EQUIPMENT_DATA["objects"]) != 0
-    assert len(eq_man.EQUIPMENT_DATA["data"]) != len(eq_man.EQUIPMENT_DATA["objects"])
 
     eq_man.update_data()
 

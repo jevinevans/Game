@@ -90,7 +90,7 @@ class Abilities:
         desc += f"\n{' '*indent}Description: {self.description}"
         desc += f"\n{' '*indent}Ability Type: {self.ability_type}"
         desc += f"\n{' '*indent}Target: {self._target.capitalize()}"
-        desc += self.mod.details(2)
+        desc += self.mod.details(indent + 2)
         return desc
 
     def export(self) -> Dict[str, Any]:

@@ -26,6 +26,7 @@ CHARACTER_DATA = {"filename": "characters.json", "data": {}, "objects": {}}
 
 def _update_char_role(data: dict, new_data: dict):
     char_role_abilities = []
+    logger.debug(data["role"])
     for _ability in data["role"].get("abilities", []):
         char_role_abilities.append(ab_man.Abilities(**_ability))
     new_data["role"]["abilities"] = char_role_abilities
@@ -45,6 +46,8 @@ def _update_char_armor(data: dict, new_data: dict):
                 new_data["armor"][item_type.lower()] = eq_man.BodyEquipment(
                     **data["armor"][item_type.lower()]
                 )
+
+    del new_data["armor"]["stat"]
     new_data["armor_instance"] = Armor(**new_data["armor"])
     del new_data["armor"]
     return new_data
@@ -164,11 +167,6 @@ def build_character():
     del new_character
 
 
-# def edit_character():
-#     print("TODO: Build Edit Character Section")
-#     raise NotImplementedError
-
-
 def select_character():
     if CHARACTER_DATA["data"]:
         return char_manager_choice_selection(CHARACTER_DATA["data"], "name", "_id")
@@ -192,7 +190,7 @@ def delete_character():
         if yes_no_validation(f"Do you want to delete \"{del_character['name']}\"?"):
             print(f"Deleteing {del_character['name']}")
             del CHARACTER_DATA["data"][del_character_id]
-            del CHARACTER_DATA["object"][del_character_id]
+            del CHARACTER_DATA["objects"][del_character_id]
             update_data()
             return
         print("Keeping all characters alive...")
