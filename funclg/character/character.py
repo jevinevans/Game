@@ -7,7 +7,6 @@ Description: The character that will be used. The character will have a role, ab
 from typing import Any, Dict, Optional
 
 import funclg.utils.data_mgmt as db
-
 from funclg.character.abilities import Abilities
 from funclg.character.armor import Armor
 from funclg.character.equipment import Equipment

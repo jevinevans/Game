@@ -95,128 +95,39 @@ def armor_str_expectations():
 
 
 @pytest.fixture
-def armor_details_expectations():
+def armor_details_expectations(light_armor_knife):
     expectations = []
     for indent in range(0, 7):
         base = f"""
 {' '*indent}Light Armor
 {' '*indent}-----------
-{' '*(indent+2)}Head: 
-{' '*(indent+2)}Head
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Head]
-{' '*(indent+2)}Description: Test Head
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
-{' '*(indent+2)}Chest: 
-{' '*(indent+2)}Chest
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Chest]
-{' '*(indent+2)}Description: Test Chest
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
-{' '*(indent+2)}Back: 
-{' '*(indent+2)}Back
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Back]
-{' '*(indent+2)}Description: Test Back
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
-{' '*(indent+2)}Pants: 
-{' '*(indent+2)}Pants
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Pants]
-{' '*(indent+2)}Description: Test Pants
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
-{' '*(indent+2)}Weapon: 
-{' '*(indent+2)}Weapon: Knife
-{' '*(indent+2)}-------------
-{' '*(indent+2)}Type: [Light Knife]
-{' '*(indent+2)}Description: Test Weapon
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Attack: +1
-{' '*(indent+4)}Energy: +1
-
-
-{' '*(indent+2)}Stats
-{' '*(indent+2)}-----
-{' '*(indent+2)}Health: 210
-{' '*(indent+2)}Energy: 15.4
-{' '*(indent+2)}Attack: 11
-{' '*(indent+2)}Defense: 10"""
+{' '*(indent+2)}Head: {light_armor_knife.head.details(indent+4)}
+{' '*(indent+2)}Chest: {light_armor_knife.chest.details(indent+4)}
+{' '*(indent+2)}Back: {light_armor_knife.back.details(indent+4)}
+{' '*(indent+2)}Pants: {light_armor_knife.pants.details(indent+4)}
+{' '*(indent+2)}Weapon: {light_armor_knife.weapon.details(indent+4)}
+{light_armor_knife.stat.details(indent+2)}"""
         expectations.append(base)
     return expectations
 
 
 @pytest.fixture
-def armor_details_missing_weapon():
+def armor_details_missing_weapon(light_armor_knife):
+    new_armor = Armor(armor_type=light_armor_knife.armor_type,
+                      head=light_armor_knife.head,
+                      chest=light_armor_knife.chest,
+                      back=light_armor_knife.back,
+                      pants=light_armor_knife.pants)
     indent = 0
     return f"""
 {' '*indent}Light Armor
 {' '*indent}-----------
-{' '*(indent+2)}Head: 
-{' '*(indent+2)}Head
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Head]
-{' '*(indent+2)}Description: Test Head
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
-{' '*(indent+2)}Chest: 
-{' '*(indent+2)}Chest
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Chest]
-{' '*(indent+2)}Description: Test Chest
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
-{' '*(indent+2)}Back: 
-{' '*(indent+2)}Back
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Back]
-{' '*(indent+2)}Description: Test Back
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
-{' '*(indent+2)}Pants: 
-{' '*(indent+2)}Pants
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Pants]
-{' '*(indent+2)}Description: Test Pants
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Health: +50
-{' '*(indent+4)}Energy: +10.0%
-
+{' '*(indent+2)}Head: {new_armor.head.details(indent+4)}
+{' '*(indent+2)}Chest: {new_armor.chest.details(indent+4)}
+{' '*(indent+2)}Back: {new_armor.back.details(indent+4)}
+{' '*(indent+2)}Pants: {new_armor.pants.details(indent+4)}
 {' '*(indent+2)}Weapon: None
-
-{' '*(indent+2)}Stats
-{' '*(indent+2)}-----
-{' '*(indent+2)}Health: 210
-{' '*(indent+2)}Energy: 14.0
-{' '*(indent+2)}Attack: 10
-{' '*(indent+2)}Defense: 10"""
-
+{new_armor.stat.details(indent+2)}"""
 
 @pytest.fixture
 def armor_export_expectations():
