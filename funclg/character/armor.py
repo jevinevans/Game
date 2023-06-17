@@ -34,6 +34,8 @@ class Armor:
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
         self.stat = Stats(attributes={"level": None}, default=(armor_type + 1) * 10)
 
+        # TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified
+
         self.head = self._validate_equipment(head, 0)
         self.chest = self._validate_equipment(chest, 1)
         self.back = self._validate_equipment(back, 2)
@@ -155,7 +157,7 @@ class Armor:
         desc += f"\n{' '*(indent+2)}Back: {self.back.details(indent+4) if self.back else None}"
         desc += f"\n{' '*(indent+2)}Pants: {self.pants.details(indent+4) if self.pants else None}"
         desc += (
-            f"\n{' '*(indent+2)}Weapon: {self.weapon.details(indent+2) if self.weapon else None}"
+            f"\n{' '*(indent+2)}Weapon: {self.weapon.details(indent+4) if self.weapon else None}"
         )
         desc += "\n" + self.stat.details(indent=indent + 2)
         return desc

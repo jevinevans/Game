@@ -84,7 +84,8 @@ def character_details_expectation():
     Health: 10
     Energy: 10
     Attack: 10
-    Defense: 10"""
+    Defense: 10
+"""
 
 
 @pytest.fixture
