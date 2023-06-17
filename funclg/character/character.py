@@ -15,6 +15,11 @@ from funclg.character.roles import Roles
 from funclg.character.stats import Stats
 
 
+# TODO: Char Update - 1: Update character so that it is generalized
+# TODO: Char Update - 2: Create a class called playable character for the user
+# TODO: Char Update - 3: Create the NPC class that can be used later for random generation
+
+
 class Character:
     """
     Base character unit of the game.
