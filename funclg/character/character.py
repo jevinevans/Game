@@ -8,10 +8,10 @@ from typing import Any, Dict, Optional
 
 import funclg.utils.data_mgmt as db
 
-from .abilities import Abilities
-from .armor import Armor
-from .equipment import Equipment
-from .roles import Roles
+from funclg.character.abilities import Abilities
+from funclg.character.armor import Armor
+from funclg.character.equipment import Equipment
+from funclg.character.roles import Roles
 
 # from loguru import logger
 
@@ -28,6 +28,11 @@ from .roles import Roles
 # - add a class
 # - add equipment
 # """
+
+
+# TODO: Char Update - 1: Update character so that it is generalized
+# TODO: Char Update - 2: Create a class called playable character for the user
+# TODO: Char Update - 3: Create the NPC class that can be used later for random generation
 
 
 class Character:
