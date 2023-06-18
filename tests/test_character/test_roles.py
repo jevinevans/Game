@@ -125,8 +125,6 @@ def test_role_details_no_abilities(roles_detail_expectation_no_abilities):
 
 
 def test_role_details_with_abilities(roles_detail_expectation_with_abilities, mage_test_role):
-    print(mage_test_role)
-    print(len(mage_test_role.abilities))
     for indent in range(5):
         assert roles_detail_expectation_with_abilities[indent] == mage_test_role.details(indent)
 
