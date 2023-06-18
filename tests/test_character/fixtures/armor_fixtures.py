@@ -101,10 +101,10 @@ def armor_details_expectations(light_armor_knife):
         base = f"""
 {' '*indent}Light Armor
 {' '*indent}-----------
-{' '*(indent+2)}Head: {light_armor_knife.head.details(indent+4)}
-{' '*(indent+2)}Chest: {light_armor_knife.chest.details(indent+4)}
-{' '*(indent+2)}Back: {light_armor_knife.back.details(indent+4)}
-{' '*(indent+2)}Pants: {light_armor_knife.pants.details(indent+4)}
+{' '*(indent+2)}Head: {light_armor_knife.head.details(indent+4)}\n
+{' '*(indent+2)}Chest: {light_armor_knife.chest.details(indent+4)}\n
+{' '*(indent+2)}Back: {light_armor_knife.back.details(indent+4)}\n
+{' '*(indent+2)}Pants: {light_armor_knife.pants.details(indent+4)}\n
 {' '*(indent+2)}Weapon: {light_armor_knife.weapon.details(indent+4)}
 {light_armor_knife.stat.details(indent+2)}"""
         expectations.append(base)
@@ -122,10 +122,10 @@ def armor_details_missing_weapon(light_armor_knife):
     return f"""
 {' '*indent}Light Armor
 {' '*indent}-----------
-{' '*(indent+2)}Head: {new_armor.head.details(indent+4)}
-{' '*(indent+2)}Chest: {new_armor.chest.details(indent+4)}
-{' '*(indent+2)}Back: {new_armor.back.details(indent+4)}
-{' '*(indent+2)}Pants: {new_armor.pants.details(indent+4)}
+{' '*(indent+2)}Head: {new_armor.head.details(indent+4)}\n
+{' '*(indent+2)}Chest: {new_armor.chest.details(indent+4)}\n
+{' '*(indent+2)}Back: {new_armor.back.details(indent+4)}\n
+{' '*(indent+2)}Pants: {new_armor.pants.details(indent+4)}\n
 {' '*(indent+2)}Weapon: None
 {new_armor.stat.details(indent+2)}"""
 

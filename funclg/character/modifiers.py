@@ -60,7 +60,7 @@ class Modifier:
             string += " " * indent + str(stat).capitalize() + ":"
             string += ",".join(val for val in vals)
             string += "\n"
-        return string
+        return string[:-1]
 
     def _verify_mods(self, mods):
         # TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE
