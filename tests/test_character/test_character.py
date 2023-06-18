@@ -74,9 +74,13 @@ def character_details_expectation():
   Light Armor
   -----------
     Head: None
+
     Chest: None
+
     Back: None
+
     Pants: None
+
     Weapon: None
 
     Stats

@@ -10,7 +10,7 @@ from loguru import logger
 
 from funclg.character.equipment import BodyEquipment, Equipment, WeaponEquipment
 from funclg.character.stats import Stats
-from funclg.utils.types import ARMOR_TYPES, get_armor_type
+from funclg.utils.types import ARMOR_TYPES, get_armor_type, ITEM_TYPES
 
 # logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
@@ -148,19 +148,23 @@ class Armor:
             return ret_item
         logger.warning("There is no item to remove.")
         return None
-
-    def details(self, indent: int = 0) -> str:
+   
+    def details(self, indent:int=0) -> str:
         title = f"{get_armor_type(self.armor_type)} Armor"
         desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*len(title)}"
-        desc += f"\n{' '*(indent+2)}Head: {self.head.details(indent+4) if self.head else None}"
-        desc += f"\n{' '*(indent+2)}Chest: {self.chest.details(indent+4) if self.chest else None}"
-        desc += f"\n{' '*(indent+2)}Back: {self.back.details(indent+4) if self.back else None}"
-        desc += f"\n{' '*(indent+2)}Pants: {self.pants.details(indent+4) if self.pants else None}"
-        desc += (
-            f"\n{' '*(indent+2)}Weapon: {self.weapon.details(indent+4) if self.weapon else None}"
-        )
-        desc += "\n" + self.stat.details(indent=indent + 2)
+
+        for _item_type in ITEM_TYPES:
+            desc += self._details_check_none(indent, _item_type) + "\n"
+        desc += self.stat.details(indent=indent + 2)
         return desc
+    
+    def _details_check_none(self, indent:int, _item_type:str) -> str:
+        desc = f"\n{' '*(indent+2)}{_item_type}: "
+
+        if _item:=getattr(self, _item_type.lower(), False):
+            return desc + _item.details(indent+4)
+        return desc + "None"
+
 
     def get_equipment(self) -> List[Union[Equipment, None]]:
         """Returns the equipped armor"""

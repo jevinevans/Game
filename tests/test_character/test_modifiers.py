@@ -70,8 +70,7 @@ def modifier_details_expectation():
 {' '*(indent)}Attack: +43
 {' '*(indent)}Defense: -20
 {' '*(indent)}Health: +33.0%
-{' '*(indent)}Energy: -60.0%
-"""
+{' '*(indent)}Energy: -60.0%"""
         expectations.append(base)
     return expectations
 
