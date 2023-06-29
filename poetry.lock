@@ -957,6 +957,7 @@ name = "platformdirs"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "3.8.0"
 =======
 =======
@@ -965,6 +966,8 @@ version = "3.8.0"
 >>>>>>> abaea7e... updating character manager display and tests
 =======
 >>>>>>> 606ac6c... Updated poetry lock
+=======
+>>>>>>> b6bf10b... updating poetry package
 <<<<<<< HEAD
 version = "3.5.3"
 >>>>>>> 478664a... fixed roles manager load/update bug
@@ -982,6 +985,9 @@ category = "dev"
 >>>>>>> 528f207... fixed roles manager load/update bug
 =======
 version = "3.5.3"
+=======
+version = "3.8.0"
+>>>>>>> 257866b... updating poetry package
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 >>>>>>> 4a6416c... Updated poetry lock
 optional = false
@@ -1151,6 +1157,7 @@ name = "pyright"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "1.1.316"
 description = "Command line wrapper for pyright"
 optional = false
@@ -1169,6 +1176,9 @@ version = "1.1.309"
 =======
 version = "1.1.314"
 >>>>>>> 606ac6c... Updated poetry lock
+=======
+version = "1.1.316"
+>>>>>>> b6bf10b... updating poetry package
 description = "Command line wrapper for pyright"
 optional = false
 <<<<<<< HEAD
@@ -1184,8 +1194,8 @@ python-versions = ">=3.7"
 >>>>>>> 528f207... fixed roles manager load/update bug
 =======
 files = [
-    {file = "pyright-1.1.314-py3-none-any.whl", hash = "sha256:5008a2e04b71e35c5f1b78b16adae9d012601197442ae6c798e9bb3456d1eecb"},
-    {file = "pyright-1.1.314.tar.gz", hash = "sha256:bd104c206fe40eaf5f836efa9027f07cc0efcbc452e6d22dfae36759c5fd28b3"},
+    {file = "pyright-1.1.316-py3-none-any.whl", hash = "sha256:7259d73287c882f933d8cd88c238ef02336e172171ae95117a963a962a1fed4a"},
+    {file = "pyright-1.1.316.tar.gz", hash = "sha256:bac1baf8567b90f2082ec95b61fc1cb50a68917119212c5608a72210870c6a9a"},
 ]
 >>>>>>> 4a6416c... Updated poetry lock
 
@@ -1201,12 +1211,15 @@ name = "pytest"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "7.4.0"
 =======
 =======
 >>>>>>> abaea7e... updating character manager display and tests
 =======
 >>>>>>> 606ac6c... Updated poetry lock
+=======
+>>>>>>> b6bf10b... updating poetry package
 <<<<<<< HEAD
 version = "7.3.2"
 =======
@@ -1224,7 +1237,13 @@ version = "7.3.1"
 =======
 version = "7.3.2"
 >>>>>>> 4a6416c... Updated poetry lock
+<<<<<<< HEAD
 >>>>>>> 606ac6c... Updated poetry lock
+=======
+=======
+version = "7.4.0"
+>>>>>>> 257866b... updating poetry package
+>>>>>>> b6bf10b... updating poetry package
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.7"
@@ -1430,13 +1449,13 @@ jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
 [[package]]
 name = "setuptools"
-version = "67.8.0"
+version = "68.0.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "setuptools-67.8.0-py3-none-any.whl", hash = "sha256:5df61bf30bb10c6f756eb19e7c9f3b473051f48db77fddbe06ff2ca307df9a6f"},
-    {file = "setuptools-67.8.0.tar.gz", hash = "sha256:62642358adc77ffa87233bc4d2354c4b2682d214048f500964dbe760ccedf102"},
+    {file = "setuptools-68.0.0-py3-none-any.whl", hash = "sha256:11e52c67415a381d10d6b462ced9cfb97066179f0e871399e006c4ab101fc85f"},
+    {file = "setuptools-68.0.0.tar.gz", hash = "sha256:baf1fdb41c6da4cd2eae722e135500da913332ab3f2f5c7d33af9b492acb5235"},
 ]
 
 [package.extras]
@@ -1532,10 +1551,13 @@ files = [
 name = "typing-extensions"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 version = "4.7.0"
 =======
 =======
 >>>>>>> 606ac6c... Updated poetry lock
+=======
+>>>>>>> b6bf10b... updating poetry package
 <<<<<<< HEAD
 version = "4.6.3"
 =======
@@ -1547,7 +1569,13 @@ version = "4.5.0"
 =======
 version = "4.6.3"
 >>>>>>> 4a6416c... Updated poetry lock
+<<<<<<< HEAD
 >>>>>>> 606ac6c... Updated poetry lock
+=======
+=======
+version = "4.7.0"
+>>>>>>> 257866b... updating poetry package
+>>>>>>> b6bf10b... updating poetry package
 description = "Backported and Experimental Type Hints for Python 3.7+"
 optional = false
 python-versions = ">=3.7"
