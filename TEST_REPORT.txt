@@ -1,11 +1,11 @@
 ######TESTING REPORT######
 
-Date: Wed Jun 28 20:49:42 PDT 2023 
+Date: Wed Jun 28 21:03:51 PDT 2023 
 
 ---PYTEST---
 
 ============================= test session starts ==============================
-platform linux -- Python 3.10.6, pytest-7.3.2, pluggy-1.0.0
+platform linux -- Python 3.10.6, pytest-7.4.0, pluggy-1.2.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev
 configfile: pyproject.toml
 plugins: cov-3.0.0
@@ -55,7 +55,7 @@ TOTAL                                   1182     81    400     11    92%
 
 FAIL Required test coverage of 95.0% not reached. Total coverage: 92.16%
 
-======================= 119 passed, 2 warnings in 19.97s =======================
+======================= 119 passed, 2 warnings in 26.39s =======================
 
 ---Code Quality Report---
 
@@ -80,6 +80,7 @@ All done! ✨ 🍰 ✨
 funclg/__main__.py:46:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:21:1: W0511: TODO: add energy cost attribute (fixme)
+funclg/character/abilities.py:119:5: W0511: TODO def use() (fixme)
 ************* Module funclg.character.armor
 funclg/character/armor.py:34:9: W0511: TODO: 20240629 - Change to stats instead of stat (fixme)
 funclg/character/armor.py:38:9: W0511: TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified (fixme)
@@ -135,5 +136,5 @@ funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
 funclg/utils/types.py:38:9: W0511: TODO: Change to 'Basic' types or something that is not none (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.62/10 (previous run: 9.62/10, +0.00)
+Your code has been rated at 9.61/10 (previous run: 9.62/10, -0.01)
 
