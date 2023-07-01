@@ -8,105 +8,142 @@ Description: A manager class for creating, updating, and removing modifiers.
 # - This needs to be able to read all of the available and accepted stats
 # - allow the user/app to build out modifiers that can be used on abilities and equipment.
 ###
-from typing import Optional
+from random import randint
+from typing import Any, Dict
 
 from loguru import logger
 
-import funclg.utils.data_mgmt as db
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
     list_choice_selection,
     number_range_validation,
-    string_validation,
     yes_no_validation,
 )
-from funclg.utils.types import MOD_ADD_RANGE, MOD_MULT_RANGE, MODIFIER_TYPES
+
+
+def _gen_add_mod(mod_list: list, adds: Dict[str, Any], random: bool = False):
+    if random:
+        add_mod = mod_list.pop(randint(0, len(mod_list) - 1))
+    else:
+        add_mod = mod_list[0]
+    add_value = randint(1, Modifier.MOD_ADD_RANGE)
+    adds.setdefault(add_mod, add_value)
+    return adds
+
+
+def _gen_mult_mod(mod_list: list, mults: Dict[str, Any], random: bool = False):
+    if random:
+        mult_mod = mod_list.pop(randint(0, len(mod_list) - 1))
+    else:
+        mult_mod = mod_list[0]
+    mult_value = randint(1, Modifier.MOD_MULT_RANGE)
+    logger.debug(f"Mult Value: {mult_value}")
+    while mult_value > 1:
+        mult_value /= 100
+    mult_value = round(mult_value, 2)
+
+    mults.setdefault(mult_mod, mult_value)
+    return mults
+
 
 # TODO: Create/modify the build to allow for random creation
-
-MODIFIER_DATA = {"filename": "modifiers.json", "data": {}}
-
-
-# def mod_name_duplicate_check():
-
-# def export_db() # TODO Create me
-# Needs to change all Modifiers to a json like form to be written out
-# def load_db() # TODO Create me
-# Needs to load all data from json and convert items into modifiers to be used in game
-
-
-def build_modifier(name: Optional[str] = ""):
-    available_mods = MODIFIER_TYPES.copy()
+# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
+# TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
+# Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
+def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, random: bool = False):
     adds, mults = {}, {}
-    from_method = False
+    pre_mods = pre_mods if pre_mods else {}
 
-    # TODO: Add name validation check, this needs to be a function so that it can be called in other managers
-    print("Create a new Modifier:")
-    if name:
-        from_method = True
-        print(f"Name: {name}")
+    mod_types = Modifier.MODIFIER_TYPES
+
+    if item_type == "ability":
+        mod_types = pre_mods["mods"].copy()
+        if pre_mods["m_type"] == "adds":
+            adds = _gen_add_mod(mod_types, adds, random)
+        else:
+            mults = _gen_mult_mod(mod_types, mults, random)
+
     else:
-        print("Please name the modifier?")
-        name = string_validation("Name")
+        if item_type == "armor":
+            mod_types = ["health", "defense"]
+
+        elif item_type == "weapon":
+            mod_types = ["energy", "attack"]
+
+        adds = _gen_add_mod(mod_types, adds)
+        mults = _gen_mult_mod(mod_types, mults)
+
+    logger.debug(f"MOD: adds: {adds}, mults: {mults}")
+    return {"adds": adds, "mults": mults}
+
+
+# TODO: Create/modify the build to allow for random creation
+# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
+# TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
+# Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
+def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, random: bool = False):
+    adds, mults = {}, {}
+    pre_mods = pre_mods if pre_mods else {}
+
+    mod_types = Modifier.MODIFIER_TYPES
+
+    if item_type == "ability":
+        mod_types = pre_mods["mods"].copy()
+        if pre_mods["m_type"] == "adds":
+            adds = _gen_add_mod(mod_types, adds, random)
+        else:
+            mults = _gen_mult_mod(mod_types, mults, random)
+
+    else:
+        if item_type == "armor":
+            mod_types = ["health", "defense"]
+
+        elif item_type == "weapon":
+            mod_types = ["energy", "attack"]
+
+        adds = _gen_add_mod(mod_types, adds)
+        mults = _gen_mult_mod(mod_types, mults)
+
+    logger.debug(f"MOD: adds: {adds}, mults: {mults}")
+    return {"adds": adds, "mults": mults}
+
+
+# TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
+def build_modifier(name: str):
+    available_mods = Modifier.MODIFIER_TYPES.copy()
+    adds, mults = {}, {}
+
+    print("\nStarting Modifier Creation...\n")
 
     while True:
         print("Select which stats you want to modify.")
         mod_type = list_choice_selection(available_mods)
 
         if list_choice_selection(["Base Change", "Percentage Change"]) == "Base Change":
-            mod_val = number_range_validation(-MOD_ADD_RANGE, MOD_ADD_RANGE)
+            mod_val = number_range_validation(-Modifier.MOD_ADD_RANGE, Modifier.MOD_ADD_RANGE)
 
             print(f"You created modifier: {mod_type} {mod_val}")
             if yes_no_validation("Confirm creation?"):
                 adds[mod_type] = mod_val
 
         else:
-            mod_val = number_range_validation(-MOD_MULT_RANGE, MOD_MULT_RANGE)
+            mod_val = number_range_validation(-Modifier.MOD_MULT_RANGE, Modifier.MOD_MULT_RANGE)
             while mod_val > 1:
-                mod_val /= 10
+                mod_val /= 100
             mod_val = round(mod_val, 2)
 
-            print(f"You created modifier: {mod_type} {mod_val}%")
-            if yes_no_validation("Confirm creation?"):
+            print(f"You created modifier: {mod_type} {mod_val*100}%")
+            if yes_no_validation("Confirm mod creation?"):
                 mults[mod_type] = mod_val
 
-        if yes_no_validation("Would you like to add another?"):
+        if yes_no_validation("Would you like to add another modifier?"):
             available_mods.remove(mod_type)
         else:
+            logger.debug("Constructing modifier...")
             break
 
-    new_mod = Modifier(name=name, adds=adds, mults=mults)
+    if yes_no_validation(f"Validate Modifier: {name}\n\tAdds: {adds}\n\tMults: {mults}\n\r"):
 
-    MODIFIER_DATA["data"][new_mod._id] = new_mod.export()
-    db.update_data(MODIFIER_DATA)
-    if from_method:
+        new_mod = Modifier(name=name, adds=adds, mults=mults)
+
         return new_mod
-
-
-def edit_modifier():
-    print("TODO: Build Edit Modifier Section")
-
-
-def delete_modifier():
-    print("TODO: Build Delete Modifier Section")  # TODO: COMPLETE & REMOVE ME
-    if MODIFIER_DATA["data"]:
-        del_mod_id = list_choice_selection(list(MODIFIER_DATA["data"].keys()))
-        print(f"Deleting {del_mod_id} {MODIFIER_DATA['data'][del_mod_id]}")
-    logger.warning("There are currently no Modifiers to delete.")
-
-
-MODIFIER_MENU = {
-    "name": "Manage Mods",
-    "description": "This is the menu to manage Modifiers which can be used for weapons an applied to stats.",
-    "menu_items": [
-        {"name": "New Modifier", "action": build_modifier},
-        {"name": "Edit Modifier", "action": edit_modifier},
-        {"name": "Delete Modifier", "action": delete_modifier},
-    ],
-}
-
-MODIFIER_DATA = db.load_data(MODIFIER_DATA)
-
-# TODO Remove me
-if __name__ == "__main__":
-    delete_modifier()

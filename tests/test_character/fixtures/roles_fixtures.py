@@ -1,9 +1,17 @@
+"""
+Description: Pytest fixtures for the character.roles module
+Developer: Jevin Evans
+Date: 11/5/2022
+"""
+
 from unittest.mock import patch
 
 import pytest
 
 from funclg.character.abilities import Abilities
 from funclg.character.roles import Roles
+
+from .abilities_fixtures import abilities_gen_mods
 
 
 @pytest.fixture
@@ -20,16 +28,19 @@ def mage_test_role():
         "ABILITY-12345-EODS-67893",
         "ROLES-12345-JFEIOJ-67890",
     ]
+
+    mods = abilities_gen_mods()
+
     with patch("funclg.utils.data_mgmt.id_gen", side_effect=obj_ids):
-        test_damage_types = ["Magic", "Healing", "Buff", "Debuff"]
+        test_damage_types = ["Magic", "Restore", "Buff", "Debuff"]
         example_abilities = []
-        for d_type in test_damage_types:
+        for a_type in test_damage_types:
             example_abilities.append(
                 Abilities(
-                    name=d_type + " Test Ability",
-                    damage_type=d_type,
-                    effect=15,
-                    description=f"Testing {d_type} ability.",
+                    name=a_type + " Test Ability",
+                    ability_type=a_type,
+                    mod=mods[a_type],
+                    description=f"Testing {a_type} ability.",
                 )
             )
 
@@ -37,7 +48,7 @@ def mage_test_role():
             name="Mage Class",
             description="Test Mage Class",
             armor_type=1,
-            damage_types=test_damage_types,
+            ability_types=test_damage_types,
             abilities=example_abilities,
         )
 
@@ -49,39 +60,39 @@ def mage_export_expectation():
         "name": "Mage Class",
         "description": "Test Mage Class",
         "armor_type": 1,
-        "damage_types": ["Magic", "Healing", "Buff", "Debuff"],
+        "ability_types": ["Magic", "Restore", "Buff", "Debuff"],
         "abilities": [
             {
                 "name": "Magic Test Ability",
-                "damage_type": "Magic",
-                "ability_group": "Damage",
-                "effect": -15,
+                "ability_type": "Magic",
+                "_target": "enemy",
                 "description": "Testing Magic ability.",
                 "_id": "ABILITY-12345-FADJ-67890",
+                "mod": {"adds": {"health": -50}, "mults": {}},
             },
             {
-                "name": "Healing Test Ability",
-                "damage_type": "Healing",
-                "ability_group": "Boost",
-                "effect": 15,
-                "description": "Testing Healing ability.",
+                "name": "Restore Test Ability",
+                "ability_type": "Restore",
+                "_target": "self",
+                "description": "Testing Restore ability.",
                 "_id": "ABILITY-12345-FADD-67891",
+                "mod": {"adds": {}, "mults": {"health": 50}},
             },
             {
                 "name": "Buff Test Ability",
-                "damage_type": "Buff",
-                "ability_group": "Boost",
-                "effect": 15,
+                "ability_type": "Buff",
+                "_target": "self",
                 "description": "Testing Buff ability.",
                 "_id": "ABILITY-12345-FEFS-67892",
+                "mod": {"adds": {}, "mults": {"health": 50}},
             },
             {
                 "name": "Debuff Test Ability",
-                "damage_type": "Debuff",
-                "ability_group": "Damage",
-                "effect": -15,
+                "ability_type": "Debuff",
+                "_target": "enemy",
                 "description": "Testing Debuff ability.",
                 "_id": "ABILITY-12345-EODS-67893",
+                "mod": {"adds": {}, "mults": {"health": -50}},
             },
         ],
     }
@@ -89,11 +100,14 @@ def mage_export_expectation():
 
 @pytest.fixture
 def mage_str_expectation():
-    return "Class: Mage Class | Class Type(s): Magic, Healing, Buff, Debuff | Armor Type: Medium | Abilities: 4"
+    return "Class: Mage Class | Class Type(s): Magic, Restore, Buff, Debuff | Armor Type: Medium | Abilities: 4"
 
 
 @pytest.fixture
 def roles_detail_expectation_with_abilities(mage_test_role):
+
+    print(len(mage_test_role.abilities))
+
     role_details = []
     for indent in range(5):
         base = f"""

@@ -6,7 +6,7 @@ import pytest
 
 from funclg.character import abilities, armor, roles
 from funclg.character.character import Character
-from funclg.character.equipment import BodyEquipment, Equipment
+from funclg.character.equipment import BodyEquipment
 
 
 @pytest.fixture
@@ -52,7 +52,7 @@ def character_export_expectation():
             "_id": "ROLES-12345-FEJSIG-67890",
             "abilities": [],
             "armor_type": 0,
-            "damage_types": "None",
+            "ability_types": ["None"],
             "description": "Test role",
             "name": "Test_Role",
         },
@@ -74,9 +74,13 @@ def character_details_expectation():
   Light Armor
   -----------
     Head: None
+
     Chest: None
+
     Back: None
+
     Pants: None
+
     Weapon: None
 
     Stats
@@ -84,15 +88,14 @@ def character_details_expectation():
     Health: 10
     Energy: 10
     Attack: 10
-    Defense: 10"""
+    Defense: 10
+"""
 
 
 @pytest.fixture
 def character_inventory_show_expectation():
     inventory = ["item_1", "item_2", "item_3"]
-    expectation = "\nInventory:"
-    for item in inventory:
-        expectation += f"  - {item}"
+    expectation = "\nInventory:" + "  - ".join(inventory)
     return [expectation, inventory]
 
 
@@ -100,11 +103,12 @@ def test_character_init_no_armor_no_role():
     # Init No Role/Armor
     t_char = Character("Test_Char", 0)
     assert t_char.name == "Test_Char"
-    assert t_char.armor != None
+    assert t_char.armor is not None
     assert t_char.armor.armor_type == t_char.armor_type
-    assert t_char.role != None
-    assert t_char.role.name == "Basic"
+    assert t_char.role is not None
+    assert t_char.role.name == "NPC"
     assert t_char.inventory == []
+    assert t_char.id
 
     # Test with inventory
     test_inventory = [1, 2, 3]
@@ -137,7 +141,7 @@ def test_character_dequip(basic_char):
     assert basic_char.armor.head.name == t_head.name
 
     basic_char.dequip("head")
-    assert basic_char.armor.head == None
+    assert basic_char.armor.head is None
     assert len(basic_char.inventory) == 1
 
     # Invalid Dequip
@@ -155,7 +159,7 @@ def test_character_show_inventory(m_print, basic_char, character_inventory_show_
 
 
 def test_character_add_power(basic_char):
-    t_ability = abilities.Abilities("Test_Ability", "None", 31, "Test ability")
+    t_ability = abilities.Abilities("Test_Ability", "None", "Test ability", {})
     basic_char.add_power(t_ability)
     assert len(basic_char.role.abilities) == 1
     assert basic_char.role.abilities[0].name == t_ability.name

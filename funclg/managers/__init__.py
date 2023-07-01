@@ -4,18 +4,27 @@ These are a group of managers classes to allow users to manage the game and crea
 
 from funclg.utils.menu_funcs import Menu
 
-from .abilities_manager import ABILITY_MENU
-from .character_manager import CHARACTER_MENU
-from .equipment_manager import EQUIPMENT_MENU
-from .modifier_manager import MODIFIER_MENU
-from .roles_manager import ROLES_MENU
+from . import abilities_manager as ability_man
+from . import character_manager as char_man
+from . import equipment_manager as equip_man
+from . import roles_manager as role_man
 
-MENUS = [ABILITY_MENU, CHARACTER_MENU, EQUIPMENT_MENU, MODIFIER_MENU, ROLES_MENU]
+MANAGERS = [
+    char_man,
+    role_man,
+    ability_man,
+    equip_man,
+]
 
 
 def build_manager_menu():
     builder_menu = Menu("Manage Game", "This is the menu to manage all character items.")
-    for menu in MENUS:
-        sub_menu = Menu.build_menu(**menu)
+    for manager in MANAGERS:
+        sub_menu = Menu.build_menu(**manager.MENU)
         builder_menu.add_item(sub_menu.name, sub_menu)
     return builder_menu
+
+
+def save_data():
+    for manager in MANAGERS:
+        manager.export_data()

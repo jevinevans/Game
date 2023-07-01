@@ -8,10 +8,11 @@ import json
 from typing import Any, Dict, List, Optional
 
 from loguru import logger
+from typing_extensions import Self
 
 import funclg.utils.data_mgmt as db
 
-from ..utils.types import DAMAGE_TYPES, get_armor_type
+from ..utils.types import ABILITY_TYPES, get_armor_type
 from .abilities import Abilities
 
 # logger.add("./logs/character/roles.log", rotation="1 MB", retention=5)
@@ -30,28 +31,37 @@ class Roles:
         name: str,
         description: str,
         armor_type: int,
-        damage_types: Optional[List] = None,
-        abilities: Optional[List] = None,
+        ability_types: Optional[List] = None,
+        abilities: Optional[List[Abilities]] = None,
         **kwargs,
     ):  # pylint: disable=too-many-arguments
         self.name = name
         self.description = description
         self.armor_type = armor_type
-        self.damage_types = (
-            [damage_type for damage_type in damage_types if damage_type in DAMAGE_TYPES]
-            if damage_types
-            else "None"
+
+        self.ability_types = (
+            [a_type for a_type in ability_types if a_type in ABILITY_TYPES]
+            if ability_types
+            else ["None"]
         )
-        self.abilities = self.validate_abilities(abilities) if abilities else []
+        self.abilities = self._validate_abilities(abilities) if abilities else []
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
         # self.stats
-        logger.info(f"Created Role: {name}")
+        logger.debug(f"Created Role: {name}")
 
     def __str__(self):
-        return f"Class: {self.name} | Class Type(s): {', '.join(self.damage_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
+        return f"Class: {self.name} | Class Type(s): {', '.join(self.ability_types)} | Armor Type: {get_armor_type(self.armor_type)} | Abilities: {len(self.abilities)}"
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
 
     def add_power(self, ability: Abilities) -> bool:
-        if ability.damage_type in self.damage_types:
+        if ability.ability_type in self.ability_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
                 self.abilities.append(ability.copy())
                 logger.success(f"Added {ability.name} to {self.name}")
@@ -59,7 +69,7 @@ class Roles:
             logger.warning("Max abilities reached!")
             return False
         logger.warning(
-            f"{ability.name}({ability.damage_type}) is not compatible with {self.name}({self.damage_types})"
+            f"{ability.name}({ability.ability_type}) is not compatible with {self.name}({self.ability_types})"
         )
         return False
 
@@ -107,11 +117,24 @@ class Roles:
         with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
             json.dump(self.export(), out_file)
 
-    def validate_abilities(self, abilities: list):
+    def _validate_abilities(self, abilities: list) -> List[Abilities]:
         """
         Validates that abilities added are compatable
         """
-        return [ability.copy() for ability in abilities if ability.damage_type in self.damage_types]
+
+        return [
+            ability.copy() for ability in abilities if ability.ability_type in self.ability_types
+        ]
+
+    def copy(self) -> Self:
+        """Returns a copy of the object"""
+        return Roles(
+            name=self.name,
+            description=self.description,
+            armor_type=self.armor_type,
+            ability_types=self.ability_types,
+            abilities=self.abilities,
+            _id=self._id,
+        )
 
     # def show_powers(): #TODO Define me
-    # def copy(): # TODO: Roles copy method: unsure if needed

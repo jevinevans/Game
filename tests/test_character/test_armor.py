@@ -9,7 +9,7 @@ import pytest
 
 from funclg.character.armor import Armor
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import ITEM_TYPES, get_item_type, get_weapon_type
+from funclg.utils.types import ITEM_TYPES, get_item_type
 
 from .fixtures.armor_fixtures import (
     armor_details_expectations,
@@ -25,9 +25,9 @@ from .fixtures.armor_fixtures import (
 
 
 def test_armor_init(light_armor_knife, medium_armor_wand, heavy_armor_sword):
+    print(light_armor_knife)
     for item in ITEM_TYPES:
         item = item.lower()
-        print(light_armor_knife)
         assert getattr(light_armor_knife, item, False)
         assert getattr(medium_armor_wand, item, False)
         assert getattr(heavy_armor_sword, item, False)
@@ -35,7 +35,7 @@ def test_armor_init(light_armor_knife, medium_armor_wand, heavy_armor_sword):
 
 def test_armor_validate_equipment_not_equipment():
     armor = Armor(1, "FUN HEAD FAIL")
-    assert armor.head == None
+    assert armor.head is None
 
 
 def test_armor_validate_equipment_wrong_slot():
@@ -45,7 +45,7 @@ def test_armor_validate_equipment_wrong_slot():
             name="Head Piece", description="Item in wrong slot", armor_type=1, item_type=0
         ),
     )
-    assert armor.weapon == None
+    assert armor.weapon is None
 
 
 def test_armor_str(medium_half_armor, heavy_armor_sword, armor_str_expectations):
@@ -58,11 +58,11 @@ def test_armor_str(medium_half_armor, heavy_armor_sword, armor_str_expectations)
 def test_armor_equipping(equipment_only):
     armor = Armor()
     assert armor.armor_type == 0
-    assert armor.head == None
-    assert armor.chest == None
-    assert armor.back == None
-    assert armor.pants == None
-    assert armor.weapon == None
+    assert armor.head is None
+    assert armor.chest is None
+    assert armor.back is None
+    assert armor.pants is None
+    assert armor.weapon is None
 
     for item in equipment_only.values():
         armor.equip(item)
@@ -78,11 +78,10 @@ def test_armor_equipping_armor_type_incompatibility(equipment_only):
     for item in equipment_only.values():
         armor.equip(item)
 
-    assert armor.head == None
-    assert armor.chest == None
-    assert armor.back == None
-    assert armor.pants == None
-    assert armor.weapon == None
+    assert armor.head is None
+    assert armor.chest is None
+    assert armor.back is None
+    assert armor.pants is None
 
 
 @patch("funclg.utils.types.get_item_type")
@@ -106,11 +105,11 @@ def test_armor_dequipping(light_armor_knife):
         light_armor_knife.dequip(item_type)
 
     assert light_armor_knife.armor_type == 0
-    assert light_armor_knife.head == None
-    assert light_armor_knife.chest == None
-    assert light_armor_knife.back == None
-    assert light_armor_knife.pants == None
-    assert light_armor_knife.weapon == None
+    assert light_armor_knife.head is None
+    assert light_armor_knife.chest is None
+    assert light_armor_knife.back is None
+    assert light_armor_knife.pants is None
+    assert light_armor_knife.weapon is None
 
 
 # @patch("funclg.utils.types.get_item_type")
@@ -125,11 +124,11 @@ def test_armor_dequipping_flow_issues(m_log):
 def test_armor_get_equipment(equipment_only):
     armor = Armor()
     assert armor.armor_type == 0
-    assert armor.head == None
-    assert armor.chest == None
-    assert armor.back == None
-    assert armor.pants == None
-    assert armor.weapon == None
+    assert armor.head is None
+    assert armor.chest is None
+    assert armor.back is None
+    assert armor.pants is None
+    assert armor.weapon is None
 
     for item in equipment_only.values():
         armor.equip(item)
@@ -143,25 +142,15 @@ def test_armor_get_equipment(equipment_only):
 def test_armor_export(m_id, armor_export_expectations):
     # Doubled because of copy call
     m_id.side_effect = [
-        "MODS-12345-AFJDEIG-67890",
         "ARMOR-12345-AFJDEI-67890",
-        "MODS-12345-FEISFJW-67891",
         "ARMOR-12345-FEISFJ-67891",
-        "MODS-12345-GIEJSEB-67892",
         "ARMOR-12345-GIEJSE-67892",
-        "MODS-12345-GEIJGEW-67893",
         "ARMOR-12345-GEIJGE-67893",
-        "MODS-12345-FEGIFFR-67894",
         "WEAPON-12345-FEGIF-67894",
-        "MODS-12345-AFJDEIG-67890",
         "ARMOR-12345-AFJDEI-67890",
-        "MODS-12345-FEISFJW-67891",
         "ARMOR-12345-FEISFJ-67891",
-        "MODS-12345-GIEJSEB-67892",
         "ARMOR-12345-GIEJSE-67892",
-        "MODS-12345-GEIJGEW-67893",
         "ARMOR-12345-GEIJGE-67893",
-        "MODS-12345-FEGIFFR-67894",
         "WEAPON-12345-FEGIF-67894",
     ]
     equipment = {}
@@ -170,21 +159,20 @@ def test_armor_export(m_id, armor_export_expectations):
     for item_type in range(4):
         equipment[get_item_type(item_type)] = BodyEquipment(
             name=get_item_type(item_type),
-            modifiers=mods,
+            mod=mods,
             description=f"Test {get_item_type(item_type)}",
             armor_type=0,
             item_type=item_type,
         )
     equipment["Weapon"] = WeaponEquipment(
-        name=f"Weapon: {get_weapon_type(0)}",
-        weapon_type=0,
+        name="Weapon: Bow",
+        weapon_type="Bow",
         description="Test Weapon",
         armor_type=0,
     )
     armor = Armor(0)
     for item in equipment.values():
         armor.equip(item)
-        print(item._id, item.mod._id)
     assert armor.export() == armor_export_expectations
 
 
@@ -192,12 +180,12 @@ def test_armor_equip_wrong_slot(equipment_only):
     armor = Armor()
     armor._equip_chest(equipment_only["Back"])
 
-    assert armor.chest == None
-    assert armor.back == None
+    assert armor.chest is None
+    assert armor.back is None
 
     # Right side
     armor.equip(equipment_only["Back"])
-    assert armor.back != None
+    assert armor.back is not None
     assert isinstance(armor.back, BodyEquipment)
 
 
@@ -212,13 +200,13 @@ def test_armor_details_missing_item(light_armor_knife, armor_details_missing_wea
 
 
 def test_armor_stat_info(light_armor_knife):
-    assert light_armor_knife.stat.level == None
+    assert light_armor_knife.stat.level is None
     current_stats = light_armor_knife.get_stats()
     light_armor_knife.dequip("weapon")
     light_armor_knife.dequip("chest")
 
     for key, value in light_armor_knife.get_stats().items():
         if key == "level":
-            assert value == None
+            assert value is None
         else:
             assert value <= current_stats[key]

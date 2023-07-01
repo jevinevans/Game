@@ -1,9 +1,16 @@
 +==========================================+
-|	Total Directories: 20			|
-|	Files: 103				|
+|	Total Directories: 22			|
+|	Files: 111				|
 +==========================================+
 
 ./.coverage
+./.pytest_cache
+./.pytest_cache/CACHEDIR.TAG
+./.pytest_cache/README.md
+./.pytest_cache/v
+./.pytest_cache/v/cache
+./.pytest_cache/v/cache/lastfailed
+./.pytest_cache/v/cache/stepwise
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./README.md
 ./Scan_Directories.py
@@ -79,7 +86,10 @@
 ./funclg/character/roles.py
 ./funclg/character/stats.py
 ./funclg/data
-./funclg/data/modifiers.json
+./funclg/data/abilities.json
+./funclg/data/characters.json
+./funclg/data/equipment.json
+./funclg/data/roles.json
 ./funclg/managers
 ./funclg/managers/__init__.py
 ./funclg/managers/abilities_manager.py
@@ -94,9 +104,6 @@
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
 ./logs
-./logs/character
-./logs/character.log
-./logs/character/character.log
 ./poetry.lock
 ./pyproject.toml
 ./requirements.txt
@@ -110,8 +117,7 @@
 ./tests/test_character/fixtures/abilities_fixtures.py
 ./tests/test_character/fixtures/armor_fixtures.py
 ./tests/test_character/fixtures/equipment_fixures.py
-./tests/test_character/fixtures/modifier_fixtures.py
-./tests/test_character/fixtures/role_fixtures.py
+./tests/test_character/fixtures/roles_fixtures.py
 ./tests/test_character/fixtures/stat_fixtures.py
 ./tests/test_character/test_abilities.py
 ./tests/test_character/test_armor.py
@@ -123,6 +129,10 @@
 ./tests/test_main
 ./tests/test_main/test_main.py
 ./tests/test_managers
+./tests/test_managers/test_abilities_manager.py
+./tests/test_managers/test_character_manager.py
+./tests/test_managers/test_equipment_manager.py
 ./tests/test_managers/test_modifier_manager.py
+./tests/test_managers/test_roles_manager.py
 ./tests/test_utils
 ./tests/test_utils/test_types.py

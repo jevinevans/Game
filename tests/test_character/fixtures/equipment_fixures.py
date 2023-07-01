@@ -1,15 +1,18 @@
 """
-Equipment Fixtures for testing
+Description: Pytest fixtures for the character.equipment module
+Developer: Jevin Evans
+Date: 11/5/2022
 """
 
 import pytest
 
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, MODIFIER_TYPES, WEAPON_TYPES
+from funclg.character.modifiers import Modifier
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
 
 @pytest.fixture
-def bodyequipment_all_types():
+def body_equipment():
     # For each armor type creates an item of that type
     equipment = {}
     for i_index, item_type in enumerate(ITEM_TYPES[:4]):
@@ -25,20 +28,20 @@ def bodyequipment_all_types():
 
 
 @pytest.fixture
-def bodyequipment_mods():
+def body_mods():
     item_mods = {}
     for index, item_type in enumerate(ITEM_TYPES[:4]):
-        start = index % len(MODIFIER_TYPES)
-        end = -1 * (index % len(MODIFIER_TYPES))
+        start = index % len(Modifier.MODIFIER_TYPES)
+        end = -1 * (index % len(Modifier.MODIFIER_TYPES))
         item_mods[item_type + "_mods"] = {
-            "adds": {MODIFIER_TYPES[start]: 50},
-            "mults": {MODIFIER_TYPES[end]: 0.10},
+            "adds": {Modifier.MODIFIER_TYPES[start]: 50},
+            "mults": {Modifier.MODIFIER_TYPES[end]: 0.10},
         }
     return item_mods
 
 
 @pytest.fixture
-def bodyequipment_all_items_mods(bodyequipment_mods):
+def body_equipment_with_mods(body_mods):
     equipment = {}
     for i_index, item_type in enumerate(ITEM_TYPES[:4]):
         equipment[item_type + "_mods"] = BodyEquipment(
@@ -46,68 +49,52 @@ def bodyequipment_all_items_mods(bodyequipment_mods):
             description=f"Medium {item_type} with mods",
             armor_type=1,
             item_type=i_index,
-            modifiers=bodyequipment_mods[item_type + "_mods"],
+            mod=body_mods[item_type + "_mods"],
         )
     return equipment
 
 
 @pytest.fixture
-def weaponequipment_mods():
+def weapon_mods():
     item_mods = {}
-    for index, weapon_type in enumerate(WEAPON_TYPES[:4]):
-        start = index % len(MODIFIER_TYPES)
-        end = -1 * (index % len(MODIFIER_TYPES))
+    for index, weapon_type in enumerate(WEAPON_TYPES):
+        start = index % len(Modifier.MODIFIER_TYPES)
+        end = -1 * (index % len(Modifier.MODIFIER_TYPES))
         item_mods[weapon_type + "_mods"] = {
-            "adds": {MODIFIER_TYPES[start]: 50},
-            "mults": {MODIFIER_TYPES[end]: 0.10},
+            "adds": {Modifier.MODIFIER_TYPES[start]: 50},
+            "mults": {Modifier.MODIFIER_TYPES[end]: 0.10},
         }
     return item_mods
 
 
 @pytest.fixture
-def weaponequipment_all_items_mods(weaponequipment_mods):
+def weapon_equipment_with_mods(weapon_mods):
     equipment = {}
-    for i_index, weapon_type in enumerate(WEAPON_TYPES[:4]):
+    for weapon_type in WEAPON_TYPES:
         equipment[weapon_type + "_mods"] = WeaponEquipment(
             name=weapon_type + "_mods",
-            description=f"Medium {weapon_type} with mods",
-            armor_type=1,
-            weapon_type=i_index,
-            modifiers=weaponequipment_mods[weapon_type + "_mods"],
+            description=f"{weapon_type} with mods",
+            weapon_type=weapon_type,
+            mod=weapon_mods[weapon_type + "_mods"],
         )
     return equipment
 
 
 @pytest.fixture
-def weaponequipment_all_types():
-    # For each armor type, creates a weapon of that type
-    weapons = {}
-    for w_index, weapon_type in enumerate(WEAPON_TYPES):
-        for a_index, armor_type in enumerate(ARMOR_TYPES):
-            weapons[weapon_type + "_" + armor_type] = WeaponEquipment(
-                name=weapon_type + "_" + armor_type,
-                description=f"{armor_type} {weapon_type}",
-                weapon_type=w_index,
-                armor_type=a_index,
-            )
-    return weapons
-
-
-@pytest.fixture
-def equipment_str_expectation(bodyequipment_all_types, weaponequipment_all_types):
+def equipment_str_expectation(body_equipment, weapon_equipment_with_mods):
     expectations = {}
 
-    for name, body in bodyequipment_all_types.items():
+    for name, body in body_equipment.items():
         expectations[name] = f"{body.name} [{body.armor_type} {body.item_type}]"
 
-    for name, weapone in weaponequipment_all_types.items():
-        expectations[name] = f"{weapone.name} [{weapone.armor_type} {weapone.item_type}]"
+    for name, weapon in weapon_equipment_with_mods.items():
+        expectations[name] = f"{weapon.name} [{weapon.weapon_type} {weapon.item_type}]"
 
     return expectations
 
 
 @pytest.fixture
-def bodyequipment_details_expectation():
+def body_details_expectation():
     expectations = []
 
     for indent in range(0, 7):
@@ -118,17 +105,6 @@ def bodyequipment_details_expectation():
 {' '*indent}Description: Medium Head with mods
 
 {' '*indent}Modifier(s):
-{' '*(indent+2)}Head_mods_mod:
-{' '*(indent+4)}Health: +50, +10.0%
-"""
+{' '*(indent+2)}Health: +50, +10.0%"""
         expectations.append(base)
     return expectations
-
-
-@pytest.fixture
-def weaponequipment_description_expectations():
-    descriptions = []
-    for armor_type in ARMOR_TYPES:
-        for weapon_type in WEAPON_TYPES:
-            descriptions.append(f"[{armor_type} {weapon_type}]")
-    return descriptions

@@ -18,6 +18,9 @@ from ..utils import types as uTypes
 from .modifiers import Modifier
 
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
+# pylint: disable=duplicate-code
+
+# TODO: Change equipment display methods
 
 
 class Equipment:
@@ -30,7 +33,7 @@ class Equipment:
     def __init__(
         self,
         name: str,
-        modifier: Modifier,
+        mod: Modifier,
         description: str = "",
         item_type: int = 0,
         armor_type: int = 0,
@@ -44,7 +47,7 @@ class Equipment:
         self.description = description
         self.item_type = item_type
         self.armor_type = armor_type
-        self.mod = modifier
+        self.mod = mod
 
         self._id = db.id_gen(kwargs.get("prefix", self.DB_PREFIX), kwargs.get("_id"))
 
@@ -54,7 +57,15 @@ class Equipment:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.armor_type} {self.item_type}]"
+        return f"{self.name} [{self.item_type}]"
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
 
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name}"
@@ -96,7 +107,7 @@ class Equipment:
             description=self.description,
             item_type=self.item_type,
             armor_type=self.armor_type,
-            modifier=self.mod,
+            mod=self.mod,
             _id=self._id,
         )
 
@@ -111,37 +122,46 @@ class WeaponEquipment(Equipment):
     def __init__(
         self,
         name: str,
-        weapon_type: int,
+        weapon_type: str,
         description: str = "",
-        armor_type: int = 0,
-        modifiers: Optional[Dict[str, Dict]] = None,
+        mod: Optional[Dict[str, Dict]] = None,
+        armor_type: int = 1,
         **kwargs,
     ):
-        weapon_mod = Modifier(name=name + "_mod")
-        if modifiers:
-            weapon_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
-            weapon_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))
+        weapon_mod = Modifier(name=name)
+        if mod:
+            weapon_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
+            weapon_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
         else:
             weapon_mod.add_mod(m_type="adds", mods={"attack": 1, "energy": 1})
+
+        self.weapon_type = self._validate_weapon_type(weapon_type)
+        armor_type = (
+            armor_type
+            if armor_type == uTypes.WEAPON_TYPES[self.weapon_type]
+            else uTypes.WEAPON_TYPES[self.weapon_type]
+        )
 
         super().__init__(
             name=name,
             description=description,
             item_type=4,
             armor_type=armor_type,
-            modifier=weapon_mod,
+            mod=weapon_mod,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
         )
 
-        self.weapon_type = self._validate_weapon_type(weapon_type)
+    # TODO: Change equipment display methods
+    def __str__(self) -> str:
+        """
+        Returns the name and level of the item
+        """
+        return f"{self.name} [{self.weapon_type} {self.item_type}]"
 
     @staticmethod
-    def _validate_weapon_type(weapon_type: int):
-        return weapon_type if abs(weapon_type) < len(uTypes.WEAPON_TYPES) else -1
-
-    def get_weapon_type(self) -> str:
-        return uTypes.get_weapon_type(self.weapon_type)
+    def _validate_weapon_type(weapon_type: str):
+        return weapon_type if weapon_type in uTypes.WEAPON_TYPES else "Unknown"
 
     def get_item_description(self) -> str:
         return uTypes.get_item_description(self.item_type, self.armor_type, self.weapon_type)
@@ -153,9 +173,11 @@ class WeaponEquipment(Equipment):
             weapon_type=self.weapon_type,
             description=self.description,
             armor_type=self.armor_type,
-            modifiers=self.mod.get_mods(),
-            _id=self._id,
+            mod=self.mod.get_mods(),
+            _id=self.id,
         )
+
+    # TODO: Override details to include the weapon type
 
 
 class BodyEquipment(Equipment):
@@ -168,7 +190,7 @@ class BodyEquipment(Equipment):
     def __init__(
         self,
         name: str,
-        modifiers: Optional[Dict[str, Dict]] = None,
+        mod: Optional[Dict[str, Dict]] = None,
         description: str = "",
         armor_type: int = 0,
         item_type: int = 0,
@@ -177,10 +199,10 @@ class BodyEquipment(Equipment):
         """
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
         """
-        body_mod = Modifier(name=name + "_mod")
-        if modifiers:
-            body_mod.add_mod(m_type="adds", mods=modifiers.get("adds", {}))
-            body_mod.add_mod(m_type="mults", mods=modifiers.get("mults", {}))
+        body_mod = Modifier(name=name)
+        if mod:
+            body_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
+            body_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
         else:
             body_mod.add_mod(m_type="adds", mods={"health": 1, "defense": 1})
 
@@ -189,18 +211,25 @@ class BodyEquipment(Equipment):
             description=description,
             item_type=item_type,
             armor_type=armor_type,
-            modifier=body_mod,
+            mod=body_mod,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
         )
+
+    # TODO: Change equipment display methods
+    def __str__(self) -> str:
+        """
+        Returns the name and level of the item
+        """
+        return f"{self.name} [{self.armor_type} {self.item_type}]"
 
     def copy(self) -> Self:
         """Copies the current object"""
         return BodyEquipment(
             name=self.name,
-            modifiers=self.mod.get_mods(),
+            mod=self.mod.get_mods(),
             description=self.description,
             armor_type=self.armor_type,
             item_type=self.item_type,
-            _id=self._id,
+            _id=self.id,
         )

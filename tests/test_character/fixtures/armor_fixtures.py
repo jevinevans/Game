@@ -1,51 +1,57 @@
+"""
+Description: Pytest fixtures for the character.armor module
+Developer: Jevin Evans
+Date: 11/5/2022
+"""
+
 import pytest
 
 from funclg.character.armor import Armor
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
-from funclg.utils.types import get_item_type, get_weapon_type
+from funclg.utils.types import get_item_type
 
 
-def gen_equipment(armor_type: int, weapon_type: int):
+def gen_equipment(armor_type: int, weapon_type: str):
     equipment = {}
     mods = {"adds": {"health": 50}, "mults": {"energy": 0.1}}
     for item_type in range(4):
         equipment[get_item_type(item_type)] = BodyEquipment(
             name=get_item_type(item_type),
-            modifiers=mods,
+            mod=mods,
             description=f"Test {get_item_type(item_type)}",
             armor_type=armor_type,
             item_type=item_type,
         )
     equipment["Weapon"] = WeaponEquipment(
-        name=f"Weapon: {get_weapon_type(weapon_type)}",
+        name=f"Weapon: {weapon_type}",
         weapon_type=weapon_type,
         description="Test Weapon",
-        armor_type=armor_type,
     )
+
     return equipment
 
 
 @pytest.fixture
 def equipment_only():
-    return gen_equipment(0, 0)
+    return gen_equipment(0, "Bow")
 
 
 @pytest.fixture
 def light_armor_knife():
-    equipment = gen_equipment(0, 2)
+    equipment = gen_equipment(0, "Knife")
     return Armor(
         0,
-        equipment["Head"],
-        equipment["Chest"],
-        equipment["Back"],
-        equipment["Pants"],
-        equipment["Weapon"],
+        head=equipment["Head"],
+        chest=equipment["Chest"],
+        back=equipment["Back"],
+        pants=equipment["Pants"],
+        weapon=equipment["Weapon"],
     )
 
 
 @pytest.fixture
 def medium_armor_wand():
-    equipment = gen_equipment(1, 1)
+    equipment = gen_equipment(1, "Wand")
     return Armor(
         1,
         equipment["Head"],
@@ -58,7 +64,7 @@ def medium_armor_wand():
 
 @pytest.fixture
 def heavy_armor_sword():
-    equipment = gen_equipment(2, 0)
+    equipment = gen_equipment(2, "Sword")
     return Armor(
         2,
         equipment["Head"],
@@ -71,7 +77,7 @@ def heavy_armor_sword():
 
 @pytest.fixture
 def medium_half_armor():
-    equipment = gen_equipment(1, 0)
+    equipment = gen_equipment(1, "Sword")
     return Armor(armor_type=1, chest=equipment["Chest"], pants=equipment["Pants"])
 
 
@@ -89,136 +95,41 @@ def armor_str_expectations():
 
 
 @pytest.fixture
-def armor_details_expectations():
+def armor_details_expectations(light_armor_knife):
     expectations = []
     for indent in range(0, 7):
         base = f"""
 {' '*indent}Light Armor
 {' '*indent}-----------
-{' '*(indent+2)}Head: 
-{' '*(indent+2)}Head
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Head]
-{' '*(indent+2)}Description: Test Head
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Head_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
-{' '*(indent+2)}Chest: 
-{' '*(indent+2)}Chest
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Chest]
-{' '*(indent+2)}Description: Test Chest
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Chest_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
-{' '*(indent+2)}Back: 
-{' '*(indent+2)}Back
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Back]
-{' '*(indent+2)}Description: Test Back
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Back_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
-{' '*(indent+2)}Pants: 
-{' '*(indent+2)}Pants
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Pants]
-{' '*(indent+2)}Description: Test Pants
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Pants_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
-{' '*(indent+2)}Weapon: 
-{' '*(indent+2)}Weapon: Knife
-{' '*(indent+2)}-------------
-{' '*(indent+2)}Type: [Light Knife]
-{' '*(indent+2)}Description: Test Weapon
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Weapon: Knife_mod:
-{' '*(indent+6)}Attack: +1
-{' '*(indent+6)}Energy: +1
-
-
-{' '*(indent+2)}Stats
-{' '*(indent+2)}-----
-{' '*(indent+2)}Health: 210
-{' '*(indent+2)}Energy: 15.4
-{' '*(indent+2)}Attack: 11
-{' '*(indent+2)}Defense: 10"""
+{' '*(indent+2)}Head: {light_armor_knife.head.details(indent+4)}\n
+{' '*(indent+2)}Chest: {light_armor_knife.chest.details(indent+4)}\n
+{' '*(indent+2)}Back: {light_armor_knife.back.details(indent+4)}\n
+{' '*(indent+2)}Pants: {light_armor_knife.pants.details(indent+4)}\n
+{' '*(indent+2)}Weapon: {light_armor_knife.weapon.details(indent+4)}
+{light_armor_knife.stat.details(indent+2)}"""
         expectations.append(base)
     return expectations
 
 
 @pytest.fixture
-def armor_details_missing_weapon():
+def armor_details_missing_weapon(light_armor_knife):
+    new_armor = Armor(
+        armor_type=light_armor_knife.armor_type,
+        head=light_armor_knife.head,
+        chest=light_armor_knife.chest,
+        back=light_armor_knife.back,
+        pants=light_armor_knife.pants,
+    )
     indent = 0
     return f"""
 {' '*indent}Light Armor
 {' '*indent}-----------
-{' '*(indent+2)}Head: 
-{' '*(indent+2)}Head
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Head]
-{' '*(indent+2)}Description: Test Head
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Head_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
-{' '*(indent+2)}Chest: 
-{' '*(indent+2)}Chest
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Chest]
-{' '*(indent+2)}Description: Test Chest
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Chest_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
-{' '*(indent+2)}Back: 
-{' '*(indent+2)}Back
-{' '*(indent+2)}----
-{' '*(indent+2)}Type: [Light Back]
-{' '*(indent+2)}Description: Test Back
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Back_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
-{' '*(indent+2)}Pants: 
-{' '*(indent+2)}Pants
-{' '*(indent+2)}-----
-{' '*(indent+2)}Type: [Light Pants]
-{' '*(indent+2)}Description: Test Pants
-
-{' '*(indent+2)}Modifier(s):
-{' '*(indent+4)}Pants_mod:
-{' '*(indent+6)}Health: +50
-{' '*(indent+6)}Energy: +10.0%
-
+{' '*(indent+2)}Head: {new_armor.head.details(indent+4)}\n
+{' '*(indent+2)}Chest: {new_armor.chest.details(indent+4)}\n
+{' '*(indent+2)}Back: {new_armor.back.details(indent+4)}\n
+{' '*(indent+2)}Pants: {new_armor.pants.details(indent+4)}\n
 {' '*(indent+2)}Weapon: None
-
-{' '*(indent+2)}Stats
-{' '*(indent+2)}-----
-{' '*(indent+2)}Health: 210
-{' '*(indent+2)}Energy: 14.0
-{' '*(indent+2)}Attack: 10
-{' '*(indent+2)}Defense: 10"""
+{new_armor.stat.details(indent+2)}"""
 
 
 @pytest.fixture
@@ -231,8 +142,6 @@ def armor_export_expectations():
             "item_type": 0,
             "armor_type": 0,
             "mod": {
-                "_id": "MODS-12345-AFJDEIG-67890",
-                "name": "Head_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -244,8 +153,6 @@ def armor_export_expectations():
             "item_type": 1,
             "armor_type": 0,
             "mod": {
-                "_id": "MODS-12345-FEISFJW-67891",
-                "name": "Chest_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -257,8 +164,6 @@ def armor_export_expectations():
             "item_type": 2,
             "armor_type": 0,
             "mod": {
-                "_id": "MODS-12345-GIEJSEB-67892",
-                "name": "Back_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
@@ -270,22 +175,18 @@ def armor_export_expectations():
             "item_type": 3,
             "armor_type": 0,
             "mod": {
-                "_id": "MODS-12345-GEIJGEW-67893",
-                "name": "Pants_mod",
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
             },
             "_id": "ARMOR-12345-GEIJGE-67893",
         },
         "weapon": {
-            "name": "Weapon: Sword",
+            "name": "Weapon: Bow",
             "description": "Test Weapon",
             "item_type": 4,
-            "weapon_type": 0,
+            "weapon_type": "Bow",
             "armor_type": 0,
             "mod": {
-                "_id": "MODS-12345-FEGIFFR-67894",
-                "name": "Weapon: Sword_mod",
                 "adds": {"attack": 1, "energy": 1},
                 "mults": {},
             },
@@ -298,11 +199,11 @@ def armor_export_expectations():
             "health": 10,
             "level": None,
             "mods": {
-                "Back_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Chest_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Head_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Pants_mod": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Weapon: Sword_mod": {"adds": {"attack": 1, "energy": 1}, "mults": {}},
+                "Back": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Chest": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Head": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Pants": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
+                "Weapon: Bow": {"adds": {"attack": 1, "energy": 1}, "mults": {}},
             },
         },
     }

@@ -7,11 +7,10 @@ Description: The character that will be used. The character will have a role, ab
 from typing import Any, Dict, Optional
 
 import funclg.utils.data_mgmt as db
-
-from .abilities import Abilities
-from .armor import Armor
-from .equipment import Equipment
-from .roles import Roles
+from funclg.character.abilities import Abilities
+from funclg.character.armor import Armor
+from funclg.character.equipment import Equipment
+from funclg.character.roles import Roles
 
 # from loguru import logger
 
@@ -30,10 +29,18 @@ from .roles import Roles
 # """
 
 
+# TODO: Make Char update in a new branch - 6.17.2023
+# TODO: Char Update - 1: Update character so that it is generalized
+# TODO: Char Update - 2: Create a class called playable character for the user
+# TODO: Char Update - 3: Create the NPC class that can be used later for random generation
+
+
 class Character:
     """
     The playable character for the game
     """
+
+    # TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role
 
     DB_PREFIX = "CHARS"
 
@@ -66,7 +73,7 @@ class Character:
         if roles_instance and roles_instance.armor_type == self.armor_type:
             self.role = roles_instance
         else:
-            self.role = Roles("Basic", "A basic character role", self.armor_type)
+            self.role = Roles("NPC", "A non-playable character", self.armor_type)
 
     def __str__(self) -> str:
         string = f"  {self.name}  \n"
@@ -75,6 +82,14 @@ class Character:
         string += f"\n Armor: {self.armor}"
 
         return string
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
 
     def export(self) -> Dict[str, Any]:
         exporter = self.__dict__.copy()
@@ -90,6 +105,7 @@ class Character:
         desc += "-" * (len(self.name))
         desc += "\n" + self.role.details(indent + 2)
         desc += "\n" + self.armor.details(indent + 2)
+        desc += "\n"
         return desc
 
     def equip(self, item: Equipment) -> None:

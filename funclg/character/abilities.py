@@ -5,27 +5,20 @@ Description: This defines Abilities object used for the roles class
 """
 
 import json
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from loguru import logger
 from typing_extensions import Self
 
 import funclg.utils.data_mgmt as db
 
-from ..utils.types import DAMAGE_TYPES, get_ability_effect_type
+from ..utils.types import ABILITY_TYPES
+from .modifiers import Modifier
 
 # logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
+# pylint: disable=duplicate-code
 
-
-"""
-stats integration update,
-- replace ability group and effect with a modifier
-- Define a modifier validation method that will check to see if the damage type matches the mods defined.
-- add energy cost attribute
-- add target attribute (either self or other, could just be a boolean?)
-- define use function to return the modifiers
-
-"""
+# TODO: add energy cost attribute
 
 
 class Abilities:
@@ -35,32 +28,82 @@ class Abilities:
 
     DB_PREFIX = "ABILITY"
 
-    def __init__(self, name: str, damage_type: str, effect: int, description: str, **kwargs):
+    def __init__(
+        self,
+        name: str,
+        ability_type: str,
+        description: str,
+        mod: Optional[Dict[str, Dict]] = None,
+        **kwargs,
+    ):
+
         self.name = name
-        self.damage_type = damage_type if damage_type in DAMAGE_TYPES else "None"
-        self.ability_group, effect_type = get_ability_effect_type(self.damage_type)
-        self.effect = (
-            effect * effect_type
-        )  # TODO: Will become stats, and a specific sub class that will be more focused for armor
         self.description = description
+        self.ability_type = ability_type if ability_type in ABILITY_TYPES else "None"
+        self._target = ABILITY_TYPES[self.ability_type]["target"]
+
+        # Set Ability Modifier effects
+        self.mod = Modifier(name=name)
+        val_mod = self._validate_mods(mod)
+        self.mod.add_mod(ABILITY_TYPES[self.ability_type]["m_type"], val_mod)
 
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
 
         logger.debug(f"Created Ability: {name}")
 
+    def _validate_mods(self, modifier: Optional[Dict[str, Dict]] = None):
+        m_type = ABILITY_TYPES[self.ability_type]["m_type"]
+        if modifier:
+            # Check if the right m_type is provided
+            if mod := modifier.get(m_type, {}):
+                pass_check = True
+                for key in mod.keys():
+                    pass_check &= key in ABILITY_TYPES[self.ability_type]["mods"]
+                    logger.debug(
+                        f"Mod Checks: {key} in {ABILITY_TYPES[self.ability_type]['mods']} {key in ABILITY_TYPES[self.ability_type]['mods']}"
+                    )
+                    if self._target == "enemy":
+                        mod[key] = mod[key] if mod[key] < 0 else mod[key] * -1
+                if pass_check:
+                    return mod
+
+            logger.warning("Provided mod was not compatable with selected ability.")
+        logger.warning("Using default modifier value.")
+        if self.ability_type == "None":
+            return {}
+        m_value = 1 if m_type == "adds" else 0.01
+        return {"health": m_value}
+
     def __str__(self):
-        return f"{self.name} ({self.damage_type}): {self.effect}"
+        string = f"{self.name} ({self.ability_type})"
+        if self.mod.adds or self.mod.mults:
+            string += f" - {self.mod}"
+        return string
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
+
+    @property
+    def id(self):  # pylint: disable=C0103
+        return self._id
 
     def details(self, indent: int = 0):
-        desc = f"\n{' '*indent}{self.name}\n{' '*indent}{''.join(['-' for x in range(len(self.name))])}"
+        desc = f"\n{' '*indent}{self.name}\n{' '*indent}"
+        desc += "-" * len(self.name)
         desc += f"\n{' '*indent}Description: {self.description}"
-        desc += f"\n{' '*indent}Type: {self.damage_type} ({self.ability_group})"
-        desc += f"\n{' '*indent}Effect: {self.effect}"
+        desc += f"\n{' '*indent}Ability Type: {self.ability_type}"
+        desc += f"\n{' '*indent}Target: {self._target.capitalize()}"
+        desc += self.mod.details(indent + 2)
         return desc
 
     def export(self) -> Dict[str, Any]:
         logger.info(f"Exporting Ability: {self.name}")
-        return self.__dict__.copy()
+        exporter = self.__dict__.copy()
+        for key, value in exporter.items():
+            if isinstance(value, Modifier):
+                exporter[key] = value.export()
+        return exporter
 
     def print_to_file(self) -> None:
         logger.info(f"Saving Ability: {self.name}")
@@ -70,7 +113,11 @@ class Abilities:
     def copy(self) -> Self:
         """Returns a copy of the object"""
         return Abilities(
-            self.name, self.damage_type, abs(self.effect), self.description, _id=self._id
+            name=self.name,
+            ability_type=self.ability_type,
+            mod=self.mod.export(),
+            description=self.description,
+            _id=self._id,
         )
 
-    # def use()
+    # TODO def use()

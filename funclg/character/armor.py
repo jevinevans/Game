@@ -10,7 +10,7 @@ from loguru import logger
 
 from funclg.character.equipment import BodyEquipment, Equipment, WeaponEquipment
 from funclg.character.stats import Stats
-from funclg.utils.types import ARMOR_TYPES, get_armor_type
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, get_armor_type
 
 # logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
@@ -23,35 +23,41 @@ class Armor:
     def __init__(  # pylint: disable=too-many-arguments
         self,
         armor_type: int = 0,
-        head: Equipment = None,
-        chest: Equipment = None,
-        back: Equipment = None,
-        pants: Equipment = None,
-        weapon: Equipment = None,
+        head: BodyEquipment = None,
+        chest: BodyEquipment = None,
+        back: BodyEquipment = None,
+        pants: BodyEquipment = None,
+        weapon: WeaponEquipment = None,
     ):
         self.armor_type = armor_type if abs(armor_type) < len(ARMOR_TYPES) else 0
 
+        # TODO: 20240629 - Change to stats instead of stat
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
         self.stat = Stats(attributes={"level": None}, default=(armor_type + 1) * 10)
 
-        self.head = self.validate_equipment(head, 0)
-        self.chest = self.validate_equipment(chest, 1)
-        self.back = self.validate_equipment(back, 2)
-        self.pants = self.validate_equipment(pants, 3)
-        self.weapon = self.validate_equipment(weapon, 4)
+        # TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified
 
-    def validate_equipment(
-        self, item: Union[Equipment, None], item_type: int
-    ) -> Union[Equipment, None]:
+        self.head = self._validate_equipment(head, 0)
+        self.chest = self._validate_equipment(chest, 1)
+        self.back = self._validate_equipment(back, 2)
+        self.pants = self._validate_equipment(pants, 3)
+        self.weapon = self._validate_equipment(weapon, 4)
+
+    def _update_armor_mods(self, item):
         """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
-        if isinstance(item, Equipment):
+        self.stat.add_mod(item.mod)
+        return item.copy()
+
+    def _validate_equipment(
+        self, item: Union[BodyEquipment, None], item_type: int
+    ) -> Union[BodyEquipment, None]:
+        if isinstance(item, (BodyEquipment, WeaponEquipment)):
             if item.armor_type == self.armor_type:
                 if item.item_type == item_type:
-                    self.stat.add_mod(item.mod)
-                    return item.copy()
-                logger.warning(f"{item} is not compatable for this slot.")
+                    return self._update_armor_mods(item)
+                logger.warning(f"{item} can not be assigned to this slot.")
                 return None
-        logger.warning(f"{item} incompatable with this armor type.")
+            logger.warning(f"{item} incompatable with this armor.")
         return None
 
     def __str__(self) -> str:
@@ -65,31 +71,31 @@ class Armor:
         return temp
 
     def _equip_head(self, item: BodyEquipment):
-        if new_item := self.validate_equipment(item, 0):
+        if new_item := self._validate_equipment(item, 0):
             self.head = new_item
             return True
         return False
 
     def _equip_chest(self, item: BodyEquipment):
-        if new_item := self.validate_equipment(item, 1):
+        if new_item := self._validate_equipment(item, 1):
             self.chest = new_item
             return True
         return False
 
     def _equip_back(self, item: BodyEquipment):
-        if new_item := self.validate_equipment(item, 2):
+        if new_item := self._validate_equipment(item, 2):
             self.back = new_item
             return True
         return False
 
     def _equip_pants(self, item: BodyEquipment):
-        if new_item := self.validate_equipment(item, 3):
+        if new_item := self._validate_equipment(item, 3):
             self.pants = new_item
             return True
         return False
 
     def _equip_weapon(self, item: WeaponEquipment):
-        if new_item := self.validate_equipment(item, 4):
+        if new_item := self._validate_equipment(item, 4):
             self.weapon = new_item
             return True
         return False
@@ -147,15 +153,18 @@ class Armor:
     def details(self, indent: int = 0) -> str:
         title = f"{get_armor_type(self.armor_type)} Armor"
         desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*len(title)}"
-        desc += f"\n{' '*(indent+2)}Head: {self.head.details(indent+2) if self.head else None}"
-        desc += f"\n{' '*(indent+2)}Chest: {self.chest.details(indent+2) if self.chest else None}"
-        desc += f"\n{' '*(indent+2)}Back: {self.back.details(indent+2) if self.back else None}"
-        desc += f"\n{' '*(indent+2)}Pants: {self.pants.details(indent+2) if self.pants else None}"
-        desc += (
-            f"\n{' '*(indent+2)}Weapon: {self.weapon.details(indent+2) if self.weapon else None}"
-        )
-        desc += "\n" + self.stat.details(indent=indent + 2)
+
+        for _item_type in ITEM_TYPES:
+            desc += self._details_check_none(indent, _item_type) + "\n"
+        desc += self.stat.details(indent=indent + 2)
         return desc
+
+    def _details_check_none(self, indent: int, _item_type: str) -> str:
+        desc = f"\n{' '*(indent+2)}{_item_type}: "
+
+        if _item := getattr(self, _item_type.lower(), ""):
+            return desc + _item.details(indent + 4)
+        return desc + "None"
 
     def get_equipment(self) -> List[Union[Equipment, None]]:
         """Returns the equipped armor"""

@@ -8,7 +8,7 @@ TODAY=$(date)
 echo -e "######TESTING REPORT######\n\nDate: $TODAY \n\n---PYTEST---\n" > $REPORT
 
 printf "\n*****Running Tests*****\n"
-poetry run pytest --cov=funclg/ --cov-branch tests/ >> $REPORT
+poetry run pytest --cov=funclg/ --cov-branch tests/ --disable-pytest-warnings >> $REPORT
 printf "*****DONE*****\n"
 
 # echo -e "\n---Flake 8----\n" >> $REPORT
@@ -35,7 +35,7 @@ poetry run xenon --max-absolute B ./funclg &>> $REPORT
 echo -e "\n-----PYLINT-----\n" >> $REPORT
 echo -e "\n-----PYLINT-----\n"
 poetry run pylint ./funclg &>> $REPORT
-echo -e "\n-----PYRIGHT-----\n" >> $REPORT
-echo -e "\n-----PYRIGHT-----\n"
-export NODE\_OPTIONS=--experimental-worker
-poetry run pyright ./funclg &>> $REPORT
+# echo -e "\n-----PYRIGHT-----\n" >> $REPORT
+# echo -e "\n-----PYRIGHT-----\n"
+# export NODE\_OPTIONS=--experimental-worker
+# poetry run pyright ./funclg &>> $REPORT
