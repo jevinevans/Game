@@ -155,8 +155,8 @@ class Armor:
             return ret_item
         logger.warning("There is no item to remove.")
         return None
-   
-    def details(self, indent:int=0) -> str:
+
+    def details(self, indent: int = 0) -> str:
         title = f"{get_armor_type(self.armor_type)} Armor"
         desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*len(title)}"
         desc += self.stats.details(indent=indent + 2) + "\n"
@@ -164,12 +164,12 @@ class Armor:
         for _item_type in ITEM_TYPES:
             desc += self._details_check_none(indent, _item_type) + "\n"
         return desc
-    
-    def _details_check_none(self, indent:int, _item_type:str) -> str:
+
+    def _details_check_none(self, indent: int, _item_type: str) -> str:
         desc = f"\n{' '*(indent+2)}{_item_type}: "
 
-        if _item:=getattr(self, _item_type.lower(), False):
-            return desc + _item.details(indent+4)
+        if _item := getattr(self, _item_type.lower(), ""):
+            return desc + _item.details(indent + 4)
         return desc + "None"
 
 
