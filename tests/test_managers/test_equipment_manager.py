@@ -275,17 +275,17 @@ def test_equipment_manager_filter_equipment_by_armor_type(
     )
     armor_type_0_results = {
         "Head": {},
-        "Chest": {armor_type_0.id:armor_type_0},
+        "Chest": {armor_type_0.id: armor_type_0},
         "Back": {},
         "Pants": {},
         "Weapon": {},
     }
     armor_type_2_results = {
-        "Head": {armor_type_2.id:armor_type_2},
+        "Head": {armor_type_2.id: armor_type_2},
         "Chest": {},
         "Back": {},
         "Pants": {},
-        "Weapon": {weapon_type_2.id:weapon_type_2},
+        "Weapon": {weapon_type_2.id: weapon_type_2},
     }
 
     assert armor_type_0_results == eq_man.filter_equipment_by_armor_type(0)

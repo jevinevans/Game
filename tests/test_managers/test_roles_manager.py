@@ -68,30 +68,30 @@ def test_mage():
 @pytest.fixture
 def test_warrior():
     return {
-            "name": "Warrior",
-            "description": "Guardian, Protector",
-            "armor_type": 2,
-            "ability_types": ["Physical", "Buff", "Debuff", "None"],
-            "abilities": [
-                {
-                    "name": "Strike",
-                    "description": "Strikes an enemy with the users weapon",
-                    "ability_type": "Physical",
-                    "_target": "enemy",
-                    "mod": {"adds": {"health": 225}, "mults": {}},
-                    "_id": "ABILITY-16659-NYWC-46543",
-                },
-                {
-                    "name": "Weaken",
-                    "description": "Weakens an enemy",
-                    "ability_type": "Debuff",
-                    "_target": "enemy",
-                    "mod": {"adds": {}, "mults": {"defense": 0.83}},
-                    "_id": "ABILITY-16660-TXKX-31305",
-                },
-            ],
-            "_id": "ROLES-16694-QPYDLP-95720",
-        }
+        "name": "Warrior",
+        "description": "Guardian, Protector",
+        "armor_type": 2,
+        "ability_types": ["Physical", "Buff", "Debuff", "None"],
+        "abilities": [
+            {
+                "name": "Strike",
+                "description": "Strikes an enemy with the users weapon",
+                "ability_type": "Physical",
+                "_target": "enemy",
+                "mod": {"adds": {"health": 225}, "mults": {}},
+                "_id": "ABILITY-16659-NYWC-46543",
+            },
+            {
+                "name": "Weaken",
+                "description": "Weakens an enemy",
+                "ability_type": "Debuff",
+                "_target": "enemy",
+                "mod": {"adds": {}, "mults": {"defense": 0.83}},
+                "_id": "ABILITY-16660-TXKX-31305",
+            },
+        ],
+        "_id": "ROLES-16694-QPYDLP-95720",
+    }
 
 
 @pytest.fixture
@@ -130,7 +130,7 @@ def test_no_abilities():
         "description": "Magic Healer",
         "armor_type": 1,
         "ability_types": ["Magic", "Restore", "Buff"],
-        "abilities": [ ],
+        "abilities": [],
         "_id": "ROLES-16683-UAJMFU-16064",
     }
 
@@ -363,26 +363,30 @@ def test_roles_manager_build_role_no_save(
     assert not m_update.called
     assert not role_man.ROLES_DATA["data"].get(test_mage["_id"], False)
 
-def test_roles_manager_sort_roles_by_armor_type(test_mage, test_warrior, test_rouge, test_no_abilities):
-    
-    def _gen_class(role_dict:dict):
-        role_abilities = [Abilities(**_ability) for _ability in role_dict['abilities']]
+
+def test_roles_manager_sort_roles_by_armor_type(
+    test_mage, test_warrior, test_rouge, test_no_abilities
+):
+    def _gen_class(role_dict: dict):
+        role_abilities = [Abilities(**_ability) for _ability in role_dict["abilities"]]
         role_dict["abilities"] = role_abilities
         return role_man.Roles(**role_dict)
 
-    role_objs = {"mage":_gen_class(test_mage),
-        "warrior":_gen_class(test_warrior),
+    role_objs = {
+        "mage": _gen_class(test_mage),
+        "warrior": _gen_class(test_warrior),
         "rouge": _gen_class(test_rouge),
-        "cleric":_gen_class(test_no_abilities)}
+        "cleric": _gen_class(test_no_abilities),
+    }
 
-    del role_man.ROLES_DATA['objects']
+    del role_man.ROLES_DATA["objects"]
 
-    role_man.ROLES_DATA.update({"objects":role_objs})
+    role_man.ROLES_DATA.update({"objects": role_objs})
 
     sort_results = {
-        "Light":[role_objs["rouge"]],
-        "Medium":[role_objs["mage"], role_objs['cleric']],
-        "Heavy":[role_objs['warrior']]
+        "Light": [role_objs["rouge"]],
+        "Medium": [role_objs["mage"], role_objs["cleric"]],
+        "Heavy": [role_objs["warrior"]],
     }
 
     assert sort_results == role_man.sort_roles_by_armor_type()

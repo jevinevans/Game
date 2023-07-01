@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sat Jun 17 13:14:10 PDT 2023 
+Date: Wed Jun 28 20:49:42 PDT 2023 
 
 ---PYTEST---
 
@@ -9,20 +9,20 @@ platform linux -- Python 3.10.6, pytest-7.3.2, pluggy-1.0.0
 rootdir: /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev
 configfile: pyproject.toml
 plugins: cov-3.0.0
-collected 114 items
+collected 119 items
 
 tests/test_character/test_abilities.py ......                            [  5%]
-tests/test_character/test_armor.py ...............                       [ 18%]
-tests/test_character/test_character.py ........                          [ 25%]
-tests/test_character/test_equipment.py ..............                    [ 37%]
-tests/test_character/test_modifiers.py .........                         [ 45%]
-tests/test_character/test_roles.py .............                         [ 57%]
-tests/test_character/test_stats.py ............                          [ 67%]
-tests/test_main/test_main.py .                                           [ 68%]
-tests/test_managers/test_abilities_manager.py .......                    [ 74%]
-tests/test_managers/test_character_manager.py ....                       [ 78%]
-tests/test_managers/test_equipment_manager.py .........                  [ 85%]
-tests/test_managers/test_modifier_manager.py ...                         [ 88%]
+tests/test_character/test_armor.py ...............                       [ 17%]
+tests/test_character/test_character.py ........                          [ 24%]
+tests/test_character/test_equipment.py ..............                    [ 36%]
+tests/test_character/test_modifiers.py .........                         [ 43%]
+tests/test_character/test_roles.py .............                         [ 54%]
+tests/test_character/test_stats.py ............                          [ 64%]
+tests/test_main/test_main.py .                                           [ 65%]
+tests/test_managers/test_abilities_manager.py .......                    [ 71%]
+tests/test_managers/test_character_manager.py .........                  [ 78%]
+tests/test_managers/test_equipment_manager.py .........                  [ 86%]
+tests/test_managers/test_modifier_manager.py ...                         [ 89%]
 tests/test_managers/test_roles_manager.py ..........                     [ 97%]
 tests/test_utils/test_types.py ...                                       [100%]
 
@@ -33,7 +33,7 @@ funclg/__init__.py                         0      0      0      0   100%
 funclg/__main__.py                        35     19      4      1    44%   38-40, 53-64, 68-75, 79
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             66      0     20      0   100%
-funclg/character/armor.py                120      0     30      0   100%
+funclg/character/armor.py                122      0     34      0   100%
 funclg/character/character.py             57      0     12      0   100%
 funclg/character/equipment.py             83      0     10      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
@@ -41,7 +41,7 @@ funclg/character/roles.py                 73      0     26      0   100%
 funclg/character/stats.py                 62      0     28      0   100%
 funclg/managers/__init__.py               15      2      4      0    79%   29-30
 funclg/managers/abilities_manager.py      66      0     22      1    99%   27->26
-funclg/managers/character_manager.py     115     53     50      3    49%   59->58, 62->65, 65->68, 85-108, 115-167, 187-198
+funclg/managers/character_manager.py     119      0     52      3    98%   65->64, 68->71, 71->74
 funclg/managers/equipment_manager.py      89      1     30      2    97%   29->27, 90
 funclg/managers/modifier_manager.py       66      0     26      0   100%
 funclg/managers/roles_manager.py         121      0     50      2    99%   29->28, 112->126
@@ -51,11 +51,11 @@ funclg/utils/input_validation.py          43     30     16      0    29%   15-25
 funclg/utils/menu_funcs.py                36     16     14      0    48%   29-52
 funclg/utils/types.py                     17      0      6      1    96%   60->63
 ----------------------------------------------------------------------------------
-TOTAL                                   1176    134    394     11    87%
+TOTAL                                   1182     81    400     11    92%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 86.94%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 92.16%
 
-======================= 114 passed, 2 warnings in 14.57s =======================
+======================= 119 passed, 2 warnings in 19.97s =======================
 
 ---Code Quality Report---
 
@@ -81,12 +81,15 @@ funclg/__main__.py:46:34: W0511: TODO: add play instance (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:21:1: W0511: TODO: add energy cost attribute (fixme)
 ************* Module funclg.character.armor
-funclg/character/armor.py:37:9: W0511: TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified (fixme)
+funclg/character/armor.py:34:9: W0511: TODO: 20240629 - Change to stats instead of stat (fixme)
+funclg/character/armor.py:38:9: W0511: TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified (fixme)
+funclg/character/armor.py:166:26: E1101: Instance of 'str' has no 'details' member (no-member)
 ************* Module funclg.character.character
-funclg/character/character.py:32:1: W0511: TODO: Char Update - 1: Update character so that it is generalized (fixme)
-funclg/character/character.py:33:1: W0511: TODO: Char Update - 2: Create a class called playable character for the user (fixme)
-funclg/character/character.py:34:1: W0511: TODO: Char Update - 3: Create the NPC class that can be used later for random generation (fixme)
-funclg/character/character.py:42:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
+funclg/character/character.py:32:1: W0511: TODO: Make Char update in a new branch - 6.17.2023 (fixme)
+funclg/character/character.py:33:1: W0511: TODO: Char Update - 1: Update character so that it is generalized (fixme)
+funclg/character/character.py:34:1: W0511: TODO: Char Update - 2: Create a class called playable character for the user (fixme)
+funclg/character/character.py:35:1: W0511: TODO: Char Update - 3: Create the NPC class that can be used later for random generation (fixme)
+funclg/character/character.py:43:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
 ************* Module funclg.character.equipment
 funclg/character/equipment.py:23:1: W0511: TODO: Change equipment display methods (fixme)
 funclg/character/equipment.py:151:5: W0511: TODO: Change equipment display methods (fixme)
@@ -106,6 +109,9 @@ funclg/managers/abilities_manager.py:38:1: W0511: TODO: need to add a condition 
 funclg/managers/abilities_manager.py:39:1: W0511: TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used (fixme)
 funclg/managers/abilities_manager.py:43:5: W0511: TODO: Add description print out (fixme)
 funclg/managers/abilities_manager.py:53:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
+************* Module funclg.managers.character_manager
+funclg/managers/character_manager.py:93:5: W0511: TODO: 2023.06.17 - Add the option to skip (fixme)
+funclg/managers/character_manager.py:115:5: W0511: TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward (fixme)
 ************* Module funclg.managers.equipment_manager
 funclg/managers/equipment_manager.py:24:5: W0511: TODO: On edit, needs to update all values (fixme)
 ************* Module funclg.managers.modifier_manager
@@ -129,5 +135,5 @@ funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
 funclg/utils/types.py:38:9: W0511: TODO: Change to 'Basic' types or something that is not none (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.69/10 (previous run: 9.70/10, -0.01)
+Your code has been rated at 9.62/10 (previous run: 9.62/10, +0.00)
 

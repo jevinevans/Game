@@ -29,6 +29,7 @@ from funclg.character.roles import Roles
 # """
 
 
+# TODO: Make Char update in a new branch - 6.17.2023
 # TODO: Char Update - 1: Update character so that it is generalized
 # TODO: Char Update - 2: Create a class called playable character for the user
 # TODO: Char Update - 3: Create the NPC class that can be used later for random generation
