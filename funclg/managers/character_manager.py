@@ -47,8 +47,14 @@ def _update_char_armor(data: dict, new_data: dict):
                     **data["armor"][item_type.lower()]
                 )
 
-    del new_data["armor"]["stat"]
-    new_data["armor_instance"] = Armor(**new_data["armor"])
+    new_data["armor_instance"] = Armor(
+        armor_type=new_data["armor"].get("armor_type"),
+        head=new_data["armor"].get("head", None),
+        chest=new_data["armor"].get("chest", None),
+        back=new_data["armor"].get("back", None),
+        pants=new_data["armor"].get("pants", None),
+        weapon=new_data["armor"].get("weapon", None),
+    )
     del new_data["armor"]
     return new_data
 
@@ -79,20 +85,22 @@ def _pick_char_armor_equipment(
     armor_type: str, armor_type_int: int
 ) -> List[Union[eq_man.BodyEquipment, eq_man.WeaponEquipment, None]]:
     # Show all availabile equipment
-    # go through each item type and select or skip
-    # Confirm at the end, can ask to restart or move forward
-
     available_equipment = eq_man.filter_equipment_by_armor_type(armor_type_int)
+    print(available_equipment)
     selected_equipment = {}
 
-    print(available_equipment)
-
+    # Go through each item type and select or skip
+    # TODO: 2023.06.17 - Add the option to skip
     for item_type in ITEM_TYPES:
-        print(f"Please choose a {item_type} to equip:")
         if available_equipment[item_type]:
+            print(f"Please choose a {item_type} to equip:")
             sel_item_name = list_choice_selection(
-                [item.name for item in available_equipment[item_type].values()]
+                [item.name for item in available_equipment[item_type].values()] + ["Skip"]
             )
+            logger.debug(f"Selected {sel_item_name} from {available_equipment[item_type]}")
+            if sel_item_name == "Skip":
+                print(f"Skipping {item_type} selection...")
+                continue
             sel_item = [
                 item
                 for item in available_equipment[item_type].values()
@@ -103,7 +111,8 @@ def _pick_char_armor_equipment(
             else:
                 selected_equipment[item_type.lower()] = None
         else:
-            print(f"There are no {armor_type} {item_type} equipment, continuing...\n")
+            print(f"There are not any {armor_type} {item_type} items, continuing...\n")
+    # TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward
 
     return selected_equipment
 
@@ -162,6 +171,7 @@ def build_character():
         CHARACTER_DATA["data"][new_character.id] = new_character.export()
         update_data()
         print(f"{new_character.name} has been saved!!!")
+        return
 
     print(f"Oh well..., I guess we'll just kill {new_character.name}")
     del new_character

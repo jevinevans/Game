@@ -113,11 +113,13 @@ def armor_details_expectations(light_armor_knife):
 
 @pytest.fixture
 def armor_details_missing_weapon(light_armor_knife):
-    new_armor = Armor(armor_type=light_armor_knife.armor_type,
-                      head=light_armor_knife.head,
-                      chest=light_armor_knife.chest,
-                      back=light_armor_knife.back,
-                      pants=light_armor_knife.pants)
+    new_armor = Armor(
+        armor_type=light_armor_knife.armor_type,
+        head=light_armor_knife.head,
+        chest=light_armor_knife.chest,
+        back=light_armor_knife.back,
+        pants=light_armor_knife.pants,
+    )
     indent = 0
     return f"""
 {' '*indent}Light Armor
@@ -128,6 +130,7 @@ def armor_details_missing_weapon(light_armor_knife):
 {' '*(indent+2)}Pants: {new_armor.pants.details(indent+4)}\n
 {' '*(indent+2)}Weapon: None
 {new_armor.stat.details(indent+2)}"""
+
 
 @pytest.fixture
 def armor_export_expectations():

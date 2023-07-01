@@ -20,7 +20,6 @@ from .fixtures.abilities_fixtures import (
 
 def test_abilities_init(abilities_all_types):
 
-    # TODO: Review this test - Test None has no mod
     for ability in abilities_all_types:
         if ability.ability_type == "None":
             assert ability.mod.adds == {}

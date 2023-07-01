@@ -10,7 +10,7 @@ from loguru import logger
 
 from funclg.character.equipment import BodyEquipment, Equipment, WeaponEquipment
 from funclg.character.stats import Stats
-from funclg.utils.types import ARMOR_TYPES, get_armor_type, ITEM_TYPES
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, get_armor_type
 
 # logger.add("./logs/character/armor.log", rotation="1 MB", retention=5)
 
@@ -31,6 +31,7 @@ class Armor:
     ):
         self.armor_type = armor_type if abs(armor_type) < len(ARMOR_TYPES) else 0
 
+        # TODO: 20240629 - Change to stats instead of stat
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
         self.stat = Stats(attributes={"level": None}, default=(armor_type + 1) * 10)
 
@@ -148,8 +149,8 @@ class Armor:
             return ret_item
         logger.warning("There is no item to remove.")
         return None
-   
-    def details(self, indent:int=0) -> str:
+
+    def details(self, indent: int = 0) -> str:
         title = f"{get_armor_type(self.armor_type)} Armor"
         desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*len(title)}"
 
@@ -157,14 +158,13 @@ class Armor:
             desc += self._details_check_none(indent, _item_type) + "\n"
         desc += self.stat.details(indent=indent + 2)
         return desc
-    
-    def _details_check_none(self, indent:int, _item_type:str) -> str:
+
+    def _details_check_none(self, indent: int, _item_type: str) -> str:
         desc = f"\n{' '*(indent+2)}{_item_type}: "
 
-        if _item:=getattr(self, _item_type.lower(), False):
-            return desc + _item.details(indent+4)
+        if _item := getattr(self, _item_type.lower(), ""):
+            return desc + _item.details(indent + 4)
         return desc + "None"
-
 
     def get_equipment(self) -> List[Union[Equipment, None]]:
         """Returns the equipped armor"""
