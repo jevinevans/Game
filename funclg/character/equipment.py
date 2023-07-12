@@ -72,10 +72,6 @@ class Equipment:
     def id(self):  # pylint: disable=C0103
         return self._id
 
-    @property
-    def id(self):  # pylint: disable=C0103
-        return self._id
-
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
         desc += f"\n{' '*indent}{'-'*(len(self.name) + 7 + len(str(self.level)))}"

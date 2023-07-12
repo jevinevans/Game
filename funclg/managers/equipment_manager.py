@@ -25,7 +25,7 @@ def load_data():
 
 
 def update_data():
-    # TODO: On edit, needs to update all values
+    logger.debug("Function called")
     db.update_data(EQUIPMENT_DATA)
 
     for _id, data in EQUIPMENT_DATA["data"].items():
@@ -35,6 +35,7 @@ def update_data():
                 EQUIPMENT_DATA["objects"][_id] = WeaponEquipment(**data)
             else:
                 EQUIPMENT_DATA["objects"][_id] = BodyEquipment(**data)
+    logger.debug("Function complete")
 
 
 def export_data():
@@ -171,7 +172,6 @@ def show_equipment():
         print(show_equip.details())
         return
     logger.warning("There are no equipment items to show.")
-
 
 
 def delete_equipment():
