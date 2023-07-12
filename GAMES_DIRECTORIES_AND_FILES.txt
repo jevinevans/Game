@@ -1,6 +1,6 @@
 +==========================================+
 |	Total Directories: 22			|
-|	Files: 111				|
+|	Files: 113				|
 +==========================================+
 
 ./.coverage
@@ -100,8 +100,10 @@
 ./funclg/utils
 ./funclg/utils/__init__.py
 ./funclg/utils/data_mgmt.py
+./funclg/utils/equipment.json
 ./funclg/utils/input_validation.py
 ./funclg/utils/menu_funcs.py
+./funclg/utils/modifiers.json
 ./funclg/utils/types.py
 ./logs
 ./poetry.lock

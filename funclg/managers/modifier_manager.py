@@ -77,37 +77,6 @@ def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, rand
     return {"adds": adds, "mults": mults}
 
 
-# TODO: Create/modify the build to allow for random creation
-# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
-# TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
-# Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
-def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, random: bool = False):
-    adds, mults = {}, {}
-    pre_mods = pre_mods if pre_mods else {}
-
-    mod_types = Modifier.MODIFIER_TYPES
-
-    if item_type == "ability":
-        mod_types = pre_mods["mods"].copy()
-        if pre_mods["m_type"] == "adds":
-            adds = _gen_add_mod(mod_types, adds, random)
-        else:
-            mults = _gen_mult_mod(mod_types, mults, random)
-
-    else:
-        if item_type == "armor":
-            mod_types = ["health", "defense"]
-
-        elif item_type == "weapon":
-            mod_types = ["energy", "attack"]
-
-        adds = _gen_add_mod(mod_types, adds)
-        mults = _gen_mult_mod(mod_types, mults)
-
-    logger.debug(f"MOD: adds: {adds}, mults: {mults}")
-    return {"adds": adds, "mults": mults}
-
-
 # TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
 def build_modifier(name: str):
     available_mods = Modifier.MODIFIER_TYPES.copy()

@@ -56,10 +56,6 @@ class Roles:
     def id(self):  # pylint: disable=C0103
         return self._id
 
-    @property
-    def id(self):  # pylint: disable=C0103
-        return self._id
-
     def add_power(self, ability: Abilities) -> bool:
         if ability.ability_type in self.ability_types:
             if len(self.abilities) < Roles.MAX_ABILITIES:
