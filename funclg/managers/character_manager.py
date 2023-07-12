@@ -183,8 +183,6 @@ def select_character():
     logger.warning("There are no roles available.")
     return None
 
-def select_character():
-    raise NotImplementedError
 
 def show_character():
     show_character_id = select_character()

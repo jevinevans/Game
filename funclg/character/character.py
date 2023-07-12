@@ -87,10 +87,6 @@ class Character:
     def id(self):  # pylint: disable=C0103
         return self._id
 
-    @property
-    def id(self):  # pylint: disable=C0103
-        return self._id
-
     def export(self) -> Dict[str, Any]:
         exporter = self.__dict__.copy()
         for key, value in exporter.items():

@@ -21,16 +21,18 @@ EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
 
 def update_data():
-    # TODO: On edit, needs to update all values
+    logger.debug("Function called")
     db.update_data(EQUIPMENT_DATA)
 
     for _id, data in EQUIPMENT_DATA["data"].items():
 
         if _id not in EQUIPMENT_DATA["objects"]:
+            logger.debug("adding data")
             if data["item_type"] == 4:
                 EQUIPMENT_DATA["objects"][_id] = WeaponEquipment(**data)
             else:
                 EQUIPMENT_DATA["objects"][_id] = BodyEquipment(**data)
+    logger.debug("Function complete")
 
 
 def export_data():
@@ -56,8 +58,6 @@ def _new_weapon():
         mod=weapon_mod,
     )
 
-def update_data():
-    db.update_data(EQUIPMENT_DATA)
 
 def _new_body_armor():
     print("What type of Armor would you like to create?")
@@ -79,12 +79,6 @@ def _new_body_armor():
         armor_type=ARMOR_TYPES.index(armor_type),
         item_type=ITEM_TYPES.index(item_type),
     )
-
-def export_data():
-    for _id, data in EQUIPMENT_DATA["objects"].items():
-        EQUIPMENT_DATA["data"][_id] = data.export()
-
-    db.update_data(EQUIPMENT_DATA)
 
 
 def build_equipment():
@@ -109,14 +103,6 @@ def build_equipment():
     del new_equipment
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    print("\nStarting Equipmet Creation:\n\nWhat type of equipment would you like to create:")
-    equip_type = list_choice_selection(["Body Armor", "Weapon"])
-    new_equipment = None
-=======
->>>>>>> ccd0204... completed character manager
 def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
 
@@ -128,11 +114,6 @@ def filter_equipment_by_armor_type(armor_type: int):
         }
 
     return filtered_equipment
-<<<<<<< HEAD
-
-=======
->>>>>>> 2d0e567... completed character manager
->>>>>>> ccd0204... completed character manager
 
 
 def select_equipment():
@@ -161,10 +142,6 @@ def show_equipment():
         return
     logger.warning("There are no equipment items to show.")
 
-    if yes_no_validation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
-        EQUIPMENT_DATA["data"][new_equipment.id] = new_equipment.export()
-        update_data()
-
 
 def delete_equipment():
     del_equip_id = select_equipment()
@@ -181,16 +158,7 @@ def delete_equipment():
     logger.warning("There are currently no equipment to delete.")
 
 
-<<<<<<< HEAD
 MENU = {
-=======
-<<<<<<< HEAD
-
-EQUIPMENT_MENU = {
-=======
-MENU = {
->>>>>>> 2d0e567... completed character manager
->>>>>>> ccd0204... completed character manager
     "name": "Manage Equipment",
     "description": "This the menu to create armor and weapons for characters to use.",
     "menu_items": [
