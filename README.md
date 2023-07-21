@@ -8,7 +8,7 @@ The FUN Command Line Game is a personal project to experiment with different Pyt
 
 ## Recent Log File
 
-[Current Log](https://github.com/jevinevans/Game/blob/PlayGame/changelogs/2022/Log_2022_05_29.md)
+[Current Log](https://github.com/jevinevans/Game/blob/PlayGame/changelogs/2023/Log_2023_07_21.md)
 
 ## Modules Used
 
