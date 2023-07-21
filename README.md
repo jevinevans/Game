@@ -1,28 +1,36 @@
-# Game
+# FUNCLG
 
-Repository For Video Game Idea
+> Currently in Development
 
 ## Description
 
-This is a simple project to build a command line based game using c++ language that mimics MMO's.
+The FUN Command Line Game is a personal project to experiment with different Python modules to build a game. This is a development project for research and fun only.
 
 ## Recent Log File
 
-[Current Log](https://github.com/jevinevans/Game/blob/PythonConversion/Logs/2021/Log_2021_11_28.md)
+[Current Log](https://github.com/jevinevans/Game/blob/PlayGame/changelogs/2022/Log_2022_05_29.md)
 
+## Modules Used
 
-## File Descriptions
+### Development
 
-### Character
+- loguru
+- PyINquirer
+- Textual
 
-### Roles
+### Testing/Code Quality
 
-### Armor
+- Isort
+- Xenon
+- Pylint
+- Bandit
+- Flake8
+- Flkae8-fixme
+- pytest
+- pytest-cov
+- black
+- pyright
 
-### Equipment
-
-### Abilities
-
-### Stats
+## References
 
 - [Stats Help Page](http://howtomakeanrpg.com/a/how-to-make-an-rpg-stats.html)
