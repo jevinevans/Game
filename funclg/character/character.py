@@ -37,7 +37,10 @@ from funclg.character.roles import Roles
 
 class Character:
     """
-    The playable character for the game
+    Base character unit of the game.
+
+    :return: Returns a character object
+    :rtype: Character
     """
 
     # TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role
@@ -113,13 +116,35 @@ class Character:
         if item := self.armor.dequip(item_type) is not None:
             self.inventory.append(item)
 
-    def show_inventory(self):
-        print("\nInventory:")
-        print("\n  - ".join(self.inventory))
-
     def add_power(self, ability: Abilities) -> bool:
         return self.role.add_power(ability)
 
     # def use_power(self): TODO
 
     # def get_stats(self): TODO
+
+
+class Player(Character):
+    """
+    The playable character that an end-user will use to play the game:
+
+    :param Character: _description_
+    :type Character: _type_
+    """
+
+    def __init__(self, name:str, armor_type:int, armor_instance:Optional[Armor] = None, role_instance:Optional[Roles] = None, **kwargs):
+        super().__init__(name, armor_type, armor_instance, role_instance)
+
+        self.inventory = kwargs.get("inventory", [])
+
+    def show_inventory(self):
+        print("\nInventory:")
+        print("\n  - ".join(self.inventory))
+
+class NonPlayableCharacter(Character):
+    """
+    _summary_
+
+    :param Character: _description_
+    :type Character: _type_
+    """
