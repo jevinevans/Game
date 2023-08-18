@@ -34,3 +34,4 @@ The FUN Command Line Game is a personal project to experiment with different Pyt
 ## References
 
 - [Stats Help Page](http://howtomakeanrpg.com/a/how-to-make-an-rpg-stats.html)
+- [Level Unicode Source](https://www.w3.org/TR/xml-entity-names/025.html)
