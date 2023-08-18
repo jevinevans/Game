@@ -7,6 +7,7 @@ authors = ["Jevin Evans <jevyjev324@me.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 loguru = "^0.5.3"
+questionary = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.10.1"

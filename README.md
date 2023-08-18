@@ -15,7 +15,7 @@ The FUN Command Line Game is a personal project to experiment with different Pyt
 ### Development
 
 - loguru
-- PyINquirer
+- Questionary
 - Textual
 
 ### Testing/Code Quality
