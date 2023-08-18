@@ -18,6 +18,8 @@ FUNCLG Directories and Files
 ./quest_test.py
 ./requirements.txt
 ./GAMES_DIRECTORIES_AND_FILES.txt
+./poetry.lock
+./pyproject.toml
 ./README.md
 ./.pre-commit-config.yaml
 ./pyproject.toml
