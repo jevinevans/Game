@@ -23,6 +23,7 @@ class Game():
     def __init__():
         # User selects or it is passed in an available player to play with 
             #  If no character, initiate the building of a character
+        # User selects level difficulty
         # Select the number of levels (minimum 5, maximum 20)
             # Randomly build the levels 
             # Could spawn a boss every 5-10 level

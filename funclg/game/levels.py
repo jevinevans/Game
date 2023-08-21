@@ -21,15 +21,57 @@ Level Creation Process/Steps:
 
 # TODO: Create a level manager
 
-class game_levels():
-    def __init__():
+class GameLevel():
+
+    # BOARD ICONS
+    SPACE_SYMBOL = '\U000025A0'
+    VISITED_SPACE_SYMBOL = '\U000025A6'
+    HORIZONTAL_BOUND_SYMBOL= '\U00002550' 
+    VERTICAL_BOUND_SYMBOL= '\U00002551' 
+    CORNER_BOUND_SYMBOLS = ['\U00002554','\U00002557','\U0000255A','\U0000255D'] # Top Left, Top Right, Bottom Left, Bottom Right
+    
+    # ITEMS 
+    PLAYER_ICON = '\U000025CA'
+    KEY_ICON = '\U00002625'
+    BOSS_ICON = '\U00002620'
+
+    
+    def __init__(self, game_settings:dict):
+        self.playable_size = game_settings['level_size']
+        self.grid = self.generate_grid(self.playable_size) # TODO: Consider if this should be private and only callable
+
+    # TODO: Consider doing a precheck to make sure the running system can print the boundary characters, if not then use alternatives
+    @staticmethod
+    def generate_grid(grid_size:int=5):
+
+        # Build Grid
+        temp_grid = [GameLevel.SPACE_SYMBOL for _ in range((grid_size)**2)]
+
+        temp_grid[grid_size*(grid_size-1)] = GameLevel.PLAYER_ICON
+
+        half_way = int(round(grid_size/2,1)) # TODO: Decide whether to do a proper floor calculation or not
+        temp_grid[grid_size*half_way+half_way] = GameLevel.KEY_ICON
+
+        temp_grid[grid_size-1] = GameLevel.BOSS_ICON
+
+        return temp_grid
+       
+    def update_grid(self):
+        # This function will take an object (player/enemy or reward/equipment) and add/remove it to the playable level
+        # This function should also be used to update the placement of the main character 
         raise NotImplementedError
 
-    def generate_grid():
-        raise NotImplementedError
+    def print_grid(self):
 
-    def select_rewards():
-        raise NotImplementedError
+        # Add Design Boundary
+        header = GameLevel.CORNER_BOUND_SYMBOLS[0] +GameLevel.HORIZONTAL_BOUND_SYMBOL*self.playable_size + GameLevel.CORNER_BOUND_SYMBOLS[1]
+        footer = GameLevel.CORNER_BOUND_SYMBOLS[2] +GameLevel.HORIZONTAL_BOUND_SYMBOL*self.playable_size+GameLevel.CORNER_BOUND_SYMBOLS[3]
+        
+        # Print Grid with Boundary
+        print(header)
+        for index in range(self.playable_size):
+            print(''.join(self.grid[index*self.playable_size:index*self.playable_size+self.playable_size]).center(self.playable_size+2, GameLevel.VERTICAL_BOUND_SYMBOL))
+        print(footer)
 
     def select_monsters():
         raise NotImplementedError   
