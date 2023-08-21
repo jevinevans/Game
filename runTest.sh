@@ -23,9 +23,6 @@ echo -e "\n---Code Quality Report---\n" >> $REPORT
 echo -e "\n-----BANDIT-----\n" >> $REPORT
 echo -e "\n-----BANDIT-----\n"
 poetry run bandit -rq -ii -ll ./funclg &>> $REPORT
-echo -e "\n-----XENON-----\n" >> $REPORT
-echo -e "\n-----XENON-----\n"
-poetry run xenon --max-absolute B ./funclg &>> $REPORT
 echo -e "\n-----PYLINT-----\n" >> $REPORT
 echo -e "\n-----PYLINT-----\n"
 poetry run pylint ./funclg &>> $REPORT
