@@ -18,7 +18,6 @@ Date: 2.20.2023
 
 
 class Game:
-
     START_MESSAGE = ""
 
     def __init__():

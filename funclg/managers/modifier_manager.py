@@ -112,7 +112,6 @@ def build_modifier(name: str):
             break
 
     if yes_no_validation(f"Validate Modifier: {name}\n\tAdds: {adds}\n\tMults: {mults}\n\r"):
-
         new_mod = Modifier(name=name, adds=adds, mults=mults)
 
         return new_mod

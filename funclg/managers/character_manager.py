@@ -154,7 +154,6 @@ def build_character():
     if yes_no_validation(
         f"Do you want to add equipment to your character: '{char_name.capitalize()}'?"
     ):
-
         char_equipment = _pick_char_armor_equipment(char_armor_type, char_armor_type_int)
         char_armor = Armor(armor_type=char_armor_type_int, **char_equipment)
     else:

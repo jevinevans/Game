@@ -20,12 +20,6 @@ printf "*****DONE*****\n"
 poetry run python Scan_Directories.py
 
 echo -e "\n---Code Quality Report---\n" >> $REPORT
-echo -e "\n-----ISORT-----\n" >> $REPORT
-echo -e "\n-----ISORT-----\n"
-poetry run isort ./funclg &>> $REPORT
-echo -e "\n-----BLACK-----\n" >> $REPORT
-echo -e "\n-----BLACK-----\n"
-poetry run black ./funclg &>> $REPORT
 echo -e "\n-----BANDIT-----\n" >> $REPORT
 echo -e "\n-----BANDIT-----\n"
 poetry run bandit -rq -ii -ll ./funclg &>> $REPORT

@@ -25,7 +25,6 @@ def update_data():
     db.update_data(EQUIPMENT_DATA)
 
     for _id, data in EQUIPMENT_DATA["data"].items():
-
         if _id not in EQUIPMENT_DATA["objects"]:
             logger.debug("adding data")
             if data["item_type"] == 4:

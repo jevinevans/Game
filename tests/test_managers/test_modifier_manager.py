@@ -11,6 +11,7 @@ from funclg.utils.types import ABILITY_TYPES
 
 # import pytest
 
+
 @patch("funclg.managers.modifier_manager.yes_no_validation")
 @patch("funclg.managers.modifier_manager.number_range_validation")
 @patch("funclg.managers.modifier_manager.list_choice_selection")
@@ -89,7 +90,6 @@ def test_modifier_manager_generate_modifer_flow(m_add, m_mult):
 
 @patch("funclg.managers.modifier_manager.randint")
 def test_modifier_manager_generate_modifer_ability(m_rand):
-
     # Test Ability Add
     m_rand.side_effect = [30]
 

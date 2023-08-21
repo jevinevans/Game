@@ -23,7 +23,6 @@ Level Creation Process/Steps:
 
 
 class GameLevel:
-
     # SPACE ICONS
     SPACE_SYMBOL = "\U000025A0"
     VISITED_SPACE_SYMBOL = "\U000025A1"
@@ -62,7 +61,6 @@ class GameLevel:
 
     # TODO: Consider doing a precheck to make sure the running system can print the boundary characters, if not then use alternatives
     def generate_grid(self):
-
         # Build Grid
         temp_grid = [GameLevel.SPACE_SYMBOL for _ in range((self.playable_size) ** 2)]
 
@@ -89,7 +87,6 @@ class GameLevel:
         raise NotImplementedError
 
     def print_grid(self):
-
         # Add Design Boundary
         header = (
             GameLevel.CORNER_BOUND_SYMBOLS[0]

@@ -36,7 +36,6 @@ class Abilities:
         mod: Optional[Dict[str, Dict]] = None,
         **kwargs,
     ):
-
         self.name = name
         self.description = description
         self.ability_type = ability_type if ability_type in ABILITY_TYPES else "None"

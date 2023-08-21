@@ -12,13 +12,7 @@ printlist = list()
 def ignoredItems(pathname, FolderOnly=False):
     ignoredFiles = [".gitignore", ".pyc", ".coverage"]
 
-    ignoredFolders = [
-        "__pycache__",
-        "Deprecated",
-        ".git",
-        ".vscode",
-        ".pytest_cache"
-    ]
+    ignoredFolders = ["__pycache__", "Deprecated", ".git", ".vscode", ".pytest_cache"]
 
     if FolderOnly:
         ignores = ignoredFolders
@@ -60,7 +54,7 @@ for root, dirs, files in os.walk("."):
         continue
 
 
-HEADER_WIDTH = 26 
+HEADER_WIDTH = 26
 dir_count = f" Total Directories: {str(countd)}".center(HEADER_WIDTH, " ")
 file_count = f" Files: {str(countf)}".center(HEADER_WIDTH, " ")
 line_count = f" Lines: {str(lines)}".center(HEADER_WIDTH, " ")

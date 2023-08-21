@@ -16,7 +16,6 @@ from .abilities_fixtures import abilities_gen_mods
 
 @pytest.fixture
 def mage_test_role():
-
     obj_ids = [
         "ABILITY-12345-FADJ-67890",
         "ABILITY-12345-FADD-67891",
@@ -105,7 +104,6 @@ def mage_str_expectation():
 
 @pytest.fixture
 def roles_detail_expectation_with_abilities(mage_test_role):
-
     print(len(mage_test_role.abilities))
 
     role_details = []

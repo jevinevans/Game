@@ -44,7 +44,6 @@ def abilities_all_types():
     with patch("funclg.utils.data_mgmt.id_gen", side_effect=ability_ids()):
         all_abilities = []
         for index, a_type in enumerate(ABILITY_TYPES):
-
             all_abilities.append(
                 Abilities(
                     name=f"Ability_{index}",

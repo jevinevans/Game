@@ -132,7 +132,14 @@ class Player(Character):
     :type Character: _type_
     """
 
-    def __init__(self, name:str, armor_type:int, armor_instance:Optional[Armor] = None, role_instance:Optional[Roles] = None, **kwargs):
+    def __init__(
+        self,
+        name: str,
+        armor_type: int,
+        armor_instance: Optional[Armor] = None,
+        role_instance: Optional[Roles] = None,
+        **kwargs,
+    ):
         super().__init__(name, armor_type, armor_instance, role_instance)
 
         self.inventory = kwargs.get("inventory", [])
@@ -140,6 +147,7 @@ class Player(Character):
     def show_inventory(self):
         print("\nInventory:")
         print("\n  - ".join(self.inventory))
+
 
 class NonPlayableCharacter(Character):
     """

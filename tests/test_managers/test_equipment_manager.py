@@ -60,7 +60,6 @@ def test_weapon():
 
 @patch("funclg.utils.data_mgmt.update_data")
 def test_equipment_manager_update_data(m_db, test_equipment, test_equipment_2, test_weapon):
-
     # Add Test Items to data
     eq_man.EQUIPMENT_DATA["data"] = {}
     eq_man.EQUIPMENT_DATA["objects"] = {}
@@ -68,11 +67,10 @@ def test_equipment_manager_update_data(m_db, test_equipment, test_equipment_2, t
     eq_man.EQUIPMENT_DATA["data"][test_equipment_2["_id"]] = test_equipment_2
     eq_man.EQUIPMENT_DATA["data"][test_weapon["_id"]] = test_weapon
 
-
     # Make sure data was loaded into objects but that there are new data items that need objects created
 
     eq_man.update_data()
-    print(eq_man.EQUIPMENT_DATA['data'])
+    print(eq_man.EQUIPMENT_DATA["data"])
 
     assert len(eq_man.EQUIPMENT_DATA["data"]) == len(eq_man.EQUIPMENT_DATA["objects"])
     assert len(eq_man.EQUIPMENT_DATA["data"]) == 3
@@ -82,17 +80,19 @@ def test_equipment_manager_update_data(m_db, test_equipment, test_equipment_2, t
 
 @patch("funclg.utils.data_mgmt.update_data")
 def test_equipment_manager_export_data(m_db, test_weapon, test_equipment, test_equipment_2):
-    eq_man.EQUIPMENT_DATA['data'] = {}
-    eq_man.EQUIPMENT_DATA['objects'] = {}
+    eq_man.EQUIPMENT_DATA["data"] = {}
+    eq_man.EQUIPMENT_DATA["objects"] = {}
     eq_man.EQUIPMENT_DATA["objects"][test_weapon["_id"]] = eq_man.WeaponEquipment(**test_weapon)
     eq_man.EQUIPMENT_DATA["objects"][test_equipment["_id"]] = eq_man.BodyEquipment(**test_equipment)
-    eq_man.EQUIPMENT_DATA["objects"][test_equipment_2["_id"]] = eq_man.BodyEquipment(**test_equipment_2)
+    eq_man.EQUIPMENT_DATA["objects"][test_equipment_2["_id"]] = eq_man.BodyEquipment(
+        **test_equipment_2
+    )
 
     eq_man.export_data()
     assert len(eq_man.EQUIPMENT_DATA["data"]) == len(eq_man.EQUIPMENT_DATA["objects"])
     assert len(eq_man.EQUIPMENT_DATA["data"]) == 3
     assert len(eq_man.EQUIPMENT_DATA["objects"]) == 3
-    
+
     assert test_weapon["_id"] in eq_man.EQUIPMENT_DATA["data"]
     assert m_db.called_once
 
@@ -272,7 +272,6 @@ def test_equipment_manager_build_equipment(
 def test_equipment_manager_filter_equipment_by_armor_type(
     test_equipment, test_equipment_2, test_weapon
 ):
-
     armor_type_0 = eq_man.BodyEquipment(**test_equipment)
     weapon_type_2 = eq_man.WeaponEquipment(**test_weapon)
     armor_type_2 = eq_man.BodyEquipment(**test_equipment_2)
