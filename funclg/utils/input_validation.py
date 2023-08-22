@@ -7,6 +7,9 @@ Description: Centralized utility module to manage input validation (user choice,
 from string import ascii_letters, digits
 from typing import Any, Dict, List
 
+import questionary
+from questionary import ValidationError, Validator
+
 
 def choice_validation(max_choice: int) -> int:
     """
@@ -71,16 +74,35 @@ def yes_no_validation(prompt: str):
     return False
 
 
-def number_range_validation(min_val: int, max_val: int):
-    """Provided a min and max value, this will validate a number in the selected range"""
-    while True:
-        try:
-            user_resp = int(input(f"Choice number in range [{min_val} - {max_val}]: "))
+class NumberValidation(Validator):
+    def validate(self, document):
+        if len(document.text) == 0:
+            raise ValidationError(
+                message="Please enter a value", cursor_position=len(document.text)
+            )
+        if not document.text.isdigit():
+            raise ValidationError(
+                message="Please enter a valid number", cursor_position=len(document.text)
+            )
 
-            if user_resp < min_val or user_resp > max_val:
-                raise ValueError("Out of Range")
-        except ValueError:
-            print(f"Invalid Answer: Please enter a number between {min_val} and {max_val}")
-            continue
-        else:
-            return user_resp
+
+def number_range_validation(min_val: int, max_val: int) -> int:
+    """
+    Validates user input of an integer is within the supplied range.
+
+    :param min_val: The minimum (inclusive) number the user can enter
+    :type min_val: int
+    :param max_val: The maximum (inclusive) number the user can enter
+    :type max_val: int
+    :return: The users entered response
+    :rtype: int
+    """
+    print(f"Choice number in range [{min_val} - {max_val}]: ")
+    user_resp = min_val - 1
+    while user_resp < min_val or user_resp > max_val:
+        user_resp = int(
+            questionary.text(
+                "Please enter a number:", validate=NumberValidation, validate_while_typing=False
+            ).ask()
+        )
+    return user_resp
