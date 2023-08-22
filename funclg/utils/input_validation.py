@@ -10,10 +10,8 @@ from typing import Any, Dict, List, Optional, Union
 import questionary
 from questionary import ValidationError, Validator
 
-import questionary
-from questionary import ValidationError, Validator
 
-
+# TODO: 20230822 - This is still used in the menu interface and can possibly be removed
 def choice_validation(max_choice: int) -> int:
     """
     Validates a numeric choice from 0 to [max].
