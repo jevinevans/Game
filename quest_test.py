@@ -1,5 +1,7 @@
 import questionary
 
+from funclg.utils.types import ABILITY_TYPES
+
 # class NumberValidation(questionary.Validator):
 #     def validate(self, document):
 #         if len(document.text) == 0:
@@ -27,8 +29,29 @@ import questionary
 #         "Please enter a number:", validate=NumberValidation, validate_while_typing=False
 #     ).ask()
 
-test = "Would you like to proceed with x"
-print(questionary.confirm(test).ask())
+
+test = [1, 2, 3, 4]
+test = {
+    "a": {"name": "abc", "style": 1},
+    "b": {"name": "bcd", "style": 1},
+    "c": {"name": "cde", "style": 2},
+}
+
+test_choices = []
+
+display_var = ""
+get_var = ""
+for index, data in test.items():
+    choice = questionary.Choice(title=data.get(display_var, index), value=data.get(get_var))
+
+    test_choices.append(choice)
+
+answer = questionary.select(
+    message="",
+    choices=test_choices,
+).ask()
+print(answer, type(answer))
+
 
 # test = questionary.checkbox("What do you want to do", choices=["1", "2", "3", "4"]).ask()
 

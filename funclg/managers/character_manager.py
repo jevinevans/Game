@@ -14,9 +14,8 @@ import funclg.utils.data_mgmt as db
 from funclg.character.armor import Armor
 from funclg.character.character import Character
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
     confirmation,
-    list_choice_selection,
+    selection_validation,
     string_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
@@ -94,7 +93,7 @@ def _pick_char_armor_equipment(
     for item_type in ITEM_TYPES:
         if available_equipment[item_type]:
             print(f"Please choose a {item_type} to equip:")
-            sel_item_name = list_choice_selection(
+            sel_item_name = selection_validation(
                 [item.name for item in available_equipment[item_type].values()] + ["Skip"]
             )
             logger.debug(f"Selected {sel_item_name} from {available_equipment[item_type]}")
@@ -141,11 +140,11 @@ def build_character():
         for _a_role in a_roles:
             print(f"\n\t- {_a_role}")
 
-    char_armor_type = list_choice_selection(list(sorted_roles.keys()))
+    char_armor_type = selection_validation(list(sorted_roles.keys()))
     char_armor_type_int = ARMOR_TYPES.index(char_armor_type)
 
     print(f"Which role would you like for {char_name}:")
-    char_role_name = list_choice_selection([role.name for role in sorted_roles[char_armor_type]])
+    char_role_name = selection_validation([role.name for role in sorted_roles[char_armor_type]])
     char_role = [role for role in sorted_roles[char_armor_type] if role.name == char_role_name][
         0
     ].copy()
@@ -176,7 +175,9 @@ def build_character():
 
 def select_character():
     if CHARACTER_DATA["data"]:
-        return char_manager_choice_selection(CHARACTER_DATA["data"], "name", "_id")
+        return selection_validation(
+            "Please select a character", CHARACTER_DATA["data"], "name", "_id"
+        )
     logger.warning("There are no roles available.")
     return None
 

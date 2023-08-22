@@ -12,9 +12,8 @@ import funclg.managers.abilities_manager as ab_man
 import funclg.utils.data_mgmt as db
 from funclg.character.roles import Roles
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
     confirmation,
-    list_choice_selection,
+    selection_validation,
     string_validation,
 )
 from funclg.utils.types import ABILITY_TYPES, ARMOR_TYPES
@@ -57,7 +56,7 @@ def _select_ability_types():
         for _a_type, data in available_types.items():
             print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
-        a_type = list_choice_selection(list(available_types.keys()))
+        a_type = selection_validation(list(available_types.keys()))
         a_types.append(a_type)
 
         print(f"Current Ability Types: {' '.join(a_types)}")
@@ -82,12 +81,10 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
                 print(f"\t{_ability}")
 
         print("Select ability type:")
-        a_choice = list_choice_selection(list(available_abilities.keys()))
+        a_choice = selection_validation(list(available_abilities.keys()))
         if available_abilities[a_choice]:
             print("Select ability to add:")
-            new_ability_name = list_choice_selection(
-                [a.name for a in available_abilities[a_choice]]
-            )
+            new_ability_name = selection_validation([a.name for a in available_abilities[a_choice]])
 
             new_ability = [a for a in available_abilities[a_choice] if a.name == new_ability_name][
                 0
@@ -133,7 +130,7 @@ def build_role():
     role_name = string_validation("What would you like to name this new Role?", "Name")
     role_desc = string_validation(f"How would you describe {role_name}?", "Description")
     print(f"What type of armor would you like to make the {role_name}?")
-    armor_type = list_choice_selection(ARMOR_TYPES[:-1])
+    armor_type = selection_validation(ARMOR_TYPES[:-1])
 
     a_types = _select_ability_types()
 
@@ -178,7 +175,7 @@ def sort_roles_by_armor_type():
 
 def select_role():
     if ROLES_DATA["data"]:
-        return char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
+        return selection_validation("Select a role:", ROLES_DATA["data"], "name", "_id")
     logger.warning("There are no roles available.")
     return None
 

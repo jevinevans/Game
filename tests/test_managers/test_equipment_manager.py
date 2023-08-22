@@ -97,35 +97,21 @@ def test_equipment_manager_export_data(m_db, test_weapon, test_equipment, test_e
     assert m_db.called_once
 
 
-@patch("funclg.utils.input_validation.choice_validation")
 @patch("funclg.managers.equipment_manager.logger")
-@patch("funclg.managers.equipment_manager.list_choice_selection")
-def test_equipment_manager_select_equipment(
-    m_list_choice, m_log, m_val, test_equipment, test_weapon
-):
+@patch("funclg.managers.equipment_manager.selection_validation")
+def test_equipment_manager_select_equipment(m_sel, m_log, test_equipment, test_weapon):
     # Test Weapon Select
     eq_man.EQUIPMENT_DATA["data"][test_weapon["_id"]] = test_weapon
-    m_list_choice.return_value = "Weapons"
 
-    choice = [
-        _id for _id, data in eq_man.EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
-    ].index(test_weapon["_id"]) + 1
-    # print([_id for _id, data in eq_man.EQUIPMENT_DATA["data"].items() if data["item_type"] ==4])
-    m_val.return_value = choice
+    m_sel.side_effect = ["Weapons", test_weapon["_id"]]
 
     assert eq_man.select_equipment() == test_weapon["_id"]
 
     # Test Armor Select
-    test_e = test_equipment
-    eq_man.EQUIPMENT_DATA["data"][test_e["_id"]] = test_e
-    m_list_choice.return_value = "Armor"
+    eq_man.EQUIPMENT_DATA["data"][test_equipment["_id"]] = test_equipment
+    m_sel.side_effect = ["Armor", test_equipment["_id"]]
 
-    choice = [
-        _id for _id, data in eq_man.EQUIPMENT_DATA["data"].items() if data["item_type"] != 4
-    ].index(test_e["_id"]) + 1
-    m_val.return_value = choice
-
-    assert eq_man.select_equipment() == test_e["_id"]
+    assert eq_man.select_equipment() == test_equipment["_id"]
 
     # Test No Data
     eq_man.EQUIPMENT_DATA["data"] = {}

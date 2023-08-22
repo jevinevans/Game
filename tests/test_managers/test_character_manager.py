@@ -122,8 +122,8 @@ def test_char_manager_export_data(m_db, test_character_mage):
 
 
 @patch("funclg.managers.character_manager.logger")
-@patch("funclg.managers.character_manager.char_manager_choice_selection")
-def test_char_manager_select_character(m_chr_sel, m_log, test_character_mage):
+@patch("funclg.managers.character_manager.selection_validation")
+def test_char_manager_select_character(m_sel, m_log, test_character_mage):
     # No Charater Data
     char_man.CHARACTER_DATA["data"] = {}
     assert char_man.select_character() is None
@@ -131,7 +131,7 @@ def test_char_manager_select_character(m_chr_sel, m_log, test_character_mage):
 
     # Character Data Exists
     char_man.CHARACTER_DATA["data"][test_character_mage["_id"]] = test_character_mage
-    m_chr_sel.return_value = test_character_mage["_id"]
+    m_sel.return_value = test_character_mage["_id"]
     assert char_man.select_character() == test_character_mage["_id"]
 
 

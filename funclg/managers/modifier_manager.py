@@ -16,8 +16,8 @@ from loguru import logger
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
     confirmation,
-    list_choice_selection,
     number_range_validation,
+    selection_validation,
 )
 
 
@@ -86,9 +86,9 @@ def build_modifier(name: str):
 
     while True:
         print("Select which stats you want to modify.")
-        mod_type = list_choice_selection(available_mods)
+        mod_type = selection_validation(available_mods)
 
-        if list_choice_selection(["Base Change", "Percentage Change"]) == "Base Change":
+        if selection_validation(["Base Change", "Percentage Change"]) == "Base Change":
             mod_val = number_range_validation(-Modifier.MOD_ADD_RANGE, Modifier.MOD_ADD_RANGE)
 
             print(f"You created modifier: {mod_type} {mod_val}")

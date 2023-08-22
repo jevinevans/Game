@@ -159,11 +159,11 @@ def test_roles_manager_export_data(m_db, test_mage):
 
 
 @patch("funclg.managers.roles_manager.logger")
-@patch("funclg.managers.roles_manager.char_manager_choice_selection")
-def test_roles_manager_select_role(m_chr_sel, m_log, test_mage):
+@patch("funclg.managers.roles_manager.selection_validation")
+def test_roles_manager_select_role(m_sel, m_log, test_mage):
     # Test Data Exist
     role_man.ROLES_DATA["data"][test_mage["_id"]] = test_mage
-    m_chr_sel.return_value = test_mage["_id"]
+    m_sel.return_value = test_mage["_id"]
 
     assert role_man.select_role() == test_mage["_id"]
 

@@ -10,9 +10,8 @@ import funclg.managers.modifier_manager as mod_man
 import funclg.utils.data_mgmt as db
 from funclg.character.abilities import Abilities
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
     confirmation,
-    list_choice_selection,
+    selection_validation,
     string_validation,
 )
 from funclg.utils.types import ABILITY_TYPES
@@ -44,7 +43,7 @@ def build_ability():
     for _a_type, data in ABILITY_TYPES.items():
         print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
-    ability_type = list_choice_selection(list(ABILITY_TYPES.keys()))
+    ability_type = selection_validation(list(ABILITY_TYPES.keys()))
     ability_name = string_validation(
         f"What would you like to name this new {ability_type}?", "Name"
     )
@@ -69,7 +68,9 @@ def build_ability():
 
 def select_ability():
     if ABILITIES_DATA["data"]:
-        return char_manager_choice_selection(ABILITIES_DATA["data"], "name", "_id")
+        return selection_validation(
+            "Please choose an ability", ABILITIES_DATA["data"], "name", "_id"
+        )
     logger.warning("There are no abilities available.")
     return None
 

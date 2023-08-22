@@ -10,9 +10,8 @@ import funclg.managers.modifier_manager as mod_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
     confirmation,
-    list_choice_selection,
+    selection_validation,
     string_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
@@ -43,7 +42,7 @@ def export_data():
 
 def _new_weapon():
     print("What kind of Weapon would you like to create?")
-    weapon_type = list_choice_selection(list(WEAPON_TYPES)[:-1])
+    weapon_type = selection_validation(list(WEAPON_TYPES)[:-1])
     weapon_name = string_validation(f"What would you like to name this new {weapon_type}?", "Name")
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
@@ -60,9 +59,9 @@ def _new_weapon():
 
 def _new_body_armor():
     print("What type of Armor would you like to create?")
-    item_type = list_choice_selection(ITEM_TYPES[:-1])
+    item_type = selection_validation(ITEM_TYPES[:-1])
     print(f"What type of armor would you like to make the {item_type}?")
-    armor_type = list_choice_selection(ARMOR_TYPES)
+    armor_type = selection_validation(ARMOR_TYPES)
     item_name = string_validation(
         f"What would you like to name this new {armor_type} {item_type}?", "Name"
     )
@@ -84,7 +83,7 @@ def build_equipment():
     """Dialog for building new equipment"""
 
     print("\nStarting Equipmet Creation:\n\nWhat type of equipment would you like to create:")
-    equip_type = list_choice_selection(["Body Armor", "Weapon"])
+    equip_type = selection_validation(["Body Armor", "Weapon"])
     new_equipment = None
 
     if equip_type == "Body Armor":
@@ -118,8 +117,9 @@ def filter_equipment_by_armor_type(armor_type: int):
 def select_equipment():
     if EQUIPMENT_DATA["data"]:
         equip_list = {}
-        print("Which type of equipment would you like to select:")
-        choice = list_choice_selection(["Weapons", "Armor"])
+        choice = selection_validation(
+            "Which type of equipment would you like to select:", ["Weapons", "Armor"]
+        )
         if choice == "Armor":
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] != 4
@@ -128,7 +128,7 @@ def select_equipment():
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
             }
-        return char_manager_choice_selection(equip_list, "name", "_id")
+        return selection_validation(f"Please select a {choice}", equip_list, "name", "_id")
     logger.warning("There are is no equipment available.")
     return None
 

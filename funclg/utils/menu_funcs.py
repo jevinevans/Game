@@ -9,6 +9,7 @@ from typing import Any, Dict, List
 from funclg.utils.input_validation import choice_validation
 
 
+# TODO: 20220822 - Create an issue to track the update/integration of questionary into the menu
 class Menu:
     """Creates an interactive menu that can be used to create multiple connected menus"""
 
