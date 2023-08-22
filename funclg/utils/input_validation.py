@@ -63,15 +63,9 @@ def char_manager_choice_selection(data: Dict[str, Any], show_param: str, return_
     return items[choice_validation(len(items)) - 1][1]
 
 
-def yes_no_validation(prompt: str):
+def confirmation(prompt: str):
     """Provides a yes/no validation. Provide the prompt, the function will add [y|N] for you."""
-    choice = ""
-    while choice not in ["y", "Y", "N", "n"]:
-        choice = remove_special_chars(input(prompt + " [y/N]:"))
-
-    if choice in ["y", "Y"]:
-        return True
-    return False
+    return questionary.confirm(prompt).ask()
 
 
 class NumberValidation(Validator):

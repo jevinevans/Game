@@ -79,17 +79,17 @@ def test_abilities_manager_show_ability(m_sel, m_log, m_print, test_magic):
 
 @patch("builtins.print")
 @patch("funclg.managers.abilities_manager.logger")
-@patch("funclg.managers.abilities_manager.yes_no_validation")
+@patch("funclg.managers.abilities_manager.confirmation")
 @patch("funclg.managers.abilities_manager.update_data")
 @patch("funclg.managers.abilities_manager.select_ability")
-def test_abilities_manager_delete_ability(m_sel, m_upd, m_yn_val, m_log, m_print, test_magic):
+def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_print, test_magic):
     # Success Delete
     _mag = ab_man.Abilities(**test_magic)
     ab_man.ABILITIES_DATA["data"][_mag.id] = test_magic
     ab_man.ABILITIES_DATA["objects"][_mag.id] = _mag
 
     m_sel.return_value = _mag.id
-    m_yn_val.return_value = True
+    m_confirm.return_value = True
 
     ab_man.delete_ability()
 
@@ -103,7 +103,7 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_yn_val, m_log, m_print
     ab_man.ABILITIES_DATA["data"][_mag.id] = test_magic
 
     m_sel.return_value = _mag.id
-    m_yn_val.return_value = False
+    m_confirm.return_value = False
 
     ab_man.delete_ability()
 
@@ -119,17 +119,17 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_yn_val, m_log, m_print
 @patch("funclg.utils.data_mgmt.id_gen")
 @patch("funclg.managers.modifier_manager.generate_modifier")
 @patch("funclg.managers.abilities_manager.update_data")
-@patch("funclg.managers.abilities_manager.yes_no_validation")
+@patch("funclg.managers.abilities_manager.confirmation")
 @patch("funclg.managers.abilities_manager.list_choice_selection")
 @patch("funclg.managers.abilities_manager.string_validation")
 def test_abilities_manager_build_ability(
-    m_str_val, m_list_val, m_yn_val, m_update, m_mod_gen, m_id, test_magic
+    m_str_val, m_list_val, m_confirm, m_update, m_mod_gen, m_id, test_magic
 ):
     m_list_val.return_value = test_magic["ability_type"]
     m_str_val.side_effect = [test_magic["name"], test_magic["description"]]
     m_mod_gen.return_value = test_magic["mod"]
     m_id.return_value = test_magic["_id"]
-    m_yn_val.return_value = True
+    m_confirm.return_value = True
 
     _mag = ab_man.Abilities(**test_magic)
 
@@ -150,7 +150,7 @@ def test_abilities_manager_build_ability(
     m_str_val.side_effect = [test_magic["name"], test_magic["description"]]
     m_mod_gen.return_value = test_magic["mod"]
     m_id.return_value = test_magic["_id"]
-    m_yn_val.return_value = False
+    m_confirm.return_value = False
 
     ab_man.build_ability()
 

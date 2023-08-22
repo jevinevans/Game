@@ -13,9 +13,9 @@ import funclg.utils.data_mgmt as db
 from funclg.character.roles import Roles
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
+    confirmation,
     list_choice_selection,
     string_validation,
-    yes_no_validation,
 )
 from funclg.utils.types import ABILITY_TYPES, ARMOR_TYPES
 
@@ -61,7 +61,7 @@ def _select_ability_types():
         a_types.append(a_type)
 
         print(f"Current Ability Types: {' '.join(a_types)}")
-        if yes_no_validation("Would you like to add another type?"):
+        if confirmation("Would you like to add another type?"):
             del available_types[a_type]
             continue
         continue_selection = False
@@ -93,7 +93,7 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
                 0
             ]
 
-            if yes_no_validation(f"Do you want to add {new_ability.name} to this role?"):
+            if confirmation(f"Do you want to add {new_ability.name} to this role?"):
                 # Remove added ability from available options and return
                 available_abilities[new_ability.ability_type].remove(new_ability)
                 return new_ability
@@ -119,7 +119,7 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
             print(f"\n\t- {ability}")
         print(f"\nYou can still add more {5-len(role_abilities)} abilities.")
 
-        if not yes_no_validation("Would you like to add another ability?"):
+        if not confirmation("Would you like to add another ability?"):
             break
 
     # TODO: Future: consider option to create a new one
@@ -147,7 +147,7 @@ def build_role():
         abilities=r_abilities,
     )
 
-    if yes_no_validation(f"You created:\n{new_role.details()}\nSave new role?"):
+    if confirmation(f"You created:\n{new_role.details()}\nSave new role?"):
         ROLES_DATA["data"][new_role.id] = new_role.export()
         update_data()
         print(f"{new_role.name} has been saved!!!")
@@ -196,7 +196,7 @@ def delete_role():
     del_role_id = select_role()
     if del_role_id:
         del_role = ROLES_DATA["data"][del_role_id]
-        if yes_no_validation(f"Do you want to delete \"{del_role['name']}\"?"):
+        if confirmation(f"Do you want to delete \"{del_role['name']}\"?"):
             print(f"Deleteing {del_role['name']}")
             del ROLES_DATA["data"][del_role_id]
             del ROLES_DATA["objects"][del_role_id]

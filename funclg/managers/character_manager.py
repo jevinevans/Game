@@ -15,9 +15,9 @@ from funclg.character.armor import Armor
 from funclg.character.character import Character
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
+    confirmation,
     list_choice_selection,
     string_validation,
-    yes_no_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 
@@ -106,7 +106,7 @@ def _pick_char_armor_equipment(
                 for item in available_equipment[item_type].values()
                 if item.name == sel_item_name
             ][0]
-            if yes_no_validation(f"Do you want equip {sel_item}?"):
+            if confirmation(f"Do you want equip {sel_item}?"):
                 selected_equipment[item_type.lower()] = sel_item.copy()
             else:
                 selected_equipment[item_type.lower()] = None
@@ -151,9 +151,7 @@ def build_character():
     ].copy()
 
     char_armor = None
-    if yes_no_validation(
-        f"Do you want to add equipment to your character: '{char_name.capitalize()}'?"
-    ):
+    if confirmation(f"Do you want to add equipment to your character: '{char_name.capitalize()}'?"):
         char_equipment = _pick_char_armor_equipment(char_armor_type, char_armor_type_int)
         char_armor = Armor(armor_type=char_armor_type_int, **char_equipment)
     else:
@@ -166,7 +164,7 @@ def build_character():
         role_instance=char_role,
     )
 
-    if yes_no_validation(f"You created:\n{new_character.details()}\nSave new character?"):
+    if confirmation(f"You created:\n{new_character.details()}\nSave new character?"):
         CHARACTER_DATA["data"][new_character.id] = new_character.export()
         update_data()
         print(f"{new_character.name} has been saved!!!")
@@ -196,7 +194,7 @@ def delete_character():
     del_character_id = select_character()
     if del_character_id:
         del_character = CHARACTER_DATA["data"][del_character_id]
-        if yes_no_validation(f"Do you want to delete \"{del_character['name']}\"?"):
+        if confirmation(f"Do you want to delete \"{del_character['name']}\"?"):
             print(f"Deleteing {del_character['name']}")
             del CHARACTER_DATA["data"][del_character_id]
             del CHARACTER_DATA["objects"][del_character_id]

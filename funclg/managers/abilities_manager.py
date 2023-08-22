@@ -11,9 +11,9 @@ import funclg.utils.data_mgmt as db
 from funclg.character.abilities import Abilities
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
+    confirmation,
     list_choice_selection,
     string_validation,
-    yes_no_validation,
 )
 from funclg.utils.types import ABILITY_TYPES
 
@@ -58,7 +58,7 @@ def build_ability():
         name=ability_name, ability_type=ability_type, description=ability_desc, mod=ability_mod
     )
 
-    if yes_no_validation(f"You created:\n{new_ability.details()}\nSave new ability?"):
+    if confirmation(f"You created:\n{new_ability.details()}\nSave new ability?"):
         ABILITIES_DATA["data"][new_ability.id] = new_ability.export()
         update_data()
         print(f"{new_ability.name} has been saved!!!")
@@ -98,7 +98,7 @@ def delete_ability():
     del_ability_id = select_ability()
     if del_ability_id:
         del_ability = ABILITIES_DATA["data"][del_ability_id]
-        if yes_no_validation(f"Do you want to delete \"{del_ability['name']}\"?"):
+        if confirmation(f"Do you want to delete \"{del_ability['name']}\"?"):
             print(f"Deleteing {del_ability['name']}")
             del ABILITIES_DATA["data"][del_ability_id]
             del ABILITIES_DATA["objects"][del_ability_id]

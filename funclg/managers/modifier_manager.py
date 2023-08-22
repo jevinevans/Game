@@ -15,9 +15,9 @@ from loguru import logger
 
 from funclg.character.modifiers import Modifier
 from funclg.utils.input_validation import (
+    confirmation,
     list_choice_selection,
     number_range_validation,
-    yes_no_validation,
 )
 
 
@@ -92,7 +92,7 @@ def build_modifier(name: str):
             mod_val = number_range_validation(-Modifier.MOD_ADD_RANGE, Modifier.MOD_ADD_RANGE)
 
             print(f"You created modifier: {mod_type} {mod_val}")
-            if yes_no_validation("Confirm creation?"):
+            if confirmation("Confirm creation?"):
                 adds[mod_type] = mod_val
 
         else:
@@ -102,16 +102,16 @@ def build_modifier(name: str):
             mod_val = round(mod_val, 2)
 
             print(f"You created modifier: {mod_type} {mod_val*100}%")
-            if yes_no_validation("Confirm mod creation?"):
+            if confirmation("Confirm mod creation?"):
                 mults[mod_type] = mod_val
 
-        if yes_no_validation("Would you like to add another modifier?"):
+        if confirmation("Would you like to add another modifier?"):
             available_mods.remove(mod_type)
         else:
             logger.debug("Constructing modifier...")
             break
 
-    if yes_no_validation(f"Validate Modifier: {name}\n\tAdds: {adds}\n\tMults: {mults}\n\r"):
+    if confirmation(f"Validate Modifier: {name}\n\tAdds: {adds}\n\tMults: {mults}\n\r"):
         new_mod = Modifier(name=name, adds=adds, mults=mults)
 
         return new_mod

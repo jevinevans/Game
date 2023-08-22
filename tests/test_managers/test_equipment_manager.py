@@ -154,11 +154,11 @@ def test_equipment_manager_show_equipment(m_eq_select, m_log, m_print, test_equi
 
 @patch("builtins.print")
 @patch("funclg.managers.equipment_manager.logger")
-@patch("funclg.managers.equipment_manager.yes_no_validation")
+@patch("funclg.managers.equipment_manager.confirmation")
 @patch("funclg.managers.equipment_manager.update_data")
 @patch("funclg.managers.equipment_manager.select_equipment")
 def test_equipment_manager_delete_equipment(
-    m_seleq, m_update, m_yn_val, m_log, m_print, test_equipment
+    m_seleq, m_update, m_confirm, m_log, m_print, test_equipment
 ):
     # Yes Delete
     test_obj = eq_man.BodyEquipment(**test_equipment)
@@ -166,7 +166,7 @@ def test_equipment_manager_delete_equipment(
     eq_man.EQUIPMENT_DATA["objects"][test_obj.id] = test_obj
 
     m_seleq.return_value = test_equipment["_id"]
-    m_yn_val.return_value = True
+    m_confirm.return_value = True
 
     eq_man.delete_equipment()
 
@@ -179,7 +179,7 @@ def test_equipment_manager_delete_equipment(
     eq_man.EQUIPMENT_DATA["data"][test_equipment["_id"]] = test_equipment
 
     m_seleq.return_value = test_equipment["_id"]
-    m_yn_val.return_value = False
+    m_confirm.return_value = False
     eq_man.delete_equipment()
     assert m_print.called_with("Keeping all equipment in the vault...")
 
@@ -243,15 +243,15 @@ def test_equipment_manager_new_body_armor(m_str_val, m_list_sel, m_mod_gen, m_id
 @patch("funclg.managers.equipment_manager.update_data")
 @patch("funclg.managers.equipment_manager._new_weapon")
 @patch("funclg.managers.equipment_manager._new_body_armor")
-@patch("funclg.managers.equipment_manager.yes_no_validation")
+@patch("funclg.managers.equipment_manager.confirmation")
 @patch("funclg.managers.equipment_manager.list_choice_selection")
 def test_equipment_manager_build_equipment(
-    m_list_sel, m_yn_val, m_new_body, m_new_wep, m_update, m_print, test_equipment, test_weapon
+    m_list_sel, m_confirm, m_new_body, m_new_wep, m_update, m_print, test_equipment, test_weapon
 ):
     # Test New Body Armor + Positive Valdiation Branch
     m_list_sel.return_value = "Armor"
     m_new_body.return_value = eq_man.BodyEquipment(**test_equipment)
-    m_yn_val.return_value = True
+    m_confirm.return_value = True
 
     eq_man.build_equipment()
 
@@ -261,7 +261,7 @@ def test_equipment_manager_build_equipment(
     # Test New Weapon + Negative Validation  Branch
     m_list_sel.return_value = "Weapon"
     m_new_wep.return_value = eq_man.WeaponEquipment(**test_weapon)
-    m_yn_val.return_value = False
+    m_confirm.return_value = False
 
     eq_man.build_equipment()
 

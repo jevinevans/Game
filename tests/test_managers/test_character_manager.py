@@ -161,10 +161,10 @@ def test_char_manager_show_character(m_sel, m_log, m_print, test_character_mage)
 
 @patch("builtins.print")
 @patch("funclg.managers.character_manager.logger")
-@patch("funclg.managers.character_manager.yes_no_validation")
+@patch("funclg.managers.character_manager.confirmation")
 @patch("funclg.managers.character_manager.update_data")
 @patch("funclg.managers.character_manager.select_character")
-def test_char_manager_delete_role(m_sel, m_update, m_yn, m_log, m_print, test_character_mage):
+def test_char_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, test_character_mage):
     # Yes Delete
     _tmp_char = test_character_mage.copy()
     _tmp_char = char_man._update_char_role(test_character_mage, _tmp_char)
@@ -175,7 +175,7 @@ def test_char_manager_delete_role(m_sel, m_update, m_yn, m_log, m_print, test_ch
     char_man.CHARACTER_DATA["data"][char_obj.id] = test_character_mage
 
     m_sel.return_value = char_obj.id
-    m_yn.return_value = True
+    m_confirm.return_value = True
 
     char_man.delete_character()
 
@@ -188,7 +188,7 @@ def test_char_manager_delete_role(m_sel, m_update, m_yn, m_log, m_print, test_ch
     char_man.CHARACTER_DATA["data"][char_obj.id] = test_character_mage
 
     m_sel.return_value = char_obj.id
-    m_yn.return_value = False
+    m_confirm.return_value = False
     char_man.delete_character()
     assert m_print.called_with("Keeping all characters alive...")
 
@@ -200,9 +200,9 @@ def test_char_manager_delete_role(m_sel, m_update, m_yn, m_log, m_print, test_ch
 
 @patch("builtins.print")
 @patch("funclg.managers.equipment_manager.filter_equipment_by_armor_type")
-@patch("funclg.managers.character_manager.yes_no_validation")
+@patch("funclg.managers.character_manager.confirmation")
 @patch("funclg.managers.character_manager.list_choice_selection")
-def test_char_manager_pick_char_armor_equipment(m_lsel, m_yn, m_fil_equip, m_print):
+def test_char_manager_pick_char_armor_equipment(m_lsel, m_confirm, m_fil_equip, m_print):
     t_chest = BodyEquipment(
         **{
             "name": "Basic Mage Tunic",
@@ -244,7 +244,7 @@ def test_char_manager_pick_char_armor_equipment(m_lsel, m_yn, m_fil_equip, m_pri
         "Weapon": {t_weapon.id: t_weapon},
     }
     m_lsel.side_effect = [t_chest.name, "Skip", t_weapon.name]
-    m_yn.side_effect = [True, True]
+    m_confirm.side_effect = [True, True]
 
     selected_equipment = char_man._pick_char_armor_equipment("Medium", 1)
 
@@ -258,7 +258,7 @@ def test_char_manager_pick_char_armor_equipment(m_lsel, m_yn, m_fil_equip, m_pri
 
     # Testing No Pants Confirmation
     m_lsel.side_effect = [t_chest.name, t_pants.name, t_weapon.name]
-    m_yn.side_effect = [True, False, True]
+    m_confirm.side_effect = [True, False, True]
 
     selected_equipment = char_man._pick_char_armor_equipment("Medium", 1)
 
@@ -278,11 +278,18 @@ def test_char_manager_pick_char_armor_equipment(m_lsel, m_yn, m_fil_equip, m_pri
 @patch("funclg.managers.roles_manager.sort_roles_by_armor_type")
 @patch("funclg.managers.character_manager.update_data")
 @patch("funclg.managers.character_manager._pick_char_armor_equipment")
-@patch("funclg.managers.character_manager.yes_no_validation")
+@patch("funclg.managers.character_manager.confirmation")
 @patch("funclg.managers.character_manager.string_validation")
 @patch("funclg.managers.character_manager.list_choice_selection")
 def test_char_man_build_character(
-    m_lsel, m_str_val, m_yn, m_char_armor_sel, m_update, m_sort_roles, m_id, test_character_mage
+    m_lsel,
+    m_str_val,
+    m_confirm,
+    m_char_armor_sel,
+    m_update,
+    m_sort_roles,
+    m_id,
+    test_character_mage,
 ):
     # Define Test Roles
     _t_mage = test_character_mage.copy()
@@ -346,7 +353,7 @@ def test_char_man_build_character(
     m_str_val.return_value = _t_mage["name"]
     m_char_armor_sel.return_value = {"chest": t_chest, "weapon": t_weapon}
     m_lsel.side_effect = ["Medium", "Mage"]
-    m_yn.side_effect = [True, True]
+    m_confirm.side_effect = [True, True]
     m_id.side_effect = [ability.id for ability in t_mage.abilities] + [
         t_mage.id,
         t_warrior.id,
@@ -376,13 +383,13 @@ def test_char_man_build_character(
 @patch("funclg.managers.roles_manager.sort_roles_by_armor_type")
 @patch("funclg.managers.character_manager.update_data")
 @patch("funclg.managers.character_manager._pick_char_armor_equipment")
-@patch("funclg.managers.character_manager.yes_no_validation")
+@patch("funclg.managers.character_manager.confirmation")
 @patch("funclg.managers.character_manager.string_validation")
 @patch("funclg.managers.character_manager.list_choice_selection")
 def test_char_man_build_character_no_roles(
     m_lsel,
     m_str_val,
-    m_yn,
+    m_confirm,
     m_char_armor_sel,
     m_update,
     m_sort_roles,
@@ -392,7 +399,7 @@ def test_char_man_build_character_no_roles(
 ):
     # Define Mocks
     m_str_val.return_value = "Test Mage"
-    m_yn.side_effect = [True, True]
+    m_confirm.side_effect = [True, True]
     m_sort_roles.return_value = {}
 
     assert not char_man.build_character()
@@ -404,13 +411,13 @@ def test_char_man_build_character_no_roles(
 @patch("funclg.managers.roles_manager.sort_roles_by_armor_type")
 @patch("funclg.managers.character_manager.update_data")
 @patch("funclg.managers.character_manager._pick_char_armor_equipment")
-@patch("funclg.managers.character_manager.yes_no_validation")
+@patch("funclg.managers.character_manager.confirmation")
 @patch("funclg.managers.character_manager.string_validation")
 @patch("funclg.managers.character_manager.list_choice_selection")
 def test_char_man_build_character_no_equip_no_save(
     m_lsel,
     m_str_val,
-    m_yn,
+    m_confirm,
     m_char_armor_sel,
     m_update,
     m_sort_roles,
@@ -460,7 +467,7 @@ def test_char_man_build_character_no_equip_no_save(
         t_rouge.id,
         _t_mage["_id"],
     ]
-    m_yn.side_effect = [False, False]
+    m_confirm.side_effect = [False, False]
 
     char_man.build_character()
 

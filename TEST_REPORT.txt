@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Aug 22 12:24:56 PDT 2023 
+Date: Tue Aug 22 14:02:19 PDT 2023 
 
 ---PYTEST---
 
@@ -17,7 +17,7 @@ tests/test_character/test_equipment.py ..............                    [ 36%]
 tests/test_character/test_modifiers.py .........                         [ 43%]
 tests/test_character/test_roles.py .............                         [ 54%]
 tests/test_character/test_stats.py ............                          [ 64%]
-tests/test_main/test_main.py F                                           [ 65%]
+tests/test_main/test_main.py .                                           [ 65%]
 tests/test_managers/test_abilities_manager.py .......                    [ 71%]
 tests/test_managers/test_character_manager.py .........                  [ 78%]
 tests/test_managers/test_equipment_manager.py .........                  [ 86%]
@@ -28,8 +28,8 @@ tests/test_utils/test_types.py ...                                       [100%]
 =================================== FAILURES ===================================
 ________________________ test_character_show_inventory _________________________
 
-m_print = <MagicMock name='print' id='140676406048896'>
-basic_char = <funclg.character.character.Character object at 0x7ff1c735fa00>
+m_print = <MagicMock name='print' id='139955953337680'>
+basic_char = <funclg.character.character.Character object at 0x7f4a08e20730>
 character_inventory_show_expectation = ['\nInventory:item_1  - item_2  - item_3', ['item_1', 'item_2', 'item_3']]
 
 >   ???
@@ -37,15 +37,7 @@ E   AttributeError: 'Character' object has no attribute 'show_inventory'
 
 /mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_character/test_character.py:157: AttributeError
 ---------------------------- Captured stderr setup -----------------------------
-2023-08-22 12:24:57.867 | DEBUG    | funclg.character.roles:__init__:50 - Created Role: Test_Role
-_____________________________ test_build_main_menu _____________________________
-
->   ???
-E   AssertionError: assert 'Play Game' == 'Play'
-E     - Play
-E     + Play Game
-
-/mnt/c/Users/jevin/OneDrive/Documents/CODING/Dev/FUNCLG/tests/test_main/test_main.py:13: AssertionError
+2023-08-22 14:02:21.137 | DEBUG    | funclg.character.roles:__init__:50 - Created Role: Test_Role
 
 ---------- coverage: platform linux, python 3.10.12-final-0 ----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
@@ -60,10 +52,10 @@ funclg/character/equipment.py             83      0     10      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 73      0     26      0   100%
 funclg/character/stats.py                 62      0     28      0   100%
-funclg/game/__init__.py                   11     11      0      0     0%   5-45
+funclg/game/__init__.py                   11     11      0      0     0%   5-46
 funclg/game/combat.py                      0      0      0      0   100%
 funclg/game/game.py                        8      8      0      0     0%   20-40
-funclg/game/level.py                      40     40      8      0     0%   9-128
+funclg/game/level.py                      36     36      6      0     0%   9-119
 funclg/game/rewards.py                     0      0      0      0   100%
 funclg/managers/__init__.py               15      2      4      0    79%   29-30
 funclg/managers/abilities_manager.py      66      0     22      1    99%   27->26
@@ -73,17 +65,16 @@ funclg/managers/modifier_manager.py       66      0     26      0   100%
 funclg/managers/roles_manager.py         121      0     50      2    99%   29->28, 112->126
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     13     16      1    69%   41->55, 45-54, 65-68
-funclg/utils/input_validation.py          47     31     16      0    32%   16-26, 33-34, 41, 49-51, 66-72, 77-87, 91
+funclg/utils/input_validation.py          42     25     16      0    36%   18-28, 35-36, 43, 51-53, 68, 73-78, 94-102
 funclg/utils/menu_funcs.py                36     16     14      0    48%   29-52
 funclg/utils/types.py                     17      0      6      1    96%   60->63
 ----------------------------------------------------------------------------------
-TOTAL                                   1253    145    408     11    88%
+TOTAL                                   1244    135    406     11    89%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 88.20%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 88.85%
 =========================== short test summary info ============================
 FAILED tests/test_character/test_character.py::test_character_show_inventory
-FAILED tests/test_main/test_main.py::test_build_main_menu - AssertionError: a...
-================== 2 failed, 117 passed, 2 warnings in 1.92s ===================
+================== 1 failed, 118 passed, 2 warnings in 2.13s ===================
 
 ---Code Quality Report---
 
@@ -127,10 +118,8 @@ funclg/character/stats.py:123:0: W0105: String statement has no effect (pointles
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
 ************* Module funclg.utils.input_validation
-funclg/utils/input_validation.py:91:0: C0304: Final newline missing (missing-final-newline)
-funclg/utils/input_validation.py:48:5: W0511: TODO: Decide if the capitalize needs to stay here or not (fixme)
-funclg/utils/input_validation.py:89:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/utils/input_validation.py:9:0: W0611: Unused ValidationError imported from questionary (unused-import)
+funclg/utils/input_validation.py:50:5: W0511: TODO: Decide if the capitalize needs to stay here or not (fixme)
+funclg/utils/input_validation.py:71:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module funclg.utils.types
 funclg/utils/types.py:7:1: W0511: TODO: Consider changing IT, AT and WT to enums (fixme)
 funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
@@ -141,20 +130,12 @@ funclg/game/level.py:49:12: W0511: TODO: Consider if this should be private and 
 funclg/game/level.py:62:5: W0511: TODO: Consider doing a precheck to make sure the running system can print the boundary characters, if not then use alternatives (fixme)
 funclg/game/level.py:77:12: W0511: TODO: Decide whether to do a proper floor calculation or not (fixme)
 funclg/game/level.py:85:9: W0511: TODO: I want to be able to make a decision if a block should be reward, enemy etc. (fixme)
-funclg/game/level.py:124:1: W0511: TODO REMOVE ME (fixme)
+funclg/game/level.py:122:1: W0511: TODO REMOVE ME (fixme)
 funclg/game/level.py:9:0: W0105: String statement has no effect (pointless-string-statement)
 funclg/game/level.py:25:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module funclg.game.game
 funclg/game/game.py:20:0: C0115: Missing class docstring (missing-class-docstring)
 funclg/game/game.py:23:4: E0211: Method '__init__' has no argument (no-method-argument)
-************* Module funclg.game.__init__
-funclg/game/__init__.py:12:0: C0303: Trailing whitespace (trailing-whitespace)
-funclg/game/__init__.py:14:20: C0303: Trailing whitespace (trailing-whitespace)
-funclg/game/__init__.py:23:70: C0303: Trailing whitespace (trailing-whitespace)
-funclg/game/__init__.py:26:28: C0303: Trailing whitespace (trailing-whitespace)
-funclg/game/__init__.py:27:22: C0303: Trailing whitespace (trailing-whitespace)
-funclg/game/__init__.py:28:0: C0303: Trailing whitespace (trailing-whitespace)
-funclg/game/__init__.py:46:0: C0304: Final newline missing (missing-final-newline)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:26:5: W0511: TODO: On edit, needs to update all values (fixme)
 funclg/managers/roles_manager.py:56:9: W0511: TODO: Add description print out (fixme)
@@ -175,5 +156,5 @@ funclg/managers/character_manager.py:93:5: W0511: TODO: 2023.06.17 - Add the opt
 funclg/managers/character_manager.py:115:5: W0511: TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.44/10 (previous run: 9.45/10, -0.01)
+Your code has been rated at 9.51/10 (previous run: 9.44/10, +0.07)
 

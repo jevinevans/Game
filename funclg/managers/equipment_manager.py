@@ -11,9 +11,9 @@ import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.input_validation import (
     char_manager_choice_selection,
+    confirmation,
     list_choice_selection,
     string_validation,
-    yes_no_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
@@ -92,7 +92,7 @@ def build_equipment():
     else:
         new_equipment = _new_weapon()
 
-    if yes_no_validation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
+    if confirmation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
         EQUIPMENT_DATA["data"][new_equipment.id] = new_equipment.export()
         update_data()
         print(f"{new_equipment.name} has been saved!!!")
@@ -146,7 +146,7 @@ def delete_equipment():
     del_equip_id = select_equipment()
     if del_equip_id:
         del_equip = EQUIPMENT_DATA["data"][del_equip_id]
-        if yes_no_validation(f"Do you want to delete \"{del_equip['name']}\"?"):
+        if confirmation(f"Do you want to delete \"{del_equip['name']}\"?"):
             print(f"Deleteing {del_equip['name']}")
             del EQUIPMENT_DATA["data"][del_equip_id]
             del EQUIPMENT_DATA["objects"][del_equip_id]
