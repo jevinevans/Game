@@ -25,7 +25,7 @@ Level Creation Process/Steps:
 class GameLevel:
     # SPACE ICONS
     SPACE_SYMBOL = "\U000025A0"
-    VISITED_SPACE_SYMBOL = "\U000025A1"
+    COMPLETED_SPACE_SYMBOL = "\U000025A1"
 
     # BOUNDARY ICONS
     HORIZONTAL_BOUND_SYMBOL = "\U00002550"
@@ -43,7 +43,7 @@ class GameLevel:
     BOSS_ICON = "\U00002620"
 
     def __init__(self, game_settings: dict):
-        self.playable_size = game_settings["level_size"]
+        self.grid_width = game_settings["level_size"]
         self.grid = (
             self.generate_grid()
         )  # TODO: Consider if this should be private and only callable
@@ -52,26 +52,32 @@ class GameLevel:
     def coord_to_int(self, coordinate: set[int, int]):
         if (
             coordinate[0] >= 0
-            and coordinate[0] < self.playable_size
+            and coordinate[0] < self.grid_width
             and coordinate[1] >= 0
-            and coordinate[1] < self.playable_size
+            and coordinate[1] < self.grid_width
         ):
-            return self.playable_size * coordinate[1] + coordinate[0]
+            return self.grid_width * coordinate[1] + coordinate[0]
         raise IndexError("Coordinate is out range")
 
     # TODO: Consider doing a precheck to make sure the running system can print the boundary characters, if not then use alternatives
     def generate_grid(self):
-        # Build Grid
-        temp_grid = [GameLevel.SPACE_SYMBOL for _ in range((self.playable_size) ** 2)]
+        """
+        _summary_
 
-        temp_grid[self.coord_to_int((0, self.playable_size - 1))] = GameLevel.PLAYER_ICON
+        :return: The constructer level grid with player, boss, and key icon.
+        :rtype: List[str]
+        """
+        # Build Grid
+        temp_grid = [GameLevel.SPACE_SYMBOL for _ in range((self.grid_width) ** 2)]
+
+        temp_grid[self.coord_to_int((0, self.grid_width - 1))] = GameLevel.PLAYER_ICON
 
         half_way = int(
-            round(self.playable_size / 2, 1)
+            round(self.grid_width / 2, 1)
         )  # TODO: Decide whether to do a proper floor calculation or not
         temp_grid[self.coord_to_int((half_way, half_way))] = GameLevel.KEY_ICON
 
-        temp_grid[self.coord_to_int((self.playable_size - 1, 0))] = GameLevel.BOSS_ICON
+        temp_grid[self.coord_to_int((self.grid_width - 1, 0))] = GameLevel.BOSS_ICON
 
         return temp_grid
 
@@ -87,33 +93,34 @@ class GameLevel:
         raise NotImplementedError
 
     def print_grid(self):
+        """
+        This function prints the level grid and a boarder around it to the screen.
+        """
         # Add Design Boundary
         header = (
             GameLevel.CORNER_BOUND_SYMBOLS[0]
-            + GameLevel.HORIZONTAL_BOUND_SYMBOL * self.playable_size
+            + GameLevel.HORIZONTAL_BOUND_SYMBOL * self.grid_width
             + GameLevel.CORNER_BOUND_SYMBOLS[1]
         )
         footer = (
             GameLevel.CORNER_BOUND_SYMBOLS[2]
-            + GameLevel.HORIZONTAL_BOUND_SYMBOL * self.playable_size
+            + GameLevel.HORIZONTAL_BOUND_SYMBOL * self.grid_width
             + GameLevel.CORNER_BOUND_SYMBOLS[3]
         )
 
         # Print Grid with Boundary
         print(header)
-        for index in range(self.playable_size):
+        for index in range(self.grid_width):
             print(
                 "".join(
-                    self.grid[
-                        index * self.playable_size : index * self.playable_size + self.playable_size
-                    ]
-                ).center(self.playable_size + 2, GameLevel.VERTICAL_BOUND_SYMBOL)
+                    self.grid[index * self.grid_width : index * self.grid_width + self.grid_width]
+                ).center(self.grid_width + 2, GameLevel.VERTICAL_BOUND_SYMBOL)
             )
         print(footer)
 
 
 # TODO REMOVE ME
-if __name__ == "__main__":
-    new_level = GameLevel(game_settings={"level_size": 7})
-    new_level.grid[new_level.coord_to_int((1, 3))] = GameLevel.VISITED_SPACE_SYMBOL
-    new_level.print_grid()
+# if __name__ == "__main__":
+#     new_level = GameLevel(game_settings={"level_size": 7})
+#     new_level.grid[new_level.coord_to_int((1, 3))] = GameLevel.COMPLETED_SPACE_SYMBOL
+#     new_level.print_grid()
