@@ -10,6 +10,9 @@ from typing import Any, Dict, List, Optional, Union
 import questionary
 from questionary import ValidationError, Validator
 
+import questionary
+from questionary import ValidationError, Validator
+
 
 def choice_validation(max_choice: int) -> int:
     """
