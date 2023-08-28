@@ -168,8 +168,8 @@ class Armor:
     def _details_check_none(self, indent: int, _item_type: str) -> str:
         desc = f"\n{' '*(indent+2)}{_item_type}: "
 
-        if _item := getattr(self, _item_type.lower(), ""):
-            return desc + _item.details(indent + 4)
+        if getattr(self, _item_type.lower(), False):
+            return desc + getattr(self, _item_type.lower()).details(indent + 4)
         return desc + "None"
 
 
