@@ -42,7 +42,7 @@ class Roles:
         self.ability_types = (
             [a_type for a_type in ability_types if a_type in ABILITY_TYPES]
             if ability_types
-            else ["None"]
+            else ["Basic"]
         )
         self.abilities = self._validate_abilities(abilities) if abilities else []
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
@@ -132,5 +132,3 @@ class Roles:
             abilities=self.abilities,
             _id=self._id,
         )
-
-    # def show_powers(): #TODO Define me

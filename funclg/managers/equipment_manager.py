@@ -41,8 +41,10 @@ def export_data():
 
 
 def _new_weapon():
-    print("What kind of Weapon would you like to create?")
-    weapon_type = selection_validation(list(WEAPON_TYPES)[:-1])
+    print()
+    weapon_type = selection_validation(
+        "What kind of Weapon would you like to create?", list(WEAPON_TYPES)[:-1]
+    )
     weapon_name = string_validation(f"What would you like to name this new {weapon_type}?", "Name")
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
@@ -58,10 +60,12 @@ def _new_weapon():
 
 
 def _new_body_armor():
-    print("What type of Armor would you like to create?")
-    item_type = selection_validation(ITEM_TYPES[:-1])
-    print(f"What type of armor would you like to make the {item_type}?")
-    armor_type = selection_validation(ARMOR_TYPES)
+    item_type = selection_validation(
+        "What type of Armor would you like to create?", ITEM_TYPES[:-1]
+    )
+    armor_type = selection_validation(
+        f"What type of armor would you like to make the {item_type}?", ARMOR_TYPES
+    )
     item_name = string_validation(
         f"What would you like to name this new {armor_type} {item_type}?", "Name"
     )
@@ -81,9 +85,10 @@ def _new_body_armor():
 
 def build_equipment():
     """Dialog for building new equipment"""
-
-    print("\nStarting Equipmet Creation:\n\nWhat type of equipment would you like to create:")
-    equip_type = selection_validation(["Body Armor", "Weapon"])
+    equip_type = selection_validation(
+        "Starting Equipmet Creation:\n\nWhat type of equipment would you like to create:",
+        ["Body Armor", "Weapon"],
+    )
     new_equipment = None
 
     if equip_type == "Body Armor":

@@ -177,10 +177,10 @@ def test_equipment_manager_delete_equipment(
 
 @patch("funclg.utils.data_mgmt.id_gen")
 @patch("funclg.managers.modifier_manager.generate_modifier")
-@patch("funclg.managers.equipment_manager.list_choice_selection")
+@patch("funclg.managers.equipment_manager.selection_validation")
 @patch("funclg.managers.equipment_manager.string_validation")
-def test_equipment_manager_new_weapon(m_str_val, m_list_sel, m_mod_gen, m_id, test_weapon):
-    m_list_sel.return_value = test_weapon["weapon_type"]
+def test_equipment_manager_new_weapon(m_str_val, m_sel, m_mod_gen, m_id, test_weapon):
+    m_sel.return_value = test_weapon["weapon_type"]
     m_str_val.side_effect = [test_weapon["name"], test_weapon["description"]]
     m_mod_gen.return_value = test_weapon["mod"]
     m_id.return_value = test_weapon["_id"]
@@ -200,10 +200,10 @@ def test_equipment_manager_new_weapon(m_str_val, m_list_sel, m_mod_gen, m_id, te
 
 @patch("funclg.utils.data_mgmt.id_gen")
 @patch("funclg.managers.modifier_manager.generate_modifier")
-@patch("funclg.managers.equipment_manager.list_choice_selection")
+@patch("funclg.managers.equipment_manager.selection_validation")
 @patch("funclg.managers.equipment_manager.string_validation")
-def test_equipment_manager_new_body_armor(m_str_val, m_list_sel, m_mod_gen, m_id, test_equipment):
-    m_list_sel.side_effect = [
+def test_equipment_manager_new_body_armor(m_str_val, m_sel, m_mod_gen, m_id, test_equipment):
+    m_sel.side_effect = [
         ITEM_TYPES[test_equipment["item_type"]],
         ARMOR_TYPES[test_equipment["armor_type"]],
     ]
@@ -230,12 +230,12 @@ def test_equipment_manager_new_body_armor(m_str_val, m_list_sel, m_mod_gen, m_id
 @patch("funclg.managers.equipment_manager._new_weapon")
 @patch("funclg.managers.equipment_manager._new_body_armor")
 @patch("funclg.managers.equipment_manager.confirmation")
-@patch("funclg.managers.equipment_manager.list_choice_selection")
+@patch("funclg.managers.equipment_manager.selection_validation")
 def test_equipment_manager_build_equipment(
-    m_list_sel, m_confirm, m_new_body, m_new_wep, m_update, m_print, test_equipment, test_weapon
+    m_sel, m_confirm, m_new_body, m_new_wep, m_update, m_print, test_equipment, test_weapon
 ):
     # Test New Body Armor + Positive Valdiation Branch
-    m_list_sel.return_value = "Armor"
+    m_sel.return_value = "Armor"
     m_new_body.return_value = eq_man.BodyEquipment(**test_equipment)
     m_confirm.return_value = True
 
@@ -245,7 +245,7 @@ def test_equipment_manager_build_equipment(
     assert test_equipment["_id"] in eq_man.EQUIPMENT_DATA["data"]
 
     # Test New Weapon + Negative Validation  Branch
-    m_list_sel.return_value = "Weapon"
+    m_sel.return_value = "Weapon"
     m_new_wep.return_value = eq_man.WeaponEquipment(**test_weapon)
     m_confirm.return_value = False
 

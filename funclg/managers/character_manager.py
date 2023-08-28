@@ -92,9 +92,9 @@ def _pick_char_armor_equipment(
     # TODO: 2023.06.17 - Add the option to skip
     for item_type in ITEM_TYPES:
         if available_equipment[item_type]:
-            print(f"Please choose a {item_type} to equip:")
             sel_item_name = selection_validation(
-                [item.name for item in available_equipment[item_type].values()] + ["Skip"]
+                f"Please choose a {item_type} to equip:",
+                [item.name for item in available_equipment[item_type].values()] + ["Skip"],
             )
             logger.debug(f"Selected {sel_item_name} from {available_equipment[item_type]}")
             if sel_item_name == "Skip":
@@ -140,11 +140,15 @@ def build_character():
         for _a_role in a_roles:
             print(f"\n\t- {_a_role}")
 
-    char_armor_type = selection_validation(list(sorted_roles.keys()))
+    char_armor_type = selection_validation(
+        "Which armor type would you like", list(sorted_roles.keys())
+    )
     char_armor_type_int = ARMOR_TYPES.index(char_armor_type)
 
-    print(f"Which role would you like for {char_name}:")
-    char_role_name = selection_validation([role.name for role in sorted_roles[char_armor_type]])
+    char_role_name = selection_validation(
+        f"Which role would you like for {char_name}:",
+        [role.name for role in sorted_roles[char_armor_type]],
+    )
     char_role = [role for role in sorted_roles[char_armor_type] if role.name == char_role_name][
         0
     ].copy()

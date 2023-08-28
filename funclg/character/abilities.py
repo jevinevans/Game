@@ -38,7 +38,7 @@ class Abilities:
     ):
         self.name = name
         self.description = description
-        self.ability_type = ability_type if ability_type in ABILITY_TYPES else "None"
+        self.ability_type = ability_type if ability_type in ABILITY_TYPES else "Basic"
         self._target = ABILITY_TYPES[self.ability_type]["target"]
 
         # Set Ability Modifier effects
@@ -68,7 +68,7 @@ class Abilities:
 
             logger.warning("Provided mod was not compatable with selected ability.")
         logger.warning("Using default modifier value.")
-        if self.ability_type == "None":
+        if self.ability_type == "Basic":
             return {}
         m_value = 1 if m_type == "adds" else 0.01
         return {"health": m_value}

@@ -72,7 +72,7 @@ def selection_validation(
     # 4) Dict + Display Param + Return Param - Will display another key than the index and return the specified return value
     selection_choices = []
 
-    if type(items) == list:  # Case 1
+    if isinstance(items, list):  # Case 1
         selection_choices = [questionary.Choice(title=str(x), value=x) for x in items]
 
     else:
@@ -99,6 +99,10 @@ def confirmation(prompt: str):
 
 
 class NumberValidation(Validator):
+    """
+    Validator class for user input, validates that the user sends a number.
+    """
+
     def validate(self, document):
         if len(document.text) == 0:
             raise ValidationError(

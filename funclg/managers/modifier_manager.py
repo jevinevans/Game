@@ -77,7 +77,7 @@ def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, rand
     return {"adds": adds, "mults": mults}
 
 
-# TODO: Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
+# TODO: 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
 def build_modifier(name: str):
     available_mods = Modifier.MODIFIER_TYPES.copy()
     adds, mults = {}, {}
@@ -85,10 +85,14 @@ def build_modifier(name: str):
     print("\nStarting Modifier Creation...\n")
 
     while True:
-        print("Select which stats you want to modify.")
-        mod_type = selection_validation(available_mods)
+        mod_type = selection_validation("Select which stats you want to modify.", available_mods)
 
-        if selection_validation(["Base Change", "Percentage Change"]) == "Base Change":
+        if (
+            selection_validation(
+                "What type of change would you like to make", ["Base Change", "Percentage Change"]
+            )
+            == "Base Change"
+        ):
             mod_val = number_range_validation(-Modifier.MOD_ADD_RANGE, Modifier.MOD_ADD_RANGE)
 
             print(f"You created modifier: {mod_type} {mod_val}")
@@ -110,8 +114,8 @@ def build_modifier(name: str):
         else:
             logger.debug("Constructing modifier...")
             break
-
     if confirmation(f"Validate Modifier: {name}\n\tAdds: {adds}\n\tMults: {mults}\n\r"):
         new_mod = Modifier(name=name, adds=adds, mults=mults)
 
         return new_mod
+    return None

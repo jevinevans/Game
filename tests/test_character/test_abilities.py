@@ -20,7 +20,7 @@ from .fixtures.abilities_fixtures import (
 
 def test_abilities_init(abilities_all_types):
     for ability in abilities_all_types:
-        if ability.ability_type == "None":
+        if ability.ability_type == "Basic":
             assert ability.mod.adds == {}
             assert ability.mod.mults == {}
         else:

@@ -233,47 +233,56 @@ def test_roles_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, t
 
 
 @patch("funclg.managers.roles_manager.confirmation")
-@patch("funclg.managers.roles_manager.list_choice_selection")
-def test_roles_manager_select_ability_types(m_lsel, m_confirm, test_mage):
+@patch("funclg.managers.roles_manager.selection_validation")
+def test_roles_manager_select_ability_types(m_sel, m_confirm, test_mage):
     # Test Success
     ability_results = list({ability["ability_type"] for ability in test_mage["abilities"]})
     yn_side_effects = [True for _ in range(len(ability_results) - 1)]
     yn_side_effects.append(False)
 
-    m_lsel.side_effect = ability_results
+    m_sel.side_effect = ability_results
     m_confirm.side_effect = yn_side_effects
 
     assert ability_results == role_man._select_ability_types()
 
 
 @patch("funclg.managers.roles_manager.confirmation")
-@patch("funclg.managers.roles_manager.list_choice_selection")
-def test_roles_manager_select_role_abilities(m_lsel, m_confirm, test_mage):
+@patch("funclg.managers.roles_manager.selection_validation")
+def test_roles_manager_select_role_abilities(m_sel, m_confirm, test_mage):
     # Success Test
     abilities = test_mage["abilities"]
     ability_objs = [Abilities(**_ability) for _ability in test_mage["abilities"]]
 
-    m_lsel_effects = []
+    m_sel_effects = []
 
     for ability in abilities:
-        m_lsel_effects.append(ability["ability_type"])
-        m_lsel_effects.append(ability["name"])
+        m_sel_effects.append(ability["ability_type"])
+        m_sel_effects.append(ability["name"])
 
-    m_lsel.side_effect = m_lsel_effects
-    m_confirm.side_effect = [True * len(m_lsel_effects), False]
+    m_sel.side_effect = m_sel_effects
+    m_confirm.side_effect = [True * len(m_sel_effects), False]
 
     selected_abilities = role_man._select_role_abilities(test_mage["ability_types"])
     for ab_test, ab_val in zip(selected_abilities, ability_objs):
         assert ab_test.id == ab_val.id
         assert ab_test.name == ab_val.name
 
+
+@patch("funclg.managers.roles_manager.confirmation")
+@patch("funclg.managers.roles_manager.selection_validation")
+def test_roles_manager_select_role_abilities_no_abilities_added(m_sel, m_confirm, test_mage):
     # No abilities added
-    m_lsel.side_effect = [abilities[0]["ability_type"], abilities[0]["name"]]
+    abilities = test_mage["abilities"]
+    m_sel.side_effect = [abilities[0]["ability_type"], abilities[0]["name"]]
     m_confirm.side_effect = [False, False]
 
     selected_abilities = role_man._select_role_abilities(test_mage["ability_types"])
     assert not selected_abilities
 
+
+@patch("funclg.managers.roles_manager.confirmation")
+@patch("funclg.managers.roles_manager.selection_validation")
+def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, test_mage):
     # Limited ability type
     test_heal_ability = {
         "name": "Heal",
@@ -287,7 +296,7 @@ def test_roles_manager_select_role_abilities(m_lsel, m_confirm, test_mage):
         ab_man.filter_abilities_by_types.return_value = {
             "Restore": {Abilities(**test_heal_ability)}
         }
-        m_lsel.side_effect = ["Restore", "Heal", "Restore"]
+        m_sel.side_effect = ["Restore", "Heal", "Restore"]
         m_confirm.side_effect = [True, True, False]
 
         selected_abilities = role_man._select_role_abilities(["Restore"])
@@ -298,16 +307,16 @@ def test_roles_manager_select_role_abilities(m_lsel, m_confirm, test_mage):
 @patch("funclg.managers.roles_manager._select_role_abilities")
 @patch("funclg.managers.roles_manager._select_ability_types")
 @patch("funclg.managers.roles_manager.update_data")
-@patch("funclg.managers.roles_manager.list_choice_selection")
+@patch("funclg.managers.roles_manager.selection_validation")
 @patch("funclg.managers.roles_manager.string_validation")
 @patch("funclg.managers.roles_manager.confirmation")
 def test_roles_manager_build_role_with_save(
-    m_confirm, m_str_val, m_lsel, m_update, m_sel_ab_type, m_sel_rol_ab, m_id, test_mage
+    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_id, test_mage
 ):
     # Success Create Test Mage
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
     ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
-    m_lsel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
+    m_sel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
 
     m_sel_ab_type.return_value = ability_types
     m_sel_rol_ab.return_value = [Abilities(**_ability) for _ability in test_mage["abilities"]]
@@ -338,16 +347,16 @@ def test_roles_manager_build_role_with_save(
 @patch("funclg.managers.roles_manager._select_role_abilities")
 @patch("funclg.managers.roles_manager._select_ability_types")
 @patch("funclg.managers.roles_manager.update_data")
-@patch("funclg.managers.roles_manager.list_choice_selection")
+@patch("funclg.managers.roles_manager.selection_validation")
 @patch("funclg.managers.roles_manager.string_validation")
 @patch("funclg.managers.roles_manager.confirmation")
 def test_roles_manager_build_role_no_save(
-    m_confirm, m_str_val, m_lsel, m_update, m_sel_ab_type, m_sel_rol_ab, m_id, test_mage
+    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_id, test_mage
 ):
     # No Save
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
     ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
-    m_lsel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
+    m_sel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
 
     m_sel_ab_type.return_value = ability_types
     m_sel_rol_ab.return_value = [Abilities(**_ability) for _ability in test_mage["abilities"]]

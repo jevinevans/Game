@@ -31,17 +31,12 @@ ABILITY_TYPES = {
         "m_type": "mults",
         "mods": ["health", "energy", "attack", "defense"],
     },
-    "None": {
-        "target": "None",
+    "Basic": {
+        "target": "Other",
         "m_type": "adds",
         "mods": [],
-    },  # TODO: Change to 'Basic' types or something that is not none
+    },
 }
-
-
-# def get_ability_effect_type(a_type: str) -> Tuple[str, int]:
-#     "Returns the effect type of the provided ability"
-#     return ABILITY_TYPES[a_type]
 
 
 def get_item_type(item_type: int) -> str:

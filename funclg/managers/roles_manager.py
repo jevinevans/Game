@@ -56,7 +56,7 @@ def _select_ability_types():
         for _a_type, data in available_types.items():
             print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
-        a_type = selection_validation(list(available_types.keys()))
+        a_type = selection_validation("Choose from the above:", available_types)
         a_types.append(a_type)
 
         print(f"Current Ability Types: {' '.join(a_types)}")
@@ -80,11 +80,16 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
             for _ability in _abilities:
                 print(f"\t{_ability}")
 
-        print("Select ability type:")
-        a_choice = selection_validation(list(available_abilities.keys()))
+        a_choice = selection_validation(
+            "Select ability type:",
+            list(available_abilities.keys()),
+            display_param="",
+            return_param="",
+        )
         if available_abilities[a_choice]:
-            print("Select ability to add:")
-            new_ability_name = selection_validation([a.name for a in available_abilities[a_choice]])
+            new_ability_name = selection_validation(
+                "Select ability to add:", [a.name for a in available_abilities[a_choice]]
+            )
 
             new_ability = [a for a in available_abilities[a_choice] if a.name == new_ability_name][
                 0
@@ -129,8 +134,9 @@ def build_role():
     print("\nStarting Role Creation")
     role_name = string_validation("What would you like to name this new Role?", "Name")
     role_desc = string_validation(f"How would you describe {role_name}?", "Description")
-    print(f"What type of armor would you like to make the {role_name}?")
-    armor_type = selection_validation(ARMOR_TYPES[:-1])
+    armor_type = selection_validation(
+        f"What type of armor would you like to make the {role_name}?", ARMOR_TYPES[:-1]
+    )
 
     a_types = _select_ability_types()
 

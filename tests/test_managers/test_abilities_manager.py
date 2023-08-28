@@ -120,7 +120,7 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_prin
 @patch("funclg.managers.modifier_manager.generate_modifier")
 @patch("funclg.managers.abilities_manager.update_data")
 @patch("funclg.managers.abilities_manager.confirmation")
-@patch("funclg.managers.abilities_manager.list_choice_selection")
+@patch("funclg.managers.abilities_manager.selection_validation")
 @patch("funclg.managers.abilities_manager.string_validation")
 def test_abilities_manager_build_ability(
     m_str_val, m_sel, m_confirm, m_update, m_mod_gen, m_id, test_magic

@@ -52,7 +52,7 @@ def character_export_expectation():
             "_id": "ROLES-12345-FEJSIG-67890",
             "abilities": [],
             "armor_type": 0,
-            "ability_types": ["None"],
+            "ability_types": ["Basic"],
             "description": "Test role",
             "name": "Test_Role",
         },
@@ -149,17 +149,18 @@ def test_character_dequip(basic_char):
     assert len(basic_char.inventory) == 1
 
 
-@patch("builtins.print")
-def test_character_show_inventory(m_print, basic_char, character_inventory_show_expectation):
-    expectation, test_inventory = character_inventory_show_expectation
-    basic_char.inventory = test_inventory
-
-    basic_char.show_inventory()
-    assert m_print.called_with(expectation)
-
-
 def test_character_add_power(basic_char):
-    t_ability = abilities.Abilities("Test_Ability", "None", "Test ability", {})
+    t_ability = abilities.Abilities("Test_Ability", "Basic", "Test ability", {})
     basic_char.add_power(t_ability)
     assert len(basic_char.role.abilities) == 1
     assert basic_char.role.abilities[0].name == t_ability.name
+
+
+# TODO: 20230827 - Move to future play class
+# @patch("builtins.print")
+# def test_character_show_inventory(m_print, basic_char, character_inventory_show_expectation):
+#     expectation, test_inventory = character_inventory_show_expectation
+#     basic_char.inventory = test_inventory
+
+#     basic_char.show_inventory()
+#     assert m_print.called_with(expectation)

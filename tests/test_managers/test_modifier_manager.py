@@ -14,12 +14,12 @@ from funclg.utils.types import ABILITY_TYPES
 
 @patch("funclg.managers.modifier_manager.confirmation")
 @patch("funclg.managers.modifier_manager.number_range_validation")
-@patch("funclg.managers.modifier_manager.list_choice_selection")
-def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, m_confirm):
+@patch("funclg.managers.modifier_manager.selection_validation")
+def test_modifier_manager_build_modifier_return_mod(m_sel, m_num_range, m_confirm):
     # Add and Mult Mod
     # Multi Adds and Mults
     # Tests return value
-    m_list_select.side_effect = [
+    m_sel.side_effect = [
         "energy",
         "Base Change",
         "attack",
@@ -38,7 +38,7 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
     )
     assert return_val.get_mods() == test_mod.get_mods()
 
-    m_list_select.side_effect = [
+    m_sel.side_effect = [
         "energy",
         "Base Change",
     ]
@@ -48,7 +48,7 @@ def test_modifier_manager_build_modifier_return_mod(m_list_select, m_num_range, 
     return_val = mod_man.build_modifier("Test_mod")
     assert return_val is None
 
-    m_list_select.side_effect = ["attack", "Percentage Change"]
+    m_sel.side_effect = ["attack", "Percentage Change"]
     m_num_range.side_effect = [50]
     m_confirm.side_effect = [False, False, False]
 

@@ -43,7 +43,7 @@ def build_ability():
     for _a_type, data in ABILITY_TYPES.items():
         print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
-    ability_type = selection_validation(list(ABILITY_TYPES.keys()))
+    ability_type = selection_validation("Choose from the above", list(ABILITY_TYPES.keys()))
     ability_name = string_validation(
         f"What would you like to name this new {ability_type}?", "Name"
     )
@@ -75,6 +75,7 @@ def select_ability():
     return None
 
 
+# TODO: 20230822 - Review copy usage. Item may be copied when added to role and does not need to be copied here then
 def filter_abilities_by_types(a_types: list):
     filtered_abilities = {}
     for a_type in a_types:

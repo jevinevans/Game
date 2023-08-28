@@ -28,7 +28,7 @@ def ability_ids():
 def abilities_gen_mods():
     mods = {}
     for a_type in ABILITY_TYPES:
-        if a_type == "None":
+        if a_type == "Basic":
             mods[a_type] = {}
         else:
             mods[a_type] = {ABILITY_TYPES[a_type]["m_type"]: {ABILITY_TYPES[a_type]["mods"][0]: 50}}
