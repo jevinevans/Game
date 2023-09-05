@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Aug 27 23:13:37 PDT 2023 
+Date: Mon Sep  4 23:45:55 PDT 2023 
 
 ---PYTEST---
 
@@ -28,25 +28,26 @@ tests/test_utils/test_types.py ...                                       [100%]
 ---------- coverage: platform linux, python 3.10.12-final-0 ----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------------------------------
-funclg/__init__.py                         0      0      0      0   100%
-funclg/__main__.py                        35     19      4      1    44%   38-40, 54-65, 69-76, 80
+funclg/__init__.py                         1      0      0      0   100%
+funclg/__main__.py                        37     21      4      1    41%   38-40, 54-65, 69-76, 80-82
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             66      0     20      0   100%
-funclg/character/armor.py                122      0     34      0   100%
-funclg/character/character.py             62      4     12      0    95%   143-145, 148-149
-funclg/character/equipment.py             83      0     10      0   100%
+funclg/character/armor.py                123      0     34      0   100%
+funclg/character/character.py             64      4     12      0    95%   146-148, 151-152
+funclg/character/equipment.py             89      0     10      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 73      0     26      0   100%
 funclg/character/stats.py                 62      0     28      0   100%
-funclg/game/__init__.py                   11     11      0      0     0%   5-46
+funclg/game/__init__.py                   11     11      0      0     0%   5-48
 funclg/game/combat.py                      0      0      0      0   100%
-funclg/game/game.py                        8      8      0      0     0%   20-40
-funclg/game/level.py                      36     36      6      0     0%   9-119
+funclg/game/game.py                       10     10      0      0     0%   20-46
+funclg/game/level.py                     152    152     46      0     0%   9-286
 funclg/game/rewards.py                     0      0      0      0   100%
 funclg/managers/__init__.py               15      2      4      0    79%   29-30
 funclg/managers/abilities_manager.py      66      0     22      1    99%   26->25
 funclg/managers/character_manager.py     117      0     52      3    98%   64->63, 67->70, 70->73
 funclg/managers/equipment_manager.py      88      1     30      2    97%   27->26, 95
+funclg/managers/level_manager.py           1      1      0      0     0%   3
 funclg/managers/modifier_manager.py       66      0     26      0   100%
 funclg/managers/roles_manager.py         118      0     50      2    99%   28->27, 114->128
 funclg/utils/__init__.py                   0      0      0      0   100%
@@ -55,11 +56,11 @@ funclg/utils/input_validation.py          40     28     16      0    21%   19-29
 funclg/utils/menu_funcs.py                36     16     14      0    48%   30-53
 funclg/utils/types.py                     17      0      6      1    96%   55->58
 ----------------------------------------------------------------------------------
-TOTAL                                   1233    138    406     11    88%
+TOTAL                                   1364    259    446     11    81%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 88.35%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 80.55%
 
-======================= 120 passed, 2 warnings in 1.18s ========================
+======================= 120 passed, 2 warnings in 1.34s ========================
 
 ---Code Quality Report---
 
@@ -69,28 +70,31 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 88.35%
 
 -----PYLINT-----
 
+************* Module funclg
+funclg/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module funclg.__main__
 funclg/__main__.py:46:39: W0511: TODO: add play instance (fixme)
 funclg/__main__.py:52:1: W0511: TODO: Consider initializing the database calls to load and add the textual/rich progress loaders (fixme)
 ************* Module funclg.character.character
-funclg/character/character.py:32:1: W0511: TODO: Make Char update in a new branch - 6.17.2023 (fixme)
-funclg/character/character.py:33:1: W0511: TODO: Char Update - 1: Update character so that it is generalized (fixme)
-funclg/character/character.py:34:1: W0511: TODO: Char Update - 2: Create a class called playable character for the user (fixme)
-funclg/character/character.py:35:1: W0511: TODO: Char Update - 3: Create the NPC class that can be used later for random generation (fixme)
-funclg/character/character.py:46:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
+funclg/character/character.py:34:1: W0511: TODO: Make Char update in a new branch - 6.17.2023 (fixme)
+funclg/character/character.py:35:1: W0511: TODO: Char Update - 1: Update character so that it is generalized (fixme)
+funclg/character/character.py:36:1: W0511: TODO: Char Update - 2: Create a class called playable character for the user (fixme)
+funclg/character/character.py:37:1: W0511: TODO: Char Update - 3: Create the NPC class that can be used later for random generation (fixme)
+funclg/character/character.py:48:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:21:1: W0511: TODO: add energy cost attribute (fixme)
 funclg/character/abilities.py:118:5: W0511: TODO def use() (fixme)
 ************* Module funclg.character.equipment
 funclg/character/equipment.py:23:1: W0511: TODO: Change equipment display methods (fixme)
 funclg/character/equipment.py:151:5: W0511: TODO: Change equipment display methods (fixme)
-funclg/character/equipment.py:176:5: W0511: TODO: Override details to include the weapon type (fixme)
-funclg/character/equipment.py:215:5: W0511: TODO: Change equipment display methods (fixme)
+funclg/character/equipment.py:180:5: W0511: TODO: Override details to include the weapon type (fixme)
+funclg/character/equipment.py:219:5: W0511: TODO: Change equipment display methods (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:66:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.armor
 funclg/character/armor.py:34:9: W0511: TODO: 20240629 - Change to stats instead of stat (fixme)
 funclg/character/armor.py:38:9: W0511: TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified (fixme)
+funclg/character/armor.py:174:21: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
 ************* Module funclg.character.stats
 funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
 funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
@@ -108,16 +112,26 @@ funclg/utils/types.py:7:1: W0511: TODO: Consider changing IT, AT and WT to enums
 funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
 ************* Module funclg.game.level
 funclg/game/level.py:22:1: W0511: TODO: Create a level manager (fixme)
-funclg/game/level.py:49:12: W0511: TODO: Consider if this should be private and only callable (fixme)
-funclg/game/level.py:62:5: W0511: TODO: Consider doing a precheck to make sure the running system can print the boundary characters, if not then use alternatives (fixme)
-funclg/game/level.py:77:12: W0511: TODO: Decide whether to do a proper floor calculation or not (fixme)
-funclg/game/level.py:85:9: W0511: TODO: I want to be able to make a decision if a block should be reward, enemy etc. (fixme)
-funclg/game/level.py:122:1: W0511: TODO REMOVE ME (fixme)
+funclg/game/level.py:29:1: W0511: TODO: 20230827 - Future: Consider allowing user to define their own boundary characters or just multiple custom packs or options the end user can choose from. Change to a structured format that is loaded in a specific order and then multiples can be chosen from. (fixme)
+funclg/game/level.py:98:12: W0511: TODO: 202308 - Decide whether to do a proper floor calculation or not (fixme)
+funclg/game/level.py:103:9: W0511: TODO: 20230904 - Should enemy positions be tracked too...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (fixme)
+funclg/game/level.py:104:9: W0511: TODO: 20230904 - Create tests (fixme)
+funclg/game/level.py:106:9: W0511: TODO: 202308 - Consider if this should be private and only callable (fixme)
+funclg/game/level.py:273:1: W0511: TODO REMOVE ME (fixme)
 funclg/game/level.py:9:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/game/level.py:25:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/game/level.py:24:0: C0413: Import "from enum import Enum, auto" should be placed at the top of the module (wrong-import-position)
+funclg/game/level.py:26:0: C0413: Import "from loguru import logger" should be placed at the top of the module (wrong-import-position)
+funclg/game/level.py:30:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/game/level.py:48:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/game/level.py:66:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/game/level.py:74:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/game/level.py:82:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/game/level.py:91:8: C0103: Attribute name "GAME_BOUNDARIES" doesn't conform to snake_case naming style (invalid-name)
 ************* Module funclg.game.game
+funclg/game/game.py:43:9: W0511: TODO: I want to be able to make a decision if a block should be reward, enemy etc. (fixme)
 funclg/game/game.py:20:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/game/game.py:23:4: E0211: Method '__init__' has no argument (no-method-argument)
+************* Module funclg.game.__init__
+funclg/game/__init__.py:44:5: W0511: TODO: Do a precheck to make sure the running system can print the level boundary characters, if not then use alternative boundaries (fixme)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:25:5: W0511: TODO: On edit, needs to update all values (fixme)
 funclg/managers/roles_manager.py:55:9: W0511: TODO: Add description print out (fixme)
@@ -133,10 +147,60 @@ funclg/managers/abilities_manager.py:78:1: W0511: TODO: 20230822 - Review copy u
 funclg/managers/modifier_manager.py:49:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
 funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
 funclg/managers/modifier_manager.py:80:1: W0511: TODO: 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
+************* Module funclg.managers.level_manager
+funclg/managers/level_manager.py:1:1: W0511: TODO: Create a level manager (fixme)
 ************* Module funclg.managers.character_manager
 funclg/managers/character_manager.py:92:5: W0511: TODO: 2023.06.17 - Add the option to skip (fixme)
 funclg/managers/character_manager.py:114:5: W0511: TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.56/10 (previous run: 9.54/10, +0.02)
+Your code has been rated at 9.54/10 (previous run: 9.40/10, +0.14)
 
++==============================================================================+
+
+                               /$$$$$$            /$$
+                              /$$__  $$          | $$
+           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
+          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
+         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
+          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
+          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
+         |_______/  \_______/|__/     \_______/   \___/   \____  $$
+                                                          /$$  | $$
+                                                         |  $$$$$$/
+  by pyup.io                                              \______/
+
++==============================================================================+
+
+ [1mREPORT[0m 
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
+  Safety [1mv2.3.5[0m is scanning for [1mVulnerabilities[0m[1m...[0m
+[1m  Scanning dependencies[0m in your [1menvironment:[0m
+
+  -> /home/jevinle/.cache/pypoetry/virtualenvs/funclg-
+    AThUaF5z-py3.10/lib/python3.10/site-packages
+
+  Using [1mnon-commercial database[0m
+[1m  Found and scanned 69 packages[0m
+  Timestamp [1m2023-09-04 23:46:09[0m
+[1m  0[0m[1m vulnerabilities found[0m
+[1m  0[0m[1m vulnerabilities ignored[0m
++==============================================================================+
+
+ [32m[1mNo known security vulnerabilities found.[0m 
+
++==============================================================================+
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
++==============================================================================+[0m

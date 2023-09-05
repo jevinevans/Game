@@ -23,6 +23,7 @@ pyright = "^1.1.283"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.3.3"
+safety = "^2.3.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

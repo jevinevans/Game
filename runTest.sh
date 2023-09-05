@@ -30,3 +30,5 @@ poetry run pylint ./funclg &>> $REPORT
 # echo -e "\n-----PYRIGHT-----\n"
 # export NODE\_OPTIONS=--experimental-worker
 # poetry run pyright ./funclg &>> $REPORT
+
+poetry run safety check >> $REPORT
