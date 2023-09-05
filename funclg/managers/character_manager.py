@@ -23,6 +23,11 @@ from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 CHARACTER_DATA = {"filename": "characters.json", "data": {}, "objects": {}}
 
 
+def load_data():
+    db.load_data(CHARACTER_DATA)
+    update_data()
+
+
 def _update_char_role(data: dict, new_data: dict):
     char_role_abilities = []
     logger.debug(data["role"])
@@ -221,5 +226,5 @@ MENU = {
     ],
 }
 
-db.load_data(CHARACTER_DATA)
-update_data()
+if __name__ == "__main__":
+    load_data()

@@ -19,6 +19,11 @@ from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
 
+def load_data():
+    db.load_data(EQUIPMENT_DATA)
+    update_data()
+
+
 def update_data():
     logger.debug("Function called")
     db.update_data(EQUIPMENT_DATA)
@@ -173,5 +178,6 @@ MENU = {
     ],
 }
 
-db.load_data(EQUIPMENT_DATA)
-update_data()
+
+if __name__ == "__main__":
+    load_data()

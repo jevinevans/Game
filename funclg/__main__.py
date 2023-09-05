@@ -62,6 +62,7 @@ def game_start_up():
 
     # Builds Menus
     logger.info("Menuas Loadas...")
+    managers.load_data()
     return build_main_menu()
 
 

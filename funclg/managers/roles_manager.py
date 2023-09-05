@@ -21,6 +21,11 @@ from funclg.utils.types import ABILITY_TYPES, ARMOR_TYPES
 ROLES_DATA = {"filename": "roles.json", "data": {}, "objects": {}}
 
 
+def load_data():
+    db.load_data(ROLES_DATA)
+    update_data()
+
+
 def update_data():
     # TODO: On edit, needs to update all values
     db.update_data(ROLES_DATA)
@@ -221,5 +226,5 @@ MENU = {
     ],
 }
 
-db.load_data(ROLES_DATA)
-update_data()
+if __name__ == "__main__":
+    load_data()

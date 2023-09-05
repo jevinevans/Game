@@ -157,6 +157,7 @@ def test_abilities_manager_build_ability(
 
 
 def test_abilities_manager_filter_abilities_by_types():
+    ab_man.load_data()
     assert ab_man.ABILITIES_DATA["objects"]
 
     # Single Type Test

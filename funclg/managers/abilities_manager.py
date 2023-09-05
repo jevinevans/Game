@@ -19,6 +19,11 @@ from funclg.utils.types import ABILITY_TYPES
 ABILITIES_DATA = {"filename": "abilities.json", "data": {}, "objects": {}}
 
 
+def load_data():
+    db.load_data(ABILITIES_DATA)
+    update_data()
+
+
 def update_data():
     db.update_data(ABILITIES_DATA)
 
@@ -122,5 +127,5 @@ MENU = {
     ],
 }
 
-db.load_data(ABILITIES_DATA)
-update_data()
+if __name__ == "__main__":
+    load_data()

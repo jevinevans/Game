@@ -249,6 +249,7 @@ def test_roles_manager_select_ability_types(m_sel, m_confirm, test_mage):
 @patch("funclg.managers.roles_manager.confirmation")
 @patch("funclg.managers.roles_manager.selection_validation")
 def test_roles_manager_select_role_abilities(m_sel, m_confirm, test_mage):
+    role_man.ab_man.load_data()
     # Success Test
     abilities = test_mage["abilities"]
     ability_objs = [Abilities(**_ability) for _ability in test_mage["abilities"]]
@@ -283,6 +284,7 @@ def test_roles_manager_select_role_abilities_no_abilities_added(m_sel, m_confirm
 @patch("funclg.managers.roles_manager.confirmation")
 @patch("funclg.managers.roles_manager.selection_validation")
 def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, test_mage):
+    role_man.ab_man.load_data()
     # Limited ability type
     test_heal_ability = {
         "name": "Heal",
