@@ -6,6 +6,8 @@ Description: The character that will be used. The character will have a role, ab
 
 from typing import Any, Dict, Optional
 
+from loguru import logger
+
 import funclg.utils.data_mgmt as db
 from funclg.character.abilities import Abilities
 from funclg.character.armor import Armor
@@ -91,6 +93,7 @@ class Character:
         return self._id
 
     def export(self) -> Dict[str, Any]:
+        logger.debug(f"Exporting Character: {self.name}")
         exporter = self.__dict__.copy()
         for key, value in exporter.items():
             if isinstance(value, Armor):

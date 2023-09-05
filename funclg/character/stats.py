@@ -105,7 +105,7 @@ class Stats:
         return stats
 
     def export(self) -> Dict[str, Any]:
-        logger.info("Exporting Stats")
+        logger.debug("Exporting Stats")
         return self.__dict__.copy()
 
     # def level_up(self):

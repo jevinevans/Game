@@ -173,6 +173,10 @@ class WeaponEquipment(Equipment):
             _id=self.id,
         )
 
+    def export(self):
+        logger.debug(f"Exporting Weapon: {self.name}")
+        return super().export()
+
     # TODO: Override details to include the weapon type
 
 
@@ -229,3 +233,7 @@ class BodyEquipment(Equipment):
             item_type=self.item_type,
             _id=self.id,
         )
+
+    def export(self):
+        logger.debug(f"Exporting Armor: {self.name}")
+        return super().export()

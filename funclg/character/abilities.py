@@ -93,7 +93,7 @@ class Abilities:
         return desc
 
     def export(self) -> Dict[str, Any]:
-        logger.info(f"Exporting Ability: {self.name}")
+        logger.debug(f"Exporting Ability: {self.name}")
         exporter = self.__dict__.copy()
         for key, value in exporter.items():
             if isinstance(value, Modifier):

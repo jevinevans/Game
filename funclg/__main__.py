@@ -77,4 +77,6 @@ def main():
 
 
 if __name__ == "__main__":
+    logger.remove(0)
+    logger.add(sys.stderr, level="DEBUG")
     main()
