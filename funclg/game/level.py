@@ -5,12 +5,12 @@ Date: 2.20.2023
 """
 
 # Needs to be able to create levels based on provide information and possible keep some statistics about what occured at the level
-# Levels should be grid based structures 5x5 or 7x7 or odd number grid less than 10x10 to hold user, enemies, and boss and rewards
+# Levels should be level based structures 5x5 or 7x7 or odd number level less than 10x10 to hold user, enemies, and boss and rewards
 """
 Level Creation Process/Steps:
     User's character stats are provided for calculating power of enemies
-    Generates the appropriate grid
-    - for odd NxN grid, there should be N rewards and 2N enemies
+    Generates the appropriate level
+    - for odd NxN level, there should be N rewards and 2N enemies
 """
 
 # Should include the monsters on the level, the rewards, and the experience that can be earned
@@ -21,106 +21,247 @@ Level Creation Process/Steps:
 
 # TODO: Create a level manager
 
+from enum import Enum, auto
 
-class GameLevel:
-    # SPACE ICONS
-    SPACE_SYMBOL = "\U000025A0"
-    COMPLETED_SPACE_SYMBOL = "\U000025A1"
+from loguru import logger
+
+
+# TODO: 20230827 - Future: Consider allowing user to define their own boundary characters or just multiple custom packs or options the end user can choose from. Change to a structured format that is loaded in a specific order and then multiples can be chosen from.
+class RegIcons(Enum):
+    SPACE = "\u25A0"
 
     # BOUNDARY ICONS
-    HORIZONTAL_BOUND_SYMBOL = "\U00002550"
-    VERTICAL_BOUND_SYMBOL = "\U00002551"
-    CORNER_BOUND_SYMBOLS = [
-        "\U00002554",
-        "\U00002557",
-        "\U0000255A",
-        "\U0000255D",
-    ]  # Top Left, Top Right, Bottom Left, Bottom Right
+    HORIZONTAL_EDGE = "\u2550"
+    VERTICAL_EDGE = "\u2551"
+    TL_CORNER = "\u2554"
+    TR_CORNER = "\u2557"
+    BL_CORNER = "\u255A"
+    BR_CORNER = "\u255D"
 
     # PLAYER/TOKEN ICONS
-    PLAYER_ICON = "\U000025CA"
-    KEY_ICON = "\U00002625"
-    BOSS_ICON = "\U00002620"
+    PLAYER = "\u25CA"
+    KEY = "\u2625"
+    BOSS = "\u265A"
+    ENEMY = "\u265F"
 
-    def __init__(self, game_settings: dict):
-        self.grid_width = game_settings["level_size"]
-        self.grid = (
-            self.generate_grid()
-        )  # TODO: Consider if this should be private and only callable
-        self.player_pos = (0, 0)
+
+class AltIcons(Enum):
+    SPACE = "_"
+
+    # BOUNDARY ICONS
+    HORIZONTAL_EDGE = "-"
+    VERTICAL_EDGE = "|"
+    TL_CORNER = "+"
+    TR_CORNER = "+"
+    BL_CORNER = "+"
+    BR_CORNER = "+"
+
+    # PLAYER/TOKEN ICONS
+    PLAYER = "P"
+    KEY = "K"
+    BOSS = "B"
+    ENEMY = "E"
+
+
+class GamePiece(Enum):
+    SPACE = auto()
+    PLAYER = auto()
+    ENEMY = auto()
+    KEY = auto()
+    BOSS = auto()
+
+
+class GameAction(Enum):
+    READY = auto()
+    COMBAT = auto()
+    WIN = auto()
+    DIE = auto()
+    ERROR = auto()
+
+
+class GameLevel:
+    ALTERNATIVE_BOUNDARY = False
+    MAX_SIZE = 16
+    MIN_SIZE = 5
+    DEFAULT_SIZE = 7
+
+    def __init__(self, level_size: int):
+        self.GAME_BOUNDARIES = AltIcons if GameLevel.ALTERNATIVE_BOUNDARY else RegIcons
+
+        self._validate_level_size(level_size)
+
+        # Set Position Defaults
+        half_way = int(
+            round(self.level_size / 2, 1)
+        )  # TODO: 202308 - Decide whether to do a proper floor calculation or not
+
+        self.player_pos = (0, self.level_size - 1)
+        self.boss_pos = (half_way, half_way)
+        self.key_pos = (self.level_size - 1, 0)
+        # TODO: 20230904 - Should enemy positions be tracked too...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # TODO: 20230904 - Create tests
+
+        # TODO: 202308 - Consider if this should be private and only callable
+        self._level = self.generate_level()
+        self.completed = False
+
+    @property
+    def level(self):
+        return tuple(self._level)
+
+    def _validate_level_size(self, level_size: int):
+        level_size = int(level_size)
+        match level_size:
+            case _ if level_size < self.MIN_SIZE:
+                logger.warning("That's a really small level, let's get you a better map instead")
+                self.level_size = self.MIN_SIZE
+            case _ if level_size > self.MAX_SIZE:
+                logger.warning("This level is waaay to big, I think you'll like this hard map")
+                self.level_size = self.MAX_SIZE
+            case _:
+                self.level_size = level_size
 
     def coord_to_int(self, coordinate: set[int, int]):
         if (
             coordinate[0] >= 0
-            and coordinate[0] < self.grid_width
+            and coordinate[0] < self.level_size
             and coordinate[1] >= 0
-            and coordinate[1] < self.grid_width
+            and coordinate[1] < self.level_size
         ):
-            return self.grid_width * coordinate[1] + coordinate[0]
+            return self.level_size * coordinate[1] + coordinate[0]
         raise IndexError("Coordinate is out range")
 
-    # TODO: Consider doing a precheck to make sure the running system can print the boundary characters, if not then use alternatives
-    def generate_grid(self):
+    def int_to_coord(self, location: int):
+        if location in range(self.level_size**2):
+            x_cord = location // self.level_size
+            y_cord = location % self.level_size
+            return (x_cord, y_cord)
+        raise IndexError("Location is out of range")
+
+    def generate_level(self):
         """
         _summary_
 
-        :return: The constructer level grid with player, boss, and key icon.
+        :return: The constructer level level with player, boss, and key icon.
         :rtype: List[str]
         """
-        # Build Grid
-        temp_grid = [GameLevel.SPACE_SYMBOL for _ in range((self.grid_width) ** 2)]
+        # Build level
+        temp_level = [self.GAME_BOUNDARIES.SPACE.value for _ in range((self.level_size) ** 2)]
+        temp_level[self.coord_to_int(self.player_pos)] = self.GAME_BOUNDARIES.PLAYER.value
+        temp_level[self.coord_to_int(self.key_pos)] = self.GAME_BOUNDARIES.KEY.value
+        temp_level[self.coord_to_int(self.boss_pos)] = self.GAME_BOUNDARIES.BOSS.value
 
-        temp_grid[self.coord_to_int((0, self.grid_width - 1))] = GameLevel.PLAYER_ICON
+        return temp_level
 
-        half_way = int(
-            round(self.grid_width / 2, 1)
-        )  # TODO: Decide whether to do a proper floor calculation or not
-        temp_grid[self.coord_to_int((half_way, half_way))] = GameLevel.KEY_ICON
+    def _reserved_coord_check(self, coords: tuple[int, int]):
+        """
+        Checks if the coord is currently a reserved value
 
-        temp_grid[self.coord_to_int((self.grid_width - 1, 0))] = GameLevel.BOSS_ICON
+        :param coords: _description_
+        :type coords: tuple[int, int]
+        """
+        if coords in [self.player_pos, self.boss_pos, self.key_pos]:
+            return True
+        return False
 
-        return temp_grid
+    def _same_piece_check(self, game_piece: GamePiece, level_loc: int):
+        """
+        Checks if the game piece is already at the location
 
-    def generate_difficulty(self):
-        # TODO: I want to be able to make a decision if a block should be reward, enemy etc.
-        # Should this automatically(randomly) completed before or done randomly as player progresses
-        # How should the history of the space be preserved should it be tracked in another grid or should the slots be objects that track their status and use bools for status and visualization, and completion
-        raise NotImplementedError
+        :param game_piece: _description_
+        :type game_piece: GamePiece
+        :param level_loc: _description_
+        :type level_loc: int
+        :return: _description_
+        :rtype: _type_
+        """
+        match game_piece:
+            case GamePiece.ENEMY:
+                return self._level[level_loc] == self.GAME_BOUNDARIES.ENEMY.value
+            case GamePiece.KEY:
+                return self._level[level_loc] == self.GAME_BOUNDARIES.KEY.value
+            case GamePiece.BOSS:
+                return self._level[level_loc] == self.GAME_BOUNDARIES.BOSS.value
+            case GamePiece.PLAYER:
+                return self._level[level_loc] == self.GAME_BOUNDARIES.PLAYER.value
+            case _:
+                return False
 
-    def update_grid(self):
+    def _validate_level_update_pos(
+        self, game_piece: GamePiece, coords: tuple[int, int], level_loc: int
+    ):
+        if not self._level[level_loc] == self.GAME_BOUNDARIES.SPACE:
+            if not self._same_piece_check(game_piece=game_piece, level_loc=level_loc):
+                if self._reserved_coord_check(coords=coords):
+                    return False
+        return True
+
+    def update_level(self, game_piece: GamePiece, coords: tuple[int, int]):
         # This function will take an object (player/enemy or reward/equipment) and add/remove it to the playable level
         # This function should also be used to update the placement of the main character
-        raise NotImplementedError
+        try:
+            level_loc = self.coord_to_int(coords)
+        except IndexError:
+            logger.error("That location is not on the map silly....")
+            return GameAction.ERROR
 
-    def print_grid(self):
+        if self._validate_level_update_pos(
+            game_piece=game_piece, coords=coords, level_loc=level_loc
+        ):
+            match game_piece:
+                case GamePiece.ENEMY:
+                    self._level[level_loc] = self.GAME_BOUNDARIES.ENEMY.value
+                case GamePiece.KEY:
+                    self._level[self.coord_to_int(self.key_pos)] = self.GAME_BOUNDARIES.SPACE.value
+                    self.key_pos = coords
+                    self._level[level_loc] = self.GAME_BOUNDARIES.KEY.value
+                case GamePiece.BOSS:
+                    self._level[self.coord_to_int(self.boss_pos)] = self.GAME_BOUNDARIES.SPACE.value
+                    self.boss_pos = coords
+                    self._level[level_loc] = self.GAME_BOUNDARIES.BOSS.value
+                case GamePiece.PLAYER:
+                    self._level[
+                        self.coord_to_int(self.player_pos)
+                    ] = self.GAME_BOUNDARIES.SPACE.value
+                    self.player_pos = coords
+                    self._level[level_loc] = self.GAME_BOUNDARIES.PLAYER.value
+
+            return GameAction.READY
+
+        if game_piece is GamePiece.PLAYER:
+            if self._level[level_loc] is self.GAME_BOUNDARIES.ENEMY | self.GAME_BOUNDARIES.BOSS:
+                return GameAction.COMBAT
+
+            if self._level[level_loc] is self.GAME_BOUNDARIES.KEY:
+                return GameAction.WIN
+
+        return GameAction.ERROR
+
+    def display_level(self):
         """
-        This function prints the level grid and a boarder around it to the screen.
+        This function prints the level level and a boarder around it to the screen.
         """
         # Add Design Boundary
         header = (
-            GameLevel.CORNER_BOUND_SYMBOLS[0]
-            + GameLevel.HORIZONTAL_BOUND_SYMBOL * self.grid_width
-            + GameLevel.CORNER_BOUND_SYMBOLS[1]
+            self.GAME_BOUNDARIES.TL_CORNER.value
+            + self.GAME_BOUNDARIES.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
+            + self.GAME_BOUNDARIES.TR_CORNER.value
         )
         footer = (
-            GameLevel.CORNER_BOUND_SYMBOLS[2]
-            + GameLevel.HORIZONTAL_BOUND_SYMBOL * self.grid_width
-            + GameLevel.CORNER_BOUND_SYMBOLS[3]
+            self.GAME_BOUNDARIES.BL_CORNER.value
+            + self.GAME_BOUNDARIES.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
+            + self.GAME_BOUNDARIES.BR_CORNER.value
         )
 
-        # Print Grid with Boundary
+        # Print level with Boundary
         print(header)
-        for index in range(self.grid_width):
+        for index in range(self.level_size):
             print(
-                "".join(
-                    self.grid[index * self.grid_width : index * self.grid_width + self.grid_width]
-                ).center(self.grid_width + 2, GameLevel.VERTICAL_BOUND_SYMBOL)
+                " ".join(
+                    self._level[index * self.level_size : index * self.level_size + self.level_size]
+                ).center(self.level_size * 2 + 1, self.GAME_BOUNDARIES.VERTICAL_EDGE.value)
             )
         print(footer)
 
-
-# TODO REMOVE ME
-# if __name__ == "__main__":
-#     new_level = GameLevel(game_settings={"level_size": 7})
-#     new_level.grid[new_level.coord_to_int((1, 3))] = GameLevel.COMPLETED_SPACE_SYMBOL
-#     new_level.print_grid()
+    # def export_level():
+    # def load_level():

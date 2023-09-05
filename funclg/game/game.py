@@ -20,7 +20,7 @@ Date: 2.20.2023
 class Game:
     START_MESSAGE = ""
 
-    def __init__():
+    def __init__(self):
         # User selects or it is passed in an available player to play with
         #  If no character, initiate the building of a character
         # User selects level difficulty
@@ -37,4 +37,10 @@ class Game:
 
     def save(self):
         # Need to be able to save game process and status, including level set up and remaining efforts
+        raise NotImplementedError
+
+    def generate_difficulty(self):
+        # TODO: I want to be able to make a decision if a block should be reward, enemy etc.
+        # Should this automatically(randomly) completed before or done randomly as player progresses
+        # How should the history of the space be preserved should it be tracked in another grid or should the slots be objects that track their status and use bools for status and visualization, and completion
         raise NotImplementedError
