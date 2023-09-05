@@ -41,6 +41,8 @@ def game_setup():
     # Build levels based on settings
     # Select Character
 
+    # TODO: Do a precheck to make sure the running system can print the level boundary characters, if not then use alternative boundaries
+
 
 def game_start():
     raise NotImplementedError
