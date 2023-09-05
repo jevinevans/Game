@@ -30,8 +30,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 20   |
-|         Files: 117         |
-|         Lines: 6065        |
+|         Files: 118         |
+|         Lines: 6262        |
 +============================+
 
 ./tests
@@ -268,6 +268,7 @@ FUNCLG Directories and Files
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
 ./funclg/managers/modifier_manager.py
+./funclg/managers/level_manager.py
 ./funclg/managers/character_manager.py
 ./funclg/managers/__init__.py
 <<<<<<< HEAD
