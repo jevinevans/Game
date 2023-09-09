@@ -4,6 +4,7 @@ Developer: Jevin Evans
 Date: 2.20.2023
 """
 
+# TODO: 20230905 -  Clean up
 # Needs to be able to create levels based on provide information and possible keep some statistics about what occured at the level
 # Levels should be level based structures 5x5 or 7x7 or odd number level less than 10x10 to hold user, enemies, and boss and rewards
 """
@@ -19,74 +20,20 @@ Level Creation Process/Steps:
 # Create a util that will generate npcs based on the current characters stats so that it is challenging but allows them to win
 # Needs to be semi efficient, might consider specifying specific types of mobs
 
-# TODO: Create a level manager
-
-from enum import Enum, auto
 
 from loguru import logger
 
-
-# TODO: 20230827 - Future: Consider allowing user to define their own boundary characters or just multiple custom packs or options the end user can choose from. Change to a structured format that is loaded in a specific order and then multiples can be chosen from.
-class RegIcons(Enum):
-    SPACE = "\u25A0"
-
-    # BOUNDARY ICONS
-    HORIZONTAL_EDGE = "\u2550"
-    VERTICAL_EDGE = "\u2551"
-    TL_CORNER = "\u2554"
-    TR_CORNER = "\u2557"
-    BL_CORNER = "\u255A"
-    BR_CORNER = "\u255D"
-
-    # PLAYER/TOKEN ICONS
-    PLAYER = "\u25CA"
-    KEY = "\u2625"
-    BOSS = "\u265A"
-    ENEMY = "\u265F"
-
-
-class AltIcons(Enum):
-    SPACE = "_"
-
-    # BOUNDARY ICONS
-    HORIZONTAL_EDGE = "-"
-    VERTICAL_EDGE = "|"
-    TL_CORNER = "+"
-    TR_CORNER = "+"
-    BL_CORNER = "+"
-    BR_CORNER = "+"
-
-    # PLAYER/TOKEN ICONS
-    PLAYER = "P"
-    KEY = "K"
-    BOSS = "B"
-    ENEMY = "E"
-
-
-class GamePiece(Enum):
-    SPACE = auto()
-    PLAYER = auto()
-    ENEMY = auto()
-    KEY = auto()
-    BOSS = auto()
-
-
-class GameAction(Enum):
-    READY = auto()
-    COMBAT = auto()
-    WIN = auto()
-    DIE = auto()
-    ERROR = auto()
+from funclg.utils.game_enums import AltIcons, GameAction, GamePiece, RegIcons
 
 
 class GameLevel:
-    ALTERNATIVE_BOUNDARY = False
+    ALT_ICONS = False
     MAX_SIZE = 16
     MIN_SIZE = 5
     DEFAULT_SIZE = 7
 
     def __init__(self, level_size: int):
-        self.GAME_BOUNDARIES = AltIcons if GameLevel.ALTERNATIVE_BOUNDARY else RegIcons
+        self.ICONS = AltIcons if GameLevel.ALT_ICONS else RegIcons
 
         self._validate_level_size(level_size)
 
@@ -114,10 +61,10 @@ class GameLevel:
         match level_size:
             case _ if level_size < self.MIN_SIZE:
                 logger.warning("That's a really small level, let's get you a better map instead")
-                self.level_size = self.MIN_SIZE
+                self.level_size = self.DEFAULT_SIZE
             case _ if level_size > self.MAX_SIZE:
-                logger.warning("This level is waaay to big, I think you'll like this hard map")
-                self.level_size = self.MAX_SIZE
+                logger.warning("This level is waaay to big, let's get you a better map instead")
+                self.level_size = self.DEFAULT_SIZE
             case _:
                 self.level_size = level_size
 
@@ -146,10 +93,10 @@ class GameLevel:
         :rtype: List[str]
         """
         # Build level
-        temp_level = [self.GAME_BOUNDARIES.SPACE.value for _ in range((self.level_size) ** 2)]
-        temp_level[self.coord_to_int(self.player_pos)] = self.GAME_BOUNDARIES.PLAYER.value
-        temp_level[self.coord_to_int(self.key_pos)] = self.GAME_BOUNDARIES.KEY.value
-        temp_level[self.coord_to_int(self.boss_pos)] = self.GAME_BOUNDARIES.BOSS.value
+        temp_level = [self.ICONS.SPACE.value for _ in range((self.level_size) ** 2)]
+        temp_level[self.coord_to_int(self.player_pos)] = self.ICONS.PLAYER.value
+        temp_level[self.coord_to_int(self.key_pos)] = self.ICONS.KEY.value
+        temp_level[self.coord_to_int(self.boss_pos)] = self.ICONS.BOSS.value
 
         return temp_level
 
@@ -177,20 +124,20 @@ class GameLevel:
         """
         match game_piece:
             case GamePiece.ENEMY:
-                return self._level[level_loc] == self.GAME_BOUNDARIES.ENEMY.value
+                return self._level[level_loc] == self.ICONS.ENEMY.value
             case GamePiece.KEY:
-                return self._level[level_loc] == self.GAME_BOUNDARIES.KEY.value
+                return self._level[level_loc] == self.ICONS.KEY.value
             case GamePiece.BOSS:
-                return self._level[level_loc] == self.GAME_BOUNDARIES.BOSS.value
+                return self._level[level_loc] == self.ICONS.BOSS.value
             case GamePiece.PLAYER:
-                return self._level[level_loc] == self.GAME_BOUNDARIES.PLAYER.value
+                return self._level[level_loc] == self.ICONS.PLAYER.value
             case _:
                 return False
 
     def _validate_level_update_pos(
         self, game_piece: GamePiece, coords: tuple[int, int], level_loc: int
     ):
-        if not self._level[level_loc] == self.GAME_BOUNDARIES.SPACE:
+        if not self._level[level_loc] == self.ICONS.SPACE:
             if not self._same_piece_check(game_piece=game_piece, level_loc=level_loc):
                 if self._reserved_coord_check(coords=coords):
                     return False
@@ -210,29 +157,28 @@ class GameLevel:
         ):
             match game_piece:
                 case GamePiece.ENEMY:
-                    self._level[level_loc] = self.GAME_BOUNDARIES.ENEMY.value
+                    self._level[level_loc] = self.ICONS.ENEMY.value
                 case GamePiece.KEY:
-                    self._level[self.coord_to_int(self.key_pos)] = self.GAME_BOUNDARIES.SPACE.value
+                    self._level[self.coord_to_int(self.key_pos)] = self.ICONS.SPACE.value
                     self.key_pos = coords
-                    self._level[level_loc] = self.GAME_BOUNDARIES.KEY.value
+                    self._level[level_loc] = self.ICONS.KEY.value
                 case GamePiece.BOSS:
-                    self._level[self.coord_to_int(self.boss_pos)] = self.GAME_BOUNDARIES.SPACE.value
+                    self._level[self.coord_to_int(self.boss_pos)] = self.ICONS.SPACE.value
                     self.boss_pos = coords
-                    self._level[level_loc] = self.GAME_BOUNDARIES.BOSS.value
+                    self._level[level_loc] = self.ICONS.BOSS.value
                 case GamePiece.PLAYER:
-                    self._level[
-                        self.coord_to_int(self.player_pos)
-                    ] = self.GAME_BOUNDARIES.SPACE.value
+                    self._level[self.coord_to_int(self.player_pos)] = self.ICONS.SPACE.value
                     self.player_pos = coords
-                    self._level[level_loc] = self.GAME_BOUNDARIES.PLAYER.value
+                    self._level[level_loc] = self.ICONS.PLAYER.value
 
             return GameAction.READY
 
         if game_piece is GamePiece.PLAYER:
-            if self._level[level_loc] is self.GAME_BOUNDARIES.ENEMY | self.GAME_BOUNDARIES.BOSS:
+            if self._level[level_loc] is self.ICONS.ENEMY | self.ICONS.BOSS:
                 return GameAction.COMBAT
 
-            if self._level[level_loc] is self.GAME_BOUNDARIES.KEY:
+            if self._level[level_loc] is self.ICONS.KEY:
+                self.completed = True
                 return GameAction.WIN
 
         return GameAction.ERROR
@@ -243,14 +189,14 @@ class GameLevel:
         """
         # Add Design Boundary
         header = (
-            self.GAME_BOUNDARIES.TL_CORNER.value
-            + self.GAME_BOUNDARIES.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
-            + self.GAME_BOUNDARIES.TR_CORNER.value
+            self.ICONS.TL_CORNER.value
+            + self.ICONS.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
+            + self.ICONS.TR_CORNER.value
         )
         footer = (
-            self.GAME_BOUNDARIES.BL_CORNER.value
-            + self.GAME_BOUNDARIES.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
-            + self.GAME_BOUNDARIES.BR_CORNER.value
+            self.ICONS.BL_CORNER.value
+            + self.ICONS.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
+            + self.ICONS.BR_CORNER.value
         )
 
         # Print level with Boundary
@@ -259,7 +205,7 @@ class GameLevel:
             print(
                 " ".join(
                     self._level[index * self.level_size : index * self.level_size + self.level_size]
-                ).center(self.level_size * 2 + 1, self.GAME_BOUNDARIES.VERTICAL_EDGE.value)
+                ).center(self.level_size * 2 + 1, self.ICONS.VERTICAL_EDGE.value)
             )
         print(footer)
 
