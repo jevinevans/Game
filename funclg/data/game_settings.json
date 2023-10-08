@@ -1,0 +1,32 @@
+{
+    "level_icons": [
+        {
+            "BL_CORNER": "+",
+            "BOSS": "B",
+            "BR_CORNER": "+",
+            "ENEMY": "E",
+            "HORIZONTAL_EDGE": "-",
+            "KEY": "K",
+            "NAME": "Basic",
+            "PLAYER": "P",
+            "SPACE": "_",
+            "TL_CORNER": "+",
+            "TR_CORNER": "+",
+            "VERTICAL_EDGE": "|"
+        },
+        {
+            "BL_CORNER": "\u255A",
+            "BOSS": "\u265A",
+            "BR_CORNER": "\u255D",
+            "ENEMY": "\u265F",
+            "HORIZONTAL_EDGE": "\u2550",
+            "KEY": "\u2625",
+            "NAME": "Set_1",
+            "PLAYER": "\u25CA",
+            "SPACE": "\u25A0",
+            "TL_CORNER": "\u2554",
+            "TR_CORNER": "\u2557",
+            "VERTICAL_EDGE": "\u2551"
+        }
+    ]
+}
