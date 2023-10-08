@@ -4,11 +4,10 @@ Developer: Jevin Evans
 Date: 10.8.2023
 """
 
-from typing import Any
-
 from loguru import logger
 
 import funclg.utils.data_mgmt as db
+from funclg.utils.input_validation import selection_validation
 from funclg.utils.level_icons import level_icons
 
 GAME_DATA = {"filename": "game_settings.json", "data": {}, "objects": {}}
@@ -24,9 +23,6 @@ def update_data():
     _load_level_icons(GAME_DATA["data"]["level_icons"])
 
 
-# TODO: Change back to dictionary so that it can be used for selection option.
-
-
 def _load_level_icons(icon_data: list):
     icons_sets = []
 
@@ -36,5 +32,18 @@ def _load_level_icons(icon_data: list):
     GAME_DATA["objects"]["level_icons"] = icons_sets
 
 
+def select_level_icons():
+    if GAME_DATA["objects"]:
+        return selection_validation(
+            "Which level icon set would you like to use for your levels?",
+            GAME_DATA["objects"]["level_icons"],
+        )
+    logger.error("There are no level icons loaded.")
+    raise SystemError("No level icons loaded.")
+
+
 if __name__ == "__main__":
     load_data()
+
+
+# TODO: Future: Consider a custom create capability
