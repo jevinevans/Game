@@ -1,9 +1,9 @@
 FUNCLG Directories and Files
 
 +============================+
-|    Total Directories: 20   |
-|         Files: 118         |
-|         Lines: 6262        |
+|    Total Directories: 21   |
+|         Files: 120         |
+|         Lines: 6463        |
 +============================+
 
 ./tests
@@ -24,6 +24,7 @@ FUNCLG Directories and Files
 ./codeQuality.sh
 ./tests/test_managers
 ./tests/test_character
+./tests/test_game
 ./tests/test_main
 ./tests/test_utils
 ./tests/__init__.py
@@ -47,6 +48,8 @@ FUNCLG Directories and Files
 ./tests/test_character/fixtures/armor_fixtures.py
 ./tests/test_character/fixtures/equipment_fixures.py
 ./tests/test_character/fixtures/__init__.py
+./tests/test_game/test_game_levels.py
+./tests/test_game/__init__.py
 ./tests/test_main/test_main.py
 ./tests/test_utils/test_types.py
 ./docs/Basic Player Game Info.txt
@@ -68,7 +71,7 @@ FUNCLG Directories and Files
 ./funclg/character/__init__.py
 ./funclg/utils/data_mgmt.py
 ./funclg/utils/input_validation.py
-./funclg/utils/equipment.json
+./funclg/utils/game_enums.py
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
 ./funclg/utils/modifiers.json
@@ -76,6 +79,7 @@ FUNCLG Directories and Files
 ./funclg/game/rewards.py
 ./funclg/game/level.py
 ./funclg/game/combat.py
+./funclg/game/level_manager.py
 ./funclg/game/game.py
 ./funclg/game/__init__.py
 ./funclg/data/characters.json
@@ -86,7 +90,6 @@ FUNCLG Directories and Files
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
 ./funclg/managers/modifier_manager.py
-./funclg/managers/level_manager.py
 ./funclg/managers/character_manager.py
 ./funclg/managers/__init__.py
 ./changelogs/2023

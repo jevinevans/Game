@@ -31,4 +31,5 @@ poetry run pylint ./funclg &>> $REPORT
 # export NODE\_OPTIONS=--experimental-worker
 # poetry run pyright ./funclg &>> $REPORT
 
+echo -e "\n-----SAFETY-----\n"
 poetry run safety check >> $REPORT

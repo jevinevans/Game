@@ -4,22 +4,7 @@ Developer: Jevin Evans
 Date: 2.20.2023
 """
 
-# TODO: 20230905 -  Clean up
-# Needs to be able to create levels based on provide information and possible keep some statistics about what occured at the level
-# Levels should be level based structures 5x5 or 7x7 or odd number level less than 10x10 to hold user, enemies, and boss and rewards
-"""
-Level Creation Process/Steps:
-    User's character stats are provided for calculating power of enemies
-    Generates the appropriate level
-    - for odd NxN level, there should be N rewards and 2N enemies
-"""
-
-# Should include the monsters on the level, the rewards, and the experience that can be earned
-#  Need to create a way to randomly generate appropriate rewards for the current users stats
-# Levels/stages can be enemy or random awards
-# Create a util that will generate npcs based on the current characters stats so that it is challenging but allows them to win
-# Needs to be semi efficient, might consider specifying specific types of mobs
-
+from math import floor
 
 from loguru import logger
 
@@ -27,28 +12,28 @@ from funclg.utils.game_enums import AltIcons, GameAction, GamePiece, RegIcons
 
 
 class GameLevel:
+    """
+    Generates the level grid for the game. Shows player, boss, key, and enemies.
+    """
+
     ALT_ICONS = False
     MAX_SIZE = 16
     MIN_SIZE = 5
     DEFAULT_SIZE = 7
 
     def __init__(self, level_size: int):
-        self.ICONS = AltIcons if GameLevel.ALT_ICONS else RegIcons
+        self.icons = AltIcons if GameLevel.ALT_ICONS else RegIcons
 
         self._validate_level_size(level_size)
 
         # Set Position Defaults
-        half_way = int(
-            round(self.level_size / 2, 1)
-        )  # TODO: 202308 - Decide whether to do a proper floor calculation or not
+        half_way = floor(self.level_size / 2)
 
         self.player_pos = (0, self.level_size - 1)
         self.boss_pos = (half_way, half_way)
         self.key_pos = (self.level_size - 1, 0)
-        # TODO: 20230904 - Should enemy positions be tracked too...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        # TODO: 20230904 - Create tests
+        self.enemy_pos = []
 
-        # TODO: 202308 - Consider if this should be private and only callable
         self._level = self.generate_level()
         self.completed = False
 
@@ -57,6 +42,12 @@ class GameLevel:
         return tuple(self._level)
 
     def _validate_level_size(self, level_size: int):
+        """
+        Validates that the provided user level size is in game parameters, if not sets to default size.
+
+        :param level_size: The size of the level that should be created.
+        :type level_size: int
+        """
         level_size = int(level_size)
         match level_size:
             case _ if level_size < self.MIN_SIZE:
@@ -69,6 +60,15 @@ class GameLevel:
                 self.level_size = level_size
 
     def coord_to_int(self, coordinate: set[int, int]):
+        """
+        Converts (X,Y) coordinates to list array integer location.
+
+        :param coordinate: The (X,Y) coordinates in the level.
+        :type coordinate: set[int, int]
+        :raises IndexError: Raises error for invalid coordinates that are not in the grid
+        :return: The integer equivalent location in the list.
+        :rtype: int
+        """
         if (
             coordinate[0] >= 0
             and coordinate[0] < self.level_size
@@ -79,6 +79,15 @@ class GameLevel:
         raise IndexError("Coordinate is out range")
 
     def int_to_coord(self, location: int):
+        """
+        Converts an integer value to the (X,Y) coordinates in the level grid/
+
+        :param location: An integer location in the list
+        :type location: int
+        :raises IndexError: Raises an error if the provided integer is not in the array.
+        :return: The (X,Y) coordinates that coorespond in the grid.
+        :rtype: tuple[int, int]
+        """
         if location in range(self.level_size**2):
             x_cord = location // self.level_size
             y_cord = location % self.level_size
@@ -87,63 +96,90 @@ class GameLevel:
 
     def generate_level(self):
         """
-        _summary_
+        Generates the basic structure of a level. Adds the player, a key, and the boss.
 
         :return: The constructer level level with player, boss, and key icon.
         :rtype: List[str]
         """
         # Build level
-        temp_level = [self.ICONS.SPACE.value for _ in range((self.level_size) ** 2)]
-        temp_level[self.coord_to_int(self.player_pos)] = self.ICONS.PLAYER.value
-        temp_level[self.coord_to_int(self.key_pos)] = self.ICONS.KEY.value
-        temp_level[self.coord_to_int(self.boss_pos)] = self.ICONS.BOSS.value
+        temp_level = [self.icons.SPACE.value for _ in range((self.level_size) ** 2)]
+        temp_level[self.coord_to_int(self.player_pos)] = self.icons.PLAYER.value
+        temp_level[self.coord_to_int(self.key_pos)] = self.icons.KEY.value
+        temp_level[self.coord_to_int(self.boss_pos)] = self.icons.BOSS.value
 
         return temp_level
 
     def _reserved_coord_check(self, coords: tuple[int, int]):
         """
-        Checks if the coord is currently a reserved value
+        Checks if the coord is a tracked reserved value. Specifically the player, key, boss, or existing enemy locations.
 
-        :param coords: _description_
+        :param coords: The (X,Y) coordinates that are being updated.
         :type coords: tuple[int, int]
         """
-        if coords in [self.player_pos, self.boss_pos, self.key_pos]:
+        reserved_pos = [self.player_pos, self.boss_pos, self.key_pos]
+        reserved_pos += self.enemy_pos if self.enemy_pos is not None else reserved_pos
+        if coords in reserved_pos:
             return True
         return False
 
     def _same_piece_check(self, game_piece: GamePiece, level_loc: int):
         """
-        Checks if the game piece is already at the location
+        Checks if the game piece is already at the location.
 
-        :param game_piece: _description_
+        :param game_piece: The GamePiece that is being updated.
         :type game_piece: GamePiece
-        :param level_loc: _description_
+        :param level_loc: The list integer equivilant of the (X,Y) coordinates.
         :type level_loc: int
-        :return: _description_
-        :rtype: _type_
+        :return: True if the pieces match, otherwise False.
+        :rtype: bool
         """
         match game_piece:
             case GamePiece.ENEMY:
-                return self._level[level_loc] == self.ICONS.ENEMY.value
+                return self._level[level_loc] == self.icons.ENEMY.value
             case GamePiece.KEY:
-                return self._level[level_loc] == self.ICONS.KEY.value
+                return self._level[level_loc] == self.icons.KEY.value
             case GamePiece.BOSS:
-                return self._level[level_loc] == self.ICONS.BOSS.value
+                return self._level[level_loc] == self.icons.BOSS.value
             case GamePiece.PLAYER:
-                return self._level[level_loc] == self.ICONS.PLAYER.value
+                return self._level[level_loc] == self.icons.PLAYER.value
             case _:
                 return False
 
     def _validate_level_update_pos(
         self, game_piece: GamePiece, coords: tuple[int, int], level_loc: int
     ):
-        if not self._level[level_loc] == self.ICONS.SPACE:
+        """
+        Validates if a location can be updated with the GamePiece. Checks if the new piece is being placed in an empty location, if the same type of piece is being updated in a location, and if the selected spot is a reserved location for a tracked GamePiece.
+
+        :param game_piece: The GamePiece that is being updated.
+        :type game_piece: GamePiece
+        :param coords: The (X,Y) coordinates that are being updated.
+        :type coords: tuple[int, int]
+        :param level_loc: The array integer equivilant of the (X,Y) coordinates.
+        :type level_loc: int
+        :return: The True/False validation status
+        :rtype: bool
+        """
+        if not self._level[level_loc] == self.icons.SPACE:
+            # If not a space location, and
             if not self._same_piece_check(game_piece=game_piece, level_loc=level_loc):
+                # Not the same piece, and
                 if self._reserved_coord_check(coords=coords):
+                    # A reserved location, returns not valid to make update
                     return False
         return True
 
     def update_level(self, game_piece: GamePiece, coords: tuple[int, int]):
+        """
+        Given a game piece and coordinates, the level will update the level board and return the GameAction that should be taken.
+
+        :param game_piece: The GamePiece that is being updated.
+        :type game_piece: GamePiece
+        :param coords: The (X,Y) coordinates that are being updated.
+        :type coords: tuple[int, int]
+        :return: Returns the GameAction status based on the conditions of the change including: ready, error, combat, or win.
+        :rtype: GameAction
+        """
         # This function will take an object (player/enemy or reward/equipment) and add/remove it to the playable level
         # This function should also be used to update the placement of the main character
         try:
@@ -157,27 +193,31 @@ class GameLevel:
         ):
             match game_piece:
                 case GamePiece.ENEMY:
-                    self._level[level_loc] = self.ICONS.ENEMY.value
+                    self._level[level_loc] = self.icons.ENEMY.value
+                    if coords not in self.enemy_pos:
+                        self.enemy_pos.append(coords)
                 case GamePiece.KEY:
-                    self._level[self.coord_to_int(self.key_pos)] = self.ICONS.SPACE.value
+                    self._level[self.coord_to_int(self.key_pos)] = self.icons.SPACE.value
                     self.key_pos = coords
-                    self._level[level_loc] = self.ICONS.KEY.value
+                    self._level[level_loc] = self.icons.KEY.value
                 case GamePiece.BOSS:
-                    self._level[self.coord_to_int(self.boss_pos)] = self.ICONS.SPACE.value
+                    self._level[self.coord_to_int(self.boss_pos)] = self.icons.SPACE.value
                     self.boss_pos = coords
-                    self._level[level_loc] = self.ICONS.BOSS.value
+                    self._level[level_loc] = self.icons.BOSS.value
                 case GamePiece.PLAYER:
-                    self._level[self.coord_to_int(self.player_pos)] = self.ICONS.SPACE.value
+                    self._level[self.coord_to_int(self.player_pos)] = self.icons.SPACE.value
                     self.player_pos = coords
-                    self._level[level_loc] = self.ICONS.PLAYER.value
+                    self._level[level_loc] = self.icons.PLAYER.value
+                case _:
+                    return GameAction.ERROR
 
             return GameAction.READY
 
         if game_piece is GamePiece.PLAYER:
-            if self._level[level_loc] is self.ICONS.ENEMY | self.ICONS.BOSS:
+            if self._level[level_loc] in [self.icons.ENEMY.value, self.icons.BOSS.value]:
                 return GameAction.COMBAT
 
-            if self._level[level_loc] is self.ICONS.KEY:
+            if self._level[level_loc] == self.icons.KEY.value:
                 self.completed = True
                 return GameAction.WIN
 
@@ -187,16 +227,17 @@ class GameLevel:
         """
         This function prints the level level and a boarder around it to the screen.
         """
+
         # Add Design Boundary
         header = (
-            self.ICONS.TL_CORNER.value
-            + self.ICONS.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
-            + self.ICONS.TR_CORNER.value
+            self.icons.TL_CORNER.value
+            + self.icons.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
+            + self.icons.TR_CORNER.value
         )
         footer = (
-            self.ICONS.BL_CORNER.value
-            + self.ICONS.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
-            + self.ICONS.BR_CORNER.value
+            self.icons.BL_CORNER.value
+            + self.icons.HORIZONTAL_EDGE.value * (self.level_size * 2 - 1)
+            + self.icons.BR_CORNER.value
         )
 
         # Print level with Boundary
@@ -205,7 +246,7 @@ class GameLevel:
             print(
                 " ".join(
                     self._level[index * self.level_size : index * self.level_size + self.level_size]
-                ).center(self.level_size * 2 + 1, self.ICONS.VERTICAL_EDGE.value)
+                ).center(self.level_size * 2 + 1, self.icons.VERTICAL_EDGE.value)
             )
         print(footer)
 

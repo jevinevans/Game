@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Sep  4 23:45:55 PDT 2023 
+Date: Sun Oct  8 08:51:31 PDT 2023 
 
 ---PYTEST---
 
@@ -8,20 +8,21 @@ Date: Mon Sep  4 23:45:55 PDT 2023
 platform linux -- Python 3.10.12, pytest-7.4.0, pluggy-1.2.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 120 items
+collected 127 items
 
-tests/test_character/test_abilities.py ......                            [  5%]
-tests/test_character/test_armor.py ...............                       [ 17%]
-tests/test_character/test_character.py .......                           [ 23%]
-tests/test_character/test_equipment.py ..............                    [ 35%]
-tests/test_character/test_modifiers.py .........                         [ 42%]
-tests/test_character/test_roles.py .............                         [ 53%]
-tests/test_character/test_stats.py ............                          [ 63%]
-tests/test_main/test_main.py .                                           [ 64%]
-tests/test_managers/test_abilities_manager.py .......                    [ 70%]
-tests/test_managers/test_character_manager.py .........                  [ 77%]
+tests/test_character/test_abilities.py ......                            [  4%]
+tests/test_character/test_armor.py ...............                       [ 16%]
+tests/test_character/test_character.py .......                           [ 22%]
+tests/test_character/test_equipment.py ..............                    [ 33%]
+tests/test_character/test_modifiers.py .........                         [ 40%]
+tests/test_character/test_roles.py .............                         [ 50%]
+tests/test_character/test_stats.py ............                          [ 59%]
+tests/test_game/test_game_levels.py .......                              [ 65%]
+tests/test_main/test_main.py .                                           [ 66%]
+tests/test_managers/test_abilities_manager.py .......                    [ 71%]
+tests/test_managers/test_character_manager.py .........                  [ 78%]
 tests/test_managers/test_equipment_manager.py .........                  [ 85%]
-tests/test_managers/test_modifier_manager.py ...                         [ 87%]
+tests/test_managers/test_modifier_manager.py ...                         [ 88%]
 tests/test_managers/test_roles_manager.py ............                   [ 97%]
 tests/test_utils/test_types.py ...                                       [100%]
 
@@ -29,7 +30,7 @@ tests/test_utils/test_types.py ...                                       [100%]
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------------------------------
 funclg/__init__.py                         1      0      0      0   100%
-funclg/__main__.py                        37     21      4      1    41%   38-40, 54-65, 69-76, 80-82
+funclg/__main__.py                        38     22      4      1    40%   38-40, 54-66, 70-77, 81-83
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             66      0     20      0   100%
 funclg/character/armor.py                123      0     34      0   100%
@@ -38,29 +39,30 @@ funclg/character/equipment.py             89      0     10      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 73      0     26      0   100%
 funclg/character/stats.py                 62      0     28      0   100%
-funclg/game/__init__.py                   11     11      0      0     0%   5-48
+funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 48
 funclg/game/combat.py                      0      0      0      0   100%
-funclg/game/game.py                       10     10      0      0     0%   20-46
-funclg/game/level.py                     152    152     46      0     0%   9-286
+funclg/game/game.py                       10      4      0      0    60%   31, 36, 40, 46
+funclg/game/level.py                     113      0     46      2    99%   159->166, 216->220
+funclg/game/level_manager.py               4      4      0      0     0%   9-35
 funclg/game/rewards.py                     0      0      0      0   100%
-funclg/managers/__init__.py               15      2      4      0    79%   29-30
-funclg/managers/abilities_manager.py      66      0     22      1    99%   26->25
-funclg/managers/character_manager.py     117      0     52      3    98%   64->63, 67->70, 70->73
-funclg/managers/equipment_manager.py      88      1     30      2    97%   27->26, 95
-funclg/managers/level_manager.py           1      1      0      0     0%   3
+funclg/managers/__init__.py               18      4      6      0    67%   29-30, 34-35
+funclg/managers/abilities_manager.py      69      1     24      1    98%   131
+funclg/managers/character_manager.py     120      3     54      4    96%   27-28, 69->68, 72->75, 75->78, 230
+funclg/managers/equipment_manager.py      91      4     32      3    94%   23-24, 32->31, 100, 183
 funclg/managers/modifier_manager.py       66      0     26      0   100%
-funclg/managers/roles_manager.py         118      0     50      2    99%   28->27, 114->128
+funclg/managers/roles_manager.py         121      3     52      3    97%   25-26, 33->32, 119->133, 230
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     13     16      1    69%   41->55, 45-54, 65-68
+funclg/utils/game_enums.py                37      0      0      0   100%
 funclg/utils/input_validation.py          40     28     16      0    21%   19-29, 36-37, 44, 73-86, 98, 107-112, 128-136
 funclg/utils/menu_funcs.py                36     16     14      0    48%   30-53
 funclg/utils/types.py                     17      0      6      1    96%   55->58
 ----------------------------------------------------------------------------------
-TOTAL                                   1364    259    446     11    81%
+TOTAL                                   1381    110    456     16    91%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 80.55%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 91.07%
 
-======================= 120 passed, 2 warnings in 1.34s ========================
+======================= 127 passed, 2 warnings in 1.67s ========================
 
 ---Code Quality Report---
 
@@ -105,102 +107,56 @@ funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to 
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
 ************* Module funclg.utils.input_validation
 funclg/utils/input_validation.py:14:1: W0511: TODO: 20230822 - This is still used in the menu interface and can possibly be removed (fixme)
+************* Module funclg.utils.game_enums
+funclg/utils/game_enums.py:20:1: W0511: TODO: 20230827 - Future: Consider allowing user to define their own boundary characters or just multiple custom packs or options the end user can choose from. Change to a structured format that is loaded in a specific order and then multiples can be chosen from. (fixme)
+funclg/utils/game_enums.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+funclg/utils/game_enums.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/utils/game_enums.py:12:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/utils/game_enums.py:21:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/utils/game_enums.py:39:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module funclg.utils.menu_funcs
 funclg/utils/menu_funcs.py:12:1: W0511: TODO: 20220822 - Create an issue to track the update/integration of questionary into the menu (fixme)
 ************* Module funclg.utils.types
 funclg/utils/types.py:7:1: W0511: TODO: Consider changing IT, AT and WT to enums (fixme)
 funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
 ************* Module funclg.game.level
-funclg/game/level.py:22:1: W0511: TODO: Create a level manager (fixme)
-funclg/game/level.py:29:1: W0511: TODO: 20230827 - Future: Consider allowing user to define their own boundary characters or just multiple custom packs or options the end user can choose from. Change to a structured format that is loaded in a specific order and then multiples can be chosen from. (fixme)
-funclg/game/level.py:98:12: W0511: TODO: 202308 - Decide whether to do a proper floor calculation or not (fixme)
-funclg/game/level.py:103:9: W0511: TODO: 20230904 - Should enemy positions be tracked too...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (fixme)
-funclg/game/level.py:104:9: W0511: TODO: 20230904 - Create tests (fixme)
-funclg/game/level.py:106:9: W0511: TODO: 202308 - Consider if this should be private and only callable (fixme)
-funclg/game/level.py:273:1: W0511: TODO REMOVE ME (fixme)
-funclg/game/level.py:9:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/game/level.py:24:0: C0413: Import "from enum import Enum, auto" should be placed at the top of the module (wrong-import-position)
-funclg/game/level.py:26:0: C0413: Import "from loguru import logger" should be placed at the top of the module (wrong-import-position)
-funclg/game/level.py:30:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/game/level.py:48:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/game/level.py:66:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/game/level.py:74:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/game/level.py:82:0: C0115: Missing class docstring (missing-class-docstring)
-funclg/game/level.py:91:8: C0103: Attribute name "GAME_BOUNDARIES" doesn't conform to snake_case naming style (invalid-name)
+funclg/game/level.py:14:0: C0115: Missing class docstring (missing-class-docstring)
+funclg/game/level.py:21:8: C0103: Attribute name "ICONS" doesn't conform to snake_case naming style (invalid-name)
+funclg/game/level.py:14:0: R0902: Too many instance attributes (8/7) (too-many-instance-attributes)
+funclg/game/level.py:116:42: C1802: Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty (use-implicit-booleaness-not-len)
+************* Module funclg.game.level_manager
+funclg/game/level_manager.py:7:1: W0511: TODO: 20231008 - Decide if this should be its own module, where it should be and what it should do. (fixme)
+funclg/game/level_manager.py:19:1: W0511: TODO: 20230905 -  Clean up (fixme)
+funclg/game/level_manager.py:9:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/game/level_manager.py:21:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/game/level_manager.py:34:0: C0413: Import "import questionary" should be placed at the top of the module (wrong-import-position)
+funclg/game/level_manager.py:35:0: C0413: Import "from loguru import logger" should be placed at the top of the module (wrong-import-position)
+funclg/game/level_manager.py:34:0: W0611: Unused import questionary (unused-import)
+funclg/game/level_manager.py:35:0: W0611: Unused logger imported from loguru (unused-import)
 ************* Module funclg.game.game
 funclg/game/game.py:43:9: W0511: TODO: I want to be able to make a decision if a block should be reward, enemy etc. (fixme)
 funclg/game/game.py:20:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module funclg.game.__init__
 funclg/game/__init__.py:44:5: W0511: TODO: Do a precheck to make sure the running system can print the level boundary characters, if not then use alternative boundaries (fixme)
 ************* Module funclg.managers.roles_manager
-funclg/managers/roles_manager.py:25:5: W0511: TODO: On edit, needs to update all values (fixme)
-funclg/managers/roles_manager.py:55:9: W0511: TODO: Add description print out (fixme)
-funclg/managers/roles_manager.py:71:1: W0511: TODO add an option for adding no roles (fixme)
-funclg/managers/roles_manager.py:127:5: W0511: TODO: Future: consider option to create a new one (fixme)
+funclg/managers/roles_manager.py:30:5: W0511: TODO: On edit, needs to update all values (fixme)
+funclg/managers/roles_manager.py:60:9: W0511: TODO: Add description print out (fixme)
+funclg/managers/roles_manager.py:76:1: W0511: TODO add an option for adding no roles (fixme)
+funclg/managers/roles_manager.py:132:5: W0511: TODO: Future: consider option to create a new one (fixme)
 ************* Module funclg.managers.abilities_manager
-funclg/managers/abilities_manager.py:37:1: W0511: TODO: need to add a condition to not return so that there is not lose data (fixme)
-funclg/managers/abilities_manager.py:38:1: W0511: TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used (fixme)
-funclg/managers/abilities_manager.py:42:5: W0511: TODO: Add description print out (fixme)
-funclg/managers/abilities_manager.py:52:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
-funclg/managers/abilities_manager.py:78:1: W0511: TODO: 20230822 - Review copy usage. Item may be copied when added to role and does not need to be copied here then (fixme)
+funclg/managers/abilities_manager.py:42:1: W0511: TODO: need to add a condition to not return so that there is not lose data (fixme)
+funclg/managers/abilities_manager.py:43:1: W0511: TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used (fixme)
+funclg/managers/abilities_manager.py:47:5: W0511: TODO: Add description print out (fixme)
+funclg/managers/abilities_manager.py:57:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
+funclg/managers/abilities_manager.py:83:1: W0511: TODO: 20230822 - Review copy usage. Item may be copied when added to role and does not need to be copied here then (fixme)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:49:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
 funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
 funclg/managers/modifier_manager.py:80:1: W0511: TODO: 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
-************* Module funclg.managers.level_manager
-funclg/managers/level_manager.py:1:1: W0511: TODO: Create a level manager (fixme)
 ************* Module funclg.managers.character_manager
-funclg/managers/character_manager.py:92:5: W0511: TODO: 2023.06.17 - Add the option to skip (fixme)
-funclg/managers/character_manager.py:114:5: W0511: TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward (fixme)
+funclg/managers/character_manager.py:97:5: W0511: TODO: 2023.06.17 - Add the option to skip (fixme)
+funclg/managers/character_manager.py:119:5: W0511: TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.54/10 (previous run: 9.40/10, +0.14)
+Your code has been rated at 9.54/10 (previous run: 9.53/10, +0.01)
 
-+==============================================================================+
-
-                               /$$$$$$            /$$
-                              /$$__  $$          | $$
-           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
-          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
-         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
-          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
-          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
-         |_______/  \_______/|__/     \_______/   \___/   \____  $$
-                                                          /$$  | $$
-                                                         |  $$$$$$/
-  by pyup.io                                              \______/
-
-+==============================================================================+
-
- [1mREPORT[0m 
-
-[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
-data is 30 days old and limited. [0m
-[31m  For real-time enhanced vulnerability data, fix recommendations, severity
-reporting, cybersecurity support, team and project policy management and more
-sign up at https://pyup.io or email sales@pyup.io[0m
-
-  Safety [1mv2.3.5[0m is scanning for [1mVulnerabilities[0m[1m...[0m
-[1m  Scanning dependencies[0m in your [1menvironment:[0m
-
-  -> /home/jevinle/.cache/pypoetry/virtualenvs/funclg-
-    AThUaF5z-py3.10/lib/python3.10/site-packages
-
-  Using [1mnon-commercial database[0m
-[1m  Found and scanned 69 packages[0m
-  Timestamp [1m2023-09-04 23:46:09[0m
-[1m  0[0m[1m vulnerabilities found[0m
-[1m  0[0m[1m vulnerabilities ignored[0m
-+==============================================================================+
-
- [32m[1mNo known security vulnerabilities found.[0m 
-
-+==============================================================================+
-
-[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
-data is 30 days old and limited. [0m
-[31m  For real-time enhanced vulnerability data, fix recommendations, severity
-reporting, cybersecurity support, team and project policy management and more
-sign up at https://pyup.io or email sales@pyup.io[0m
-
-+==============================================================================+[0m
