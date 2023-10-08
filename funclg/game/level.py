@@ -8,7 +8,8 @@ from math import floor
 
 from loguru import logger
 
-from funclg.utils.game_enums import AltIcons, GameAction, GamePiece, RegIcons
+from funclg.utils.game_enums import GameAction, GamePiece
+from funclg.utils.level_icons import level_icons
 
 
 class GameLevel:
@@ -16,13 +17,12 @@ class GameLevel:
     Generates the level grid for the game. Shows player, boss, key, and enemies.
     """
 
-    ALT_ICONS = False
     MAX_SIZE = 16
     MIN_SIZE = 5
     DEFAULT_SIZE = 7
 
-    def __init__(self, level_size: int):
-        self.icons = AltIcons if GameLevel.ALT_ICONS else RegIcons
+    def __init__(self, level_size: int, level_icons: level_icons):
+        self.icons = level_icons
 
         self._validate_level_size(level_size)
 
