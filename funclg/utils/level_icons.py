@@ -3,7 +3,6 @@ from dataclasses import dataclass
 
 @dataclass
 class level_icons:
-    NAME: str  # Icon Set name
     SPACE: str
 
     # BOUNDARY ICONS
@@ -28,8 +27,21 @@ class level_icons:
             self.VERTICAL_EDGE,
             self.BR_CORNER,
         ]
-        char_icons = [self.PLAYER, self.KEY, self.ENEMY, self.BOSS]
-        return f"{self.NAME.capitalize()} = Board:{(board_icons)} | Char:{char_icons}"
+        top = f"{self.TL_CORNER}" + self.HORIZONTAL_EDGE * 5 + f"{self.TR_CORNER}"
+        btm = f"{self.BL_CORNER}" + self.HORIZONTAL_EDGE * 5 + f"{self.BR_CORNER}"
+
+        char_icons = "".join(
+            [
+                self.VERTICAL_EDGE,
+                self.PLAYER,
+                self.KEY,
+                self.SPACE,
+                self.ENEMY,
+                self.BOSS,
+                self.VERTICAL_EDGE,
+            ]
+        )
+        return f"\n{top}\n{char_icons}\n{btm}"
 
     def __repr__(self) -> str:
         return self.__str__()

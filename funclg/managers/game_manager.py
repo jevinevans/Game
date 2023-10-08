@@ -4,8 +4,6 @@ Developer: Jevin Evans
 Date: 10.8.2023
 """
 
-from typing import Any
-
 from loguru import logger
 
 import funclg.utils.data_mgmt as db
@@ -52,3 +50,6 @@ def select_level_icons():
 
 if __name__ == "__main__":
     load_data()
+
+
+# TODO: Future: Consider a custom create capability
