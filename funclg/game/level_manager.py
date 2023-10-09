@@ -4,6 +4,10 @@ Developer: Jevin Evans
 Date: 10.8.2023
 """
 
+# import questionary
+# from loguru import logger
+
+
 # TODO: 20231008 - Decide if this should be its own module, where it should be and what it should do.
 
 """
@@ -29,7 +33,3 @@ Level Creation Process/Steps:
 # Levels/stages can be enemy or random awards
 # Create a util that will generate npcs based on the current characters stats so that it is challenging but allows them to win
 # Needs to be semi efficient, might consider specifying specific types of mobs
-
-
-import questionary
-from loguru import logger

@@ -81,7 +81,7 @@ def filter_abilities_by_types(a_types: list):
     filtered_abilities = {}
     for a_type in a_types:
         filtered_abilities[a_type] = [
-            ability.copy()
+            ability
             for ability in ABILITIES_DATA["objects"].values()
             if ability.ability_type == a_type
         ]

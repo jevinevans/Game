@@ -186,19 +186,6 @@ def sort_roles_by_armor_type():
     return sorted_roles
 
 
-def sort_roles_by_armor_type():
-    sorted_roles = {}
-
-    for index, armor_type in enumerate(ARMOR_TYPES):
-        sorted_roles[armor_type] = [
-            role for role in ROLES_DATA["objects"].values() if role.armor_type == index
-        ]
-
-    sorted_roles = {armor_type: data for armor_type, data in sorted_roles.items() if data}
-
-    return sorted_roles
-
-
 def select_role():
     if ROLES_DATA["data"]:
         return selection_validation("Select a role:", ROLES_DATA["data"], "name", "_id")
