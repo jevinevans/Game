@@ -17,7 +17,7 @@ def basic_char():
     ):
         t_armor = armor.Armor(0)
         t_role = roles.Roles("Test_Role", "Test role", 0)
-        return Character("Test_Char", 0, t_armor, t_role)
+        return Character("Test_Char", t_armor, t_role)
 
 
 @pytest.fixture
@@ -101,7 +101,7 @@ def character_inventory_show_expectation():
 
 def test_character_init_no_armor_no_role():
     # Init No Role/Armor
-    t_char = Character("Test_Char", 0)
+    t_char = Character("Test_Char")
     assert t_char.name == "Test_Char"
     assert t_char.armor is not None
     assert t_char.armor.armor_type == t_char.armor_type
@@ -112,7 +112,7 @@ def test_character_init_no_armor_no_role():
 
     # Test with inventory
     test_inventory = [1, 2, 3]
-    t_char = Character("Test_Char", 0, inventory=test_inventory)
+    t_char = Character("Test_Char", inventory=test_inventory)
     assert t_char.inventory == test_inventory
 
 
@@ -140,13 +140,11 @@ def test_character_dequip(basic_char):
     basic_char.equip(t_head)
     assert basic_char.armor.head.name == t_head.name
 
-    basic_char.dequip("head")
+    assert basic_char.dequip("head").name == t_head.name
     assert basic_char.armor.head is None
-    assert len(basic_char.inventory) == 1
 
     # Invalid Dequip
-    basic_char.dequip("")
-    assert len(basic_char.inventory) == 1
+    assert basic_char.dequip("") is None
 
 
 def test_character_add_power(basic_char):

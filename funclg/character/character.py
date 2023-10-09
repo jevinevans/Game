@@ -14,24 +14,6 @@ from funclg.character.armor import Armor
 from funclg.character.equipment import Equipment
 from funclg.character.roles import Roles
 
-# from loguru import logger
-
-# """
-# Object Needs:
-# - name
-# - armor type - needed for compatability of role and armor
-# - gender - (M/F/etc.) - For the future
-# - role object - unless provided, start with basic role, no name and basic abilities
-# - armor object - unless provided, the user starts with a blank armor and maybe basic armor?
-
-# - validation method
-# - ways to access role and object items
-# - add a class
-# - add equipment
-# """
-
-
-# TODO: Make Char update in a new branch - 6.17.2023
 # TODO: Char Update - 1: Update character so that it is generalized
 # TODO: Char Update - 2: Create a class called playable character for the user
 # TODO: Char Update - 3: Create the NPC class that can be used later for random generation
@@ -52,7 +34,6 @@ class Character:
     def __init__(
         self,
         name: str,
-        armor_type: int,
         armor_instance: Optional[Armor] = None,
         role_instance: Optional[Roles] = None,
         **kwargs,
@@ -61,24 +42,25 @@ class Character:
         Creates a new character with an armor set and role
         """
         self.name = name
-        self.armor_type = armor_type if armor_type else 0
         self.inventory = kwargs.get("inventory", [])
 
-        self._set_up_armor(armor_instance)
         self._set_up_role(role_instance)
+        self._set_up_armor(armor_instance)
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
+
+    def _set_up_role(self, roles_instance: Optional[Roles] = None) -> None:
+        if roles_instance:
+            self.role = roles_instance
+            self.armor_type = roles_instance.armor_type
+        else:
+            self.armor_type = 0
+            self.role = Roles("NPC", "A non-playable character", self.armor_type)
 
     def _set_up_armor(self, armor_instance: Optional[Armor] = None) -> None:
         if armor_instance and armor_instance.armor_type == self.armor_type:
             self.armor = armor_instance
         else:
             self.armor = Armor(self.armor_type)
-
-    def _set_up_role(self, roles_instance: Optional[Roles] = None) -> None:
-        if roles_instance and roles_instance.armor_type == self.armor_type:
-            self.role = roles_instance
-        else:
-            self.role = Roles("NPC", "A non-playable character", self.armor_type)
 
     def __str__(self) -> str:
         string = f"  {self.name}  \n"
@@ -114,17 +96,14 @@ class Character:
         """Calls the armor equip function"""
         self.armor.equip(item)
 
-    def dequip(self, item_type: str) -> None:
+    def dequip(self, item_type: str) -> None | Equipment:
         """Calls the armor dequip function"""
-        if item := self.armor.dequip(item_type) is not None:
-            self.inventory.append(item)
+        return self.armor.dequip(item_type)
 
     def add_power(self, ability: Abilities) -> bool:
         return self.role.add_power(ability)
 
-    # def use_power(self): TODO
-
-    # def get_stats(self): TODO
+    # def use_ability(self): TODO
 
 
 class Player(Character):
@@ -150,6 +129,11 @@ class Player(Character):
     def show_inventory(self):
         print("\nInventory:")
         print("\n  - ".join(self.inventory))
+
+    def dequip(self, item_type: str) -> None:
+        """Calls the armor dequip function"""
+        if item := super().dequip(item_type) is not None:
+            self.inventory.append(item)
 
 
 class NonPlayableCharacter(Character):

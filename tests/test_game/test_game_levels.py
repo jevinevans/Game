@@ -9,57 +9,66 @@ from unittest.mock import patch
 import pytest
 
 import funclg.game.level as game_level
-from funclg.utils.game_enums import AltIcons, GameAction, GamePiece, RegIcons
+import funclg.managers.game_manager as game_man
+from funclg.utils.game_enums import GameAction, GamePiece
 
 
-def test_game_level_generation():
-    test_level = game_level.GameLevel(6)
+@pytest.fixture
+def game_icons():
+    game_man.load_data()
+    return {
+        "reg": game_man.GAME_DATA["objects"]["level_icons"]["Set 1"],
+        "alt": game_man.GAME_DATA["objects"]["level_icons"]["Set 2"],
+    }
+
+
+def test_game_level_generation(game_icons):
+    test_level = game_level.GameLevel(6, game_icons["reg"])
 
     assert test_level.boss_pos == (3, 3)
     assert test_level.player_pos == (0, 5)
     assert test_level.key_pos == (5, 0)
 
-    assert test_level.level.count(test_level.icons.SPACE.value) == (6**2) - 3
+    assert test_level.level.count(test_level.icons.space) == (6**2) - 3
 
 
-def test_game_level_size_validation():
+def test_game_level_size_validation(game_icons):
     # Valid
-    test_level = game_level.GameLevel(6)
+    test_level = game_level.GameLevel(6, game_icons["reg"])
     assert test_level.level_size == 6
     assert len(test_level.level) == 6**2
 
     # Test Too Small
-    test_level_small = game_level.GameLevel(1)
+    test_level_small = game_level.GameLevel(1, game_icons["reg"])
     assert test_level_small.level_size == game_level.GameLevel.DEFAULT_SIZE
     assert len(test_level_small.level) == game_level.GameLevel.DEFAULT_SIZE**2
 
     # Test Too Large
-    test_level_large = game_level.GameLevel(20)
+    test_level_large = game_level.GameLevel(20, game_icons["reg"])
     assert test_level_large.level_size == game_level.GameLevel.DEFAULT_SIZE
     assert len(test_level_large.level) == game_level.GameLevel.DEFAULT_SIZE**2
 
 
-def test_game_level_alt_icons():
-    test_level = game_level.GameLevel(6)
-    assert test_level.level[test_level.coord_to_int(test_level.boss_pos)] == RegIcons.BOSS.value
+def test_game_level_alt_icons(game_icons):
+    test_level = game_level.GameLevel(6, game_icons["reg"])
+    assert test_level.level[test_level.coord_to_int(test_level.boss_pos)] == game_icons["reg"].boss
 
-    game_level.GameLevel.ALT_ICONS = True
-    test_alt_level = game_level.GameLevel(6)
+    test_alt_level = game_level.GameLevel(6, game_icons["alt"])
     assert (
         test_alt_level.level[test_alt_level.coord_to_int(test_alt_level.boss_pos)]
-        == AltIcons.BOSS.value
+        == game_icons["alt"].boss
     )
 
 
-def test_game_level_coord_to_int_index_error():
-    test_level = game_level.GameLevel(6)
+def test_game_level_coord_to_int_index_error(game_icons):
+    test_level = game_level.GameLevel(6, game_icons["reg"])
 
     with pytest.raises(IndexError):
         test_level.coord_to_int((6, 6))
 
 
-def test_game_level_int_to_coord_index_error():
-    test_level = game_level.GameLevel(6)
+def test_game_level_int_to_coord_index_error(game_icons):
+    test_level = game_level.GameLevel(6, game_icons["reg"])
 
     with pytest.raises(IndexError):
         test_level.int_to_coord(100)
@@ -71,27 +80,24 @@ alt_level = ["+-----+", "|____K|", "|_____|", "|__B__|", "|_____|", "|P____|", "
 
 
 @patch("builtins.print")
-def test_game_level_alt_display(m_print):
-    game_level.GameLevel.ALT_ICONS = True
-
-    test_level = game_level.GameLevel(5)
+def test_game_level_alt_display(m_print, game_icons):
+    test_level = game_level.GameLevel(5, game_icons["alt"])
 
     test_level.display_level()
     assert m_print.called_with(alt_level)
 
 
 @patch("funclg.game.level.logger")
-def test_game_level_update_level_game_error(m_log):
+def test_game_level_update_level_game_error(m_log, game_icons):
     # Bad Update Coordinate - Coordinate not on the board
-    game_level.GameLevel.ALT_ICONS = False
-    test_level = game_level.GameLevel(6)
+    test_level = game_level.GameLevel(6, game_icons["reg"])
 
     assert test_level.update_level(GamePiece.SPACE, (6, 0)) == GameAction.ERROR
     assert m_log.error.called_with("That location is not on the map silly...")
 
     # Succesful Update of Enemy = Ready | loc = (0,0)
     assert test_level.update_level(GamePiece.ENEMY, (0, 0)) == GameAction.READY
-    assert test_level.level[0] == RegIcons.ENEMY.value
+    assert test_level.level[0] == game_icons["reg"].enemy
 
     # Succesful Update of Key = Ready | loc = (2,4)
     assert test_level.update_level(GamePiece.KEY, (2, 4)) == GameAction.READY
@@ -107,15 +113,18 @@ def test_game_level_update_level_game_error(m_log):
 
     # Test Validation Method Flows
     # ----------------------------
-    # Invalidation Test: Enemy Type, Not a Space, same piece = Ready
+    # Validation Test: Enemy Type, Not a Space, same piece = Ready
     assert test_level.update_level(GamePiece.ENEMY, (0, 0)) == GameAction.READY
-    assert test_level.level.count(RegIcons.ENEMY.value) == 1
+    assert test_level.level.count(game_icons["reg"].enemy) == 1
 
-    # Invalidation Test: Key Type, Not a Space, same piece, Reserved location = Error
+    # Validation Test: Key Type, Not a Space, same piece, Reserved location = Error
     assert test_level.update_level(GamePiece.KEY, test_level.player_pos) == GameAction.ERROR
 
-    # Invalidation Test: Pass, Invalid Changeable Game Piece - Space = Error
+    # Validation Test: Pass, Invalid Changeable Game Piece - Space = Error
     assert test_level.update_level(GamePiece.SPACE, (1, 1)) == GameAction.ERROR
+
+    # Validation Test: Pass, same piece boss = Ready
+    assert test_level.update_level(GamePiece.BOSS, test_level.boss_pos) == GameAction.READY
 
     # Player moves to Enemy LOC = Combat
     assert test_level.update_level(GamePiece.PLAYER, (0, 0)) == GameAction.COMBAT

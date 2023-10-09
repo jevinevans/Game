@@ -2,8 +2,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 120         |
-|         Lines: 6463        |
+|         Files: 122         |
+|         Lines: 6508        |
 +============================+
 
 ./tests
@@ -18,8 +18,6 @@ FUNCLG Directories and Files
 ./quest_test.py
 ./requirements.txt
 ./GAMES_DIRECTORIES_AND_FILES.txt
-./poetry.lock
-./pyproject.toml
 ./README.md
 ./.pre-commit-config.yaml
 ./pyproject.toml
@@ -85,12 +83,14 @@ FUNCLG Directories and Files
 ./funclg/game/game.py
 ./funclg/game/__init__.py
 ./funclg/data/characters.json
+./funclg/data/game_settings.json
 ./funclg/data/abilities.json
 ./funclg/data/equipment.json
 ./funclg/data/roles.json
 ./funclg/managers/roles_manager.py
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
+./funclg/managers/game_manager.py
 ./funclg/managers/modifier_manager.py
 ./funclg/managers/character_manager.py
 ./funclg/managers/__init__.py

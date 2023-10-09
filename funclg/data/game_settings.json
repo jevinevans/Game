@@ -1,30 +1,30 @@
 {
-    "level_icons": [
-        {
-            "BL_CORNER": "+",
-            "BOSS": "B",
-            "BR_CORNER": "+",
-            "ENEMY": "E",
-            "HORIZONTAL_EDGE": "-",
-            "KEY": "K",
-            "PLAYER": "P",
-            "SPACE": "_",
-            "TL_CORNER": "+",
-            "TR_CORNER": "+",
-            "VERTICAL_EDGE": "|"
+    "level_icons": {
+        "Set 1":{
+            "bl_corner": "+",
+            "boss": "B",
+            "br_corner": "+",
+            "enemy": "E",
+            "horizontal_edge": "-",
+            "key": "K",
+            "player": "P",
+            "space": "_",
+            "tl_corner": "+",
+            "tr_corner": "+",
+            "vertical_edge": "|"
         },
-        {
-            "BL_CORNER": "\u255A",
-            "BOSS": "\u265A",
-            "BR_CORNER": "\u255D",
-            "ENEMY": "\u265F",
-            "HORIZONTAL_EDGE": "\u2550",
-            "KEY": "\u2625",
-            "PLAYER": "\u25CA",
-            "SPACE": "\u25A0",
-            "TL_CORNER": "\u2554",
-            "TR_CORNER": "\u2557",
-            "VERTICAL_EDGE": "\u2551"
+        "Set 2": {
+            "bl_corner": "\u255A",
+            "boss": "\u265A",
+            "br_corner": "\u255D",
+            "enemy": "\u265F",
+            "horizontal_edge": "\u2550",
+            "key": "\u2625",
+            "player": "\u25CA",
+            "space": "\u25A0",
+            "tl_corner": "\u2554",
+            "tr_corner": "\u2557",
+            "vertical_edge": "\u2551"
         }
-    ]
+    }
 }
