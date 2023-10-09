@@ -14,8 +14,6 @@ from funclg.character.armor import Armor
 from funclg.character.equipment import Equipment
 from funclg.character.roles import Roles
 
-# TODO: Char Update - 1: Update character so that it is generalized
-# TODO: Char Update - 2: Create a class called playable character for the user
 # TODO: Char Update - 3: Create the NPC class that can be used later for random generation
 
 
@@ -26,8 +24,6 @@ class Character:
     :return: Returns a character object
     :rtype: Character
     """
-
-    # TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role
 
     DB_PREFIX = "CHARS"
 
@@ -103,7 +99,7 @@ class Character:
     def add_power(self, ability: Abilities) -> bool:
         return self.role.add_power(ability)
 
-    # def use_ability(self): TODO
+    # TODO: def use_ability(self):
 
 
 class Player(Character):
@@ -117,12 +113,13 @@ class Player(Character):
     def __init__(
         self,
         name: str,
-        armor_type: int,
         armor_instance: Optional[Armor] = None,
         role_instance: Optional[Roles] = None,
         **kwargs,
     ):
-        super().__init__(name, armor_type, armor_instance, role_instance)
+        super().__init__(
+            name=name, armor_instance=armor_instance, role_instance=role_instance, **kwargs
+        )
 
         self.inventory = kwargs.get("inventory", [])
 
@@ -138,8 +135,17 @@ class Player(Character):
 
 class NonPlayableCharacter(Character):
     """
-    _summary_
-
-    :param Character: _description_
-    :type Character: _type_
+    A non playable character that is used for player combat
     """
+
+    def __init__(
+        self,
+        name: str,
+        armor_instance: Optional[Armor] = None,
+        role_instance: Optional[Roles] = None,
+        **kwargs,
+    ):
+        super().__init__(
+            name=name, armor_instance=armor_instance, role_instance=role_instance, **kwargs
+        )
+        self.npc = True

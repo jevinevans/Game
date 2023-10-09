@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Oct  8 19:20:56 PDT 2023 
+Date: Sun Oct  8 20:35:07 PDT 2023 
 
 ---PYTEST---
 
@@ -30,11 +30,11 @@ tests/test_utils/test_types.py ...                                       [100%]
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------------------------------
 funclg/__init__.py                         1      0      0      0   100%
-funclg/__main__.py                        38     22      4      1    40%   38-40, 54-66, 70-77, 81-83
+funclg/__main__.py                        41     24      6      1    38%   39-43, 57-69, 73-80, 84-86
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             66      0     20      0   100%
 funclg/character/armor.py                123      0     34      0   100%
-funclg/character/character.py             67      6     12      0    90%   125-127, 130-131, 135-136
+funclg/character/character.py             70      8     12      0    88%   120-124, 127-128, 132-133, 149-152
 funclg/character/equipment.py             89      0     10      0   100%
 funclg/character/modifiers.py             64      0     30      0   100%
 funclg/character/roles.py                 73      0     26      0   100%
@@ -46,12 +46,12 @@ funclg/game/level.py                     101      0     42      2    99%   128->
 funclg/game/level_manager.py               4      4      0      0     0%   9-35
 funclg/game/rewards.py                     0      0      0      0   100%
 funclg/managers/__init__.py               18      4      6      0    67%   31-32, 36-37
-funclg/managers/abilities_manager.py      69      1     24      1    98%   131
+funclg/managers/abilities_manager.py      69      1     24      1    98%   128
 funclg/managers/character_manager.py     120      3     54      4    96%   27-28, 69->68, 72->75, 75->78, 230
 funclg/managers/equipment_manager.py      89      4     32      3    94%   23-24, 31->30, 98, 181
-funclg/managers/game_manager.py           27      9      8      1    60%   38-51, 55
+funclg/managers/game_manager.py           27      9      8      1    60%   38-50, 54
 funclg/managers/modifier_manager.py       66      0     26      0   100%
-funclg/managers/roles_manager.py         121      3     52      3    97%   25-26, 33->32, 119->133, 230
+funclg/managers/roles_manager.py         121      3     52      3    97%   25-26, 32->31, 119->132, 223
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     13     16      1    69%   41->55, 45-54, 65-68
 funclg/utils/game_enums.py                32      4      2      0    88%   58-72
@@ -59,11 +59,11 @@ funclg/utils/input_validation.py          40     28     16      0    21%   19-29
 funclg/utils/menu_funcs.py                36     16     14      0    48%   30-53
 funclg/utils/types.py                     17      0      6      1    96%   55->58
 ----------------------------------------------------------------------------------
-TOTAL                                   1392    125    462     17    90%
+TOTAL                                   1398    129    464     17    90%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 89.97%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 89.69%
 
-======================= 127 passed, 2 warnings in 1.66s ========================
+======================= 127 passed, 2 warnings in 1.10s ========================
 
 ---Code Quality Report---
 
@@ -76,22 +76,14 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 89.97%
 ************* Module funclg
 funclg/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module funclg.__main__
-funclg/__main__.py:46:39: W0511: TODO: add play instance (fixme)
-funclg/__main__.py:52:1: W0511: TODO: Consider initializing the database calls to load and add the textual/rich progress loaders (fixme)
+funclg/__main__.py:49:39: W0511: TODO: add play instance (fixme)
+funclg/__main__.py:55:1: W0511: TODO: Consider initializing the database calls to load and add the textual/rich progress loaders (fixme)
 ************* Module funclg.character.character
-funclg/character/character.py:17:1: W0511: TODO: Char Update - 1: Update character so that it is generalized (fixme)
-funclg/character/character.py:18:1: W0511: TODO: Char Update - 2: Create a class called playable character for the user (fixme)
-funclg/character/character.py:19:1: W0511: TODO: Char Update - 3: Create the NPC class that can be used later for random generation (fixme)
-funclg/character/character.py:30:5: W0511: TODO: Update initialization process so that the role decides the armor type for the character and then all armor and equips will validate for the role (fixme)
-funclg/character/character.py:125:8: E1121: Too many positional arguments for method call (too-many-function-args)
+funclg/character/character.py:17:1: W0511: TODO: Char Update - 3: Create the NPC class that can be used later for random generation (fixme)
+funclg/character/character.py:102:5: W0511: TODO: def use_ability(self): (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:21:1: W0511: TODO: add energy cost attribute (fixme)
 funclg/character/abilities.py:118:5: W0511: TODO def use() (fixme)
-************* Module funclg.character.equipment
-funclg/character/equipment.py:23:1: W0511: TODO: Change equipment display methods (fixme)
-funclg/character/equipment.py:151:5: W0511: TODO: Change equipment display methods (fixme)
-funclg/character/equipment.py:180:5: W0511: TODO: Override details to include the weapon type (fixme)
-funclg/character/equipment.py:219:5: W0511: TODO: Change equipment display methods (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:66:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.armor
@@ -128,18 +120,10 @@ funclg/game/game.py:20:0: C0115: Missing class docstring (missing-class-docstrin
 ************* Module funclg.game.__init__
 funclg/game/__init__.py:44:5: W0511: TODO: Do a precheck to make sure the running system can print the level boundary characters, if not then use alternative boundaries (fixme)
 ************* Module funclg.managers.roles_manager
-funclg/managers/roles_manager.py:30:5: W0511: TODO: On edit, needs to update all values (fixme)
-funclg/managers/roles_manager.py:60:9: W0511: TODO: Add description print out (fixme)
-funclg/managers/roles_manager.py:76:1: W0511: TODO add an option for adding no roles (fixme)
-funclg/managers/roles_manager.py:132:5: W0511: TODO: Future: consider option to create a new one (fixme)
+funclg/managers/roles_manager.py:59:9: W0511: TODO: Add description print out (fixme)
 ************* Module funclg.managers.abilities_manager
-funclg/managers/abilities_manager.py:42:1: W0511: TODO: need to add a condition to not return so that there is not lose data (fixme)
-funclg/managers/abilities_manager.py:43:1: W0511: TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used (fixme)
-funclg/managers/abilities_manager.py:47:5: W0511: TODO: Add description print out (fixme)
-funclg/managers/abilities_manager.py:57:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
-funclg/managers/abilities_manager.py:83:1: W0511: TODO: 20230822 - Review copy usage. Item may be copied when added to role and does not need to be copied here then (fixme)
-************* Module funclg.managers.game_manager
-funclg/managers/game_manager.py:57:1: W0511: TODO: Future: Consider a custom create capability (fixme)
+funclg/managers/abilities_manager.py:45:5: W0511: TODO: Add description print out (fixme)
+funclg/managers/abilities_manager.py:55:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
 ************* Module funclg.managers.modifier_manager
 funclg/managers/modifier_manager.py:49:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
 funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
@@ -151,5 +135,5 @@ funclg/managers/character_manager.py:119:5: W0511: TODO: 2023.06.17 - Confirm at
 funclg/managers/__init__.py:5:1: W0511: TODO: 20231008 - Separate menus into smaller modules (game managers, character managers) (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.57/10 (previous run: 9.54/10, +0.03)
+Your code has been rated at 9.70/10 (previous run: 9.66/10, +0.04)
 

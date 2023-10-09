@@ -37,7 +37,7 @@ def test_equipment_str(weapon_equipment_with_mods, body_equipment, equipment_str
 
     # Test Equipement
     test_equipment = Equipment("Test Equip", Modifier("Test Equip"), "Test equip description", 0, 0)
-    assert test_equipment.__str__() == "Test Equip [0]"
+    assert test_equipment.__str__() == "Test Equip [Head]"
 
 
 @patch("builtins.open")

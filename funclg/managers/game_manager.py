@@ -52,5 +52,3 @@ def select_level_icons():
 
 if __name__ == "__main__":
     load_data()
-
-# TODO: Future: Consider a custom create capability

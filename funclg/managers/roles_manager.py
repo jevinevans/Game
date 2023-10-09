@@ -27,7 +27,6 @@ def load_data():
 
 
 def update_data():
-    # TODO: On edit, needs to update all values
     db.update_data(ROLES_DATA)
     for _id, data in ROLES_DATA["data"].items():
         if _id not in ROLES_DATA["objects"]:
@@ -73,9 +72,10 @@ def _select_ability_types():
     return a_types
 
 
-# TODO add an option for adding no roles
 def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
-    """"""
+    """
+    Guides the user through ability selection for a role.
+    """
 
     def _display_abilities():
         print(f"You can choose abilities from the following types: {', '.join(a_types)}")
@@ -129,7 +129,6 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
         if not confirmation("Would you like to add another ability?"):
             break
 
-    # TODO: Future: consider option to create a new one
     return role_abilities
 
 
@@ -163,12 +162,6 @@ def build_role():
 
     print("Oh well..., no roles to add to this awesome adventure!!!")
     del new_role
-
-
-# def edit_role():
-#     """
-#     Allows the user to add or remove abilities from a role
-#     """
 
 
 def sort_roles_by_armor_type():

@@ -29,14 +29,17 @@ import sys
 from loguru import logger
 
 from funclg import managers
+from funclg.utils.input_validation import confirmation
 from funclg.utils.menu_funcs import Menu
 
 GAME_NAME = "FUNCLG"
 
 
 def save_exit() -> None:
-    managers.save_data()
-    print("Saving and closing")
+    if confirmation("Do you want to save the game?"):
+        managers.save_data()
+        print("Saving and closing")
+    print("Closing game.")
     sys.exit()
 
 

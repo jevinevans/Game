@@ -39,8 +39,6 @@ def export_data():
     db.update_data(ABILITIES_DATA)
 
 
-# TODO: need to add a condition to not return so that there is not lose data
-# TODO: Need to update so that if a new role is created and the user wants to create a new ability the selected ability types can be passed in only used
 def build_ability():
     print("\nStarting Ability Creation...\n\nWhat type of ability would you like to create")
 
@@ -80,12 +78,11 @@ def select_ability():
     return None
 
 
-# TODO: 20230822 - Review copy usage. Item may be copied when added to role and does not need to be copied here then
 def filter_abilities_by_types(a_types: list):
     filtered_abilities = {}
     for a_type in a_types:
         filtered_abilities[a_type] = [
-            ability.copy()
+            ability
             for ability in ABILITIES_DATA["objects"].values()
             if ability.ability_type == a_type
         ]

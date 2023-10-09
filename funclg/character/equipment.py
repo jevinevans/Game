@@ -20,8 +20,6 @@ from .modifiers import Modifier
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
 
-# TODO: Change equipment display methods
-
 
 class Equipment:
     """
@@ -57,7 +55,7 @@ class Equipment:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.item_type}]"
+        return f"{self.name} [{uTypes.ITEM_TYPES[self.item_type]}]"
 
     @property
     def id(self):  # pylint: disable=C0103
@@ -148,12 +146,11 @@ class WeaponEquipment(Equipment):
             prefix=self.DB_PREFIX,
         )
 
-    # TODO: Change equipment display methods
     def __str__(self) -> str:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.weapon_type} {self.item_type}]"
+        return f"{self.name} [{self.weapon_type} {uTypes.ITEM_TYPES[self.item_type]}]"
 
     @staticmethod
     def _validate_weapon_type(weapon_type: str):
@@ -176,8 +173,6 @@ class WeaponEquipment(Equipment):
     def export(self):
         logger.debug(f"Exporting Weapon: {self.name}")
         return super().export()
-
-    # TODO: Override details to include the weapon type
 
 
 class BodyEquipment(Equipment):
@@ -216,12 +211,11 @@ class BodyEquipment(Equipment):
             prefix=self.DB_PREFIX,
         )
 
-    # TODO: Change equipment display methods
     def __str__(self) -> str:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.armor_type} {self.item_type}]"
+        return f"{self.name} [{uTypes.ARMOR_TYPES[self.armor_type]} {uTypes.ITEM_TYPES[self.item_type]}]"
 
     def copy(self) -> Self:
         """Copies the current object"""
