@@ -30,8 +30,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 121         |
-|         Lines: 6603        |
+|         Files: 120         |
+|         Lines: 6626        |
 +============================+
 
 ./tests
@@ -148,7 +148,6 @@ FUNCLG Directories and Files
 ./tests/test_character/__init__.py
 ./tests/test_character/fixtures/abilities_fixtures.py
 ./tests/test_character/fixtures/roles_fixtures.py
-./tests/test_character/fixtures/stat_fixtures.py
 ./tests/test_character/fixtures/armor_fixtures.py
 ./tests/test_character/fixtures/equipment_fixures.py
 ./tests/test_character/fixtures/__init__.py

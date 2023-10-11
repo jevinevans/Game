@@ -10,6 +10,8 @@ from loguru import logger
 
 from .modifiers import Modifier
 
+# TODO: 2023.10.10 - Decide if stats and modifiers should round to whole numbers
+
 
 class Stats:
     """
@@ -65,6 +67,34 @@ class Stats:
     @property
     def power(self):
         self._cal_power()
+        return self._power
+
+        # Calculates objects
+        self._power = 0
+        self._cal_power()
+
+    def _validate_attributes(self, attributes: Union[Dict[str, Any], None]):
+        """
+        Validates that provided attributes are valid. Used for loading existing attributes.
+
+        :param attributes: Dictionary of attributes that are not the default value
+        :type attributes: Union[Dict[str,Any], None]
+        """
+        if attributes:
+            for attribute, value in attributes.items():
+                if attribute in Stats.BASE_ATTRIBUTES:
+                    setattr(self, attribute, value)
+                else:
+                    logger.error(f"{attribute} is not a valid stats attribute")
+
+    def _cal_power(self):
+        power = 0
+        for attr in Stats.BASE_ATTRIBUTES:
+            power += self.get_stat(attr)
+        self._power = power
+
+    @property
+    def power(self):
         return self._power
 
     def __str__(self):
