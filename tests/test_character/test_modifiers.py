@@ -163,3 +163,25 @@ def test_modifier_friendly_read_branching():
 def test_modifier_export(add_mods, mult_mods):
     mod_1 = Modifier("T1", add_mods["valid"], mult_mods["valid"])
     assert mod_1.export() == {"adds": add_mods["valid"], "mults": mult_mods["valid"]}
+
+
+def test_modifier_level_up(add_mods, mult_mods):
+    mod_1 = Modifier("L1", adds=add_mods["valid"], mults=mult_mods["valid"])
+    mod_lvl = Modifier("L2", adds=add_mods["valid"], mults=mult_mods["valid"])
+
+    mod_lvl.level_up()
+
+    for add in mod_1.adds:
+        assert abs(mod_1.adds[add] - mod_lvl.adds[add]) == 1
+    for mult in mod_1.mults:
+        assert round(abs(mod_1.mults[mult] - mod_lvl.mults[mult]), 2) == 0.01
+
+    mod_lvl.level_up()
+    mod_lvl.level_up()
+    mod_lvl.level_up()
+    mod_lvl.level_up()
+
+    for add in mod_1.adds:
+        assert abs(mod_1.adds[add] - mod_lvl.adds[add]) == 5
+    for mult in mod_1.mults:
+        assert round(abs(mod_1.mults[mult] - mod_lvl.mults[mult]), 2) == 0.05

@@ -27,11 +27,11 @@ def ability_ids():
 
 def abilities_gen_mods():
     mods = {}
-    for a_type in ABILITY_TYPES:
+    for a_type, data in ABILITY_TYPES.items():
         if a_type == "Basic":
             mods[a_type] = {}
         else:
-            mods[a_type] = {ABILITY_TYPES[a_type]["m_type"]: {ABILITY_TYPES[a_type]["mods"][0]: 50}}
+            mods[a_type] = {data["m_type"]: {data["mods"][0]: 50}}
     return mods
 
 
@@ -85,6 +85,7 @@ def abilities_export_expectation(abilities_all_types):
                 "_target": ability._target,
                 "mod": ability.mod.export(),
                 "description": ability.description,
+                "level": 0,
             }
         )
     return ability_exports

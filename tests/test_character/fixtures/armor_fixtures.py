@@ -141,6 +141,7 @@ def armor_export_expectations():
             "description": "Test Head",
             "item_type": 0,
             "armor_type": 0,
+            "level": 0,
             "mod": {
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -152,6 +153,7 @@ def armor_export_expectations():
             "description": "Test Chest",
             "item_type": 1,
             "armor_type": 0,
+            "level": 0,
             "mod": {
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -163,6 +165,7 @@ def armor_export_expectations():
             "description": "Test Back",
             "item_type": 2,
             "armor_type": 0,
+            "level": 0,
             "mod": {
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -174,6 +177,7 @@ def armor_export_expectations():
             "description": "Test Pants",
             "item_type": 3,
             "armor_type": 0,
+            "level": 0,
             "mod": {
                 "adds": {"health": 50},
                 "mults": {"energy": 0.1},
@@ -186,6 +190,7 @@ def armor_export_expectations():
             "item_type": 4,
             "weapon_type": "Bow",
             "armor_type": 0,
+            "level": 0,
             "mod": {
                 "adds": {"attack": 1, "energy": 1},
                 "mults": {},

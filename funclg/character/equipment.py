@@ -46,6 +46,7 @@ class Equipment:
         self.item_type = item_type
         self.armor_type = armor_type
         self.mod = mod
+        self.level = kwargs.get("level", 0)
 
         self._id = db.id_gen(kwargs.get("prefix", self.DB_PREFIX), kwargs.get("_id"))
 
@@ -62,8 +63,8 @@ class Equipment:
         return self._id
 
     def details(self, indent: int = 0) -> str:
-        desc = f"\n{' '*indent}{self.name}"
-        desc += f"\n{' '*indent}{'-'*len(self.name)}"
+        desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
+        desc += f"\n{' '*indent}{'-'*(len(self.name) + 10)}"
         desc += f"\n{' '*indent}Type: {self.get_item_description()}"
         desc += f"\n{' '*indent}Description: {self.description}"
         desc += f"\n\n{' '*indent}Modifier(s):"
@@ -104,6 +105,10 @@ class Equipment:
             mod=self.mod,
             _id=self._id,
         )
+
+    def level_up(self):
+        self.mod.level_up()
+        self.level += 1
 
 
 class WeaponEquipment(Equipment):

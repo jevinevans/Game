@@ -108,8 +108,6 @@ class Stats:
         logger.debug("Exporting Stats")
         return self.__dict__.copy()
 
-    # def level_up(self):
-
 
 # TODO: Create a role stat class
 """

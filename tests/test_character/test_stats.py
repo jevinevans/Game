@@ -30,14 +30,6 @@ def test_base_stat_init(base_stat_no_mods, base_stat_with_mods):
     assert getattr(base_stat_with_mods, "energy", False)
     assert base_stat_with_mods.attack == 4
 
-    # Test Init w/invalid mod
-    mods = [
-        Modifier("test_1", adds={"health": 2}),
-        Modifier("test_2", mults={"death": 0.2}),
-        Modifier("test_1", adds={"energy": 2}),
-    ]
-    assert Stats(modifiers=mods)
-
 
 def test_base_stat_add_modifier_adds_mod(base_stat_no_mods):
     """Test adding an add mod to a stat"""

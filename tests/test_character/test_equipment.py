@@ -71,6 +71,7 @@ def test_equipment_export(m_id):
         "armor_type": 0,
         "mod": {"adds": {"health": 1}},
         "_id": test_id,
+        "level": 0,
     }
 
 
@@ -191,3 +192,32 @@ def test_weaponequipment_copy(weapon_equipment_with_mods):
     assert new_item.description == weapon.description
     assert new_item.armor_type == weapon.armor_type
     assert new_item.item_type == weapon.item_type
+
+
+# ======================================= #
+# Testing Body/Weapon Equipment Functions #
+# ======================================= #
+
+
+def test_level_up(weapon_equipment_with_mods, body_equipment_with_mods):
+    first_key = list(weapon_equipment_with_mods.keys())[0]
+    weapon = weapon_equipment_with_mods[first_key].copy()
+    weapon_lvl = weapon.copy()
+
+    weapon_lvl.level_up()
+
+    for add in weapon.mod.adds:
+        assert abs(weapon.mod.adds[add] - weapon_lvl.mod.adds[add]) == 1
+    for mult in weapon.mod.mults:
+        assert round(abs(weapon.mod.mults[mult] - weapon_lvl.mod.mults[mult]), 2) == 0.01
+
+    first_key = list(body_equipment_with_mods.keys())[0]
+    body = body_equipment_with_mods[first_key].copy()
+    body_lvl = body.copy()
+
+    body_lvl.level_up()
+
+    for add in body.mod.adds:
+        assert abs(body.mod.adds[add] - body_lvl.mod.adds[add]) == 1
+    for mult in body.mod.mults:
+        assert round(abs(body.mod.mults[mult] - body_lvl.mod.mults[mult]), 2) == 0.01

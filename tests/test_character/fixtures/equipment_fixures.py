@@ -101,8 +101,8 @@ def body_details_expectation():
 
     for indent in range(0, 7):
         base = f"""
-{' '*indent}Head_mods
-{' '*indent}---------
+{' '*indent}Head_mods [lvl 0]
+{' '*indent}-------------------
 {' '*indent}Type: [Medium Head]
 {' '*indent}Description: Medium Head with mods
 

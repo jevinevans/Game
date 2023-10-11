@@ -111,3 +111,11 @@ class Modifier:
                 stats.setdefault(stat, []).append(self._friendly_read_mod(effect, percentage=True))
 
         return stats
+
+    def level_up(self):
+        if self.adds:
+            for add in self.adds:
+                self.adds[add] += 1
+        if self.mults:
+            for mult in self.mults:
+                self.mults[mult] += 0.01

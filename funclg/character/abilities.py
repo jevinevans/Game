@@ -47,6 +47,7 @@ class Abilities:
         self.mod.add_mod(ABILITY_TYPES[self.ability_type]["m_type"], val_mod)
 
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
+        self.level = kwargs.get("level", 0)
 
         logger.debug(f"Created Ability: {name}")
 
@@ -114,5 +115,8 @@ class Abilities:
             description=self.description,
             _id=self._id,
         )
+
+    def level_up(self):
+        self.mod.level_up()
 
     # TODO def use()

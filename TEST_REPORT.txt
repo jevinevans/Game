@@ -1,27 +1,27 @@
 ######TESTING REPORT######
 
-Date: Sun Oct  8 20:35:07 PDT 2023 
+Date: Tue Oct 10 17:36:25 PDT 2023 
 
 ---PYTEST---
 
 ============================= test session starts ==============================
-platform linux -- Python 3.10.12, pytest-7.4.0, pluggy-1.2.0
+platform linux -- Python 3.10.12, pytest-7.4.2, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 127 items
+collected 130 items
 
-tests/test_character/test_abilities.py ......                            [  4%]
+tests/test_character/test_abilities.py .......                           [  5%]
 tests/test_character/test_armor.py ...............                       [ 16%]
 tests/test_character/test_character.py .......                           [ 22%]
-tests/test_character/test_equipment.py ..............                    [ 33%]
-tests/test_character/test_modifiers.py .........                         [ 40%]
-tests/test_character/test_roles.py .............                         [ 50%]
-tests/test_character/test_stats.py ............                          [ 59%]
-tests/test_game/test_game_levels.py .......                              [ 65%]
+tests/test_character/test_equipment.py ...............                   [ 33%]
+tests/test_character/test_modifiers.py ..........                        [ 41%]
+tests/test_character/test_roles.py .............                         [ 51%]
+tests/test_character/test_stats.py ............                          [ 60%]
+tests/test_game/test_game_levels.py .......                              [ 66%]
 tests/test_main/test_main.py .                                           [ 66%]
-tests/test_managers/test_abilities_manager.py .......                    [ 71%]
-tests/test_managers/test_character_manager.py .........                  [ 78%]
-tests/test_managers/test_equipment_manager.py .........                  [ 85%]
+tests/test_managers/test_abilities_manager.py .......                    [ 72%]
+tests/test_managers/test_character_manager.py .........                  [ 79%]
+tests/test_managers/test_equipment_manager.py .........                  [ 86%]
 tests/test_managers/test_modifier_manager.py ...                         [ 88%]
 tests/test_managers/test_roles_manager.py ............                   [ 97%]
 tests/test_utils/test_types.py ...                                       [100%]
@@ -32,18 +32,18 @@ Name                                   Stmts   Miss Branch BrPart  Cover   Missi
 funclg/__init__.py                         1      0      0      0   100%
 funclg/__main__.py                        41     24      6      1    38%   39-43, 57-69, 73-80, 84-86
 funclg/character/__init__.py               0      0      0      0   100%
-funclg/character/abilities.py             66      0     20      0   100%
+funclg/character/abilities.py             69      0     20      0   100%
 funclg/character/armor.py                123      0     34      0   100%
-funclg/character/character.py             70      8     12      0    88%   120-124, 127-128, 132-133, 149-152
-funclg/character/equipment.py             89      0     10      0   100%
-funclg/character/modifiers.py             64      0     30      0   100%
+funclg/character/character.py             70      8     12      0    88%   120-124, 127-128, 132-133, 148-151
+funclg/character/equipment.py             93      0     10      0   100%
+funclg/character/modifiers.py             71      0     38      1    99%   116->119
 funclg/character/roles.py                 73      0     26      0   100%
-funclg/character/stats.py                 62      0     28      0   100%
+funclg/character/stats.py                 62      0     28      1    99%   46->45
 funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 48
 funclg/game/combat.py                      0      0      0      0   100%
 funclg/game/game.py                       10      4      0      0    60%   31, 36, 40, 46
 funclg/game/level.py                     101      0     42      2    99%   128->exit, 195->198
-funclg/game/level_manager.py               4      4      0      0     0%   9-35
+funclg/game/level_manager.py               2      2      0      0     0%   13-25
 funclg/game/rewards.py                     0      0      0      0   100%
 funclg/managers/__init__.py               18      4      6      0    67%   31-32, 36-37
 funclg/managers/abilities_manager.py      69      1     24      1    98%   128
@@ -57,13 +57,13 @@ funclg/utils/data_mgmt.py                 48     13     16      1    69%   41->5
 funclg/utils/game_enums.py                32      4      2      0    88%   58-72
 funclg/utils/input_validation.py          40     28     16      0    21%   19-29, 36-37, 44, 73-86, 98, 107-112, 128-136
 funclg/utils/menu_funcs.py                36     16     14      0    48%   30-53
-funclg/utils/types.py                     17      0      6      1    96%   55->58
+funclg/utils/types.py                     18      0      6      1    96%   56->59
 ----------------------------------------------------------------------------------
-TOTAL                                   1398    129    464     17    90%
+TOTAL                                   1411    127    472     19    90%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 89.69%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 89.80%
 
-======================= 127 passed, 2 warnings in 1.10s ========================
+======================= 130 passed, 2 warnings in 1.55s ========================
 
 ---Code Quality Report---
 
@@ -83,18 +83,17 @@ funclg/character/character.py:17:1: W0511: TODO: Char Update - 3: Create the NPC
 funclg/character/character.py:102:5: W0511: TODO: def use_ability(self): (fixme)
 ************* Module funclg.character.abilities
 funclg/character/abilities.py:21:1: W0511: TODO: add energy cost attribute (fixme)
-funclg/character/abilities.py:118:5: W0511: TODO def use() (fixme)
+funclg/character/abilities.py:122:5: W0511: TODO def use() (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:66:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.armor
 funclg/character/armor.py:34:9: W0511: TODO: 20240629 - Change to stats instead of stat (fixme)
 funclg/character/armor.py:38:9: W0511: TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified (fixme)
-funclg/character/armor.py:174:21: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
 ************* Module funclg.character.stats
-funclg/character/stats.py:114:1: W0511: TODO: Create a role stat class (fixme)
-funclg/character/stats.py:122:1: W0511: TODO: Build Character stats (fixme)
-funclg/character/stats.py:115:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/character/stats.py:123:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:112:1: W0511: TODO: Create a role stat class (fixme)
+funclg/character/stats.py:120:1: W0511: TODO: Build Character stats (fixme)
+funclg/character/stats.py:113:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/character/stats.py:121:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
@@ -104,16 +103,12 @@ funclg/utils/input_validation.py:14:1: W0511: TODO: 20230822 - This is still use
 funclg/utils/menu_funcs.py:12:1: W0511: TODO: 20220822 - Create an issue to track the update/integration of questionary into the menu (fixme)
 ************* Module funclg.utils.types
 funclg/utils/types.py:7:1: W0511: TODO: Consider changing IT, AT and WT to enums (fixme)
-funclg/utils/types.py:18:1: W0511: TODO Add descriptions (fixme)
+funclg/utils/types.py:19:1: W0511: TODO Add descriptions (fixme)
 ************* Module funclg.game.level_manager
-funclg/game/level_manager.py:7:1: W0511: TODO: 20231008 - Decide if this should be its own module, where it should be and what it should do. (fixme)
-funclg/game/level_manager.py:19:1: W0511: TODO: 20230905 -  Clean up (fixme)
-funclg/game/level_manager.py:9:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/game/level_manager.py:21:0: W0105: String statement has no effect (pointless-string-statement)
-funclg/game/level_manager.py:34:0: C0413: Import "import questionary" should be placed at the top of the module (wrong-import-position)
-funclg/game/level_manager.py:35:0: C0413: Import "from loguru import logger" should be placed at the top of the module (wrong-import-position)
-funclg/game/level_manager.py:34:0: W0611: Unused import questionary (unused-import)
-funclg/game/level_manager.py:35:0: W0611: Unused logger imported from loguru (unused-import)
+funclg/game/level_manager.py:11:1: W0511: TODO: 20231008 - Decide if this should be its own module, where it should be and what it should do. (fixme)
+funclg/game/level_manager.py:23:1: W0511: TODO: 20230905 -  Clean up (fixme)
+funclg/game/level_manager.py:13:0: W0105: String statement has no effect (pointless-string-statement)
+funclg/game/level_manager.py:25:0: W0105: String statement has no effect (pointless-string-statement)
 ************* Module funclg.game.game
 funclg/game/game.py:43:9: W0511: TODO: I want to be able to make a decision if a block should be reward, enemy etc. (fixme)
 funclg/game/game.py:20:0: C0115: Missing class docstring (missing-class-docstring)
@@ -135,5 +130,5 @@ funclg/managers/character_manager.py:119:5: W0511: TODO: 2023.06.17 - Confirm at
 funclg/managers/__init__.py:5:1: W0511: TODO: 20231008 - Separate menus into smaller modules (game managers, character managers) (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.70/10 (previous run: 9.66/10, +0.04)
+Your code has been rated at 9.74/10 (previous run: 9.74/10, +0.00)
 

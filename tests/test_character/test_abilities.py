@@ -91,3 +91,17 @@ def test_abilities_copy(abilities_all_types):
     assert repair_1.ability_type == repair_2.ability_type
     assert repair_1.description == repair_2.description
     assert repair_1.mod.export() == repair_2.mod.export()
+
+
+def test_ability_level_up(abilities_all_types):
+    ability = abilities_all_types[0]
+    ability_lvl = ability.copy()
+
+    assert ability.id == ability_lvl.id
+
+    ability_lvl.level_up()
+
+    for add in ability.mod.adds:
+        assert abs(ability.mod.adds[add] - ability_lvl.mod.adds[add]) == 1
+    for mult in ability.mod.mults:
+        assert round(abs(ability.mod.mults[mult] - ability_lvl.mod.mults[mult]), 2) == 0.01
