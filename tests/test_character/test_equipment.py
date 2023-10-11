@@ -222,9 +222,6 @@ def test_level_up(weapon_equipment, body_equipment):
 
     weapon_lvl.level_up()
 
-    print(weapon.stats)
-    print(weapon_lvl.stats)
-
     assert abs(weapon.level - weapon_lvl.level) == 1
     assert abs(weapon.stats.health - weapon_lvl.stats.health) == 1
     assert abs(weapon.stats.energy - weapon_lvl.stats.energy) == 1

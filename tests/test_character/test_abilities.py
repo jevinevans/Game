@@ -111,9 +111,9 @@ def test_ability_level_up(abilities_all_types):
 
     ability_lvl.level_up()
 
-    for add in ability.mod.base:
-        assert abs(ability.mod.base[add] - ability_lvl.mod.base[add]) == 1
-    for mult in ability.mod.percentage:
+    for base in ability.mod.base:
+        assert abs(ability.mod.base[base] - ability_lvl.mod.base[base]) == 1
+    for percentage in ability.mod.percentage:
         assert (
-            round(abs(ability.mod.percentage[mult] - ability_lvl.mod.percentage[mult]), 2) == 0.01
+            round(abs(ability.mod.percentage[percentage] - ability_lvl.mod.percentage[percentage]), 2) == 0.01
         )
