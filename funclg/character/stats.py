@@ -10,34 +10,26 @@ from loguru import logger
 
 from .modifiers import Modifier
 
+# TODO: 2023.10.10 - Decide if stats and modifiers should round to whole numbers
+
 
 class Stats:
     """
     This class defines the basic stat class structure for all objects
     """
 
-    PRINT_IGNORES = ["mods"]
-    BASE_ATTR = ["health", "energy", "attack", "defense"]
+    BASE_ATTRIBUTES = ["health", "attack", "defense", "energy"]
 
     def __init__(
         self,
         attributes: Optional[Dict[str, Any]] = None,
         modifiers: Optional[List[Modifier]] = None,
-        default: Optional[int] = 0,
+        default: Optional[int] = 1,
     ):
-        """
-        Creates a stat object, if no attributes provided then the BASE_ATTRs are set to a default value
-        """
-        # Initializes level in case the call stat does not
-        self.level = 0
-
-        for attr in Stats.BASE_ATTR:
+        for attr in Stats.BASE_ATTRIBUTES:
             setattr(self, attr, default)
 
-        # Adds the individual stat
-        if attributes:
-            for key, value in attributes.items():
-                setattr(self, key, value)
+        self._validate_attributes(attributes)
 
         # Modifiers for changing stats
         self.mods = {}
@@ -46,24 +38,52 @@ class Stats:
                 if self._validate_mod(mod):
                     self.mods[mod.name] = mod.get_mods()
 
+        # Calculates objects
+        self._power = 0
+        self._cal_power()
+
+    def _validate_attributes(self, attributes: Union[Dict[str, Any], None]):
+        """
+        Validates that provided attributes are valid. Used for loading existing attributes.
+
+        :param attributes: Dictionary of attributes that are not the default value
+        :type attributes: Union[Dict[str,Any], None]
+        """
+        if attributes:
+            for attribute, value in attributes.items():
+                if attribute in Stats.BASE_ATTRIBUTES:
+                    setattr(self, attribute, value)
+                else:
+                    logger.error(f"{attribute} is not a valid stats attribute")
+
+    def _cal_power(self):
+        power = 0
+        for attr in Stats.BASE_ATTRIBUTES:
+            power += self.get_stat(attr)
+        self._power = power
+
+    @property
+    def power(self):
+        return self._power
+
     def __str__(self):
-        return self.details()
+        stats = "\nStats\n" + "-" * 5
+        for attr in Stats.BASE_ATTRIBUTES:
+            stats += f"\n{attr.capitalize()}: {self.get_stat(attr)}"
+        return stats
 
     def details(self, indent: int = 0):
-        stats = f"\n{' '*indent}Stats\n{' '*indent}"
-        stats += "-" * 5
-        if self.level:
-            stats += f"\n{' '*indent}Level: {self.level}"
-        ignores = Stats.PRINT_IGNORES
-        ignores.append("level")
-        for attr in [attr for attr in self.__dict__ if attr not in ignores]:
-            stats += f"\n{' '*indent}{attr.capitalize()}: {self.get_stat(attr)}"
+        stats = f"\n{' '*indent}Stats [{self.power}]\n{' '*indent}"
+        stats += "-" * (8 + len(str(self.power)))
+        for attr in Stats.BASE_ATTRIBUTES:
+            stats += f"\n{' '*(indent+2)}{attr.capitalize()} [{getattr(self, attr)}]: {self.get_stat(attr)}"
         return stats
 
     def _validate_mod(self, mod: Modifier):
         """
         Checks for duplicate mods being applied to stat
         """
+        # TODO: 2023.10.10 - Consider if this will be valid during combat as an enemy may attack twice and the mod should be added but the effect may need to be combined.
         return not mod.name in self.mods
 
     def add_mod(self, mod: Modifier):
@@ -97,33 +117,38 @@ class Stats:
         return round(base * multiplier, 2)
 
     def get_stats(self) -> Dict[str, Any]:
-        """Returns all user stats, process each stat the object has...?"""
+        """Returns current stats of object with applied mods"""
         stats = {}
-        for attr in [attr for attr in self.__dict__ if attr not in Stats.PRINT_IGNORES]:
+        for attr in Stats.BASE_ATTRIBUTES:
             stats[attr] = self.get_stat(attr)
-        stats["level"] = self.level
         return stats
 
     def export(self) -> Dict[str, Any]:
         logger.debug("Exporting Stats")
         return self.__dict__.copy()
 
+    # TODO: 2023.10.10 - Test if the removal of a mod deletes the original object
+    def clear_mods(self):
+        for mod in self.mods:
+            self.remove_mod(mod)
+        logger.debug("All mods cleared from stat")
 
-# TODO: Create a role stat class
-"""
-This stat will have a base stats for a users roles and any boosts
+    def level_up(self, upgrade: int = 1):
+        for attribute in Stats.BASE_ATTRIBUTES:
+            base_attr = getattr(self, attribute)
+            base_attr += upgrade
+        self._cal_power()
 
-[Health, Energy, Attack]
-"""
+    def to_mod(self, name: str):
+        """
+        Converts the current stats values into a Modifier that can be added to another stat.
 
+        :param name: The name of the object the stat belongs to.
+        :type name: str
+        :return: The generated modifier for the stat.
+        :rtype: funclg.character.modifiers.Modifier
+        """
+        return Modifier(name=name, adds=self.get_stats())
 
-# TODO: Build Character stats
-"""
-This will probably take a armor and roles stat and aggregate the information for the character info
-
-- may need an update function to get information from the other stats, this will either be on the stat or the character class, probably on the character class
-
-[Health (max), health (current), energy (max), energy (current), defense, attack, alive status,]
-
-- need to create a reset method to return the health and energy back to max
-"""
+    # TODO: 2023.10.10 - Define eq, lt, gt, lte, gte, neq, etc.
+    # TODO: 2023.10.10 - Consider add and sub track

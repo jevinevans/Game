@@ -1,1 +1,100 @@
-{"ARMOR-16641-QLDLCA-36283": {"name": "Wind Plate", "description": "This is a chestplate blessed by the wind spirits", "item_type": 1, "armor_type": 0, "mod": {"adds": {"defense": 210}, "mults": {"health": 1}}, "level": 0, "_id": "ARMOR-16641-QLDLCA-36283"}, "WEAPON-16641-OESSS-36416": {"weapon_type": "Spear", "name": "Dragon Javlin", "description": "A long battle spear with the tip of a sharp dragon scale", "item_type": 4, "armor_type": 2, "mod": {"adds": {"attack": 275}, "mults": {"energy": 0.2}}, "level": 0, "_id": "WEAPON-16641-OESSS-36416"}, "ARMOR-16645-TCKTZK-01174": {"name": "Wind Cap", "description": "This is a hat that makes you feel light headed", "item_type": 0, "armor_type": 0, "mod": {"adds": {"health": 285}, "mults": {"defense": 0.52}}, "level": 0, "_id": "ARMOR-16645-TCKTZK-01174"}, "WEAPON-16645-ACIGL-01214": {"weapon_type": "Wand", "name": "Calins Wand", "description": "The original wand of Calin", "item_type": 4, "armor_type": 1, "mod": {"adds": {"attack": 337}, "mults": {"energy": 1}}, "level": 0, "_id": "WEAPON-16645-ACIGL-01214"}, "ARMOR-16809-BCWSVN-76675": {"name": "Basic Mage Tunic", "description": "Armor used by beginner mages", "item_type": 1, "armor_type": 1, "mod": {"adds": {"health": 100}, "mults": {"health": 0.45}}, "level": 0, "_id": "ARMOR-16809-BCWSVN-76675"}, "ARMOR-16809-AEAYIE-76732": {"name": "Basic Mage Pants", "description": "Pants for a beginner mage", "item_type": 3, "armor_type": 1, "mod": {"adds": {"health": 459}, "mults": {"health": 0.51}}, "level": 0, "_id": "ARMOR-16809-AEAYIE-76732"}}
+{
+    "ARMOR-16641-QLDLCA-36283": {
+        "_id": "ARMOR-16641-QLDLCA-36283",
+        "armor_type": 0,
+        "description": "This is a chestplate blessed by the wind spirits",
+        "item_type": 1,
+        "level": 0,
+        "mod": {
+            "adds": {
+                "defense": 210
+            },
+            "mults": {
+                "health": 1
+            }
+        },
+        "name": "Wind Plate"
+    },
+    "ARMOR-16645-TCKTZK-01174": {
+        "_id": "ARMOR-16645-TCKTZK-01174",
+        "armor_type": 0,
+        "description": "This is a hat that makes you feel light headed",
+        "item_type": 0,
+        "level": 0,
+        "mod": {
+            "adds": {
+                "health": 285
+            },
+            "mults": {
+                "defense": 0.52
+            }
+        },
+        "name": "Wind Cap"
+    },
+    "ARMOR-16809-AEAYIE-76732": {
+        "_id": "ARMOR-16809-AEAYIE-76732",
+        "armor_type": 1,
+        "description": "Pants for a beginner mage",
+        "item_type": 3,
+        "level": 0,
+        "mod": {
+            "adds": {
+                "health": 459
+            },
+            "mults": {
+                "health": 0.51
+            }
+        },
+        "name": "Basic Mage Pants"
+    },
+    "ARMOR-16809-BCWSVN-76675": {
+        "_id": "ARMOR-16809-BCWSVN-76675",
+        "armor_type": 1,
+        "description": "Armor used by beginner mages",
+        "item_type": 1,
+        "level": 0,
+        "mod": {
+            "adds": {
+                "health": 100
+            },
+            "mults": {
+                "health": 0.45
+            }
+        },
+        "name": "Basic Mage Tunic"
+    },
+    "WEAPON-16641-OESSS-36416": {
+        "_id": "WEAPON-16641-OESSS-36416",
+        "armor_type": 2,
+        "description": "A long battle spear with the tip of a sharp dragon scale",
+        "item_type": 4,
+        "level": 0,
+        "mod": {
+            "adds": {
+                "attack": 275
+            },
+            "mults": {
+                "energy": 0.2
+            }
+        },
+        "name": "Dragon Javlin",
+        "weapon_type": "Spear"
+    },
+    "WEAPON-16645-ACIGL-01214": {
+        "_id": "WEAPON-16645-ACIGL-01214",
+        "armor_type": 1,
+        "description": "The original wand of Calin",
+        "item_type": 4,
+        "level": 0,
+        "mod": {
+            "adds": {
+                "attack": 337
+            },
+            "mults": {
+                "energy": 1
+            }
+        },
+        "name": "Calins Wand",
+        "weapon_type": "Wand"
+    }
+}

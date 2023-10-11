@@ -43,7 +43,7 @@ def character_export_expectation():
                 "defense": 10,
                 "energy": 10,
                 "health": 10,
-                "level": None,
+                "_power": 40,
                 "mods": {},
             },
             "weapon": None,
@@ -83,12 +83,12 @@ def character_details_expectation():
 
     Weapon: None
 
-    Stats
-    -----
-    Health: 10
-    Energy: 10
-    Attack: 10
-    Defense: 10
+    Stats [40]
+    ----------
+      Health [10]: 10
+      Attack [10]: 10
+      Defense [10]: 10
+      Energy [10]: 10
 """
 
 

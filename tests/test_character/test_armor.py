@@ -200,7 +200,6 @@ def test_armor_details_missing_item(light_armor_knife, armor_details_missing_wea
 
 
 def test_armor_stat_info(light_armor_knife):
-    assert light_armor_knife.stat.level is None
     current_stats = light_armor_knife.get_stats()
     light_armor_knife.dequip("weapon")
     light_armor_knife.dequip("chest")

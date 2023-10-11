@@ -33,7 +33,7 @@ class Armor:
 
         # TODO: 20240629 - Change to stats instead of stat
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
-        self.stat = Stats(attributes={"level": None}, default=(armor_type + 1) * 10)
+        self.stat = Stats(default=(armor_type + 1) * 10)
 
         # TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified
 

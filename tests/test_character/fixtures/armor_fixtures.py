@@ -202,7 +202,7 @@ def armor_export_expectations():
             "defense": 10,
             "energy": 10,
             "health": 10,
-            "level": None,
+            "_power": 40,
             "mods": {
                 "Back": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
                 "Chest": {"adds": {"health": 50}, "mults": {"energy": 0.1}},

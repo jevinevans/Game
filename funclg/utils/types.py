@@ -14,8 +14,6 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy"]
 # Weapon Types: Weapon Name, Armor Type Restriction
 WEAPON_TYPES = {"Sword": 2, "Spear": 2, "Wand": 1, "Staff": 1, "Knife": 0, "Bow": 0, "Unknown": 0}
 
-STAT_TYPES = ["Health", "Defense", "Energy", "Attack"]
-
 # TODO Add descriptions
 # This defines the type of abilities, their effect target (Damage = enemies, Boost = Self), List of available attributes
 ABILITY_TYPES = {
