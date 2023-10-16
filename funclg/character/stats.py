@@ -21,6 +21,7 @@ class Stats:
     BASE_ATTRIBUTES = ["health", "attack", "defense", "energy"]
     STAT_DEFAULT = 1
 
+    # TODO: 2023.10.15 - define a base stat max
     def __init__(
         self,
         attributes: Optional[Dict[str, Any]] = None,
@@ -83,7 +84,10 @@ class Stats:
         if attributes:
             for attribute, value in attributes.items():
                 if attribute in Stats.BASE_ATTRIBUTES:
-                    setattr(self, attribute, value)
+                    if value >= Stats.STAT_DEFAULT:
+                        setattr(self, attribute, value)
+                    else:
+                        logger.error(f"{value} is below default")
                 else:
                     logger.error(f"{attribute} is not a valid stats attribute")
 

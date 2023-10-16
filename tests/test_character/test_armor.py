@@ -174,6 +174,7 @@ def test_armor_export(m_id, armor_export_expectations):
     for item in equipment.values():
         print(item.stats)
         armor.equip(item)
+
     assert armor.export() == armor_export_expectations
 
 

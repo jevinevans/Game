@@ -69,7 +69,7 @@ def _new_weapon():
         name=weapon_name,
         weapon_type=weapon_type,
         description=weapon_desc,
-        mod=weapon_mod,
+        stats=weapon_stat,
     )
 
 

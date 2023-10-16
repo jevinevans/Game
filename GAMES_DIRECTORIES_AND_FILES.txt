@@ -31,7 +31,7 @@ FUNCLG Directories and Files
 +============================+
 |    Total Directories: 21   |
 |         Files: 120         |
-|         Lines: 6626        |
+|         Lines: 6679        |
 +============================+
 
 ./tests
@@ -134,7 +134,7 @@ FUNCLG Directories and Files
 ./tests/__init__.py
 ./tests/test_managers/test_equipment_manager.py
 ./tests/test_managers/test_abilities_manager.py
-./tests/test_managers/test_modifier_manager.py
+./tests/test_managers/test_stats_manager.py
 ./tests/test_managers/test_roles_manager.py
 ./tests/test_managers/test_character_manager.py
 ./tests/test_character/fixtures
@@ -268,10 +268,10 @@ FUNCLG Directories and Files
 ./funclg/data/equipment.json
 ./funclg/data/roles.json
 ./funclg/managers/roles_manager.py
+./funclg/managers/stats_manager.py
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
 ./funclg/managers/game_manager.py
-./funclg/managers/modifier_manager.py
 ./funclg/managers/character_manager.py
 ./funclg/managers/__init__.py
 <<<<<<< HEAD

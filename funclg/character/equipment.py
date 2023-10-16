@@ -70,6 +70,10 @@ class Equipment:
     def id(self):  # pylint: disable=C0103
         return self._id
 
+    @property
+    def power(self):
+        return self.stats.power
+
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
         desc += f"\n{' '*indent}{'-'*(len(self.name) + 7 + len(str(self.level)))}"
@@ -117,6 +121,9 @@ class Equipment:
     def level_up(self):
         self.level += 1
         self.stats.level_up()
+
+    def to_mod(self):
+        return self.stats.to_mod(self.name)
 
     def to_mod(self):
         return self.stats.to_mod(self.name)
