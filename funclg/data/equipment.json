@@ -5,15 +5,16 @@
         "description": "This is a chestplate blessed by the wind spirits",
         "item_type": 1,
         "level": 0,
-        "mod": {
-            "adds": {
-                "defense": 210
+        "name": "Wind Plate",
+        "stats": {
+            "attributes": {
+                "attack": 1,
+                "defense": 21,
+                "energy": 1,
+                "health": 10
             },
-            "mults": {
-                "health": 1
-            }
-        },
-        "name": "Wind Plate"
+            "modifiers": {}
+        }
     },
     "ARMOR-16645-TCKTZK-01174": {
         "_id": "ARMOR-16645-TCKTZK-01174",
@@ -21,15 +22,16 @@
         "description": "This is a hat that makes you feel light headed",
         "item_type": 0,
         "level": 0,
-        "mod": {
-            "adds": {
-                "health": 285
+        "name": "Wind Cap",
+        "stats": {
+            "attributes": {
+                "attack": 1,
+                "defense": 52,
+                "energy": 1,
+                "health": 28
             },
-            "mults": {
-                "defense": 0.52
-            }
-        },
-        "name": "Wind Cap"
+            "modifiers": {}
+        }
     },
     "ARMOR-16809-AEAYIE-76732": {
         "_id": "ARMOR-16809-AEAYIE-76732",
@@ -37,15 +39,16 @@
         "description": "Pants for a beginner mage",
         "item_type": 3,
         "level": 0,
-        "mod": {
-            "adds": {
-                "health": 459
+        "name": "Basic Mage Pants",
+        "stats": {
+            "attributes": {
+                "attack": 1,
+                "defense": 1,
+                "energy": 1,
+                "health": 51
             },
-            "mults": {
-                "health": 0.51
-            }
-        },
-        "name": "Basic Mage Pants"
+            "modifiers": {}
+        }
     },
     "ARMOR-16809-BCWSVN-76675": {
         "_id": "ARMOR-16809-BCWSVN-76675",
@@ -53,15 +56,16 @@
         "description": "Armor used by beginner mages",
         "item_type": 1,
         "level": 0,
-        "mod": {
-            "adds": {
-                "health": 100
+        "name": "Basic Mage Tunic",
+        "stats": {
+            "attributes": {
+                "attack": 1,
+                "defense": 1,
+                "energy": 1,
+                "health": 45
             },
-            "mults": {
-                "health": 0.45
-            }
-        },
-        "name": "Basic Mage Tunic"
+            "modifiers": {}
+        }
     },
     "WEAPON-16641-OESSS-36416": {
         "_id": "WEAPON-16641-OESSS-36416",
@@ -69,15 +73,16 @@
         "description": "A long battle spear with the tip of a sharp dragon scale",
         "item_type": 4,
         "level": 0,
-        "mod": {
-            "adds": {
-                "attack": 275
-            },
-            "mults": {
-                "energy": 0.2
-            }
-        },
         "name": "Dragon Javlin",
+        "stats": {
+            "attributes": {
+                "attack": 1,
+                "defense": 1,
+                "energy": 1,
+                "health": 1
+            },
+            "modifiers": {}
+        },
         "weapon_type": "Spear"
     },
     "WEAPON-16645-ACIGL-01214": {
@@ -86,15 +91,16 @@
         "description": "The original wand of Calin",
         "item_type": 4,
         "level": 0,
-        "mod": {
-            "adds": {
-                "attack": 337
-            },
-            "mults": {
-                "energy": 1
-            }
-        },
         "name": "Calins Wand",
+        "stats": {
+            "attributes": {
+                "attack": 1,
+                "defense": 1,
+                "energy": 1,
+                "health": 1
+            },
+            "modifiers": {}
+        },
         "weapon_type": "Wand"
     }
 }

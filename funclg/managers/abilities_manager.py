@@ -6,7 +6,7 @@ Description: A manager class for creating, updating, and removing abilities.
 
 from loguru import logger
 
-import funclg.managers.modifier_manager as mod_man
+import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.abilities import Abilities
 from funclg.utils.input_validation import (
@@ -54,7 +54,7 @@ def build_ability():
 
     # TODO: Need to be able to chose the mod for the ability they want
     print("Generating mods for this weapon...")
-    ability_mod = mod_man.generate_modifier("ability", ABILITY_TYPES[ability_type], True)
+    ability_mod = stats_man.generate_modifier("ability", ABILITY_TYPES[ability_type], True)
 
     new_ability = Abilities(
         name=ability_name, ability_type=ability_type, description=ability_desc, mod=ability_mod

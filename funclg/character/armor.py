@@ -31,9 +31,9 @@ class Armor:
     ):
         self.armor_type = armor_type if abs(armor_type) < len(ARMOR_TYPES) else 0
 
-        # TODO: 20240629 - Change to stats instead of stat
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
-        self.stat = Stats(default=(armor_type + 1) * 10)
+        stat_default = (armor_type + 1) * 10
+        self.stats = Stats(attributes={_attr: stat_default for _attr in Stats.BASE_ATTRIBUTES})
 
         # TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified
 
@@ -45,7 +45,7 @@ class Armor:
 
     def _update_armor_mods(self, item):
         """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
-        self.stat.add_mod(item.mod)
+        self.stats.add_mod(item.to_mod())
         return item.copy()
 
     def _validate_equipment(
@@ -105,7 +105,7 @@ class Armor:
             equip_func = getattr(self, "_equip_" + item.get_item_type().lower(), None)
             if equip_func:
                 if equip_func(item):
-                    self.stat.add_mod(item.mod)
+                    self.stats.add_mod(item.to_mod())
                     logger.info(f"Equipped {item.name} to {item.get_item_type()}")
             else:
                 logger.warning(f"{item} is not compatible with this armor")
@@ -144,7 +144,7 @@ class Armor:
         if getattr(self, item_type.lower(), False):
             dequip_func = getattr(self, "_dequip_" + item_type.lower())
             ret_item = dequip_func()
-            self.stat.remove_mod(ret_item.mod.name)
+            self.stats.remove_mod(ret_item.name)
             logger.info(f"Dequipped {ret_item.name} from {ret_item.get_item_type()}")
             return ret_item
         logger.warning("There is no item to remove.")
@@ -156,7 +156,7 @@ class Armor:
 
         for _item_type in ITEM_TYPES:
             desc += self._details_check_none(indent, _item_type) + "\n"
-        desc += self.stat.details(indent=indent + 2)
+        desc += self.stats.details(indent=indent + 2)
         return desc
 
     def _details_check_none(self, indent: int, _item_type: str) -> str:
@@ -177,9 +177,12 @@ class Armor:
             if isinstance(value, Equipment):
                 exporter[key] = value.export()
             if isinstance(value, Stats):
-                exporter[key] = value.export()
+                continue
+        exporter.pop("stats")
         return exporter
 
     def get_stats(self):
         """Armor Call method for the stats object"""
-        return self.stat.get_stats()
+        return self.stats.get_stats()
+
+    # TODO: 2023.10.14 - Define level up process, this base st

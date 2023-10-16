@@ -117,7 +117,7 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_prin
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.modifier_manager.generate_modifier")
+@patch("funclg.managers.stats_manager.generate_modifier")
 @patch("funclg.managers.abilities_manager.update_data")
 @patch("funclg.managers.abilities_manager.confirmation")
 @patch("funclg.managers.abilities_manager.selection_validation")

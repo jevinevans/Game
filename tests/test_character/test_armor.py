@@ -95,7 +95,7 @@ def test_armor_equipping_flow_issues(m_log, m_item_type):
 
     # No Item Type Function
     m_item_type.return_value = "Other Val"
-    armor.equip(BodyEquipment(name="Test Armor", armor_type=1))
+    armor.equip(BodyEquipment(name="Test Armor", item_type=-1, armor_type=1))
 
     assert m_log.called_with("No item was provided to equip")
 
@@ -154,12 +154,12 @@ def test_armor_export(m_id, armor_export_expectations):
         "WEAPON-12345-FEGIF-67894",
     ]
     equipment = {}
-    mods = {"adds": {"health": 50}, "mults": {"energy": 0.1}}
+    _stats = {"attributes": {"health": 50, "energy": 10, "attack": 10, "defense": 10}}
 
     for item_type in range(4):
         equipment[get_item_type(item_type)] = BodyEquipment(
             name=get_item_type(item_type),
-            mod=mods,
+            stats=_stats,
             description=f"Test {get_item_type(item_type)}",
             armor_type=0,
             item_type=item_type,
@@ -172,7 +172,9 @@ def test_armor_export(m_id, armor_export_expectations):
     )
     armor = Armor(0)
     for item in equipment.values():
+        print(item.stats)
         armor.equip(item)
+
     assert armor.export() == armor_export_expectations
 
 

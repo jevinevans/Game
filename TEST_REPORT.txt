@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Oct 10 19:36:49 PDT 2023 
+Date: Sun Oct 15 22:31:07 PDT 2023 
 
 ---PYTEST---
 
@@ -8,22 +8,22 @@ Date: Tue Oct 10 19:36:49 PDT 2023
 platform linux -- Python 3.10.12, pytest-7.4.2, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 131 items
+collected 129 items
 
 tests/test_character/test_abilities.py .......                           [  5%]
-tests/test_character/test_armor.py ...............                       [ 16%]
+tests/test_character/test_armor.py ...............                       [ 17%]
 tests/test_character/test_character.py .......                           [ 22%]
-tests/test_character/test_equipment.py ...............                   [ 33%]
-tests/test_character/test_modifiers.py ..........                        [ 41%]
-tests/test_character/test_roles.py .............                         [ 51%]
-tests/test_character/test_stats.py .............                         [ 61%]
-tests/test_game/test_game_levels.py .......                              [ 66%]
-tests/test_main/test_main.py .                                           [ 67%]
+tests/test_character/test_equipment.py .............                     [ 32%]
+tests/test_character/test_modifiers.py ..........                        [ 40%]
+tests/test_character/test_roles.py .............                         [ 50%]
+tests/test_character/test_stats.py .............                         [ 60%]
+tests/test_game/test_game_levels.py .......                              [ 65%]
+tests/test_main/test_main.py .                                           [ 66%]
 tests/test_managers/test_abilities_manager.py .......                    [ 72%]
 tests/test_managers/test_character_manager.py .........                  [ 79%]
 tests/test_managers/test_equipment_manager.py .........                  [ 86%]
-tests/test_managers/test_modifier_manager.py ...                         [ 88%]
-tests/test_managers/test_roles_manager.py ............                   [ 97%]
+tests/test_managers/test_roles_manager.py ............                   [ 95%]
+tests/test_managers/test_stats_manager.py ...                            [ 97%]
 tests/test_utils/test_types.py ...                                       [100%]
 
 ---------- coverage: platform linux, python 3.10.12-final-0 ----------
@@ -33,12 +33,12 @@ funclg/__init__.py                         1      0      0      0   100%
 funclg/__main__.py                        41     24      6      1    38%   39-43, 57-69, 73-80, 84-86
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             69      0     20      0   100%
-funclg/character/armor.py                123      0     34      0   100%
+funclg/character/armor.py                125      0     36      0   100%
 funclg/character/character.py             70      8     12      0    88%   120-124, 127-128, 132-133, 148-151
-funclg/character/equipment.py             93      0     10      0   100%
+funclg/character/equipment.py            118      2     22      0    99%   68, 100
 funclg/character/modifiers.py             71      0     38      1    99%   116->119
 funclg/character/roles.py                 73      0     26      0   100%
-funclg/character/stats.py                 81      9     34      2    87%   38->37, 57, 132-134, 137-140, 151
+funclg/character/stats.py                 97     11     38      2    87%   56, 126-128, 149-150, 159, 162, 165, 168, 171
 funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 48
 funclg/game/combat.py                      0      0      0      0   100%
 funclg/game/game.py                       10      4      0      0    60%   31, 36, 40, 46
@@ -50,8 +50,8 @@ funclg/managers/abilities_manager.py      69      1     24      1    98%   128
 funclg/managers/character_manager.py     120      3     54      4    96%   27-28, 69->68, 72->75, 75->78, 230
 funclg/managers/equipment_manager.py      89      4     32      3    94%   23-24, 31->30, 98, 181
 funclg/managers/game_manager.py           27      9      8      1    60%   38-50, 54
-funclg/managers/modifier_manager.py       66      0     26      0   100%
 funclg/managers/roles_manager.py         121      3     52      3    97%   25-26, 32->31, 119->132, 223
+funclg/managers/stats_manager.py          84     16     34      0    80%   126-152
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 48     13     16      1    69%   41->55, 45-54, 65-68
 funclg/utils/game_enums.py                32      4      2      0    88%   58-72
@@ -59,11 +59,11 @@ funclg/utils/input_validation.py          40     28     16      0    21%   19-29
 funclg/utils/menu_funcs.py                36     16     14      0    48%   30-53
 funclg/utils/types.py                     17      0      6      1    96%   54->57
 ----------------------------------------------------------------------------------
-TOTAL                                   1429    136    478     20    89%
+TOTAL                                   1490    156    504     20    88%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 89.20%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 88.26%
 
-======================= 131 passed, 2 warnings in 1.46s ========================
+======================= 129 passed, 2 warnings in 1.27s ========================
 
 ---Code Quality Report---
 
@@ -87,14 +87,15 @@ funclg/character/abilities.py:122:5: W0511: TODO def use() (fixme)
 ************* Module funclg.character.modifiers
 funclg/character/modifiers.py:66:9: W0511: TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE (fixme)
 ************* Module funclg.character.armor
-funclg/character/armor.py:34:9: W0511: TODO: 20240629 - Change to stats instead of stat (fixme)
 funclg/character/armor.py:38:9: W0511: TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified (fixme)
+funclg/character/armor.py:188:5: W0511: TODO: 2023.10.14 - Define level up process, this base st (fixme)
 ************* Module funclg.character.stats
+funclg/character/stats.py:88:0: C0303: Trailing whitespace (trailing-whitespace)
+funclg/character/stats.py:119:0: C0303: Trailing whitespace (trailing-whitespace)
+funclg/character/stats.py:120:39: C0303: Trailing whitespace (trailing-whitespace)
 funclg/character/stats.py:13:1: W0511: TODO: 2023.10.10 - Decide if stats and modifiers should round to whole numbers (fixme)
-funclg/character/stats.py:86:9: W0511: TODO: 2023.10.10 - Consider if this will be valid during combat as an enemy may attack twice and the mod should be added but the effect may need to be combined. (fixme)
-funclg/character/stats.py:130:5: W0511: TODO: 2023.10.10 - Test if the removal of a mod deletes the original object (fixme)
-funclg/character/stats.py:153:5: W0511: TODO: 2023.10.10 - Define eq, lt, gt, lte, gte, neq, etc. (fixme)
-funclg/character/stats.py:154:5: W0511: TODO: 2023.10.10 - Consider add and sub track (fixme)
+funclg/character/stats.py:22:5: W0511: TODO: 2023.10.15 - define a base stat max (fixme)
+funclg/character/stats.py:124:5: W0511: TODO: 2023.10.10 - Test if the removal of a mod deletes the original object (fixme)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
@@ -117,13 +118,14 @@ funclg/game/game.py:20:0: C0115: Missing class docstring (missing-class-docstrin
 funclg/game/__init__.py:44:5: W0511: TODO: Do a precheck to make sure the running system can print the level boundary characters, if not then use alternative boundaries (fixme)
 ************* Module funclg.managers.roles_manager
 funclg/managers/roles_manager.py:59:9: W0511: TODO: Add description print out (fixme)
+************* Module funclg.managers.stats_manager
+funclg/managers/stats_manager.py:50:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
+funclg/managers/stats_manager.py:52:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
+funclg/managers/stats_manager.py:81:1: W0511: TODO: 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
+funclg/managers/stats_manager.py:131:57: E1133: Non-iterable value Stats.STAT_DEFAULT is used in an iterating context (not-an-iterable)
 ************* Module funclg.managers.abilities_manager
 funclg/managers/abilities_manager.py:45:5: W0511: TODO: Add description print out (fixme)
 funclg/managers/abilities_manager.py:55:5: W0511: TODO: Need to be able to chose the mod for the ability they want (fixme)
-************* Module funclg.managers.modifier_manager
-funclg/managers/modifier_manager.py:49:1: W0511: TODO: Create/modify the build to allow for random creation (fixme)
-funclg/managers/modifier_manager.py:51:1: W0511: TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities (fixme)
-funclg/managers/modifier_manager.py:80:1: W0511: TODO: 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values. (fixme)
 ************* Module funclg.managers.character_manager
 funclg/managers/character_manager.py:97:5: W0511: TODO: 2023.06.17 - Add the option to skip (fixme)
 funclg/managers/character_manager.py:119:5: W0511: TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward (fixme)
@@ -131,5 +133,59 @@ funclg/managers/character_manager.py:119:5: W0511: TODO: 2023.06.17 - Confirm at
 funclg/managers/__init__.py:5:1: W0511: TODO: 20231008 - Separate menus into smaller modules (game managers, character managers) (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.74/10 (previous run: 9.69/10, +0.04)
+Your code has been rated at 9.71/10 (previous run: 9.71/10, -0.00)
 
++==============================================================================+
+
+                               /$$$$$$            /$$
+                              /$$__  $$          | $$
+           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
+          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
+         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
+          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
+          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
+         |_______/  \_______/|__/     \_______/   \___/   \____  $$
+                                                          /$$  | $$
+                                                         |  $$$$$$/
+  by pyup.io                                              \______/
+
++==============================================================================+
+
+ [1mANNOUNCEMENTS[0m 
+
+ [33m* Special Advisory: cURL High Severity Vulnerability: https://bit.ly/3FeaPsm[0m 
+
++==============================================================================+
+
+ [1mREPORT[0m 
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
+  Safety [1mv2.3.5[0m is scanning for [1mVulnerabilities[0m[1m...[0m
+[1m  Scanning dependencies[0m in your [1menvironment:[0m
+
+  -> /home/jevinle/.cache/pypoetry/virtualenvs/funclg-
+    AThUaF5z-py3.10/lib/python3.10/site-packages
+
+  Using [1mnon-commercial database[0m
+[1m  Found and scanned 69 packages[0m
+  Timestamp [1m2023-10-15 22:31:20[0m
+[1m  0[0m[1m vulnerabilities found[0m
+[1m  0[0m[1m vulnerabilities ignored[0m
++==============================================================================+
+
+ [32m[1mNo known security vulnerabilities found.[0m 
+
++==============================================================================+
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
++==============================================================================+[0m
