@@ -19,9 +19,8 @@ def test_equipment():
         "description": "Test Chest Plate",
         "item_type": 1,
         "armor_type": 0,
-        "mod": {
-            "adds": {"defense": 210},
-            "mults": {"health": 1},
+        "stats": {
+            "attributes": {"defense": 10, "health": 1, "energy": 1, "attack": 1, "_power": 13}
         },
         "_id": "ARMOR-16342-QLERCA-36276",
     }
@@ -34,9 +33,8 @@ def test_equipment_2():
         "description": "Test Chest Head",
         "item_type": 0,
         "armor_type": 2,
-        "mod": {
-            "adds": {"defense": 220},
-            "mults": {"health": 0.4},
+        "stats": {
+            "attributes": {"defense": 10, "health": 40, "energy": 1, "attack": 1, "_power": 53}
         },
         "_id": "ARMOR-16342-QLPBCA-36276",
     }
@@ -49,9 +47,8 @@ def test_weapon():
         "description": "Test Spear",
         "item_type": 4,
         "armor_type": 2,
-        "mod": {
-            "adds": {"attack": 275},
-            "mults": {"energy": 0.2},
+        "stats": {
+            "attributes": {"defense": 10, "health": 1, "energy": 1, "attack": 27, "_power": 39}
         },
         "_id": "WEAPON-16151-OEGEFS-36126",
         "weapon_type": "Spear",
@@ -176,13 +173,13 @@ def test_equipment_manager_delete_equipment(
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.modifier_manager.generate_modifier")
+@patch("funclg.managers.stats_manager.build_stats")
 @patch("funclg.managers.equipment_manager.selection_validation")
 @patch("funclg.managers.equipment_manager.string_validation")
-def test_equipment_manager_new_weapon(m_str_val, m_sel, m_mod_gen, m_id, test_weapon):
+def test_equipment_manager_new_weapon(m_str_val, m_sel, m_stats_gen, m_id, test_weapon):
     m_sel.return_value = test_weapon["weapon_type"]
     m_str_val.side_effect = [test_weapon["name"], test_weapon["description"]]
-    m_mod_gen.return_value = test_weapon["mod"]
+    m_stats_gen.return_value = test_weapon["stats"]
     m_id.return_value = test_weapon["_id"]
 
     test_object_weapon = eq_man.WeaponEquipment(**test_weapon)
@@ -193,22 +190,21 @@ def test_equipment_manager_new_weapon(m_str_val, m_sel, m_mod_gen, m_id, test_we
     assert result_weapon.name == test_object_weapon.name
     assert result_weapon.description == test_object_weapon.description
     assert result_weapon.weapon_type == test_object_weapon.weapon_type
-    assert result_weapon.mod.name == test_object_weapon.mod.name
-    assert result_weapon.mod.adds == test_object_weapon.mod.adds
-    assert result_weapon.mod.mults == test_object_weapon.mod.mults
+    assert result_weapon.stats == test_object_weapon.stats
+    assert result_weapon.stats.get_stats() == test_object_weapon.stats.get_stats()
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.modifier_manager.generate_modifier")
+@patch("funclg.managers.stats_manager.build_stats")
 @patch("funclg.managers.equipment_manager.selection_validation")
 @patch("funclg.managers.equipment_manager.string_validation")
-def test_equipment_manager_new_body_armor(m_str_val, m_sel, m_mod_gen, m_id, test_equipment):
+def test_equipment_manager_new_body_armor(m_str_val, m_sel, m_stats_gen, m_id, test_equipment):
     m_sel.side_effect = [
         ITEM_TYPES[test_equipment["item_type"]],
         ARMOR_TYPES[test_equipment["armor_type"]],
     ]
     m_str_val.side_effect = [test_equipment["name"], test_equipment["description"]]
-    m_mod_gen.return_value = test_equipment["mod"]
+    m_stats_gen.return_value = test_equipment["stats"]
     m_id.return_value = test_equipment["_id"]
 
     test_object_equipment = eq_man.BodyEquipment(**test_equipment)
@@ -220,9 +216,8 @@ def test_equipment_manager_new_body_armor(m_str_val, m_sel, m_mod_gen, m_id, tes
     assert result_equipment.description == test_object_equipment.description
     assert result_equipment.item_type == test_object_equipment.item_type
     assert result_equipment.armor_type == test_object_equipment.armor_type
-    assert result_equipment.mod.name == test_object_equipment.mod.name
-    assert result_equipment.mod.adds == test_object_equipment.mod.adds
-    assert result_equipment.mod.mults == test_object_equipment.mod.mults
+    assert result_equipment.stats == test_object_equipment.stats
+    assert result_equipment.stats.get_stats() == test_object_equipment.stats.get_stats()
 
 
 @patch("builtins.print")

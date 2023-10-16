@@ -38,14 +38,6 @@ def character_export_expectation():
             "chest": None,
             "head": None,
             "pants": None,
-            "stat": {
-                "attack": 10,
-                "defense": 10,
-                "energy": 10,
-                "health": 10,
-                "_power": 40,
-                "mods": {},
-            },
             "weapon": None,
         },
         "role": {

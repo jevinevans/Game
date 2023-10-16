@@ -14,6 +14,7 @@ from typing import Any, Dict
 from loguru import logger
 
 from funclg.character.modifiers import Modifier
+from funclg.character.stats import Stats
 from funclg.utils.input_validation import (
     confirmation,
     number_range_validation,
@@ -119,3 +120,33 @@ def build_modifier(name: str):
 
         return new_mod
     return None
+
+
+def build_stats():
+    print("\nStarting Stats Creation...\n")
+    print(
+        f"Stats are made up of 4 attributes {', '.join(Stats.BASE_ATTRIBUTES)} with a base value of {Stats.STAT_DEFAULT}."
+    )
+
+    attributes = {_attr: Stats.STAT_DEFAULT for _attr in Stats.STAT_DEFAULT}
+
+    while True:
+        print("Current Attributes:")
+        for _a, _v in attributes.items():
+            print(f"{_a}: {_v}")
+
+        attr_choice = selection_validation("Which stat would you like to customize", attributes)
+
+        print(
+            f"What would you like to set {attr_choice.capitalize()} to ({Stats.STAT_DEFAULT} <= x <= {Modifier.MOD_ADD_RANGE})?"
+        )
+        attr_value = number_range_validation(Stats.STAT_DEFAULT, Modifier.MOD_ADD_RANGE)
+
+        if confirmation(f"Confirm updating {attr_choice} to {attr_value}?"):
+            attributes.update({attr_choice: attr_value})
+
+        if not confirmation("Do you want to change another stat?"):
+            logger.debug("Building Stats")
+            break
+
+    return {"attributes": attributes}

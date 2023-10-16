@@ -1,1 +1,105 @@
-{"CHARS-16809-JJYNAA-73916": {"name": "Test", "inventory": [], "role": {"name": "Mage", "description": "Magic user", "armor_type": 1, "ability_types": ["Magic", "Buff", "Debuff", "Restore"], "abilities": [{"name": "Fireball", "description": "Throws a fireball at target", "ability_type": "Magic", "_target": "enemy", "mod": {"adds": {"defense": -446}, "mults": {}}, "_id": "ABILITY-16650-OKNG-98180", "level": 0}, {"name": "Empower", "description": "Strengthens player", "ability_type": "Buff", "_target": "self", "mod": {"adds": {}, "mults": {"defense": 0.98}}, "_id": "ABILITY-16650-DXUF-98274", "level": 0}, {"name": "Weaken", "description": "Weakens an enemy", "ability_type": "Debuff", "_target": "enemy", "mod": {"adds": {}, "mults": {"defense": -0.83}}, "_id": "ABILITY-16660-TXKX-31305", "level": 0}], "_id": "ROLES-16695-ZBLWXR-20642"}, "armor_type": 1, "armor": {"armor_type": 1, "stat": {"level": null, "health": 20, "energy": 20, "attack": 20, "defense": 20, "mods": {"Basic Mage Tunic": {"adds": {"health": 100}, "mults": {"health": 0.45}}, "Calins Wand": {"adds": {"attack": 337}, "mults": {"energy": 1}}}}, "head": null, "chest": {"name": "Basic Mage Tunic", "description": "Armor used by beginner mages", "item_type": 1, "armor_type": 1, "mod": {"adds": {"health": 100}, "mults": {"health": 0.45}}, "level": 0, "_id": "ARMOR-16809-BCWSVN-76675"}, "back": null, "pants": null, "weapon": {"weapon_type": "Wand", "name": "Calins Wand", "description": "The original wand of Calin", "item_type": 4, "armor_type": 1, "mod": {"adds": {"attack": 337}, "mults": {"energy": 1}}, "level": 0, "_id": "WEAPON-16645-ACIGL-01214"}}, "_id": "CHARS-16809-JJYNAA-73916"}}
+{
+    "CHARS-16809-JJYNAA-73916": {
+        "_id": "CHARS-16809-JJYNAA-73916",
+        "armor": {
+            "armor_type": 1,
+            "back": null,
+            "chest": {
+                "_id": "ARMOR-16809-BCWSVN-76675",
+                "armor_type": 1,
+                "description": "Armor used by beginner mages",
+                "item_type": 1,
+                "level": 0,
+                "name": "Basic Mage Tunic",
+                "stats": {
+                    "attributes": {
+                        "attack": 1,
+                        "defense": 1,
+                        "energy": 1,
+                        "health": 1
+                    },
+                    "modifiers": {}
+                }
+            },
+            "head": null,
+            "pants": null,
+            "weapon": {
+                "_id": "WEAPON-16645-ACIGL-01214",
+                "armor_type": 1,
+                "description": "The original wand of Calin",
+                "item_type": 4,
+                "level": 0,
+                "name": "Calins Wand",
+                "stats": {
+                    "attributes": {
+                        "attack": 1,
+                        "defense": 1,
+                        "energy": 1,
+                        "health": 1
+                    },
+                    "modifiers": {}
+                },
+                "weapon_type": "Wand"
+            }
+        },
+        "armor_type": 1,
+        "inventory": [],
+        "name": "Test",
+        "role": {
+            "_id": "ROLES-16695-ZBLWXR-20642",
+            "abilities": [
+                {
+                    "_id": "ABILITY-16650-OKNG-98180",
+                    "_target": "enemy",
+                    "ability_type": "Magic",
+                    "description": "Throws a fireball at target",
+                    "level": 0,
+                    "mod": {
+                        "adds": {
+                            "defense": -446
+                        },
+                        "mults": {}
+                    },
+                    "name": "Fireball"
+                },
+                {
+                    "_id": "ABILITY-16650-DXUF-98274",
+                    "_target": "self",
+                    "ability_type": "Buff",
+                    "description": "Strengthens player",
+                    "level": 0,
+                    "mod": {
+                        "adds": {},
+                        "mults": {
+                            "defense": 0.98
+                        }
+                    },
+                    "name": "Empower"
+                },
+                {
+                    "_id": "ABILITY-16660-TXKX-31305",
+                    "_target": "enemy",
+                    "ability_type": "Debuff",
+                    "description": "Weakens an enemy",
+                    "level": 0,
+                    "mod": {
+                        "adds": {},
+                        "mults": {
+                            "defense": -0.83
+                        }
+                    },
+                    "name": "Weaken"
+                }
+            ],
+            "ability_types": [
+                "Magic",
+                "Buff",
+                "Debuff",
+                "Restore"
+            ],
+            "armor_type": 1,
+            "description": "Magic user",
+            "name": "Mage"
+        }
+    }
+}

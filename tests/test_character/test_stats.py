@@ -38,12 +38,8 @@ def stat_with_mods(stat_mods):
 def stat_with_mods_export_expectation():
     """Returns the string expectation of the Stats export"""
     return {
-        "attack": 4,
-        "health": 10,
-        "energy": 5,
-        "defense": 1,
-        "_power": 76,
-        "mods": {
+        "attributes": {"attack": 4, "health": 10, "energy": 5, "defense": 1},
+        "modifiers": {
             "Mod_1": {"adds": {"energy": 50}, "mults": {"health": 0.5}},
             "Mod_2": {"adds": {}, "mults": {"attack": 0.25}},
         },

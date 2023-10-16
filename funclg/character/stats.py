@@ -19,15 +19,16 @@ class Stats:
     """
 
     BASE_ATTRIBUTES = ["health", "attack", "defense", "energy"]
+    STAT_DEFAULT = 1
 
+    # TODO: 2023.10.15 - define a base stat max
     def __init__(
         self,
         attributes: Optional[Dict[str, Any]] = None,
         modifiers: Optional[List[Modifier]] = None,
-        default: Optional[int] = 1,
     ):
         for attr in Stats.BASE_ATTRIBUTES:
-            setattr(self, attr, default)
+            setattr(self, attr, Stats.STAT_DEFAULT)
 
         self._validate_attributes(attributes)
 
@@ -35,8 +36,7 @@ class Stats:
         self.mods = {}
         if modifiers:
             for mod in modifiers:
-                if self._validate_mod(mod):
-                    self.mods[mod.name] = mod.get_mods()
+                self.mods[mod.name] = mod.get_mods()
 
         # Calculates objects
         self._power = 0
@@ -52,7 +52,10 @@ class Stats:
         if attributes:
             for attribute, value in attributes.items():
                 if attribute in Stats.BASE_ATTRIBUTES:
-                    setattr(self, attribute, value)
+                    if value >= Stats.STAT_DEFAULT:
+                        setattr(self, attribute, value)
+                    else:
+                        logger.error(f"{value} is below default")
                 else:
                     logger.error(f"{attribute} is not a valid stats attribute")
 
@@ -79,22 +82,11 @@ class Stats:
             stats += f"\n{' '*(indent+2)}{attr.capitalize()} [{getattr(self, attr)}]: {self.get_stat(attr)}"
         return stats
 
-    def _validate_mod(self, mod: Modifier):
-        """
-        Checks for duplicate mods being applied to stat
-        """
-        # TODO: 2023.10.10 - Consider if this will be valid during combat as an enemy may attack twice and the mod should be added but the effect may need to be combined.
-        return not mod.name in self.mods
-
     def add_mod(self, mod: Modifier):
         """
-        This funciton modifies the base stats of a stat positively or negatively
+        This funciton modifies the base stats of a stat positively or negatively, and can be updated
         """
-        if self._validate_mod(mod):
-            self.mods[mod.name] = mod.get_mods()
-        else:
-            logger.warning(f"Modifier: {mod.name} is not valid for this stat")
-            return
+        self.mods[mod.name] = mod.get_mods()
 
     def remove_mod(self, name: str):
         if name in self.mods:
@@ -116,16 +108,19 @@ class Stats:
 
         return round(base * multiplier, 2)
 
-    def get_stats(self) -> Dict[str, Any]:
-        """Returns current stats of object with applied mods"""
+    def get_stats(self, base_only=False) -> Dict[str, Any]:
+        """Returns current stats with mods"""
         stats = {}
         for attr in Stats.BASE_ATTRIBUTES:
-            stats[attr] = self.get_stat(attr)
+            if base_only:
+                stats[attr] = getattr(self, attr)
+            else:
+                stats[attr] = self.get_stat(attr)
         return stats
 
     def export(self) -> Dict[str, Any]:
         logger.debug("Exporting Stats")
-        return self.__dict__.copy()
+        return {"attributes": self.get_stats(base_only=True), "modifiers": self.mods}
 
     # TODO: 2023.10.10 - Test if the removal of a mod deletes the original object
     def clear_mods(self):
@@ -135,8 +130,7 @@ class Stats:
 
     def level_up(self, upgrade: int = 1):
         for attribute in Stats.BASE_ATTRIBUTES:
-            base_attr = getattr(self, attribute)
-            base_attr += upgrade
+            setattr(self, attribute, getattr(self, attribute) + upgrade)
         self._cal_power()
 
     def to_mod(self, name: str):
@@ -150,5 +144,29 @@ class Stats:
         """
         return Modifier(name=name, adds=self.get_stats())
 
-    # TODO: 2023.10.10 - Define eq, lt, gt, lte, gte, neq, etc.
-    # TODO: 2023.10.10 - Consider add and sub track
+    def copy(self):
+        mods_list = []
+        if self.mods:
+            for name, mods in self.mods.items():
+                mods_list.append(
+                    Modifier(name=name, adds=mods.get("adds", {}), mults=mods.get("mults", {}))
+                )
+        return {"attributes": self.get_stats(base_only=True), "modifiers": mods_list}
+
+    def __eq__(self, __value: object) -> bool:
+        return self.power == __value.power
+
+    def __lt__(self, other) -> bool:
+        return self.power < other.power
+
+    def __le__(self, other) -> bool:
+        return self.power <= other.power
+
+    def __gt__(self, other) -> bool:
+        return self.power > other.power
+
+    def __ge__(self, other) -> bool:
+        return self.power >= other.power
+
+    def __ne__(self, other) -> bool:
+        return self.power != other.power
