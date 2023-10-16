@@ -1,8 +1,8 @@
-# FUN Command Line Game Log - 7.21.2023 - 9.30.2023
+# FUN Command Line Game Log: 10.15.2023 - 
 <!-- Update: Current Log date -->
 
-Last Updated: 10.10.2023 <!-- Update with previous log date -->
-Version: 0.5.8
+Last Updated: 10.15.2023 <!-- Update with previous log date -->
+Version: 0.5.9
 <!-- Update version number when changes made-->
 <!-- Verions Additions 
   + 1.0.0 is for major project wide changes like adding a whole new concept/face change
@@ -35,30 +35,17 @@ __\<Date\>__ - When Item was completed
 
 ### In Progress
 
-- Stats creation
-- Level manager and creation process
-  - Enemy/Boss generation
-  - level manager
-  - Level statistic checking
-- Combat
-
-### On Hold
+- [#103](https://github.com/jevinevans/Game/issues/103)
+- [#102](https://github.com/jevinevans/Game/issues/102)
+- [#45](https://github.com/jevinevans/Game/issues/45)
+- [#44](https://github.com/jevinevans/Game/issues/44)
 
 ### Added/Changed
-- grid level build class [10.8.2023] [v0.5.6]
-- #93 [10.10.2023] [v0.5.8]
-  - Added level to equipment and abilities
-- Added stats to equipment and modified managers
-- #89 Updated Stats processes [v0.6.0]
 
 ### Fixed
-- Character 
-  - armor type is based on character role [10.8.2023] [v0.5.7]
-  - moved inventory calls to playable character calls [10.8.2023] [v0.5.7]
 
 ### Informational
-- Regular code quality and module simplification
-  - Combined level_icons into game_enum
+
 
 ------------------------------
 
@@ -72,3 +59,9 @@ __\<Date\>__ - When Item was completed
 - build a npc manager
   - Create a default list of enemies that should be used
 
+- Stats creation
+- Level manager and creation process
+  - Enemy/Boss generation
+  - level manager
+  - Level statistic checking
+- Combat
