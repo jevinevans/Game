@@ -11,7 +11,11 @@ FUNCLG Directories and Files
 +============================+
 |    Total Directories: 21   |
 |         Files: 121         |
+<<<<<<< HEAD
 |         Lines: 6864        |
+=======
+|         Lines: 6680        |
+>>>>>>> f1d86b4 (code quality)
 +============================+
 
 ./tests
@@ -318,7 +322,8 @@ FUNCLG Directories and Files
 ./changelogs/2018
 ./changelogs/2019
 ./changelogs/2020
-./changelogs/2023/Log_2023_07_21.md
+./changelogs/2023/2023_10_15 - Stats Integration.md
+./changelogs/2023/2023_07_21 - Mixed.md
 ./changelogs/2022/Log_2022_01_08.md
 ./changelogs/2022/Log_2022_05_29.md
 ./changelogs/2022/Log_2022_03_23.md
