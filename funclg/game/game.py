@@ -18,6 +18,10 @@ Date: 2.20.2023
 
 
 class Game:
+    """
+    Defines the game manager for FUNCLG play.
+    """
+
     START_MESSAGE = ""
 
     def __init__(self):

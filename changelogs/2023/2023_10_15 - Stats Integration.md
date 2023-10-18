@@ -35,7 +35,7 @@ __\<Date\>__ - When Item was completed
 
 ### In Progress
 
-- [#103](https://github.com/jevinevans/Game/issues/103)
+- [#103](https://github.com/jevinevans/Game/issues/103) [2023.10.15]
 - [#102](https://github.com/jevinevans/Game/issues/102)
 - [#45](https://github.com/jevinevans/Game/issues/45)
 - [#44](https://github.com/jevinevans/Game/issues/44)

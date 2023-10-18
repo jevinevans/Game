@@ -128,7 +128,7 @@ def build_stats():
         f"Stats are made up of 4 attributes {', '.join(Stats.BASE_ATTRIBUTES)} with a base value of {Stats.STAT_DEFAULT}."
     )
 
-    attributes = {_attr: Stats.STAT_DEFAULT for _attr in Stats.STAT_DEFAULT}
+    attributes = {_attr: Stats.STAT_DEFAULT for _attr in Stats.BASE_ATTRIBUTES}
 
     while True:
         print("Current Attributes:")
