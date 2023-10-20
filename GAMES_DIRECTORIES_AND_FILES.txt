@@ -12,10 +12,14 @@ FUNCLG Directories and Files
 |    Total Directories: 21   |
 |         Files: 121         |
 <<<<<<< HEAD
+<<<<<<< HEAD
 |         Lines: 6864        |
 =======
 |         Lines: 6680        |
 >>>>>>> f1d86b4 (code quality)
+=======
+|         Lines: 6732        |
+>>>>>>> 0b04835 (updated stats testing)
 +============================+
 
 ./tests

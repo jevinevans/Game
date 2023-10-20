@@ -33,6 +33,7 @@ class Stats:
         self._validate_attributes(attributes)
 
         # Modifiers for changing stats
+        # TODO: 2023.10.17 - Create copies of each mod
         self.mods = {}
         if modifiers:
             for mod in modifiers:
