@@ -13,6 +13,7 @@ FUNCLG Directories and Files
 |         Files: 121         |
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 |         Lines: 6864        |
 =======
 |         Lines: 6680        |
@@ -20,6 +21,9 @@ FUNCLG Directories and Files
 =======
 |         Lines: 6732        |
 >>>>>>> 0b04835 (updated stats testing)
+=======
+|         Lines: 6708        |
+>>>>>>> 6101009 (removed modifiers from equipment)
 +============================+
 
 ./tests
