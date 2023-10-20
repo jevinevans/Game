@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Oct 17 21:28:31 PDT 2023 
+Date: Fri Oct 20 09:10:28 PDT 2023 
 
 ---PYTEST---
 
@@ -8,18 +8,18 @@ Date: Tue Oct 17 21:28:31 PDT 2023
 platform linux -- Python 3.10.12, pytest-7.4.2, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 129 items
+collected 134 items
 
 tests/test_character/test_abilities.py .......                           [  5%]
-tests/test_character/test_armor.py ...............                       [ 17%]
-tests/test_character/test_character.py .......                           [ 22%]
-tests/test_character/test_equipment.py .............                     [ 32%]
-tests/test_character/test_modifiers.py ..........                        [ 40%]
-tests/test_character/test_roles.py .............                         [ 50%]
-tests/test_character/test_stats.py .............                         [ 60%]
-tests/test_game/test_game_levels.py .......                              [ 65%]
-tests/test_main/test_main.py .                                           [ 66%]
-tests/test_managers/test_abilities_manager.py .......                    [ 72%]
+tests/test_character/test_armor.py ...............                       [ 16%]
+tests/test_character/test_character.py .......                           [ 21%]
+tests/test_character/test_equipment.py .............                     [ 31%]
+tests/test_character/test_modifiers.py ..........                        [ 38%]
+tests/test_character/test_roles.py .............                         [ 48%]
+tests/test_character/test_stats.py ..................                    [ 61%]
+tests/test_game/test_game_levels.py .......                              [ 67%]
+tests/test_main/test_main.py .                                           [ 67%]
+tests/test_managers/test_abilities_manager.py .......                    [ 73%]
 tests/test_managers/test_character_manager.py .........                  [ 79%]
 tests/test_managers/test_equipment_manager.py .........                  [ 86%]
 tests/test_managers/test_roles_manager.py ............                   [ 95%]
@@ -38,10 +38,10 @@ funclg/character/character.py             70      8     12      0    88%   120-1
 funclg/character/equipment.py            118      2     22      0    99%   68, 100
 funclg/character/modifiers.py             71      0     38      1    99%   116->119
 funclg/character/roles.py                 73      0     26      0   100%
-funclg/character/stats.py                 97     11     38      2    87%   58, 127-129, 150-151, 160, 163, 166, 169, 172
+funclg/character/stats.py                 98      1     38      1    99%   59
 funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 48
 funclg/game/combat.py                      0      0      0      0   100%
-funclg/game/game.py                       10      4      0      0    60%   34, 39, 43, 49
+funclg/game/game.py                       10      4      0      0    60%   35, 40, 44, 50
 funclg/game/level.py                     101      0     42      2    99%   128->exit, 195->198
 funclg/game/level_manager.py               0      0      0      0   100%
 funclg/game/rewards.py                     0      0      0      0   100%
@@ -59,11 +59,11 @@ funclg/utils/input_validation.py          40     28     16      0    21%   19-29
 funclg/utils/menu_funcs.py                36     16     14      0    48%   30-53
 funclg/utils/types.py                     17      0      6      1    96%   54->57
 ----------------------------------------------------------------------------------
-TOTAL                                   1488    154    504     20    88%
+TOTAL                                   1489    144    504     19    89%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 88.35%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 89.11%
 
-======================= 129 passed, 2 warnings in 1.59s ========================
+======================= 134 passed, 2 warnings in 1.76s ========================
 
 ---Code Quality Report---
 
@@ -90,7 +90,9 @@ funclg/character/armor.py:188:5: W0511: TODO: 2023.10.14 - Define level up proce
 ************* Module funclg.character.stats
 funclg/character/stats.py:13:1: W0511: TODO: 2023.10.10 - Decide if stats and modifiers should round to whole numbers (fixme)
 funclg/character/stats.py:24:5: W0511: TODO: 2023.10.15 - define a base stat max (fixme)
-funclg/character/stats.py:125:5: W0511: TODO: 2023.10.10 - Test if the removal of a mod deletes the original object (fixme)
+funclg/character/stats.py:36:9: W0511: TODO: 2023.10.17 - Create copies of each mod (fixme)
+funclg/character/stats.py:126:5: W0511: TODO: 2023.10.10 - Test if the removal of a mod deletes the original object (fixme)
+funclg/character/stats.py:149:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
 ************* Module funclg.utils.data_mgmt
 funclg/utils/data_mgmt.py:37:1: W0511: TODO may need to move assertion error to validate method (fixme)
 funclg/utils/data_mgmt.py:50:9: W0511: TODO may want to re-validate name before creating (fixme)
@@ -104,7 +106,7 @@ funclg/utils/types.py:17:1: W0511: TODO Add descriptions (fixme)
 ************* Module funclg.game.level_manager
 funclg/game/level_manager.py:11:1: W0511: TODO: 20231008 - Decide if this should be its own module, where it should be and what it should do. (fixme)
 ************* Module funclg.game.game
-funclg/game/game.py:46:9: W0511: TODO: I want to be able to make a decision if a block should be reward, enemy etc. (fixme)
+funclg/game/game.py:47:9: W0511: TODO: I want to be able to make a decision if a block should be reward, enemy etc. (fixme)
 ************* Module funclg.game.__init__
 funclg/game/__init__.py:44:5: W0511: TODO: Do a precheck to make sure the running system can print the level boundary characters, if not then use alternative boundaries (fixme)
 ************* Module funclg.managers.roles_manager
@@ -123,5 +125,5 @@ funclg/managers/character_manager.py:119:5: W0511: TODO: 2023.06.17 - Confirm at
 funclg/managers/__init__.py:5:1: W0511: TODO: 20231008 - Separate menus into smaller modules (game managers, character managers) (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.80/10 (previous run: 9.73/10, +0.07)
+Your code has been rated at 9.78/10 (previous run: 9.78/10, +0.00)
 

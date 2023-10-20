@@ -33,6 +33,7 @@ class Stats:
         self._validate_attributes(attributes)
 
         # Modifiers for changing stats
+        # TODO: 2023.10.17 - Create copies of each mod
         self.mods = {}
         if modifiers:
             for mod in modifiers:
@@ -124,13 +125,14 @@ class Stats:
 
     # TODO: 2023.10.10 - Test if the removal of a mod deletes the original object
     def clear_mods(self):
-        for mod in self.mods:
+        mod_keys = list(self.mods.keys())
+        for mod in mod_keys:
             self.remove_mod(mod)
         logger.debug("All mods cleared from stat")
 
-    def level_up(self, upgrade: int = 1):
+    def level_up(self, levels: int = 1):
         for attribute in Stats.BASE_ATTRIBUTES:
-            setattr(self, attribute, getattr(self, attribute) + upgrade)
+            setattr(self, attribute, getattr(self, attribute) + levels)
         self._cal_power()
 
     def to_mod(self, name: str):
@@ -144,6 +146,8 @@ class Stats:
         """
         return Modifier(name=name, adds=self.get_stats())
 
+    # TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies.
+    # Requires a change in *[Equipment] modules.
     def copy(self):
         mods_list = []
         if self.mods:
