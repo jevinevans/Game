@@ -15,7 +15,6 @@ from typing_extensions import Self
 import funclg.utils.data_mgmt as db
 
 from ..utils import types as uTypes
-from .modifiers import Modifier
 from .stats import Stats
 
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
@@ -71,8 +70,8 @@ class Equipment:
         desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
         desc += f"\n{' '*indent}{'-'*(len(self.name) + 10)}"
         desc += f"\n{' '*indent}Type: {self.get_item_description()}"
-        desc += f"\n{' '*indent}Description: {self.description}"
-        desc += self.stats.details(indent + 2)
+        desc += f"\n{' '*indent}Description: {self.description}\n"
+        desc += self.stats.details(indent)
         return desc
 
     def print_to_file(self) -> None:
@@ -134,20 +133,8 @@ class WeaponEquipment(Equipment):
         stats: Dict[str, Any] = None,
         **kwargs,
     ):
-        weapon_mod = Modifier(name=name)
-        stat_attr = new_stat = {}
-        if mod := kwargs.get("mod", False):
-            weapon_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
-            weapon_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
-            for add_mod in weapon_mod.adds:
-                weapon_mod.adds[add_mod] //= 2
-            for mult_mod in weapon_mod.mults:
-                weapon_mod.mults[mult_mod] *= 100
-
-            stat_attr.update(weapon_mod.adds)
-            stat_attr.update(weapon_mod.mults)
-            new_stat = Stats(attributes=stat_attr)
-        elif stats:
+        new_stat = {}
+        if stats:
             new_stat = Stats(stats)
         else:
             new_stat = Stats()
@@ -217,19 +204,8 @@ class BodyEquipment(Equipment):
         """
         Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
         """
-        body_mod = Modifier(name=name)
-        stat_attr = new_stat = {}
-        if mod := kwargs.get("mod", False):
-            body_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
-            body_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
-            for add_mod in body_mod.adds:
-                body_mod.adds[add_mod] //= 2
-            for mult_mod in body_mod.mults:
-                body_mod.mults[mult_mod] *= 100
-            stat_attr.update(body_mod.adds)
-            stat_attr.update(body_mod.mults)
-            new_stat = Stats(attributes=stat_attr)
-        elif stats:
+        new_stat = {}
+        if stats:
             new_stat = Stats(**stats)
         else:
             new_stat = Stats()

@@ -63,11 +63,12 @@ def body_details_expectation():
 {' '*indent}--------------------
 {' '*indent}Type: [Light Head]
 {' '*indent}Description: Light Head
-{' '*(indent+2)}Stats [40]
-{' '*(indent+2)}----------
-{' '*(indent+4)}Health [10]: 10
-{' '*(indent+4)}Attack [10]: 10
-{' '*(indent+4)}Defense [10]: 10
-{' '*(indent+4)}Energy [10]: 10"""
+
+{' '*(indent)}Stats [40]
+{' '*(indent)}----------
+{' '*(indent+2)}Health [10]: 10
+{' '*(indent+2)}Attack [10]: 10
+{' '*(indent+2)}Defense [10]: 10
+{' '*(indent+2)}Energy [10]: 10"""
         expectations.append(base)
     return expectations
