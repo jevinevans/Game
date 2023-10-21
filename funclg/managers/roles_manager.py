@@ -9,6 +9,7 @@ from typing import List
 from loguru import logger
 
 import funclg.managers.abilities_manager as ab_man
+import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.roles import Roles
 from funclg.utils.input_validation import (
@@ -146,12 +147,15 @@ def build_role():
 
     r_abilities = _select_role_abilities(a_types)
 
+    role_stats = stats_man.build_stats()
+
     new_role = Roles(
         name=role_name,
         description=role_desc,
         armor_type=ARMOR_TYPES.index(armor_type),
         ability_types=a_types,
         abilities=r_abilities,
+        stats=role_stats,
     )
 
     if confirmation(f"You created:\n{new_role.details()}\nSave new role?"):

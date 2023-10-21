@@ -85,7 +85,7 @@ def abilities_export_expectation(abilities_all_types):
                 "_target": ability._target,
                 "mod": ability.mod.export(),
                 "description": ability.description,
-                "level": 0,
+                "level": 1,
             }
         )
     return ability_exports
@@ -96,8 +96,8 @@ def abilities_detail_expectation(abilities_all_types):
     ability_details = []
     for indent, ability in enumerate(abilities_all_types):
         base = f"""
-{' '*indent}{ability.name}
-{' '*indent}{'-'*len(ability.name)}
+{' '*indent}{ability.name} [lvl {ability.level}]
+{' '*indent}{'-'*(len(ability.name)+7+len(str(ability.level)))}
 {' '*indent}Description: {ability.description}
 {' '*indent}Ability Type: {ability.ability_type}
 {' '*indent}Target: {ability._target.capitalize()}{ability.mod.details(indent+2)}"""

@@ -32,6 +32,7 @@ def character_export_expectation():
         "name": "Test_Char",
         "armor_type": 0,
         "inventory": [],
+        "level": 1,
         "armor": {
             "armor_type": 0,
             "back": None,
@@ -47,6 +48,11 @@ def character_export_expectation():
             "ability_types": ["Basic"],
             "description": "Test role",
             "name": "Test_Role",
+            "level": 1,
+            "stats": {
+                "attributes": {"attack": 5, "defense": 5, "energy": 5, "health": 5},
+                "modifiers": {},
+            },
         },
     }
 
@@ -56,12 +62,19 @@ def character_details_expectation():
     return """Test_Char
 ---------
 
-  Class: Test_Role
-  ----------------
+  Class: Test_Role [lvl 1]
+  ------------------------
   Armor Type: Light
   Description: Test role
   Role Abilities:
     No Abilities
+
+  Stats [20]
+  ----------
+    Health [5]: 5
+    Attack [5]: 5
+    Defense [5]: 5
+    Energy [5]: 5
 
   Light Armor
   -----------

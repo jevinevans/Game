@@ -33,7 +33,7 @@ def test_roles_str(mage_test_role, mage_str_expectation):
     assert mage_str_expectation == mage_test_role.__str__()
 
 
-def test_roles_add_power_valid_power(mage_test_role):
+def test_roles_add_ability_valid_power(mage_test_role):
     healing_2 = Abilities(
         name="Healing 2",
         ability_type="Restore",
@@ -42,7 +42,7 @@ def test_roles_add_power_valid_power(mage_test_role):
     )
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) is True
+    assert mage_test_role.add_ability(healing_2) is True
     assert len(mage_test_role.abilities) == 5
 
     char_power = mage_test_role.abilities[-1]
@@ -52,7 +52,7 @@ def test_roles_add_power_valid_power(mage_test_role):
     assert char_power.description == healing_2.description
 
 
-def test_roles_add_power_valid_power_max_reached(mage_test_role):
+def test_roles_add_ability_valid_power_max_reached(mage_test_role):
     buff = Abilities(
         name="Buff 2",
         ability_type="Buff",
@@ -67,15 +67,15 @@ def test_roles_add_power_valid_power_max_reached(mage_test_role):
     )
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(healing_2) is True
+    assert mage_test_role.add_ability(healing_2) is True
     assert len(mage_test_role.abilities) == 5
 
-    assert mage_test_role.add_power(buff) is False
+    assert mage_test_role.add_ability(buff) is False
     assert len(mage_test_role.abilities) == 5
     assert mage_test_role.abilities[-1].name == healing_2.name
 
 
-def test_roles_add_power_invalid_power(mage_test_role):
+def test_roles_add_ability_invalid_power(mage_test_role):
     stomp = Abilities(
         name="Stomp",
         ability_type="Physical",
@@ -84,42 +84,42 @@ def test_roles_add_power_invalid_power(mage_test_role):
     )
 
     assert len(mage_test_role.abilities) == 4
-    assert mage_test_role.add_power(stomp) is False
+    assert mage_test_role.add_ability(stomp) is False
     assert len(mage_test_role.abilities) == 4
 
 
-def test_roles_get_power(mage_test_role):
+def test_roles_get_ability(mage_test_role):
     test_damage_types = ["Magic", "Restore", "Buff", "Debuff"]
     for ability in range(len(mage_test_role.abilities)):
-        assert mage_test_role.get_power(ability).ability_type == test_damage_types[ability]
+        assert mage_test_role.get_ability(ability).ability_type == test_damage_types[ability]
 
 
 @patch("loguru.logger.warning")
-def test_role_get_power_out_of_range(m_log, mage_test_role):
+def test_role_get_ability_out_of_range(m_log, mage_test_role):
     for index in range(4, 10):
-        assert mage_test_role.get_power(index) is None
+        assert mage_test_role.get_ability(index) is None
         assert m_log.called
         assert m_log.called_with("There is no power in this slot.")
 
 
-def test_role_remove_power_valid(mage_test_role):
+def test_role_remove_ability_valid(mage_test_role):
     "testing removing the healing ability slot 1"
-    assert mage_test_role.remove_power(1) is True
-    assert mage_test_role.get_power(1).name == "Buff Test Ability"
+    assert mage_test_role.remove_ability(1) is True
+    assert mage_test_role.get_ability(1).name == "Buff Test Ability"
 
 
-def test_role_remove_power_invalid(mage_test_role):
+def test_role_remove_ability_invalid(mage_test_role):
     "testing removing the healing ability slot 1"
-    assert mage_test_role.remove_power(5) is False
-    assert mage_test_role.get_power(1).name == "Restore Test Ability"
+    assert mage_test_role.remove_ability(5) is False
+    assert mage_test_role.get_ability(1).name == "Restore Test Ability"
 
 
 def test_role_details_no_abilities(roles_detail_expectation_no_abilities):
     mage = Roles(
-        "Mage Class",
-        "Test Mage Class",
-        1,
-        ["Magic", "Restore", "Buff", "Debuff"],
+        name="Mage Class",
+        description="Test Mage Class",
+        armor_type=1,
+        ability_types=["Magic", "Restore", "Buff", "Debuff"],
     )
     assert roles_detail_expectation_no_abilities == mage.details()
 

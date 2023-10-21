@@ -46,7 +46,7 @@ class Equipment:
         self.item_type = item_type
         self.armor_type = armor_type
         self.stats = stats
-        self.level = kwargs.get("level", 0)
+        self.level = kwargs.get("level", 1)
 
         self._id = db.id_gen(kwargs.get("prefix", self.DB_PREFIX), kwargs.get("_id"))
 
@@ -56,7 +56,7 @@ class Equipment:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{uTypes.ITEM_TYPES[self.item_type]}]"
+        return f"{self.name} [lvl {self.level}] [{uTypes.ITEM_TYPES[self.item_type]}]"
 
     @property
     def id(self):  # pylint: disable=C0103
@@ -68,7 +68,7 @@ class Equipment:
 
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
-        desc += f"\n{' '*indent}{'-'*(len(self.name) + 10)}"
+        desc += f"\n{' '*indent}{'-'*(len(self.name) + 7 + len(str(self.level)))}"
         desc += f"\n{' '*indent}Type: {self.get_item_description()}"
         desc += f"\n{' '*indent}Description: {self.description}\n"
         desc += self.stats.details(indent)
@@ -107,10 +107,11 @@ class Equipment:
             armor_type=self.armor_type,
             stats=self.stats.copy(),
             _id=self._id,
+            level=self.level,
         )
 
-    def level_up(self, upgrade: int = 1):
-        self.stats.level_up(levels=upgrade)
+    def level_up(self):
+        self.stats.level_up()
         self.level += 1
 
     def to_mod(self):
@@ -154,13 +155,14 @@ class WeaponEquipment(Equipment):
             stats=new_stat,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
+            level=kwargs.get("level", 1),
         )
 
     def __str__(self) -> str:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.weapon_type} {uTypes.ITEM_TYPES[self.item_type]}]"
+        return f"{self.name} [lvl {self.level}] [{self.weapon_type} {uTypes.ITEM_TYPES[self.item_type]}]"
 
     @staticmethod
     def _validate_weapon_type(weapon_type: str):
@@ -178,6 +180,7 @@ class WeaponEquipment(Equipment):
             armor_type=self.armor_type,
             stats=self.stats.copy(),
             _id=self.id,
+            level=self.level,
         )
 
     def export(self):
@@ -218,13 +221,14 @@ class BodyEquipment(Equipment):
             stats=new_stat,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
+            level=kwargs.get("level", 1),
         )
 
     def __str__(self) -> str:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{uTypes.ARMOR_TYPES[self.armor_type]} {uTypes.ITEM_TYPES[self.item_type]}]"
+        return f"{self.name} [lvl {self.level}] [{uTypes.ARMOR_TYPES[self.armor_type]} {uTypes.ITEM_TYPES[self.item_type]}]"
 
     def copy(self) -> Self:
         """Copies the current object"""
@@ -235,6 +239,7 @@ class BodyEquipment(Equipment):
             armor_type=self.armor_type,
             item_type=self.item_type,
             _id=self.id,
+            level=self.level,
         )
 
     def export(self):

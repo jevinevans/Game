@@ -130,9 +130,9 @@ class Stats:
             self.remove_mod(mod)
         logger.debug("All mods cleared from stat")
 
-    def level_up(self, levels: int = 1):
+    def level_up(self):
         for attribute in Stats.BASE_ATTRIBUTES:
-            setattr(self, attribute, getattr(self, attribute) + levels)
+            setattr(self, attribute, getattr(self, attribute) + 1)
         self._cal_power()
 
     def to_mod(self, name: str):

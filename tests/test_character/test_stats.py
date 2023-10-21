@@ -197,7 +197,10 @@ def test_stats_levelup(stat_no_mods):
     for stat in Stats.BASE_ATTRIBUTES:
         assert abs(stat_no_mods.get_stat(stat) - lvl_stats.get_stat(stat)) == 1
 
-    lvl_stats.level_up(levels=4)
+    lvl_stats.level_up()
+    lvl_stats.level_up()
+    lvl_stats.level_up()
+    lvl_stats.level_up()
 
     for stat in Stats.BASE_ATTRIBUTES:
         assert abs(stat_no_mods.get_stat(stat) - lvl_stats.get_stat(stat)) == 5

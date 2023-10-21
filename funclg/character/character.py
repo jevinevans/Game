@@ -38,8 +38,7 @@ class Character:
         Creates a new character with an armor set and role
         """
         self.name = name
-        self.inventory = kwargs.get("inventory", [])
-
+        self.level = kwargs.get("level", 1)
         self._set_up_role(role_instance)
         self._set_up_armor(armor_instance)
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
@@ -97,7 +96,7 @@ class Character:
         return self.armor.dequip(item_type)
 
     def add_power(self, ability: Abilities) -> bool:
-        return self.role.add_power(ability)
+        return self.role.add_ability(ability)
 
     # TODO: def use_ability(self):
 

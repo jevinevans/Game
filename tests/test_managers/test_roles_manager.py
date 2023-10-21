@@ -18,6 +18,11 @@ def test_mage():
         "name": "Mage",
         "description": "Wielders of magic",
         "armor_type": 1,
+        "level": 1,
+        "stats": {
+            "attributes": {"attack": 5, "health": 5, "energy": 5, "defense": 5},
+            "modifiers": {},
+        },
         "ability_types": ["Magic", "Restore", "Buff", "Debuff"],
         "abilities": [
             {
@@ -76,6 +81,11 @@ def test_warrior():
         "name": "Warrior",
         "description": "Guardian, Protector",
         "armor_type": 2,
+        "level": 1,
+        "stats": {
+            "attributes": {"attack": 5, "health": 5, "energy": 5, "defense": 5},
+            "modifiers": {},
+        },
         "ability_types": ["Physical", "Buff", "Debuff", "None"],
         "abilities": [
             {
@@ -105,8 +115,13 @@ def test_warrior():
 def test_rouge():
     return {
         "name": "Rouge",
+        "level": 1,
         "description": "Quick knife wielders",
         "armor_type": 0,
+        "stats": {
+            "attributes": {"attack": 5, "health": 5, "energy": 5, "defense": 5},
+            "modifiers": {},
+        },
         "ability_types": ["Physical", "Buff", "Debuff", "None"],
         "abilities": [
             {
@@ -138,6 +153,11 @@ def test_no_abilities():
         "name": "Cleric",
         "description": "Magic Healer",
         "armor_type": 1,
+        "level": 1,
+        "stats": {
+            "attributes": {"attack": 5, "health": 5, "energy": 5, "defense": 5},
+            "modifiers": {},
+        },
         "ability_types": ["Magic", "Restore", "Buff"],
         "abilities": [],
         "_id": "ROLES-16683-UAJMFU-16064",
@@ -315,6 +335,7 @@ def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, tes
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
+@patch("funclg.managers.stats_manager.build_stats")
 @patch("funclg.managers.roles_manager._select_role_abilities")
 @patch("funclg.managers.roles_manager._select_ability_types")
 @patch("funclg.managers.roles_manager.update_data")
@@ -322,13 +343,13 @@ def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, tes
 @patch("funclg.managers.roles_manager.string_validation")
 @patch("funclg.managers.roles_manager.confirmation")
 def test_roles_manager_build_role_with_save(
-    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_id, test_mage
+    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_mage
 ):
     # Success Create Test Mage
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
     ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
     m_sel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
-
+    m_stats_gen.return_value = test_mage["stats"]
     m_sel_ab_type.return_value = ability_types
     m_sel_rol_ab.return_value = [Abilities(**_ability) for _ability in test_mage["abilities"]]
     m_confirm.return_value = True
@@ -355,6 +376,7 @@ def test_roles_manager_build_role_with_save(
     {"filename": "roles.json", "data": {}, "objects": {}},
 )
 @patch("funclg.utils.data_mgmt.id_gen")
+@patch("funclg.managers.stats_manager.build_stats")
 @patch("funclg.managers.roles_manager._select_role_abilities")
 @patch("funclg.managers.roles_manager._select_ability_types")
 @patch("funclg.managers.roles_manager.update_data")
@@ -362,13 +384,13 @@ def test_roles_manager_build_role_with_save(
 @patch("funclg.managers.roles_manager.string_validation")
 @patch("funclg.managers.roles_manager.confirmation")
 def test_roles_manager_build_role_no_save(
-    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_id, test_mage
+    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_mage
 ):
     # No Save
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
     ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
     m_sel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
-
+    m_stats_gen.return_value = test_mage["stats"]
     m_sel_ab_type.return_value = ability_types
     m_sel_rol_ab.return_value = [Abilities(**_ability) for _ability in test_mage["abilities"]]
     m_confirm.return_value = False

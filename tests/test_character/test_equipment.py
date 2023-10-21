@@ -34,7 +34,7 @@ def test_equipment_str(weapon_equipment, body_equipment, equipment_str_expectati
 
     # Test Equipement
     test_equipment = Equipment("Test Equip", Stats(), "Test equip description", 0, 0)
-    assert test_equipment.__str__() == "Test Equip [Head]"
+    assert test_equipment.__str__() == "Test Equip [lvl 1] [Head]"
 
 
 @patch("builtins.open")
@@ -71,7 +71,7 @@ def test_equipment_export(m_id):
             "modifiers": {},
         },
         "_id": test_id,
-        "level": 0,
+        "level": 1,
     }
 
 
@@ -166,7 +166,7 @@ def test_bodyequipment_export(m_id):
             "modifiers": {},
         },
         "_id": test_id,
-        "level": 0,
+        "level": 1,
     }
     assert body_item.export() == export_test
 
@@ -234,11 +234,12 @@ def test_level_up(weapon_equipment, body_equipment):
     body = body_equipment[first_key].copy()
     body_lvl = body.copy()
 
-    body_lvl.level_up(10)
+    for _ in range(9):
+        body_lvl.level_up()
 
-    assert abs(body.level - body_lvl.level) == 1
-    assert abs(body.stats.health - body_lvl.stats.health) == 10
-    assert abs(body.stats.energy - body_lvl.stats.energy) == 10
-    assert abs(body.stats.defense - body_lvl.stats.defense) == 10
-    assert abs(body.stats.attack - body_lvl.stats.attack) == 10
-    assert abs(body.stats.power - body_lvl.stats.power) == 40
+    assert abs(body.level - body_lvl.level) == 9
+    assert abs(body.stats.health - body_lvl.stats.health) == 9
+    assert abs(body.stats.energy - body_lvl.stats.energy) == 9
+    assert abs(body.stats.defense - body_lvl.stats.defense) == 9
+    assert abs(body.stats.attack - body_lvl.stats.attack) == 9
+    assert abs(body.stats.power - body_lvl.stats.power) == 36

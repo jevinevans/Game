@@ -47,7 +47,7 @@ class Abilities:
         self.mod.add_mod(ABILITY_TYPES[self.ability_type]["m_type"], val_mod)
 
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
-        self.level = kwargs.get("level", 0)
+        self.level = kwargs.get("level", 1)
 
         logger.debug(f"Created Ability: {name}")
 
@@ -85,8 +85,8 @@ class Abilities:
         return self._id
 
     def details(self, indent: int = 0):
-        desc = f"\n{' '*indent}{self.name}\n{' '*indent}"
-        desc += "-" * len(self.name)
+        desc = f"\n{' '*indent}{self.name} [lvl {self.level}]\n{' '*indent}"
+        desc += "-" * (len(self.name) + 7 + len(str(self.level)))
         desc += f"\n{' '*indent}Description: {self.description}"
         desc += f"\n{' '*indent}Ability Type: {self.ability_type}"
         desc += f"\n{' '*indent}Target: {self._target.capitalize()}"
@@ -114,9 +114,11 @@ class Abilities:
             mod=self.mod.export(),
             description=self.description,
             _id=self._id,
+            level=self.level,
         )
 
     def level_up(self):
+        self.level += 1
         self.mod.level_up()
 
     # TODO def use()

@@ -45,10 +45,12 @@ def equipment_str_expectation(body_equipment, weapon_equipment):
     for name, body in body_equipment.items():
         expectations[
             name
-        ] = f"{body.name} [{ARMOR_TYPES[body.armor_type]} {ITEM_TYPES[body.item_type]}]"
+        ] = f"{body.name} [lvl {body.level}] [{ARMOR_TYPES[body.armor_type]} {ITEM_TYPES[body.item_type]}]"
 
     for name, weapon in weapon_equipment.items():
-        expectations[name] = f"{weapon.name} [{weapon.weapon_type} {ITEM_TYPES[weapon.item_type]}]"
+        expectations[
+            name
+        ] = f"{weapon.name} [lvl {weapon.level}] [{weapon.weapon_type} {ITEM_TYPES[weapon.item_type]}]"
 
     return expectations
 
@@ -59,8 +61,8 @@ def body_details_expectation():
 
     for indent in range(0, 7):
         base = f"""
-{' '*indent}Head_Light [lvl 0]
-{' '*indent}--------------------
+{' '*indent}Head_Light [lvl 1]
+{' '*indent}------------------
 {' '*indent}Type: [Light Head]
 {' '*indent}Description: Light Head
 
