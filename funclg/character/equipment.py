@@ -181,7 +181,7 @@ class WeaponEquipment(Equipment):
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.weapon_type} {uTypes.ITEM_TYPES[self.item_type]}]"
+        return f"{self.name} [lvl {self.level}] [{self.weapon_type} {uTypes.ITEM_TYPES[self.item_type]}]"
 
     @staticmethod
     def _validate_weapon_type(weapon_type: str):
