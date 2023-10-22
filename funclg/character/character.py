@@ -14,8 +14,6 @@ from funclg.character.armor import Armor
 from funclg.character.equipment import Equipment
 from funclg.character.roles import Roles
 
-# TODO: Char Update - 3: Create the NPC class that can be used later for random generation
-
 
 class Character:
     """
@@ -80,8 +78,8 @@ class Character:
         return exporter
 
     def details(self, indent: int = 0) -> str:
-        desc = f"{self.name}\n"
-        desc += "-" * (len(self.name))
+        desc = f"{self.name} [lvl {self.level}]\n"
+        desc += "-" * (len(self.name) + 7 + len(str(self.level)))
         desc += "\n" + self.role.details(indent + 2)
         desc += "\n" + self.armor.details(indent + 2)
         desc += "\n"
@@ -95,10 +93,11 @@ class Character:
         """Calls the armor dequip function"""
         return self.armor.dequip(item_type)
 
-    def add_power(self, ability: Abilities) -> bool:
+    def add_ability(self, ability: Abilities) -> bool:
         return self.role.add_ability(ability)
 
     # TODO: def use_ability(self):
+    # TODO: def level_up(self):
 
 
 class Player(Character):
@@ -130,6 +129,8 @@ class Player(Character):
         """Calls the armor dequip function"""
         if item := super().dequip(item_type) is not None:
             self.inventory.append(item)
+
+    # TODO Test if inventory is in player export or if a custom version is neeede
 
 
 class NonPlayableCharacter(Character):

@@ -243,3 +243,11 @@ def test_level_up(weapon_equipment, body_equipment):
     assert abs(body.stats.defense - body_lvl.stats.defense) == 9
     assert abs(body.stats.attack - body_lvl.stats.attack) == 9
     assert abs(body.stats.power - body_lvl.stats.power) == 36
+
+
+def test_equipment_get_stats(weapon_equipment):
+    first_key = list(weapon_equipment.keys())[0]
+    weapon_stats = weapon_equipment[first_key].get_stats()
+
+    for attr in Stats.BASE_ATTRIBUTES:
+        assert attr in weapon_stats

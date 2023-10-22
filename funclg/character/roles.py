@@ -37,7 +37,7 @@ class Roles:
         abilities: Optional[List[Abilities]] = None,
         stats: Dict[str, Any] = None,
         **kwargs,
-    ):  # pylint: disable=too-many-arguments
+    ):  # pylint: disable=too-many-arguments, too-many-instance-attributes
         self.name = name
         self.description = description
         self.armor_type = armor_type

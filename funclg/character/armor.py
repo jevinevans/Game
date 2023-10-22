@@ -185,4 +185,14 @@ class Armor:
         """Armor Call method for the stats object"""
         return self.stats.get_stats()
 
-    # TODO: 2023.10.14 - Define level up process, this base st
+    def level_up(self):
+        if self.head:
+            self.head.level_up()
+        if self.chest:
+            self.chest.level_up()
+        if self.back:
+            self.back.level_up()
+        if self.pants:
+            self.pants.level_up()
+        if self.weapon:
+            self.weapon.level_up()

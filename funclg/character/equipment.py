@@ -111,8 +111,8 @@ class Equipment:
         )
 
     def level_up(self):
-        self.stats.level_up()
         self.level += 1
+        self.stats.level_up()
 
     def to_mod(self):
         return self.stats.to_mod(self.name)

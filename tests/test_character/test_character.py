@@ -31,7 +31,6 @@ def character_export_expectation():
         "_id": "CHARS-12345-GEJFSI-67890",
         "name": "Test_Char",
         "armor_type": 0,
-        "inventory": [],
         "level": 1,
         "armor": {
             "armor_type": 0,
@@ -59,8 +58,8 @@ def character_export_expectation():
 
 @pytest.fixture
 def character_details_expectation():
-    return """Test_Char
----------
+    return """Test_Char [lvl 1]
+-----------------
 
   Class: Test_Role [lvl 1]
   ------------------------
@@ -112,13 +111,7 @@ def test_character_init_no_armor_no_role():
     assert t_char.armor.armor_type == t_char.armor_type
     assert t_char.role is not None
     assert t_char.role.name == "NPC"
-    assert t_char.inventory == []
     assert t_char.id
-
-    # Test with inventory
-    test_inventory = [1, 2, 3]
-    t_char = Character("Test_Char", inventory=test_inventory)
-    assert t_char.inventory == test_inventory
 
 
 def test_character_str(basic_char, character_str_expectation):
@@ -152,9 +145,9 @@ def test_character_dequip(basic_char):
     assert basic_char.dequip("") is None
 
 
-def test_character_add_power(basic_char):
+def test_character_add_ability(basic_char):
     t_ability = abilities.Abilities("Test_Ability", "Basic", "Test ability", {})
-    basic_char.add_power(t_ability)
+    basic_char.add_ability(t_ability)
     assert len(basic_char.role.abilities) == 1
     assert basic_char.role.abilities[0].name == t_ability.name
 

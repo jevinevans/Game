@@ -211,3 +211,18 @@ def test_armor_stat_info(light_armor_knife):
             assert value is None
         else:
             assert value <= current_stats[key]
+
+
+def test_armor_level_up(light_armor_knife):
+    current_stats = {}
+    for _, item in light_armor_knife.__dict__.items():
+        if isinstance(item, (WeaponEquipment, BodyEquipment)):
+            current_stats[item.name] = item.power
+
+    print(current_stats)
+
+    light_armor_knife.level_up()
+
+    for _, item in light_armor_knife.__dict__.items():
+        if isinstance(item, (WeaponEquipment, BodyEquipment)):
+            assert abs(item.power > current_stats[item.name])
