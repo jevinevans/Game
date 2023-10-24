@@ -4,7 +4,6 @@ Date: 7.13.2021
 Description: This defines lists and functions for certain constands
 """
 
-# TODO: Consider changing IT, AT and WT to enums
 # Item Types: 0 - Head, 1 - Chest, 2 - Back, 3 - Pants, 4 - Weapon
 ITEM_TYPES = ["Head", "Chest", "Back", "Pants", "Weapon"]
 
@@ -14,7 +13,7 @@ ARMOR_TYPES = ["Light", "Medium", "Heavy"]
 # Weapon Types: Weapon Name, Armor Type Restriction
 WEAPON_TYPES = {"Sword": 2, "Spear": 2, "Wand": 1, "Staff": 1, "Knife": 0, "Bow": 0, "Unknown": 0}
 
-# TODO Add descriptions
+
 # This defines the type of abilities, their effect target (Damage = enemies, Boost = Self), List of available attributes
 ABILITY_TYPES = {
     "Magic": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},

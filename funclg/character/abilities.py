@@ -18,8 +18,6 @@ from .modifiers import Modifier
 # logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
 
-# TODO: add energy cost attribute
-
 
 class Abilities:
     """

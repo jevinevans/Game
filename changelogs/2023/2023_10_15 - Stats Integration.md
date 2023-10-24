@@ -35,11 +35,11 @@ __\<Date\>__ - When Item was completed
 
 ### In Progress
 
-- [#103](https://github.com/jevinevans/Game/issues/103) [2023.10.15]
 - [#45](https://github.com/jevinevans/Game/issues/45)
-- [#44](https://github.com/jevinevans/Game/issues/44)
 
 ### Added/Changed
+- [#103](https://github.com/jevinevans/Game/issues/103) [2023.10.15]
+- [#44](https://github.com/jevinevans/Game/issues/44) [2023.10.22]
 
 ### Fixed
 
@@ -48,7 +48,13 @@ __\<Date\>__ - When Item was completed
 
 ------------------------------
 
-## Message - 10.10.2023
+## Message - 10.22.2023
+
+1. Work on Stats integration into Character and associated tests
+2. Add more test coverage for character module tests
+
+---------------------------
+
 - Modifiers
   - improve random mod generation process
   - temporary for combat needs (will just be used on stats and can be removed when combat complete)
@@ -58,9 +64,12 @@ __\<Date\>__ - When Item was completed
 - build a npc manager
   - Create a default list of enemies that should be used
 
-- Stats creation
 - Level manager and creation process
   - Enemy/Boss generation
-  - level manager
+  - level manager - use to build levels
   - Level statistic checking
+
 - Combat
+
+- Manager Menu's
+  - Split into different modules for game data and character data

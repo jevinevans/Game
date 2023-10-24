@@ -44,7 +44,7 @@ class Game:
         raise NotImplementedError
 
     def generate_difficulty(self):
-        # TODO: I want to be able to make a decision if a block should be reward, enemy etc.
+        # I want to be able to make a decision if a block should be reward, enemy etc.
         # Should this automatically(randomly) completed before or done randomly as player progresses
         # How should the history of the space be preserved should it be tracked in another grid or should the slots be objects that track their status and use bools for status and visualization, and completion
         raise NotImplementedError

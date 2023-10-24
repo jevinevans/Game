@@ -3,7 +3,7 @@ FUNCLG Directories and Files
 +============================+
 |    Total Directories: 21   |
 |         Files: 121         |
-|         Lines: 6708        |
+|         Lines: 6817        |
 +============================+
 
 ./tests
@@ -77,7 +77,6 @@ FUNCLG Directories and Files
 ./funclg/game/rewards.py
 ./funclg/game/level.py
 ./funclg/game/combat.py
-./funclg/game/level_manager.py
 ./funclg/game/game.py
 ./funclg/game/__init__.py
 ./funclg/data/characters.json
@@ -90,6 +89,7 @@ FUNCLG Directories and Files
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
 ./funclg/managers/game_manager.py
+./funclg/managers/level_manager.py
 ./funclg/managers/character_manager.py
 ./funclg/managers/__init__.py
 ./changelogs/2023

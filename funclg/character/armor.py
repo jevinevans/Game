@@ -35,8 +35,6 @@ class Armor:
         stat_default = (armor_type + 1) * 10
         self.stats = Stats(attributes={_attr: stat_default for _attr in Stats.BASE_ATTRIBUTES})
 
-        # TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified
-
         self.head = self._validate_equipment(head, 0)
         self.chest = self._validate_equipment(chest, 1)
         self.back = self._validate_equipment(back, 2)
