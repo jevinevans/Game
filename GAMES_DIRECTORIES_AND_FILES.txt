@@ -14,6 +14,7 @@ FUNCLG Directories and Files
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 |         Lines: 6864        |
 =======
 |         Lines: 6680        |
@@ -24,6 +25,9 @@ FUNCLG Directories and Files
 =======
 |         Lines: 6708        |
 >>>>>>> 6101009 (removed modifiers from equipment)
+=======
+|         Lines: 6817        |
+>>>>>>> f29e1c4 (todo clean up)
 +============================+
 
 ./tests

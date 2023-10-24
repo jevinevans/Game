@@ -41,6 +41,16 @@ def validate_filename(filename: str) -> str:
 def load_data(game_data: Dict[str, Any]):
     filename = validate_filename(game_data["filename"])
     try:
+        assert filename.endswith(".json")
+        data_path = re.sub(r"funclg/.*", f"{os.sep}".join(DATA_DIR), os.path.dirname(__file__))
+        return os.path.join(data_path, filename)
+    except AssertionError as error:
+        raise error
+
+
+def load_data(game_data: Dict[str, Any]):
+    try:
+        filename = validate_filename(game_data["filename"])
         if os.path.getsize(filename):
             with open(filename, "r", encoding="utf-8") as load_file:
                 game_data["data"] = json.load(load_file)

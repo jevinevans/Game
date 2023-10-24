@@ -7,9 +7,7 @@ Date: 10.8.2023
 # import questionary
 # from loguru import logger
 
-
-# TODO: 20231008 - Decide if this should be its own module, where it should be and what it should do.
-
+# Allow user to build a level board
 
 # This should manage level settings:
 
