@@ -150,8 +150,6 @@ class Player(Character):
         if item := super().dequip(item_type) is not None:
             self.inventory.append(item)
 
-    # TODO Test if inventory is in player export or if a custom version is neeede
-
 
 class NonPlayableCharacter(Character):
     """

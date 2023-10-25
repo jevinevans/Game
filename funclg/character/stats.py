@@ -10,8 +10,6 @@ from loguru import logger
 
 from .modifiers import Modifier
 
-# TODO: 2023.10.10 - Decide if stats and modifiers should round to whole numbers
-
 
 class Stats:
     """
@@ -21,7 +19,6 @@ class Stats:
     BASE_ATTRIBUTES = ["health", "attack", "defense", "energy"]
     STAT_DEFAULT = 1
 
-    # TODO: 2023.10.15 - define a base stat max
     def __init__(
         self,
         attributes: Optional[Dict[str, Any]] = None,
@@ -33,7 +30,6 @@ class Stats:
         self._validate_attributes(attributes)
 
         # Modifiers for changing stats
-        # TODO: 2023.10.17 - Create copies of each mod
         self.mods = {}
         if modifiers:
             for mod in modifiers:

@@ -10,6 +10,7 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
+<<<<<<< HEAD
 |         Files: 121         |
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -28,12 +29,17 @@ FUNCLG Directories and Files
 =======
 |         Lines: 6817        |
 >>>>>>> f29e1c4 (todo clean up)
+=======
+|         Files: 123         |
+|         Lines: 6811        |
+>>>>>>> 2d77106 (Todo clean up)
 +============================+
 
 ./tests
 ./docs
 ./funclg
 ./changelogs
+./231024_issues.csv
 ./Scan_Directories.py
 ./poetry.lock
 ./TEST_REPORT.txt
@@ -41,6 +47,7 @@ FUNCLG Directories and Files
 ./requirements-dev.txt
 ./quest_test.py
 ./requirements.txt
+<<<<<<< HEAD
 =======
 FUNCLG Directories and Files
 
@@ -57,6 +64,9 @@ FUNCLG Directories and Files
 ./tests
 ./codeQuality.sh
 >>>>>>> 64702b7 (Testing new CLI prompt package)
+=======
+./231024_issues.json
+>>>>>>> 2d77106 (Todo clean up)
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./poetry.lock
 ./pyproject.toml
