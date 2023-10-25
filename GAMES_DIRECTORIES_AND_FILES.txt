@@ -2,14 +2,15 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 121         |
-|         Lines: 6817        |
+|         Files: 123         |
+|         Lines: 6811        |
 +============================+
 
 ./tests
 ./docs
 ./funclg
 ./changelogs
+./231024_issues.csv
 ./Scan_Directories.py
 ./poetry.lock
 ./TEST_REPORT.txt
@@ -17,6 +18,7 @@ FUNCLG Directories and Files
 ./requirements-dev.txt
 ./quest_test.py
 ./requirements.txt
+./231024_issues.json
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./README.md
 ./.pre-commit-config.yaml

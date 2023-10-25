@@ -43,10 +43,12 @@ def _gen_mult_mod(mod_list: list, mults: Dict[str, Any], random: bool = False):
     return mults
 
 
-# TODO: Create/modify the build to allow for random creation
+# Notes for change
+# Create/modify the build to allow for random creation
 # Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
-# TODO Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
+# Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
 # Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
+# 2023.10.24 - May need/want to combine with below method or create a handler that will call manual or automatic and just have one call
 def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, random: bool = False):
     adds, mults = {}, {}
     pre_mods = pre_mods if pre_mods else {}
@@ -74,7 +76,8 @@ def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, rand
     return {"adds": adds, "mults": mults}
 
 
-# TODO: 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
+# 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
+# 2023.10.24 - May need/want to combine with above method or create a handler that will call manual or automatic and just have one call
 def build_modifier(name: str):
     available_mods = Modifier.MODIFIER_TYPES.copy()
     adds, mults = {}, {}
@@ -131,7 +134,9 @@ def build_stats():
         for _a, _v in attributes.items():
             print(f"{_a}: {_v}")
 
-        attr_choice = selection_validation("Which stat would you like to customize", attributes)
+        attr_choice = selection_validation(
+            "Which stat would you like to customize", list(attributes)
+        )
 
         print(
             f"What would you like to set {attr_choice.capitalize()} to ({Stats.STAT_DEFAULT} <= x <= {Modifier.MOD_ADD_RANGE})?"

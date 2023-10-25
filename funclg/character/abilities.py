@@ -119,4 +119,4 @@ class Abilities:
         self.level += 1
         self.mod.level_up()
 
-    # TODO def use()
+    # def use()

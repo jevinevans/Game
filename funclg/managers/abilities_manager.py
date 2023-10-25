@@ -42,7 +42,6 @@ def export_data():
 def build_ability():
     print("\nStarting Ability Creation...\n\nWhat type of ability would you like to create")
 
-    # TODO: Add description print out
     for _a_type, data in ABILITY_TYPES.items():
         print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
@@ -52,7 +51,6 @@ def build_ability():
     )
     ability_desc = string_validation(f"How would you describe {ability_name}?", "Description")
 
-    # TODO: Need to be able to chose the mod for the ability they want
     print("Generating mods for this weapon...")
     ability_mod = stats_man.generate_modifier("ability", ABILITY_TYPES[ability_type], True)
 

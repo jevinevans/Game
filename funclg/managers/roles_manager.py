@@ -57,7 +57,7 @@ def _select_ability_types():
         print(
             "Lets add some ability types to your role!\n\nWhat ability type(s) would you like this class to have?"
         )
-        # TODO: Add description print out
+        # Add description print out
         for _a_type, data in available_types.items():
             print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
@@ -140,7 +140,7 @@ def build_role():
     role_name = string_validation("What would you like to name this new Role?", "Name")
     role_desc = string_validation(f"How would you describe {role_name}?", "Description")
     armor_type = selection_validation(
-        f"What type of armor would you like to make the {role_name}?", ARMOR_TYPES[:-1]
+        f"What type of armor would you like to make the {role_name}?", ARMOR_TYPES
     )
 
     a_types = _select_ability_types()

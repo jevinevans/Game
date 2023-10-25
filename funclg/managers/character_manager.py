@@ -94,7 +94,6 @@ def _pick_char_armor_equipment(
     selected_equipment = {}
 
     # Go through each item type and select or skip
-    # TODO: 2023.06.17 - Add the option to skip
     for item_type in ITEM_TYPES:
         if available_equipment[item_type]:
             sel_item_name = selection_validation(
@@ -116,7 +115,6 @@ def _pick_char_armor_equipment(
                 selected_equipment[item_type.lower()] = None
         else:
             print(f"There are not any {armor_type} {item_type} items, continuing...\n")
-    # TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward
 
     return selected_equipment
 

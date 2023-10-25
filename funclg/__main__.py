@@ -46,13 +46,12 @@ def save_exit() -> None:
 def build_main_menu():
     """Contructs the main menu for the game"""
     menu = Menu("Main Menu", "Please choice an option:", has_return=False)
-    menu.add_item("Play Game", None)  # TODO: add play instance
+    menu.add_item("Play Game", None)
     menu.add_item("Manage Game", managers.build_manager_menu())
     menu.add_item("Exit", save_exit)
     return menu
 
 
-# TODO: Consider initializing the database calls to load and add the textual/rich progress loaders
 def game_start_up():
     logger.info(f"Setting up {GAME_NAME}")
     # Set up data folder

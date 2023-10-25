@@ -63,7 +63,6 @@ class Modifier:
         return string[:-1]
 
     def _verify_mods(self, mods):
-        # TODO: Add check for percentage and add, and compare against the MOD_ADD_RANGE and MOD_MULT_RANGE
         verified = {}
         if mods:
             for stat in mods:

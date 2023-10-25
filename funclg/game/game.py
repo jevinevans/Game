@@ -4,6 +4,11 @@ Developer: Jevin Evans
 Date: 2.20.2023
 """
 
+
+#####
+# THIS NEEDS TO BE A SINGLETON DESIGN
+#####
+
 # Context manager for the game
 # Needs to build/load the levels/level packs, NPCs associated with them, and rewards
 # User needs to provide a character they want to use, if no user exists they will need to create one first (needs to be done before game start)

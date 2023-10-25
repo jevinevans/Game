@@ -96,8 +96,8 @@ class Character:
     def add_ability(self, ability: Abilities) -> bool:
         return self.role.add_ability(ability)
 
-    # TODO: def use_ability(self):
-    # TODO: def level_up(self):
+    # def use_ability(self):
+    # def level_up(self):
 
 
 class Player(Character):
@@ -129,8 +129,6 @@ class Player(Character):
         """Calls the armor dequip function"""
         if item := super().dequip(item_type) is not None:
             self.inventory.append(item)
-
-    # TODO Test if inventory is in player export or if a custom version is neeede
 
 
 class NonPlayableCharacter(Character):

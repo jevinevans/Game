@@ -1,8 +1,8 @@
 # FUN Command Line Game Log: 10.15.2023 - 
 <!-- Update: Current Log date -->
 
-Last Updated: 10.15.2023 <!-- Update with previous log date -->
-Version: 0.5.9
+Last Updated: 10.24.2023 <!-- Update with previous log date -->
+Version: 0.6.0
 <!-- Update version number when changes made-->
 <!-- Verions Additions 
   + 1.0.0 is for major project wide changes like adding a whole new concept/face change
@@ -35,11 +35,11 @@ __\<Date\>__ - When Item was completed
 
 ### In Progress
 
-- [#45](https://github.com/jevinevans/Game/issues/45)
+- [#45](https://github.com/jevinevans/Game/issues/45) [+0.1.0]
 
 ### Added/Changed
-- [#103](https://github.com/jevinevans/Game/issues/103) [2023.10.15]
-- [#44](https://github.com/jevinevans/Game/issues/44) [2023.10.22]
+- [#103](https://github.com/jevinevans/Game/issues/103) [2023.10.15] [v0.5.10]
+- [#44](https://github.com/jevinevans/Game/issues/44) [2023.10.22] [v0.6.0]
 
 ### Fixed
 
@@ -56,6 +56,8 @@ __\<Date\>__ - When Item was completed
 ---------------------------
 
 - Modifiers
+  - Change "adds" to "base" and "mults" to "percentage" (big change, but better clarity) [!!!!!!!!!!]
+    - Needs to be #1 in the next set of tasks after issue is created
   - improve random mod generation process
   - temporary for combat needs (will just be used on stats and can be removed when combat complete)
   - Create add, subtrack, and comparisions
