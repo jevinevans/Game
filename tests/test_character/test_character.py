@@ -94,6 +94,9 @@ Stats [80]
     Defense [5]: 5
     Energy [5]: 5
 
+  Role Abilities:
+    No Abilities
+
   Light Armor
   -----------
     Stats [40]

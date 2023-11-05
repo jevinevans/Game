@@ -11,6 +11,7 @@ FUNCLG Directories and Files
 +============================+
 |    Total Directories: 21   |
 <<<<<<< HEAD
+<<<<<<< HEAD
 |         Files: 121         |
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -33,13 +34,16 @@ FUNCLG Directories and Files
 |         Files: 123         |
 |         Lines: 6811        |
 >>>>>>> 2d77106 (Todo clean up)
+=======
+|         Files: 121         |
+|         Lines: 6863        |
+>>>>>>> b866873 (completed charater stats integration)
 +============================+
 
 ./tests
 ./docs
 ./funclg
 ./changelogs
-./231024_issues.csv
 ./Scan_Directories.py
 ./poetry.lock
 ./TEST_REPORT.txt
@@ -47,6 +51,7 @@ FUNCLG Directories and Files
 ./requirements-dev.txt
 ./quest_test.py
 ./requirements.txt
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 FUNCLG Directories and Files
@@ -67,6 +72,8 @@ FUNCLG Directories and Files
 =======
 ./231024_issues.json
 >>>>>>> 2d77106 (Todo clean up)
+=======
+>>>>>>> b866873 (completed charater stats integration)
 ./GAMES_DIRECTORIES_AND_FILES.txt
 ./poetry.lock
 ./pyproject.toml

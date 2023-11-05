@@ -133,7 +133,6 @@ def armor_details_missing_weapon(light_armor_knife):
 """
 
 
-
 @pytest.fixture
 def armor_export_expectations():
     return {

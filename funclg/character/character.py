@@ -81,6 +81,10 @@ class Character:
     def id(self):  # pylint: disable=C0103
         return self._id
 
+    @property
+    def power(self):
+        return self.stats.power
+
     def export(self) -> Dict[str, Any]:
         logger.debug(f"Exporting Character: {self.name}")
         exporter = self.__dict__.copy()
