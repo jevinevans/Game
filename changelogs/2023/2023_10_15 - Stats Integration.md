@@ -1,8 +1,8 @@
 # FUN Command Line Game Log: 10.15.2023 - 
 <!-- Update: Current Log date -->
 
-Last Updated: 10.24.2023 <!-- Update with previous log date -->
-Version: 0.6.0
+Last Updated: 11.5.2023 <!-- Update with previous log date -->
+Version: 0.5.13
 <!-- Update version number when changes made-->
 <!-- Verions Additions 
   + 1.0.0 is for major project wide changes like adding a whole new concept/face change
@@ -19,6 +19,7 @@ __\<Date\>__ - When Item was completed
 
 ## Current Goals
 
+- [ ] Stats integration 
 - [x] Define Game Play
 - [ ] Create a level generation process -> 0.6
 - [ ] Define game combat and interaction -> 0.7
@@ -34,12 +35,13 @@ __\<Date\>__ - When Item was completed
 <!-- Update version number when changes made-->
 
 ### In Progress
-
-- [#45](https://github.com/jevinevans/Game/issues/45) [+0.1.0]
+- [#117](https://github.com/jevinevans/Game/issues/117) [Fix] [+0.0.1]
 
 ### Added/Changed
+- [#120](https://github.com/jevinevans/Game/issues/120) [2023.11.5] [v0.5.13]
+- [#45](https://github.com/jevinevans/Game/issues/45) [2023.11.5] [v0.5.12]
+- [#44](https://github.com/jevinevans/Game/issues/44) [2023.10.22] [v0.5.11]
 - [#103](https://github.com/jevinevans/Game/issues/103) [2023.10.15] [v0.5.10]
-- [#44](https://github.com/jevinevans/Game/issues/44) [2023.10.22] [v0.6.0]
 
 ### Fixed
 
@@ -48,10 +50,10 @@ __\<Date\>__ - When Item was completed
 
 ------------------------------
 
-## Message - 10.22.2023
+## Message - 11.5.2023
 
-1. Work on Stats integration into Character and associated tests
-2. Add more test coverage for character module tests
+1. Updating modifier add/mult name change (starting PR)
+1. Add more test coverage for character module tests
 
 ---------------------------
 
