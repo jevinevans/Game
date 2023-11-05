@@ -112,21 +112,21 @@ def test_equipment_copy():
 # Testing Body Equipment Functions #
 # ================================ #
 def test_bodyequipment_init():
-    # Test Body Equipment
+    # Test Body Equipment no Stats
     body = BodyEquipment(
         name="Init Test", description="Testing Initialization", item_type=0, armor_type=0
     )
-    assert body.stats.get_stats() == {"health": 1, "attack": 1, "defense": 1, "energy": 1}
+    assert body.stats.get_stats() == {"health": 5, "attack": 1, "defense": 5, "energy": 1}
 
-    # Test Modded Equipment
+    # Test Equipment w/ Stats
     body_stat = BodyEquipment(
         name="Init Mod Test",
         description="Testing modded  init",
         armor_type=2,
         item_type=2,
-        stats={},
+        stats={"attributes": {"defense": 7, "health": 2}},
     )
-    assert body_stat.stats.get_stats() == {"health": 1, "attack": 1, "defense": 1, "energy": 1}
+    assert body_stat.stats.get_stats() == {"health": 2, "attack": 1, "defense": 7, "energy": 1}
 
 
 def test_bodyequipment_copy(body_equipment):
@@ -185,13 +185,14 @@ def test_weaponequipment_init(weapon_equipment):
     for weapon in weapon_equipment.values():
         assert weapon.weapon_type in WEAPON_TYPES
 
+    # Base Stat test
     mod_weapon = WeaponEquipment(
         name="Init Mod Test",
         description="Testing Mod Weapon Init",
         weapon_type="Sword",
         armor_type=0,
     )
-    assert mod_weapon.stats.get_stats() == {"attack": 1, "defense": 1, "energy": 1, "health": 1}
+    assert mod_weapon.stats.get_stats() == {"attack": 5, "defense": 1, "energy": 5, "health": 1}
 
 
 def test_weaponequipment_copy(weapon_equipment):

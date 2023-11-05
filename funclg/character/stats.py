@@ -64,6 +64,7 @@ class Stats:
 
     @property
     def power(self):
+        self._cal_power()
         return self._power
 
     def __str__(self):
@@ -84,10 +85,12 @@ class Stats:
         This funciton modifies the base stats of a stat positively or negatively, and can be updated
         """
         self.mods[mod.name] = mod.get_mods()
+        self._cal_power()
 
     def remove_mod(self, name: str):
         if name in self.mods:
             del self.mods[name]
+            self._cal_power()
             return
         logger.error(f"This stat does not have the '{name}' modifier.")
 

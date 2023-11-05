@@ -22,7 +22,7 @@ def basic_char():
 
 @pytest.fixture
 def character_str_expectation():
-    return """  Test_Char  \n-------------\n Class: Test_Role\n Armor: Light Armor: <H:0, C:0, B:0, P:0, W:0>"""
+    return """Test_Char [lvl 1]\n-----------------\n Class: Test_Role\n Armor: Light Armor: <H:0, C:0, B:0, P:0, W:0>"""
 
 
 @pytest.fixture
@@ -53,6 +53,10 @@ def character_export_expectation():
                 "modifiers": {},
             },
         },
+        "stats": {
+            "attributes": {"attack": 5, "defense": 5, "energy": 5, "health": 5},
+            "modifiers": {},
+        },
     }
 
 
@@ -61,12 +65,17 @@ def character_details_expectation():
     return """Test_Char [lvl 1]
 -----------------
 
+Stats [80]
+----------
+  Health [5]: 20
+  Attack [5]: 20
+  Defense [5]: 20
+  Energy [5]: 20
+
   Class: Test_Role [lvl 1]
   ------------------------
   Armor Type: Light
   Description: Test role
-  Role Abilities:
-    No Abilities
 
   Stats [20]
   ----------
@@ -75,8 +84,18 @@ def character_details_expectation():
     Defense [5]: 5
     Energy [5]: 5
 
+  Role Abilities:
+    No Abilities
+
   Light Armor
   -----------
+    Stats [40]
+    ----------
+      Health [10]: 10
+      Attack [10]: 10
+      Defense [10]: 10
+      Energy [10]: 10
+
     Head: None
 
     Chest: None
@@ -87,12 +106,6 @@ def character_details_expectation():
 
     Weapon: None
 
-    Stats [40]
-    ----------
-      Health [10]: 10
-      Attack [10]: 10
-      Defense [10]: 10
-      Energy [10]: 10
 """
 
 
@@ -123,6 +136,7 @@ def test_character_export(basic_char, character_export_expectation):
 
 
 def test_character_details(basic_char, character_details_expectation):
+    print(basic_char.stats.get_stats())
     assert basic_char.details() == character_details_expectation
 
 
@@ -143,13 +157,6 @@ def test_character_dequip(basic_char):
 
     # Invalid Dequip
     assert basic_char.dequip("") is None
-
-
-def test_character_add_ability(basic_char):
-    t_ability = abilities.Abilities("Test_Ability", "Basic", "Test ability", {})
-    basic_char.add_ability(t_ability)
-    assert len(basic_char.role.abilities) == 1
-    assert basic_char.role.abilities[0].name == t_ability.name
 
 
 # TODO: 20230827 - Move to future play class

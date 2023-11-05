@@ -9,10 +9,10 @@ from typing import Any, Dict, Optional
 from loguru import logger
 
 import funclg.utils.data_mgmt as db
-from funclg.character.abilities import Abilities
 from funclg.character.armor import Armor
 from funclg.character.equipment import Equipment
 from funclg.character.roles import Roles
+from funclg.character.stats import Stats
 
 
 class Character:
@@ -24,12 +24,14 @@ class Character:
     """
 
     DB_PREFIX = "CHARS"
+    BASE_STATS = {"attack": 5, "health": 5, "energy": 5, "defense": 5}
 
     def __init__(
         self,
         name: str,
         armor_instance: Optional[Armor] = None,
         role_instance: Optional[Roles] = None,
+        stats: Optional[Stats] = None,
         **kwargs,
     ):
         """
@@ -37,8 +39,10 @@ class Character:
         """
         self.name = name
         self.level = kwargs.get("level", 1)
+        self.stats = stats if stats else Stats(attributes=Character.BASE_STATS)
         self._set_up_role(role_instance)
         self._set_up_armor(armor_instance)
+        self._update_stats()
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
 
     def _set_up_role(self, roles_instance: Optional[Roles] = None) -> None:
@@ -55,9 +59,17 @@ class Character:
         else:
             self.armor = Armor(self.armor_type)
 
+    def _update_stats(self):
+        print(self.stats)
+        self.stats.add_mod(self.role.to_mod())
+        print(self.stats)
+
+        self.stats.add_mod(self.armor.to_mod())
+        print(self.stats)
+
     def __str__(self) -> str:
-        string = f"  {self.name}  \n"
-        string += "-" * (len(self.name) + 4)
+        string = f"{self.name} [lvl {self.level}]\n"
+        string += "-" * (len(self.name) + 7 + len(str(self.level)))
         string += f"\n Class: {self.role.name}"
         string += f"\n Armor: {self.armor}"
 
@@ -67,6 +79,10 @@ class Character:
     def id(self):  # pylint: disable=C0103
         return self._id
 
+    @property
+    def power(self):
+        return self.stats.power
+
     def export(self) -> Dict[str, Any]:
         logger.debug(f"Exporting Character: {self.name}")
         exporter = self.__dict__.copy()
@@ -75,26 +91,32 @@ class Character:
                 exporter[key] = value.export()
             if isinstance(value, Roles):
                 exporter[key] = value.export()
+            if isinstance(value, Stats):
+                tmp_stat = Stats(**value.copy())
+                tmp_stat.remove_mod("armor")
+                tmp_stat.remove_mod(self.role.name)
+                exporter[key] = tmp_stat.export()
         return exporter
 
     def details(self, indent: int = 0) -> str:
         desc = f"{self.name} [lvl {self.level}]\n"
         desc += "-" * (len(self.name) + 7 + len(str(self.level)))
+        desc += "\n" + self.stats.details(indent)
         desc += "\n" + self.role.details(indent + 2)
-        desc += "\n" + self.armor.details(indent + 2)
+        desc += self.armor.details(indent + 2)
         desc += "\n"
         return desc
 
     def equip(self, item: Equipment) -> None:
         """Calls the armor equip function"""
         self.armor.equip(item)
+        self._update_stats()
 
     def dequip(self, item_type: str) -> None | Equipment:
         """Calls the armor dequip function"""
-        return self.armor.dequip(item_type)
-
-    def add_ability(self, ability: Abilities) -> bool:
-        return self.role.add_ability(ability)
+        item = self.armor.dequip(item_type)
+        self._update_stats()
+        return item
 
     # def use_ability(self):
     # def level_up(self):

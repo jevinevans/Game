@@ -122,18 +122,20 @@ def roles_detail_expectation_with_abilities(mage_test_role):
 {' '*indent}-------------------------
 {' '*indent}Armor Type: Medium
 {' '*indent}Description: {mage_test_role.description}
-{' '*indent}Role Abilities:
-{mage_test_role.abilities[0].details(indent+2)}
-{mage_test_role.abilities[1].details(indent+2)}
-{mage_test_role.abilities[2].details(indent+2)}
-{mage_test_role.abilities[3].details(indent+2)}
 
 {' '*(indent)}Stats [20]
 {' '*(indent)}----------
 {' '*(indent+2)}Health [5]: 5
 {' '*(indent+2)}Attack [5]: 5
 {' '*(indent+2)}Defense [5]: 5
-{' '*(indent+2)}Energy [5]: 5"""
+{' '*(indent+2)}Energy [5]: 5
+
+{' '*indent}Role Abilities:
+{mage_test_role.abilities[0].details(indent+2)}
+{mage_test_role.abilities[1].details(indent+2)}
+{mage_test_role.abilities[2].details(indent+2)}
+{mage_test_role.abilities[3].details(indent+2)}
+"""
         role_details.append(base)
     return role_details
 
@@ -146,12 +148,14 @@ def roles_detail_expectation_no_abilities(mage_test_role):
 {' '*indent}-------------------------
 {' '*indent}Armor Type: Medium
 {' '*indent}Description: {mage_test_role.description}
-{' '*indent}Role Abilities:
-{' '*(indent+2)}No Abilities
 
 {' '*(indent)}Stats [20]
 {' '*(indent)}----------
 {' '*(indent+2)}Health [5]: 5
 {' '*(indent+2)}Attack [5]: 5
 {' '*(indent+2)}Defense [5]: 5
-{' '*(indent+2)}Energy [5]: 5"""
+{' '*(indent+2)}Energy [5]: 5
+
+{' '*indent}Role Abilities:
+{' '*(indent+2)}No Abilities
+"""

@@ -12,7 +12,6 @@ import funclg.managers.character_manager as char_man
 from funclg.character.abilities import Abilities
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.character.roles import Roles
-from funclg.utils.types import ITEM_TYPES
 
 
 @pytest.fixture

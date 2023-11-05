@@ -62,7 +62,6 @@ __\<Date\>__ - When Item was completed
   - temporary for combat needs (will just be used on stats and can be removed when combat complete)
   - Create add, subtrack, and comparisions
 
-- Update character to generalize and similar playable characters and non-playable chars
 - build a npc manager
   - Create a default list of enemies that should be used
 

@@ -124,6 +124,7 @@ class WeaponEquipment(Equipment):
     """
 
     DB_PREFIX = "WEAPON"
+    BASE_STATS = {"attack": 5, "health": 1, "energy": 5, "defense": 1}
 
     def __init__(
         self,
@@ -136,9 +137,9 @@ class WeaponEquipment(Equipment):
     ):
         new_stat = {}
         if stats:
-            new_stat = Stats(stats)
+            new_stat = Stats(**stats)
         else:
-            new_stat = Stats()
+            new_stat = Stats(attributes=WeaponEquipment.BASE_STATS)
 
         self.weapon_type = self._validate_weapon_type(weapon_type)
         armor_type = (
@@ -194,6 +195,7 @@ class BodyEquipment(Equipment):
     """
 
     DB_PREFIX = "ARMOR"
+    BASE_STATS = {"attack": 1, "health": 5, "energy": 1, "defense": 5}
 
     def __init__(
         self,
@@ -211,7 +213,7 @@ class BodyEquipment(Equipment):
         if stats:
             new_stat = Stats(**stats)
         else:
-            new_stat = Stats()
+            new_stat = Stats(attributes=BodyEquipment.BASE_STATS)
 
         super().__init__(
             name=name,

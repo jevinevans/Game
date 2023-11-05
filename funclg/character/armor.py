@@ -20,6 +20,8 @@ class Armor:
     Creates an armor object for a character
     """
 
+    BASE_STATS = {"attack": 1, "health": 1, "energy": 1, "defense": 1}
+
     def __init__(  # pylint: disable=too-many-arguments
         self,
         armor_type: int = 0,
@@ -30,16 +32,20 @@ class Armor:
         weapon: WeaponEquipment = None,
     ):
         self.armor_type = armor_type if abs(armor_type) < len(ARMOR_TYPES) else 0
-
+        self.stats = self._stats_setup(armor_type)
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
-        stat_default = (armor_type + 1) * 10
-        self.stats = Stats(attributes={_attr: stat_default for _attr in Stats.BASE_ATTRIBUTES})
 
         self.head = self._validate_equipment(head, 0)
         self.chest = self._validate_equipment(chest, 1)
         self.back = self._validate_equipment(back, 2)
         self.pants = self._validate_equipment(pants, 3)
         self.weapon = self._validate_equipment(weapon, 4)
+
+    def _stats_setup(self, armor_type: int = 0):
+        stat_default = Armor.BASE_STATS.copy()
+        for attr in stat_default:
+            stat_default[attr] *= (armor_type + 1) * 10
+        return Stats(attributes=stat_default)
 
     def _update_armor_mods(self, item):
         """Validates that the equipment matches the armor class and returns a copy of the item to the slot"""
@@ -151,10 +157,10 @@ class Armor:
     def details(self, indent: int = 0) -> str:
         title = f"{get_armor_type(self.armor_type)} Armor"
         desc = f"\n{' '*indent}{title}\n{' '*indent}{'-'*len(title)}"
+        desc += self.stats.details(indent=indent + 2) + "\n"
 
         for _item_type in ITEM_TYPES:
             desc += self._details_check_none(indent, _item_type) + "\n"
-        desc += self.stats.details(indent=indent + 2)
         return desc
 
     def _details_check_none(self, indent: int, _item_type: str) -> str:
@@ -194,3 +200,6 @@ class Armor:
             self.pants.level_up()
         if self.weapon:
             self.weapon.level_up()
+
+    def to_mod(self):
+        return self.stats.to_mod("armor")

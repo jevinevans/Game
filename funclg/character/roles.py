@@ -28,7 +28,7 @@ class Roles:
 
     MAX_ABILITIES = 5
     DB_PREFIX = "ROLES"
-    STAT_ATTRS = {"attack": 5, "health": 5, "energy": 5, "defense": 5}
+    BASE_STATS = {"attack": 5, "health": 5, "energy": 5, "defense": 5}
 
     def __init__(
         self,
@@ -51,7 +51,7 @@ class Roles:
         )
         self.abilities = self._validate_abilities(abilities) if abilities else []
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
-        self.stats = Stats(**stats) if stats else Stats(attributes=Roles.STAT_ATTRS)
+        self.stats = Stats(**stats) if stats else Stats(attributes=Roles.BASE_STATS)
         self.level = kwargs.get("level", 1)
         logger.debug(f"Created Role: {name}")
 
@@ -98,7 +98,8 @@ class Roles:
         desc = f"\n{' '*indent}Class: {self.name} [lvl {self.level}]"
         desc += f"\n{' '*indent}{'-'*(len(self.name)+14+len(str(self.level)))}"
         desc += f"\n{' '*indent}Armor Type: {get_armor_type(self.armor_type)}"
-        desc += f"\n{' '*indent}Description: {self.description}"
+        desc += f"\n{' '*indent}Description: {self.description}\n"
+        desc += self.stats.details(indent) + "\n"
         desc += f"\n{' '*indent}Role Abilities:\n"
         if self.abilities:
             for ability in self.abilities:
@@ -107,7 +108,6 @@ class Roles:
         else:
             desc += f"{' '*(indent+2)}No Abilities\n"
 
-        desc += self.stats.details(indent)
         return desc
 
     def export(self) -> Dict[str, Any]:
@@ -158,3 +158,6 @@ class Roles:
         if self.abilities:
             for ability in self.abilities:
                 ability.level_up()
+
+    def to_mod(self):
+        return self.stats.to_mod(self.name)

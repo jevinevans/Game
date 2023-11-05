@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Tue Oct 24 19:15:44 PDT 2023 
+Date: Sun Nov  5 13:15:47 PST 2023 
 
 ---PYTEST---
 
@@ -8,14 +8,14 @@ Date: Tue Oct 24 19:15:44 PDT 2023
 platform linux -- Python 3.10.12, pytest-7.4.2, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 136 items
+collected 135 items
 
 tests/test_character/test_abilities.py .......                           [  5%]
-tests/test_character/test_armor.py ................                      [ 16%]
-tests/test_character/test_character.py .......                           [ 22%]
-tests/test_character/test_equipment.py ..............                    [ 32%]
+tests/test_character/test_armor.py ................                      [ 17%]
+tests/test_character/test_character.py ......                            [ 21%]
+tests/test_character/test_equipment.py ..............                    [ 31%]
 tests/test_character/test_modifiers.py ..........                        [ 39%]
-tests/test_character/test_roles.py .............                         [ 49%]
+tests/test_character/test_roles.py .............                         [ 48%]
 tests/test_character/test_stats.py ..................                    [ 62%]
 tests/test_game/test_game_levels.py .......                              [ 67%]
 tests/test_main/test_main.py .                                           [ 68%]
@@ -33,12 +33,12 @@ funclg/__init__.py                         1      0      0      0   100%
 funclg/__main__.py                        41     24      6      1    38%   39-43, 56-68, 72-79, 83-85
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             70      0     20      0   100%
-funclg/character/armor.py                136      0     46      5    97%   187->189, 189->191, 191->193, 193->195, 195->exit
-funclg/character/character.py             70      8     12      0    88%   118-122, 125-126, 130-131, 146-149
-funclg/character/equipment.py             95      0     10      0   100%
+funclg/character/armor.py                143      0     46      5    97%   193->195, 195->197, 197->199, 199->201, 201->exit
+funclg/character/character.py             89      9     14      0    89%   84, 141-145, 148-149, 153-154, 169-172
+funclg/character/equipment.py             97      0     10      0   100%
 funclg/character/modifiers.py             71      0     38      1    99%   115->118
-funclg/character/roles.py                 91      7     32      0    91%   67, 140, 156-160
-funclg/character/stats.py                 98      1     38      1    99%   55
+funclg/character/roles.py                 93      7     32      0    91%   67, 140, 156-160
+funclg/character/stats.py                101      1     38      1    99%   55
 funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 46
 funclg/game/combat.py                      0      0      0      0   100%
 funclg/game/game.py                       10      4      0      0    60%   40, 45, 49, 55
@@ -59,11 +59,11 @@ funclg/utils/input_validation.py          40     28     16      0    21%   18-28
 funclg/utils/menu_funcs.py                36     16     14      0    48%   29-52
 funclg/utils/types.py                     17      0      6      1    96%   53->56
 ----------------------------------------------------------------------------------
-TOTAL                                   1501    151    508     24    88%
+TOTAL                                   1534    152    510     24    89%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 88.40%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 88.55%
 
-======================= 136 passed, 2 warnings in 1.37s ========================
+======================= 135 passed, 2 warnings in 1.72s ========================
 
 ---Code Quality Report---
 
@@ -74,8 +74,56 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 88.40%
 -----PYLINT-----
 
 ************* Module funclg.character.stats
-funclg/character/stats.py:144:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
+funclg/character/stats.py:147:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
 
 ------------------------------------------------------------------
 Your code has been rated at 9.99/10 (previous run: 9.99/10, +0.01)
 
++==============================================================================+
+
+                               /$$$$$$            /$$
+                              /$$__  $$          | $$
+           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
+          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
+         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
+          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
+          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
+         |_______/  \_______/|__/     \_______/   \___/   \____  $$
+                                                          /$$  | $$
+                                                         |  $$$$$$/
+  by pyup.io                                              \______/
+
++==============================================================================+
+
+ [1mREPORT[0m 
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
+  Safety [1mv2.3.5[0m is scanning for [1mVulnerabilities[0m[1m...[0m
+[1m  Scanning dependencies[0m in your [1menvironment:[0m
+
+  -> /home/jevinle/.cache/pypoetry/virtualenvs/funclg-
+    AThUaF5z-py3.10/lib/python3.10/site-packages
+
+  Using [1mnon-commercial database[0m
+[1m  Found and scanned 69 packages[0m
+  Timestamp [1m2023-11-05 13:16:04[0m
+[1m  0[0m[1m vulnerabilities found[0m
+[1m  0[0m[1m vulnerabilities ignored[0m
++==============================================================================+
+
+ [32m[1mNo known security vulnerabilities found.[0m 
+
++==============================================================================+
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
++==============================================================================+[0m
