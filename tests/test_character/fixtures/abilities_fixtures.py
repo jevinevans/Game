@@ -67,7 +67,7 @@ def abilities_all_types():
 def abilities_str_expectation(abilities_all_types):
     ability_strings = []
     for ability in abilities_all_types:
-        if ability.mod.adds or ability.mod.mults:
+        if ability.mod.base or ability.mod.percentage:
             ability_strings.append(f"{ability.name} ({ability.ability_type}) - {ability.mod}")
         else:
             ability_strings.append(f"{ability.name} ({ability.ability_type})")

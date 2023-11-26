@@ -4,7 +4,6 @@ Date: 12.5.2021
 Description: This defines Abilities object used for the roles class
 """
 
-import json
 from typing import Any, Dict, Optional
 
 from loguru import logger
@@ -69,12 +68,12 @@ class Abilities:
         logger.warning("Using default modifier value.")
         if self.ability_type == "Basic":
             return {}
-        m_value = 1 if m_type == "adds" else 0.01
+        m_value = 1 if m_type == "base" else 0.01
         return {"health": m_value}
 
     def __str__(self):
         string = f"{self.name} ({self.ability_type})"
-        if self.mod.adds or self.mod.mults:
+        if self.mod.base or self.mod.percentage:
             string += f" - {self.mod}"
         return string
 
@@ -98,11 +97,6 @@ class Abilities:
             if isinstance(value, Modifier):
                 exporter[key] = value.export()
         return exporter
-
-    def print_to_file(self) -> None:
-        logger.info(f"Saving Ability: {self.name}")
-        with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
-            json.dump(self.export(), out_file)
 
     def copy(self) -> Self:
         """Returns a copy of the object"""

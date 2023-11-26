@@ -24,7 +24,7 @@ def stat_mods():
     """Creates a list of modifiers"""
     return [
         Modifier("Mod_1", {"energy": 50}, {"health": 0.5}),
-        Modifier("Mod_2", mults={"attack": 0.25}),
+        Modifier("Mod_2", percentage={"attack": 0.25}),
     ]
 
 
@@ -40,8 +40,8 @@ def stat_with_mods_export_expectation():
     return {
         "attributes": {"attack": 4, "health": 10, "energy": 5, "defense": 1},
         "modifiers": {
-            "Mod_1": {"adds": {"energy": 50}, "mults": {"health": 0.5}},
-            "Mod_2": {"adds": {}, "mults": {"attack": 0.25}},
+            "Mod_1": {"base": {"energy": 50}, "percentage": {"health": 0.5}},
+            "Mod_2": {"base": {}, "percentage": {"attack": 0.25}},
         },
     }
 
@@ -84,7 +84,7 @@ def test_stats_init(stat_no_mods, stat_with_mods):
     assert stat_with_mods.attack == 4
 
 
-def test_stats_add_modifier_adds_mod(stat_no_mods):
+def test_stats_add_modifier_base_mod(stat_no_mods):
     """Test adding an add mod to a stat"""
     add = Modifier("add_test", {"attack": 53})
     assert stat_no_mods.mods == {}
@@ -94,19 +94,19 @@ def test_stats_add_modifier_adds_mod(stat_no_mods):
     # assert getattr(base_stat_no_mods, "attack", False) == 53
 
 
-def test_stats_add_modifier_mults_mod(stat_no_mods):
-    """Test adding a mults mod to a stat"""
-    mult = Modifier("mult_test", mults={"attack": 53})
+def test_stats_add_modifier_percentage_mod(stat_no_mods):
+    """Test adding a percentage mod to a stat"""
+    mult = Modifier("mult_test", percentage={"attack": 53})
     assert stat_no_mods.mods == {}
 
     stat_no_mods.add_mod(mult)
     assert getattr(stat_no_mods, "mods", False) == {mult.name: mult.get_mods()}
 
 
-def test_stats_add_modifier_adds_and_mults_mod(stat_no_mods):
+def test_stats_add_modifier_base_and_percentage_mod(stat_no_mods):
     """Test adding add and mult mods to a stat"""
     add = Modifier("add_test", {"attack": 53})
-    mult = Modifier("mult_test", mults={"attack": 53})
+    mult = Modifier("mult_test", percentage={"attack": 53})
     assert stat_no_mods.mods == {}
 
     stat_no_mods.add_mod(add)
@@ -212,7 +212,7 @@ def test_stats_to_mod(stat_no_mods):
     stat_mod = stat_no_mods.to_mod(name="test")
 
     for stat, value in full_stats.items():
-        assert stat_mod.adds[stat] == value
+        assert stat_mod.base[stat] == value
 
 
 def test_stats_copy(stat_with_mods):

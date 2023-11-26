@@ -15,32 +15,32 @@ class Modifier:
 
     Mod Example
         {
-            "add":{
+            "base":{
                 "attack":-15,
                 "energy": 30,
             },
-            "mult":{
+            "percentage":{
                 "defense": 0.2,
                 "health": -0.1
             }
         }
     """
 
-    M_TYPES = ["adds", "mults"]
+    M_TYPES = ["base", "percentage"]
     DB_PREFIX = "MODS"
 
     MODIFIER_TYPES = ["health", "energy", "attack", "defense"]
-    MOD_ADD_RANGE = 500
-    MOD_MULT_RANGE = 100
+    MOD_BASE_RANGE = 500
+    MOD_PERCENTAGE_RANGE = 100
 
     def __init__(
         self,
         name: str,
-        adds: Optional[Dict[str, Any]] = None,
-        mults: Optional[Dict[str, Any]] = None,
+        base: Optional[Dict[str, Any]] = None,
+        percentage: Optional[Dict[str, Any]] = None,
     ):
-        self.adds = self._verify_mods(adds)
-        self.mults = self._verify_mods(mults)
+        self.base = self._verify_mods(base)
+        self.percentage = self._verify_mods(percentage)
         self._name = name
 
     @property
@@ -87,7 +87,7 @@ class Modifier:
                 del m_dict[stat]
 
     def get_mods(self):
-        return {"adds": self.adds, "mults": self.mults}
+        return {"base": self.base, "percentage": self.percentage}
 
     def export(self):
         return self.get_mods()
@@ -102,19 +102,19 @@ class Modifier:
     def _friendly_read(self):
         stats = {}
 
-        if self.adds:
-            for stat, effect in self.adds.items():
+        if self.base:
+            for stat, effect in self.base.items():
                 stats.setdefault(stat, []).append(self._friendly_read_mod(effect))
-        if self.mults:
-            for stat, effect in self.mults.items():
+        if self.percentage:
+            for stat, effect in self.percentage.items():
                 stats.setdefault(stat, []).append(self._friendly_read_mod(effect, percentage=True))
 
         return stats
 
     def level_up(self):
-        if self.adds:
-            for add in self.adds:
-                self.adds[add] += 1
-        if self.mults:
-            for mult in self.mults:
-                self.mults[mult] += 0.01
+        if self.base:
+            for add in self.base:
+                self.base[add] += 1
+        if self.percentage:
+            for mult in self.percentage:
+                self.percentage[mult] += 0.01

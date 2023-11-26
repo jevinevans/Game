@@ -69,7 +69,7 @@ def mage_export_expectation():
                 "level": 1,
                 "description": "Testing Magic ability.",
                 "_id": "ABILITY-12345-FADJ-67890",
-                "mod": {"adds": {"health": -50}, "mults": {}},
+                "mod": {"base": {"health": -50}, "percentage": {}},
             },
             {
                 "name": "Restore Test Ability",
@@ -78,7 +78,7 @@ def mage_export_expectation():
                 "level": 1,
                 "description": "Testing Restore ability.",
                 "_id": "ABILITY-12345-FADD-67891",
-                "mod": {"adds": {}, "mults": {"health": 50}},
+                "mod": {"base": {}, "percentage": {"health": 50}},
             },
             {
                 "name": "Buff Test Ability",
@@ -87,7 +87,7 @@ def mage_export_expectation():
                 "level": 1,
                 "description": "Testing Buff ability.",
                 "_id": "ABILITY-12345-FEFS-67892",
-                "mod": {"adds": {}, "mults": {"health": 50}},
+                "mod": {"base": {}, "percentage": {"health": 50}},
             },
             {
                 "name": "Debuff Test Ability",
@@ -96,7 +96,7 @@ def mage_export_expectation():
                 "level": 1,
                 "description": "Testing Debuff ability.",
                 "_id": "ABILITY-12345-EODS-67893",
-                "mod": {"adds": {}, "mults": {"health": -50}},
+                "mod": {"base": {}, "percentage": {"health": -50}},
             },
         ],
         "stats": {

@@ -18,49 +18,49 @@ from funclg.utils.input_validation import (
 )
 
 
-def _gen_add_mod(mod_list: list, adds: Dict[str, Any], random: bool = False):
+def _gen_base_mod(mod_list: list, base: Dict[str, Any], random: bool = False):
     if random:
-        add_mod = mod_list.pop(randint(0, len(mod_list) - 1))
+        base_mod = mod_list.pop(randint(0, len(mod_list) - 1))
     else:
-        add_mod = mod_list[0]
-    add_value = randint(1, Modifier.MOD_ADD_RANGE)
-    adds.setdefault(add_mod, add_value)
-    return adds
+        base_mod = mod_list[0]
+    base_value = randint(1, Modifier.MOD_BASE_RANGE)
+    base.setdefault(base_mod, base_value)
+    return base
 
 
-def _gen_mult_mod(mod_list: list, mults: Dict[str, Any], random: bool = False):
+def _gen_percentage_mod(mod_list: list, percentages: Dict[str, Any], random: bool = False):
     if random:
-        mult_mod = mod_list.pop(randint(0, len(mod_list) - 1))
+        percentage_mod = mod_list.pop(randint(0, len(mod_list) - 1))
     else:
-        mult_mod = mod_list[0]
-    mult_value = randint(1, Modifier.MOD_MULT_RANGE)
-    logger.debug(f"Mult Value: {mult_value}")
-    while mult_value > 1:
-        mult_value /= 100
-    mult_value = round(mult_value, 2)
+        percentage_mod = mod_list[0]
+    percentage_value = randint(1, Modifier.MOD_PERCENTAGE_RANGE)
+    logger.debug(f"Mult Value: {percentage_value}")
+    while percentage_value > 1:
+        percentage_value /= 100
+    percentage_value = round(percentage_value, 2)
 
-    mults.setdefault(mult_mod, mult_value)
-    return mults
+    percentages.setdefault(percentage_mod, percentage_value)
+    return percentages
 
 
 # Notes for change
 # Create/modify the build to allow for random creation
-# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the adds and mults of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
+# Modifiers are specific to the item that they are attached to and do not need to have custom names. This manager needs to be updated to just create the base and percentages of a mod and return that dictionary to a calling function. Modifiers will not be directly custom created or tracked.
 # Convert method to be able to handle multiple types of modifier generations. May require creating sub methods for the different types, weapon, armor, and abilities
 # Needs to provide the capability to decide which m_type should be used or both, also how many modifiers can be applied, or just simply random
 # 2023.10.24 - May need/want to combine with below method or create a handler that will call manual or automatic and just have one call
 def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, random: bool = False):
-    adds, mults = {}, {}
+    base, percentage = {}, {}
     pre_mods = pre_mods if pre_mods else {}
 
     mod_types = Modifier.MODIFIER_TYPES
 
     if item_type == "ability":
         mod_types = pre_mods["mods"].copy()
-        if pre_mods["m_type"] == "adds":
-            adds = _gen_add_mod(mod_types, adds, random)
+        if pre_mods["m_type"] == "base":
+            base = _gen_base_mod(mod_types, base, random)
         else:
-            mults = _gen_mult_mod(mod_types, mults, random)
+            percentage = _gen_percentage_mod(mod_types, percentage, random)
 
     else:
         if item_type == "armor":
@@ -69,18 +69,18 @@ def generate_modifier(item_type: str = "", pre_mods: Dict[str, Any] = None, rand
         elif item_type == "weapon":
             mod_types = ["energy", "attack"]
 
-        adds = _gen_add_mod(mod_types, adds)
-        mults = _gen_mult_mod(mod_types, mults)
+        base = _gen_base_mod(mod_types, base)
+        percentage = _gen_percentage_mod(mod_types, percentage)
 
-    logger.debug(f"MOD: adds: {adds}, mults: {mults}")
-    return {"adds": adds, "mults": mults}
+    logger.debug(f"MOD: base: {base}, percentage: {percentage}")
+    return {"base": base, "percentage": percentage}
 
 
 # 20221112 - Change function to be allow the user to define each attribute of the MOD type, for each type decide if wanted or not, if so which type (percetage or base) (positive or nega), return values.
 # 2023.10.24 - May need/want to combine with above method or create a handler that will call manual or automatic and just have one call
 def build_modifier(name: str):
     available_mods = Modifier.MODIFIER_TYPES.copy()
-    adds, mults = {}, {}
+    base, percentage = {}, {}
 
     print("\nStarting Modifier Creation...\n")
 
@@ -93,29 +93,31 @@ def build_modifier(name: str):
             )
             == "Base Change"
         ):
-            mod_val = number_range_validation(-Modifier.MOD_ADD_RANGE, Modifier.MOD_ADD_RANGE)
+            mod_val = number_range_validation(-Modifier.MOD_BASE_RANGE, Modifier.MOD_BASE_RANGE)
 
             print(f"You created modifier: {mod_type} {mod_val}")
             if confirmation("Confirm creation?"):
-                adds[mod_type] = mod_val
+                base[mod_type] = mod_val
 
         else:
-            mod_val = number_range_validation(-Modifier.MOD_MULT_RANGE, Modifier.MOD_MULT_RANGE)
+            mod_val = number_range_validation(
+                -Modifier.MOD_PERCENTAGE_RANGE, Modifier.MOD_PERCENTAGE_RANGE
+            )
             while mod_val > 1:
                 mod_val /= 100
             mod_val = round(mod_val, 2)
 
             print(f"You created modifier: {mod_type} {mod_val*100}%")
             if confirmation("Confirm mod creation?"):
-                mults[mod_type] = mod_val
+                percentage[mod_type] = mod_val
 
         if confirmation("Would you like to add another modifier?"):
             available_mods.remove(mod_type)
         else:
             logger.debug("Constructing modifier...")
             break
-    if confirmation(f"Validate Modifier: {name}\n\tAdds: {adds}\n\tMults: {mults}\n\r"):
-        new_mod = Modifier(name=name, adds=adds, mults=mults)
+    if confirmation(f"Validate Modifier: {name}\n\tBase: {base}\n\tPercentage: {percentage}\n\r"):
+        new_mod = Modifier(name=name, base=base, percentage=percentage)
 
         return new_mod
     return None
@@ -139,9 +141,9 @@ def build_stats():
         )
 
         print(
-            f"What would you like to set {attr_choice.capitalize()} to ({Stats.STAT_DEFAULT} <= x <= {Modifier.MOD_ADD_RANGE})?"
+            f"What would you like to set {attr_choice.capitalize()} to ({Stats.STAT_DEFAULT} <= x <= {Modifier.MOD_BASE_RANGE})?"
         )
-        attr_value = number_range_validation(Stats.STAT_DEFAULT, Modifier.MOD_ADD_RANGE)
+        attr_value = number_range_validation(Stats.STAT_DEFAULT, Modifier.MOD_BASE_RANGE)
 
         if confirmation(f"Confirm updating {attr_choice} to {attr_value}?"):
             attributes.update({attr_choice: attr_value})

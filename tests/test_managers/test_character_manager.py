@@ -29,8 +29,8 @@ def test_character_mage():
                 "attack": 20,
                 "defense": 20,
                 "mods": {
-                    "Basic Mage Tunic": {"adds": {"health": 100}, "mults": {"health": 0.45}},
-                    "Calins Wand": {"adds": {"attack": 337}, "mults": {"energy": 1}},
+                    "Basic Mage Tunic": {"base": {"health": 100}, "percentage": {"health": 0.45}},
+                    "Calins Wand": {"base": {"attack": 337}, "percentage": {"energy": 1}},
                 },
             },
             "head": None,
@@ -84,7 +84,7 @@ def test_character_mage():
                     "ability_type": "Magic",
                     "_target": "enemy",
                     "level": 0,
-                    "mod": {"adds": {"defense": -446}, "mults": {}},
+                    "mod": {"base": {"defense": -446}, "percentage": {}},
                     "_id": "ABILITY-16650-OKNG-98180",
                 },
                 {
@@ -93,7 +93,7 @@ def test_character_mage():
                     "ability_type": "Buff",
                     "_target": "self",
                     "level": 0,
-                    "mod": {"adds": {}, "mults": {"defense": 0.98}},
+                    "mod": {"base": {}, "percentage": {"defense": 0.98}},
                     "_id": "ABILITY-16650-DXUF-98274",
                 },
                 {
@@ -102,7 +102,7 @@ def test_character_mage():
                     "ability_type": "Debuff",
                     "_target": "enemy",
                     "level": 0,
-                    "mod": {"adds": {}, "mults": {"defense": -0.83}},
+                    "mod": {"base": {}, "percentage": {"defense": -0.83}},
                     "_id": "ABILITY-16660-TXKX-31305",
                 },
             ],
@@ -230,7 +230,7 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
             "item_type": 1,
             "armor_type": 1,
             "level": 0,
-            "mod": {"adds": {"health": 100}, "mults": {"health": 0.45}},
+            "mod": {"base": {"health": 100}, "percentage": {"health": 0.45}},
             "_id": "ARMOR-16809-BCWSVN-76675",
         }
     )
@@ -241,7 +241,7 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
             "item_type": 3,
             "armor_type": 1,
             "level": 0,
-            "mod": {"adds": {"health": 459}, "mults": {"health": 0.51}},
+            "mod": {"base": {"health": 459}, "percentage": {"health": 0.51}},
             "_id": "ARMOR-16809-AEAYIE-76732",
         }
     )
@@ -253,7 +253,7 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
             "item_type": 4,
             "armor_type": 1,
             "level": 0,
-            "mod": {"adds": {"attack": 337}, "mults": {"energy": 1}},
+            "mod": {"base": {"attack": 337}, "percentage": {"energy": 1}},
             "_id": "WEAPON-16645-ACIGL-01214",
         }
     )

@@ -207,7 +207,7 @@ class BodyEquipment(Equipment):
         **kwargs,
     ):
         """
-        Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
+        Modifiers should be a dictionary that has the possible properties {'base':{}, 'percentage':{}} that will be verified on Modifier creation
         """
         new_stat = {}
         if stats:

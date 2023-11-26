@@ -31,7 +31,7 @@ def test_mage():
                 "ability_type": "Magic",
                 "_target": "enemy",
                 "level": 0,
-                "mod": {"adds": {"defense": -446}, "mults": {}},
+                "mod": {"base": {"defense": -446}, "percentage": {}},
                 "_id": "ABILITY-16650-OKNG-98180",
             },
             {
@@ -40,7 +40,7 @@ def test_mage():
                 "ability_type": "Restore",
                 "_target": "self",
                 "level": 0,
-                "mod": {"adds": {}, "mults": {"energy": 0.45}},
+                "mod": {"base": {}, "percentage": {"energy": 0.45}},
                 "_id": "ABILITY-16650-DOTD-98286",
             },
             {
@@ -49,7 +49,7 @@ def test_mage():
                 "ability_type": "Buff",
                 "_target": "self",
                 "level": 0,
-                "mod": {"adds": {}, "mults": {"defense": 0.98}},
+                "mod": {"base": {}, "percentage": {"defense": 0.98}},
                 "_id": "ABILITY-16650-DXUF-98274",
             },
             {
@@ -58,7 +58,7 @@ def test_mage():
                 "ability_type": "Debuff",
                 "_target": "enemy",
                 "level": 0,
-                "mod": {"adds": {}, "mults": {"defense": -0.83}},
+                "mod": {"base": {}, "percentage": {"defense": -0.83}},
                 "_id": "ABILITY-16660-TXKX-31305",
             },
             {
@@ -67,7 +67,7 @@ def test_mage():
                 "ability_type": "Magic",
                 "_target": "enemy",
                 "level": 0,
-                "mod": {"adds": {"health": -240}, "mults": {}},
+                "mod": {"base": {"health": -240}, "percentage": {}},
                 "_id": "ABILITY-16694-TRKE-96324",
             },
         ],
@@ -94,7 +94,7 @@ def test_warrior():
                 "ability_type": "Physical",
                 "_target": "enemy",
                 "level": 0,
-                "mod": {"adds": {"health": 225}, "mults": {}},
+                "mod": {"base": {"health": 225}, "percentage": {}},
                 "_id": "ABILITY-16659-NYWC-46543",
             },
             {
@@ -103,7 +103,7 @@ def test_warrior():
                 "ability_type": "Debuff",
                 "_target": "enemy",
                 "level": 0,
-                "mod": {"adds": {}, "mults": {"defense": 0.83}},
+                "mod": {"base": {}, "percentage": {"defense": 0.83}},
                 "_id": "ABILITY-16660-TXKX-31305",
             },
         ],
@@ -130,7 +130,7 @@ def test_rouge():
                 "ability_type": "Physical",
                 "_target": "enemy",
                 "level": 0,
-                "mod": {"adds": {"health": 225}, "mults": {}},
+                "mod": {"base": {"health": 225}, "percentage": {}},
                 "_id": "ABILITY-16659-NYWC-46543",
             },
             {
@@ -139,7 +139,7 @@ def test_rouge():
                 "ability_type": "Debuff",
                 "level": 0,
                 "_target": "enemy",
-                "mod": {"adds": {}, "mults": {"defense": 0.83}},
+                "mod": {"base": {}, "percentage": {"defense": 0.83}},
                 "_id": "ABILITY-16660-TXKX-31305",
             },
         ],
@@ -320,7 +320,7 @@ def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, tes
         "description": "Heals the users mod",
         "ability_type": "Restore",
         "_target": "self",
-        "mod": {"adds": {}, "mults": {"energy": 0.45}},
+        "mod": {"base": {}, "percentage": {"energy": 0.45}},
         "_id": "ABILITY-16650-DOTD-98286",
     }
     with patch("funclg.managers.abilities_manager") as ab_man:

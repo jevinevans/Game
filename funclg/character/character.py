@@ -60,12 +60,8 @@ class Character:
             self.armor = Armor(self.armor_type)
 
     def _update_stats(self):
-        print(self.stats)
         self.stats.add_mod(self.role.to_mod())
-        print(self.stats)
-
         self.stats.add_mod(self.armor.to_mod())
-        print(self.stats)
 
     def __str__(self) -> str:
         string = f"{self.name} [lvl {self.level}]\n"

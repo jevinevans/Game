@@ -103,8 +103,8 @@ class Stats:
         multiplier = 1
 
         for _, mod in self.mods.items():
-            base += mod["adds"].get(stat, 0)
-            multiplier += mod["mults"].get(stat, 0)
+            base += mod["base"].get(stat, 0)
+            multiplier += mod["percentage"].get(stat, 0)
 
         return round(base * multiplier, 2)
 
@@ -142,7 +142,7 @@ class Stats:
         :return: The generated modifier for the stat.
         :rtype: funclg.character.modifiers.Modifier
         """
-        return Modifier(name=name, adds=self.get_stats())
+        return Modifier(name=name, base=self.get_stats())
 
     # TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies.
     # Requires a change in *[Equipment] modules.
@@ -151,7 +151,9 @@ class Stats:
         if self.mods:
             for name, mods in self.mods.items():
                 mods_list.append(
-                    Modifier(name=name, adds=mods.get("adds", {}), mults=mods.get("mults", {}))
+                    Modifier(
+                        name=name, base=mods.get("base", {}), percentage=mods.get("percentage", {})
+                    )
                 )
         return {"attributes": self.get_stats(base_only=True), "modifiers": mods_list}
 

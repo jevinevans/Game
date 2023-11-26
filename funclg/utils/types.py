@@ -16,22 +16,22 @@ WEAPON_TYPES = {"Sword": 2, "Spear": 2, "Wand": 1, "Staff": 1, "Knife": 0, "Bow"
 
 # This defines the type of abilities, their effect target (Damage = enemies, Boost = Self), List of available attributes
 ABILITY_TYPES = {
-    "Magic": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},
-    "Physical": {"target": "enemy", "m_type": "adds", "mods": ["health", "defense"]},
-    "Restore": {"target": "self", "m_type": "mults", "mods": ["health", "defense", "energy"]},
+    "Magic": {"target": "enemy", "m_type": "base", "mods": ["health", "defense"]},
+    "Physical": {"target": "enemy", "m_type": "base", "mods": ["health", "defense"]},
+    "Restore": {"target": "self", "m_type": "percentage", "mods": ["health", "defense", "energy"]},
     "Buff": {
         "target": "self",
-        "m_type": "mults",
+        "m_type": "percentage",
         "mods": ["health", "energy", "attack", "defense"],
     },
     "Debuff": {
         "target": "enemy",
-        "m_type": "mults",
+        "m_type": "percentage",
         "mods": ["health", "energy", "attack", "defense"],
     },
     "Basic": {
         "target": "Other",
-        "m_type": "adds",
+        "m_type": "base",
         "mods": [],
     },
 }
