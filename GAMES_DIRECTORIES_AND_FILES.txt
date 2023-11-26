@@ -36,8 +36,12 @@ FUNCLG Directories and Files
 >>>>>>> 2d77106 (Todo clean up)
 =======
 |         Files: 121         |
+<<<<<<< HEAD
 |         Lines: 6863        |
 >>>>>>> b866873 (completed charater stats integration)
+=======
+|         Lines: 6864        |
+>>>>>>> c1df597 (completed modifier attribute change and testing)
 +============================+
 
 ./tests

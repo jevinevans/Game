@@ -49,26 +49,6 @@ def test_abilities_init(abilities_all_types):
 
     assert test_ability_2.mod.export() == {"base": {"defense": -0.22}, "percentage": {}}
 
-    # Test incompatable
-    test_ability = Abilities(
-        name="Test",
-        ability_type="Magic",
-        description="Test incompatable mod",
-        mod={"mults": {"defense": 0.22}},
-    )
-
-    assert test_ability.mod.export() == {"adds": {"health": 1}, "mults": {}}
-
-    # Test negativce start
-    test_ability = Abilities(
-        name="Test",
-        ability_type="Magic",
-        description="Test incompatable mod",
-        mod={"adds": {"defense": -0.22}},
-    )
-
-    assert test_ability.mod.export() == {"adds": {"defense": -0.22}, "mults": {}}
-
 
 def test_abilities_str(abilities_all_types, abilities_str_expectation):
     for index, ability in enumerate(abilities_all_types):

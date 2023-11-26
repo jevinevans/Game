@@ -8,14 +8,14 @@ Date: Sun Nov 26 14:44:04 PST 2023
 platform linux -- Python 3.10.12, pytest-7.4.2, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 135 items
+collected 136 items
 
 tests/test_character/test_abilities.py ......                            [  4%]
 tests/test_character/test_armor.py ................                      [ 16%]
 tests/test_character/test_character.py ........                          [ 22%]
 tests/test_character/test_equipment.py ..............                    [ 32%]
 tests/test_character/test_modifiers.py ..........                        [ 39%]
-tests/test_character/test_roles.py .............                         [ 48%]
+tests/test_character/test_roles.py .............                         [ 49%]
 tests/test_character/test_stats.py ..................                    [ 62%]
 tests/test_game/test_game_levels.py .......                              [ 67%]
 tests/test_main/test_main.py .                                           [ 68%]
