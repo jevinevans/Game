@@ -6,7 +6,7 @@ Description: A manager class for creating, updating, and removing equipment.
 
 from loguru import logger
 
-import funclg.managers.modifier_manager as mod_man
+import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.input_validation import (
@@ -52,13 +52,13 @@ def _new_weapon():
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
     print("Generating mods for this weapon...")
-    weapon_mod = mod_man.generate_modifier("weapon")
+    weapon_stat = stats_man.build_stats()
 
     return WeaponEquipment(
         name=weapon_name,
         weapon_type=weapon_type,
         description=weapon_desc,
-        mod=weapon_mod,
+        stats=weapon_stat,
     )
 
 
@@ -75,11 +75,11 @@ def _new_body_armor():
     item_desc = string_validation(f"How would you describe {item_name}?", "Description")
 
     print(f"Generating mods for this {item_type}...")
-    item_mod = mod_man.generate_modifier("armor")
+    item_stat = stats_man.build_stats()
 
     return BodyEquipment(
         name=item_name,
-        mod=item_mod,
+        stats=item_stat,
         description=item_desc,
         armor_type=ARMOR_TYPES.index(armor_type),
         item_type=ITEM_TYPES.index(item_type),

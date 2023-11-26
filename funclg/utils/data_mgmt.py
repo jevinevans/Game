@@ -29,29 +29,30 @@ def id_gen(prefix: str = "FUNCLG", existing: Union[str, None] = ""):
 
 
 def validate_filename(filename: str) -> str:
-    assert filename.endswith(".json")
-    data_path = re.sub(r"funclg/.*", f"{os.sep}".join(DATA_DIR), os.path.dirname(__file__))
-    return os.path.join(data_path, filename)
-
-
-# TODO may need to move assertion error to validate method
-def load_data(game_data: Dict[str, Any]):
-    filename = validate_filename(game_data["filename"])
     try:
+        assert filename.endswith(".json")
+        data_path = re.sub(r"funclg/.*", f"{os.sep}".join(DATA_DIR), os.path.dirname(__file__))
+        return os.path.join(data_path, filename)
+    except AssertionError as error:
+        raise error
+
+
+def load_data(game_data: Dict[str, Any]):
+    try:
+        filename = validate_filename(game_data["filename"])
         if os.path.getsize(filename):
             with open(filename, "r", encoding="utf-8") as load_file:
                 game_data["data"] = json.load(load_file)
 
     except json.JSONDecodeError:
         logger.error(f"{game_data['filename']}: malformed data")
-    except AssertionError:
-        logger.error(f"{game_data['filename']}: Incorrect format file.")
     except FileNotFoundError:
-        # TODO may want to re-validate name before creating
         logger.error(f"{game_data['filename']}: Creating new database entry.")
         with open(filename, "a", encoding="utf-8"):
             logger.debug(f"Creating {filename}")
             os.utime(filename)
+    except AssertionError:
+        logger.error(f"{filename}: Incorrect format file.")
     return game_data
 
 

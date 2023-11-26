@@ -2,8 +2,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 122         |
-|         Lines: 6499        |
+|         Files: 121         |
+|         Lines: 6864        |
 +============================+
 
 ./tests
@@ -30,7 +30,7 @@ FUNCLG Directories and Files
 ./tests/__init__.py
 ./tests/test_managers/test_equipment_manager.py
 ./tests/test_managers/test_abilities_manager.py
-./tests/test_managers/test_modifier_manager.py
+./tests/test_managers/test_stats_manager.py
 ./tests/test_managers/test_roles_manager.py
 ./tests/test_managers/test_character_manager.py
 ./tests/test_character/fixtures
@@ -44,7 +44,6 @@ FUNCLG Directories and Files
 ./tests/test_character/__init__.py
 ./tests/test_character/fixtures/abilities_fixtures.py
 ./tests/test_character/fixtures/roles_fixtures.py
-./tests/test_character/fixtures/stat_fixtures.py
 ./tests/test_character/fixtures/armor_fixtures.py
 ./tests/test_character/fixtures/equipment_fixures.py
 ./tests/test_character/fixtures/__init__.py
@@ -74,12 +73,10 @@ FUNCLG Directories and Files
 ./funclg/utils/game_enums.py
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
-./funclg/utils/modifiers.json
 ./funclg/utils/__init__.py
 ./funclg/game/rewards.py
 ./funclg/game/level.py
 ./funclg/game/combat.py
-./funclg/game/level_manager.py
 ./funclg/game/game.py
 ./funclg/game/__init__.py
 ./funclg/data/characters.json
@@ -88,10 +85,11 @@ FUNCLG Directories and Files
 ./funclg/data/equipment.json
 ./funclg/data/roles.json
 ./funclg/managers/roles_manager.py
+./funclg/managers/stats_manager.py
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
 ./funclg/managers/game_manager.py
-./funclg/managers/modifier_manager.py
+./funclg/managers/level_manager.py
 ./funclg/managers/character_manager.py
 ./funclg/managers/__init__.py
 ./changelogs/2023
@@ -100,7 +98,8 @@ FUNCLG Directories and Files
 ./changelogs/2018
 ./changelogs/2019
 ./changelogs/2020
-./changelogs/2023/Log_2023_07_21.md
+./changelogs/2023/2023_10_15 - Stats Integration.md
+./changelogs/2023/2023_07_21 - Mixed.md
 ./changelogs/2022/Log_2022_01_08.md
 ./changelogs/2022/Log_2022_05_29.md
 ./changelogs/2022/Log_2022_03_23.md

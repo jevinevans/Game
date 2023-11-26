@@ -59,47 +59,56 @@ def mage_export_expectation():
         "name": "Mage Class",
         "description": "Test Mage Class",
         "armor_type": 1,
+        "level": 1,
         "ability_types": ["Magic", "Restore", "Buff", "Debuff"],
         "abilities": [
             {
                 "name": "Magic Test Ability",
                 "ability_type": "Magic",
                 "_target": "enemy",
+                "level": 1,
                 "description": "Testing Magic ability.",
                 "_id": "ABILITY-12345-FADJ-67890",
-                "mod": {"adds": {"health": -50}, "mults": {}},
+                "mod": {"base": {"health": -50}, "percentage": {}},
             },
             {
                 "name": "Restore Test Ability",
                 "ability_type": "Restore",
                 "_target": "self",
+                "level": 1,
                 "description": "Testing Restore ability.",
                 "_id": "ABILITY-12345-FADD-67891",
-                "mod": {"adds": {}, "mults": {"health": 50}},
+                "mod": {"base": {}, "percentage": {"health": 50}},
             },
             {
                 "name": "Buff Test Ability",
                 "ability_type": "Buff",
                 "_target": "self",
+                "level": 1,
                 "description": "Testing Buff ability.",
                 "_id": "ABILITY-12345-FEFS-67892",
-                "mod": {"adds": {}, "mults": {"health": 50}},
+                "mod": {"base": {}, "percentage": {"health": 50}},
             },
             {
                 "name": "Debuff Test Ability",
                 "ability_type": "Debuff",
                 "_target": "enemy",
+                "level": 1,
                 "description": "Testing Debuff ability.",
                 "_id": "ABILITY-12345-EODS-67893",
-                "mod": {"adds": {}, "mults": {"health": -50}},
+                "mod": {"base": {}, "percentage": {"health": -50}},
             },
         ],
+        "stats": {
+            "attributes": {"attack": 5, "defense": 5, "energy": 5, "health": 5},
+            "modifiers": {},
+        },
     }
 
 
 @pytest.fixture
 def mage_str_expectation():
-    return "Class: Mage Class | Class Type(s): Magic, Restore, Buff, Debuff | Armor Type: Medium | Abilities: 4"
+    return "Class: Mage Class [lvl 1] | Type(s): Magic, Restore, Buff, Debuff | Medium Armor | Abilities: 4"
 
 
 @pytest.fixture
@@ -109,10 +118,18 @@ def roles_detail_expectation_with_abilities(mage_test_role):
     role_details = []
     for indent in range(5):
         base = f"""
-{' '*indent}Class: {mage_test_role.name}
-{' '*indent}-----------------
+{' '*indent}Class: {mage_test_role.name} [lvl 1]
+{' '*indent}-------------------------
 {' '*indent}Armor Type: Medium
 {' '*indent}Description: {mage_test_role.description}
+
+{' '*(indent)}Stats [20]
+{' '*(indent)}----------
+{' '*(indent+2)}Health [5]: 5
+{' '*(indent+2)}Attack [5]: 5
+{' '*(indent+2)}Defense [5]: 5
+{' '*(indent+2)}Energy [5]: 5
+
 {' '*indent}Role Abilities:
 {mage_test_role.abilities[0].details(indent+2)}
 {mage_test_role.abilities[1].details(indent+2)}
@@ -127,9 +144,18 @@ def roles_detail_expectation_with_abilities(mage_test_role):
 def roles_detail_expectation_no_abilities(mage_test_role):
     indent = 0
     return f"""
-{' '*indent}Class: {mage_test_role.name}
-{' '*indent}-----------------
+{' '*indent}Class: {mage_test_role.name} [lvl 1]
+{' '*indent}-------------------------
 {' '*indent}Armor Type: Medium
 {' '*indent}Description: {mage_test_role.description}
+
+{' '*(indent)}Stats [20]
+{' '*(indent)}----------
+{' '*(indent+2)}Health [5]: 5
+{' '*(indent+2)}Attack [5]: 5
+{' '*(indent+2)}Defense [5]: 5
+{' '*(indent+2)}Energy [5]: 5
+
 {' '*indent}Role Abilities:
-{' '*(indent+2)}No Abilities"""
+{' '*(indent+2)}No Abilities
+"""

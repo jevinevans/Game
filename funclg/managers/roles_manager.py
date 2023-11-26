@@ -9,6 +9,7 @@ from typing import List
 from loguru import logger
 
 import funclg.managers.abilities_manager as ab_man
+import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.roles import Roles
 from funclg.utils.input_validation import (
@@ -56,7 +57,7 @@ def _select_ability_types():
         print(
             "Lets add some ability types to your role!\n\nWhat ability type(s) would you like this class to have?"
         )
-        # TODO: Add description print out
+        # Add description print out
         for _a_type, data in available_types.items():
             print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
@@ -139,12 +140,14 @@ def build_role():
     role_name = string_validation("What would you like to name this new Role?", "Name")
     role_desc = string_validation(f"How would you describe {role_name}?", "Description")
     armor_type = selection_validation(
-        f"What type of armor would you like to make the {role_name}?", ARMOR_TYPES[:-1]
+        f"What type of armor would you like to make the {role_name}?", ARMOR_TYPES
     )
 
     a_types = _select_ability_types()
 
     r_abilities = _select_role_abilities(a_types)
+
+    role_stats = stats_man.build_stats()
 
     new_role = Roles(
         name=role_name,
@@ -152,6 +155,7 @@ def build_role():
         armor_type=ARMOR_TYPES.index(armor_type),
         ability_types=a_types,
         abilities=r_abilities,
+        stats=role_stats,
     )
 
     if confirmation(f"You created:\n{new_role.details()}\nSave new role?"):

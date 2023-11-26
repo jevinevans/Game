@@ -27,11 +27,11 @@ def ability_ids():
 
 def abilities_gen_mods():
     mods = {}
-    for a_type in ABILITY_TYPES:
+    for a_type, data in ABILITY_TYPES.items():
         if a_type == "Basic":
             mods[a_type] = {}
         else:
-            mods[a_type] = {ABILITY_TYPES[a_type]["m_type"]: {ABILITY_TYPES[a_type]["mods"][0]: 50}}
+            mods[a_type] = {data["m_type"]: {data["mods"][0]: 50}}
     return mods
 
 
@@ -67,7 +67,7 @@ def abilities_all_types():
 def abilities_str_expectation(abilities_all_types):
     ability_strings = []
     for ability in abilities_all_types:
-        if ability.mod.adds or ability.mod.mults:
+        if ability.mod.base or ability.mod.percentage:
             ability_strings.append(f"{ability.name} ({ability.ability_type}) - {ability.mod}")
         else:
             ability_strings.append(f"{ability.name} ({ability.ability_type})")
@@ -85,6 +85,7 @@ def abilities_export_expectation(abilities_all_types):
                 "_target": ability._target,
                 "mod": ability.mod.export(),
                 "description": ability.description,
+                "level": 1,
             }
         )
     return ability_exports
@@ -95,8 +96,8 @@ def abilities_detail_expectation(abilities_all_types):
     ability_details = []
     for indent, ability in enumerate(abilities_all_types):
         base = f"""
-{' '*indent}{ability.name}
-{' '*indent}{'-'*len(ability.name)}
+{' '*indent}{ability.name} [lvl {ability.level}]
+{' '*indent}{'-'*(len(ability.name)+7+len(str(ability.level)))}
 {' '*indent}Description: {ability.description}
 {' '*indent}Ability Type: {ability.ability_type}
 {' '*indent}Target: {ability._target.capitalize()}{ability.mod.details(indent+2)}"""

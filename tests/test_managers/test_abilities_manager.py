@@ -18,7 +18,7 @@ def test_magic():
         "description": "Test Magic",
         "ability_type": "Magic",
         "_target": "self",
-        "mod": {"adds": {"attack": 200}, "mults": {}},
+        "mod": {"base": {"attack": 200}, "percentage": {}},
         "_id": "ABILITY-12345-EJFI-67890",
     }
 
@@ -117,7 +117,7 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_prin
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.modifier_manager.generate_modifier")
+@patch("funclg.managers.stats_manager.generate_modifier")
 @patch("funclg.managers.abilities_manager.update_data")
 @patch("funclg.managers.abilities_manager.confirmation")
 @patch("funclg.managers.abilities_manager.selection_validation")
@@ -140,8 +140,10 @@ def test_abilities_manager_build_ability(
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["description"] == _mag.description
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["ability_type"] == _mag.ability_type
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["_target"] == _mag._target
-    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["adds"] == _mag.mod.adds
-    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["mults"] == _mag.mod.mults
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["base"] == _mag.mod.base
+    assert (
+        ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["percentage"] == _mag.mod.percentage
+    )
     assert m_update.called
 
     # Test Not Saved - Coverage

@@ -2,8 +2,6 @@
 These are a group of managers classes to allow users to manage the game and create objects
 """
 
-# TODO: 20231008 - Separate menus into smaller modules (game managers, character managers)
-
 from funclg.utils.menu_funcs import Menu
 
 from . import abilities_manager as ability_man

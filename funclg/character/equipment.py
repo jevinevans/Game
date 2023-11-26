@@ -7,7 +7,7 @@ Description: The Equipment class allows for creation of objects in the game to b
 """
 
 import json
-from typing import Dict, Optional
+from typing import Any, Dict
 
 from loguru import logger
 from typing_extensions import Self
@@ -15,7 +15,7 @@ from typing_extensions import Self
 import funclg.utils.data_mgmt as db
 
 from ..utils import types as uTypes
-from .modifiers import Modifier
+from .stats import Stats
 
 # logger.add("./logs/character/equipment.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
@@ -31,7 +31,7 @@ class Equipment:
     def __init__(
         self,
         name: str,
-        mod: Modifier,
+        stats: Stats,
         description: str = "",
         item_type: int = 0,
         armor_type: int = 0,
@@ -45,7 +45,8 @@ class Equipment:
         self.description = description
         self.item_type = item_type
         self.armor_type = armor_type
-        self.mod = mod
+        self.stats = stats
+        self.level = kwargs.get("level", 1)
 
         self._id = db.id_gen(kwargs.get("prefix", self.DB_PREFIX), kwargs.get("_id"))
 
@@ -55,19 +56,22 @@ class Equipment:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{uTypes.ITEM_TYPES[self.item_type]}]"
+        return f"{self.name} [lvl {self.level}] [{uTypes.ITEM_TYPES[self.item_type]}]"
 
     @property
     def id(self):  # pylint: disable=C0103
         return self._id
 
+    @property
+    def power(self):
+        return self.stats.power
+
     def details(self, indent: int = 0) -> str:
-        desc = f"\n{' '*indent}{self.name}"
-        desc += f"\n{' '*indent}{'-'*len(self.name)}"
+        desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
+        desc += f"\n{' '*indent}{'-'*(len(self.name) + 7 + len(str(self.level)))}"
         desc += f"\n{' '*indent}Type: {self.get_item_description()}"
-        desc += f"\n{' '*indent}Description: {self.description}"
-        desc += f"\n\n{' '*indent}Modifier(s):"
-        desc += self.mod.details(indent + 2)
+        desc += f"\n{' '*indent}Description: {self.description}\n"
+        desc += self.stats.details(indent)
         return desc
 
     def print_to_file(self) -> None:
@@ -78,7 +82,7 @@ class Equipment:
     def export(self):
         exporter = self.__dict__.copy()
         for key, value in exporter.items():
-            if isinstance(value, Modifier):
+            if isinstance(value, Stats):
                 exporter[key] = value.export()
         return exporter
 
@@ -91,8 +95,8 @@ class Equipment:
     def get_item_description(self) -> str:
         return uTypes.get_item_description(self.item_type, self.armor_type)
 
-    def get_mods(self):
-        return self.mod.get_mods()
+    def get_stats(self):
+        return self.stats.get_stats()
 
     def copy(self) -> Self:
         """Copies the current object"""
@@ -101,9 +105,17 @@ class Equipment:
             description=self.description,
             item_type=self.item_type,
             armor_type=self.armor_type,
-            mod=self.mod,
+            stats=self.stats.copy(),
             _id=self._id,
+            level=self.level,
         )
+
+    def level_up(self):
+        self.level += 1
+        self.stats.level_up()
+
+    def to_mod(self):
+        return self.stats.to_mod(self.name)
 
 
 class WeaponEquipment(Equipment):
@@ -112,22 +124,22 @@ class WeaponEquipment(Equipment):
     """
 
     DB_PREFIX = "WEAPON"
+    BASE_STATS = {"attack": 5, "health": 1, "energy": 5, "defense": 1}
 
     def __init__(
         self,
         name: str,
         weapon_type: str,
         description: str = "",
-        mod: Optional[Dict[str, Dict]] = None,
         armor_type: int = 1,
+        stats: Dict[str, Any] = None,
         **kwargs,
     ):
-        weapon_mod = Modifier(name=name)
-        if mod:
-            weapon_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
-            weapon_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
+        new_stat = {}
+        if stats:
+            new_stat = Stats(**stats)
         else:
-            weapon_mod.add_mod(m_type="adds", mods={"attack": 1, "energy": 1})
+            new_stat = Stats(attributes=WeaponEquipment.BASE_STATS)
 
         self.weapon_type = self._validate_weapon_type(weapon_type)
         armor_type = (
@@ -141,16 +153,17 @@ class WeaponEquipment(Equipment):
             description=description,
             item_type=4,
             armor_type=armor_type,
-            mod=weapon_mod,
+            stats=new_stat,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
+            level=kwargs.get("level", 1),
         )
 
     def __str__(self) -> str:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{self.weapon_type} {uTypes.ITEM_TYPES[self.item_type]}]"
+        return f"{self.name} [lvl {self.level}] [{self.weapon_type} {uTypes.ITEM_TYPES[self.item_type]}]"
 
     @staticmethod
     def _validate_weapon_type(weapon_type: str):
@@ -166,8 +179,9 @@ class WeaponEquipment(Equipment):
             weapon_type=self.weapon_type,
             description=self.description,
             armor_type=self.armor_type,
-            mod=self.mod.get_mods(),
+            stats=self.stats.copy(),
             _id=self.id,
+            level=self.level,
         )
 
     def export(self):
@@ -181,51 +195,53 @@ class BodyEquipment(Equipment):
     """
 
     DB_PREFIX = "ARMOR"
+    BASE_STATS = {"attack": 1, "health": 5, "energy": 1, "defense": 5}
 
     def __init__(
         self,
         name: str,
-        mod: Optional[Dict[str, Dict]] = None,
+        item_type: int,
+        armor_type: int,
         description: str = "",
-        armor_type: int = 0,
-        item_type: int = 0,
+        stats: Dict[str, Any] = None,
         **kwargs,
     ):
         """
-        Modifiers should be a dictionary that has the possible properties {'adds':{}, 'mults':{}} that will be verified on Modifier creation
+        Modifiers should be a dictionary that has the possible properties {'base':{}, 'percentage':{}} that will be verified on Modifier creation
         """
-        body_mod = Modifier(name=name)
-        if mod:
-            body_mod.add_mod(m_type="adds", mods=mod.get("adds", {}))
-            body_mod.add_mod(m_type="mults", mods=mod.get("mults", {}))
+        new_stat = {}
+        if stats:
+            new_stat = Stats(**stats)
         else:
-            body_mod.add_mod(m_type="adds", mods={"health": 1, "defense": 1})
+            new_stat = Stats(attributes=BodyEquipment.BASE_STATS)
 
         super().__init__(
             name=name,
             description=description,
             item_type=item_type,
             armor_type=armor_type,
-            mod=body_mod,
+            stats=new_stat,
             _id=kwargs.get("_id"),
             prefix=self.DB_PREFIX,
+            level=kwargs.get("level", 1),
         )
 
     def __str__(self) -> str:
         """
         Returns the name and level of the item
         """
-        return f"{self.name} [{uTypes.ARMOR_TYPES[self.armor_type]} {uTypes.ITEM_TYPES[self.item_type]}]"
+        return f"{self.name} [lvl {self.level}] [{uTypes.ARMOR_TYPES[self.armor_type]} {uTypes.ITEM_TYPES[self.item_type]}]"
 
     def copy(self) -> Self:
         """Copies the current object"""
         return BodyEquipment(
             name=self.name,
-            mod=self.mod.get_mods(),
+            stats=self.stats.copy(),
             description=self.description,
             armor_type=self.armor_type,
             item_type=self.item_type,
             _id=self.id,
+            level=self.level,
         )
 
     def export(self):

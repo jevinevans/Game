@@ -13,11 +13,11 @@ from funclg.utils.types import get_item_type
 
 def gen_equipment(armor_type: int, weapon_type: str):
     equipment = {}
-    mods = {"adds": {"health": 50}, "mults": {"energy": 0.1}}
+    mods = {"attributes": {"health": 50, "energy": 10, "defense": 10, "attack": 10}}
     for item_type in range(4):
         equipment[get_item_type(item_type)] = BodyEquipment(
             name=get_item_type(item_type),
-            mod=mods,
+            stats=mods,
             description=f"Test {get_item_type(item_type)}",
             armor_type=armor_type,
             item_type=item_type,
@@ -100,13 +100,13 @@ def armor_details_expectations(light_armor_knife):
     for indent in range(0, 7):
         base = f"""
 {' '*indent}Light Armor
-{' '*indent}-----------
+{' '*indent}-----------{light_armor_knife.stats.details(indent+2)}
+
 {' '*(indent+2)}Head: {light_armor_knife.head.details(indent+4)}\n
 {' '*(indent+2)}Chest: {light_armor_knife.chest.details(indent+4)}\n
 {' '*(indent+2)}Back: {light_armor_knife.back.details(indent+4)}\n
 {' '*(indent+2)}Pants: {light_armor_knife.pants.details(indent+4)}\n
-{' '*(indent+2)}Weapon: {light_armor_knife.weapon.details(indent+4)}
-{light_armor_knife.stat.details(indent+2)}"""
+{' '*(indent+2)}Weapon: {light_armor_knife.weapon.details(indent+4)}\n"""
         expectations.append(base)
     return expectations
 
@@ -123,13 +123,14 @@ def armor_details_missing_weapon(light_armor_knife):
     indent = 0
     return f"""
 {' '*indent}Light Armor
-{' '*indent}-----------
+{' '*indent}-----------{new_armor.stats.details(indent+2)}
+
 {' '*(indent+2)}Head: {new_armor.head.details(indent+4)}\n
 {' '*(indent+2)}Chest: {new_armor.chest.details(indent+4)}\n
 {' '*(indent+2)}Back: {new_armor.back.details(indent+4)}\n
 {' '*(indent+2)}Pants: {new_armor.pants.details(indent+4)}\n
 {' '*(indent+2)}Weapon: None
-{new_armor.stat.details(indent+2)}"""
+"""
 
 
 @pytest.fixture
@@ -141,9 +142,10 @@ def armor_export_expectations():
             "description": "Test Head",
             "item_type": 0,
             "armor_type": 0,
-            "mod": {
-                "adds": {"health": 50},
-                "mults": {"energy": 0.1},
+            "level": 1,
+            "stats": {
+                "attributes": {"health": 50, "energy": 10, "defense": 10, "attack": 10},
+                "modifiers": {},
             },
             "_id": "ARMOR-12345-AFJDEI-67890",
         },
@@ -152,9 +154,10 @@ def armor_export_expectations():
             "description": "Test Chest",
             "item_type": 1,
             "armor_type": 0,
-            "mod": {
-                "adds": {"health": 50},
-                "mults": {"energy": 0.1},
+            "level": 1,
+            "stats": {
+                "attributes": {"health": 50, "energy": 10, "defense": 10, "attack": 10},
+                "modifiers": {},
             },
             "_id": "ARMOR-12345-FEISFJ-67891",
         },
@@ -163,9 +166,10 @@ def armor_export_expectations():
             "description": "Test Back",
             "item_type": 2,
             "armor_type": 0,
-            "mod": {
-                "adds": {"health": 50},
-                "mults": {"energy": 0.1},
+            "level": 1,
+            "stats": {
+                "attributes": {"health": 50, "energy": 10, "defense": 10, "attack": 10},
+                "modifiers": {},
             },
             "_id": "ARMOR-12345-GIEJSE-67892",
         },
@@ -174,9 +178,10 @@ def armor_export_expectations():
             "description": "Test Pants",
             "item_type": 3,
             "armor_type": 0,
-            "mod": {
-                "adds": {"health": 50},
-                "mults": {"energy": 0.1},
+            "level": 1,
+            "stats": {
+                "attributes": {"health": 50, "energy": 10, "defense": 10, "attack": 10},
+                "modifiers": {},
             },
             "_id": "ARMOR-12345-GEIJGE-67893",
         },
@@ -186,24 +191,11 @@ def armor_export_expectations():
             "item_type": 4,
             "weapon_type": "Bow",
             "armor_type": 0,
-            "mod": {
-                "adds": {"attack": 1, "energy": 1},
-                "mults": {},
+            "level": 1,
+            "stats": {
+                "attributes": {"health": 1, "energy": 5, "defense": 1, "attack": 5},
+                "modifiers": {},
             },
             "_id": "WEAPON-12345-FEGIF-67894",
-        },
-        "stat": {
-            "attack": 10,
-            "defense": 10,
-            "energy": 10,
-            "health": 10,
-            "level": None,
-            "mods": {
-                "Back": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Chest": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Head": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Pants": {"adds": {"health": 50}, "mults": {"energy": 0.1}},
-                "Weapon: Bow": {"adds": {"attack": 1, "energy": 1}, "mults": {}},
-            },
         },
     }

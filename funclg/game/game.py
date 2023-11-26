@@ -4,6 +4,11 @@ Developer: Jevin Evans
 Date: 2.20.2023
 """
 
+
+#####
+# THIS NEEDS TO BE A SINGLETON DESIGN
+#####
+
 # Context manager for the game
 # Needs to build/load the levels/level packs, NPCs associated with them, and rewards
 # User needs to provide a character they want to use, if no user exists they will need to create one first (needs to be done before game start)
@@ -18,6 +23,10 @@ Date: 2.20.2023
 
 
 class Game:
+    """
+    Defines the game manager for FUNCLG play.
+    """
+
     START_MESSAGE = ""
 
     def __init__(self):
@@ -40,7 +49,7 @@ class Game:
         raise NotImplementedError
 
     def generate_difficulty(self):
-        # TODO: I want to be able to make a decision if a block should be reward, enemy etc.
+        # I want to be able to make a decision if a block should be reward, enemy etc.
         # Should this automatically(randomly) completed before or done randomly as player progresses
         # How should the history of the space be preserved should it be tracked in another grid or should the slots be objects that track their status and use bools for status and visualization, and completion
         raise NotImplementedError
