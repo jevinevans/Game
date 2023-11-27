@@ -25,6 +25,10 @@ def update_data():
     _load_level_icons(GAME_DATA["data"]["level_icons"])
 
 
+def export_data():
+    raise NotImplementedError
+
+
 def _load_level_icons(icon_data: dict[str, Any]):
     icons_sets = {}
 

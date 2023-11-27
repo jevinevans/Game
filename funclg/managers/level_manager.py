@@ -17,6 +17,10 @@ def update_data():
     raise NotImplementedError
 
 
+def export_data():
+    raise NotImplementedError
+
+
 def create_level():
     raise NotImplementedError
 
@@ -30,8 +34,8 @@ def delete_level():
 
 
 MENU = {
-    "name": "Game Level Manager:",
-    "descriptino": "Create and manage level settings.",
+    "name": "Levels Manager",
+    "description": "Create and manage level settings.",
     "menu_items": [
         {"title": "Create New Level", "value": create_level},
         {"title": "Show Level(s)", "value": show_levels},

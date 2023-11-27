@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Nov 27 06:17:29 PST 2023 
+Date: Mon Nov 27 07:08:50 PST 2023 
 
 ---PYTEST---
 
@@ -8,20 +8,21 @@ Date: Mon Nov 27 06:17:29 PST 2023
 platform linux -- Python 3.10.12, pytest-7.4.3, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 140 items
+collected 145 items
 
 tests/test_character/test_abilities.py ......                            [  4%]
 tests/test_character/test_armor.py ................                      [ 15%]
-tests/test_character/test_character.py ........                          [ 21%]
-tests/test_character/test_equipment.py .............                     [ 30%]
-tests/test_character/test_modifiers.py ..........                        [ 37%]
-tests/test_character/test_roles.py .............                         [ 47%]
-tests/test_character/test_stats.py ..................                    [ 60%]
-tests/test_game/test_game_levels.py .......                              [ 65%]
-tests/test_main/test_main.py .                                           [ 65%]
-tests/test_managers/test_abilities_manager.py .......                    [ 70%]
-tests/test_managers/test_character_manager.py .........                  [ 77%]
-tests/test_managers/test_equipment_manager.py .........                  [ 83%]
+tests/test_character/test_character.py ........                          [ 20%]
+tests/test_character/test_equipment.py .............                     [ 29%]
+tests/test_character/test_modifiers.py ..........                        [ 36%]
+tests/test_character/test_roles.py .............                         [ 45%]
+tests/test_character/test_stats.py ..................                    [ 57%]
+tests/test_game/test_game_levels.py .......                              [ 62%]
+tests/test_main/test_main.py .                                           [ 63%]
+tests/test_managers/test_abilities_manager.py .......                    [ 68%]
+tests/test_managers/test_character_manager.py .........                  [ 74%]
+tests/test_managers/test_equipment_manager.py .........                  [ 80%]
+tests/test_managers/test_managers_setup.py .....                         [ 84%]
 tests/test_managers/test_roles_manager.py ............                   [ 92%]
 tests/test_managers/test_stats_manager.py ...                            [ 94%]
 tests/test_utils/test_menu.py .....                                      [ 97%]
@@ -45,12 +46,12 @@ funclg/game/combat.py                      0      0      0      0   100%
 funclg/game/game.py                       10      4      0      0    60%   40, 45, 49, 55
 funclg/game/level.py                     101      0     42      2    99%   128->exit, 195->198
 funclg/game/rewards.py                     0      0      0      0   100%
-funclg/managers/__init__.py               34     20      8      0    33%   28-35, 39-43, 47-51, 55-56, 60-61
+funclg/managers/__init__.py               34      0      8      0   100%
 funclg/managers/abilities_manager.py      69      1     24      1    98%   126
 funclg/managers/character_manager.py     120      3     54      4    96%   27-28, 69->68, 72->75, 75->78, 228
 funclg/managers/equipment_manager.py      90      4     32      3    94%   23-24, 31->30, 99, 182
-funclg/managers/game_manager.py           28      9      8      1    61%   38-50, 60
-funclg/managers/level_manager.py          12      5      0      0    58%   12, 15, 18, 21, 24
+funclg/managers/game_manager.py           30     10      8      1    61%   29, 42-54, 64
+funclg/managers/level_manager.py          14      6      0      0    57%   13, 17, 21, 25, 29, 33
 funclg/managers/roles_manager.py         122      3     52      3    97%   24-25, 31->30, 118->131, 225
 funclg/managers/stats_manager.py          84     16     34      0    80%   126-154
 funclg/utils/__init__.py                   0      0      0      0   100%
@@ -60,11 +61,11 @@ funclg/utils/input_validation.py          40     28     16      0    21%   18-28
 funclg/utils/menu_funcs.py                27      0      8      0   100%
 funclg/utils/types.py                     18      0      6      1    96%   54->57
 ----------------------------------------------------------------------------------
-TOTAL                                   1555    163    512     24    88%
+TOTAL                                   1559    145    512     24    89%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 87.95%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 89.23%
 
-======================= 140 passed, 2 warnings in 1.65s ========================
+======================= 145 passed, 2 warnings in 1.66s ========================
 
 ---Code Quality Report---
 

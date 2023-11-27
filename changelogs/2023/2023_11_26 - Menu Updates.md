@@ -1,7 +1,7 @@
-# FUN Command Line Game Log: 10.15.2023 - 
+# FUN Command Line Game Log: 11.26.2023 - 11.27.2023 
 <!-- Update: Current Log date -->
 
-Last Updated: 11.26.2023 <!-- Update with previous log date -->
+Last Updated: 11.27.2023 <!-- Update with previous log date -->
 Version: 0.6.2
 <!-- Update version number when changes made-->
 <!-- Verions Additions 
@@ -12,15 +12,9 @@ Version: 0.6.2
   + 0.0.1 is for minor changes including: bug fixes, additions to current methods
  -->
 
-- [ ] Integrating questionary into Menu funcationality
-
 ## MOTD - 11.5.2023
 -------------------
 
-Work on menu updates
-
-- [x] [#107](https://github.com/jevinevans/Game/issues/107)
-- [x] [#122](https://github.com/jevinevans/Game/issues/122)
 
 ## Changes
 ------------------------------

@@ -2,8 +2,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 126         |
-|         Lines: 6994        |
+|         Files: 127         |
+|         Lines: 7093        |
 +============================+
 
 ./tests
@@ -29,6 +29,7 @@ FUNCLG Directories and Files
 ./tests/test_utils
 ./tests/__init__.py
 ./tests/test_managers/test_equipment_manager.py
+./tests/test_managers/test_managers_setup.py
 ./tests/test_managers/test_abilities_manager.py
 ./tests/test_managers/test_stats_manager.py
 ./tests/test_managers/test_roles_manager.py
