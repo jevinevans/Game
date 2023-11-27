@@ -34,6 +34,7 @@ def update_data():
                 EQUIPMENT_DATA["objects"][_id] = WeaponEquipment(**data)
             else:
                 EQUIPMENT_DATA["objects"][_id] = BodyEquipment(**data)
+    logger.debug("Function complete")
 
 
 def export_data():

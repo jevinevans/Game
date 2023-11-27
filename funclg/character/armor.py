@@ -170,13 +170,6 @@ class Armor:
             return desc + getattr(self, _item_type.lower()).details(indent + 4)
         return desc + "None"
 
-    def _details_check_none(self, indent: int, _item_type: str) -> str:
-        desc = f"\n{' '*(indent+2)}{_item_type}: "
-
-        if getattr(self, _item_type.lower(), False):
-            return desc + getattr(self, _item_type.lower()).details(indent + 4)
-        return desc + "None"
-
     def get_equipment(self) -> List[Union[Equipment, None]]:
         """Returns the equipped armor"""
         return [self.head, self.chest, self.back, self.pants, self.weapon]
