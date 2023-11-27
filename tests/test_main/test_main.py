@@ -2,16 +2,22 @@ from unittest.mock import patch
 
 import pytest
 
+import funclg.managers
 from funclg.__main__ import *
 from funclg.utils.menu_funcs import Menu
 
 
-def test_build_main_menu():
+@patch("funclg.__main__.save_exit")
+@patch("funclg.managers.build_manager_menu")
+def test_build_main_menu(m_build_man, m_save_exit):
     menu = build_main_menu()
     assert isinstance(menu, Menu)
     assert len(menu.menu_items) == 3
-    assert menu.menu_items[0]["title"] == "Play Game"
-    assert menu.menu_items[-1]["title"] == "Exit"
+    assert "Play Game" in menu.menu_items
+    assert "Exit" in menu.menu_items
+    assert menu.menu_items["Play Game"] == None
+    assert menu.menu_items["Exit"] == m_save_exit
+    assert menu.menu_items["Manage Game"] == m_build_man()
 
 
 # @patch('builtins.input')
