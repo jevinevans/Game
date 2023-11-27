@@ -35,6 +35,8 @@ class Armor:
         self.stats = self._stats_setup(armor_type)
         # Base armor stat will have base attributes set to armor_type * 10 [10, 20, 30]
 
+        # TODO: 20230617 - Change to setter/getters to protect equipment from being directly modified
+
         self.head = self._validate_equipment(head, 0)
         self.chest = self._validate_equipment(chest, 1)
         self.back = self._validate_equipment(back, 2)
