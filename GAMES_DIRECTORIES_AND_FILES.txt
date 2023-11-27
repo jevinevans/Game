@@ -3,7 +3,7 @@ FUNCLG Directories and Files
 +============================+
 |    Total Directories: 21   |
 |         Files: 126         |
-|         Lines: 6947        |
+|         Lines: 6994        |
 +============================+
 
 ./tests

@@ -17,7 +17,7 @@ def test_build_main_menu(m_build_man, m_save_exit):
     assert "Exit" in menu.menu_items
     assert menu.menu_items["Play Game"] == None
     assert menu.menu_items["Exit"] == m_save_exit
-    assert menu.menu_items["Manage Game"] == m_build_man()
+    assert menu.menu_items["Settings"] == m_build_man()
 
 
 # @patch('builtins.input')

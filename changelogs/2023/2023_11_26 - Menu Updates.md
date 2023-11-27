@@ -19,9 +19,8 @@ Version: 0.6.2
 
 Work on menu updates
 
-- [ ] [#107](https://github.com/jevinevans/Game/issues/107)
-- [ ] [#122](https://github.com/jevinevans/Game/issues/122)
-- [ ] [#87](https://github.com/jevinevans/Game/issues/87)
+- [x] [#107](https://github.com/jevinevans/Game/issues/107)
+- [x] [#122](https://github.com/jevinevans/Game/issues/122)
 
 ## Changes
 ------------------------------
@@ -30,6 +29,8 @@ Work on menu updates
 
 - Added a menu to game_managers
 - Added testing coverage for menu_funcs
+- Added questionary functionality to menus (closes #107)
+- Update settings managers to include character and game specific menus (closes #122)
 
 ### Fixed
 
