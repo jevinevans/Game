@@ -2,7 +2,7 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 122         |
+|         Files: 124         |
 |         Lines: 6869        |
 +============================+
 
@@ -72,8 +72,10 @@ FUNCLG Directories and Files
 ./funclg/utils/data_mgmt.py
 ./funclg/utils/input_validation.py
 ./funclg/utils/game_enums.py
+./funclg/utils/equipment.json
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
+./funclg/utils/modifiers.json
 ./funclg/utils/__init__.py
 ./funclg/game/rewards.py
 ./funclg/game/level.py
