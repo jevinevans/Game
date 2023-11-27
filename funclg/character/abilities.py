@@ -4,7 +4,6 @@ Date: 12.5.2021
 Description: This defines Abilities object used for the roles class
 """
 
-import json
 from typing import Any, Dict, Optional
 
 from loguru import logger
@@ -17,8 +16,6 @@ from .modifiers import Modifier
 
 # logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
-
-# TODO: add energy cost attribute
 
 
 class Abilities:
@@ -36,10 +33,9 @@ class Abilities:
         mod: Optional[Dict[str, Dict]] = None,
         **kwargs,
     ):
-
         self.name = name
         self.description = description
-        self.ability_type = ability_type if ability_type in ABILITY_TYPES else "None"
+        self.ability_type = ability_type if ability_type in ABILITY_TYPES else "Basic"
         self._target = ABILITY_TYPES[self.ability_type]["target"]
 
         # Set Ability Modifier effects
@@ -48,6 +44,7 @@ class Abilities:
         self.mod.add_mod(ABILITY_TYPES[self.ability_type]["m_type"], val_mod)
 
         self._id = db.id_gen(self.DB_PREFIX, kwargs.get("_id"))
+        self.level = kwargs.get("level", 1)
 
         logger.debug(f"Created Ability: {name}")
 
@@ -69,14 +66,14 @@ class Abilities:
 
             logger.warning("Provided mod was not compatable with selected ability.")
         logger.warning("Using default modifier value.")
-        if self.ability_type == "None":
+        if self.ability_type == "Basic":
             return {}
-        m_value = 1 if m_type == "adds" else 0.01
+        m_value = 1 if m_type == "base" else 0.01
         return {"health": m_value}
 
     def __str__(self):
         string = f"{self.name} ({self.ability_type})"
-        if self.mod.adds or self.mod.mults:
+        if self.mod.base or self.mod.percentage:
             string += f" - {self.mod}"
         return string
 
@@ -85,8 +82,8 @@ class Abilities:
         return self._id
 
     def details(self, indent: int = 0):
-        desc = f"\n{' '*indent}{self.name}\n{' '*indent}"
-        desc += "-" * len(self.name)
+        desc = f"\n{' '*indent}{self.name} [lvl {self.level}]\n{' '*indent}"
+        desc += "-" * (len(self.name) + 7 + len(str(self.level)))
         desc += f"\n{' '*indent}Description: {self.description}"
         desc += f"\n{' '*indent}Ability Type: {self.ability_type}"
         desc += f"\n{' '*indent}Target: {self._target.capitalize()}"
@@ -94,17 +91,12 @@ class Abilities:
         return desc
 
     def export(self) -> Dict[str, Any]:
-        logger.info(f"Exporting Ability: {self.name}")
+        logger.debug(f"Exporting Ability: {self.name}")
         exporter = self.__dict__.copy()
         for key, value in exporter.items():
             if isinstance(value, Modifier):
                 exporter[key] = value.export()
         return exporter
-
-    def print_to_file(self) -> None:
-        logger.info(f"Saving Ability: {self.name}")
-        with open(f"{self.name}.json", "w", encoding="utf-8") as out_file:
-            json.dump(self.export(), out_file)
 
     def copy(self) -> Self:
         """Returns a copy of the object"""
@@ -114,6 +106,11 @@ class Abilities:
             mod=self.mod.export(),
             description=self.description,
             _id=self._id,
+            level=self.level,
         )
 
-    # TODO def use()
+    def level_up(self):
+        self.level += 1
+        self.mod.level_up()
+
+    # def use()

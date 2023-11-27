@@ -1,4 +1,5 @@
 # Development Configurations
+
 ## Flake8 Config
 
 - Updated version to include flake8-fixeme to see fixme, To Do, etc. comments
@@ -20,7 +21,6 @@ flake8 --ignore=$INGS --count ./FUNCLG >> $REPORT
 - [E401] multiple imports on one line
 - [E501] line too long (161 > 79 characters)
 - [W293] blank line contains whitespace
-
 
 <!-- Links to Issues -->
 [i28]: https://github.com/jevinevans/Game/issues/28

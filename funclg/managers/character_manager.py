@@ -14,14 +14,20 @@ import funclg.utils.data_mgmt as db
 from funclg.character.armor import Armor
 from funclg.character.character import Character
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
-    list_choice_selection,
+    confirmation,
+    selection_validation,
     string_validation,
-    yes_no_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 
 CHARACTER_DATA = {"filename": "characters.json", "data": {}, "objects": {}}
+
+CHARACTER_DATA = {"filename": "characters.json", "data": {}}
+
+
+def load_data():
+    db.load_data(CHARACTER_DATA)
+    update_data()
 
 
 def _update_char_role(data: dict, new_data: dict):
@@ -90,12 +96,11 @@ def _pick_char_armor_equipment(
     selected_equipment = {}
 
     # Go through each item type and select or skip
-    # TODO: 2023.06.17 - Add the option to skip
     for item_type in ITEM_TYPES:
         if available_equipment[item_type]:
-            print(f"Please choose a {item_type} to equip:")
-            sel_item_name = list_choice_selection(
-                [item.name for item in available_equipment[item_type].values()] + ["Skip"]
+            sel_item_name = selection_validation(
+                f"Please choose a {item_type} to equip:",
+                [item.name for item in available_equipment[item_type].values()] + ["Skip"],
             )
             logger.debug(f"Selected {sel_item_name} from {available_equipment[item_type]}")
             if sel_item_name == "Skip":
@@ -106,13 +111,12 @@ def _pick_char_armor_equipment(
                 for item in available_equipment[item_type].values()
                 if item.name == sel_item_name
             ][0]
-            if yes_no_validation(f"Do you want equip {sel_item}?"):
+            if confirmation(f"Do you want equip {sel_item}?"):
                 selected_equipment[item_type.lower()] = sel_item.copy()
             else:
                 selected_equipment[item_type.lower()] = None
         else:
             print(f"There are not any {armor_type} {item_type} items, continuing...\n")
-    # TODO: 2023.06.17 - Confirm at the end, can ask to restart or move forward
 
     return selected_equipment
 
@@ -141,20 +145,21 @@ def build_character():
         for _a_role in a_roles:
             print(f"\n\t- {_a_role}")
 
-    char_armor_type = list_choice_selection(list(sorted_roles.keys()))
+    char_armor_type = selection_validation(
+        "Which armor type would you like", list(sorted_roles.keys())
+    )
     char_armor_type_int = ARMOR_TYPES.index(char_armor_type)
 
-    print(f"Which role would you like for {char_name}:")
-    char_role_name = list_choice_selection([role.name for role in sorted_roles[char_armor_type]])
+    char_role_name = selection_validation(
+        f"Which role would you like for {char_name}:",
+        [role.name for role in sorted_roles[char_armor_type]],
+    )
     char_role = [role for role in sorted_roles[char_armor_type] if role.name == char_role_name][
         0
     ].copy()
 
     char_armor = None
-    if yes_no_validation(
-        f"Do you want to add equipment to your character: '{char_name.capitalize()}'?"
-    ):
-
+    if confirmation(f"Do you want to add equipment to your character: '{char_name.capitalize()}'?"):
         char_equipment = _pick_char_armor_equipment(char_armor_type, char_armor_type_int)
         char_armor = Armor(armor_type=char_armor_type_int, **char_equipment)
     else:
@@ -167,7 +172,7 @@ def build_character():
         role_instance=char_role,
     )
 
-    if yes_no_validation(f"You created:\n{new_character.details()}\nSave new character?"):
+    if confirmation(f"You created:\n{new_character.details()}\nSave new character?"):
         CHARACTER_DATA["data"][new_character.id] = new_character.export()
         update_data()
         print(f"{new_character.name} has been saved!!!")
@@ -179,7 +184,9 @@ def build_character():
 
 def select_character():
     if CHARACTER_DATA["data"]:
-        return char_manager_choice_selection(CHARACTER_DATA["data"], "name", "_id")
+        return selection_validation(
+            "Please select a character", CHARACTER_DATA["data"], "name", "_id"
+        )
     logger.warning("There are no roles available.")
     return None
 
@@ -197,7 +204,7 @@ def delete_character():
     del_character_id = select_character()
     if del_character_id:
         del_character = CHARACTER_DATA["data"][del_character_id]
-        if yes_no_validation(f"Do you want to delete \"{del_character['name']}\"?"):
+        if confirmation(f"Do you want to delete \"{del_character['name']}\"?"):
             print(f"Deleteing {del_character['name']}")
             del CHARACTER_DATA["data"][del_character_id]
             del CHARACTER_DATA["objects"][del_character_id]
@@ -219,5 +226,5 @@ MENU = {
     ],
 }
 
-db.load_data(CHARACTER_DATA)
-update_data()
+if __name__ == "__main__":
+    load_data()

@@ -20,18 +20,9 @@ printf "*****DONE*****\n"
 poetry run python Scan_Directories.py
 
 echo -e "\n---Code Quality Report---\n" >> $REPORT
-echo -e "\n-----ISORT-----\n" >> $REPORT
-echo -e "\n-----ISORT-----\n"
-poetry run isort ./funclg &>> $REPORT
-echo -e "\n-----BLACK-----\n" >> $REPORT
-echo -e "\n-----BLACK-----\n"
-poetry run black ./funclg &>> $REPORT
 echo -e "\n-----BANDIT-----\n" >> $REPORT
 echo -e "\n-----BANDIT-----\n"
 poetry run bandit -rq -ii -ll ./funclg &>> $REPORT
-echo -e "\n-----XENON-----\n" >> $REPORT
-echo -e "\n-----XENON-----\n"
-poetry run xenon --max-absolute B ./funclg &>> $REPORT
 echo -e "\n-----PYLINT-----\n" >> $REPORT
 echo -e "\n-----PYLINT-----\n"
 poetry run pylint ./funclg &>> $REPORT
@@ -39,3 +30,6 @@ poetry run pylint ./funclg &>> $REPORT
 # echo -e "\n-----PYRIGHT-----\n"
 # export NODE\_OPTIONS=--experimental-worker
 # poetry run pyright ./funclg &>> $REPORT
+
+echo -e "\n-----SAFETY-----\n"
+poetry run safety check >> $REPORT

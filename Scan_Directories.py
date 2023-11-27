@@ -10,14 +10,9 @@ printlist = list()
 
 # BME = Beginning End
 def ignoredItems(pathname, FolderOnly=False):
-    ignoredFiles = [".gitignore", ".pyc", ]
+    ignoredFiles = [".gitignore", ".pyc", ".coverage"]
 
-    ignoredFolders = [
-        "__pycache__",
-        "Deprecated",
-        ".git",
-        ".vscode",
-    ]
+    ignoredFolders = ["__pycache__", "Deprecated", ".git", ".vscode", ".pytest_cache"]
 
     if FolderOnly:
         ignores = ignoredFolders
@@ -58,27 +53,28 @@ for root, dirs, files in os.walk("."):
     except:
         continue
 
-filelist.write("+==========================================+\n")
-filelist.write("|\tTotal Directories: ")
-filelist.write(str(countd))
-filelist.write("\t\t\t|\n|\tFiles: ")
-filelist.write(str(countf))
-filelist.write("\t\t\t\t|\n")
-filelist.write("+==========================================+\n")
 
-printlist.sort()
+HEADER_WIDTH = 26
+dir_count = f" Total Directories: {str(countd)}".center(HEADER_WIDTH, " ")
+file_count = f" Files: {str(countf)}".center(HEADER_WIDTH, " ")
+line_count = f" Lines: {str(lines)}".center(HEADER_WIDTH, " ")
+
+header = f"""FUNCLG Directories and Files
+
++{'='*(HEADER_WIDTH+2)}+
+| {dir_count} |
+| {file_count} |
+| {line_count} |
++{'='*(HEADER_WIDTH+2)}+
+"""
+
+filelist.write(header)
 filelist.write("\n")
 
 for x in printlist:
     filelist.write(x)
     filelist.write("\n")
 
-print("Total Lines:", lines)
 filelist.close()
 
-print("+==============================+")
-print(f"|{str('Total Directories: ' + str(countd)).center(30)}|")
-print(f"|{str('Files: ' + str(countf)).center(30)}|")
-print("+==============================+")
-
-# webbrowser.open("GAMES_DIRECTORIES_AND_FILES.txt")
+print(header)

@@ -19,36 +19,35 @@ from .fixtures.abilities_fixtures import (
 
 
 def test_abilities_init(abilities_all_types):
-
     for ability in abilities_all_types:
-        if ability.ability_type == "None":
-            assert ability.mod.adds == {}
-            assert ability.mod.mults == {}
+        if ability.ability_type == "Basic":
+            assert ability.mod.base == {}
+            assert ability.mod.percentage == {}
         else:
-            assert ability.mod.adds != {"adds": {}, "mults": {}}
-            assert ability.mod.mults != {"adds": {}, "mults": {}}
+            assert ability.mod.base != {"base": {}, "percentage": {}}
+            assert ability.mod.percentage != {"base": {}, "percentage": {}}
 
         assert ability.id.startswith("ABILITY")
 
-    # Test incompatable
-    test_ability = Abilities(
+    # Test incompatable ability and mod type: Magic - base and provided a percetage mod
+    test_ability_1 = Abilities(
         name="Test",
         ability_type="Magic",
         description="Test incompatable mod",
-        mod={"mults": {"defense": 0.22}},
+        mod={"percentage": {"defense": 0.22}},
     )
 
-    assert test_ability.mod.export() == {"adds": {"health": 1}, "mults": {}}
+    assert test_ability_1.mod.export() == {"base": {"health": 1}, "percentage": {}}
 
-    # Test negativce start
-    test_ability = Abilities(
+    # Test negative start
+    test_ability_2 = Abilities(
         name="Test",
         ability_type="Magic",
         description="Test incompatable mod",
-        mod={"adds": {"defense": -0.22}},
+        mod={"base": {"defense": -0.22}},
     )
 
-    assert test_ability.mod.export() == {"adds": {"defense": -0.22}, "mults": {}}
+    assert test_ability_2.mod.export() == {"base": {"defense": -0.22}, "percentage": {}}
 
 
 def test_abilities_str(abilities_all_types, abilities_str_expectation):
@@ -68,16 +67,6 @@ def test_abilities_export(abilities_all_types, abilities_export_expectation):
         assert ability.export() == abilities_export_expectation[index]
 
 
-@patch("builtins.open")
-@patch("json.dump")
-def test_abilities_print_to_file(m_dump, m_open, abilities_all_types):
-    test_ability = abilities_all_types[0]
-    test_ability.print_to_file()
-
-    m_open.assert_called_once_with(test_ability.name + ".json", "w", encoding="utf-8")
-    m_dump.assert_called_with(test_ability.export(), m_open.return_value.__enter__())
-
-
 def test_abilities_copy(abilities_all_types):
     repair_1 = abilities_all_types[0]
     repair_2 = repair_1.copy()
@@ -92,3 +81,22 @@ def test_abilities_copy(abilities_all_types):
     assert repair_1.ability_type == repair_2.ability_type
     assert repair_1.description == repair_2.description
     assert repair_1.mod.export() == repair_2.mod.export()
+
+
+def test_ability_level_up(abilities_all_types):
+    ability = abilities_all_types[0]
+    ability_lvl = ability.copy()
+
+    assert ability.id == ability_lvl.id
+
+    ability_lvl.level_up()
+
+    for base in ability.mod.base:
+        assert abs(ability.mod.base[base] - ability_lvl.mod.base[base]) == 1
+    for percentage in ability.mod.percentage:
+        assert (
+            round(
+                abs(ability.mod.percentage[percentage] - ability_lvl.mod.percentage[percentage]), 2
+            )
+            == 0.01
+        )

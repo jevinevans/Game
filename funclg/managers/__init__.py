@@ -25,6 +25,11 @@ def build_manager_menu():
     return builder_menu
 
 
+def load_data():
+    for manager in MANAGERS:
+        manager.load_data()
+
+
 def save_data():
     for manager in MANAGERS:
         manager.export_data()

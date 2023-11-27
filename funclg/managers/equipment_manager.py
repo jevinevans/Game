@@ -6,26 +6,28 @@ Description: A manager class for creating, updating, and removing equipment.
 
 from loguru import logger
 
-import funclg.managers.modifier_manager as mod_man
+import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
-    list_choice_selection,
+    confirmation,
+    selection_validation,
     string_validation,
-    yes_no_validation,
 )
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES, WEAPON_TYPES
 
 EQUIPMENT_DATA = {"filename": "equipment.json", "data": {}, "objects": {}}
 
 
+def load_data():
+    db.load_data(EQUIPMENT_DATA)
+    update_data()
+
+
 def update_data():
-    logger.debug("Function called")
     db.update_data(EQUIPMENT_DATA)
 
     for _id, data in EQUIPMENT_DATA["data"].items():
-
         if _id not in EQUIPMENT_DATA["objects"]:
             logger.debug("adding data")
             if data["item_type"] == 4:
@@ -43,38 +45,42 @@ def export_data():
 
 
 def _new_weapon():
-    print("What kind of Weapon would you like to create?")
-    weapon_type = list_choice_selection(list(WEAPON_TYPES)[:-1])
+    print()
+    weapon_type = selection_validation(
+        "What kind of Weapon would you like to create?", list(WEAPON_TYPES)[:-1]
+    )
     weapon_name = string_validation(f"What would you like to name this new {weapon_type}?", "Name")
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
-    print("Generating mods for this weapon...")
-    weapon_mod = mod_man.generate_modifier("weapon")
+    print("Generating stats for this weapon...")
+    weapon_stat = stats_man.build_stats()
 
     return WeaponEquipment(
         name=weapon_name,
         weapon_type=weapon_type,
         description=weapon_desc,
-        mod=weapon_mod,
+        stats=weapon_stat,
     )
 
 
 def _new_body_armor():
-    print("What type of Armor would you like to create?")
-    item_type = list_choice_selection(ITEM_TYPES[:-1])
-    print(f"What type of armor would you like to make the {item_type}?")
-    armor_type = list_choice_selection(ARMOR_TYPES)
+    item_type = selection_validation(
+        "What type of Armor would you like to create?", ITEM_TYPES[:-1]
+    )
+    armor_type = selection_validation(
+        f"What type of armor would you like to make the {item_type}?", ARMOR_TYPES
+    )
     item_name = string_validation(
         f"What would you like to name this new {armor_type} {item_type}?", "Name"
     )
     item_desc = string_validation(f"How would you describe {item_name}?", "Description")
 
     print(f"Generating mods for this {item_type}...")
-    item_mod = mod_man.generate_modifier("armor")
+    item_stat = stats_man.build_stats()
 
     return BodyEquipment(
         name=item_name,
-        mod=item_mod,
+        stats=item_stat,
         description=item_desc,
         armor_type=ARMOR_TYPES.index(armor_type),
         item_type=ITEM_TYPES.index(item_type),
@@ -83,9 +89,10 @@ def _new_body_armor():
 
 def build_equipment():
     """Dialog for building new equipment"""
-
-    print("\nStarting Equipmet Creation:\n\nWhat type of equipment would you like to create:")
-    equip_type = list_choice_selection(["Body Armor", "Weapon"])
+    equip_type = selection_validation(
+        "Starting Equipmet Creation:\n\nWhat type of equipment would you like to create:",
+        ["Body Armor", "Weapon"],
+    )
     new_equipment = None
 
     if equip_type == "Body Armor":
@@ -93,7 +100,7 @@ def build_equipment():
     else:
         new_equipment = _new_weapon()
 
-    if yes_no_validation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
+    if confirmation(f"You created:\n{new_equipment.details()}\nSave new {equip_type}?"):
         EQUIPMENT_DATA["data"][new_equipment.id] = new_equipment.export()
         update_data()
         print(f"{new_equipment.name} has been saved!!!")
@@ -119,8 +126,9 @@ def filter_equipment_by_armor_type(armor_type: int):
 def select_equipment():
     if EQUIPMENT_DATA["data"]:
         equip_list = {}
-        print("Which type of equipment would you like to select:")
-        choice = list_choice_selection(["Weapons", "Armor"])
+        choice = selection_validation(
+            "Which type of equipment would you like to select:", ["Weapons", "Armor"]
+        )
         if choice == "Armor":
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] != 4
@@ -129,7 +137,7 @@ def select_equipment():
             equip_list = {
                 _id: data for _id, data in EQUIPMENT_DATA["data"].items() if data["item_type"] == 4
             }
-        return char_manager_choice_selection(equip_list, "name", "_id")
+        return selection_validation(f"Please select a {choice}", equip_list, "name", "_id")
     logger.warning("There are is no equipment available.")
     return None
 
@@ -147,7 +155,7 @@ def delete_equipment():
     del_equip_id = select_equipment()
     if del_equip_id:
         del_equip = EQUIPMENT_DATA["data"][del_equip_id]
-        if yes_no_validation(f"Do you want to delete \"{del_equip['name']}\"?"):
+        if confirmation(f"Do you want to delete \"{del_equip['name']}\"?"):
             print(f"Deleteing {del_equip['name']}")
             del EQUIPMENT_DATA["data"][del_equip_id]
             del EQUIPMENT_DATA["objects"][del_equip_id]
@@ -169,5 +177,6 @@ MENU = {
     ],
 }
 
-db.load_data(EQUIPMENT_DATA)
-update_data()
+
+if __name__ == "__main__":
+    load_data()

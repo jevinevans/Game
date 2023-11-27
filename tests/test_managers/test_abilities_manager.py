@@ -18,7 +18,7 @@ def test_magic():
         "description": "Test Magic",
         "ability_type": "Magic",
         "_target": "self",
-        "mod": {"adds": {"attack": 200}, "mults": {}},
+        "mod": {"base": {"attack": 200}, "percentage": {}},
         "_id": "ABILITY-12345-EJFI-67890",
     }
 
@@ -45,11 +45,11 @@ def test_abilities_manager_export_data(m_db, test_magic):
 
 
 @patch("funclg.managers.abilities_manager.logger")
-@patch("funclg.managers.abilities_manager.char_manager_choice_selection")
-def test_abilities_manager_select_ability(m_chr_sel, m_log, test_magic):
+@patch("funclg.managers.abilities_manager.selection_validation")
+def test_abilities_manager_select_ability(m_sel, m_log, test_magic):
     # Data Exists - Select Success
     ab_man.ABILITIES_DATA["data"][test_magic["_id"]] = test_magic
-    m_chr_sel.return_value = test_magic["_id"]
+    m_sel.return_value = test_magic["_id"]
 
     assert ab_man.select_ability() == test_magic["_id"]
 
@@ -79,17 +79,17 @@ def test_abilities_manager_show_ability(m_sel, m_log, m_print, test_magic):
 
 @patch("builtins.print")
 @patch("funclg.managers.abilities_manager.logger")
-@patch("funclg.managers.abilities_manager.yes_no_validation")
+@patch("funclg.managers.abilities_manager.confirmation")
 @patch("funclg.managers.abilities_manager.update_data")
 @patch("funclg.managers.abilities_manager.select_ability")
-def test_abilities_manager_delete_ability(m_sel, m_upd, m_yn_val, m_log, m_print, test_magic):
+def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_print, test_magic):
     # Success Delete
     _mag = ab_man.Abilities(**test_magic)
     ab_man.ABILITIES_DATA["data"][_mag.id] = test_magic
     ab_man.ABILITIES_DATA["objects"][_mag.id] = _mag
 
     m_sel.return_value = _mag.id
-    m_yn_val.return_value = True
+    m_confirm.return_value = True
 
     ab_man.delete_ability()
 
@@ -103,7 +103,7 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_yn_val, m_log, m_print
     ab_man.ABILITIES_DATA["data"][_mag.id] = test_magic
 
     m_sel.return_value = _mag.id
-    m_yn_val.return_value = False
+    m_confirm.return_value = False
 
     ab_man.delete_ability()
 
@@ -117,19 +117,19 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_yn_val, m_log, m_print
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.modifier_manager.generate_modifier")
+@patch("funclg.managers.stats_manager.generate_modifier")
 @patch("funclg.managers.abilities_manager.update_data")
-@patch("funclg.managers.abilities_manager.yes_no_validation")
-@patch("funclg.managers.abilities_manager.list_choice_selection")
+@patch("funclg.managers.abilities_manager.confirmation")
+@patch("funclg.managers.abilities_manager.selection_validation")
 @patch("funclg.managers.abilities_manager.string_validation")
 def test_abilities_manager_build_ability(
-    m_str_val, m_list_val, m_yn_val, m_update, m_mod_gen, m_id, test_magic
+    m_str_val, m_sel, m_confirm, m_update, m_mod_gen, m_id, test_magic
 ):
-    m_list_val.return_value = test_magic["ability_type"]
+    m_sel.return_value = test_magic["ability_type"]
     m_str_val.side_effect = [test_magic["name"], test_magic["description"]]
     m_mod_gen.return_value = test_magic["mod"]
     m_id.return_value = test_magic["_id"]
-    m_yn_val.return_value = True
+    m_confirm.return_value = True
 
     _mag = ab_man.Abilities(**test_magic)
 
@@ -140,17 +140,18 @@ def test_abilities_manager_build_ability(
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["description"] == _mag.description
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["ability_type"] == _mag.ability_type
     assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["_target"] == _mag._target
-    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["adds"] == _mag.mod.adds
-    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["mults"] == _mag.mod.mults
+    assert ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["base"] == _mag.mod.base
+    assert (
+        ab_man.ABILITIES_DATA["data"][test_magic["_id"]]["mod"]["percentage"] == _mag.mod.percentage
+    )
     assert m_update.called
-    print(m_update.called, m_update.call_count)
 
     # Test Not Saved - Coverage
-    m_list_val.return_value = test_magic["ability_type"]
+    m_sel.return_value = test_magic["ability_type"]
     m_str_val.side_effect = [test_magic["name"], test_magic["description"]]
     m_mod_gen.return_value = test_magic["mod"]
     m_id.return_value = test_magic["_id"]
-    m_yn_val.return_value = False
+    m_confirm.return_value = False
 
     ab_man.build_ability()
 
@@ -158,7 +159,7 @@ def test_abilities_manager_build_ability(
 
 
 def test_abilities_manager_filter_abilities_by_types():
-
+    ab_man.load_data()
     assert ab_man.ABILITIES_DATA["objects"]
 
     # Single Type Test

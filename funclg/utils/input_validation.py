@@ -5,7 +5,10 @@ Description: Centralized utility module to manage input validation (user choice,
 """
 
 from string import ascii_letters, digits
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Union
+
+import questionary
+from questionary import ValidationError, Validator
 
 
 def choice_validation(max_choice: int) -> int:
@@ -40,47 +43,93 @@ def string_validation(prompt: str, value: str):
     return remove_special_chars(input(f"{prompt}\nEnter {value}: "))
 
 
-def list_choice_selection(items: List[Any]):
+def selection_validation(
+    prompt: str,
+    items: Union[List[Any], Dict[str, Any]],
+    display_param: Optional[str] = "",
+    return_param: Optional[str] = "",
+):
     """
-    Provided a list of items will return an item from the list.
+    Validates user selection choices
+
+    :param prompt: The message displayed to the user
+    :type prompt: str
+    :param items: A Dict or List of items that the user selects from
+    :type items: Union[List[Any], Dict[str, Any]]
+    :param display_param: The value from a Dict the user wants displayed. If no value is sent then the index is used, defaults to ""
+    :type display_param: Optional[str], optional
+    :param return_param: The value from a Dict the user wants returned. If no value is selected it will return the Display param or index, defaults to ""
+    :type return_param: Optional[str], optional
+    :return: The item from the requested list
+    :rtype: Any
     """
-    # TODO: Decide if the capitalize needs to stay here or not
-    for index, item in enumerate(items, start=1):
-        print(f"{index} --- {item.capitalize()}")
-    return items[choice_validation(len(items)) - 1]
+
+    # 4 Cases
+    # 1) List - Needs to be converted into a string value for display
+    # 2) Plain Dict - Will use the index key as the display and return value
+    # 3) Dict + Display Param - Will display another key than the index key
+    # 4) Dict + Display Param + Return Param - Will display another key than the index and return the specified return value
+    selection_choices = []
+
+    if isinstance(items, list):  # Case 1
+        selection_choices = [questionary.Choice(title=str(x), value=x) for x in items]
+
+    else:
+        for index, data in items.items():  # Handles Case 2-4
+            selection_choices.append(
+                questionary.Choice(
+                    title=data.get(display_param, index), value=data.get(return_param)
+                )
+            )
+
+    return questionary.select(message=prompt, choices=selection_choices).ask()
 
 
-def char_manager_choice_selection(data: Dict[str, Any], show_param: str, return_param: str):
+def confirmation(prompt: str):
     """
-    For data managers, reads the data dictionary, provides a list from the [show_param] and will return the [return_param] as selected.
+    Provides a confirmation step for user actions
+
+    :param prompt: The message displayed to the user
+    :type prompt: str
+    :return: Returns True or False based on user selection
+    :rtype: bool
     """
-    items = [(_data[show_param], _data[return_param]) for _, _data in data.items()]
-    for index, item in enumerate(items, start=1):
-        print(f"{index} --- {item[0]}")
-    return items[choice_validation(len(items)) - 1][1]
+    return questionary.confirm(prompt).ask()
 
 
-def yes_no_validation(prompt: str):
-    """Provides a yes/no validation. Provide the prompt, the function will add [y|N] for you."""
-    choice = ""
-    while choice not in ["y", "Y", "N", "n"]:
-        choice = remove_special_chars(input(prompt + " [y/N]:"))
+class NumberValidation(Validator):
+    """
+    Validator class for user input, validates that the user sends a number.
+    """
 
-    if choice in ["y", "Y"]:
-        return True
-    return False
+    def validate(self, document):
+        if len(document.text) == 0:
+            raise ValidationError(
+                message="Please enter a value", cursor_position=len(document.text)
+            )
+        if not document.text.isdigit():
+            raise ValidationError(
+                message="Please enter a valid number", cursor_position=len(document.text)
+            )
 
 
-def number_range_validation(min_val: int, max_val: int):
-    """Provided a min and max value, this will validate a number in the selected range"""
-    while True:
-        try:
-            user_resp = int(input(f"Choice number in range [{min_val} - {max_val}]: "))
+def number_range_validation(min_val: int = 1, max_val: int = 100) -> int:
+    """
+    Validates user input of an integer is within the supplied range.
 
-            if user_resp < min_val or user_resp > max_val:
-                raise ValueError("Out of Range")
-        except ValueError:
-            print(f"Invalid Answer: Please enter a number between {min_val} and {max_val}")
-            continue
-        else:
-            return user_resp
+    :param min_val: The minimum (inclusive) number the user can enter, defaults to 1
+    :type min_val: int
+    :param max_val: The maximum (inclusive) number the user can enter, defaults to 100
+    :type max_val: int
+    :return: The users entered response
+    :rtype: int
+    """
+    print(f"Choice number in range [{min_val} - {max_val}]: ")
+    user_resp = min_val - 1
+    while user_resp < min_val or user_resp > max_val:
+        user_resp = int(
+            questionary.text(
+                "Please enter a number:", validate=NumberValidation, validate_while_typing=False
+            ).ask()
+        )
+    return user_resp

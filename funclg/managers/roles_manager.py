@@ -4,26 +4,28 @@ Developer: Jevin Evans
 Date: 6.19.2022
 """
 
-from typing import List
-
 from loguru import logger
 
 import funclg.managers.abilities_manager as ab_man
+import funclg.managers.stats_manager as stats_man
 import funclg.utils.data_mgmt as db
 from funclg.character.roles import Roles
 from funclg.utils.input_validation import (
-    char_manager_choice_selection,
-    list_choice_selection,
+    confirmation,
+    selection_validation,
     string_validation,
-    yes_no_validation,
 )
 from funclg.utils.types import ABILITY_TYPES, ARMOR_TYPES
 
 ROLES_DATA = {"filename": "roles.json", "data": {}, "objects": {}}
 
 
+def load_data():
+    db.load_data(ROLES_DATA)
+    update_data()
+
+
 def update_data():
-    # TODO: On edit, needs to update all values
     db.update_data(ROLES_DATA)
     for _id, data in ROLES_DATA["data"].items():
         if _id not in ROLES_DATA["objects"]:
@@ -53,15 +55,15 @@ def _select_ability_types():
         print(
             "Lets add some ability types to your role!\n\nWhat ability type(s) would you like this class to have?"
         )
-        # TODO: Add description print out
+        # Add description print out
         for _a_type, data in available_types.items():
             print(f"{_a_type}\n\tAvailable Mods: {', '.join(data['mods'])}")
 
-        a_type = list_choice_selection(list(available_types.keys()))
+        a_type = selection_validation("Choose from the above:", available_types)
         a_types.append(a_type)
 
         print(f"Current Ability Types: {' '.join(a_types)}")
-        if yes_no_validation("Would you like to add another type?"):
+        if confirmation("Would you like to add another type?"):
             del available_types[a_type]
             continue
         continue_selection = False
@@ -69,9 +71,10 @@ def _select_ability_types():
     return a_types
 
 
-# TODO add an option for adding no roles
-def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
-    """"""
+def _select_role_abilities(a_types: list) -> list[ab_man.Abilities]:
+    """
+    Guides the user through ability selection for a role.
+    """
 
     def _display_abilities():
         print(f"You can choose abilities from the following types: {', '.join(a_types)}")
@@ -81,19 +84,22 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
             for _ability in _abilities:
                 print(f"\t{_ability}")
 
-        print("Select ability type:")
-        a_choice = list_choice_selection(list(available_abilities.keys()))
+        a_choice = selection_validation(
+            "Select ability type:",
+            list(available_abilities.keys()),
+            display_param="",
+            return_param="",
+        )
         if available_abilities[a_choice]:
-            print("Select ability to add:")
-            new_ability_name = list_choice_selection(
-                [a.name for a in available_abilities[a_choice]]
+            new_ability_name = selection_validation(
+                "Select ability to add:", [a.name for a in available_abilities[a_choice]]
             )
 
             new_ability = [a for a in available_abilities[a_choice] if a.name == new_ability_name][
                 0
             ]
 
-            if yes_no_validation(f"Do you want to add {new_ability.name} to this role?"):
+            if confirmation(f"Do you want to add {new_ability.name} to this role?"):
                 # Remove added ability from available options and return
                 available_abilities[new_ability.ability_type].remove(new_ability)
                 return new_ability
@@ -119,10 +125,9 @@ def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
             print(f"\n\t- {ability}")
         print(f"\nYou can still add more {5-len(role_abilities)} abilities.")
 
-        if not yes_no_validation("Would you like to add another ability?"):
+        if not confirmation("Would you like to add another ability?"):
             break
 
-    # TODO: Future: consider option to create a new one
     return role_abilities
 
 
@@ -132,12 +137,15 @@ def build_role():
     print("\nStarting Role Creation")
     role_name = string_validation("What would you like to name this new Role?", "Name")
     role_desc = string_validation(f"How would you describe {role_name}?", "Description")
-    print(f"What type of armor would you like to make the {role_name}?")
-    armor_type = list_choice_selection(ARMOR_TYPES[:-1])
+    armor_type = selection_validation(
+        f"What type of armor would you like to make the {role_name}?", ARMOR_TYPES
+    )
 
     a_types = _select_ability_types()
 
     r_abilities = _select_role_abilities(a_types)
+
+    role_stats = stats_man.build_stats()
 
     new_role = Roles(
         name=role_name,
@@ -145,9 +153,10 @@ def build_role():
         armor_type=ARMOR_TYPES.index(armor_type),
         ability_types=a_types,
         abilities=r_abilities,
+        stats=role_stats,
     )
 
-    if yes_no_validation(f"You created:\n{new_role.details()}\nSave new role?"):
+    if confirmation(f"You created:\n{new_role.details()}\nSave new role?"):
         ROLES_DATA["data"][new_role.id] = new_role.export()
         update_data()
         print(f"{new_role.name} has been saved!!!")
@@ -155,12 +164,6 @@ def build_role():
 
     print("Oh well..., no roles to add to this awesome adventure!!!")
     del new_role
-
-
-# def edit_role():
-#     """
-#     Allows the user to add or remove abilities from a role
-#     """
 
 
 def sort_roles_by_armor_type():
@@ -178,7 +181,7 @@ def sort_roles_by_armor_type():
 
 def select_role():
     if ROLES_DATA["data"]:
-        return char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
+        return selection_validation("Select a role:", ROLES_DATA["data"], "name", "_id")
     logger.warning("There are no roles available.")
     return None
 
@@ -196,7 +199,7 @@ def delete_role():
     del_role_id = select_role()
     if del_role_id:
         del_role = ROLES_DATA["data"][del_role_id]
-        if yes_no_validation(f"Do you want to delete \"{del_role['name']}\"?"):
+        if confirmation(f"Do you want to delete \"{del_role['name']}\"?"):
             print(f"Deleteing {del_role['name']}")
             del ROLES_DATA["data"][del_role_id]
             del ROLES_DATA["objects"][del_role_id]
@@ -218,5 +221,5 @@ MENU = {
     ],
 }
 
-db.load_data(ROLES_DATA)
-update_data()
+if __name__ == "__main__":
+    load_data()

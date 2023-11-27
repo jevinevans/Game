@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "funclg"
-version = "0.2.0"
+version = "0.5.9"
 description = "Fun way to build your own CLI game"
 authors = ["Jevin Evans <jevyjev324@me.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 loguru = "^0.5.3"
+questionary = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.10.1"
@@ -20,6 +21,10 @@ pytest-cov = "^3.0.0"
 black = "^22.3.0"
 pyright = "^1.1.283"
 
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+safety = "^2.3.5"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
@@ -29,6 +34,11 @@ line-length = 100
 
 [tool.isort]
 profile = "black"
+
+[tool.xenon]
+max-absolute = 'A'
+max-modules = 'A'
+max-average = 'A'
 
 [tool.pylint.message_control]
 disable = """,
