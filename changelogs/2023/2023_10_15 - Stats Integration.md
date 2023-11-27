@@ -1,7 +1,7 @@
 # FUN Command Line Game Log: 10.15.2023 - 
 <!-- Update: Current Log date -->
 
-Last Updated: 11.5.2023 <!-- Update with previous log date -->
+Last Updated: 11.26.2023 <!-- Update with previous log date -->
 Version: 0.6.1
 <!-- Update version number when changes made-->
 <!-- Verions Additions 
@@ -19,7 +19,7 @@ __\<Date\>__ - When Item was completed
 
 ## Current Goals
 
-- [ ] Stats integration 
+- [x] Stats integration 
 - [x] Define Game Play
 - [ ] Create a level generation process -> 0.6
 - [ ] Define game combat and interaction -> 0.7
@@ -41,7 +41,7 @@ __\<Date\>__ - When Item was completed
 - [#45](https://github.com/jevinevans/Game/issues/45) [2023.11.5]
 - [#44](https://github.com/jevinevans/Game/issues/44) [2023.10.22]
 - [#103](https://github.com/jevinevans/Game/issues/103) [2023.10.15]
-- Removed printToFile functions [2023.11.26]
+- Removed printToFile functions
 
 ### Fixed
 
@@ -51,9 +51,6 @@ __\<Date\>__ - When Item was completed
 ------------------------------
 
 ## Message - 11.5.2023
-
-1. Updating modifier add/mult name change (starting PR)
-1. Add more test coverage for character module tests
 
 ---------------------------
 
