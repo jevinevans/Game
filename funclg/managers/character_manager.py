@@ -22,7 +22,8 @@ from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 
 CHARACTER_DATA = {"filename": "characters.json", "data": {}, "objects": {}}
 
-CHARACTER_DATA = {"filename":"characters.json", "data":{}}
+CHARACTER_DATA = {"filename": "characters.json", "data": {}}
+
 
 def load_data():
     db.load_data(CHARACTER_DATA)

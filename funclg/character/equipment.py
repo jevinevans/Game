@@ -6,7 +6,6 @@ Description: The Equipment class allows for creation of objects in the game to b
     of the game.
 """
 
-import json
 from typing import Any, Dict
 
 from loguru import logger
@@ -66,14 +65,6 @@ class Equipment:
     def power(self):
         return self.stats.power
 
-    @property
-    def id(self):  # pylint: disable=C0103
-        return self._id
-
-    @property
-    def power(self):
-        return self.stats.power
-
     def details(self, indent: int = 0) -> str:
         desc = f"\n{' '*indent}{self.name} [lvl {self.level}]"
         desc += f"\n{' '*indent}{'-'*(len(self.name) + 7 + len(str(self.level)))}"
@@ -81,11 +72,6 @@ class Equipment:
         desc += f"\n{' '*indent}Description: {self.description}\n"
         desc += self.stats.details(indent)
         return desc
-
-    def print_to_file(self) -> None:
-        logger.info(f"Saving Equipment: {self.name}")
-        with open(self.name + ".json", "w", encoding="utf-8") as out_file:
-            json.dump(self.export(), out_file)
 
     def export(self):
         exporter = self.__dict__.copy()
@@ -121,9 +107,6 @@ class Equipment:
     def level_up(self):
         self.level += 1
         self.stats.level_up()
-
-    def to_mod(self):
-        return self.stats.to_mod(self.name)
 
     def to_mod(self):
         return self.stats.to_mod(self.name)

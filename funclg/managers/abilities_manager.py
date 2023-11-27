@@ -14,7 +14,6 @@ from funclg.utils.input_validation import (
     selection_validation,
     string_validation,
 )
-
 from funclg.utils.types import ABILITY_TYPES
 
 ABILITIES_DATA = {"filename": "abilities.json", "data": {}, "objects": {}}
@@ -68,7 +67,6 @@ def build_ability():
     del new_ability
 
 
-
 def select_ability():
     if ABILITIES_DATA["data"]:
         return selection_validation(
@@ -76,6 +74,7 @@ def select_ability():
         )
     logger.warning("There are no abilities available.")
     return None
+
 
 def filter_abilities_by_types(a_types: list):
     filtered_abilities = {}
@@ -95,7 +94,6 @@ def show_ability():
         print(_show_ability.details())
         return
     logger.warning("There are no abilities to show.")
-
 
 
 def delete_ability():

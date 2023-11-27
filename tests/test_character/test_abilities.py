@@ -95,5 +95,8 @@ def test_ability_level_up(abilities_all_types):
         assert abs(ability.mod.base[base] - ability_lvl.mod.base[base]) == 1
     for percentage in ability.mod.percentage:
         assert (
-            round(abs(ability.mod.percentage[percentage] - ability_lvl.mod.percentage[percentage]), 2) == 0.01
+            round(
+                abs(ability.mod.percentage[percentage] - ability_lvl.mod.percentage[percentage]), 2
+            )
+            == 0.01
         )

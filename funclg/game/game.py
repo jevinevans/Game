@@ -21,6 +21,7 @@ Date: 2.20.2023
 # Need to create a level/stage generation process and define the parts of it. Should take a calculation of the characters stats and create a challenge.
 # Consider building different play modes: main will be short 5-10 levs with a few enemies and a boss at the final level
 
+
 class Game:
     """
     Defines the game manager for FUNCLG play.

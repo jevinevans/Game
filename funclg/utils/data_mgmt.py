@@ -37,17 +37,6 @@ def validate_filename(filename: str) -> str:
         raise error
 
 
-# TODO may need to move assertion error to validate method
-def load_data(game_data: Dict[str, Any]):
-    filename = validate_filename(game_data["filename"])
-    try:
-        assert filename.endswith(".json")
-        data_path = re.sub(r"funclg/.*", f"{os.sep}".join(DATA_DIR), os.path.dirname(__file__))
-        return os.path.join(data_path, filename)
-    except AssertionError as error:
-        raise error
-
-
 def load_data(game_data: Dict[str, Any]):
     try:
         filename = validate_filename(game_data["filename"])

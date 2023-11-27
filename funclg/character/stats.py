@@ -67,10 +67,6 @@ class Stats:
         self._cal_power()
         return self._power
 
-        # Calculates objects
-        self._power = 0
-        self._cal_power()
-
     def _validate_attributes(self, attributes: Union[Dict[str, Any], None]):
         """
         Validates that provided attributes are valid. Used for loading existing attributes.
@@ -93,10 +89,6 @@ class Stats:
         for attr in Stats.BASE_ATTRIBUTES:
             power += self.get_stat(attr)
         self._power = power
-
-    @property
-    def power(self):
-        return self._power
 
     def __str__(self):
         stats = "\nStats\n" + "-" * 5

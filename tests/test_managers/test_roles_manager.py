@@ -11,6 +11,7 @@ import pytest
 import funclg.managers.roles_manager as role_man
 from funclg.character.abilities import Abilities
 
+
 @pytest.fixture
 def test_mage():
     return {

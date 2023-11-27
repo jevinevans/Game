@@ -10,7 +10,6 @@ from loguru import logger
 
 from funclg.utils.game_enums import GameAction, GamePiece, LevelIcons
 
-from enum import Enum, auto
 
 class GameLevel:
     """

@@ -4,7 +4,6 @@ Developer: Jevin Evans
 Date: 6.19.2022
 """
 
-from funclg.character.roles import Roles
 from loguru import logger
 
 import funclg.managers.abilities_manager as ab_man
@@ -72,7 +71,7 @@ def _select_ability_types():
     return a_types
 
 
-def _select_role_abilities(a_types: list) -> List[ab_man.Abilities]:
+def _select_role_abilities(a_types: list) -> list[ab_man.Abilities]:
     """
     Guides the user through ability selection for a role.
     """
@@ -166,12 +165,6 @@ def build_role():
     print("Oh well..., no roles to add to this awesome adventure!!!")
     del new_role
 
-def select_role():
-    if ROLES_DATA["data"]:
-        role_id = char_manager_choice_selection(ROLES_DATA["data"], "name", "_id")
-        return ROLES_DATA["data"][role_id]
-    logger.warning("There are no roles available.")
-    return None
 
 def sort_roles_by_armor_type():
     sorted_roles = {}

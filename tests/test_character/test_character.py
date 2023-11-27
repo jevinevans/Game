@@ -87,16 +87,6 @@ Stats [80]
   Role Abilities:
     No Abilities
 
-  Stats [20]
-  ----------
-    Health [5]: 5
-    Attack [5]: 5
-    Defense [5]: 5
-    Energy [5]: 5
-
-  Role Abilities:
-    No Abilities
-
   Light Armor
   -----------
     Stats [40]

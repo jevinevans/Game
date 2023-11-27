@@ -37,18 +37,6 @@ def test_equipment_str(weapon_equipment, body_equipment, equipment_str_expectati
     assert test_equipment.__str__() == "Test Equip [lvl 1] [Head]"
 
 
-@patch("builtins.open")
-@patch("json.dump")
-def test_equipment_print_to_file(m_dump, m_open, body_equipment):
-    first_key = list(body_equipment.keys())[0]
-    item = body_equipment[first_key].copy()
-
-    item.print_to_file()
-
-    m_open.assert_called_once_with(item.name + ".json", "w", encoding="utf-8")
-    m_dump.assert_called_with(item.export(), m_open.return_value.__enter__())
-
-
 @patch("funclg.utils.data_mgmt.id_gen")
 def test_equipment_export(m_id):
     test_id = "EQUIP-12345-HJFJEF-67890"

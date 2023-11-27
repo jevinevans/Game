@@ -51,19 +51,8 @@ def _new_weapon():
     weapon_name = string_validation(f"What would you like to name this new {weapon_type}?", "Name")
     weapon_desc = string_validation(f"How would you describe {weapon_name}?", "Description")
 
-    print("Generating mods for this weapon...")
+    print("Generating stats for this weapon...")
     weapon_stat = stats_man.build_stats()
-
-    return WeaponEquipment(
-        name=weapon_name,
-        weapon_type=weapon_type,
-        description=weapon_desc,
-        stats=weapon_stat,
-    )
-
-
-    print("Generating mods for this weapon...")
-    weapon_mod = generate_modifier("weapon")    
 
     return WeaponEquipment(
         name=weapon_name,
@@ -96,6 +85,7 @@ def _new_body_armor():
         item_type=ITEM_TYPES.index(item_type),
     )
 
+
 def build_equipment():
     """Dialog for building new equipment"""
     equip_type = selection_validation(
@@ -118,17 +108,6 @@ def build_equipment():
     print(f"No new {equip_type.lower()}, oh well...")
     del new_equipment
 
-def filter_equipment_by_armor_type(armor_type: int):
-    filtered_equipment = {}
-
-    for index, item_type in enumerate(ITEM_TYPES):
-        filtered_equipment[item_type] = {
-            equipment.id: equipment
-            for equipment in EQUIPMENT_DATA["objects"].values()
-            if equipment.armor_type == armor_type and equipment.item_type == index
-        }
-
-    return filtered_equipment
 
 def filter_equipment_by_armor_type(armor_type: int):
     filtered_equipment = {}
@@ -141,7 +120,6 @@ def filter_equipment_by_armor_type(armor_type: int):
         }
 
     return filtered_equipment
-
 
 
 def select_equipment():
