@@ -20,8 +20,8 @@ class Menu:
         self.has_return = has_return
         self.return_val = 1 if has_return else 0
 
-    def add_item(self, name: str, action):
-        self.menu_items.append({"name": name, "action": action})
+    def add_item(self, title: str, value):
+        self.menu_items.append({"title": title, "value": value})
         if self.has_return:
             self.return_val += 1
 
@@ -31,7 +31,7 @@ class Menu:
             print(f"\t{self.description}")
 
         for index, value in enumerate(self.menu_items, start=1):
-            print(f"{index}. --- {value['name']}")
+            print(f"{index}. --- {value['title']}")
 
         if self.has_return:
             print(f"{len(self.menu_items)+1}. --- Go Back")
@@ -42,7 +42,7 @@ class Menu:
         if choice == self.return_val:
             return
 
-        action = self.menu_items[choice - 1]["action"]
+        action = self.menu_items[choice - 1]["value"]
 
         if isinstance(action, Menu):
             action.print_menu()

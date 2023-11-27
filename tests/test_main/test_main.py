@@ -10,8 +10,8 @@ def test_build_main_menu():
     menu = build_main_menu()
     assert isinstance(menu, Menu)
     assert len(menu.menu_items) == 3
-    assert menu.menu_items[0]["name"] == "Play Game"
-    assert menu.menu_items[-1]["name"] == "Exit"
+    assert menu.menu_items[0]["title"] == "Play Game"
+    assert menu.menu_items[-1]["title"] == "Exit"
 
 
 # @patch('builtins.input')

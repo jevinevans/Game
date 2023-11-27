@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Sun Nov 26 20:46:23 PST 2023 
+Date: Sun Nov 26 22:47:18 PST 2023 
 
 ---PYTEST---
 
@@ -8,22 +8,23 @@ Date: Sun Nov 26 20:46:23 PST 2023
 platform linux -- Python 3.10.12, pytest-7.4.3, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 135 items
+collected 140 items
 
 tests/test_character/test_abilities.py ......                            [  4%]
-tests/test_character/test_armor.py ................                      [ 16%]
-tests/test_character/test_character.py ........                          [ 22%]
-tests/test_character/test_equipment.py .............                     [ 31%]
-tests/test_character/test_modifiers.py ..........                        [ 39%]
-tests/test_character/test_roles.py .............                         [ 48%]
-tests/test_character/test_stats.py ..................                    [ 62%]
-tests/test_game/test_game_levels.py .......                              [ 67%]
-tests/test_main/test_main.py .                                           [ 68%]
-tests/test_managers/test_abilities_manager.py .......                    [ 73%]
-tests/test_managers/test_character_manager.py .........                  [ 80%]
-tests/test_managers/test_equipment_manager.py .........                  [ 86%]
-tests/test_managers/test_roles_manager.py ............                   [ 95%]
-tests/test_managers/test_stats_manager.py ...                            [ 97%]
+tests/test_character/test_armor.py ................                      [ 15%]
+tests/test_character/test_character.py ........                          [ 21%]
+tests/test_character/test_equipment.py .............                     [ 30%]
+tests/test_character/test_modifiers.py ..........                        [ 37%]
+tests/test_character/test_roles.py .............                         [ 47%]
+tests/test_character/test_stats.py ..................                    [ 60%]
+tests/test_game/test_game_levels.py .......                              [ 65%]
+tests/test_main/test_main.py .                                           [ 65%]
+tests/test_managers/test_abilities_manager.py .......                    [ 70%]
+tests/test_managers/test_character_manager.py .........                  [ 77%]
+tests/test_managers/test_equipment_manager.py .........                  [ 83%]
+tests/test_managers/test_roles_manager.py ............                   [ 92%]
+tests/test_managers/test_stats_manager.py ...                            [ 94%]
+tests/test_utils/test_menu.py .....                                      [ 97%]
 tests/test_utils/test_types.py ...                                       [100%]
 
 ---------- coverage: platform linux, python 3.10.12-final-0 ----------
@@ -48,7 +49,7 @@ funclg/managers/__init__.py               18      4      6      0    67%   29-30
 funclg/managers/abilities_manager.py      69      1     24      1    98%   126
 funclg/managers/character_manager.py     121      3     54      4    96%   29-30, 71->70, 74->77, 77->80, 230
 funclg/managers/equipment_manager.py      90      4     32      3    94%   23-24, 31->30, 99, 182
-funclg/managers/game_manager.py           27      9      8      1    60%   38-50, 54
+funclg/managers/game_manager.py           28      9      8      1    61%   38-50, 61
 funclg/managers/level_manager.py           0      0      0      0   100%
 funclg/managers/roles_manager.py         122      3     52      3    97%   24-25, 31->30, 118->131, 225
 funclg/managers/stats_manager.py          84     16     34      0    80%   126-154
@@ -56,14 +57,14 @@ funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 51     15     16      1    67%   36-37, 43->56, 47-55, 66-69
 funclg/utils/game_enums.py                32      4      2      0    88%   58-72
 funclg/utils/input_validation.py          40     28     16      0    21%   18-28, 35-36, 43, 72-85, 97, 106-111, 127-135
-funclg/utils/menu_funcs.py                36     16     14      0    48%   29-52
+funclg/utils/menu_funcs.py                36      0     14      0   100%
 funclg/utils/types.py                     18      0      6      1    96%   54->57
 ----------------------------------------------------------------------------------
-TOTAL                                   1536    158    516     24    88%
+TOTAL                                   1537    142    516     24    89%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 87.82%
+FAIL Required test coverage of 95.0% not reached. Total coverage: 89.09%
 
-======================= 135 passed, 2 warnings in 1.22s ========================
+======================= 140 passed, 2 warnings in 1.69s ========================
 
 ---Code Quality Report---
 
@@ -75,9 +76,11 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 87.82%
 
 ************* Module funclg.character.stats
 funclg/character/stats.py:170:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
+************* Module funclg.utils.menu_funcs
+funclg/utils/menu_funcs.py:52:25: C0303: Trailing whitespace (trailing-whitespace)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.99/10 (previous run: 9.99/10, +0.01)
+Your code has been rated at 9.99/10 (previous run: 9.99/10, +0.00)
 
 +==============================================================================+
 
@@ -111,7 +114,7 @@ sign up at https://pyup.io or email sales@pyup.io[0m
 
   Using [1mnon-commercial database[0m
 [1m  Found and scanned 69 packages[0m
-  Timestamp [1m2023-11-26 20:46:36[0m
+  Timestamp [1m2023-11-26 22:47:34[0m
 [1m  0[0m[1m vulnerabilities found[0m
 [1m  0[0m[1m vulnerabilities ignored[0m
 +==============================================================================+

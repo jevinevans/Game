@@ -2,8 +2,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 124         |
-|         Lines: 6869        |
+|         Files: 126         |
+|         Lines: 6964        |
 +============================+
 
 ./tests
@@ -51,6 +51,7 @@ FUNCLG Directories and Files
 ./tests/test_game/__init__.py
 ./tests/test_main/test_main.py
 ./tests/test_utils/test_types.py
+./tests/test_utils/test_menu.py
 ./docs/Basic Player Game Info.txt
 ./docs/FUNCLG Architecture.md
 ./docs/dev_configs.md
@@ -102,6 +103,7 @@ FUNCLG Directories and Files
 ./changelogs/2019
 ./changelogs/2020
 ./changelogs/2023/2023_10_15 - Stats Integration.md
+./changelogs/2023/2023_11_26 - Menu Updates.md
 ./changelogs/2023/2023_07_21 - Mixed.md
 ./changelogs/2022/Log_2022_01_08.md
 ./changelogs/2022/Log_2022_05_29.md

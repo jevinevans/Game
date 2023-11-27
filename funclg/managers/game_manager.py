@@ -50,5 +50,11 @@ def select_level_icons():
     raise SystemError("No level icons loaded.")
 
 
+MENU = {
+    "name": "Manage Game Settings",
+    "description": "The following are game settings to manage the game",
+    "menu_items": [{"title": "Select Level Icons", "value": select_level_icons}],
+}
+
 if __name__ == "__main__":
     load_data()

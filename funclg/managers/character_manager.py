@@ -22,8 +22,6 @@ from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 
 CHARACTER_DATA = {"filename": "characters.json", "data": {}, "objects": {}}
 
-CHARACTER_DATA = {"filename": "characters.json", "data": {}}
-
 
 def load_data():
     db.load_data(CHARACTER_DATA)
@@ -219,10 +217,10 @@ MENU = {
     "name": "Manage Characters",
     "description": "This is the menu to create characters to use in game.",
     "menu_items": [
-        {"name": "New Character", "action": build_character},
-        # {"name": "Edit Character", "action": edit_character},
-        {"name": "Show Character", "action": show_character},
-        {"name": "Delete Character", "action": delete_character},
+        {"title": "New Character", "value": build_character},
+        # {"title": "Edit Character", "value": edit_character},
+        {"title": "Show Character", "value": show_character},
+        {"title": "Delete Character", "value": delete_character},
     ],
 }
 

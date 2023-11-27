@@ -170,10 +170,10 @@ MENU = {
     "name": "Manage Equipment",
     "description": "This the menu to create armor and weapons for characters to use.",
     "menu_items": [
-        {"name": "New Equipment", "action": build_equipment},
-        {"name": "View Equipment Details", "action": show_equipment},
-        # {"name": "Edit Equipment", "action": edit_equipment},
-        {"name": "Delete Equipment", "action": delete_equipment},
+        {"title": "New Equipment", "value": build_equipment},
+        {"title": "View Equipment Details", "value": show_equipment},
+        # {"title": "Edit Equipment", "value": edit_equipment},
+        {"title": "Delete Equipment", "value": delete_equipment},
     ],
 }
 
