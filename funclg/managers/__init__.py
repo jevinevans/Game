@@ -52,10 +52,12 @@ def build_game_menu():
 
 
 def load_data():
-    for manager in CHAR_MANAGERS + GAME_MANAGERS:
+    # for manager in ALL_MANAGERS:
+    for manager in CHAR_MANAGERS:
         manager.load_data()
 
 
 def save_data():
-    for manager in CHAR_MANAGERS + GAME_MANAGERS:
+    # for manager in ALL_MANAGERS:
+    for manager in CHAR_MANAGERS:
         manager.export_data()

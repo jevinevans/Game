@@ -6,7 +6,7 @@ Date: 10.8.2023
 
 # from loguru import logger
 
-LEVEL_DATA = {"filename": "game_levels.json", "data": {}, "objects": {}}
+LEVEL_DATA = {"filename": "levels.json", "data": {}, "objects": {}}
 
 
 def load_data():
