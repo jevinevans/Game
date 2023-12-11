@@ -5,13 +5,15 @@ Date: 2.20.2023
 """
 
 from math import floor
+from typing import Union
 
 from loguru import logger
 
+from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.game_enums import GameAction, GamePiece, LevelIcons
 
 
-class GameLevel:
+class GameLevel:  # pylint: disable=too-many-instance-attributes
     """
     Generates the level grid for the game. Shows player, boss, key, and enemies.
     """
@@ -32,12 +34,19 @@ class GameLevel:
         self.boss_pos = (half_way, half_way)
         self.key_pos = (self.level_size - 1, 0)
         self.enemy_pos = []
-
         self._level = self.generate_level()
 
     @property
     def level(self):
         return tuple(self._level)
+
+    @property
+    def reward(self):
+        return self.reward
+
+    @reward.setter
+    def reward(self, item: Union[WeaponEquipment, BodyEquipment]):
+        self.reward = item
 
     def _validate_level_size(self, level_size: int):
         """
