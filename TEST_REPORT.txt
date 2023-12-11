@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Nov 27 07:08:50 PST 2023 
+Date: Sun Dec 10 13:29:52 PST 2023 
 
 ---PYTEST---
 
@@ -8,64 +8,156 @@ Date: Mon Nov 27 07:08:50 PST 2023
 platform linux -- Python 3.10.12, pytest-7.4.3, pluggy-1.3.0
 rootdir: /home/jevinle/Dev/FUNCLG
 plugins: cov-3.0.0
-collected 145 items
+collected 146 items
 
 tests/test_character/test_abilities.py ......                            [  4%]
 tests/test_character/test_armor.py ................                      [ 15%]
-tests/test_character/test_character.py ........                          [ 20%]
-tests/test_character/test_equipment.py .............                     [ 29%]
+tests/test_character/test_character.py .........                         [ 21%]
+tests/test_character/test_equipment.py .............                     [ 30%]
 tests/test_character/test_modifiers.py ..........                        [ 36%]
 tests/test_character/test_roles.py .............                         [ 45%]
-tests/test_character/test_stats.py ..................                    [ 57%]
-tests/test_game/test_game_levels.py .......                              [ 62%]
+tests/test_character/test_stats.py ..................                    [ 58%]
+tests/test_game/test_game_levels.py .......                              [ 63%]
 tests/test_main/test_main.py .                                           [ 63%]
 tests/test_managers/test_abilities_manager.py .......                    [ 68%]
 tests/test_managers/test_character_manager.py .........                  [ 74%]
 tests/test_managers/test_equipment_manager.py .........                  [ 80%]
-tests/test_managers/test_managers_setup.py .....                         [ 84%]
+tests/test_managers/test_managers_setup.py FFF..                         [ 84%]
 tests/test_managers/test_roles_manager.py ............                   [ 92%]
 tests/test_managers/test_stats_manager.py ...                            [ 94%]
 tests/test_utils/test_menu.py .....                                      [ 97%]
 tests/test_utils/test_types.py ...                                       [100%]
 
+=================================== FAILURES ===================================
+____________________________ test_manager_load_data ____________________________
+
+m_ability = <MagicMock name='load_data' id='139994607004224'>
+m_char = <MagicMock name='load_data' id='139994607139856'>
+m_equip = <MagicMock name='load_data' id='139994607131984'>
+m_game = <MagicMock name='load_data' id='139994607080192'>
+m_level = <MagicMock name='load_data' id='139994607043440'>
+m_role = <MagicMock name='load_data' id='139994607056208'>
+m_lvl_pack = <MagicMock name='load_data' id='139994608354064'>
+m_npc = <MagicMock name='load_data' id='139994608355456'>
+
+    @patch("funclg.managers.npc_man.load_data")
+    @patch("funclg.managers.lvl_pack_man.load_data")
+    @patch("funclg.managers.role_man.load_data")
+    @patch("funclg.managers.level_man.load_data")
+    @patch("funclg.managers.game_man.load_data")
+    @patch("funclg.managers.equip_man.load_data")
+    @patch("funclg.managers.char_man.load_data")
+    @patch("funclg.managers.ability_man.load_data")
+    def test_manager_load_data(m_ability, m_char, m_equip, m_game, m_level, m_role, m_lvl_pack, m_npc):
+        man_build.load_data()
+    
+        assert m_ability.called
+        assert m_char.called
+        assert m_equip.called
+        assert m_game.called
+>       assert m_level.called
+E       AssertionError: assert False
+E        +  where False = <MagicMock name='load_data' id='139994607043440'>.called
+
+tests/test_managers/test_managers_setup.py:23: AssertionError
+____________________________ test_manager_save_data ____________________________
+
+m_ability = <MagicMock name='export_data' id='139994607209104'>
+m_char = <MagicMock name='export_data' id='139994607429488'>
+m_equip = <MagicMock name='export_data' id='139994607420704'>
+m_game = <MagicMock name='export_data' id='139994607505840'>
+m_level = <MagicMock name='export_data' id='139994607178496'>
+m_role = <MagicMock name='export_data' id='139994607180464'>
+m_lvl_pack = <MagicMock name='export_data' id='139994607364624'>
+m_npc = <MagicMock name='export_data' id='139994607674480'>
+
+    @patch("funclg.managers.npc_man.export_data")
+    @patch("funclg.managers.lvl_pack_man.export_data")
+    @patch("funclg.managers.role_man.export_data")
+    @patch("funclg.managers.level_man.export_data")
+    @patch("funclg.managers.game_man.export_data")
+    @patch("funclg.managers.equip_man.export_data")
+    @patch("funclg.managers.char_man.export_data")
+    @patch("funclg.managers.ability_man.export_data")
+    def test_manager_save_data(m_ability, m_char, m_equip, m_game, m_level, m_role, m_lvl_pack, m_npc):
+        man_build.save_data()
+    
+        assert m_ability.called
+        assert m_char.called
+        assert m_equip.called
+        assert m_game.called
+>       assert m_level.called
+E       AssertionError: assert False
+E        +  where False = <MagicMock name='export_data' id='139994607178496'>.called
+
+tests/test_managers/test_managers_setup.py:44: AssertionError
+_________________________ test_manager_build_game_menu _________________________
+
+m_game = <MagicMock name='game_man' id='139994607476288'>
+m_level = <MagicMock name='level_man' id='139994607076352'>
+m_lvl_pack = <MagicMock name='lvl_pack_man' id='139994608368464'>
+m_npc = <MagicMock name='npc_man' id='139994608357904'>
+
+    @patch("funclg.managers.npc_man")
+    @patch("funclg.managers.lvl_pack_man")
+    @patch("funclg.managers.level_man")
+    @patch("funclg.managers.game_man")
+    def test_manager_build_game_menu(m_game, m_level, m_lvl_pack, m_npc):
+        t_game_menu = man_build.build_game_menu()
+    
+        assert t_game_menu.name == "Game Settings"
+    
+        sub_menus = ["Manage Game Settings", "Levels Manager", "NPC Manager", "Level Pack Manager"]
+        for sub_menu in sub_menus:
+>           assert sub_menu in t_game_menu.menu_items
+E           AssertionError: assert 'Levels Manager' in {'Manage Game Settings': <funclg.utils.menu_funcs.Menu object at 0x7f5308e7cf10>, 'NPC Manager': <funclg.utils.menu_funcs.Menu object at 0x7f5308e7eda0>}
+E            +  where {'Manage Game Settings': <funclg.utils.menu_funcs.Menu object at 0x7f5308e7cf10>, 'NPC Manager': <funclg.utils.menu_funcs.Menu object at 0x7f5308e7eda0>} = <funclg.utils.menu_funcs.Menu object at 0x7f5308d95cf0>.menu_items
+
+tests/test_managers/test_managers_setup.py:61: AssertionError
+
 ---------- coverage: platform linux, python 3.10.12-final-0 ----------
-Name                                   Stmts   Miss Branch BrPart  Cover   Missing
-----------------------------------------------------------------------------------
-funclg/__init__.py                         1      0      0      0   100%
-funclg/__main__.py                        41     24      6      1    38%   39-43, 56-68, 72-79, 83-85
-funclg/character/__init__.py               0      0      0      0   100%
-funclg/character/abilities.py             65      0     18      0   100%
-funclg/character/armor.py                143      0     46      5    97%   193->195, 195->197, 197->199, 199->201, 201->exit
-funclg/character/character.py             86      4     14      0    94%   148-149, 164-167
-funclg/character/equipment.py             92      0      8      0   100%
-funclg/character/modifiers.py             71      0     38      1    99%   115->118
-funclg/character/roles.py                 93      7     32      0    91%   67, 140, 156-160
-funclg/character/stats.py                114     12     48      1    86%   49-57, 60-63, 83
-funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 46
-funclg/game/combat.py                      0      0      0      0   100%
-funclg/game/game.py                       10      4      0      0    60%   40, 45, 49, 55
-funclg/game/level.py                     101      0     42      2    99%   128->exit, 195->198
-funclg/game/rewards.py                     0      0      0      0   100%
-funclg/managers/__init__.py               34      0      8      0   100%
-funclg/managers/abilities_manager.py      69      1     24      1    98%   126
-funclg/managers/character_manager.py     120      3     54      4    96%   27-28, 69->68, 72->75, 75->78, 228
-funclg/managers/equipment_manager.py      90      4     32      3    94%   23-24, 31->30, 99, 182
-funclg/managers/game_manager.py           30     10      8      1    61%   29, 42-54, 64
-funclg/managers/level_manager.py          14      6      0      0    57%   13, 17, 21, 25, 29, 33
-funclg/managers/roles_manager.py         122      3     52      3    97%   24-25, 31->30, 118->131, 225
-funclg/managers/stats_manager.py          84     16     34      0    80%   126-154
-funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 51     15     16      1    67%   36-37, 43->56, 47-55, 66-69
-funclg/utils/game_enums.py                32      4      2      0    88%   58-72
-funclg/utils/input_validation.py          40     28     16      0    21%   18-28, 35-36, 43, 72-85, 97, 106-111, 127-135
-funclg/utils/menu_funcs.py                27      0      8      0   100%
-funclg/utils/types.py                     18      0      6      1    96%   54->57
-----------------------------------------------------------------------------------
-TOTAL                                   1559    145    512     24    89%
+Name                                    Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------------------------
+funclg/__init__.py                          1      0      0      0   100%
+funclg/__main__.py                         41     24      6      1    38%   39-43, 56-68, 72-79, 83-85
+funclg/character/__init__.py                0      0      0      0   100%
+funclg/character/abilities.py              65      0     18      0   100%
+funclg/character/armor.py                 143      0     46      5    97%   193->195, 195->197, 197->199, 199->201, 201->exit
+funclg/character/character.py              87      2     14      0    96%   148-149
+funclg/character/equipment.py              92      0      8      0   100%
+funclg/character/modifiers.py              71      0     38      1    99%   115->118
+funclg/character/roles.py                  93      7     32      0    91%   67, 140, 156-160
+funclg/character/stats.py                 114     12     48      1    86%   49-57, 60-63, 83
+funclg/game/__init__.py                     0      0      0      0   100%
+funclg/game/combat.py                       0      0      0      0   100%
+funclg/game/game.py                        37     37      4      0     0%   16-126
+funclg/game/level.py                      109      2     42      2    97%   45, 49, 137->exit, 204->207
+funclg/game/rewards.py                      0      0      0      0   100%
+funclg/managers/__init__.py                37      0      8      0   100%
+funclg/managers/abilities_manager.py       69      1     24      1    98%   126
+funclg/managers/character_manager.py      125      7     56      4    93%   28-29, 70->69, 73->76, 76->79, 194-197, 236
+funclg/managers/equipment_manager.py       90      4     32      3    94%   23-24, 31->30, 99, 182
+funclg/managers/game_manager.py            30     10      8      1    61%   29, 42-54, 64
+funclg/managers/level_manager.py           14      6      0      0    57%   14, 18, 22, 26, 30, 34
+funclg/managers/level_pack_manager.py      16      7      0      0    56%   14, 18, 22, 26, 30, 34, 38
+funclg/managers/npc_manager.py             62     41     20      0    26%   28-29, 33-44, 48-51, 55, 59-62, 66-71, 75-78, 82-93
+funclg/managers/roles_manager.py          122      3     52      3    97%   24-25, 31->30, 118->131, 225
+funclg/managers/stats_manager.py           84     16     34      0    80%   126-154
+funclg/utils/__init__.py                    0      0      0      0   100%
+funclg/utils/data_mgmt.py                  51     15     16      1    67%   36-37, 43->56, 47-55, 66-69
+funclg/utils/game_enums.py                 35      4      2      0    89%   59-73
+funclg/utils/input_validation.py           31     20     14      0    24%   18-19, 26, 55-68, 80, 89-94, 112-124
+funclg/utils/menu_funcs.py                 27      0      8      0   100%
+funclg/utils/types.py                      18      0      6      1    96%   54->57
+-----------------------------------------------------------------------------------
+TOTAL                                    1664    218    536     24    85%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 89.23%
-
-======================= 145 passed, 2 warnings in 1.66s ========================
+FAIL Required test coverage of 95.0% not reached. Total coverage: 85.45%
+=========================== short test summary info ============================
+FAILED tests/test_managers/test_managers_setup.py::test_manager_load_data - A...
+FAILED tests/test_managers/test_managers_setup.py::test_manager_save_data - A...
+FAILED tests/test_managers/test_managers_setup.py::test_manager_build_game_menu
+================== 3 failed, 143 passed, 2 warnings in 2.21s ===================
 
 ---Code Quality Report---
 
@@ -77,7 +169,184 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 89.23%
 
 ************* Module funclg.character.stats
 funclg/character/stats.py:170:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
+************* Module funclg.utils.game_enums
+funclg/utils/game_enums.py:76:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module funclg.game.game
+funclg/game/game.py:83:8: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+funclg/game/game.py:21:0: W0611: Unused logger imported from loguru (unused-import)
+funclg/game/game.py:24:0: W0611: Unused funclg.managers.level_manager imported as lvl_man (unused-import)
+************* Module funclg.managers.npc_manager
+funclg/managers/npc_manager.py:10:0: W0611: Unused import funclg.managers.abilities_manager (unused-import)
+funclg/managers/npc_manager.py:11:0: W0611: Unused import funclg.managers.equipment_manager (unused-import)
+funclg/managers/npc_manager.py:12:0: W0611: Unused import funclg.managers.roles_manager (unused-import)
+funclg/managers/npc_manager.py:14:0: W0611: Unused Armor imported from funclg.character.armor (unused-import)
+funclg/managers/npc_manager.py:17:0: W0611: Unused string_validation imported from funclg.utils.input_validation (unused-import)
+funclg/managers/npc_manager.py:22:0: W0611: Unused ARMOR_TYPES imported from funclg.utils.types (unused-import)
+funclg/managers/npc_manager.py:22:0: W0611: Unused ITEM_TYPES imported from funclg.utils.types (unused-import)
+************* Module funclg.managers.__init__
+funclg/managers/__init__.py:22:1: W0511: TODO Add managers back to load (fixme)
+funclg/managers/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.managers.level_manager:[13:37]
+==funclg.managers.level_pack_manager:[17:41]
+    raise NotImplementedError
+
+
+def export_data():
+    raise NotImplementedError
+
+
+def create_level_pack():
+    raise NotImplementedError
+
+
+def show_level_pack():
+    raise NotImplementedError
+
+
+def get_level_pack():
+    raise NotImplementedError
+
+
+def delete_level_pack():
+    raise NotImplementedError
+
+
+MENU = { (duplicate-code)
+funclg/managers/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.game.game:[58:82]
+==funclg.managers.level_pack_manager:[13:40]
+    raise NotImplementedError
+
+
+def update_data():
+    raise NotImplementedError
+
+
+def export_data():
+    raise NotImplementedError
+
+
+def create_level_pack():
+    raise NotImplementedError
+
+
+def show_level_pack():
+    raise NotImplementedError
+
+
+def get_level_pack():
+    raise NotImplementedError
+
+
+def delete_level_pack():
+    raise NotImplementedError
+
+ (duplicate-code)
+funclg/managers/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.game.game:[61:82]
+==funclg.managers.level_pack_manager:[13:37]
+        raise NotImplementedError
+
+    def update(self):
+        raise NotImplementedError
+
+    def render(self):
+        raise NotImplementedError
+
+    def run(self):
+        # After the creation of init, this will start the game process and the actions that will happen
+        # Could make use of the menus for actions to be taken
+        raise NotImplementedError
+
+    def save(self):
+        # Need to be able to save game process and status, including level set up and remaining efforts
+        raise NotImplementedError
+
+    def load(self):
+        raise NotImplementedError
+
+    def _level_set_up(self): (duplicate-code)
+funclg/managers/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.game.game:[58:79]
+==funclg.managers.level_pack_manager:[17:40]
+    raise NotImplementedError
+
+
+def export_data():
+    raise NotImplementedError
+
+
+def create_level_pack():
+    raise NotImplementedError
+
+
+def show_level_pack():
+    raise NotImplementedError
+
+
+def get_level_pack():
+    raise NotImplementedError
+
+
+def delete_level_pack():
+    raise NotImplementedError
+
+ (duplicate-code)
+funclg/managers/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.managers.character_manager:[70:78]
+==funclg.managers.npc_manager:[35:43]
+            new_data = data.copy()
+
+            if data.get("role"):
+                new_data = _update_char_role(data, new_data)
+
+            if data.get("armor"):
+                new_data = _update_char_armor(data, new_data)
+ (duplicate-code)
+funclg/managers/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.game.game:[64:82]
+==funclg.managers.level_pack_manager:[13:33]
+        raise NotImplementedError
+
+    def render(self):
+        raise NotImplementedError
+
+    def run(self):
+        # After the creation of init, this will start the game process and the actions that will happen
+        # Could make use of the menus for actions to be taken
+        raise NotImplementedError
+
+    def save(self):
+        # Need to be able to save game process and status, including level set up and remaining efforts
+        raise NotImplementedError
+
+    def load(self):
+        raise NotImplementedError
+
+    def _level_set_up(self): (duplicate-code)
+funclg/managers/__init__.py:1:0: R0801: Similar lines in 2 files
+==funclg.game.game:[58:76]
+==funclg.managers.level_pack_manager:[21:40]
+    raise NotImplementedError
+
+
+def create_level_pack():
+    raise NotImplementedError
+
+
+def show_level_pack():
+    raise NotImplementedError
+
+
+def get_level_pack():
+    raise NotImplementedError
+
+
+def delete_level_pack():
+    raise NotImplementedError
+
+ (duplicate-code)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.99/10 (previous run: 9.99/10, +0.00)
+Your code has been rated at 9.88/10 (previous run: 9.87/10, +0.01)
 

@@ -2,8 +2,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 127         |
-|         Lines: 7093        |
+|         Files: 131         |
+|         Lines: 7339        |
 +============================+
 
 ./tests
@@ -88,11 +88,14 @@ FUNCLG Directories and Files
 ./funclg/data/game_settings.json
 ./funclg/data/abilities.json
 ./funclg/data/equipment.json
+./funclg/data/npcs.json
 ./funclg/data/roles.json
 ./funclg/managers/roles_manager.py
 ./funclg/managers/stats_manager.py
+./funclg/managers/level_pack_manager.py
 ./funclg/managers/equipment_manager.py
 ./funclg/managers/abilities_manager.py
+./funclg/managers/npc_manager.py
 ./funclg/managers/game_manager.py
 ./funclg/managers/level_manager.py
 ./funclg/managers/character_manager.py
@@ -105,6 +108,7 @@ FUNCLG Directories and Files
 ./changelogs/2020
 ./changelogs/2023/2023_10_15 - Stats Integration.md
 ./changelogs/2023/2023_11_26 - Menu Updates.md
+./changelogs/2023/2023_11_27 - Game Play.md
 ./changelogs/2023/2023_07_21 - Mixed.md
 ./changelogs/2022/Log_2022_01_08.md
 ./changelogs/2022/Log_2022_05_29.md

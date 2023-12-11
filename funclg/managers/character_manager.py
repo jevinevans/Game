@@ -1,7 +1,7 @@
 """
-Programmer: Jevin Evans
-Date: 6.19.2022
 Description: A manager class for creating, updating, and removing characters.
+Developer: Jevin Evans
+Date: 6.19.2022
 """
 from typing import List, Union
 
@@ -12,7 +12,7 @@ import funclg.managers.equipment_manager as eq_man
 import funclg.managers.roles_manager as role_man
 import funclg.utils.data_mgmt as db
 from funclg.character.armor import Armor
-from funclg.character.character import Character
+from funclg.character.character import Player
 from funclg.utils.input_validation import (
     confirmation,
     selection_validation,
@@ -75,7 +75,7 @@ def update_data():
             if data.get("armor"):
                 new_data = _update_char_armor(data, new_data)
 
-            CHARACTER_DATA["objects"][_id] = Character(**new_data)
+            CHARACTER_DATA["objects"][_id] = Player(**new_data)
 
 
 def export_data():
@@ -163,7 +163,7 @@ def build_character():
     else:
         char_armor = Armor(armor_type=char_armor_type_int)
 
-    new_character = Character(
+    new_character = Player(
         name=char_name,
         armor_type=char_armor_type_int,
         armor_instance=char_armor,
@@ -185,7 +185,14 @@ def select_character():
         return selection_validation(
             "Please select a character", CHARACTER_DATA["data"], "name", "_id"
         )
-    logger.warning("There are no roles available.")
+    logger.warning("There are no characters available.")
+    return None
+
+
+def get_character():
+    if CHARACTER_DATA["objects"]:
+        return CHARACTER_DATA["objects"].get(select_character(), None)
+    logger.warning("There are no characters available to choose.")
     return None
 
 

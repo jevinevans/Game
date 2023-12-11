@@ -65,7 +65,7 @@ def _new_weapon():
 
 def _new_body_armor():
     item_type = selection_validation(
-        "What type of Armor would you like to create?", ITEM_TYPES[:-1]
+        "What type of armor would you like to create?", ITEM_TYPES[:-1]
     )
     armor_type = selection_validation(
         f"What type of armor would you like to make the {item_type}?", ARMOR_TYPES
@@ -91,11 +91,11 @@ def build_equipment():
     """Dialog for building new equipment"""
     equip_type = selection_validation(
         "Starting Equipmet Creation:\n\nWhat type of equipment would you like to create:",
-        ["Body Armor", "Weapon"],
+        ["Armor", "Weapon"],
     )
     new_equipment = None
 
-    if equip_type == "Body Armor":
+    if equip_type == "Armor":
         new_equipment = _new_body_armor()
     else:
         new_equipment = _new_weapon()

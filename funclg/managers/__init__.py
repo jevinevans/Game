@@ -9,6 +9,8 @@ from . import character_manager as char_man
 from . import equipment_manager as equip_man
 from . import game_manager as game_man
 from . import level_manager as level_man
+from . import level_pack_manager as lvl_pack_man
+from . import npc_manager as npc_man
 from . import roles_manager as role_man
 
 CHAR_MANAGERS = [
@@ -17,8 +19,9 @@ CHAR_MANAGERS = [
     ability_man,
     equip_man,
 ]
+GAME_MANAGERS = [game_man, level_man, lvl_pack_man, npc_man]
 
-GAME_MANAGERS = [game_man, level_man]
+ALL_MANAGERS = CHAR_MANAGERS + GAME_MANAGERS
 
 
 def build_manager_menu():
@@ -49,10 +52,12 @@ def build_game_menu():
 
 
 def load_data():
-    for manager in CHAR_MANAGERS + GAME_MANAGERS:
+    # for manager in ALL_MANAGERS:
+    for manager in CHAR_MANAGERS:
         manager.load_data()
 
 
 def save_data():
-    for manager in CHAR_MANAGERS + GAME_MANAGERS:
+    # for manager in ALL_MANAGERS:
+    for manager in CHAR_MANAGERS:
         manager.export_data()

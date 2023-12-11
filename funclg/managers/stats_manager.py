@@ -1,8 +1,9 @@
 """
-Programmer: Jevin Evans
-Date: 6.19.2022
 Description: A manager class for creating, updating, and removing modifiers.
+Developer: Jevin Evans
+Date: 6.19.2022
 """
+
 from random import randint
 from typing import Any, Dict
 
@@ -130,25 +131,30 @@ def build_stats():
 
     attributes = {_attr: Stats.STAT_DEFAULT for _attr in Stats.BASE_ATTRIBUTES}
 
-    while True:
-        print("Current Attributes:")
-        for _a, _v in attributes.items():
-            print(f"{_a}: {_v}")
+    print("\nCurrent Attributes:")
+    for _a, _v in attributes.items():
+        print(f"{_a}: {_v}")
 
-        attr_choice = selection_validation(
-            "Which stat would you like to customize", list(attributes)
-        )
+    if confirmation("Do you want to customize the attributes?"):
+        while True:
+            attr_choice = selection_validation(
+                "Which stat would you like to customize", list(attributes)
+            )
 
-        print(
-            f"What would you like to set {attr_choice.capitalize()} to ({Stats.STAT_DEFAULT} <= x <= {Modifier.MOD_BASE_RANGE})?"
-        )
-        attr_value = number_range_validation(Stats.STAT_DEFAULT, Modifier.MOD_BASE_RANGE)
+            print(
+                f"What would you like to set {attr_choice.capitalize()} to ({Stats.STAT_DEFAULT} <= x <= {Modifier.MOD_BASE_RANGE})?"
+            )
+            attr_value = number_range_validation(Stats.STAT_DEFAULT, Modifier.MOD_BASE_RANGE)
 
-        if confirmation(f"Confirm updating {attr_choice} to {attr_value}?"):
-            attributes.update({attr_choice: attr_value})
+            if confirmation(f"Confirm updating {attr_choice} to {attr_value}?"):
+                attributes.update({attr_choice: attr_value})
 
-        if not confirmation("Do you want to change another stat?"):
-            logger.debug("Building Stats")
-            break
+            if not confirmation("Do you want to change another stat?"):
+                logger.debug("Building Stats")
+                break
+
+            print("\nCurrent Attributes:")
+            for _a, _v in attributes.items():
+                print(f"{_a}: {_v}")
 
     return {"attributes": attributes}

@@ -1,7 +1,7 @@
 """
-Programmer: Jevin Evans
-Date: 6.11.2022
 Description: The character that will be used. The character will have a role, abilities, and armor.
+Developer: Jevin Evans
+Date: 6.11.2022
 """
 
 from typing import Any, Dict, Optional
@@ -39,7 +39,7 @@ class Character:
         """
         self.name = name
         self.level = kwargs.get("level", 1)
-        self.stats = stats if stats else Stats(attributes=Character.BASE_STATS)
+        self.stats = Stats(**stats) if stats else Stats(attributes=Character.BASE_STATS)
         self._set_up_role(role_instance)
         self._set_up_armor(armor_instance)
         self._update_stats()
@@ -153,6 +153,8 @@ class NonPlayableCharacter(Character):
     """
     A non playable character that is used for player combat
     """
+
+    DB_PREFIX = "NPC"
 
     def __init__(
         self,

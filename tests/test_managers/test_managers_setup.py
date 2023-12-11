@@ -5,13 +5,15 @@ import pytest
 import funclg.managers as man_build
 
 
+@patch("funclg.managers.npc_man.load_data")
+@patch("funclg.managers.lvl_pack_man.load_data")
 @patch("funclg.managers.role_man.load_data")
 @patch("funclg.managers.level_man.load_data")
 @patch("funclg.managers.game_man.load_data")
 @patch("funclg.managers.equip_man.load_data")
 @patch("funclg.managers.char_man.load_data")
 @patch("funclg.managers.ability_man.load_data")
-def test_manager_load_data(m_ability, m_char, m_equip, m_game, m_level, m_role):
+def test_manager_load_data(m_ability, m_char, m_equip, m_game, m_level, m_role, m_lvl_pack, m_npc):
     man_build.load_data()
 
     assert m_ability.called
@@ -20,15 +22,19 @@ def test_manager_load_data(m_ability, m_char, m_equip, m_game, m_level, m_role):
     assert m_game.called
     assert m_level.called
     assert m_role.called
+    assert m_npc.called
+    assert m_lvl_pack.called
 
 
+@patch("funclg.managers.npc_man.export_data")
+@patch("funclg.managers.lvl_pack_man.export_data")
 @patch("funclg.managers.role_man.export_data")
 @patch("funclg.managers.level_man.export_data")
 @patch("funclg.managers.game_man.export_data")
 @patch("funclg.managers.equip_man.export_data")
 @patch("funclg.managers.char_man.export_data")
 @patch("funclg.managers.ability_man.export_data")
-def test_manager_save_data(m_ability, m_char, m_equip, m_game, m_level, m_role):
+def test_manager_save_data(m_ability, m_char, m_equip, m_game, m_level, m_role, m_lvl_pack, m_npc):
     man_build.save_data()
 
     assert m_ability.called
@@ -37,17 +43,23 @@ def test_manager_save_data(m_ability, m_char, m_equip, m_game, m_level, m_role):
     assert m_game.called
     assert m_level.called
     assert m_role.called
+    assert m_npc.called
+    assert m_lvl_pack.called
 
 
+@patch("funclg.managers.npc_man")
+@patch("funclg.managers.lvl_pack_man")
 @patch("funclg.managers.level_man")
 @patch("funclg.managers.game_man")
-def test_manager_build_game_menu(m_game, m_level):
+def test_manager_build_game_menu(m_game, m_level, m_lvl_pack, m_npc):
     t_game_menu = man_build.build_game_menu()
 
     assert t_game_menu.name == "Game Settings"
-    assert "Manage Game Settings" in t_game_menu.menu_items
-    assert "Levels Manager" in t_game_menu.menu_items
-    assert len(t_game_menu.menu_items) == 2
+
+    sub_menus = ["Manage Game Settings", "Levels Manager", "NPC Manager", "Level Pack Manager"]
+    for sub_menu in sub_menus:
+        assert sub_menu in t_game_menu.menu_items
+    assert len(t_game_menu.menu_items) == 4
     assert t_game_menu.has_return
 
 
