@@ -2,8 +2,8 @@ FUNCLG Directories and Files
 
 +============================+
 |    Total Directories: 21   |
-|         Files: 131         |
-|         Lines: 7339        |
+|         Files: 129         |
+|         Lines: 7311        |
 +============================+
 
 ./tests
@@ -55,6 +55,7 @@ FUNCLG Directories and Files
 ./tests/test_utils/test_menu.py
 ./docs/Basic Player Game Info.txt
 ./docs/FUNCLG Architecture.md
+./docs/npcs.csv
 ./docs/dev_configs.md
 ./funclg/character
 ./funclg/utils
@@ -74,10 +75,8 @@ FUNCLG Directories and Files
 ./funclg/utils/data_mgmt.py
 ./funclg/utils/input_validation.py
 ./funclg/utils/game_enums.py
-./funclg/utils/equipment.json
 ./funclg/utils/menu_funcs.py
 ./funclg/utils/types.py
-./funclg/utils/modifiers.json
 ./funclg/utils/__init__.py
 ./funclg/game/rewards.py
 ./funclg/game/level.py
@@ -88,7 +87,6 @@ FUNCLG Directories and Files
 ./funclg/data/game_settings.json
 ./funclg/data/abilities.json
 ./funclg/data/equipment.json
-./funclg/data/npcs.json
 ./funclg/data/roles.json
 ./funclg/managers/roles_manager.py
 ./funclg/managers/stats_manager.py
