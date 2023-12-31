@@ -2,6 +2,8 @@
 
 > Currently in Development
 
+## Version 0.6.2
+
 ## Description
 
 The FUN Command Line Game is a personal project to experiment with different Python modules to build a game. This is a development project for research and fun only.
