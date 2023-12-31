@@ -23,6 +23,8 @@ GAME_MANAGERS = [game_man, level_man, lvl_pack_man, npc_man]
 
 ALL_MANAGERS = CHAR_MANAGERS + GAME_MANAGERS
 
+GAME_MANAGERS = [game_man, level_man]
+
 
 def build_manager_menu():
     manager_menu = Menu("Settings", "Configure the game character and game seetings.")
