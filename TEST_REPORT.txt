@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Mon Nov 27 07:08:50 PST 2023 
+Date: Sun Dec 31 09:30:46 PST 2023 
 
 ---PYTEST---
 
@@ -65,7 +65,7 @@ TOTAL                                   1559    145    512     24    89%
 
 FAIL Required test coverage of 95.0% not reached. Total coverage: 89.23%
 
-======================= 145 passed, 2 warnings in 1.66s ========================
+======================= 145 passed, 2 warnings in 2.10s ========================
 
 ---Code Quality Report---
 
@@ -79,5 +79,53 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 89.23%
 funclg/character/stats.py:170:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.99/10 (previous run: 9.99/10, +0.00)
+Your code has been rated at 9.99/10 (previous run: 9.88/10, +0.11)
 
++==============================================================================+
+
+                               /$$$$$$            /$$
+                              /$$__  $$          | $$
+           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
+          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
+         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
+          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
+          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
+         |_______/  \_______/|__/     \_______/   \___/   \____  $$
+                                                          /$$  | $$
+                                                         |  $$$$$$/
+  by pyup.io                                              \______/
+
++==============================================================================+
+
+ [1mREPORT[0m 
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
+  Safety [1mv2.3.5[0m is scanning for [1mVulnerabilities[0m[1m...[0m
+[1m  Scanning dependencies[0m in your [1menvironment:[0m
+
+  -> /home/jevinle/.cache/pypoetry/virtualenvs/funclg-
+    AThUaF5z-py3.10/lib/python3.10/site-packages
+
+  Using [1mnon-commercial database[0m
+[1m  Found and scanned 69 packages[0m
+  Timestamp [1m2023-12-31 09:31:04[0m
+[1m  0[0m[1m vulnerabilities found[0m
+[1m  0[0m[1m vulnerabilities ignored[0m
++==============================================================================+
+
+ [32m[1mNo known security vulnerabilities found.[0m 
+
++==============================================================================+
+
+[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
+data is 30 days old and limited. [0m
+[31m  For real-time enhanced vulnerability data, fix recommendations, severity
+reporting, cybersecurity support, team and project policy management and more
+sign up at https://pyup.io or email sales@pyup.io[0m
+
++==============================================================================+[0m
