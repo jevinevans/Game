@@ -115,10 +115,10 @@ MENU = {
     "name": "Manage Abilities",
     "description": "This is the menu to create abilities to add to Roles for characters to use.",
     "menu_items": [
-        {"name": "Add New Ability", "action": build_ability},
-        # {"name": "Edit Ability", "action": edit_ability},
-        {"name": "View Ability Details", "action": show_ability},
-        {"name": "Delete Ability", "action": delete_ability},
+        {"title": "Add New Ability", "value": build_ability},
+        # {"title": "Edit Ability", "value": edit_ability},
+        {"title": "View Ability Details", "value": show_ability},
+        {"title": "Delete Ability", "value": delete_ability},
     ],
 }
 

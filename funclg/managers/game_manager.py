@@ -25,6 +25,10 @@ def update_data():
     _load_level_icons(GAME_DATA["data"]["level_icons"])
 
 
+def export_data():
+    raise NotImplementedError
+
+
 def _load_level_icons(icon_data: dict[str, Any]):
     icons_sets = {}
 
@@ -49,6 +53,12 @@ def select_level_icons():
     logger.error("There are no level icons loaded.")
     raise SystemError("No level icons loaded.")
 
+
+MENU = {
+    "name": "Manage Game Settings",
+    "description": "The following are game settings to manage the game",
+    "menu_items": [{"title": "Select Level Icons", "value": select_level_icons}],
+}
 
 if __name__ == "__main__":
     load_data()

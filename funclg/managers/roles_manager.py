@@ -214,10 +214,10 @@ MENU = {
     "name": "Manage Roles",
     "description": "This is the menu to manage character roles/classes. Build a class and the attributes to go with it.",
     "menu_items": [
-        {"name": "New Role", "action": build_role},
-        # {"name": "Edit Role", "action": edit_role},
-        {"name": "View Role Details", "action": show_role},
-        {"name": "Delete Role", "action": delete_role},
+        {"title": "New Role", "value": build_role},
+        # {"title": "Edit Role", "value": edit_role},
+        {"title": "View Role Details", "value": show_role},
+        {"title": "Delete Role", "value": delete_role},
     ],
 }
 

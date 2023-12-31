@@ -47,7 +47,7 @@ def build_main_menu():
     """Contructs the main menu for the game"""
     menu = Menu("Main Menu", "Please choice an option:", has_return=False)
     menu.add_item("Play Game", None)
-    menu.add_item("Manage Game", managers.build_manager_menu())
+    menu.add_item("Settings", managers.build_manager_menu())
     menu.add_item("Exit", save_exit)
     return menu
 

@@ -7,29 +7,52 @@ from funclg.utils.menu_funcs import Menu
 from . import abilities_manager as ability_man
 from . import character_manager as char_man
 from . import equipment_manager as equip_man
+from . import game_manager as game_man
+from . import level_manager as level_man
 from . import roles_manager as role_man
 
-MANAGERS = [
+CHAR_MANAGERS = [
     char_man,
     role_man,
     ability_man,
     equip_man,
 ]
 
+GAME_MANAGERS = [game_man, level_man]
+
 
 def build_manager_menu():
-    builder_menu = Menu("Manage Game", "This is the menu to manage all character items.")
-    for manager in MANAGERS:
+    manager_menu = Menu("Settings", "Configure the game character and game seetings.")
+    char_menu = build_character_menu()
+    game_menu = build_game_menu()
+
+    manager_menu.add_item(char_menu.name, char_menu)
+    manager_menu.add_item(game_menu.name, game_menu)
+
+    return manager_menu
+
+
+def build_character_menu():
+    char_menu = Menu("Character Settings", "This is the menu to manage all character items.")
+    for manager in CHAR_MANAGERS:
         sub_menu = Menu.build_menu(**manager.MENU)
-        builder_menu.add_item(sub_menu.name, sub_menu)
-    return builder_menu
+        char_menu.add_item(sub_menu.name, sub_menu)
+    return char_menu
+
+
+def build_game_menu():
+    game_menu = Menu("Game Settings", "Manage game and level settings.")
+    for manager in GAME_MANAGERS:
+        sub_menu = Menu.build_menu(**manager.MENU)
+        game_menu.add_item(sub_menu.name, sub_menu)
+    return game_menu
 
 
 def load_data():
-    for manager in MANAGERS:
+    for manager in CHAR_MANAGERS + GAME_MANAGERS:
         manager.load_data()
 
 
 def save_data():
-    for manager in MANAGERS:
+    for manager in CHAR_MANAGERS + GAME_MANAGERS:
         manager.export_data()

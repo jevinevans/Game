@@ -4,9 +4,44 @@ Developer: Jevin Evans
 Date: 10.8.2023
 """
 
-# import questionary
 # from loguru import logger
 
+LEVEL_DATA = {"filename": "game_levels.json", "data": {}, "objects": {}}
+
+
+def load_data():
+    raise NotImplementedError
+
+
+def update_data():
+    raise NotImplementedError
+
+
+def export_data():
+    raise NotImplementedError
+
+
+def create_level():
+    raise NotImplementedError
+
+
+def show_levels():
+    raise NotImplementedError
+
+
+def delete_level():
+    raise NotImplementedError
+
+
+MENU = {
+    "name": "Levels Manager",
+    "description": "Create and manage level settings.",
+    "menu_items": [
+        {"title": "Create New Level", "value": create_level},
+        {"title": "Show Level(s)", "value": show_levels},
+        {"title": "Delete Level", "value": delete_level},
+    ],
+}
 # Allow user to build a level board
 
 # This should manage level settings:

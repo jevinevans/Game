@@ -1,4 +1,4 @@
-# FUN Command Line Game Log: 10.15.2023 - 
+# FUN Command Line Game Log: 10.15.2023 - 11.26.2023
 <!-- Update: Current Log date -->
 
 Last Updated: 11.26.2023 <!-- Update with previous log date -->
