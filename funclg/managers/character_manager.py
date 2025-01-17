@@ -3,6 +3,7 @@ Programmer: Jevin Evans
 Date: 6.19.2022
 Description: A manager class for creating, updating, and removing characters.
 """
+
 from typing import List, Union
 
 from loguru import logger
