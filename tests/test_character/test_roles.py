@@ -99,7 +99,7 @@ def test_role_get_ability_out_of_range(m_log, mage_test_role):
     for index in range(4, 10):
         assert mage_test_role.get_ability(index) is None
         assert m_log.called
-        assert m_log.called_with("There is no power in this slot.")
+        m_log.assert_called_with("There is no power in this slot.")
 
 
 def test_role_remove_ability_valid(mage_test_role):

@@ -72,7 +72,7 @@ def test_equipment_manager_update_data(m_db, test_equipment, test_equipment_2, t
     assert len(eq_man.EQUIPMENT_DATA["data"]) == len(eq_man.EQUIPMENT_DATA["objects"])
     assert len(eq_man.EQUIPMENT_DATA["data"]) == 3
     assert len(eq_man.EQUIPMENT_DATA["objects"]) == 3
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.utils.data_mgmt.update_data")
@@ -90,7 +90,7 @@ def test_equipment_manager_export_data(m_db, test_weapon, test_equipment, test_e
     assert len(eq_man.EQUIPMENT_DATA["data"]) == 3
     assert len(eq_man.EQUIPMENT_DATA["objects"]) == 3
     assert test_weapon["_id"] in eq_man.EQUIPMENT_DATA["data"]
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.managers.equipment_manager.logger")
@@ -125,12 +125,12 @@ def test_equipment_manager_show_equipment(m_eq_select, m_log, m_print, test_equi
 
     m_eq_select.return_value = teq.id
     eq_man.show_equipment()
-    assert m_print.called_with(teq.details())
+    m_print.assert_called_with(teq.details())
 
     # Fail Test
     m_eq_select.return_value = None
     eq_man.show_equipment()
-    assert m_log.called_with("There are no equipment items to show.")
+    m_log.warning.assert_called_with("There are no equipment items to show.")
     assert m_log.warning.called
 
 
@@ -154,7 +154,7 @@ def test_equipment_manager_delete_equipment(
 
     assert test_obj.id not in eq_man.EQUIPMENT_DATA["data"]
     assert test_obj.id not in eq_man.EQUIPMENT_DATA["objects"]
-    assert m_print.called_with(f"Deleting {test_obj.name}")
+    m_print.assert_called_with(f"Deleting {test_obj.name}")
     assert m_update.called
 
     # No Delete
@@ -163,7 +163,7 @@ def test_equipment_manager_delete_equipment(
     m_seleq.return_value = test_equipment["_id"]
     m_confirm.return_value = False
     eq_man.delete_equipment()
-    assert m_print.called_with("Keeping all equipment in the vault...")
+    m_print.assert_called_with("Keeping all equipment in the vault...")
 
     # No Items Delete
     m_seleq.return_value = None
@@ -245,8 +245,8 @@ def test_equipment_manager_build_equipment(
 
     eq_man.build_equipment()
 
-    assert m_print.called_with(f"{test_weapon['name']} has been saved!!")
-    assert m_print.called_with("No new weapon, oh well...")
+    m_print.assert_called_with(f"{test_weapon['name']} has been saved!!")
+    m_print.assert_called_with("No new weapon, oh well...")
 
 
 def test_equipment_manager_filter_equipment_by_armor_type(

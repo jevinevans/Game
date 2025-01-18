@@ -112,7 +112,7 @@ Stats [80]
 @pytest.fixture
 def character_inventory_show_expectation():
     inventory = ["item_1", "item_2", "item_3"]
-    expectation = "\nInventory:" + "  - ".join(inventory)
+    expectation = "\nInventory:" + "\n  - ".join(inventory)
     return [expectation, inventory]
 
 

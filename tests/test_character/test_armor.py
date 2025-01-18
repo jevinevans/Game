@@ -85,19 +85,19 @@ def test_armor_equipping_armor_type_incompatibility(equipment_only):
 
 
 @patch("funclg.utils.types.get_item_type")
-@patch("loguru.logger.error")
+@patch("funclg.character.armor.logger.error")
 def test_armor_equipping_flow_issues(m_log, m_item_type):
     # No Item Flow
     armor = Armor(1)
 
     armor.equip(None)
-    assert m_log.called_with("No item was provided to equip")
+    m_log.assert_called_with("No item was provided to equip")
 
     # No Item Type Function
     m_item_type.return_value = "Other Val"
     armor.equip(BodyEquipment(name="Test Armor", item_type=-1, armor_type=1))
 
-    assert m_log.called_with("No item was provided to equip")
+    m_log.assert_called_with("No item was provided to equip")
 
 
 def test_armor_dequipping(light_armor_knife):
@@ -113,12 +113,12 @@ def test_armor_dequipping(light_armor_knife):
 
 
 # @patch("funclg.utils.types.get_item_type")
-@patch("loguru.logger.error")
+@patch("funclg.character.armor.logger.warning")
 def test_armor_dequipping_flow_issues(m_log):
     # Wrong Item Type
     armor = Armor(1)
-    armor.dequip("Tail")
-    assert m_log.called_with("There is no item to remove.")
+    assert not armor.dequip("Tail")
+    m_log.assert_called_with("There is no item to remove.")
 
 
 def test_armor_get_equipment(equipment_only):

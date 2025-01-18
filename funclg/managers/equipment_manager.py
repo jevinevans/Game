@@ -156,12 +156,12 @@ def delete_equipment():
     if del_equip_id:
         del_equip = EQUIPMENT_DATA["data"][del_equip_id]
         if confirmation(f"Do you want to delete \"{del_equip['name']}\"?"):
-            print(f"Deleteing {del_equip['name']}")
+            print(f"Deleting {del_equip['name']}")
             del EQUIPMENT_DATA["data"][del_equip_id]
             del EQUIPMENT_DATA["objects"][del_equip_id]
             update_data()
             return
-        print("Keeing all equipment in the vault...")
+        print("Keeping all equipment in the vault...")
         return
     logger.warning("There are currently no equipment to delete.")
 

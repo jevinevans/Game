@@ -171,7 +171,7 @@ class GameLevel:  # pylint: disable=too-many-instance-attributes
         try:
             level_loc = self.coord_to_int(coords)
         except IndexError:
-            logger.error("That location is not on the map silly....")
+            logger.error("That location is not on the map silly...")
             return GameAction.ERROR
 
         if self._validate_level_update_pos(game_piece=game_piece, level_loc=level_loc):

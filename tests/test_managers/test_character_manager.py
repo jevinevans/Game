@@ -121,7 +121,7 @@ def test_char_manager_update_data(m_db, test_character_mage):
     char_man.update_data()
 
     assert len(char_man.CHARACTER_DATA["data"]) == len(char_man.CHARACTER_DATA["objects"])
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.utils.data_mgmt.update_data")
@@ -138,7 +138,7 @@ def test_char_manager_export_data(m_db, test_character_mage):
 
     assert len(char_man.CHARACTER_DATA["data"]) == len(char_man.CHARACTER_DATA["objects"])
     assert _test_char_mage["_id"] in char_man.CHARACTER_DATA["data"]
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.managers.character_manager.logger")
@@ -174,7 +174,7 @@ def test_char_manager_show_character(m_sel, m_log, m_print, test_character_mage)
     )
 
     char_man.show_character()
-    assert m_print.called_with(
+    m_print.assert_called_with(
         char_man.CHARACTER_DATA["objects"][test_character_mage["_id"]].details()
     )
 
@@ -202,7 +202,7 @@ def test_char_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, te
     assert m_update.called
     assert char_obj.id not in char_man.CHARACTER_DATA["data"]
     assert char_obj.id not in char_man.CHARACTER_DATA["objects"]
-    assert m_print.called_with(f"Delete {char_obj.name}")
+    m_print.assert_called_with(f"Deleting {char_obj.name}")
 
     # No Delete
     char_man.CHARACTER_DATA["data"][char_obj.id] = test_character_mage
@@ -210,7 +210,7 @@ def test_char_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, te
     m_sel.return_value = char_obj.id
     m_confirm.return_value = False
     char_man.delete_character()
-    assert m_print.called_with("Keeping all characters alive...")
+    m_print.assert_called_with("Keeping all characters alive...")
 
     # No select (Error Case)
     m_sel.return_value = None
@@ -273,8 +273,8 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
 
     expected_results = {"chest": t_chest, "weapon": t_weapon}
 
-    assert m_print.called_with("There are not any Medium Head items, continuing...\n")
-    assert m_print.called_with("There are not any Medium Back items, continuing...\n")
+    m_print.assert_called_with("There are not any Medium Head items, continuing...\n")
+    m_print.assert_called_with("There are not any Medium Back items, continuing...\n")
     for a_type, item in selected_equipment.items():
         assert item.name == expected_results[a_type].name
         assert item.id == expected_results[a_type].id
@@ -287,14 +287,14 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
 
     expected_results = {"chest": t_chest, "weapon": t_weapon}
 
-    assert m_print.called_with("There are not any Medium Head items, continuing...\n")
-    assert m_print.called_with("There are not any Medium Back items, continuing...\n")
+    m_print.assert_called_with("There are not any Medium Head items, continuing...\n")
+    m_print.assert_called_with("There are not any Medium Back items, continuing...\n")
     for a_type, item in selected_equipment.items():
         if expected_results.get(a_type):
             assert item.name == expected_results[a_type].name
             assert item.id == expected_results[a_type].id
         else:
-            assert item == None
+            assert item is None
 
 
 @patch("funclg.utils.data_mgmt.id_gen")

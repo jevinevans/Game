@@ -3,6 +3,7 @@ Description: A manager class for creating, updating, and removing characters.
 Developer: Jevin Evans
 Date: 6.19.2022
 """
+
 from typing import List, Union
 
 from loguru import logger
@@ -210,7 +211,7 @@ def delete_character():
     if del_character_id:
         del_character = CHARACTER_DATA["data"][del_character_id]
         if confirmation(f"Do you want to delete \"{del_character['name']}\"?"):
-            print(f"Deleteing {del_character['name']}")
+            print(f"Deleting {del_character['name']}")
             del CHARACTER_DATA["data"][del_character_id]
             del CHARACTER_DATA["objects"][del_character_id]
             update_data()

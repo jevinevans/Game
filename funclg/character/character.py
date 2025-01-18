@@ -140,8 +140,7 @@ class Player(Character):
         self.inventory = kwargs.get("inventory", [])
 
     def show_inventory(self):
-        print("\nInventory:")
-        print("\n  - ".join(self.inventory))
+        print("\nInventory:" + "\n  - ".join(self.inventory))
 
     def dequip(self, item_type: str) -> None:
         """Calls the armor dequip function"""
