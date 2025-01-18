@@ -39,29 +39,6 @@ class Stats:
         self._power = 0
         self._cal_power()
 
-    def _validate_attributes(self, attributes: Union[Dict[str, Any], None]):
-        """
-        Validates that provided attributes are valid. Used for loading existing attributes.
-
-        :param attributes: Dictionary of attributes that are not the default value
-        :type attributes: Union[Dict[str,Any], None]
-        """
-        if attributes:
-            for attribute, value in attributes.items():
-                if attribute in Stats.BASE_ATTRIBUTES:
-                    if value >= Stats.STAT_DEFAULT:
-                        setattr(self, attribute, value)
-                    else:
-                        logger.error(f"{value} is below default")
-                else:
-                    logger.error(f"{attribute} is not a valid stats attribute")
-
-    def _cal_power(self):
-        power = 0
-        for attr in Stats.BASE_ATTRIBUTES:
-            power += self.get_stat(attr)
-        self._power = power
-
     @property
     def power(self):
         self._cal_power()

@@ -3,7 +3,7 @@ FUNCLG Directories and Files
 +============================+
 |    Total Directories: 21   |
 |         Files: 127         |
-|         Lines: 7093        |
+|         Lines: 7071        |
 +============================+
 
 ./changelogs

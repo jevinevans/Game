@@ -1,6 +1,6 @@
 ######TESTING REPORT######
 
-Date: Fri Jan 17 12:42:09 PST 2025 
+Date: Fri Jan 17 19:30:06 PST 2025 
 
 ---PYTEST---
 
@@ -8,193 +8,34 @@ Date: Fri Jan 17 12:42:09 PST 2025
 platform linux -- Python 3.12.7, pytest-8.3.4, pluggy-1.5.0
 rootdir: /home/jevin/Dev/FUNCLG
 configfile: pyproject.toml
-plugins: cov-6.0.0
+plugins: cov-6.0.0, anyio-4.8.0
 collected 145 items
 
 tests/test_character/test_abilities.py ......                            [  4%]
-tests/test_character/test_armor.py ......F.F.......                      [ 15%]
-tests/test_character/test_character.py .......F                          [ 20%]
+tests/test_character/test_armor.py ................                      [ 15%]
+tests/test_character/test_character.py ........                          [ 20%]
 tests/test_character/test_equipment.py .............                     [ 29%]
 tests/test_character/test_modifiers.py ..........                        [ 36%]
-tests/test_character/test_roles.py .......F.....                         [ 45%]
-tests/test_character/test_stats.py ....F.F...........                    [ 57%]
-tests/test_game/test_game_levels.py .....FF                              [ 62%]
+tests/test_character/test_roles.py .............                         [ 45%]
+tests/test_character/test_stats.py ....F.............                    [ 57%]
+tests/test_game/test_game_levels.py .....F.                              [ 62%]
 tests/test_main/test_main.py .                                           [ 63%]
-tests/test_managers/test_abilities_manager.py FFFFF..                    [ 68%]
-tests/test_managers/test_character_manager.py FF.FFF...                  [ 74%]
-tests/test_managers/test_equipment_manager.py FF.FF..F.                  [ 80%]
+tests/test_managers/test_abilities_manager.py .......                    [ 68%]
+tests/test_managers/test_character_manager.py .....F...                  [ 74%]
+tests/test_managers/test_equipment_manager.py .......F.                  [ 80%]
 tests/test_managers/test_managers_setup.py .....                         [ 84%]
-tests/test_managers/test_roles_manager.py FF.FF....F..                   [ 92%]
+tests/test_managers/test_roles_manager.py ............                   [ 92%]
 tests/test_managers/test_stats_manager.py ...                            [ 94%]
 tests/test_utils/test_menu.py .....                                      [ 97%]
-tests/test_utils/test_types.py ...
-ERROR: Coverage failure: total of 84 is less than fail-under=85
-                                                                         [100%]
+tests/test_utils/test_types.py ...                                       [100%]
 
 =================================== FAILURES ===================================
-_______________________ test_armor_equipping_flow_issues _______________________
-
-m_log = <MagicMock name='error' id='281018538868656'>
-m_item_type = <MagicMock name='get_item_type' id='281018538867264'>
-
-    @patch("funclg.utils.types.get_item_type")
-    @patch("loguru.logger.error")
-    def test_armor_equipping_flow_issues(m_log, m_item_type):
-        # No Item Flow
-        armor = Armor(1)
-    
-        armor.equip(None)
->       assert m_log.called_with("No item was provided to equip")
-
-tests/test_character/test_armor.py:94: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='error' id='281018538868656'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
-______________________ test_armor_dequipping_flow_issues _______________________
-
-m_log = <MagicMock name='error' id='281018538861264'>
-
-    @patch("loguru.logger.error")
-    def test_armor_dequipping_flow_issues(m_log):
-        # Wrong Item Type
-        armor = Armor(1)
-        armor.dequip("Tail")
->       assert m_log.called_with("There is no item to remove.")
-
-tests/test_character/test_armor.py:121: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='error' id='281018538861264'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:10.587 | WARNING  | funclg.character.armor:dequip:154 - There is no item to remove.
-__________________________ test_player_show_inventory __________________________
-
-m_print = <MagicMock name='print' id='281018537034480'>
-character_inventory_show_expectation = ['\nInventory:item_1  - item_2  - item_3', ['item_1', 'item_2', 'item_3']]
-
-    @patch("builtins.print")
-    def test_player_show_inventory(m_print, character_inventory_show_expectation):
-        expectation, test_inventory = character_inventory_show_expectation
-        t_player = Player("Test Player")
-        t_player.inventory = test_inventory
-    
-        t_player.show_inventory()
->       assert m_print.called_with(expectation)
-
-tests/test_character/test_character.py:183: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018537034480'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:10.676 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: NPC
-______________________ test_role_get_ability_out_of_range ______________________
-
-m_log = <MagicMock name='warning' id='281018541331024'>
-mage_test_role = <funclg.character.roles.Roles object at 0xff95ba16d160>
-
-    @patch("loguru.logger.warning")
-    def test_role_get_ability_out_of_range(m_log, mage_test_role):
-        for index in range(4, 10):
-            assert mage_test_role.get_ability(index) is None
-            assert m_log.called
->           assert m_log.called_with("There is no power in this slot.")
-
-tests/test_character/test_roles.py:102: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='warning' id='281018541331024'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
----------------------------- Captured stderr setup -----------------------------
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Restore Test Ability
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
-2025-01-17 12:42:10.773 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Magic Test Ability
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Restore Test Ability
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Buff Test Ability
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Debuff Test Ability
-2025-01-17 12:42:10.774 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage Class
 ____________________ test_stats_add_modifier_duplicate_mod _____________________
 
-m_log = <MagicMock name='warning' id='281018537277728'>
-stat_no_mods = <funclg.character.stats.Stats object at 0xff95ba16e330>
+m_log = <MagicMock name='error' id='280478556563376'>
+stat_no_mods = <funclg.character.stats.Stats object at 0xff18004fa3f0>
 
-    @patch("loguru.logger.warning")
+    @patch("loguru.logger.error")
     def test_stats_add_modifier_duplicate_mod(m_log, stat_no_mods):
         """Test duplicate adding of an add mod to stat. Stat should reject the second"""
         add = Modifier("add_test", {"attack": 53})
@@ -203,70 +44,36 @@ stat_no_mods = <funclg.character.stats.Stats object at 0xff95ba16e330>
         stat_no_mods.add_mod(add)
         stat_no_mods.add_mod(add)
         assert getattr(stat_no_mods, "mods", False) == {add.name: add.get_mods()}
->       assert m_log.called_with("Modifier: add_test is not valid for this stat")
+>       m_log.assert_called_with("Modifier: add_test is not valid for this stat")
 
 tests/test_character/test_stats.py:130: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <MagicMock name='warning' id='281018537277728'>, name = 'called_with'
+self = <MagicMock name='error' id='280478556563376'>
+args = ('Modifier: add_test is not valid for this stat',), kwargs = {}
+expected = "error('Modifier: add_test is not valid for this stat')"
+actual = 'not called.'
+error_message = "expected call not found.\nExpected: error('Modifier: add_test is not valid for this stat')\n  Actual: not called."
 
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
-________________________ test_stats_remove_stat_failure ________________________
-
-m_log = <MagicMock name='error' id='281018538127392'>
-stat_with_mods = <funclg.character.stats.Stats object at 0xff95ba16f620>
-stat_mods = [<funclg.character.modifiers.Modifier object at 0xff95ba16dbe0>, <funclg.character.modifiers.Modifier object at 0xff95ba16f7a0>]
-
-    @patch("loguru.logger.error")
-    def test_stats_remove_stat_failure(m_log, stat_with_mods, stat_mods):
-        assert stat_with_mods.mods != {}
-        stat_with_mods.remove_mod("Mod_3")
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
     
-        assert stat_with_mods.mods == {
-            stat_mods[0].name: stat_mods[0].get_mods(),
-            stat_mods[1].name: stat_mods[1].get_mods(),
-        }
->       assert m_log.called_with("This stat does not have the 'Mod_1' modifier.")
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+>           raise AssertionError(error_message)
+E           AssertionError: expected call not found.
+E           Expected: error('Modifier: add_test is not valid for this stat')
+E             Actual: not called.
 
-tests/test_character/test_stats.py:149: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='error' id='281018538127392'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
+/usr/local/lib/python3.12/unittest/mock.py:940: AssertionError
 _________________________ test_game_level_alt_display __________________________
 
-m_print = <MagicMock name='print' id='281018537269328'>
+m_print = <MagicMock name='print' id='280478549367344'>
 game_icons = {'alt': LevelIcons(space='■', horizontal_edge='═', vertical_edge='║', tl_corner='╔', tr_corner='╗', bl_corner='╚', br_...rtical_edge='|', tl_corner='+', tr_corner='+', bl_corner='+', br_corner='+', player='P', key='K', boss='B', enemy='E')}
 
     @patch("builtins.print")
@@ -274,569 +81,50 @@ game_icons = {'alt': LevelIcons(space='■', horizontal_edge='═', vertical_edg
         test_level = game_level.GameLevel(5, game_icons["alt"])
     
         test_level.display_level()
->       assert m_print.called_with(alt_level)
+>       m_print.assert_called_with(alt_level)
 
 tests/test_game/test_game_levels.py:87: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <MagicMock name='print' id='281018537269328'>, name = 'called_with'
+self = <MagicMock name='print' id='280478549367344'>
+args = (['+-----+', '|____K|', '|_____|', '|__B__|', '|_____|', '|P____|', ...],)
+kwargs = {}
+expected = call(['+-----+', '|____K|', '|_____|', '|__B__|', '|_____|', '|P____|', '+-----+'])
+actual = call('╚═════════╝')
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0xff18005d72e0>
+cause = None
 
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
-___________________ test_game_level_update_level_game_error ____________________
-
-m_log = <MagicMock name='logger' id='281018537711984'>
-game_icons = {'alt': LevelIcons(space='■', horizontal_edge='═', vertical_edge='║', tl_corner='╔', tr_corner='╗', bl_corner='╚', br_...rtical_edge='|', tl_corner='+', tr_corner='+', bl_corner='+', br_corner='+', player='P', key='K', boss='B', enemy='E')}
-
-    @patch("funclg.game.level.logger")
-    def test_game_level_update_level_game_error(m_log, game_icons):
-        # Bad Update Coordinate - Coordinate not on the board
-        test_level = game_level.GameLevel(6, game_icons["reg"])
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
     
-        assert test_level.update_level(GamePiece.SPACE, (6, 0)) == GameAction.ERROR
->       assert m_log.error.called_with("That location is not on the map silly...")
-
-tests/test_game/test_game_levels.py:96: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='logger.error' id='281018537718992'>
-name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
-______________________ test_abilities_manager_update_data ______________________
-
-m_db = <MagicMock name='update_data' id='281018537034432'>
-test_magic = {'_id': 'ABILITY-12345-EJFI-67890', '_target': 'self', 'ability_type': 'Magic', 'description': 'Test Magic', ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_abilities_manager_update_data(m_db, test_magic):
-        ab_man.ABILITIES_DATA["data"][test_magic["_id"]] = test_magic
-        ab_man.ABILITIES_DATA["objects"] = {}
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
     
-        ab_man.update_data()
-    
-        assert len(ab_man.ABILITIES_DATA["data"]) == len(ab_man.ABILITIES_DATA["objects"])
->       assert m_db.called_once
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: print(['+-----+', '|____K|', '|_____|', '|__B__|', '|_____|', '|P____|', '+-----+'])
+E             Actual: print('╚═════════╝')
 
-tests/test_managers/test_abilities_manager.py:34: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='281018537034432'>, name = 'called_once'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.036 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: attack in ['health', 'defense'] False
-2025-01-17 12:42:11.037 | WARNING  | funclg.character.abilities:_validate_mods:67 - Provided mod was not compatable with selected ability.
-2025-01-17 12:42:11.037 | WARNING  | funclg.character.abilities:_validate_mods:68 - Using default modifier value.
-2025-01-17 12:42:11.037 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Test_Magic
-______________________ test_abilities_manager_export_data ______________________
-
-m_db = <MagicMock name='update_data' id='281018537035488'>
-test_magic = {'_id': 'ABILITY-12345-EJFI-67890', '_target': 'self', 'ability_type': 'Magic', 'description': 'Test Magic', ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_abilities_manager_export_data(m_db, test_magic):
-        ab_man.ABILITIES_DATA["objects"][test_magic["_id"]] = ab_man.Abilities(**test_magic)
-    
-        ab_man.export_data()
-        assert len(ab_man.ABILITIES_DATA["data"]) == len(ab_man.ABILITIES_DATA["objects"])
-        assert test_magic["_id"] in ab_man.ABILITIES_DATA["data"]
->       assert m_db.called_once
-
-tests/test_managers/test_abilities_manager.py:44: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='281018537035488'>, name = 'called_once'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.089 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: attack in ['health', 'defense'] False
-2025-01-17 12:42:11.089 | WARNING  | funclg.character.abilities:_validate_mods:67 - Provided mod was not compatable with selected ability.
-2025-01-17 12:42:11.089 | WARNING  | funclg.character.abilities:_validate_mods:68 - Using default modifier value.
-2025-01-17 12:42:11.089 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Test_Magic
-2025-01-17 12:42:11.089 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Test_Magic
-____________________ test_abilities_manager_select_ability _____________________
-
-m_sel = <MagicMock name='selection_validation' id='281018537049264'>
-m_log = <MagicMock name='logger' id='281018537037408'>
-test_magic = {'_id': 'ABILITY-12345-EJFI-67890', '_target': 'self', 'ability_type': 'Magic', 'description': 'Test Magic', ...}
-
-    @patch("funclg.managers.abilities_manager.logger")
-    @patch("funclg.managers.abilities_manager.selection_validation")
-    def test_abilities_manager_select_ability(m_sel, m_log, test_magic):
-        # Data Exists - Select Success
-        ab_man.ABILITIES_DATA["data"][test_magic["_id"]] = test_magic
-        m_sel.return_value = test_magic["_id"]
-    
-        assert ab_man.select_ability() == test_magic["_id"]
-    
-        # Data Not Exists - Return Nothing
-        ab_man.ABILITIES_DATA["data"] = {}
-        assert ab_man.select_ability() is None
->       assert m_log.warning.called_with("There are no abilities available.")
-
-tests/test_managers/test_abilities_manager.py:59: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='logger.warning' id='281018537037312'>
-name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
-_____________________ test_abilities_manager_show_ability ______________________
-
-m_sel = <MagicMock name='select_ability' id='281018537274512'>
-m_log = <MagicMock name='logger' id='281018537277296'>
-m_print = <MagicMock name='print' id='281018537713904'>
-test_magic = {'_id': 'ABILITY-12345-EJFI-67890', '_target': 'self', 'ability_type': 'Magic', 'description': 'Test Magic', ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.abilities_manager.logger")
-    @patch("funclg.managers.abilities_manager.select_ability")
-    def test_abilities_manager_show_ability(m_sel, m_log, m_print, test_magic):
-        # Success Test
-        m_sel.return_value = test_magic["_id"]
-        _ability = ab_man.Abilities(**test_magic)
-        ab_man.ABILITIES_DATA["objects"][test_magic["_id"]] = _ability
-    
-        ab_man.show_ability()
->       assert m_print.called_with(_ability.details())
-
-tests/test_managers/test_abilities_manager.py:72: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018537713904'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.205 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: attack in ['health', 'defense'] False
-2025-01-17 12:42:11.205 | WARNING  | funclg.character.abilities:_validate_mods:67 - Provided mod was not compatable with selected ability.
-2025-01-17 12:42:11.205 | WARNING  | funclg.character.abilities:_validate_mods:68 - Using default modifier value.
-2025-01-17 12:42:11.205 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Test_Magic
-____________________ test_abilities_manager_delete_ability _____________________
-
-m_sel = <MagicMock name='select_ability' id='281018537716688'>
-m_upd = <MagicMock name='update_data' id='281018537708720'>
-m_confirm = <MagicMock name='confirmation' id='281018537410976'>
-m_log = <MagicMock name='logger' id='281018537413712'>
-m_print = <MagicMock name='print' id='281018532480880'>
-test_magic = {'_id': 'ABILITY-12345-EJFI-67890', '_target': 'self', 'ability_type': 'Magic', 'description': 'Test Magic', ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.abilities_manager.logger")
-    @patch("funclg.managers.abilities_manager.confirmation")
-    @patch("funclg.managers.abilities_manager.update_data")
-    @patch("funclg.managers.abilities_manager.select_ability")
-    def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_print, test_magic):
-        # Success Delete
-        _mag = ab_man.Abilities(**test_magic)
-        ab_man.ABILITIES_DATA["data"][_mag.id] = test_magic
-        ab_man.ABILITIES_DATA["objects"][_mag.id] = _mag
-    
-        m_sel.return_value = _mag.id
-        m_confirm.return_value = True
-    
-        ab_man.delete_ability()
-    
-        assert _mag.id not in ab_man.ABILITIES_DATA["data"]
-        assert _mag.id not in ab_man.ABILITIES_DATA["objects"]
->       assert m_print.called_with(f"Deleting {_mag.name}")
-
-tests/test_managers/test_abilities_manager.py:98: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018532480880'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.246 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: attack in ['health', 'defense'] False
-2025-01-17 12:42:11.246 | WARNING  | funclg.character.abilities:_validate_mods:67 - Provided mod was not compatable with selected ability.
-2025-01-17 12:42:11.246 | WARNING  | funclg.character.abilities:_validate_mods:68 - Using default modifier value.
-2025-01-17 12:42:11.246 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Test_Magic
-________________________ test_char_manager_update_data _________________________
-
-m_db = <MagicMock name='update_data' id='281018532573936'>
-test_character_mage = {'_id': 'CHARS-16809-QKLNBT-73916', 'armor': {'armor_type': 1, 'back': None, 'chest': <funclg.character.equipment.BodyEquipment object at 0xff95b9c90fe0>, 'head': None, ...}, 'armor_type': 1, 'inventory': [], ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_char_manager_update_data(m_db, test_character_mage):
-        char_man.CHARACTER_DATA["data"] = {}
-        char_man.CHARACTER_DATA["data"][test_character_mage["_id"]] = test_character_mage
-        char_man.CHARACTER_DATA["objects"] = {}
-    
-        char_man.update_data()
-    
-        assert len(char_man.CHARACTER_DATA["data"]) == len(char_man.CHARACTER_DATA["objects"])
->       assert m_db.called_once
-
-tests/test_managers/test_character_manager.py:124: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='281018532573936'>, name = 'called_once'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.306 | DEBUG    | funclg.managers.character_manager:_update_char_role:33 - {'name': 'Mage', 'description': 'Magic user', 'armor_type': 1, 'ability_types': ['Magic', 'Buff', 'Debuff', 'Restore'], 'abilities': [{'name': 'Fireball', 'description': 'Throws a fireball at target', 'ability_type': 'Magic', '_target': 'enemy', 'level': 0, 'mod': {'base': {'defense': -446}, 'percentage': {}}, '_id': 'ABILITY-16650-OKNG-98180'}, {'name': 'Empower', 'description': 'Strengthens player', 'ability_type': 'Buff', '_target': 'self', 'level': 0, 'mod': {'base': {}, 'percentage': {'defense': 0.98}}, '_id': 'ABILITY-16650-DXUF-98274'}, {'name': 'Weaken', 'description': 'Weakens an enemy', 'ability_type': 'Debuff', '_target': 'enemy', 'level': 0, 'mod': {'base': {}, 'percentage': {'defense': -0.83}}, '_id': 'ABILITY-16660-TXKX-31305'}], '_id': 'ROLES-16695-ZBLWXR-20642'}
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-2025-01-17 12:42:11.306 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.306 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-________________________ test_char_manager_export_data _________________________
-
-m_db = <MagicMock name='update_data' id='281018532177120'>
-test_character_mage = {'_id': 'CHARS-16809-QKLNBT-73916', 'armor': {'armor_type': 1, 'back': None, 'chest': <funclg.character.equipment.BodyEquipment object at 0xff95b9c929c0>, 'head': None, ...}, 'armor_type': 1, 'inventory': [], ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_char_manager_export_data(m_db, test_character_mage):
-        _test_char_mage = test_character_mage.copy()
-        _test_char_mage = char_man._update_char_role(test_character_mage, _test_char_mage)
-        _test_char_mage = char_man._update_char_armor(test_character_mage, _test_char_mage)
-        char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Character(
-            **_test_char_mage
-        )
-        char_man.CHARACTER_DATA["data"] = {}
-    
-        char_man.export_data()
-    
-        assert len(char_man.CHARACTER_DATA["data"]) == len(char_man.CHARACTER_DATA["objects"])
-        assert _test_char_mage["_id"] in char_man.CHARACTER_DATA["data"]
->       assert m_db.called_once
-
-tests/test_managers/test_character_manager.py:141: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='281018532177120'>, name = 'called_once'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.355 | DEBUG    | funclg.managers.character_manager:_update_char_role:33 - {'name': 'Mage', 'description': 'Magic user', 'armor_type': 1, 'ability_types': ['Magic', 'Buff', 'Debuff', 'Restore'], 'abilities': [{'name': 'Fireball', 'description': 'Throws a fireball at target', 'ability_type': 'Magic', '_target': 'enemy', 'level': 0, 'mod': {'base': {'defense': -446}, 'percentage': {}}, '_id': 'ABILITY-16650-OKNG-98180'}, {'name': 'Empower', 'description': 'Strengthens player', 'ability_type': 'Buff', '_target': 'self', 'level': 0, 'mod': {'base': {}, 'percentage': {'defense': 0.98}}, '_id': 'ABILITY-16650-DXUF-98274'}, {'name': 'Weaken', 'description': 'Weakens an enemy', 'ability_type': 'Debuff', '_target': 'enemy', 'level': 0, 'mod': {'base': {}, 'percentage': {'defense': -0.83}}, '_id': 'ABILITY-16660-TXKX-31305'}], '_id': 'ROLES-16695-ZBLWXR-20642'}
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-2025-01-17 12:42:11.355 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-2025-01-17 12:42:11.355 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.character:export:83 - Exporting Character: Test Char Mage
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.roles:export:114 - Exporting Role: Mage
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Fireball
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Empower
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Weaken
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.armor:export:178 - Exporting Equipment
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.equipment:export:242 - Exporting Armor: Basic Mage Tunic
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.equipment:export:182 - Exporting Weapon: Calins Wand
-2025-01-17 12:42:11.356 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-_______________________ test_char_manager_show_character _______________________
-
-m_sel = <MagicMock name='select_character' id='281018532153392'>
-m_log = <MagicMock name='logger' id='281018532164000'>
-m_print = <MagicMock name='print' id='281018532575760'>
-test_character_mage = {'_id': 'CHARS-16809-QKLNBT-73916', 'armor': {'armor_type': 1, 'back': None, 'chest': <funclg.character.equipment.BodyEquipment object at 0xff95b9cf0aa0>, 'head': None, ...}, 'armor_type': 1, 'inventory': [], ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.character_manager.logger")
-    @patch("funclg.managers.character_manager.select_character")
-    def test_char_manager_show_character(m_sel, m_log, m_print, test_character_mage):
-        # No Data
-        m_sel.return_value = None
-        char_man.show_character()
-        assert m_log.warning.called
-    
-        # Return Test Value
-        m_sel.return_value = test_character_mage["_id"]
-        _test_char_mage = test_character_mage.copy()
-        _test_char_mage = char_man._update_char_role(test_character_mage, _test_char_mage)
-        _test_char_mage = char_man._update_char_armor(test_character_mage, _test_char_mage)
-        char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Character(
-            **_test_char_mage
-        )
-    
-        char_man.show_character()
->       assert m_print.called_with(
-            char_man.CHARACTER_DATA["objects"][test_character_mage["_id"]].details()
-        )
-
-tests/test_managers/test_character_manager.py:177: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018532575760'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.414 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.415 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-2025-01-17 12:42:11.415 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.415 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.415 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-2025-01-17 12:42:11.415 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.415 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-________________________ test_char_manager_delete_role _________________________
-
-m_sel = <MagicMock name='select_character' id='281018532492736'>
-m_update = <MagicMock name='update_data' id='281018532491200'>
-m_confirm = <MagicMock name='confirmation' id='281018532486208'>
-m_log = <MagicMock name='logger' id='281018532479824'>
-m_print = <MagicMock name='print' id='281018537413616'>
-test_character_mage = {'_id': 'CHARS-16809-QKLNBT-73916', 'armor': {'armor_type': 1, 'back': None, 'chest': <funclg.character.equipment.BodyEquipment object at 0xff95ba1d9070>, 'head': None, ...}, 'armor_type': 1, 'inventory': [], ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.character_manager.logger")
-    @patch("funclg.managers.character_manager.confirmation")
-    @patch("funclg.managers.character_manager.update_data")
-    @patch("funclg.managers.character_manager.select_character")
-    def test_char_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, test_character_mage):
-        # Yes Delete
-        _tmp_char = test_character_mage.copy()
-        _tmp_char = char_man._update_char_role(test_character_mage, _tmp_char)
-        _tmp_char = char_man._update_char_armor(test_character_mage, _tmp_char)
-    
-        char_obj = char_man.Character(**_tmp_char)
-        char_man.CHARACTER_DATA["objects"][char_obj.id] = char_obj
-        char_man.CHARACTER_DATA["data"][char_obj.id] = test_character_mage
-    
-        m_sel.return_value = char_obj.id
-        m_confirm.return_value = True
-    
-        char_man.delete_character()
-    
-        assert m_update.called
-        assert char_obj.id not in char_man.CHARACTER_DATA["data"]
-        assert char_obj.id not in char_man.CHARACTER_DATA["objects"]
->       assert m_print.called_with(f"Delete {char_obj.name}")
-
-tests/test_managers/test_character_manager.py:205: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018537413616'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.460 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.460 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.460 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.460 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-2025-01-17 12:42:11.461 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.461 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
+/usr/local/lib/python3.12/unittest/mock.py:949: AssertionError
 _________________ test_char_manager_pick_char_armor_equipment __________________
 
-m_sel = <MagicMock name='selection_validation' id='281018537715824'>
-m_confirm = <MagicMock name='confirmation' id='281018537034432'>
-m_fil_equip = <MagicMock name='filter_equipment_by_armor_type' id='281018537038704'>
-m_print = <MagicMock name='print' id='281018538867120'>
+m_sel = <MagicMock name='selection_validation' id='280478550277296'>
+m_confirm = <MagicMock name='confirmation' id='280478549906720'>
+m_fil_equip = <MagicMock name='filter_equipment_by_armor_type' id='280478549913680'>
+m_print = <MagicMock name='print' id='280478549867888'>
 
     @patch("builtins.print")
     @patch("funclg.managers.equipment_manager.filter_equipment_by_armor_type")
@@ -893,262 +181,60 @@ m_print = <MagicMock name='print' id='281018538867120'>
     
         expected_results = {"chest": t_chest, "weapon": t_weapon}
     
->       assert m_print.called_with("There are not any Medium Head items, continuing...\n")
+>       m_print.assert_called_with("There are not any Medium Head items, continuing...\n")
 
 tests/test_managers/test_character_manager.py:276: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <MagicMock name='print' id='281018538867120'>, name = 'called_with'
+self = <MagicMock name='print' id='280478549867888'>
+args = ('There are not any Medium Head items, continuing...\n',), kwargs = {}
+expected = call('There are not any Medium Head items, continuing...\n')
+actual = call('Skipping Pants selection...')
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0xff1800548220>
+cause = None
 
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: print('There are not any Medium Head items, continuing...\n')
+E             Actual: print('Skipping Pants selection...')
 
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
+/usr/local/lib/python3.12/unittest/mock.py:949: AssertionError
 ----------------------------- Captured stderr call -----------------------------
-2025-01-17 12:42:11.510 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.510 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Pants
-2025-01-17 12:42:11.510 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-2025-01-17 12:42:11.510 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:103 - Selected Basic Mage Tunic from {'ARMOR-16809-BCWSVN-76675': <funclg.character.equipment.BodyEquipment object at 0xff95ba1d9a30>}
-2025-01-17 12:42:11.510 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
-2025-01-17 12:42:11.510 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:103 - Selected Skip from {'ARMOR-16809-AEAYIE-76732': <funclg.character.equipment.BodyEquipment object at 0xff95ba16d130>}
-2025-01-17 12:42:11.510 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:103 - Selected Calins Wand from {'WEAPON-16645-ACIGL-01214': <funclg.character.equipment.WeaponEquipment object at 0xff95ba16ee10>}
-2025-01-17 12:42:11.510 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
-______________________ test_equipment_manager_update_data ______________________
-
-m_db = <MagicMock name='update_data' id='281018531976384'>
-test_equipment = {'_id': 'ARMOR-16342-QLERCA-36276', 'armor_type': 0, 'description': 'Test Chest Plate', 'item_type': 1, ...}
-test_equipment_2 = {'_id': 'ARMOR-16342-QLPBCA-36276', 'armor_type': 2, 'description': 'Test Chest Head', 'item_type': 0, ...}
-test_weapon = {'_id': 'WEAPON-16151-OEGEFS-36126', 'armor_type': 2, 'description': 'Test Spear', 'item_type': 4, ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_equipment_manager_update_data(m_db, test_equipment, test_equipment_2, test_weapon):
-        # Add Test Items to data
-        eq_man.EQUIPMENT_DATA["data"] = {}
-        eq_man.EQUIPMENT_DATA["objects"] = {}
-        eq_man.EQUIPMENT_DATA["data"][test_equipment["_id"]] = test_equipment
-        eq_man.EQUIPMENT_DATA["data"][test_equipment_2["_id"]] = test_equipment_2
-        eq_man.EQUIPMENT_DATA["data"][test_weapon["_id"]] = test_weapon
-    
-        # Make sure data was loaded into objects but that there are new data items that need objects created
-    
-        eq_man.update_data()
-        print(eq_man.EQUIPMENT_DATA["data"])
-    
-        assert len(eq_man.EQUIPMENT_DATA["data"]) == len(eq_man.EQUIPMENT_DATA["objects"])
-        assert len(eq_man.EQUIPMENT_DATA["data"]) == 3
-        assert len(eq_man.EQUIPMENT_DATA["objects"]) == 3
->       assert m_db.called_once
-
-tests/test_managers/test_equipment_manager.py:75: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='281018531976384'>, name = 'called_once'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stdout call -----------------------------
-{'ARMOR-16342-QLERCA-36276': {'name': 'Test Plate', 'description': 'Test Chest Plate', 'item_type': 1, 'armor_type': 0, 'stats': {'attributes': {'defense': 10, 'health': 1, 'energy': 1, 'attack': 1, '_power': 13}}, '_id': 'ARMOR-16342-QLERCA-36276'}, 'ARMOR-16342-QLPBCA-36276': {'name': 'Test Head', 'description': 'Test Chest Head', 'item_type': 0, 'armor_type': 2, 'stats': {'attributes': {'defense': 10, 'health': 40, 'energy': 1, 'attack': 1, '_power': 53}}, '_id': 'ARMOR-16342-QLPBCA-36276'}, 'WEAPON-16151-OEGEFS-36126': {'name': 'Test Spear', 'description': 'Test Spear', 'item_type': 4, 'armor_type': 2, 'stats': {'attributes': {'defense': 10, 'health': 1, 'energy': 1, 'attack': 27, '_power': 39}}, '_id': 'WEAPON-16151-OEGEFS-36126', 'weapon_type': 'Spear'}}
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.562 | DEBUG    | funclg.managers.equipment_manager:update_data:32 - adding data
-2025-01-17 12:42:11.562 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.562 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Plate
-2025-01-17 12:42:11.562 | DEBUG    | funclg.managers.equipment_manager:update_data:32 - adding data
-2025-01-17 12:42:11.562 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.562 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Head
-2025-01-17 12:42:11.562 | DEBUG    | funclg.managers.equipment_manager:update_data:32 - adding data
-2025-01-17 12:42:11.562 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.562 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Spear
-2025-01-17 12:42:11.562 | DEBUG    | funclg.managers.equipment_manager:update_data:37 - Function complete
-______________________ test_equipment_manager_export_data ______________________
-
-m_db = <MagicMock name='update_data' id='281018531985792'>
-test_weapon = {'_id': 'WEAPON-16151-OEGEFS-36126', 'armor_type': 2, 'description': 'Test Spear', 'item_type': 4, ...}
-test_equipment = {'_id': 'ARMOR-16342-QLERCA-36276', 'armor_type': 0, 'description': 'Test Chest Plate', 'item_type': 1, ...}
-test_equipment_2 = {'_id': 'ARMOR-16342-QLPBCA-36276', 'armor_type': 2, 'description': 'Test Chest Head', 'item_type': 0, ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_equipment_manager_export_data(m_db, test_weapon, test_equipment, test_equipment_2):
-        eq_man.EQUIPMENT_DATA["data"] = {}
-        eq_man.EQUIPMENT_DATA["objects"] = {}
-        eq_man.EQUIPMENT_DATA["objects"][test_weapon["_id"]] = eq_man.WeaponEquipment(**test_weapon)
-        eq_man.EQUIPMENT_DATA["objects"][test_equipment["_id"]] = eq_man.BodyEquipment(**test_equipment)
-        eq_man.EQUIPMENT_DATA["objects"][test_equipment_2["_id"]] = eq_man.BodyEquipment(
-            **test_equipment_2
-        )
-    
-        eq_man.export_data()
-        assert len(eq_man.EQUIPMENT_DATA["data"]) == len(eq_man.EQUIPMENT_DATA["objects"])
-        assert len(eq_man.EQUIPMENT_DATA["data"]) == 3
-        assert len(eq_man.EQUIPMENT_DATA["objects"]) == 3
-        assert test_weapon["_id"] in eq_man.EQUIPMENT_DATA["data"]
->       assert m_db.called_once
-
-tests/test_managers/test_equipment_manager.py:93: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='281018531985792'>, name = 'called_once'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.603 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.603 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Spear
-2025-01-17 12:42:11.603 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.603 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Plate
-2025-01-17 12:42:11.603 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.604 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Head
-2025-01-17 12:42:11.604 | DEBUG    | funclg.character.equipment:export:182 - Exporting Weapon: Test Spear
-2025-01-17 12:42:11.604 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-2025-01-17 12:42:11.604 | DEBUG    | funclg.character.equipment:export:242 - Exporting Armor: Test Plate
-2025-01-17 12:42:11.604 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-2025-01-17 12:42:11.604 | DEBUG    | funclg.character.equipment:export:242 - Exporting Armor: Test Head
-2025-01-17 12:42:11.604 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-____________________ test_equipment_manager_show_equipment _____________________
-
-m_eq_select = <MagicMock name='select_equipment' id='281018532527520'>
-m_log = <MagicMock name='logger' id='281018532516816'>
-m_print = <MagicMock name='print' id='281018532523200'>
-test_equipment = {'_id': 'ARMOR-16342-QLERCA-36276', 'armor_type': 0, 'description': 'Test Chest Plate', 'item_type': 1, ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.equipment_manager.logger")
-    @patch("funclg.managers.equipment_manager.select_equipment")
-    def test_equipment_manager_show_equipment(m_eq_select, m_log, m_print, test_equipment):
-        # Test Success
-        teq = eq_man.BodyEquipment(**test_equipment)
-        eq_man.EQUIPMENT_DATA["objects"][teq.id] = teq
-    
-        m_eq_select.return_value = teq.id
-        eq_man.show_equipment()
->       assert m_print.called_with(teq.details())
-
-tests/test_managers/test_equipment_manager.py:128: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018532523200'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.648 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.648 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Plate
-___________________ test_equipment_manager_delete_equipment ____________________
-
-m_seleq = <MagicMock name='select_equipment' id='281018531790096'>
-m_update = <MagicMock name='update_data' id='281018531782416'>
-m_confirm = <MagicMock name='confirmation' id='281018532520704'>
-m_log = <MagicMock name='logger' id='281018532104384'>
-m_print = <MagicMock name='print' id='281018532114944'>
-test_equipment = {'_id': 'ARMOR-16342-QLERCA-36276', 'armor_type': 0, 'description': 'Test Chest Plate', 'item_type': 1, ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.equipment_manager.logger")
-    @patch("funclg.managers.equipment_manager.confirmation")
-    @patch("funclg.managers.equipment_manager.update_data")
-    @patch("funclg.managers.equipment_manager.select_equipment")
-    def test_equipment_manager_delete_equipment(
-        m_seleq, m_update, m_confirm, m_log, m_print, test_equipment
-    ):
-        # Yes Delete
-        test_obj = eq_man.BodyEquipment(**test_equipment)
-        eq_man.EQUIPMENT_DATA["data"][test_equipment["_id"]] = test_equipment
-        eq_man.EQUIPMENT_DATA["objects"][test_obj.id] = test_obj
-    
-        m_seleq.return_value = test_equipment["_id"]
-        m_confirm.return_value = True
-    
-        eq_man.delete_equipment()
-    
-        assert test_obj.id not in eq_man.EQUIPMENT_DATA["data"]
-        assert test_obj.id not in eq_man.EQUIPMENT_DATA["objects"]
->       assert m_print.called_with(f"Deleting {test_obj.name}")
-
-tests/test_managers/test_equipment_manager.py:157: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018532114944'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.701 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.702 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Plate
+2025-01-17 19:30:07.633 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Pants
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
+2025-01-17 19:30:07.634 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:104 - Selected Basic Mage Tunic from {'ARMOR-16809-BCWSVN-76675': <funclg.character.equipment.BodyEquipment object at 0xff18005b3b00>}
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
+2025-01-17 19:30:07.634 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:104 - Selected Skip from {'ARMOR-16809-AEAYIE-76732': <funclg.character.equipment.BodyEquipment object at 0xff180054dfa0>}
+2025-01-17 19:30:07.634 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:104 - Selected Calins Wand from {'WEAPON-16645-ACIGL-01214': <funclg.character.equipment.WeaponEquipment object at 0xff180054dee0>}
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
 ____________________ test_equipment_manager_build_equipment ____________________
 
-m_sel = <MagicMock name='selection_validation' id='281018537268464'>
-m_confirm = <MagicMock name='confirmation' id='281018537269568'>
-m_new_body = <MagicMock name='_new_body_armor' id='281018532488752'>
-m_new_wep = <MagicMock name='_new_weapon' id='281018538482512'>
-m_update = <MagicMock name='update_data' id='281018537419040'>
-m_print = <MagicMock name='print' id='281018537411984'>
+m_sel = <MagicMock name='selection_validation' id='280478547314928'>
+m_confirm = <MagicMock name='confirmation' id='280478547460016'>
+m_new_body = <MagicMock name='_new_body_armor' id='280478547456080'>
+m_new_wep = <MagicMock name='_new_weapon' id='280478547452384'>
+m_update = <MagicMock name='update_data' id='280478547448496'>
+m_print = <MagicMock name='print' id='280478547444560'>
 test_equipment = {'_id': 'ARMOR-16342-QLERCA-36276', 'armor_type': 0, 'description': 'Test Chest Plate', 'item_type': 1, ...}
 test_weapon = {'_id': 'WEAPON-16151-OEGEFS-36126', 'armor_type': 2, 'description': 'Test Spear', 'item_type': 4, ...}
 
@@ -1169,405 +255,84 @@ test_weapon = {'_id': 'WEAPON-16151-OEGEFS-36126', 'armor_type': 2, 'description
         eq_man.build_equipment()
     
         assert m_update.called
->       assert test_equipment["_id"] in eq_man.EQUIPMENT_DATA["data"]
-E       AssertionError: assert 'ARMOR-16342-QLERCA-36276' in {<MagicMock name='_new_weapon().id' id='281018532104912'>: <MagicMock name='_new_weapon().export()' id='281018532114704'>}
-
-tests/test_managers/test_equipment_manager.py:239: AssertionError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.764 | ERROR    | funclg.character.stats:_validate_attributes:85 - _power is not a valid stats attribute
-2025-01-17 12:42:11.765 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Plate
-________________________ test_roles_manager_update_data ________________________
-
-m_db = <MagicMock name='update_data' id='281018532515568'>
-test_mage = {'_id': 'ROLES-12345-ABCDEF-67890', 'abilities': [{'_id': 'ABILITY-16650-OKNG-98180', '_target': 'enemy', 'ability_typ... of lightning towards the enemy', ...}], 'ability_types': ['Magic', 'Restore', 'Buff', 'Debuff'], 'armor_type': 1, ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_roles_manager_update_data(m_db, test_mage):
-        role_man.ROLES_DATA["data"][test_mage["_id"]] = test_mage
-        role_man.ROLES_DATA["objects"] = {}
+        assert test_equipment["_id"] in eq_man.EQUIPMENT_DATA["data"]
     
-        role_man.update_data()
+        # Test New Weapon + Negative Validation  Branch
+        m_sel.return_value = "Weapon"
+        m_new_wep.return_value = eq_man.WeaponEquipment(**test_weapon)
+        m_confirm.return_value = False
     
-        assert len(role_man.ROLES_DATA["data"]) == len(role_man.ROLES_DATA["objects"])
->       assert m_db.called_once
+        eq_man.build_equipment()
+    
+>       m_print.assert_called_with(f"{test_weapon['name']} has been saved!!")
 
-tests/test_managers/test_roles_manager.py:175: 
+tests/test_managers/test_equipment_manager.py:248: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <MagicMock name='update_data' id='281018532515568'>, name = 'called_once'
+self = <MagicMock name='print' id='280478547444560'>
+args = ('Test Spear has been saved!!',), kwargs = {}
+expected = call('Test Spear has been saved!!')
+actual = call('No new weapon, oh well...')
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0xff180064fb00>
+cause = None
 
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: print('Test Spear has been saved!!')
+E             Actual: print('No new weapon, oh well...')
 
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
+/usr/local/lib/python3.12/unittest/mock.py:949: AssertionError
 ----------------------------- Captured stderr call -----------------------------
-2025-01-17 12:42:11.789 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.789 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.789 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.789 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.789 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.790 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-________________________ test_roles_manager_export_data ________________________
-
-m_db = <MagicMock name='update_data' id='281018531943280'>
-test_mage = {'_id': 'ROLES-12345-ABCDEF-67890', 'abilities': [{'_id': 'ABILITY-16650-OKNG-98180', '_target': 'enemy', 'ability_typ... of lightning towards the enemy', ...}], 'ability_types': ['Magic', 'Restore', 'Buff', 'Debuff'], 'armor_type': 1, ...}
-
-    @patch("funclg.utils.data_mgmt.update_data")
-    def test_roles_manager_export_data(m_db, test_mage):
-        _test_mage = test_mage.copy()
-        _test_mage["abilities"] = [Abilities(**_ability) for _ability in test_mage["abilities"]]
-        role_man.ROLES_DATA["objects"][test_mage["_id"]] = role_man.Roles(**_test_mage)
-    
-        role_man.export_data()
-        assert len(role_man.ROLES_DATA["data"]) == len(role_man.ROLES_DATA["objects"])
-        assert test_mage["_id"] in role_man.ROLES_DATA["data"]
->       assert m_db.called_once
-
-tests/test_managers/test_roles_manager.py:187: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='update_data' id='281018531943280'>, name = 'called_once'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_once' is not a valid assertion. Use a spec for the mock if 'called_once' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.836 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-2025-01-17 12:42:11.837 | DEBUG    | funclg.character.roles:export:114 - Exporting Role: Mage
-2025-01-17 12:42:11.837 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Fireball
-2025-01-17 12:42:11.837 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Heal
-2025-01-17 12:42:11.837 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Empower
-2025-01-17 12:42:11.837 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Weaken
-2025-01-17 12:42:11.837 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Lightning
-2025-01-17 12:42:11.837 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
-_________________________ test_roles_manager_show_role _________________________
-
-m_sel = <MagicMock name='select_role' id='281018531842384'>
-m_log = <MagicMock name='logger' id='281018531848384'>
-m_print = <MagicMock name='print' id='281018531852752'>
-test_mage = {'_id': 'ROLES-12345-ABCDEF-67890', 'abilities': [{'_id': 'ABILITY-16650-OKNG-98180', '_target': 'enemy', 'ability_typ... of lightning towards the enemy', ...}], 'ability_types': ['Magic', 'Restore', 'Buff', 'Debuff'], 'armor_type': 1, ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.roles_manager.logger")
-    @patch("funclg.managers.roles_manager.select_role")
-    def test_roles_manager_show_role(m_sel, m_log, m_print, test_mage):
-        # Success Test
-        m_sel.return_value = test_mage["_id"]
-        _test_mage = test_mage.copy()
-        _test_mage["abilities"] = [Abilities(**_ability) for _ability in test_mage["abilities"]]
-        test_role = role_man.Roles(**_test_mage)
-        role_man.ROLES_DATA["objects"][test_mage["_id"]] = test_role
-    
-        role_man.show_role()
->       assert m_print.called_with(test_role.details())
-
-tests/test_managers/test_roles_manager.py:217: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018531852752'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.889 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-________________________ test_roles_manager_delete_role ________________________
-
-m_sel = <MagicMock name='select_role' id='281018531952400'>
-m_update = <MagicMock name='update_data' id='281018531953504'>
-m_confirm = <MagicMock name='confirmation' id='281018532087856'>
-m_log = <MagicMock name='logger' id='281018532096160'>
-m_print = <MagicMock name='print' id='281018532088048'>
-test_mage = {'_id': 'ROLES-12345-ABCDEF-67890', 'abilities': [{'_id': 'ABILITY-16650-OKNG-98180', '_target': 'enemy', 'ability_typ... of lightning towards the enemy', ...}], 'ability_types': ['Magic', 'Restore', 'Buff', 'Debuff'], 'armor_type': 1, ...}
-
-    @patch("builtins.print")
-    @patch("funclg.managers.roles_manager.logger")
-    @patch("funclg.managers.roles_manager.confirmation")
-    @patch("funclg.managers.roles_manager.update_data")
-    @patch("funclg.managers.roles_manager.select_role")
-    def test_roles_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, test_mage):
-        # Yes Delete
-        _test_mage = test_mage.copy()
-        _test_mage["abilities"] = [Abilities(**_ability) for _ability in test_mage["abilities"]]
-        test_mage_obj = role_man.Roles(**_test_mage)
-    
-        role_man.ROLES_DATA["data"][test_mage_obj.id] = test_mage
-        role_man.ROLES_DATA["objects"][test_mage_obj.id] = test_mage_obj
-    
-        m_sel.return_value = test_mage_obj.id
-        m_confirm.return_value = True
-    
-        role_man.delete_role()
-    
-        assert m_update.called
-        assert test_mage_obj.id not in role_man.ROLES_DATA["data"]
-        assert test_mage_obj.id not in role_man.ROLES_DATA["objects"]
->       assert m_print.called_with(f"Deleteing {test_mage_obj.name}")
-
-tests/test_managers/test_roles_manager.py:247: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='print' id='281018532088048'>, name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.931 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:11.932 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-___________________ test_roles_manager_build_role_with_save ____________________
-
-m_confirm = <MagicMock name='confirmation' id='281018532568752'>
-m_str_val = <MagicMock name='string_validation' id='281018537709248'>
-m_sel = <MagicMock name='selection_validation' id='281018537710736'>
-m_update = <MagicMock name='update_data' id='281018532564144'>
-m_sel_ab_type = <MagicMock name='_select_ability_types' id='281018532358832'>
-m_sel_rol_ab = <MagicMock name='_select_role_abilities' id='281018532353216'>
-m_stats_gen = <MagicMock name='build_stats' id='281018537718800'>
-m_id = <MagicMock name='id_gen' id='281018532156752'>
-test_mage = {'_id': 'ROLES-12345-ABCDEF-67890', 'abilities': [{'_id': 'ABILITY-16650-OKNG-98180', '_target': 'enemy', 'ability_typ... of lightning towards the enemy', ...}], 'ability_types': ['Buff', 'Debuff', 'Magic', 'Restore'], 'armor_type': 1, ...}
-
-    @patch("funclg.utils.data_mgmt.id_gen")
-    @patch("funclg.managers.stats_manager.build_stats")
-    @patch("funclg.managers.roles_manager._select_role_abilities")
-    @patch("funclg.managers.roles_manager._select_ability_types")
-    @patch("funclg.managers.roles_manager.update_data")
-    @patch("funclg.managers.roles_manager.selection_validation")
-    @patch("funclg.managers.roles_manager.string_validation")
-    @patch("funclg.managers.roles_manager.confirmation")
-    def test_roles_manager_build_role_with_save(
-        m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_mage
-    ):
-        # Success Create Test Mage
-        m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
-        ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
-        m_sel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
-        m_stats_gen.return_value = test_mage["stats"]
-        m_sel_ab_type.return_value = ability_types
-        m_sel_rol_ab.return_value = [Abilities(**_ability) for _ability in test_mage["abilities"]]
-        m_confirm.return_value = True
-    
-        mock_ids = [ability["_id"] for ability in test_mage["abilities"]]
-        mock_ids.append(test_mage["_id"])
-    
-        m_id.side_effect = mock_ids
-    
-        role_man.build_role()
-    
-        test_mage["ability_types"].sort()
-        role_man.ROLES_DATA["data"][test_mage["_id"]]["ability_types"].sort()
-    
-        assert test_mage["_id"] in role_man.ROLES_DATA["data"]
-        assert test_mage == role_man.ROLES_DATA["data"][test_mage["_id"]]
->       assert m_sel_rol_ab.called_with(ability_types)
-
-tests/test_managers/test_roles_manager.py:369: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <MagicMock name='_select_role_abilities' id='281018532353216'>
-name = 'called_with'
-
-    def __getattr__(self, name):
-        if name in {'_mock_methods', '_mock_unsafe'}:
-            raise AttributeError(name)
-        elif self._mock_methods is not None:
-            if name not in self._mock_methods or name in _all_magics:
-                raise AttributeError("Mock object has no attribute %r" % name)
-        elif _is_magic(name):
-            raise AttributeError(name)
-        if not self._mock_unsafe and (not self._mock_methods or name not in self._mock_methods):
-            if name.startswith(('assert', 'assret', 'asert', 'aseert', 'assrt')) or name in _ATTRIB_DENY_LIST:
->               raise AttributeError(
-                    f"{name!r} is not a valid assertion. Use a spec "
-                    f"for the mock if {name!r} is meant to be an attribute.")
-E               AttributeError: 'called_with' is not a valid assertion. Use a spec for the mock if 'called_with' is meant to be an attribute.
-
-/usr/local/lib/python3.12/unittest/mock.py:665: AttributeError
------------------------------ Captured stdout call -----------------------------
-
-Starting Role Creation
-Mage has been saved!!!
------------------------------ Captured stderr call -----------------------------
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'defense'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Fireball
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: energy in ['health', 'defense', 'energy'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Heal
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Empower
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: defense in ['health', 'energy', 'attack', 'defense'] True
-2025-01-17 12:42:12.006 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Weaken
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.abilities:_validate_mods:59 - Mod Checks: health in ['health', 'defense'] True
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.abilities:__init__:49 - Created Ability: Lightning
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.roles:__init__:56 - Created Role: Mage
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.roles:export:114 - Exporting Role: Mage
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Fireball
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Heal
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Empower
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Weaken
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.abilities:export:94 - Exporting Ability: Lightning
-2025-01-17 12:42:12.007 | DEBUG    | funclg.character.stats:export:145 - Exporting Stats
+2025-01-17 19:30:07.700 | ERROR    | funclg.character.stats:_validate_attributes:62 - _power is not a valid stats attribute
+2025-01-17 19:30:07.701 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Plate
+2025-01-17 19:30:07.703 | ERROR    | funclg.character.stats:_validate_attributes:62 - _power is not a valid stats attribute
+2025-01-17 19:30:07.703 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Spear
 
 ---------- coverage: platform linux, python 3.12.7-final-0 -----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------------------------------
 funclg/__init__.py                         1      0      0      0   100%
-funclg/__main__.py                        41     24      6      1    38%   39-43, 56-68, 72-79, 83-85
+funclg/__main__.py                        41     24      6      1    38%   40-44, 57-69, 73-80, 84-86
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             65      0     18      0   100%
-funclg/character/armor.py                143      2     46      6    96%   115-116, 193->195, 195->197, 197->199, 199->201, 201->exit
-funclg/character/character.py             86      4     14      0    94%   148-149, 164-167
+funclg/character/armor.py                143      0     46      5    97%   193->195, 195->197, 197->199, 199->201, 201->exit
+funclg/character/character.py             85      4     14      0    94%   147-148, 163-166
 funclg/character/equipment.py             92      0      8      0   100%
 funclg/character/modifiers.py             71      0     34      1    99%   115->118
 funclg/character/roles.py                 93      7     26      0    91%   67, 140, 156-160
-funclg/character/stats.py                114     12     48      1    86%   49-57, 60-63, 83
+funclg/character/stats.py                101      1     38      1    99%   60
 funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 46
 funclg/game/combat.py                      0      0      0      0   100%
-funclg/game/game.py                       10      4      0      0    60%   40, 45, 49, 55
-funclg/game/level.py                     101     40     40      0    50%   121-129, 142-147, 168-198
+funclg/game/game.py                       10      4      0      0    60%   39, 44, 48, 54
+funclg/game/level.py                     101      0     40      2    99%   128->exit, 195->198
 funclg/game/rewards.py                     0      0      0      0   100%
 funclg/managers/__init__.py               34      0      8      0   100%
-funclg/managers/abilities_manager.py      69      5     22      4    90%   96, 109-111, 126
-funclg/managers/character_manager.py     120      7     46      7    92%   27-28, 69->68, 72->75, 75->78, 115, 211-213, 228
-funclg/managers/equipment_manager.py      90     10     26      7    85%   23-24, 31->30, 99, 109-110, 151, 164-166, 182
+funclg/managers/abilities_manager.py      69      1     22      1    98%   126
+funclg/managers/character_manager.py     120      4     46      5    95%   28-29, 70->69, 73->76, 76->79, 116, 229
+funclg/managers/equipment_manager.py      90      4     26      3    94%   23-24, 31->30, 99, 182
 funclg/managers/game_manager.py           30     10      8      1    61%   29, 42-54, 64
 funclg/managers/level_manager.py          14      6      0      0    57%   13, 17, 21, 25, 29, 33
-funclg/managers/roles_manager.py         122      7     44      6    92%   24-25, 31->30, 118->131, 195, 208-210, 225
-funclg/managers/stats_manager.py          84     16     32      0    81%   126-154
+funclg/managers/roles_manager.py         122      3     44      3    96%   24-25, 31->30, 118->131, 225
+funclg/managers/stats_manager.py          84     16     32      0    81%   127-155
 funclg/utils/__init__.py                   0      0      0      0   100%
 funclg/utils/data_mgmt.py                 51     15      4      1    71%   36-37, 43->56, 47-55, 66-69
 funclg/utils/game_enums.py                32      4      0      0    88%   58-72
@@ -1575,39 +340,15 @@ funclg/utils/input_validation.py          40     28     12      0    23%   18-28
 funclg/utils/menu_funcs.py                27      0      8      0   100%
 funclg/utils/types.py                     18      0      6      1    96%   54->57
 ----------------------------------------------------------------------------------
-TOTAL                                   1559    205    456     36    84%
+TOTAL                                   1545    135    446     25    90%
 
-FAIL Required test coverage of 85.0% not reached. Total coverage: 84.47%
+Required test coverage of 85.0% reached. Total coverage: 90.36%
 =========================== short test summary info ============================
-FAILED tests/test_character/test_armor.py::test_armor_equipping_flow_issues
-FAILED tests/test_character/test_armor.py::test_armor_dequipping_flow_issues
-FAILED tests/test_character/test_character.py::test_player_show_inventory - A...
-FAILED tests/test_character/test_roles.py::test_role_get_ability_out_of_range
 FAILED tests/test_character/test_stats.py::test_stats_add_modifier_duplicate_mod
-FAILED tests/test_character/test_stats.py::test_stats_remove_stat_failure - A...
-FAILED tests/test_game/test_game_levels.py::test_game_level_alt_display - Att...
-FAILED tests/test_game/test_game_levels.py::test_game_level_update_level_game_error
-FAILED tests/test_managers/test_abilities_manager.py::test_abilities_manager_update_data
-FAILED tests/test_managers/test_abilities_manager.py::test_abilities_manager_export_data
-FAILED tests/test_managers/test_abilities_manager.py::test_abilities_manager_select_ability
-FAILED tests/test_managers/test_abilities_manager.py::test_abilities_manager_show_ability
-FAILED tests/test_managers/test_abilities_manager.py::test_abilities_manager_delete_ability
-FAILED tests/test_managers/test_character_manager.py::test_char_manager_update_data
-FAILED tests/test_managers/test_character_manager.py::test_char_manager_export_data
-FAILED tests/test_managers/test_character_manager.py::test_char_manager_show_character
-FAILED tests/test_managers/test_character_manager.py::test_char_manager_delete_role
+FAILED tests/test_game/test_game_levels.py::test_game_level_alt_display - Ass...
 FAILED tests/test_managers/test_character_manager.py::test_char_manager_pick_char_armor_equipment
-FAILED tests/test_managers/test_equipment_manager.py::test_equipment_manager_update_data
-FAILED tests/test_managers/test_equipment_manager.py::test_equipment_manager_export_data
-FAILED tests/test_managers/test_equipment_manager.py::test_equipment_manager_show_equipment
-FAILED tests/test_managers/test_equipment_manager.py::test_equipment_manager_delete_equipment
 FAILED tests/test_managers/test_equipment_manager.py::test_equipment_manager_build_equipment
-FAILED tests/test_managers/test_roles_manager.py::test_roles_manager_update_data
-FAILED tests/test_managers/test_roles_manager.py::test_roles_manager_export_data
-FAILED tests/test_managers/test_roles_manager.py::test_roles_manager_show_role
-FAILED tests/test_managers/test_roles_manager.py::test_roles_manager_delete_role
-FAILED tests/test_managers/test_roles_manager.py::test_roles_manager_build_role_with_save
-======================== 28 failed, 117 passed in 1.91s ========================
+======================== 4 failed, 141 passed in 0.82s =========================
 
 ---Code Quality Report---
 
@@ -1618,7 +359,7 @@ FAILED tests/test_managers/test_roles_manager.py::test_roles_manager_build_role_
 -----PYLINT-----
 
 ************* Module funclg.character.stats
-funclg/character/stats.py:170:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
+funclg/character/stats.py:147:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
 ************* Module funclg.character.roles
 funclg/character/roles.py:33:4: R0917: Too many positional arguments (7/5) (too-many-positional-arguments)
 ************* Module funclg.character.equipment
@@ -1632,71 +373,6 @@ funclg/character/armor.py:25:4: R0917: Too many positional arguments (7/5) (too-
 Your code has been rated at 9.96/10 (previous run: 9.96/10, +0.00)
 
 
+Please login or register Safety CLI (free forever) to scan and secure your projects with Safety
 
-[33m[1m+===========================================================================================================================================================================================+[0m
-
-
-[31m[1mDEPRECATED: [0m[33m[1mthis command (`check`) has been DEPRECATED, and will be unsupported beyond 01 June 2024.[0m
-
-
-[32mWe highly encourage switching to the new [0m[32m[1m`scan`[0m[32m command which is easier to use, more powerful, and can be set up to mimic the deprecated command if required.[0m
-
-
-[33m[1m+===========================================================================================================================================================================================+[0m
-
-
-+==============================================================================+
-
-                               /$$$$$$            /$$
-                              /$$__  $$          | $$
-           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
-          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
-         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
-          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
-          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
-         |_______/  \_______/|__/     \_______/   \___/   \____  $$
-                                                          /$$  | $$
-                                                         |  $$$$$$/
-  by safetycli.com                                        \______/
-
-+==============================================================================+
-
- [1mREPORT[0m 
-
-  Safety [1mv3.2.14[0m is scanning for [1mVulnerabilities[0m[1m...[0m
-[1m  Scanning dependencies[0m in your [1menvironment:[0m
-
-  -> /home/jevin/.cache/pypoetry/virtualenvs/funclg-TZxze2VB-py3.12/bin
-  -> /usr/local/lib/python312.zip
-  -> /usr/local/lib/python3.12
-  -> /usr/local/lib/python3.12/lib-dynload
-  -> /home/jevin/Dev/FUNCLG
-  -> /home/jevin/.cache/pypoetry/virtualenvs/funclg-TZxze2VB-
-  py3.12/lib/python3.12/site-packages
-  -> /home/jevin/.cache/pypoetry/virtualenvs/funclg-TZxze2VB-
-  py3.12/lib/python3.12/site-packages/setuptools/_vendor
-
-  Using [1mopen-source vulnerability database[0m
-[1m  Found and scanned 89 packages[0m
-  Timestamp [1m2025-01-17 12:42:18[0m
-[1m  0[0m[1m vulnerabilities reported[0m
-[1m  0[0m[1m vulnerabilities ignored[0m
-+==============================================================================+
-
- [32m[1mNo known security vulnerabilities reported.[0m 
-
-+==============================================================================+[0m
-
-
-[33m[1m+===========================================================================================================================================================================================+[0m
-
-
-[31m[1mDEPRECATED: [0m[33m[1mthis command (`check`) has been DEPRECATED, and will be unsupported beyond 01 June 2024.[0m
-
-
-[32mWe highly encourage switching to the new [0m[32m[1m`scan`[0m[32m command which is easier to use, more powerful, and can be set up to mimic the deprecated command if required.[0m
-
-
-[33m[1m+===========================================================================================================================================================================================+[0m
-
-
+(R)egister for a free account in 30 seconds, or (L)ogin with an existing account to continue (R/L): 

@@ -36,5 +36,5 @@ def test_build_main_menu(m_build_man, m_save_exit):
 #     m_input.side_effect = ["3", "3"]
 
 #     main
-#     assert m_print.called_with("Saving and closing")
+#     assert m_print.assert_called_with("Saving and closing")
 #     assert m_exit.called

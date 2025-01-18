@@ -101,7 +101,7 @@ def delete_ability():
     if del_ability_id:
         del_ability = ABILITIES_DATA["data"][del_ability_id]
         if confirmation(f"Do you want to delete \"{del_ability['name']}\"?"):
-            print(f"Deleteing {del_ability['name']}")
+            print(f"Deleting {del_ability['name']}")
             del ABILITIES_DATA["data"][del_ability_id]
             del ABILITIES_DATA["objects"][del_ability_id]
             update_data()
