@@ -172,7 +172,7 @@ def test_roles_manager_update_data(m_db, test_mage):
     role_man.update_data()
 
     assert len(role_man.ROLES_DATA["data"]) == len(role_man.ROLES_DATA["objects"])
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.utils.data_mgmt.update_data")
@@ -184,7 +184,7 @@ def test_roles_manager_export_data(m_db, test_mage):
     role_man.export_data()
     assert len(role_man.ROLES_DATA["data"]) == len(role_man.ROLES_DATA["objects"])
     assert test_mage["_id"] in role_man.ROLES_DATA["data"]
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.managers.roles_manager.logger")
@@ -214,7 +214,7 @@ def test_roles_manager_show_role(m_sel, m_log, m_print, test_mage):
     role_man.ROLES_DATA["objects"][test_mage["_id"]] = test_role
 
     role_man.show_role()
-    assert m_print.called_with(test_role.details())
+    m_print.assert_called_with(test_role.details())
 
     # No Data
     m_sel.return_value = None
@@ -244,7 +244,7 @@ def test_roles_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, t
     assert m_update.called
     assert test_mage_obj.id not in role_man.ROLES_DATA["data"]
     assert test_mage_obj.id not in role_man.ROLES_DATA["objects"]
-    assert m_print.called_with(f"Deleteing {test_mage_obj.name}")
+    m_print.assert_called_with(f"Deleteing {test_mage_obj.name}")
 
     # No Delete
     role_man.ROLES_DATA["data"][test_mage_obj.id] = test_mage
@@ -253,7 +253,7 @@ def test_roles_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, t
     m_confirm.return_value = False
 
     role_man.delete_role()
-    assert m_print.called_with("Keeping all roles in the vault...")
+    m_print.assert_called_with("Keeping all roles in the vault...")
 
     # No select role returned
     m_sel.return_value = None
@@ -366,7 +366,7 @@ def test_roles_manager_build_role_with_save(
 
     assert test_mage["_id"] in role_man.ROLES_DATA["data"]
     assert test_mage == role_man.ROLES_DATA["data"][test_mage["_id"]]
-    assert m_sel_rol_ab.called_with(ability_types)
+    m_sel_rol_ab.assert_called_with(ability_types)
     assert m_confirm.called
     assert m_update.called
 

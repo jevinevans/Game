@@ -31,7 +31,7 @@ def test_abilities_manager_update_data(m_db, test_magic):
     ab_man.update_data()
 
     assert len(ab_man.ABILITIES_DATA["data"]) == len(ab_man.ABILITIES_DATA["objects"])
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.utils.data_mgmt.update_data")
@@ -41,7 +41,7 @@ def test_abilities_manager_export_data(m_db, test_magic):
     ab_man.export_data()
     assert len(ab_man.ABILITIES_DATA["data"]) == len(ab_man.ABILITIES_DATA["objects"])
     assert test_magic["_id"] in ab_man.ABILITIES_DATA["data"]
-    assert m_db.called_once
+    assert m_db.assert_called_once
 
 
 @patch("funclg.managers.abilities_manager.logger")
@@ -56,7 +56,7 @@ def test_abilities_manager_select_ability(m_sel, m_log, test_magic):
     # Data Not Exists - Return Nothing
     ab_man.ABILITIES_DATA["data"] = {}
     assert ab_man.select_ability() is None
-    assert m_log.warning.called_with("There are no abilities available.")
+    m_log.warning.assert_called_with("There are no abilities available.")
 
 
 @patch("builtins.print")
@@ -69,12 +69,12 @@ def test_abilities_manager_show_ability(m_sel, m_log, m_print, test_magic):
     ab_man.ABILITIES_DATA["objects"][test_magic["_id"]] = _ability
 
     ab_man.show_ability()
-    assert m_print.called_with(_ability.details())
+    m_print.assert_called_with(_ability.details())
 
     # No Data
     m_sel.return_value = None
     ab_man.show_ability()
-    assert m_log.warning.called_with("There are no abilities to show.")
+    m_log.warning.assert_called_with("There are no abilities to show.")
 
 
 @patch("builtins.print")
@@ -95,7 +95,7 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_prin
 
     assert _mag.id not in ab_man.ABILITIES_DATA["data"]
     assert _mag.id not in ab_man.ABILITIES_DATA["objects"]
-    assert m_print.called_with(f"Deleting {_mag.name}")
+    m_print.assert_called_with(f"Deleting {_mag.name}")
     assert m_upd.called
 
     # No Delete
@@ -107,7 +107,7 @@ def test_abilities_manager_delete_ability(m_sel, m_upd, m_confirm, m_log, m_prin
 
     ab_man.delete_ability()
 
-    assert m_print.called_with("Keeping all abilities in the vault...")
+    m_print.assert_called_with("Keeping all abilities in the vault...")
 
     # No Id
 

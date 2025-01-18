@@ -118,7 +118,7 @@ def test_stats_add_modifier_base_and_percentage_mod(stat_no_mods):
     }
 
 
-@patch("loguru.logger.warning")
+@patch("loguru.logger.error")
 def test_stats_add_modifier_duplicate_mod(m_log, stat_no_mods):
     """Test duplicate adding of an add mod to stat. Stat should reject the second"""
     add = Modifier("add_test", {"attack": 53})
@@ -127,7 +127,7 @@ def test_stats_add_modifier_duplicate_mod(m_log, stat_no_mods):
     stat_no_mods.add_mod(add)
     stat_no_mods.add_mod(add)
     assert getattr(stat_no_mods, "mods", False) == {add.name: add.get_mods()}
-    assert m_log.called_with("Modifier: add_test is not valid for this stat")
+    m_log.assert_called_with("Modifier: add_test is not valid for this stat")
 
 
 def test_stats_remove_stat_success(stat_with_mods, stat_mods):
@@ -146,7 +146,7 @@ def test_stats_remove_stat_failure(m_log, stat_with_mods, stat_mods):
         stat_mods[0].name: stat_mods[0].get_mods(),
         stat_mods[1].name: stat_mods[1].get_mods(),
     }
-    assert m_log.called_with("This stat does not have the 'Mod_1' modifier.")
+    m_log.assert_called_with("This stat does not have the 'Mod_3' modifier.")
 
 
 def test_stats_get_stat_success(stat_with_mods):

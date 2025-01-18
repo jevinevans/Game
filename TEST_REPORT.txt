@@ -1,13 +1,14 @@
 ######TESTING REPORT######
 
-Date: Sun Dec 31 09:30:46 PST 2023 
+Date: Fri Jan 17 19:30:06 PST 2025 
 
 ---PYTEST---
 
 ============================= test session starts ==============================
-platform linux -- Python 3.10.12, pytest-7.4.3, pluggy-1.3.0
-rootdir: /home/jevinle/Dev/FUNCLG
-plugins: cov-3.0.0
+platform linux -- Python 3.12.7, pytest-8.3.4, pluggy-1.5.0
+rootdir: /home/jevin/Dev/FUNCLG
+configfile: pyproject.toml
+plugins: cov-6.0.0, anyio-4.8.0
 collected 145 items
 
 tests/test_character/test_abilities.py ......                            [  4%]
@@ -16,56 +17,338 @@ tests/test_character/test_character.py ........                          [ 20%]
 tests/test_character/test_equipment.py .............                     [ 29%]
 tests/test_character/test_modifiers.py ..........                        [ 36%]
 tests/test_character/test_roles.py .............                         [ 45%]
-tests/test_character/test_stats.py ..................                    [ 57%]
-tests/test_game/test_game_levels.py .......                              [ 62%]
+tests/test_character/test_stats.py ....F.............                    [ 57%]
+tests/test_game/test_game_levels.py .....F.                              [ 62%]
 tests/test_main/test_main.py .                                           [ 63%]
 tests/test_managers/test_abilities_manager.py .......                    [ 68%]
-tests/test_managers/test_character_manager.py .........                  [ 74%]
-tests/test_managers/test_equipment_manager.py .........                  [ 80%]
+tests/test_managers/test_character_manager.py .....F...                  [ 74%]
+tests/test_managers/test_equipment_manager.py .......F.                  [ 80%]
 tests/test_managers/test_managers_setup.py .....                         [ 84%]
 tests/test_managers/test_roles_manager.py ............                   [ 92%]
 tests/test_managers/test_stats_manager.py ...                            [ 94%]
 tests/test_utils/test_menu.py .....                                      [ 97%]
 tests/test_utils/test_types.py ...                                       [100%]
 
----------- coverage: platform linux, python 3.10.12-final-0 ----------
+=================================== FAILURES ===================================
+____________________ test_stats_add_modifier_duplicate_mod _____________________
+
+m_log = <MagicMock name='error' id='280478556563376'>
+stat_no_mods = <funclg.character.stats.Stats object at 0xff18004fa3f0>
+
+    @patch("loguru.logger.error")
+    def test_stats_add_modifier_duplicate_mod(m_log, stat_no_mods):
+        """Test duplicate adding of an add mod to stat. Stat should reject the second"""
+        add = Modifier("add_test", {"attack": 53})
+        assert stat_no_mods.mods == {}
+    
+        stat_no_mods.add_mod(add)
+        stat_no_mods.add_mod(add)
+        assert getattr(stat_no_mods, "mods", False) == {add.name: add.get_mods()}
+>       m_log.assert_called_with("Modifier: add_test is not valid for this stat")
+
+tests/test_character/test_stats.py:130: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <MagicMock name='error' id='280478556563376'>
+args = ('Modifier: add_test is not valid for this stat',), kwargs = {}
+expected = "error('Modifier: add_test is not valid for this stat')"
+actual = 'not called.'
+error_message = "expected call not found.\nExpected: error('Modifier: add_test is not valid for this stat')\n  Actual: not called."
+
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+>           raise AssertionError(error_message)
+E           AssertionError: expected call not found.
+E           Expected: error('Modifier: add_test is not valid for this stat')
+E             Actual: not called.
+
+/usr/local/lib/python3.12/unittest/mock.py:940: AssertionError
+_________________________ test_game_level_alt_display __________________________
+
+m_print = <MagicMock name='print' id='280478549367344'>
+game_icons = {'alt': LevelIcons(space='■', horizontal_edge='═', vertical_edge='║', tl_corner='╔', tr_corner='╗', bl_corner='╚', br_...rtical_edge='|', tl_corner='+', tr_corner='+', bl_corner='+', br_corner='+', player='P', key='K', boss='B', enemy='E')}
+
+    @patch("builtins.print")
+    def test_game_level_alt_display(m_print, game_icons):
+        test_level = game_level.GameLevel(5, game_icons["alt"])
+    
+        test_level.display_level()
+>       m_print.assert_called_with(alt_level)
+
+tests/test_game/test_game_levels.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <MagicMock name='print' id='280478549367344'>
+args = (['+-----+', '|____K|', '|_____|', '|__B__|', '|_____|', '|P____|', ...],)
+kwargs = {}
+expected = call(['+-----+', '|____K|', '|_____|', '|__B__|', '|_____|', '|P____|', '+-----+'])
+actual = call('╚═════════╝')
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0xff18005d72e0>
+cause = None
+
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: print(['+-----+', '|____K|', '|_____|', '|__B__|', '|_____|', '|P____|', '+-----+'])
+E             Actual: print('╚═════════╝')
+
+/usr/local/lib/python3.12/unittest/mock.py:949: AssertionError
+_________________ test_char_manager_pick_char_armor_equipment __________________
+
+m_sel = <MagicMock name='selection_validation' id='280478550277296'>
+m_confirm = <MagicMock name='confirmation' id='280478549906720'>
+m_fil_equip = <MagicMock name='filter_equipment_by_armor_type' id='280478549913680'>
+m_print = <MagicMock name='print' id='280478549867888'>
+
+    @patch("builtins.print")
+    @patch("funclg.managers.equipment_manager.filter_equipment_by_armor_type")
+    @patch("funclg.managers.character_manager.confirmation")
+    @patch("funclg.managers.character_manager.selection_validation")
+    def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m_print):
+        t_chest = BodyEquipment(
+            **{
+                "name": "Basic Mage Tunic",
+                "description": "Armor used by beginner mages",
+                "item_type": 1,
+                "armor_type": 1,
+                "level": 0,
+                "mod": {"base": {"health": 100}, "percentage": {"health": 0.45}},
+                "_id": "ARMOR-16809-BCWSVN-76675",
+            }
+        )
+        t_pants = BodyEquipment(
+            **{
+                "name": "Basic Mage Pants",
+                "description": "Pants for a beginner mage",
+                "item_type": 3,
+                "armor_type": 1,
+                "level": 0,
+                "mod": {"base": {"health": 459}, "percentage": {"health": 0.51}},
+                "_id": "ARMOR-16809-AEAYIE-76732",
+            }
+        )
+        t_weapon = WeaponEquipment(
+            **{
+                "weapon_type": "Wand",
+                "name": "Calins Wand",
+                "description": "The original wand of Calin",
+                "item_type": 4,
+                "armor_type": 1,
+                "level": 0,
+                "mod": {"base": {"attack": 337}, "percentage": {"energy": 1}},
+                "_id": "WEAPON-16645-ACIGL-01214",
+            }
+        )
+    
+        # TODO: Need to find the corret way to return thes results
+        m_fil_equip.return_value = {
+            "Head": {},
+            "Chest": {t_chest.id: t_chest},
+            "Back": {},
+            "Pants": {t_pants.id: t_pants},
+            "Weapon": {t_weapon.id: t_weapon},
+        }
+        m_sel.side_effect = [t_chest.name, "Skip", t_weapon.name]
+        m_confirm.side_effect = [True, True]
+    
+        selected_equipment = char_man._pick_char_armor_equipment("Medium", 1)
+    
+        expected_results = {"chest": t_chest, "weapon": t_weapon}
+    
+>       m_print.assert_called_with("There are not any Medium Head items, continuing...\n")
+
+tests/test_managers/test_character_manager.py:276: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <MagicMock name='print' id='280478549867888'>
+args = ('There are not any Medium Head items, continuing...\n',), kwargs = {}
+expected = call('There are not any Medium Head items, continuing...\n')
+actual = call('Skipping Pants selection...')
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0xff1800548220>
+cause = None
+
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: print('There are not any Medium Head items, continuing...\n')
+E             Actual: print('Skipping Pants selection...')
+
+/usr/local/lib/python3.12/unittest/mock.py:949: AssertionError
+----------------------------- Captured stderr call -----------------------------
+2025-01-17 19:30:07.633 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Pants
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
+2025-01-17 19:30:07.634 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:104 - Selected Basic Mage Tunic from {'ARMOR-16809-BCWSVN-76675': <funclg.character.equipment.BodyEquipment object at 0xff18005b3b00>}
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Basic Mage Tunic
+2025-01-17 19:30:07.634 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:104 - Selected Skip from {'ARMOR-16809-AEAYIE-76732': <funclg.character.equipment.BodyEquipment object at 0xff180054dfa0>}
+2025-01-17 19:30:07.634 | DEBUG    | funclg.managers.character_manager:_pick_char_armor_equipment:104 - Selected Calins Wand from {'WEAPON-16645-ACIGL-01214': <funclg.character.equipment.WeaponEquipment object at 0xff180054dee0>}
+2025-01-17 19:30:07.634 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Calins Wand
+____________________ test_equipment_manager_build_equipment ____________________
+
+m_sel = <MagicMock name='selection_validation' id='280478547314928'>
+m_confirm = <MagicMock name='confirmation' id='280478547460016'>
+m_new_body = <MagicMock name='_new_body_armor' id='280478547456080'>
+m_new_wep = <MagicMock name='_new_weapon' id='280478547452384'>
+m_update = <MagicMock name='update_data' id='280478547448496'>
+m_print = <MagicMock name='print' id='280478547444560'>
+test_equipment = {'_id': 'ARMOR-16342-QLERCA-36276', 'armor_type': 0, 'description': 'Test Chest Plate', 'item_type': 1, ...}
+test_weapon = {'_id': 'WEAPON-16151-OEGEFS-36126', 'armor_type': 2, 'description': 'Test Spear', 'item_type': 4, ...}
+
+    @patch("builtins.print")
+    @patch("funclg.managers.equipment_manager.update_data")
+    @patch("funclg.managers.equipment_manager._new_weapon")
+    @patch("funclg.managers.equipment_manager._new_body_armor")
+    @patch("funclg.managers.equipment_manager.confirmation")
+    @patch("funclg.managers.equipment_manager.selection_validation")
+    def test_equipment_manager_build_equipment(
+        m_sel, m_confirm, m_new_body, m_new_wep, m_update, m_print, test_equipment, test_weapon
+    ):
+        # Test New Body Armor + Positive Valdiation Branch
+        m_sel.return_value = "Armor"
+        m_new_body.return_value = eq_man.BodyEquipment(**test_equipment)
+        m_confirm.return_value = True
+    
+        eq_man.build_equipment()
+    
+        assert m_update.called
+        assert test_equipment["_id"] in eq_man.EQUIPMENT_DATA["data"]
+    
+        # Test New Weapon + Negative Validation  Branch
+        m_sel.return_value = "Weapon"
+        m_new_wep.return_value = eq_man.WeaponEquipment(**test_weapon)
+        m_confirm.return_value = False
+    
+        eq_man.build_equipment()
+    
+>       m_print.assert_called_with(f"{test_weapon['name']} has been saved!!")
+
+tests/test_managers/test_equipment_manager.py:248: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <MagicMock name='print' id='280478547444560'>
+args = ('Test Spear has been saved!!',), kwargs = {}
+expected = call('Test Spear has been saved!!')
+actual = call('No new weapon, oh well...')
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0xff180064fb00>
+cause = None
+
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: print('Test Spear has been saved!!')
+E             Actual: print('No new weapon, oh well...')
+
+/usr/local/lib/python3.12/unittest/mock.py:949: AssertionError
+----------------------------- Captured stderr call -----------------------------
+2025-01-17 19:30:07.700 | ERROR    | funclg.character.stats:_validate_attributes:62 - _power is not a valid stats attribute
+2025-01-17 19:30:07.701 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Plate
+2025-01-17 19:30:07.703 | ERROR    | funclg.character.stats:_validate_attributes:62 - _power is not a valid stats attribute
+2025-01-17 19:30:07.703 | DEBUG    | funclg.character.equipment:__init__:52 - Created Equipment: Test Spear
+
+---------- coverage: platform linux, python 3.12.7-final-0 -----------
 Name                                   Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------------------------------
 funclg/__init__.py                         1      0      0      0   100%
-funclg/__main__.py                        41     24      6      1    38%   39-43, 56-68, 72-79, 83-85
+funclg/__main__.py                        41     24      6      1    38%   40-44, 57-69, 73-80, 84-86
 funclg/character/__init__.py               0      0      0      0   100%
 funclg/character/abilities.py             65      0     18      0   100%
 funclg/character/armor.py                143      0     46      5    97%   193->195, 195->197, 197->199, 199->201, 201->exit
-funclg/character/character.py             86      4     14      0    94%   148-149, 164-167
+funclg/character/character.py             85      4     14      0    94%   147-148, 163-166
 funclg/character/equipment.py             92      0      8      0   100%
-funclg/character/modifiers.py             71      0     38      1    99%   115->118
-funclg/character/roles.py                 93      7     32      0    91%   67, 140, 156-160
-funclg/character/stats.py                114     12     48      1    86%   49-57, 60-63, 83
+funclg/character/modifiers.py             71      0     34      1    99%   115->118
+funclg/character/roles.py                 93      7     26      0    91%   67, 140, 156-160
+funclg/character/stats.py                101      1     38      1    99%   60
 funclg/game/__init__.py                   11      4      0      0    64%   22, 33, 37, 46
 funclg/game/combat.py                      0      0      0      0   100%
-funclg/game/game.py                       10      4      0      0    60%   40, 45, 49, 55
-funclg/game/level.py                     101      0     42      2    99%   128->exit, 195->198
+funclg/game/game.py                       10      4      0      0    60%   39, 44, 48, 54
+funclg/game/level.py                     101      0     40      2    99%   128->exit, 195->198
 funclg/game/rewards.py                     0      0      0      0   100%
 funclg/managers/__init__.py               34      0      8      0   100%
-funclg/managers/abilities_manager.py      69      1     24      1    98%   126
-funclg/managers/character_manager.py     120      3     54      4    96%   27-28, 69->68, 72->75, 75->78, 228
-funclg/managers/equipment_manager.py      90      4     32      3    94%   23-24, 31->30, 99, 182
+funclg/managers/abilities_manager.py      69      1     22      1    98%   126
+funclg/managers/character_manager.py     120      4     46      5    95%   28-29, 70->69, 73->76, 76->79, 116, 229
+funclg/managers/equipment_manager.py      90      4     26      3    94%   23-24, 31->30, 99, 182
 funclg/managers/game_manager.py           30     10      8      1    61%   29, 42-54, 64
 funclg/managers/level_manager.py          14      6      0      0    57%   13, 17, 21, 25, 29, 33
-funclg/managers/roles_manager.py         122      3     52      3    97%   24-25, 31->30, 118->131, 225
-funclg/managers/stats_manager.py          84     16     34      0    80%   126-154
+funclg/managers/roles_manager.py         122      3     44      3    96%   24-25, 31->30, 118->131, 225
+funclg/managers/stats_manager.py          84     16     32      0    81%   127-155
 funclg/utils/__init__.py                   0      0      0      0   100%
-funclg/utils/data_mgmt.py                 51     15     16      1    67%   36-37, 43->56, 47-55, 66-69
-funclg/utils/game_enums.py                32      4      2      0    88%   58-72
-funclg/utils/input_validation.py          40     28     16      0    21%   18-28, 35-36, 43, 72-85, 97, 106-111, 127-135
+funclg/utils/data_mgmt.py                 51     15      4      1    71%   36-37, 43->56, 47-55, 66-69
+funclg/utils/game_enums.py                32      4      0      0    88%   58-72
+funclg/utils/input_validation.py          40     28     12      0    23%   18-28, 35-36, 43, 72-85, 97, 106-111, 127-135
 funclg/utils/menu_funcs.py                27      0      8      0   100%
 funclg/utils/types.py                     18      0      6      1    96%   54->57
 ----------------------------------------------------------------------------------
-TOTAL                                   1559    145    512     24    89%
+TOTAL                                   1545    135    446     25    90%
 
-FAIL Required test coverage of 95.0% not reached. Total coverage: 89.23%
-
-======================= 145 passed, 2 warnings in 2.10s ========================
+Required test coverage of 85.0% reached. Total coverage: 90.36%
+=========================== short test summary info ============================
+FAILED tests/test_character/test_stats.py::test_stats_add_modifier_duplicate_mod
+FAILED tests/test_game/test_game_levels.py::test_game_level_alt_display - Ass...
+FAILED tests/test_managers/test_character_manager.py::test_char_manager_pick_char_armor_equipment
+FAILED tests/test_managers/test_equipment_manager.py::test_equipment_manager_build_equipment
+======================== 4 failed, 141 passed in 0.82s =========================
 
 ---Code Quality Report---
 
@@ -76,56 +359,20 @@ FAIL Required test coverage of 95.0% not reached. Total coverage: 89.23%
 -----PYLINT-----
 
 ************* Module funclg.character.stats
-funclg/character/stats.py:170:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
+funclg/character/stats.py:147:5: W0511: TODO: 2023.10.18 - Needs to return a new Stats object and should be loaded as a Stats item in equipment similar to other Characer module copies. (fixme)
+************* Module funclg.character.roles
+funclg/character/roles.py:33:4: R0917: Too many positional arguments (7/5) (too-many-positional-arguments)
+************* Module funclg.character.equipment
+funclg/character/equipment.py:30:4: R0917: Too many positional arguments (6/5) (too-many-positional-arguments)
+funclg/character/equipment.py:123:4: R0917: Too many positional arguments (6/5) (too-many-positional-arguments)
+funclg/character/equipment.py:194:4: R0917: Too many positional arguments (6/5) (too-many-positional-arguments)
+************* Module funclg.character.armor
+funclg/character/armor.py:25:4: R0917: Too many positional arguments (7/5) (too-many-positional-arguments)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.99/10 (previous run: 9.88/10, +0.11)
+Your code has been rated at 9.96/10 (previous run: 9.96/10, +0.00)
 
-+==============================================================================+
 
-                               /$$$$$$            /$$
-                              /$$__  $$          | $$
-           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
-          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
-         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
-          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
-          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
-         |_______/  \_______/|__/     \_______/   \___/   \____  $$
-                                                          /$$  | $$
-                                                         |  $$$$$$/
-  by pyup.io                                              \______/
+Please login or register Safety CLI (free forever) to scan and secure your projects with Safety
 
-+==============================================================================+
-
- [1mREPORT[0m 
-
-[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
-data is 30 days old and limited. [0m
-[31m  For real-time enhanced vulnerability data, fix recommendations, severity
-reporting, cybersecurity support, team and project policy management and more
-sign up at https://pyup.io or email sales@pyup.io[0m
-
-  Safety [1mv2.3.5[0m is scanning for [1mVulnerabilities[0m[1m...[0m
-[1m  Scanning dependencies[0m in your [1menvironment:[0m
-
-  -> /home/jevinle/.cache/pypoetry/virtualenvs/funclg-
-    AThUaF5z-py3.10/lib/python3.10/site-packages
-
-  Using [1mnon-commercial database[0m
-[1m  Found and scanned 69 packages[0m
-  Timestamp [1m2023-12-31 09:31:04[0m
-[1m  0[0m[1m vulnerabilities found[0m
-[1m  0[0m[1m vulnerabilities ignored[0m
-+==============================================================================+
-
- [32m[1mNo known security vulnerabilities found.[0m 
-
-+==============================================================================+
-
-[31m[22m  Safety is using PyUp's free open-source vulnerability database. This
-data is 30 days old and limited. [0m
-[31m  For real-time enhanced vulnerability data, fix recommendations, severity
-reporting, cybersecurity support, team and project policy management and more
-sign up at https://pyup.io or email sales@pyup.io[0m
-
-+==============================================================================+[0m
+(R)egister for a free account in 30 seconds, or (L)ogin with an existing account to continue (R/L): 

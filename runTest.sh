@@ -32,4 +32,4 @@ poetry run pylint ./funclg &>> $REPORT
 # poetry run pyright ./funclg &>> $REPORT
 
 echo -e "\n-----SAFETY-----\n"
-poetry run safety check >> $REPORT
+poetry run safety scan >> $REPORT

@@ -84,7 +84,7 @@ def test_game_level_alt_display(m_print, game_icons):
     test_level = game_level.GameLevel(5, game_icons["alt"])
 
     test_level.display_level()
-    assert m_print.called_with(alt_level)
+    m_print.assert_called_with(alt_level)
 
 
 @patch("funclg.game.level.logger")
@@ -93,7 +93,7 @@ def test_game_level_update_level_game_error(m_log, game_icons):
     test_level = game_level.GameLevel(6, game_icons["reg"])
 
     assert test_level.update_level(GamePiece.SPACE, (6, 0)) == GameAction.ERROR
-    assert m_log.error.called_with("That location is not on the map silly...")
+    m_log.error.assert_called_with("That location is not on the map silly...")
 
     # Succesful Update of Enemy = Ready | loc = (0,0)
     assert test_level.update_level(GamePiece.ENEMY, (0, 0)) == GameAction.READY
