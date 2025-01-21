@@ -9,3 +9,5 @@ include/
 lib64
 .coverage
 logs/*
+TEST_REPORT.txt
+GAMES_DIRECTORIES_AND_FILES.txt
