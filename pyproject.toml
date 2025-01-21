@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "funclg"
-version = "0.5.9"
+version = "0.7.0"
 description = "Fun way to build your own CLI game"
 authors = ["Jevin <jevyjev324@me.com>"]
 readme = "README.md"
