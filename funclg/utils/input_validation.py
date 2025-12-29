@@ -11,23 +11,6 @@ import questionary
 from questionary import ValidationError, Validator
 
 
-def choice_validation(max_choice: int) -> int:
-    """
-    Validates a numeric choice from 0 to [max].
-    """
-    while True:
-        try:
-            user_resp = int(input("CHOICE: "))
-
-            if user_resp < 0 or user_resp > max_choice:
-                raise ValueError()
-        except ValueError:
-            print(f"Invalid Answer: Please enter a number between 1 and {max_choice}")
-            continue
-        else:
-            return user_resp
-
-
 def remove_special_chars(value: str) -> str:
     """
     Removes special characters from a string.
@@ -113,7 +96,9 @@ class NumberValidation(Validator):
             )
 
 
-def number_range_validation(min_val: int = 1, max_val: int = 100) -> int:
+def number_range_validation(
+    min_val: int = 1, max_val: int = 100, prompt: str = "", default: int = 0
+) -> int:
     """
     Validates user input of an integer is within the supplied range.
 
@@ -124,12 +109,16 @@ def number_range_validation(min_val: int = 1, max_val: int = 100) -> int:
     :return: The users entered response
     :rtype: int
     """
-    print(f"Choice number in range [{min_val} - {max_val}]: ")
+    default = min_val
+    print(f"{prompt}\nChoice number in range [{min_val} - {max_val}]: ")
     user_resp = min_val - 1
     while user_resp < min_val or user_resp > max_val:
         user_resp = int(
             questionary.text(
-                "Please enter a number:", validate=NumberValidation, validate_while_typing=False
+                "Please enter a number:",
+                validate=NumberValidation,
+                validate_while_typing=False,
+                default=str(default),
             ).ask()
         )
     return user_resp

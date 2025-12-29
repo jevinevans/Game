@@ -18,6 +18,7 @@ class GameAction(Enum):
     WIN = auto()
     DIE = auto()
     ERROR = auto()
+    PAUSED = auto()
 
 
 class GamePiece(Enum):
@@ -70,3 +71,7 @@ class LevelIcons:  # pylint: disable=too-many-instance-attributes
             ]
         )
         return f"\n{top}\n{char_icons}\n{btm}"
+
+
+class GameError(Exception):
+    pass

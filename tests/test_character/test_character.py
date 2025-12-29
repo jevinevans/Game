@@ -5,7 +5,7 @@ from unittest.mock import patch
 import pytest
 
 from funclg.character import abilities, armor, roles
-from funclg.character.character import Character, Player
+from funclg.character.character import Character, NonPlayableCharacter, Player
 from funclg.character.equipment import BodyEquipment
 
 
@@ -180,4 +180,11 @@ def test_player_show_inventory(m_print, character_inventory_show_expectation):
     t_player.inventory = test_inventory
 
     t_player.show_inventory()
-    m_print.assert_called_with(expectation)
+    assert m_print.called_with(expectation)
+
+
+def test_npc_id_gen():
+    t_npc = NonPlayableCharacter("NPC 1")
+
+    assert t_npc.npc
+    assert t_npc.id.startswith(NonPlayableCharacter.DB_PREFIX)

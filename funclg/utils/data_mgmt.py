@@ -60,7 +60,7 @@ def update_data(game_data: Dict[str, Any]):
     try:
         filename = validate_filename(game_data["filename"])
         with open(filename, "w", encoding="utf-8") as write_file:
-            json.dump(game_data["data"], write_file)
+            json.dump(game_data["data"], write_file, sort_keys=True)
         logger.info(f"Saved {filename.split(os.sep)[-1].split('.')[0].capitalize()}")
         return True
     except FileNotFoundError as error:
