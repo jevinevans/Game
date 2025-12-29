@@ -1,6 +1,4 @@
-from unittest.mock import call, patch
-
-import pytest
+from unittest.mock import patch
 
 from funclg.utils.menu_funcs import Menu
 

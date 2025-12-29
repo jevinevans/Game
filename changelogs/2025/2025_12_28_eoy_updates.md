@@ -1,8 +1,8 @@
-# FUN Command Line Game Log: 1.17.2025
+# FUN Command Line Game Log: 12.28.2025
 <!-- Update: Current Log date -->
 
-Last Updated: 1.17.2025 <!-- Update with previous log date -->
-Version: 0.6.3
+Last Updated: 12.28.2025 <!-- Update with previous log date -->
+Version: 0.7.0
 <!-- Update version number when changes made-->
 <!-- Verions Additions 
   + 1.0.0 is for major project wide changes like adding a whole new concept/face change
@@ -12,7 +12,7 @@ Version: 0.6.3
   + 0.0.1 is for minor changes including: bug fixes, additions to current methods
  -->
 
-## MOTD - 1.17.2025
+## MOTD - 12.28.2025
 
 -------------------
 Updated packages and review code for updates (continue previous work)
@@ -21,7 +21,7 @@ Updated packages and review code for updates (continue previous work)
 
 ### Added
 
-- Updated packages from 2 years (hehehe) see requirements
+- Adding Python3.13 support
 
 ### Fixed
 
