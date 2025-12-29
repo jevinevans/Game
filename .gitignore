@@ -9,3 +9,4 @@ include/
 lib64
 .coverage
 logs/*
+TEST_REPORT.txt
