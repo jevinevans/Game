@@ -42,6 +42,10 @@ MENU = {
         {"title": "Delete Level", "value": delete_level},
     ],
 }
+
+if __name__ == "__main__":
+    load_data()
+
 # Allow user to build a level board
 
 # This should manage level settings:

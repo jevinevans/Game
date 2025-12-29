@@ -4,7 +4,7 @@ Developer: Jevin Evans
 Data: 9/5/2023
 """
 
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 import pytest
 
@@ -76,15 +76,21 @@ def test_game_level_int_to_coord_index_error(game_icons):
     assert test_level.int_to_coord(3) == (0, 3)
 
 
-alt_level = ["+-----+", "|____K|", "|_____|", "|__B__|", "|_____|", "|P____|", "+-----+"]
-
-
 @patch("builtins.print")
 def test_game_level_alt_display(m_print, game_icons):
+    alt_level = [
+        call("\u2554" + "\u2550" * 9 + "\u2557"),
+        call("\u2551" + "\u25a0 " * 4 + "\u2625" + "\u2551"),
+        call("\u2551" + "\u25a0 " * 4 + "\u25a0" + "\u2551"),
+        call("\u2551" + "\u25a0 " * 2 + "\u265a " + "\u25a0 " + "\u25a0" + "\u2551"),
+        call("\u2551" + "\u25a0 " * 4 + "\u25a0" + "\u2551"),
+        call("\u2551" + "\u25ca " + "\u25a0 " * 3 + "\u25a0" + "\u2551"),
+        call("\u255a" + "\u2550" * 9 + "\u255d"),
+    ]
     test_level = game_level.GameLevel(5, game_icons["alt"])
 
     test_level.display_level()
-    m_print.assert_called_with(alt_level)
+    m_print.assert_has_calls(alt_level)
 
 
 @patch("funclg.game.level.logger")

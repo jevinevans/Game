@@ -4,7 +4,7 @@ Developer: Jevin Evans
 Date: 02.20.2023
 """
 
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 import pytest
 
@@ -129,9 +129,7 @@ def test_char_manager_export_data(m_db, test_character_mage):
     _test_char_mage = test_character_mage.copy()
     _test_char_mage = char_man._update_char_role(test_character_mage, _test_char_mage)
     _test_char_mage = char_man._update_char_armor(test_character_mage, _test_char_mage)
-    char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Character(
-        **_test_char_mage
-    )
+    char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Player(**_test_char_mage)
     char_man.CHARACTER_DATA["data"] = {}
 
     char_man.export_data()
@@ -169,9 +167,7 @@ def test_char_manager_show_character(m_sel, m_log, m_print, test_character_mage)
     _test_char_mage = test_character_mage.copy()
     _test_char_mage = char_man._update_char_role(test_character_mage, _test_char_mage)
     _test_char_mage = char_man._update_char_armor(test_character_mage, _test_char_mage)
-    char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Character(
-        **_test_char_mage
-    )
+    char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Player(**_test_char_mage)
 
     char_man.show_character()
     m_print.assert_called_with(
@@ -190,7 +186,7 @@ def test_char_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, te
     _tmp_char = char_man._update_char_role(test_character_mage, _tmp_char)
     _tmp_char = char_man._update_char_armor(test_character_mage, _tmp_char)
 
-    char_obj = char_man.Character(**_tmp_char)
+    char_obj = char_man.Player(**_tmp_char)
     char_man.CHARACTER_DATA["objects"][char_obj.id] = char_obj
     char_man.CHARACTER_DATA["data"][char_obj.id] = test_character_mage
 
@@ -273,8 +269,15 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
 
     expected_results = {"chest": t_chest, "weapon": t_weapon}
 
-    m_print.assert_called_with("There are not any Medium Head items, continuing...\n")
-    m_print.assert_called_with("There are not any Medium Back items, continuing...\n")
+    m_print.assert_has_calls(
+        [
+            call("There are not any Medium Head items, continuing...\n"),
+            call("Skipping Pants selection..."),
+            call("There are not any Medium Back items, continuing...\n"),
+        ],
+        any_order=True,
+    )
+
     for a_type, item in selected_equipment.items():
         assert item.name == expected_results[a_type].name
         assert item.id == expected_results[a_type].id
@@ -287,8 +290,10 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
 
     expected_results = {"chest": t_chest, "weapon": t_weapon}
 
-    m_print.assert_called_with("There are not any Medium Head items, continuing...\n")
-    m_print.assert_called_with("There are not any Medium Back items, continuing...\n")
+    m_print.assert_has_calls(
+        [call("There are not any Medium Head items, continuing...\n")],
+        [call("There are not any Medium Back items, continuing...\n")],
+    )
     for a_type, item in selected_equipment.items():
         if expected_results.get(a_type):
             assert item.name == expected_results[a_type].name

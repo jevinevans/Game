@@ -46,3 +46,6 @@ MENU = {
         {"title": "Remove Level Pack(s)", "value": delete_level_pack},
     ],
 }
+
+if __name__ == "__main__":
+    load_data()

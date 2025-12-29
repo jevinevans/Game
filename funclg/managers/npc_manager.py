@@ -101,3 +101,6 @@ MENU = {
         {"title": "Remove NPC(s)", "value": delete_npc},
     ],
 }
+
+if __name__ == "__main__":
+    load_data()

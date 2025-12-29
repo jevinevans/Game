@@ -96,7 +96,9 @@ def _pick_char_armor_equipment(
 
     # Go through each item type and select or skip
     for item_type in ITEM_TYPES:
+        logger.debug(f"{item_type} has {len(available_equipment[item_type])} available items")
         if available_equipment[item_type]:
+            logger.debug(f"{item_type} True")
             sel_item_name = selection_validation(
                 f"Please choose a {item_type} to equip:",
                 [item.name for item in available_equipment[item_type].values()] + ["Skip"],
@@ -116,6 +118,7 @@ def _pick_char_armor_equipment(
                 selected_equipment[item_type.lower()] = None
         else:
             print(f"There are not any {armor_type} {item_type} items, continuing...\n")
+            logger.debug(f"There are not any {armor_type} {item_type} items, continuing...\n")
 
     return selected_equipment
 
