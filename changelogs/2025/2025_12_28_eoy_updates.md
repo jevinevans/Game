@@ -17,6 +17,32 @@ Version: 0.7.0
 -------------------
 Updated packages and review code for updates (continue previous work)
 
+Continue working on game init process with
+
+- level generation and difficulty process
+- Create npcs and npc manager for level difficulty testing process
+- Define new roles, equipment, and equipment type
+Use the Game Loop Pattern to build the game process
+Need to define a npc manager and create monsters for testing
+Need to create level pack manager
+
+- [x] [#126](https://github.com/jevinevans/Game/issues/126)
+- [x] [[#122](https://github.com/jevinevans/Game/issues/122)]
+- [ ] NPC Manager [12.7.2023] - Needs to be added to current sprint if not already[12.10.2023]
+- [ ] [#111](https://github.com/jevinevans/Game/issues/111)
+- [ ] [#94](https://github.com/jevinevans/Game/issues/94)
+- [ ] [#62](https://github.com/jevinevans/Game/issues/62)
+- [ ] [#65](https://github.com/jevinevans/Game/issues/65)
+
+### Create Issues
+
+- [ ] Level Pack creation [12.7.2023]
+- [ ] Using the NPCS csv in docs, create new roles, equipment type, and new equipment to accomediate the NPCs
+- [ ] Update Char_Manager to list all roles and not ask the user for the role type they want. Select role use that armor type as the char armor type [12.7.2023]
+- [ ] Version 2, create a format to load saved games [12.7.2023]
+- [ ] Create a manager class and then use it as a base class for the individual managers. It should simply management, and will allow for proper calls instead of loading on run
+- [ ] Equipment Manager, create break down when view armor to view item type only (i.e., view all heads, view all chest)
+
 ## Changes
 
 ### Added

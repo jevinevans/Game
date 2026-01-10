@@ -14,7 +14,6 @@ import funclg.utils.data_mgmt as db
 from ..utils.types import ABILITY_TYPES
 from .modifiers import Modifier
 
-# logger.add("./logs/character/abilities.log", rotation="1 MB", retention=5)
 # pylint: disable=duplicate-code
 
 

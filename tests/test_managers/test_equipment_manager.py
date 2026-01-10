@@ -237,6 +237,7 @@ def test_equipment_manager_build_equipment(
 
     assert m_update.called
     assert test_equipment["_id"] in eq_man.EQUIPMENT_DATA["data"]
+    m_print.assert_called_with(f"{test_equipment['name']} has been saved!!!")
 
     # Test New Weapon + Negative Validation  Branch
     m_sel.return_value = "Weapon"
@@ -245,7 +246,6 @@ def test_equipment_manager_build_equipment(
 
     eq_man.build_equipment()
 
-    m_print.assert_called_with(f"{test_weapon['name']} has been saved!!")
     m_print.assert_called_with("No new weapon, oh well...")
 
 
