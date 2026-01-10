@@ -8,8 +8,10 @@ from unittest.mock import patch
 
 import pytest
 
-import funclg.managers.roles_manager as role_man
+
 from funclg.character.abilities import Abilities
+from funclg.character.roles import Roles
+from funclg.utils.types import ABILITY_TYPES, ARMOR_TYPES
 
 
 @pytest.fixture
@@ -165,105 +167,105 @@ def test_no_abilities():
 
 
 @patch("funclg.utils.data_mgmt.update_data")
-def test_roles_manager_update_data(m_db, test_mage):
-    role_man.ROLES_DATA["data"][test_mage["_id"]] = test_mage
-    role_man.ROLES_DATA["objects"] = {}
+def test_roles_manager_update_data(m_db,test_roles_manager, test_mage):
+    test_roles_manager.data[test_mage["_id"]] = test_mage
+    test_roles_manager.objects = {}
 
-    role_man.update_data()
+    test_roles_manager.update_data()
 
-    assert len(role_man.ROLES_DATA["data"]) == len(role_man.ROLES_DATA["objects"])
+    assert len(test_roles_manager.data) == len(test_roles_manager.objects)
     assert m_db.assert_called_once
 
 
 @patch("funclg.utils.data_mgmt.update_data")
-def test_roles_manager_export_data(m_db, test_mage):
+def test_roles_manager_export_data(m_db,test_roles_manager, test_mage):
     _test_mage = test_mage.copy()
     _test_mage["abilities"] = [Abilities(**_ability) for _ability in test_mage["abilities"]]
-    role_man.ROLES_DATA["objects"][test_mage["_id"]] = role_man.Roles(**_test_mage)
+    test_roles_manager.objects[test_mage["_id"]] = Roles(**_test_mage)
 
-    role_man.export_data()
-    assert len(role_man.ROLES_DATA["data"]) == len(role_man.ROLES_DATA["objects"])
-    assert test_mage["_id"] in role_man.ROLES_DATA["data"]
+    test_roles_manager.export_data()
+    assert len(test_roles_manager.data) == len(test_roles_manager.objects)
+    assert test_mage["_id"] in test_roles_manager.data
     assert m_db.assert_called_once
 
 
 @patch("funclg.managers.roles_manager.logger")
-@patch("funclg.managers.roles_manager.selection_validation")
-def test_roles_manager_select_role(m_sel, m_log, test_mage):
+@patch("funclg.managers.roles_manager.RolesManager.get_selection")
+def test_roles_manager_select_role(m_sel, m_log,test_roles_manager, test_mage):
     # Test Data Exist
-    role_man.ROLES_DATA["data"][test_mage["_id"]] = test_mage
+    test_roles_manager.data[test_mage["_id"]] = test_mage
     m_sel.return_value = test_mage["_id"]
 
-    assert role_man.select_role() == test_mage["_id"]
+    assert test_roles_manager.select_role() == test_mage["_id"]
 
     # Test Data Not Exist
-    role_man.ROLES_DATA["data"] = {}
-    assert role_man.select_role() is None
+    test_roles_manager.data = {}
+    assert test_roles_manager.select_role() is None
     assert m_log.warning.called
 
 
 @patch("builtins.print")
 @patch("funclg.managers.roles_manager.logger")
-@patch("funclg.managers.roles_manager.select_role")
-def test_roles_manager_show_role(m_sel, m_log, m_print, test_mage):
+@patch("funclg.managers.roles_manager.RolesManager.select_role")
+def test_roles_manager_show_role(m_sel, m_log, m_print, test_roles_manager, test_mage):
     # Success Test
     m_sel.return_value = test_mage["_id"]
     _test_mage = test_mage.copy()
     _test_mage["abilities"] = [Abilities(**_ability) for _ability in test_mage["abilities"]]
-    test_role = role_man.Roles(**_test_mage)
-    role_man.ROLES_DATA["objects"][test_mage["_id"]] = test_role
+    test_role = Roles(**_test_mage)
+    test_roles_manager.objects[test_mage["_id"]] = test_role
 
-    role_man.show_role()
+    test_roles_manager.show_role()
     m_print.assert_called_with(test_role.details())
 
     # No Data
     m_sel.return_value = None
-    role_man.show_role()
+    test_roles_manager.show_role()
     assert m_log.warning.called
 
 
 @patch("builtins.print")
 @patch("funclg.managers.roles_manager.logger")
-@patch("funclg.managers.roles_manager.confirmation")
-@patch("funclg.managers.roles_manager.update_data")
-@patch("funclg.managers.roles_manager.select_role")
-def test_roles_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, test_mage):
+@patch("funclg.managers.roles_manager.RolesManager.get_confirmation")
+@patch("funclg.managers.roles_manager.RolesManager.update_data")
+@patch("funclg.managers.roles_manager.RolesManager.select_role")
+def test_roles_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print,test_roles_manager, test_mage):
     # Yes Delete
     _test_mage = test_mage.copy()
     _test_mage["abilities"] = [Abilities(**_ability) for _ability in test_mage["abilities"]]
-    test_mage_obj = role_man.Roles(**_test_mage)
+    test_mage_obj = Roles(**_test_mage)
 
-    role_man.ROLES_DATA["data"][test_mage_obj.id] = test_mage
-    role_man.ROLES_DATA["objects"][test_mage_obj.id] = test_mage_obj
+    test_roles_manager.data[test_mage_obj.id] = test_mage
+    test_roles_manager.objects[test_mage_obj.id] = test_mage_obj
 
     m_sel.return_value = test_mage_obj.id
     m_confirm.return_value = True
 
-    role_man.delete_role()
+    test_roles_manager.delete_role()
 
     assert m_update.called
-    assert test_mage_obj.id not in role_man.ROLES_DATA["data"]
-    assert test_mage_obj.id not in role_man.ROLES_DATA["objects"]
+    assert test_mage_obj.id not in test_roles_manager.data
+    assert test_mage_obj.id not in test_roles_manager.objects
     m_print.assert_called_with(f"Deleteing {test_mage_obj.name}")
 
     # No Delete
-    role_man.ROLES_DATA["data"][test_mage_obj.id] = test_mage
+    test_roles_manager.data[test_mage_obj.id] = test_mage
 
     m_sel.return_value = test_mage_obj.id
     m_confirm.return_value = False
 
-    role_man.delete_role()
+    test_roles_manager.delete_role()
     m_print.assert_called_with("Keeping all roles in the vault...")
 
     # No select role returned
     m_sel.return_value = None
-    role_man.delete_role()
+    test_roles_manager.delete_role()
     assert m_log.warning.called
 
 
-@patch("funclg.managers.roles_manager.confirmation")
-@patch("funclg.managers.roles_manager.selection_validation")
-def test_roles_manager_select_ability_types(m_sel, m_confirm, test_mage):
+@patch("funclg.managers.roles_manager.RolesManager.get_confirmation")
+@patch("funclg.managers.roles_manager.RolesManager.get_selection")
+def test_roles_manager_select_ability_types(m_sel, m_confirm, test_roles_manager, test_mage):
     # Test Success
     ability_results = list({ability["ability_type"] for ability in test_mage["abilities"]})
     yn_side_effects = [True for _ in range(len(ability_results) - 1)]
@@ -272,13 +274,13 @@ def test_roles_manager_select_ability_types(m_sel, m_confirm, test_mage):
     m_sel.side_effect = ability_results
     m_confirm.side_effect = yn_side_effects
 
-    assert ability_results == role_man._select_ability_types()
+    assert ability_results == test_roles_manager._select_ability_types()
 
 
-@patch("funclg.managers.roles_manager.confirmation")
-@patch("funclg.managers.roles_manager.selection_validation")
-def test_roles_manager_select_role_abilities(m_sel, m_confirm, test_mage):
-    role_man.ab_man.load_data()
+@patch("funclg.managers.roles_manager.RolesManager.get_confirmation")
+@patch("funclg.managers.roles_manager.RolesManager.get_selection")
+def test_roles_manager_select_role_abilities(m_sel, m_confirm, test_roles_manager, test_ability_manager, test_mage):
+    test_ability_manager.load_data()
     # Success Test
     abilities = test_mage["abilities"]
     ability_objs = [Abilities(**_ability) for _ability in test_mage["abilities"]]
@@ -292,28 +294,28 @@ def test_roles_manager_select_role_abilities(m_sel, m_confirm, test_mage):
     m_sel.side_effect = m_sel_effects
     m_confirm.side_effect = [True * len(m_sel_effects), False]
 
-    selected_abilities = role_man._select_role_abilities(test_mage["ability_types"])
+    selected_abilities = test_roles_manager._select_role_abilities(test_mage["ability_types"])
     for ab_test, ab_val in zip(selected_abilities, ability_objs):
         assert ab_test.id == ab_val.id
         assert ab_test.name == ab_val.name
 
 
-@patch("funclg.managers.roles_manager.confirmation")
-@patch("funclg.managers.roles_manager.selection_validation")
-def test_roles_manager_select_role_abilities_no_abilities_added(m_sel, m_confirm, test_mage):
+@patch("funclg.managers.roles_manager.RolesManager.get_confirmation")
+@patch("funclg.managers.roles_manager.RolesManager.get_selection")
+def test_roles_manager_select_role_abilities_no_abilities_added(m_sel, m_confirm, test_roles_manager, test_mage):
     # No abilities added
     abilities = test_mage["abilities"]
     m_sel.side_effect = [abilities[0]["ability_type"], abilities[0]["name"]]
     m_confirm.side_effect = [False, False]
 
-    selected_abilities = role_man._select_role_abilities(test_mage["ability_types"])
+    selected_abilities = test_roles_manager._select_role_abilities(test_mage["ability_types"])
     assert not selected_abilities
 
 
-@patch("funclg.managers.roles_manager.confirmation")
-@patch("funclg.managers.roles_manager.selection_validation")
-def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, test_mage):
-    role_man.ab_man.load_data()
+@patch("funclg.managers.roles_manager.RolesManager.get_confirmation")
+@patch("funclg.managers.roles_manager.RolesManager.get_selection")
+def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, test_roles_manager, test_ability_manager, test_mage):
+    test_ability_manager.load_data()
     # Limited ability type
     test_heal_ability = {
         "name": "Heal",
@@ -330,25 +332,25 @@ def test_roles_manager_select_role_abilities_limited_added(m_sel, m_confirm, tes
         m_sel.side_effect = ["Restore", "Heal", "Restore"]
         m_confirm.side_effect = [True, True, False]
 
-        selected_abilities = role_man._select_role_abilities(["Restore"])
+        selected_abilities = test_roles_manager._select_role_abilities(["Restore"])
         assert len(selected_abilities) == 1
 
 
 @patch("funclg.utils.data_mgmt.id_gen")
 @patch("funclg.managers.stats_manager.build_stats")
-@patch("funclg.managers.roles_manager._select_role_abilities")
-@patch("funclg.managers.roles_manager._select_ability_types")
-@patch("funclg.managers.roles_manager.update_data")
-@patch("funclg.managers.roles_manager.selection_validation")
-@patch("funclg.managers.roles_manager.string_validation")
-@patch("funclg.managers.roles_manager.confirmation")
+@patch("funclg.managers.roles_manager.RolesManager._select_role_abilities")
+@patch("funclg.managers.roles_manager.RolesManager._select_ability_types")
+@patch("funclg.managers.roles_manager.RolesManager.update_data")
+@patch("funclg.managers.roles_manager.RolesManager.get_selection")
+@patch("funclg.managers.roles_manager.RolesManager.get_string")
+@patch("funclg.managers.roles_manager.RolesManager.get_confirmation")
 def test_roles_manager_build_role_with_save(
-    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_mage
+    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_roles_manager, test_mage
 ):
     # Success Create Test Mage
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
     ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
-    m_sel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
+    m_sel.return_value = ARMOR_TYPES[test_mage["armor_type"]]
     m_stats_gen.return_value = test_mage["stats"]
     m_sel_ab_type.return_value = ability_types
     m_sel_rol_ab.return_value = [Abilities(**_ability) for _ability in test_mage["abilities"]]
@@ -359,37 +361,33 @@ def test_roles_manager_build_role_with_save(
 
     m_id.side_effect = mock_ids
 
-    role_man.build_role()
+    test_roles_manager.build_role()
 
     test_mage["ability_types"].sort()
-    role_man.ROLES_DATA["data"][test_mage["_id"]]["ability_types"].sort()
+    test_roles_manager.data[test_mage["_id"]]["ability_types"].sort()
 
-    assert test_mage["_id"] in role_man.ROLES_DATA["data"]
-    assert test_mage == role_man.ROLES_DATA["data"][test_mage["_id"]]
+    assert test_mage["_id"] in test_roles_manager.data
+    assert test_mage == test_roles_manager.data[test_mage["_id"]]
     m_sel_rol_ab.assert_called_with(ability_types)
     assert m_confirm.called
     assert m_update.called
 
 
-@patch(
-    "funclg.managers.roles_manager.ROLES_DATA",
-    {"filename": "roles.json", "data": {}, "objects": {}},
-)
 @patch("funclg.utils.data_mgmt.id_gen")
 @patch("funclg.managers.stats_manager.build_stats")
-@patch("funclg.managers.roles_manager._select_role_abilities")
-@patch("funclg.managers.roles_manager._select_ability_types")
-@patch("funclg.managers.roles_manager.update_data")
-@patch("funclg.managers.roles_manager.selection_validation")
-@patch("funclg.managers.roles_manager.string_validation")
-@patch("funclg.managers.roles_manager.confirmation")
+@patch("funclg.managers.roles_manager.RolesManager._select_role_abilities")
+@patch("funclg.managers.roles_manager.RolesManager._select_ability_types")
+@patch("funclg.managers.roles_manager.RolesManager.update_data")
+@patch("funclg.managers.roles_manager.RolesManager.get_selection")
+@patch("funclg.managers.roles_manager.RolesManager.get_string")
+@patch("funclg.managers.roles_manager.RolesManager.get_confirmation")
 def test_roles_manager_build_role_no_save(
-    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_mage
+    m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_roles_manager, test_mage
 ):
     # No Save
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
     ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
-    m_sel.return_value = role_man.ARMOR_TYPES[test_mage["armor_type"]]
+    m_sel.return_value = ARMOR_TYPES[test_mage["armor_type"]]
     m_stats_gen.return_value = test_mage["stats"]
     m_sel_ab_type.return_value = ability_types
     m_sel_rol_ab.return_value = [Abilities(**_ability) for _ability in test_mage["abilities"]]
@@ -400,19 +398,19 @@ def test_roles_manager_build_role_no_save(
 
     m_id.side_effect = mock_ids
 
-    role_man.build_role()
+    test_roles_manager.build_role()
 
     assert not m_update.called
-    assert not role_man.ROLES_DATA["data"].get(test_mage["_id"], False)
+    assert not test_roles_manager.data.get(test_mage["_id"], False)
 
 
 def test_roles_manager_sort_roles_by_armor_type(
-    test_mage, test_warrior, test_rouge, test_no_abilities
+    test_roles_manager, test_mage, test_warrior, test_rouge, test_no_abilities
 ):
     def _gen_class(role_dict: dict):
         role_abilities = [Abilities(**_ability) for _ability in role_dict["abilities"]]
         role_dict["abilities"] = role_abilities
-        return role_man.Roles(**role_dict)
+        return Roles(**role_dict)
 
     role_objs = {
         "mage": _gen_class(test_mage),
@@ -421,9 +419,9 @@ def test_roles_manager_sort_roles_by_armor_type(
         "cleric": _gen_class(test_no_abilities),
     }
 
-    del role_man.ROLES_DATA["objects"]
+    test_roles_manager.objects = {}
 
-    role_man.ROLES_DATA.update({"objects": role_objs})
+    test_roles_manager.objects.update(role_objs)
 
     sort_results = {
         "Light": [role_objs["rouge"]],
@@ -431,4 +429,4 @@ def test_roles_manager_sort_roles_by_armor_type(
         "Heavy": [role_objs["warrior"]],
     }
 
-    assert sort_results == role_man.sort_roles_by_armor_type()
+    assert sort_results == test_roles_manager.sort_roles_by_armor_type()
