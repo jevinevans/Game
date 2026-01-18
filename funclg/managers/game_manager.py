@@ -8,8 +8,8 @@ from typing import Any
 
 from loguru import logger
 
-from funclg.utils.game_enums import LevelIcons
 from funclg.managers.manager import BaseManager, SingletonMeta
+from funclg.utils.game_enums import LevelIcons
 
 
 class GameManager(BaseManager, metaclass=SingletonMeta):

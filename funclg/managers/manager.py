@@ -4,9 +4,14 @@ Developer: Jevin Evans
 Date: 10.8.2023
 """
 
-import funclg.utils.data_mgmt as db
-from funclg.utils.input_validation import confirmation, selection_validation, string_validation
 import threading
+
+import funclg.utils.data_mgmt as db
+from funclg.utils.input_validation import (
+    confirmation,
+    selection_validation,
+    string_validation,
+)
 
 
 class BaseManager:

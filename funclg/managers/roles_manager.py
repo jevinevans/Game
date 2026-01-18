@@ -5,11 +5,12 @@ Date: 6.19.2022
 """
 
 from loguru import logger
-from funclg.managers.manager import BaseManager, SingletonMeta
-from funclg.managers.abilities_manager import AbilitiesManager
+
 import funclg.managers.stats_manager as stats_man
-from funclg.character.roles import Roles
 from funclg.character.abilities import Abilities
+from funclg.character.roles import Roles
+from funclg.managers.abilities_manager import AbilitiesManager
+from funclg.managers.manager import BaseManager, SingletonMeta
 from funclg.utils.types import ABILITY_TYPES, ARMOR_TYPES
 
 
@@ -22,12 +23,12 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
         """Initialize the RolesManager."""
         super().__init__(name="Roles", filename="roles.json")
         self.menu["menu_items"] = [
-                {"title": "New Role", "value": self.build_role},
-                # {"title": "Edit Role", "value": self.edit_role},
-                {"title": "View Role Details", "value": self.show_role},
-                {"title": "Delete Role", "value": self.delete_role},
-            ]
- 
+            {"title": "New Role", "value": self.build_role},
+            # {"title": "Edit Role", "value": self.edit_role},
+            {"title": "View Role Details", "value": self.show_role},
+            {"title": "Delete Role", "value": self.delete_role},
+        ]
+
         logger.debug("RolesManager initialized.")
         self.load_data()
         logger.debug(f"RolesManager data loaded {len(self.data)} roles.")

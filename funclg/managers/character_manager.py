@@ -8,14 +8,14 @@ from typing import List, Union
 
 from loguru import logger
 
-from funclg.managers.manager import BaseManager, SingletonMeta
-from funclg.managers.equipment_manager import EquipmentManager
-from funclg.managers.roles_manager import RolesManager
+from funclg.character.abilities import Abilities
 from funclg.character.armor import Armor
 from funclg.character.character import Player
-from funclg.character.abilities import Abilities
-from funclg.character.roles import Roles
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
+from funclg.character.roles import Roles
+from funclg.managers.equipment_manager import EquipmentManager
+from funclg.managers.manager import BaseManager, SingletonMeta
+from funclg.managers.roles_manager import RolesManager
 from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 
 

@@ -2,14 +2,13 @@
 These are a group of managers classes to allow users to manage the game and create objects
 """
 
-from funclg.utils.menu_funcs import Menu
-
 from funclg.managers.abilities_manager import AbilitiesManager
 from funclg.managers.character_manager import CharacterManager
 from funclg.managers.equipment_manager import EquipmentManager
 from funclg.managers.game_manager import GameManager
 from funclg.managers.npc_manager import NPCManager
 from funclg.managers.roles_manager import RolesManager
+from funclg.utils.menu_funcs import Menu
 
 CHAR_MANAGERS = [
     CharacterManager(),

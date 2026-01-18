@@ -13,8 +13,8 @@ import funclg.utils.data_mgmt as db
 from funclg.character.armor import Armor
 from funclg.character.character import NonPlayableCharacter
 from funclg.managers.character_manager import CharacterManager
-from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 from funclg.managers.manager import BaseManager, SingletonMeta
+from funclg.utils.types import ARMOR_TYPES, ITEM_TYPES
 
 
 class NPCManager(BaseManager, metaclass=SingletonMeta):

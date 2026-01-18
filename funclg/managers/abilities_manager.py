@@ -8,8 +8,8 @@ from loguru import logger
 
 import funclg.managers.stats_manager as stats_man
 from funclg.character.abilities import Abilities
-from funclg.utils.types import ABILITY_TYPES
 from funclg.managers.manager import BaseManager, SingletonMeta
+from funclg.utils.types import ABILITY_TYPES
 
 
 class AbilitiesManager(BaseManager, metaclass=SingletonMeta):
