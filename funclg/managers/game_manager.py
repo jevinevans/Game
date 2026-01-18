@@ -8,57 +8,51 @@ from typing import Any
 
 from loguru import logger
 
-import funclg.utils.data_mgmt as db
 from funclg.utils.game_enums import LevelIcons
-from funclg.utils.input_validation import selection_validation
-
-GAME_DATA = {"filename": "game_settings.json", "data": {}, "objects": {}}
+from funclg.managers.manager import BaseManager, SingletonMeta
 
 
-def load_data():
-    db.load_data(GAME_DATA)
-    update_data()
+class GameManager(BaseManager, metaclass=SingletonMeta):
+    """
+    A manager class for game settings.
+    """
 
+    def __init__(self):
+        """Initialize the GameManager."""
+        super().__init__(name="Game Settings", filename="game_settings.json")
+        self.menu["menu_items"] = [
+            {"title": "Select Level Icons", "value": self.select_level_icons},
+        ]
+        logger.debug("GameManager initialized.")
+        self.load_data()
+        logger.debug("GameManager data loaded.")
 
-def update_data():
-    # Will load many different types of data
-    _load_level_icons(GAME_DATA["data"]["level_icons"])
+    def update_data(self):
+        # Will load many different types of data
+        self._load_level_icons(self.data["level_icons"])
 
+    def export_data(self):
+        raise NotImplementedError
 
-def export_data():
-    raise NotImplementedError
+    def _load_level_icons(self, icon_data: dict[str, Any]):
+        icons_sets = {}
 
+        for name, icon_set in icon_data.items():
+            icons_sets[name] = LevelIcons(**icon_set)
 
-def _load_level_icons(icon_data: dict[str, Any]):
-    icons_sets = {}
+        self.objects["level_icons"] = icons_sets
 
-    for name, icon_set in icon_data.items():
-        icons_sets[name] = LevelIcons(**icon_set)
+    def select_level_icons(self):
+        if icons := self.objects["level_icons"]:
+            print(
+                "Below are the game icon styles in a mini grid surrounding the icons for the player, key, space, enemy, and boss (respectively):"
+            )
+            for name, icon in icons.items():
+                print(name, icon, "\n")
 
-    GAME_DATA["objects"]["level_icons"] = icons_sets
-
-
-def select_level_icons():
-    if icons := GAME_DATA["objects"]["level_icons"]:
-        print(
-            "Below are the game icon styles in a mini grid surrounding the icons for the player, key, space, enemy, and boss (respectively):"
-        )
-        for name, icon in icons.items():
-            print(name, icon, "\n")
-
-        choice = selection_validation(
-            "Which level icon set would you like to use for your levels?", list(icons)
-        )
-        return icons[choice]
-    logger.error("There are no level icons loaded.")
-    raise SystemError("No level icons loaded.")
-
-
-MENU = {
-    "name": "Manage Game Settings",
-    "description": "The following are game settings to manage the game",
-    "menu_items": [{"title": "Select Level Icons", "value": select_level_icons}],
-}
-
-if __name__ == "__main__":
-    load_data()
+            choice = self.get_selection(
+                "Which level icon set would you like to use for your levels?", list(icons)
+            )
+            return icons[choice]
+        logger.error("There are no level icons loaded.")
+        raise SystemError("No level icons loaded.")

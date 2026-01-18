@@ -4,23 +4,22 @@ These are a group of managers classes to allow users to manage the game and crea
 
 from funclg.utils.menu_funcs import Menu
 
-from . import abilities_manager as ability_man
-from . import character_manager as char_man
-from . import equipment_manager as equip_man
-from . import game_manager as game_man
-from . import npc_manager as npc_man
-from . import roles_manager as role_man
+from funclg.managers.abilities_manager import AbilitiesManager
+from funclg.managers.character_manager import CharacterManager
+from funclg.managers.equipment_manager import EquipmentManager
+from funclg.managers.game_manager import GameManager
+from funclg.managers.npc_manager import NPCManager
+from funclg.managers.roles_manager import RolesManager
 
 CHAR_MANAGERS = [
-    char_man,
-    role_man,
-    ability_man,
-    equip_man,
+    CharacterManager(),
+    RolesManager(),
+    AbilitiesManager(),
+    EquipmentManager(),
 ]
-GAME_MANAGERS = [game_man, npc_man]
+GAME_MANAGERS = [GameManager(), NPCManager()]
 
 ALL_MANAGERS = CHAR_MANAGERS + GAME_MANAGERS
-
 
 
 def build_manager_menu():
@@ -37,7 +36,8 @@ def build_manager_menu():
 def build_character_menu():
     char_menu = Menu("Character Settings", "This is the menu to manage all character items.")
     for manager in CHAR_MANAGERS:
-        sub_menu = Menu.build_menu(**manager.MENU)
+        print(manager.name, manager.menu)
+        sub_menu = Menu.build_menu(**manager.menu)
         char_menu.add_item(sub_menu.name, sub_menu)
     return char_menu
 
@@ -45,7 +45,7 @@ def build_character_menu():
 def build_game_menu():
     game_menu = Menu("Game Settings", "Manage game and level settings.")
     for manager in GAME_MANAGERS:
-        sub_menu = Menu.build_menu(**manager.MENU)
+        sub_menu = Menu.build_menu(**manager.menu)
         game_menu.add_item(sub_menu.name, sub_menu)
     return game_menu
 

@@ -37,30 +37,32 @@ def validate_filename(filename: str) -> str:
         raise error
 
 
-def load_data(game_data: Dict[str, Any]):
+def load_data(filename: str, data: dict) -> Dict[str, Any]:
     try:
-        filename = validate_filename(game_data["filename"])
+        filename = validate_filename(filename)
         if os.path.getsize(filename):
             with open(filename, "r", encoding="utf-8") as load_file:
-                game_data["data"] = json.load(load_file)
+                data = json.load(load_file)
+
+        logger.debug(f"Loaded {len(data)} entries from {filename} successfully.")
 
     except json.JSONDecodeError:
-        logger.error(f"{game_data['filename']}: malformed data")
+        logger.error(f"{filename}: malformed data")
     except FileNotFoundError:
-        logger.error(f"{game_data['filename']}: Creating new database entry.")
+        logger.error(f"{filename}: Creating new database entry.")
         with open(filename, "a", encoding="utf-8"):
             logger.debug(f"Creating {filename}")
             os.utime(filename)
     except AssertionError:
         logger.error(f"{filename}: Incorrect format file.")
-    return game_data
+    return data
 
 
-def update_data(game_data: Dict[str, Any]):
+def update_data(filename: str, data: Dict[str, Any]):
     try:
-        filename = validate_filename(game_data["filename"])
+        filename = validate_filename(filename)
         with open(filename, "w", encoding="utf-8") as write_file:
-            json.dump(game_data["data"], write_file, sort_keys=True)
+            json.dump(data, write_file, sort_keys=True)
         logger.info(f"Saved {filename.split(os.sep)[-1].split('.')[0].capitalize()}")
         return True
     except FileNotFoundError as error:

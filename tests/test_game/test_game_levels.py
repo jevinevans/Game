@@ -9,16 +9,19 @@ from unittest.mock import call, patch
 import pytest
 
 import funclg.game.level as game_level
-import funclg.managers.game_manager as game_man
+from funclg.managers.game_manager import GameManager
 from funclg.utils.game_enums import GameAction, GamePiece
 
+@pytest.fixture
+def game_man():
+    return GameManager()
 
 @pytest.fixture
-def game_icons():
+def game_icons(game_man):
     game_man.load_data()
     return {
-        "reg": game_man.GAME_DATA["objects"]["level_icons"]["Set 1"],
-        "alt": game_man.GAME_DATA["objects"]["level_icons"]["Set 2"],
+        "reg": game_man.objects["level_icons"]["Set 1"],
+        "alt": game_man.objects["level_icons"]["Set 2"],
     }
 
 
