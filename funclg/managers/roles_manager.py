@@ -22,15 +22,15 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
         """Initialize the RolesManager."""
         super().__init__(name="Roles", filename="roles.json")
         self.menu["menu_items"] = [
-        {"title": "New Role", "value": self.build_role},
-        # {"title": "Edit Role", "value": self.edit_role},
-        {"title": "View Role Details", "value": self.show_role},
-        {"title": "Delete Role", "value": self.delete_role},
-    ],
+                {"title": "New Role", "value": self.build_role},
+                # {"title": "Edit Role", "value": self.edit_role},
+                {"title": "View Role Details", "value": self.show_role},
+                {"title": "Delete Role", "value": self.delete_role},
+            ]
+ 
         logger.debug("RolesManager initialized.")
         self.load_data()
         logger.debug(f"RolesManager data loaded {len(self.data)} roles.")
-
 
     def update_data(self):
         for _id, data in self.data.items():
@@ -43,13 +43,11 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
                 self.objects[_id] = Roles(**new_data)
         super().update_data()
 
-
     def export_data(self):
         for _id, data in self.objects.items():
             self.data[_id] = data.export()
 
         super().export_data()
-
 
     def _select_ability_types(self):
         """Allows the user to select the ability types they want to add to the role"""
@@ -77,7 +75,6 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
 
         return a_types
 
-
     def _select_role_abilities(self, a_types: list) -> list[Abilities]:
         """
         Guides the user through ability selection for a role.
@@ -102,9 +99,9 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
                     "Select ability to add:", [a.name for a in available_abilities[a_choice]]
                 )
 
-                new_ability = [a for a in available_abilities[a_choice] if a.name == new_ability_name][
-                    0
-                ]
+                new_ability = [
+                    a for a in available_abilities[a_choice] if a.name == new_ability_name
+                ][0]
 
                 if self.get_confirmation(f"Do you want to add {new_ability.name} to this role?"):
                     # Remove added ability from available options and return
@@ -136,7 +133,6 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
                 break
 
         return role_abilities
-
 
     def build_role(self):
         """Dialog for building a new character role"""
@@ -172,7 +168,6 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
         print("Oh well..., no roles to add to this awesome adventure!!!")
         del new_role
 
-
     def sort_roles_by_armor_type(self):
         sorted_roles = {}
 
@@ -185,13 +180,11 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
 
         return sorted_roles
 
-
     def select_role(self):
         if self.data:
             return self.get_selection("Select a role:", self.data, "name", "_id")
         logger.warning("There are no roles available.")
         return None
-
 
     def show_role(self):
         show_role_id = self.select_role()
@@ -200,7 +193,6 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
             print(_show_role.details())
             return
         logger.warning("There are no roles available to show.")
-
 
     def delete_role(self):
         del_role_id = self.select_role()
@@ -215,5 +207,3 @@ class RolesManager(BaseManager, metaclass=SingletonMeta):
             print("Keeping all roles in the vault...")
             return
         logger.warning("There are no roles to delete.")
-
-

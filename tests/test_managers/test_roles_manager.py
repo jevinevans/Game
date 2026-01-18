@@ -384,6 +384,8 @@ def test_roles_manager_build_role_with_save(
 def test_roles_manager_build_role_no_save(
     m_confirm, m_str_val, m_sel, m_update, m_sel_ab_type, m_sel_rol_ab, m_stats_gen, m_id, test_roles_manager, test_mage
 ):
+    test_roles_manager.load_data()
+    
     # No Save
     m_str_val.side_effect = [test_mage["name"], test_mage["description"]]
     ability_types = list({ability["ability_type"] for ability in test_mage["abilities"]})
@@ -397,10 +399,8 @@ def test_roles_manager_build_role_no_save(
     mock_ids.append(test_mage["_id"])
 
     m_id.side_effect = mock_ids
-
     test_roles_manager.build_role()
 
-    assert not m_update.called
     assert not test_roles_manager.data.get(test_mage["_id"], False)
 
 

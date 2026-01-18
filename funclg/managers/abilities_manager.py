@@ -11,6 +11,7 @@ from funclg.character.abilities import Abilities
 from funclg.utils.types import ABILITY_TYPES
 from funclg.managers.manager import BaseManager, SingletonMeta
 
+
 class AbilitiesManager(BaseManager, metaclass=SingletonMeta):
     """
     A manager class for creating, updating, and removing abilities.
@@ -41,8 +42,6 @@ class AbilitiesManager(BaseManager, metaclass=SingletonMeta):
 
         super().export_data()
 
-
-
     def build_ability(self):
         print("\nStarting Ability Creation...\n\nWhat type of ability would you like to create")
 
@@ -69,26 +68,19 @@ class AbilitiesManager(BaseManager, metaclass=SingletonMeta):
         print("Guess no new ability for you to use, oh well...")
         del new_ability
 
-
     def select_ability(self):
         if self.data:
-            return self.get_selection(
-                    "Please choose an ability", self.data, "name", "_id"
-                )
+            return self.get_selection("Please choose an ability", self.data, "name", "_id")
         logger.warning("There are no abilities available.")
         return None
-
 
     def filter_abilities_by_types(self, a_types: list):
         filtered_abilities = {}
         for a_type in a_types:
             filtered_abilities[a_type] = [
-                ability
-                for ability in self.objects.values()
-                if ability.ability_type == a_type
+                ability for ability in self.objects.values() if ability.ability_type == a_type
             ]
         return filtered_abilities
-
 
     def show_ability(self):
         show_ability_id = self.select_ability()
@@ -99,7 +91,6 @@ class AbilitiesManager(BaseManager, metaclass=SingletonMeta):
             print(_show_ability.details())
             return
         logger.warning("There are no abilities to show.")
-
 
     def delete_ability(self):
         del_ability_id = self.select_ability()

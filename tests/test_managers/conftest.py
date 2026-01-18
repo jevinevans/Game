@@ -3,6 +3,7 @@ import pytest
 from funclg.managers.abilities_manager import AbilitiesManager
 from funclg.managers.equipment_manager import EquipmentManager
 from funclg.managers.roles_manager import RolesManager
+from funclg.managers.character_manager import CharacterManager
 
 @pytest.fixture
 def test_magic():
@@ -70,3 +71,7 @@ def test_equipment_manager():
 @pytest.fixture()
 def test_roles_manager():
     return RolesManager()
+
+@pytest.fixture()
+def test_character_manager():
+    return CharacterManager()

@@ -8,10 +8,10 @@ from unittest.mock import call, patch
 
 import pytest
 
-import funclg.managers.character_manager as char_man
 from funclg.character.abilities import Abilities
 from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.character.roles import Roles
+from funclg.character.character import Player
 
 
 @pytest.fixture
@@ -113,112 +113,110 @@ def test_character_mage():
 
 
 @patch("funclg.utils.data_mgmt.update_data")
-def test_char_manager_update_data(m_db, test_character_mage):
-    char_man.CHARACTER_DATA["data"] = {}
-    char_man.CHARACTER_DATA["data"][test_character_mage["_id"]] = test_character_mage
-    char_man.CHARACTER_DATA["objects"] = {}
+def test_char_manager_update_data(m_db, test_character_manager, test_character_mage):
+    test_character_manager.data[test_character_mage["_id"]] = test_character_mage
+    test_character_manager.objects = {}
 
-    char_man.update_data()
+    test_character_manager.update_data()
 
-    assert len(char_man.CHARACTER_DATA["data"]) == len(char_man.CHARACTER_DATA["objects"])
+    assert len(test_character_manager.data) == len(test_character_manager.objects)
     assert m_db.assert_called_once
 
 
 @patch("funclg.utils.data_mgmt.update_data")
-def test_char_manager_export_data(m_db, test_character_mage):
+def test_char_manager_export_data(m_db, test_character_manager, test_character_mage):
     _test_char_mage = test_character_mage.copy()
-    _test_char_mage = char_man._update_char_role(test_character_mage, _test_char_mage)
-    _test_char_mage = char_man._update_char_armor(test_character_mage, _test_char_mage)
-    char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Player(**_test_char_mage)
-    char_man.CHARACTER_DATA["data"] = {}
+    _test_char_mage = test_character_manager._update_char_role(test_character_mage, _test_char_mage)
+    _test_char_mage = test_character_manager._update_char_armor(test_character_mage, _test_char_mage)
+    test_character_manager.objects[_test_char_mage["_id"]] = Player(**_test_char_mage)
+    test_character_manager.data = {}
 
-    char_man.export_data()
+    test_character_manager.export_data()
 
-    assert len(char_man.CHARACTER_DATA["data"]) == len(char_man.CHARACTER_DATA["objects"])
-    assert _test_char_mage["_id"] in char_man.CHARACTER_DATA["data"]
+    assert len(test_character_manager.data) == len(test_character_manager.objects)
+    assert _test_char_mage["_id"] in test_character_manager.data
     assert m_db.assert_called_once
 
 
 @patch("funclg.managers.character_manager.logger")
-@patch("funclg.managers.character_manager.selection_validation")
-def test_char_manager_select_character(m_sel, m_log, test_character_mage):
+@patch("funclg.managers.character_manager.CharacterManager.get_selection")
+def test_char_manager_select_character(m_sel, m_log, test_character_manager, test_character_mage):
     # No Charater Data
-    char_man.CHARACTER_DATA["data"] = {}
-    assert char_man.select_character() is None
+    test_character_manager.data = {}
+    assert test_character_manager.select_character() is None
     assert m_log.warning.called
 
     # Character Data Exists
-    char_man.CHARACTER_DATA["data"][test_character_mage["_id"]] = test_character_mage
+    test_character_manager.data[test_character_mage["_id"]] = test_character_mage
     m_sel.return_value = test_character_mage["_id"]
-    assert char_man.select_character() == test_character_mage["_id"]
+    assert test_character_manager.select_character() == test_character_mage["_id"]
 
 
 @patch("builtins.print")
 @patch("funclg.managers.character_manager.logger")
-@patch("funclg.managers.character_manager.select_character")
-def test_char_manager_show_character(m_sel, m_log, m_print, test_character_mage):
+@patch("funclg.managers.character_manager.CharacterManager.get_selection")
+def test_char_manager_show_character(m_sel, m_log, m_print, test_character_manager, test_character_mage):
     # No Data
     m_sel.return_value = None
-    char_man.show_character()
+    test_character_manager.show_character()
     assert m_log.warning.called
 
     # Return Test Value
     m_sel.return_value = test_character_mage["_id"]
     _test_char_mage = test_character_mage.copy()
-    _test_char_mage = char_man._update_char_role(test_character_mage, _test_char_mage)
-    _test_char_mage = char_man._update_char_armor(test_character_mage, _test_char_mage)
-    char_man.CHARACTER_DATA["objects"][_test_char_mage["_id"]] = char_man.Player(**_test_char_mage)
+    _test_char_mage = test_character_manager._update_char_role(test_character_mage, _test_char_mage)
+    _test_char_mage = test_character_manager._update_char_armor(test_character_mage, _test_char_mage)
+    test_character_manager.objects[_test_char_mage["_id"]] = Player(**_test_char_mage)
 
-    char_man.show_character()
+    test_character_manager.show_character()
     m_print.assert_called_with(
-        char_man.CHARACTER_DATA["objects"][test_character_mage["_id"]].details()
+        test_character_manager.objects[test_character_mage["_id"]].details()
     )
 
 
 @patch("builtins.print")
 @patch("funclg.managers.character_manager.logger")
-@patch("funclg.managers.character_manager.confirmation")
-@patch("funclg.managers.character_manager.update_data")
-@patch("funclg.managers.character_manager.select_character")
-def test_char_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, test_character_mage):
+@patch("funclg.managers.character_manager.CharacterManager.get_confirmation")
+@patch("funclg.managers.character_manager.CharacterManager.update_data")
+@patch("funclg.managers.character_manager.CharacterManager.get_selection")
+def test_char_manager_delete_role(m_sel, m_update, m_confirm, m_log, m_print, test_character_manager, test_character_mage):
     # Yes Delete
     _tmp_char = test_character_mage.copy()
-    _tmp_char = char_man._update_char_role(test_character_mage, _tmp_char)
-    _tmp_char = char_man._update_char_armor(test_character_mage, _tmp_char)
-
-    char_obj = char_man.Player(**_tmp_char)
-    char_man.CHARACTER_DATA["objects"][char_obj.id] = char_obj
-    char_man.CHARACTER_DATA["data"][char_obj.id] = test_character_mage
+    _tmp_char = test_character_manager._update_char_role(test_character_mage, _tmp_char)
+    _tmp_char = test_character_manager._update_char_armor(test_character_mage, _tmp_char)
+    char_obj = Player(**_tmp_char)
+    test_character_manager.objects[char_obj.id] = char_obj
+    test_character_manager.data[char_obj.id] = test_character_mage
 
     m_sel.return_value = char_obj.id
     m_confirm.return_value = True
 
-    char_man.delete_character()
+    test_character_manager.delete_character()
 
     assert m_update.called
-    assert char_obj.id not in char_man.CHARACTER_DATA["data"]
-    assert char_obj.id not in char_man.CHARACTER_DATA["objects"]
+    assert char_obj.id not in test_character_manager.data
+    assert char_obj.id not in test_character_manager.objects
     m_print.assert_called_with(f"Deleting {char_obj.name}")
 
     # No Delete
-    char_man.CHARACTER_DATA["data"][char_obj.id] = test_character_mage
+    test_character_manager.data[char_obj.id] = test_character_mage
 
     m_sel.return_value = char_obj.id
     m_confirm.return_value = False
-    char_man.delete_character()
+    test_character_manager.delete_character()
     m_print.assert_called_with("Keeping all characters alive...")
 
     # No select (Error Case)
     m_sel.return_value = None
-    char_man.delete_character()
+    test_character_manager.delete_character()
     assert m_log.warning.called
 
 
 @patch("builtins.print")
-@patch("funclg.managers.equipment_manager.filter_equipment_by_armor_type")
-@patch("funclg.managers.character_manager.confirmation")
-@patch("funclg.managers.character_manager.selection_validation")
-def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m_print):
+@patch("funclg.managers.equipment_manager.EquipmentManager.filter_equipment_by_armor_type")
+@patch("funclg.managers.character_manager.CharacterManager.get_confirmation")
+@patch("funclg.managers.character_manager.CharacterManager.get_selection")
+def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m_print, test_character_manager):
     t_chest = BodyEquipment(
         **{
             "name": "Basic Mage Tunic",
@@ -265,7 +263,7 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
     m_sel.side_effect = [t_chest.name, "Skip", t_weapon.name]
     m_confirm.side_effect = [True, True]
 
-    selected_equipment = char_man._pick_char_armor_equipment("Medium", 1)
+    selected_equipment = test_character_manager._pick_char_armor_equipment("Medium", 1)
 
     expected_results = {"chest": t_chest, "weapon": t_weapon}
 
@@ -286,7 +284,7 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
     m_sel.side_effect = [t_chest.name, t_pants.name, t_weapon.name]
     m_confirm.side_effect = [True, False, True]
 
-    selected_equipment = char_man._pick_char_armor_equipment("Medium", 1)
+    selected_equipment = test_character_manager._pick_char_armor_equipment("Medium", 1)
 
     expected_results = {"chest": t_chest, "weapon": t_weapon}
 
@@ -301,14 +299,14 @@ def test_char_manager_pick_char_armor_equipment(m_sel, m_confirm, m_fil_equip, m
         else:
             assert item is None
 
-
+@patch("funclg.managers.roles_manager.RolesManager")
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.roles_manager.sort_roles_by_armor_type")
-@patch("funclg.managers.character_manager.update_data")
-@patch("funclg.managers.character_manager._pick_char_armor_equipment")
-@patch("funclg.managers.character_manager.confirmation")
-@patch("funclg.managers.character_manager.string_validation")
-@patch("funclg.managers.character_manager.selection_validation")
+@patch("funclg.managers.roles_manager.RolesManager.sort_roles_by_armor_type")
+@patch("funclg.managers.character_manager.CharacterManager.update_data")
+@patch("funclg.managers.character_manager.CharacterManager._pick_char_armor_equipment")
+@patch("funclg.managers.character_manager.CharacterManager.get_confirmation")
+@patch("funclg.managers.character_manager.CharacterManager.get_string")
+@patch("funclg.managers.character_manager.CharacterManager.get_selection")
 def test_char_man_build_character(
     m_sel,
     m_str_val,
@@ -317,6 +315,8 @@ def test_char_man_build_character(
     m_update,
     m_sort_roles,
     m_id,
+    m_roles_mgr,
+    test_character_manager,
     test_character_mage,
 ):
     # Define Test Roles
@@ -393,10 +393,10 @@ def test_char_man_build_character(
         _t_mage["_id"],
     ]
 
-    char_man.build_character()
+    test_character_manager.build_character()
 
-    t_id = list(char_man.CHARACTER_DATA["data"].keys())[0]
-    result = char_man.CHARACTER_DATA["data"].get(t_id, False)
+    t_id = list(test_character_manager.data.keys())[0]
+    result = test_character_manager.data.get(t_id, False)
 
     assert m_update.called
     assert result
@@ -409,12 +409,12 @@ def test_char_man_build_character(
 
 @patch("funclg.managers.character_manager.logger")
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.roles_manager.sort_roles_by_armor_type")
-@patch("funclg.managers.character_manager.update_data")
-@patch("funclg.managers.character_manager._pick_char_armor_equipment")
-@patch("funclg.managers.character_manager.confirmation")
-@patch("funclg.managers.character_manager.string_validation")
-@patch("funclg.managers.character_manager.selection_validation")
+@patch("funclg.managers.roles_manager.RolesManager.sort_roles_by_armor_type")
+@patch("funclg.managers.character_manager.CharacterManager.update_data")
+@patch("funclg.managers.character_manager.CharacterManager._pick_char_armor_equipment")
+@patch("funclg.managers.character_manager.CharacterManager.get_confirmation")
+@patch("funclg.managers.character_manager.CharacterManager.get_string")
+@patch("funclg.managers.character_manager.CharacterManager.get_selection")
 def test_char_man_build_character_no_roles(
     m_sel,
     m_str_val,
@@ -424,6 +424,7 @@ def test_char_man_build_character_no_roles(
     m_sort_roles,
     m_id,
     m_log,
+    test_character_manager,
     test_character_mage,
 ):
     # Define Mocks
@@ -431,18 +432,18 @@ def test_char_man_build_character_no_roles(
     m_confirm.side_effect = [True, True]
     m_sort_roles.return_value = {}
 
-    assert not char_man.build_character()
+    assert not test_character_manager.build_character()
     assert m_log.warning.called
 
 
 @patch("funclg.managers.character_manager.logger")
 @patch("funclg.utils.data_mgmt.id_gen")
-@patch("funclg.managers.roles_manager.sort_roles_by_armor_type")
-@patch("funclg.managers.character_manager.update_data")
-@patch("funclg.managers.character_manager._pick_char_armor_equipment")
-@patch("funclg.managers.character_manager.confirmation")
-@patch("funclg.managers.character_manager.string_validation")
-@patch("funclg.managers.character_manager.selection_validation")
+@patch("funclg.managers.roles_manager.RolesManager.sort_roles_by_armor_type")
+@patch("funclg.managers.character_manager.CharacterManager.update_data")
+@patch("funclg.managers.character_manager.CharacterManager._pick_char_armor_equipment")
+@patch("funclg.managers.character_manager.CharacterManager.get_confirmation")
+@patch("funclg.managers.character_manager.CharacterManager.get_string")
+@patch("funclg.managers.character_manager.CharacterManager.get_selection")
 def test_char_man_build_character_no_equip_no_save(
     m_sel,
     m_str_val,
@@ -452,6 +453,7 @@ def test_char_man_build_character_no_equip_no_save(
     m_sort_roles,
     m_id,
     m_log,
+    test_character_manager,
     test_character_mage,
 ):
     # Define Test Roles
@@ -498,7 +500,7 @@ def test_char_man_build_character_no_equip_no_save(
     ]
     m_confirm.side_effect = [False, False]
 
-    char_man.build_character()
+    test_character_manager.build_character()
 
-    assert not char_man.CHARACTER_DATA["data"].get(_t_mage["_id"], False)
+    assert not test_character_manager.data.get(_t_mage["_id"], False)
     assert not m_update.called

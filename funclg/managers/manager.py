@@ -43,9 +43,11 @@ class BaseManager:
     def get_confirmation(prompt: str) -> bool:
         """Get a confirmation from the user."""
         return confirmation(prompt)
-    
+
     @staticmethod
-    def get_selection(prompt: str, options: list, display_attr: str = None, return_attr: str = None):
+    def get_selection(
+        prompt: str, options: list, display_attr: str = None, return_attr: str = None
+    ):
         """Get a selection from the user."""
         return selection_validation(prompt, options, display_attr, return_attr)
 
@@ -53,7 +55,6 @@ class BaseManager:
     def get_string(prompt: str, field_name: str) -> str:
         """Get a validated string input from the user."""
         return string_validation(prompt, field_name)
-    
 
 
 class SingletonMeta(type):
