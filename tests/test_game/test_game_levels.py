@@ -8,13 +8,15 @@ from unittest.mock import call, patch
 
 import pytest
 
-import funclg.game.level as game_level
+import funclg.game.models as game_level
 from funclg.managers.game_manager import GameManager
 from funclg.utils.game_enums import GameAction, GamePiece
+
 
 @pytest.fixture
 def game_man():
     return GameManager()
+
 
 @pytest.fixture
 def game_icons(game_man):
@@ -26,7 +28,7 @@ def game_icons(game_man):
 
 
 def test_game_level_generation(game_icons):
-    test_level = game_level.GameLevel(6, game_icons["reg"])
+    test_level = game_level.LevelState(6, game_icons["reg"])
 
     assert test_level.boss_pos == (3, 3)
     assert test_level.player_pos == (0, 5)
@@ -37,26 +39,26 @@ def test_game_level_generation(game_icons):
 
 def test_game_level_size_validation(game_icons):
     # Valid
-    test_level = game_level.GameLevel(6, game_icons["reg"])
+    test_level = game_level.LevelState(6, game_icons["reg"])
     assert test_level.level_size == 6
     assert len(test_level.level) == 6**2
 
     # Test Too Small
-    test_level_small = game_level.GameLevel(1, game_icons["reg"])
-    assert test_level_small.level_size == game_level.GameLevel.DEFAULT_SIZE
-    assert len(test_level_small.level) == game_level.GameLevel.DEFAULT_SIZE**2
+    test_level_small = game_level.LevelState(1, game_icons["reg"])
+    assert test_level_small.level_size == game_level.LevelState.DEFAULT_SIZE
+    assert len(test_level_small.level) == game_level.LevelState.DEFAULT_SIZE**2
 
     # Test Too Large
-    test_level_large = game_level.GameLevel(20, game_icons["reg"])
-    assert test_level_large.level_size == game_level.GameLevel.DEFAULT_SIZE
-    assert len(test_level_large.level) == game_level.GameLevel.DEFAULT_SIZE**2
+    test_level_large = game_level.LevelState(20, game_icons["reg"])
+    assert test_level_large.level_size == game_level.LevelState.DEFAULT_SIZE
+    assert len(test_level_large.level) == game_level.LevelState.DEFAULT_SIZE**2
 
 
 def test_game_level_alt_icons(game_icons):
-    test_level = game_level.GameLevel(6, game_icons["reg"])
+    test_level = game_level.LevelState(6, game_icons["reg"])
     assert test_level.level[test_level.coord_to_int(test_level.boss_pos)] == game_icons["reg"].boss
 
-    test_alt_level = game_level.GameLevel(6, game_icons["alt"])
+    test_alt_level = game_level.LevelState(6, game_icons["alt"])
     assert (
         test_alt_level.level[test_alt_level.coord_to_int(test_alt_level.boss_pos)]
         == game_icons["alt"].boss
@@ -64,14 +66,14 @@ def test_game_level_alt_icons(game_icons):
 
 
 def test_game_level_coord_to_int_index_error(game_icons):
-    test_level = game_level.GameLevel(6, game_icons["reg"])
+    test_level = game_level.LevelState(6, game_icons["reg"])
 
     with pytest.raises(IndexError):
         test_level.coord_to_int((6, 6))
 
 
 def test_game_level_int_to_coord_index_error(game_icons):
-    test_level = game_level.GameLevel(6, game_icons["reg"])
+    test_level = game_level.LevelState(6, game_icons["reg"])
 
     with pytest.raises(IndexError):
         test_level.int_to_coord(100)
@@ -90,7 +92,7 @@ def test_game_level_alt_display(m_print, game_icons):
         call("\u2551" + "\u25ca " + "\u25a0 " * 3 + "\u25a0" + "\u2551"),
         call("\u255a" + "\u2550" * 9 + "\u255d"),
     ]
-    test_level = game_level.GameLevel(5, game_icons["alt"])
+    test_level = game_level.LevelState(5, game_icons["alt"])
 
     test_level.display_level()
     m_print.assert_has_calls(alt_level)
@@ -99,7 +101,7 @@ def test_game_level_alt_display(m_print, game_icons):
 @patch("funclg.game.level.logger")
 def test_game_level_update_level_game_error(m_log, game_icons):
     # Bad Update Coordinate - Coordinate not on the board
-    test_level = game_level.GameLevel(6, game_icons["reg"])
+    test_level = game_level.LevelState(6, game_icons["reg"])
 
     assert test_level.update_level(GamePiece.SPACE, (6, 0)) == GameAction.ERROR
     m_log.error.assert_called_with("That location is not on the map silly...")

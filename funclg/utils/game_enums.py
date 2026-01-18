@@ -13,12 +13,12 @@ class GameAction(Enum):
     Defines game status and states.
     """
 
-    READY = auto()
+    EXPLORE = auto()
     COMBAT = auto()
     WIN = auto()
-    DIE = auto()
+    LOSE = auto()
+    GAME_OVER = auto()
     ERROR = auto()
-    PAUSED = auto()
 
 
 class GamePiece(Enum):
