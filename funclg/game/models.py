@@ -1,17 +1,59 @@
 """
-Description: Defines the level creation process 
+Description: Defines the level creation process
 Developer: Jevin Evans
 Date: 2.20.2023
 """
 
 from math import floor
+from typing import Union
 
 from loguru import logger
 
+from funclg.character.equipment import BodyEquipment, WeaponEquipment
 from funclg.utils.game_enums import GameAction, GamePiece, LevelIcons
 
+"""
+Description: This defines the game object context manager that will be used for FUNCLG
+Developer: Jevin Evans
+Date: 11.27.2023
+"""
 
-class GameLevel:
+#####
+# THIS NEEDS TO BE A SINGLETON DESIGN
+#####
+
+# Context manager for the game
+# Needs to build/load the levels/level packs, NPCs associated with them, and rewards
+# User needs to provide a character they want to use, if no user exists they will need to create one first (needs to be done before game start)
+# Need to create a level up process for the modifiers
+# Counter until a boss appears
+# Needs to have dialog for what the user is doing current stats
+
+
+from dataclasses import dataclass, field
+
+# Need to create an NPC generation process
+# Need to create a level/stage generation process and define the parts of it. Should take a calculation of the characters stats and create a challenge.
+# Consider building different play modes: main will be short 5-10 levs with a few enemies and a boss at the final level
+from loguru import logger
+
+from funclg.character.character import NonPlayableCharacter, Player
+from funclg.managers.game_manager import GameManager
+from funclg.utils import game_enums
+
+
+@dataclass
+class CombatState:
+    """
+    Defines the combat state of the game.
+    """
+
+    enemy: NonPlayableCharacter
+    turn: str = "player"
+    log: list[str] = field(default_factory=list)
+
+
+class LevelState:  # pylint: disable=too-many-instance-attributes
     """
     Generates the level grid for the game. Shows player, boss, key, and enemies.
     """
@@ -23,7 +65,7 @@ class GameLevel:
     def __init__(self, level_size: int, level_icons: LevelIcons):
         self.icons = level_icons
 
-        self._validate_level_size(level_size)
+        self.level_size = self._validate_level_size(level_size)
 
         # Set Position Defaults
         half_way = floor(self.level_size / 2)
@@ -31,13 +73,11 @@ class GameLevel:
         self.player_pos = (0, self.level_size - 1)
         self.boss_pos = (half_way, half_way)
         self.key_pos = (self.level_size - 1, 0)
-        self.enemy_pos = []
-
         self._level = self.generate_level()
 
     @property
     def level(self):
-        return tuple(self._level)
+        return self._level
 
     def _validate_level_size(self, level_size: int):
         """
@@ -50,12 +90,12 @@ class GameLevel:
         match level_size:
             case _ if level_size < self.MIN_SIZE:
                 logger.warning("That's a really small level, let's get you a better map instead")
-                self.level_size = self.DEFAULT_SIZE
+                return self.DEFAULT_SIZE
             case _ if level_size > self.MAX_SIZE:
                 logger.warning("This level is waaay to big, let's get you a better map instead")
-                self.level_size = self.DEFAULT_SIZE
+                return self.DEFAULT_SIZE
             case _:
-                self.level_size = level_size
+                return level_size
 
     def coord_to_int(self, coordinate: set[int, int]):
         """
@@ -146,83 +186,49 @@ class GameLevel:
                 return False
         return True
 
-    def update_level(self, game_piece: GamePiece, coords: tuple[int, int]):
-        """
-        Given a game piece and coordinates, the level will update the level board and return the GameAction that should be taken.
+    # def display_level(self):
+    #     """
+    #     This function prints the level level and a boarder around it to the screen.
+    #     """
 
-        :param game_piece: The GamePiece that is being updated.
-        :type game_piece: GamePiece
-        :param coords: The (X,Y) coordinates that are being updated.
-        :type coords: tuple[int, int]
-        :return: Returns the GameAction status based on the conditions of the change including: ready, error, combat, or win.
-        :rtype: GameAction
-        """
-        # This function will take an object (player/enemy or reward/equipment) and add/remove it to the playable level
-        # This function should also be used to update the placement of the main character
-        try:
-            level_loc = self.coord_to_int(coords)
-        except IndexError:
-            logger.error("That location is not on the map silly...")
-            return GameAction.ERROR
+    #     # Add Design Boundary
+    #     header = (
+    #         self.icons.tl_corner
+    #         + self.icons.horizontal_edge * (self.level_size * 2 - 1)
+    #         + self.icons.tr_corner
+    #     )
+    #     footer = (
+    #         self.icons.bl_corner
+    #         + self.icons.horizontal_edge * (self.level_size * 2 - 1)
+    #         + self.icons.br_corner
+    #     )
 
-        if self._validate_level_update_pos(game_piece=game_piece, level_loc=level_loc):
-            match game_piece:
-                case GamePiece.ENEMY:
-                    self._level[level_loc] = self.icons.enemy
-                    if coords not in self.enemy_pos:
-                        self.enemy_pos.append(coords)
-                case GamePiece.KEY:
-                    self._level[self.coord_to_int(self.key_pos)] = self.icons.space
-                    self.key_pos = coords
-                    self._level[level_loc] = self.icons.key
-                case GamePiece.BOSS:
-                    self._level[self.coord_to_int(self.boss_pos)] = self.icons.space
-                    self.boss_pos = coords
-                    self._level[level_loc] = self.icons.boss
-                case GamePiece.PLAYER:
-                    self._level[self.coord_to_int(self.player_pos)] = self.icons.space
-                    self.player_pos = coords
-                    self._level[level_loc] = self.icons.player
-                case _:
-                    return GameAction.ERROR
+    #     # Print level with Boundary
+    #     print(header)
+    #     for index in range(self.level_size):
+    #         print(
+    #             " ".join(
+    #                 self._level[index * self.level_size : index * self.level_size + self.level_size]
+    #             ).center(self.level_size * 2 + 1, self.icons.vertical_edge)
+    #         )
+    #     print(footer)
 
-            return GameAction.READY
 
-        if game_piece is GamePiece.PLAYER:
-            if self._level[level_loc] in [self.icons.enemy, self.icons.boss]:
-                return GameAction.COMBAT
+class GameState:
+    """
+    Defines the game manager for FUNCLG play.
+    """
 
-            if self._level[level_loc] == self.icons.key:
-                return GameAction.WIN
+    START_MESSAGE = ""
 
-        return GameAction.ERROR
-
-    def display_level(self):
-        """
-        This function prints the level level and a boarder around it to the screen.
-        """
-
-        # Add Design Boundary
-        header = (
-            self.icons.tl_corner
-            + self.icons.horizontal_edge * (self.level_size * 2 - 1)
-            + self.icons.tr_corner
-        )
-        footer = (
-            self.icons.bl_corner
-            + self.icons.horizontal_edge * (self.level_size * 2 - 1)
-            + self.icons.br_corner
-        )
-
-        # Print level with Boundary
-        print(header)
-        for index in range(self.level_size):
-            print(
-                " ".join(
-                    self._level[index * self.level_size : index * self.level_size + self.level_size]
-                ).center(self.level_size * 2 + 1, self.icons.vertical_edge)
-            )
-        print(footer)
-
-    # def export_level():
-    # def load_level():
+    def __init__(
+        self,
+        player: Player,
+        level: LevelState,
+    ):
+        self.player = player
+        self.level: LevelState = level
+        self.mode = game_enums.GameAction.EXPLORE
+        self.combat = None
+        self.has_key = False
+        self.message = "Welcome to FUNCLG! Your adventure begins now."

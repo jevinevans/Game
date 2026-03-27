@@ -84,6 +84,10 @@ class Stats:
         """
         This funciton modifies the base stats of a stat positively or negatively, and can be updated
         """
+        logger.debug(f"Adding modifier '{mod.name}' to stats")
+        if mod.name in self.mods:
+            logger.warning(f"Modifier: '{mod.name}' already exists on this stat, cannot add again.")
+            return
         self.mods[mod.name] = mod.get_mods()
         self._cal_power()
 

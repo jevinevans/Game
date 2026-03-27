@@ -3,6 +3,7 @@ Programmer: Jevin Evans
 Date: 7.15.2021
 Description: The is a unit test for the armor class and its interations with the equipment class.
 """
+
 from unittest.mock import patch
 
 import pytest

@@ -43,14 +43,14 @@ def equipment_str_expectation(body_equipment, weapon_equipment):
     expectations = {}
 
     for name, body in body_equipment.items():
-        expectations[
-            name
-        ] = f"{body.name} [lvl {body.level}] [{ARMOR_TYPES[body.armor_type]} {ITEM_TYPES[body.item_type]}]"
+        expectations[name] = (
+            f"{body.name} [lvl {body.level}] [{ARMOR_TYPES[body.armor_type]} {ITEM_TYPES[body.item_type]}]"
+        )
 
     for name, weapon in weapon_equipment.items():
-        expectations[
-            name
-        ] = f"{weapon.name} [lvl {weapon.level}] [{weapon.weapon_type} {ITEM_TYPES[weapon.item_type]}]"
+        expectations[name] = (
+            f"{weapon.name} [lvl {weapon.level}] [{weapon.weapon_type} {ITEM_TYPES[weapon.item_type]}]"
+        )
 
     return expectations
 

@@ -4,6 +4,7 @@ Date: 3.23.2022
 Description: Testing the modifier classes.
 Last Update: 3.23.2022
 """
+
 import pytest
 
 from funclg.character.modifiers import Modifier

@@ -13,10 +13,11 @@ class GameAction(Enum):
     Defines game status and states.
     """
 
-    READY = auto()
+    EXPLORE = auto()
     COMBAT = auto()
     WIN = auto()
-    DIE = auto()
+    LOSE = auto()
+    GAME_OVER = auto()
     ERROR = auto()
 
 
@@ -70,3 +71,7 @@ class LevelIcons:  # pylint: disable=too-many-instance-attributes
             ]
         )
         return f"\n{top}\n{char_icons}\n{btm}"
+
+
+class GameError(Exception):
+    pass
