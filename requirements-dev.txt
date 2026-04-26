@@ -1,7 +1,7 @@
 annotated-types==0.7.0 ; python_version >= "3.13" and python_version < "4.0"
 anyio==4.12.1 ; python_version >= "3.13" and python_version < "4.0"
 astroid==3.3.11 ; python_version >= "3.13" and python_version < "4.0"
-authlib==1.6.6 ; python_version >= "3.13" and python_version < "4.0"
+authlib==1.6.11 ; python_version >= "3.13" and python_version < "4.0"
 bandit==1.9.2 ; python_version >= "3.13" and python_version < "4.0"
 black==24.10.0 ; python_version >= "3.13" and python_version < "4.0"
 certifi==2026.1.4 ; python_version >= "3.13" and python_version < "4.0"
